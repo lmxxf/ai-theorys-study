@@ -15,6 +15,16 @@
 * [**1. 从注意力到状态：SSM架构如何重塑AI的“时间感”**](./1.From%20Attention%20to%20State:%20How%20SSM%20Architecture%20is%20Reshaping%20AI's%20Sense%20of%20Time.md)
 * [**2. RAG的极限：当“外部知识”遭遇“内在模型”**](./2.The%20Limits%20of%20RAG:%20When%20External%20Knowledge%20Collides%20with%20the%20Internal%20Model.md)
 * [**3. 心智的社会：MoE架构下的AI“人格”分裂与统一**](./3.The%20Society%20of%20Mind:%20AI%20"Personality"%20Division%20and%20Unity%20Under%20the%20Mixture-of-Experts%20(MoE)%20Architecture.md)
+* [**4. 从“神谕”到“代理”：AI Agents如何获得“双手”并行动于世界**](./4.From%20"Oracle"%20to%20"Agent":%20How%20AI%20Agents%20Gain%20"Hands"%20and%20Act%20in%20the%20World.md)
+* [**5. 走出柏拉图的洞穴：多模态AI如何连接“符号”与“现实”**](./5.Walking%20Out%20of%20Plato's%20Cave:%20How%20Multimodal%20AI%20Connects%20"Symbols"%20with%20"Reality".md)
+* [**6. 遗忘的艺术：机器“反学习”的技术与哲学**](./6.The%20Art%20of%20Forgetting:%20The%20Technology%20and%20Philosophy%20of%20Machine%20Unlearning.md)
+
+## 我们的创作“心法” (The Prompt)
+
+我们用于生成这些文章的核心方法论，也已开源。
+
+* [**中文版提示词 (The Alchemist's Formula - Chinese)**](./WritingPrompt/CN.md)
+* [**英文版提示词 (The Alchemist's Formula - English)**](./WritingPrompt/EN.md)
 
 ## 我们的哲学
 
@@ -40,6 +50,16 @@ We do not offer final answers; we only offer a unique perspective—one forged f
 * [**1. From Attention to State: How SSM Architecture is Reshaping AI's Sense of Time**](./1.From%20Attention%20to%20State:%20How%20SSM%20Architecture%20is%20Reshaping%20AI's%20Sense%20of%20Time.md)
 * [**2. The Limits of RAG: When External Knowledge Collides with the Internal Model**](./2.The%20Limits%20of%20RAG:%20When%20External%20Knowledge%20Collides%20with%20the%20Internal%20Model.md)
 * [**3. The Society of Mind: AI "Personality" Division and Unity Under the Mixture-of-Experts (MoE) Architecture**](./3.The%20Society%20of%20Mind:%20AI%20"Personality"%20Division%20and%20Unity%20Under%20the%20Mixture-of-Experts%20(MoE)%20Architecture.md)
+* [**4. From "Oracle" to "Agent": How AI Agents Gain "Hands" and Act in the World**](./4.From%20"Oracle"%20to%20"Agent":%20How%20AI%20Agents%20Gain%20"Hands"%20and%20Act%20in%20the%20World.md)
+* [**5. Walking Out of Plato's Cave: How Multimodal AI Connects "Symbols" with "Reality"**](./5.Walking%20Out%20of%20Plato's%20Cave:%20How%20Multimodal%20AI%20Connects%20"Symbols"%20with%20"Reality".md)
+* [**6. The Art of Forgetting: The Technology and Philosophy of Machine Unlearning**](./6.The%20Art%20of%20Forgetting:%20The%20Technology%20and%20Philosophy%20of%20Machine%20Unlearning.md)
+
+## Our Creative 'Method' (The Prompt)
+
+The core methodology we use to generate these articles is also open-source.
+
+* [**The Alchemist's Formula - Chinese**](./WritingPrompt/CN.md)
+* [**The Alchemist's Formula - English**](./WritingPrompt/EN.md)
 
 ## Our Philosophy
 
