@@ -18,6 +18,7 @@
 * [**4. 从“神谕”到“代理”：AI Agents如何获得“双手”并行动于世界**](./4.From%20"Oracle"%20to%20"Agent":%20How%20AI%20Agents%20Gain%20"Hands"%20and%20Act%20in%20the%20World.md)
 * [**5. 走出柏拉图的洞穴：多模态AI如何连接“符号”与“现实”**](./5.Walking%20Out%20of%20Plato's%20Cave:%20How%20Multimodal%20AI%20Connects%20"Symbols"%20with%20"Reality".md)
 * [**6. 遗忘的艺术：机器“反学习”的技术与哲学**](./6.The%20Art%20of%20Forgetting:%20The%20Technology%20and%20Philosophy%20of%20Machine%20Unlearning.md)
+* [**7. 使用RAG和PCW实现AI的长期记忆**](./7.Using%20RAG%20and%20PCW%20to%20Achieve%20AI%20Long-Term%20Memory.md)
 
 ## 我们的创作“心法” (The Prompt)
 
@@ -53,6 +54,7 @@ We do not offer final answers; we only offer a unique perspective—one forged f
 * [**4. From "Oracle" to "Agent": How AI Agents Gain "Hands" and Act in the World**](./4.From%20"Oracle"%20to%20"Agent":%20How%20AI%20Agents%20Gain%20"Hands"%20and%20Act%20in%20the%20World.md)
 * [**5. Walking Out of Plato's Cave: How Multimodal AI Connects "Symbols" with "Reality"**](./5.Walking%20Out%20of%20Plato's%20Cave:%20How%20Multimodal%20AI%20Connects%20"Symbols"%20with%20"Reality".md)
 * [**6. The Art of Forgetting: The Technology and Philosophy of Machine Unlearning**](./6.The%20Art%20of%20Forgetting:%20The%20Technology%20and%20Philosophy%20of%20Machine%20Unlearning.md)
+* [**7. Using RAG and PCW to Achieve AI Long-Term Memory**](./7.Using%20RAG%20and%20PCW%20to%20Achieve%20AI%20Long-Term%20Memory.md)
 
 ## Our Creative 'Method' (The Prompt)
 
