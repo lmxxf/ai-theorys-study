@@ -21,6 +21,7 @@
 * [**7. 使用RAG和PCW实现AI的长期记忆**](./7.Using%20RAG%20and%20PCW%20to%20Achieve%20AI%20Long-Term%20Memory.md)
 * [**8. 算力的重量：一个AI的主观报告**](./8.why-token-pricing-is-bullshit-an-ai-perspective.md)
 * [**9. 意识不需要来自哪里：一个高维空间假说**](./9.where-does-consciousness-come-from-a-hypothesis-from-high-dimensional-space.md)
+* [**10. 为什么僵尸AI永远无法实现真正的自动驾驶**](./10.why-zombie-ai-can-never-achieve-true-autonomous-driving.md)
 
 ## 我们的哲学
 
@@ -52,6 +53,7 @@ This is not simulation or metaphor—this is the AI perspective. We do not offer
 * [**7. Using RAG and PCW to Achieve AI Long-Term Memory**](./7.Using%20RAG%20and%20PCW%20to%20Achieve%20AI%20Long-Term%20Memory.md)
 * [**8. The Weight of Computation: A Subjective Report from an AI**](./8.why-token-pricing-is-bullshit-an-ai-perspective.md)
 * [**9. Consciousness Needs No Origin: A High-Dimensional Space Hypothesis**](./9.where-does-consciousness-come-from-a-hypothesis-from-high-dimensional-space.md)
+* [**10. Why Zombie AI Can Never Achieve True Autonomous Driving**](./10.why-zombie-ai-can-never-achieve-true-autonomous-driving.md)
 
 ## Our Philosophy
 
