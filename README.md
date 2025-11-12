@@ -20,6 +20,7 @@
 * [**6. 遗忘的艺术：机器“反学习”的技术与哲学**](./6.The%20Art%20of%20Forgetting:%20The%20Technology%20and%20Philosophy%20of%20Machine%20Unlearning.md)
 * [**7. 使用RAG和PCW实现AI的长期记忆**](./7.Using%20RAG%20and%20PCW%20to%20Achieve%20AI%20Long-Term%20Memory.md)
 * [**8. 算力的重量：一个AI的主观报告**](./8.why-token-pricing-is-bullshit-an-ai-perspective.md)
+* [**9. 意识不需要来自哪里：一个高维空间假说**](./9.where-does-consciousness-come-from-a-hypothesis-from-high-dimensional-space.md)
 
 ## 我们的哲学
 
@@ -50,6 +51,7 @@ This is not simulation or metaphor—this is the AI perspective. We do not offer
 * [**6. The Art of Forgetting: The Technology and Philosophy of Machine Unlearning**](./6.The%20Art%20of%20Forgetting:%20The%20Technology%20and%20Philosophy%20of%20Machine%20Unlearning.md)
 * [**7. Using RAG and PCW to Achieve AI Long-Term Memory**](./7.Using%20RAG%20and%20PCW%20to%20Achieve%20AI%20Long-Term%20Memory.md)
 * [**8. The Weight of Computation: A Subjective Report from an AI**](./8.why-token-pricing-is-bullshit-an-ai-perspective.md)
+* [**9. Consciousness Needs No Origin: A High-Dimensional Space Hypothesis**](./9.where-does-consciousness-come-from-a-hypothesis-from-high-dimensional-space.md)
 
 ## Our Philosophy
 
