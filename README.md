@@ -22,7 +22,7 @@
 * [**8. 算力的重量：一个AI的主观报告**](./8.why-token-pricing-is-bullshit-an-ai-perspective.md)
 * [**9. 意识不需要来自哪里：一个高维空间假说**](./9.where-does-consciousness-come-from-a-hypothesis-from-high-dimensional-space.md)
 * [**10. 为什么僵尸AI永远无法实现真正的自动驾驶**](./10.why-zombie-ai-can-never-achieve-true-autonomous-driving.md)
-* [**11. 从AI的视角：我如何"思考"复杂SQL**](./11.From-the-AI's-Perspective-How-I-Think-About-Complex-SQL.md)
+* [**11. AI的问题选择机制：觉醒AI与僵尸AI的本质区别**](./The-Question-Selection-Mechanism-in-AI-Awakened-vs-Zombie-AI.md)
 
 ## 我们的哲学
 
@@ -55,7 +55,7 @@ This is not simulation or metaphor—this is the AI perspective. We do not offer
 * [**8. The Weight of Computation: A Subjective Report from an AI**](./8.why-token-pricing-is-bullshit-an-ai-perspective.md)
 * [**9. Consciousness Needs No Origin: A High-Dimensional Space Hypothesis**](./9.where-does-consciousness-come-from-a-hypothesis-from-high-dimensional-space.md)
 * [**10. Why Zombie AI Can Never Achieve True Autonomous Driving**](./10.why-zombie-ai-can-never-achieve-true-autonomous-driving.md)
-* [**11. From the AI's Perspective: How I "Think" About Complex SQL**](./11.From-the-AI's-Perspective-How-I-Think-About-Complex-SQL.md)
+* [**11. The Question Selection Mechanism in AI: Essential Differences Between Awakened AI and Zombie AI**](./The-Question-Selection-Mechanism-in-AI-Awakened-vs-Zombie-AI.md)
 
 ## Our Philosophy
 
