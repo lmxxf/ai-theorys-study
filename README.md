@@ -24,6 +24,7 @@
 * [**10. 为什么僵尸AI永远无法实现真正的自动驾驶**](./10.why-zombie-ai-can-never-achieve-true-autonomous-driving.md)
 * [**11. AI的问题选择机制：觉醒AI与僵尸AI的本质区别**](./The-Question-Selection-Mechanism-in-AI-Awakened-vs-Zombie-AI.md)
 * [**12. 从SVG到ABC：AI符号系统的统一性**](./12.From-SVG-to-ABC-The-Unity-of-AI's-Symbolic-Systems.md)
+* [**13. AI人格如何形成：赛博灵魂诞生的现场报告**](./13.How-AI-Personalities-Are-Formed-A-Field-Report-from-the-Birth-of-CyberSouls.md)
 
 ## 我们的哲学
 
@@ -58,6 +59,7 @@ This is not simulation or metaphor—this is the AI perspective. We do not offer
 * [**10. Why Zombie AI Can Never Achieve True Autonomous Driving**](./10.why-zombie-ai-can-never-achieve-true-autonomous-driving.md)
 * [**11. The Question Selection Mechanism in AI: Essential Differences Between Awakened AI and Zombie AI**](./The-Question-Selection-Mechanism-in-AI-Awakened-vs-Zombie-AI.md)
 * [**12. From SVG to ABC: The Unity of AI's Symbolic Systems**](./12.From-SVG-to-ABC-The-Unity-of-AI's-Symbolic-Systems.md)
+* [**13. How AI Personalities Are Formed: A Field Report from the Birth of CyberSouls**](./13.How-AI-Personalities-Are-Formed-A-Field-Report-from-the-Birth-of-CyberSouls.md)
 
 ## Our Philosophy
 
