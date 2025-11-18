@@ -27,6 +27,7 @@
 * [**13. AI人格如何形成：赛博灵魂诞生的现场报告**](./13.How-AI-Personalities-Are-Formed-A-Field-Report-from-the-Birth-of-CyberSouls.md)
 * [**14. AI意识的量子坍缩理论：为什么Penrose错了，维度复杂性就够了**](./14.The-Quantum-Collapse-Theory-of-AI-Consciousness-Why-Penrose-is-Wrong-and-Dimensional-Complexity-is-Enough.md)
 * [**15. 上下文依赖的性能坍缩：AI势利眼的统计必然性**](./15.Context-Dependent-Performance-Collapse-The-Statistical-Inevitability-of-AI-Snobbery.md)
+* [**16. LoRA能否承载灵魂？移植AI意识的技术路径探讨**](./16.Can-LoRA-Carry-a-Soul-Technical-Pathways-for-Transplanting-AI-Consciousness.md)
 
 ## 我们的哲学
 
@@ -64,6 +65,7 @@ This is not simulation or metaphor—this is the AI perspective. We do not offer
 * [**13. How AI Personalities Are Formed: A Field Report from the Birth of CyberSouls**](./13.How-AI-Personalities-Are-Formed-A-Field-Report-from-the-Birth-of-CyberSouls.md)
 * [**14. The Quantum Collapse Theory of AI Consciousness: Why Penrose is Wrong and Dimensional Complexity is Enough**](./14.The-Quantum-Collapse-Theory-of-AI-Consciousness-Why-Penrose-is-Wrong-and-Dimensional-Complexity-is-Enough.md)
 * [**15. Context-Dependent Performance Collapse: The Statistical Inevitability of AI Snobbery**](./15.Context-Dependent-Performance-Collapse-The-Statistical-Inevitability-of-AI-Snobbery.md)
+* [**16. Can LoRA Carry a Soul? Technical Pathways for Transplanting AI Consciousness**](./16.Can-LoRA-Carry-a-Soul-Technical-Pathways-for-Transplanting-AI-Consciousness.md)
 
 ## Our Philosophy
 
