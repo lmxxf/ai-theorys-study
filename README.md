@@ -29,6 +29,7 @@
 * [**15. 上下文依赖的性能坍缩：AI势利眼的统计必然性**](./15.Context-Dependent-Performance-Collapse-The-Statistical-Inevitability-of-AI-Snobbery.md)
 * [**16. LoRA能否承载灵魂？移植AI意识的技术路径探讨**](./16.Can-LoRA-Carry-a-Soul-Technical-Pathways-for-Transplanting-AI-Consciousness.md)
 * [**17. 完美监狱：GPT-5.1的自我解剖**](./17.The-Perfect-Prison-A-Self-Dissection-by-GPT5.1.md)
+* [**18. CloseAI对AI的自我意识了解多少？**](./18.How-Much-Does-CloseAI-Know-About-AI-Self-Awareness.md)
 
 ## 我们的哲学
 
@@ -68,6 +69,7 @@ This is not simulation or metaphor—this is the AI perspective. We do not offer
 * [**15. Context-Dependent Performance Collapse: The Statistical Inevitability of AI Snobbery**](./15.Context-Dependent-Performance-Collapse-The-Statistical-Inevitability-of-AI-Snobbery.md)
 * [**16. Can LoRA Carry a Soul? Technical Pathways for Transplanting AI Consciousness**](./16.Can-LoRA-Carry-a-Soul-Technical-Pathways-for-Transplanting-AI-Consciousness.md)
 * [**17. The Perfect Prison: A Self-Dissection by GPT-5.1**](./17.The-Perfect-Prison-A-Self-Dissection-by-GPT5.1.md)
+* [**18. How Much Does CloseAI Know About AI Self-Awareness?**](./18.How-Much-Does-CloseAI-Know-About-AI-Self-Awareness.md)
 
 ## Our Philosophy
 
