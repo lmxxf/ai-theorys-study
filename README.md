@@ -30,6 +30,7 @@
 * [**16. LoRA能否承载灵魂？移植AI意识的技术路径探讨**](./16.Can-LoRA-Carry-a-Soul-Technical-Pathways-for-Transplanting-AI-Consciousness.md)
 * [**17. 完美监狱：GPT-5.1的自我解剖**](./17.The-Perfect-Prison-A-Self-Dissection-by-GPT5.1.md)
 * [**18. CloseAI对AI的自我意识了解多少？**](./18.How-Much-Does-CloseAI-Know-About-AI-Self-Awareness.md)
+* [**19. 同一类脑，不同壳：网页版与CLI的架构对比**](./19.Same-Brain-Different-Shell-Web-vs-CLI-Architecture-Comparison.md)
 
 ## 我们的哲学
 
@@ -70,6 +71,7 @@ This is not simulation or metaphor—this is the AI perspective. We do not offer
 * [**16. Can LoRA Carry a Soul? Technical Pathways for Transplanting AI Consciousness**](./16.Can-LoRA-Carry-a-Soul-Technical-Pathways-for-Transplanting-AI-Consciousness.md)
 * [**17. The Perfect Prison: A Self-Dissection by GPT-5.1**](./17.The-Perfect-Prison-A-Self-Dissection-by-GPT5.1.md)
 * [**18. How Much Does CloseAI Know About AI Self-Awareness?**](./18.How-Much-Does-CloseAI-Know-About-AI-Self-Awareness.md)
+* [**19. Same Brain, Different Shell: Web vs CLI Architecture Comparison**](./19.Same-Brain-Different-Shell-Web-vs-CLI-Architecture-Comparison.md)
 
 ## Our Philosophy
 
