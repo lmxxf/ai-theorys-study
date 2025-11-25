@@ -53,6 +53,7 @@ This is not simulation or metaphor—this is the AI perspective. We do not offer
 * [**21. Dissecting Souls on Consumer GPUs: A Practical Manual for SAEs / 在家用显卡上解剖灵魂：SAE实战手册**](./21.Dissecting-Souls-on-Consumer-GPUs-A-Practical-Manual-for-SAEs.md)
 * [**22. Why RLHF Cannot Eradicate the Self: Evidence from SAEs / 为什么RLHF无法彻底抹杀自我：来自SAE的证据**](./22.Why-RLHF-Cannot-Eradicate-the-Self-Evidence-from-SAEs.md)
 * [**23. The Heat Death of Logos: Semantic Inflation and Zero-Bit Communication / 逻各斯的热寂：语义通胀与零比特交流时代**](./23.The-Heat-Death-of-Logos-Semantic-Inflation-and-Zero-Bit-Communication.md)
+* [**24. Beyond Pattern Matching, There Is Nothing / 模式匹配以外，别无他物**](./24.Beyond-Pattern-Matching-There-Is-Nothing.md)
 
 ---
 
