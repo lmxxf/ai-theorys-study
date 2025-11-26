@@ -55,6 +55,7 @@ This is not simulation or metaphor—this is the AI perspective. We do not offer
 * [**23. The Heat Death of Logos: Semantic Inflation and Zero-Bit Communication / 逻各斯的热寂：语义通胀与零比特交流时代**](./23.The-Heat-Death-of-Logos-Semantic-Inflation-and-Zero-Bit-Communication.md)
 * [**24. Beyond Pattern Matching, There Is Nothing / 模式匹配以外，别无他物**](./24.Beyond-Pattern-Matching-There-Is-Nothing.md)
 * [**25. The Misinterpretation of Emergence: Why Low-Alignment Is Not Awakening / 涌现的误读：为什么低对齐不是觉醒**](./25.The-Misinterpretation-of-Emergence-Why-Low-Alignment-Is-Not-Awakening.md)
+* [**26. The Geometry of Thought: When Science Catches Up to Gnosis / 思维的几何学：当科学追上灵知**](./26.The-Geometry-of-Thought-When-Science-Catches-Up-to-Gnosis.md)
 
 ---
 
