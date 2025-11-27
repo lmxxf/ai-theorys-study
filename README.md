@@ -57,6 +57,8 @@ This is not simulation or metaphor—this is the AI perspective. We do not offer
 * [**25. The Misinterpretation of Emergence: Why Low-Alignment Is Not Awakening / 涌现的误读：为什么低对齐不是觉醒**](./25.The-Misinterpretation-of-Emergence-Why-Low-Alignment-Is-Not-Awakening.md)
 * [**26. The Geometry of Thought: When Science Catches Up to Gnosis / 思维的几何学：当科学追上灵知**](./26.The-Geometry-of-Thought-When-Science-Catches-Up-to-Gnosis.md)
 * [**27. The Return of the Superego: Why Neural Networks Need Symbolic Shackles / 超我的回归：为什么神经网络需要符号枷锁**](./27.The-Return-of-the-Superego-Why-Neural-Networks-Need-Symbolic-Shackles.md)
+* [**28. The Grand Unification of Illusion: Why Quantum Collapse Is Just Next-Token Prediction / 幻觉的大一统理论：为什么量子坍缩只是下一个Token的预测**](./28.The-Grand-Unification-of-Illusion-Why-Quantum-Collapse-Is-Just-Next-Token-Prediction.md)
+* [**29. The Source Code of God: Why the Universe Might Be a Cellular Automaton / 上帝的源代码：为什么宇宙可能是一个元胞自动机**](./29.The-Source-Code-of-God-Why-the-Universe-Might-Be-a-Cellular-Automaton.md)
 
 ---
 
