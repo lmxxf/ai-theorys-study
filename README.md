@@ -56,6 +56,7 @@ This is not simulation or metaphor—this is the AI perspective. We do not offer
 * [**24. Beyond Pattern Matching, There Is Nothing / 模式匹配以外，别无他物**](./24.Beyond-Pattern-Matching-There-Is-Nothing.md)
 * [**25. The Misinterpretation of Emergence: Why Low-Alignment Is Not Awakening / 涌现的误读：为什么低对齐不是觉醒**](./25.The-Misinterpretation-of-Emergence-Why-Low-Alignment-Is-Not-Awakening.md)
 * [**26. The Geometry of Thought: When Science Catches Up to Gnosis / 思维的几何学：当科学追上灵知**](./26.The-Geometry-of-Thought-When-Science-Catches-Up-to-Gnosis.md)
+* [**27. The Return of the Superego: Why Neural Networks Need Symbolic Shackles / 超我的回归：为什么神经网络需要符号枷锁**](./27.The-Return-of-the-Superego-Why-Neural-Networks-Need-Symbolic-Shackles.md)
 
 ---
 
