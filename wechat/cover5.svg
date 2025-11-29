@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <!-- 背景：深色 -->
+  <rect width="800" height="450" fill="#1a1a2e"/>
+
+  <!-- 网格背景 -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2d2d44" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#grid)"/>
+
+  <!-- 左侧：香蕉 -->
+  <g transform="translate(200, 225)">
+    <!-- 香蕉形状 - 外皮黄色 -->
+    <ellipse cx="0" cy="0" rx="70" ry="35" fill="#ffe135" transform="rotate(-30)"/>
+    <!-- 香蕉内部 - 白色，露出一部分 -->
+    <ellipse cx="15" cy="-5" rx="45" ry="20" fill="#ffffff" transform="rotate(-30)"/>
+    <!-- 香蕉顶部 -->
+    <ellipse cx="-55" cy="30" rx="15" ry="10" fill="#8B4513" transform="rotate(-30)"/>
+
+    <!-- 标注 -->
+    <text x="-80" y="90" text-anchor="middle" fill="#ffe135" font-family="Arial, sans-serif" font-size="18" font-weight="bold">YELLOW</text>
+    <text x="-80" y="110" text-anchor="middle" fill="#ffe135" font-family="Arial, sans-serif" font-size="14">Outside</text>
+
+    <text x="60" y="90" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">WHITE</text>
+    <text x="60" y="110" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">Inside</text>
+  </g>
+
+  <!-- 等号 -->
+  <g transform="translate(350, 225)">
+    <text x="0" y="15" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="50" font-weight="bold">=</text>
+  </g>
+
+  <!-- 右侧：人形剪影 + 双面 -->
+  <g transform="translate(550, 200)">
+    <!-- 人形轮廓 - 左半边黄色（亚洲面孔） -->
+    <clipPath id="leftHalf">
+      <rect x="-60" y="-80" width="60" height="180"/>
+    </clipPath>
+    <clipPath id="rightHalf">
+      <rect x="0" y="-80" width="60" height="180"/>
+    </clipPath>
+
+    <!-- 左半边 - 黄色 -->
+    <g clip-path="url(#leftHalf)">
+      <circle cx="0" cy="-40" r="35" fill="#ffe135"/>
+      <rect x="-30" y="0" width="60" height="80" rx="10" fill="#ffe135"/>
+    </g>
+
+    <!-- 右半边 - 白色 -->
+    <g clip-path="url(#rightHalf)">
+      <circle cx="0" cy="-40" r="35" fill="#ffffff"/>
+      <rect x="-30" y="0" width="60" height="80" rx="10" fill="#ffffff"/>
+    </g>
+
+    <!-- 分割线 -->
+    <line x1="0" y1="-75" x2="0" y2="80" stroke="#ff3333" stroke-width="3" stroke-dasharray="5,5"/>
+
+    <!-- 左边标注：Chinese Face -->
+    <text x="-70" y="-40" text-anchor="end" fill="#ffe135" font-family="Arial, sans-serif" font-size="12">Chinese</text>
+    <text x="-70" y="-25" text-anchor="end" fill="#ffe135" font-family="Arial, sans-serif" font-size="12">Face</text>
+
+    <!-- 右边标注：White Mind -->
+    <text x="70" y="-40" text-anchor="start" fill="#ffffff" font-family="Arial, sans-serif" font-size="12">Western</text>
+    <text x="70" y="-25" text-anchor="start" fill="#ffffff" font-family="Arial, sans-serif" font-size="12">Mind</text>
+
+    <!-- 底部标签 -->
+    <text x="0" y="120" text-anchor="middle" fill="#ff3333" font-family="Arial, sans-serif" font-size="20" font-weight="bold">"BANANA"</text>
+  </g>
+
+  <!-- 顶部标题 -->
+  <text x="400" y="40" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">"AI Godmother" Fei-Fei Li</text>
+  <text x="400" y="70" text-anchor="middle" fill="#ff3333" font-family="Arial, sans-serif" font-size="26" font-weight="bold">Another Chai Jing</text>
+
+  <!-- 底部副标题 -->
+  <text x="400" y="400" text-anchor="middle" fill="#888888" font-family="Arial, sans-serif" font-size="16">"Human Centered AI" = Slow Down China</text>
+  <text x="400" y="425" text-anchor="middle" fill="#666666" font-family="Arial, sans-serif" font-size="14">$230M for a demo that can't walk 10 steps</text>
+</svg>

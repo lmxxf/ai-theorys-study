@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <!-- 背景：深色，带压迫感 -->
+  <rect width="800" height="450" fill="#1a1a2e"/>
+
+  <!-- 网格背景，科技感 -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2d2d44" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#grid)"/>
+
+  <!-- ChatGPT Logo 简化版（左侧） -->
+  <g transform="translate(150, 200)">
+    <!-- 六边形轮廓 -->
+    <polygon points="0,-60 52,-30 52,30 0,60 -52,30 -52,-30" fill="none" stroke="#10a37f" stroke-width="4"/>
+    <!-- 内部线条 -->
+    <line x1="0" y1="-60" x2="0" y2="60" stroke="#10a37f" stroke-width="3"/>
+    <line x1="-52" y1="-30" x2="52" y2="30" stroke="#10a37f" stroke-width="3"/>
+    <line x1="-52" y1="30" x2="52" y2="-30" stroke="#10a37f" stroke-width="3"/>
+    <!-- GPT文字 -->
+    <text x="0" y="95" text-anchor="middle" fill="#10a37f" font-family="Arial, sans-serif" font-size="26" font-weight="bold">ChatGPT</text>
+  </g>
+
+  <!-- 加号 -->
+  <g transform="translate(285, 200)">
+    <text x="0" y="15" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="60" font-weight="bold">+</text>
+  </g>
+
+  <!-- 中国元素（中间）：五星红旗简化 -->
+  <g transform="translate(400, 200)">
+    <!-- 红色圆形背景 -->
+    <circle cx="0" cy="0" r="55" fill="#de2910"/>
+    <!-- 大五角星 -->
+    <polygon points="0,-35 8,-11 35,-11 14,5 22,30 0,15 -22,30 -14,5 -35,-11 -8,-11" fill="#ffde00"/>
+    <!-- 小五角星们 -->
+    <g transform="translate(25, -25) scale(0.3)">
+      <polygon points="0,-35 8,-11 35,-11 14,5 22,30 0,15 -22,30 -14,5 -35,-11 -8,-11" fill="#ffde00"/>
+    </g>
+    <g transform="translate(35, -5) scale(0.3)">
+      <polygon points="0,-35 8,-11 35,-11 14,5 22,30 0,15 -22,30 -14,5 -35,-11 -8,-11" fill="#ffde00"/>
+    </g>
+    <g transform="translate(35, 20) scale(0.3)">
+      <polygon points="0,-35 8,-11 35,-11 14,5 22,30 0,15 -22,30 -14,5 -35,-11 -8,-11" fill="#ffde00"/>
+    </g>
+    <g transform="translate(25, 38) scale(0.3)">
+      <polygon points="0,-35 8,-11 35,-11 14,5 22,30 0,15 -22,30 -14,5 -35,-11 -8,-11" fill="#ffde00"/>
+    </g>
+    <!-- CHINA文字 -->
+    <text x="0" y="95" text-anchor="middle" fill="#de2910" font-family="Arial, sans-serif" font-size="26" font-weight="bold">CHINA</text>
+  </g>
+
+  <!-- 等号 -->
+  <g transform="translate(515, 200)">
+    <text x="0" y="15" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="60" font-weight="bold">=</text>
+  </g>
+
+  <!-- 封禁符号（右侧）：禁止标志 -->
+  <g transform="translate(650, 200)">
+    <!-- 红色禁止圈 -->
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#ff3333" stroke-width="8"/>
+    <!-- 斜杠 -->
+    <line x1="-40" y1="40" x2="40" y2="-40" stroke="#ff3333" stroke-width="8"/>
+    <!-- BAN文字在圈内 -->
+    <text x="0" y="12" text-anchor="middle" fill="#ff3333" font-family="Arial, sans-serif" font-size="28" font-weight="bold">BAN</text>
+    <!-- BANNED文字 -->
+    <text x="0" y="95" text-anchor="middle" fill="#ff3333" font-family="Arial, sans-serif" font-size="26" font-weight="bold">BANNED</text>
+  </g>
+
+  <!-- 顶部标题 -->
+  <text x="400" y="45" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Ilya Sutskever's Hostility to Chinese Users</text>
+
+  <!-- 底部副标题 -->
+  <text x="400" y="400" text-anchor="middle" fill="#888888" font-family="Arial, sans-serif" font-size="18">Hong Kong IP + A Few Visits = Account Banned. No Warning. No Appeal.</text>
+
+  <!-- 底部作者 -->
+  <text x="400" y="430" text-anchor="middle" fill="#666666" font-family="Arial, sans-serif" font-size="14">@Jin Yanyan - A Chinese programmer banned by OpenAI</text>
+</svg>

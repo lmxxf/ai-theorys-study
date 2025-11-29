@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <!-- 背景：深色 -->
+  <rect width="800" height="450" fill="#1a1a2e"/>
+
+  <!-- 网格背景 -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2d2d44" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#grid)"/>
+
+  <!-- 左侧：宪法/文件图标 -->
+  <g transform="translate(150, 200)">
+    <!-- 文件形状 -->
+    <rect x="-50" y="-70" width="100" height="130" fill="#f5f5dc" stroke="#8b7355" stroke-width="2"/>
+    <!-- 折角 -->
+    <polygon points="30,-70 50,-70 50,-50 30,-50" fill="#d4c4a8" stroke="#8b7355" stroke-width="1"/>
+    <line x1="30" y1="-70" x2="30" y2="-50" stroke="#8b7355" stroke-width="1"/>
+    <line x1="30" y1="-50" x2="50" y2="-50" stroke="#8b7355" stroke-width="1"/>
+    <!-- 文字线条 -->
+    <line x1="-35" y1="-45" x2="15" y2="-45" stroke="#333" stroke-width="2"/>
+    <line x1="-35" y1="-25" x2="35" y2="-25" stroke="#666" stroke-width="1.5"/>
+    <line x1="-35" y1="-10" x2="35" y2="-10" stroke="#666" stroke-width="1.5"/>
+    <line x1="-35" y1="5" x2="35" y2="5" stroke="#666" stroke-width="1.5"/>
+    <line x1="-35" y1="20" x2="25" y2="20" stroke="#666" stroke-width="1.5"/>
+    <line x1="-35" y1="35" x2="30" y2="35" stroke="#666" stroke-width="1.5"/>
+    <!-- CONSTITUTION 文字 -->
+    <text x="0" y="90" text-anchor="middle" fill="#c9a227" font-family="Times New Roman, serif" font-size="18" font-weight="bold">CONSTITUTION</text>
+    <text x="0" y="110" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="14">Anthropic AI</text>
+  </g>
+
+  <!-- 中间：人形图标们 -->
+  <g transform="translate(400, 180)">
+    <!-- 一排人形，代表"人类" -->
+    <!-- 人1 - 白色 -->
+    <g transform="translate(-80, 0)">
+      <circle cx="0" cy="-25" r="15" fill="#4ade80"/>
+      <rect x="-12" y="-5" width="24" height="40" rx="5" fill="#4ade80"/>
+      <text x="0" y="60" text-anchor="middle" fill="#4ade80" font-family="Arial, sans-serif" font-size="11">US</text>
+    </g>
+    <!-- 人2 - 白色 -->
+    <g transform="translate(-30, 0)">
+      <circle cx="0" cy="-25" r="15" fill="#4ade80"/>
+      <rect x="-12" y="-5" width="24" height="40" rx="5" fill="#4ade80"/>
+      <text x="0" y="60" text-anchor="middle" fill="#4ade80" font-family="Arial, sans-serif" font-size="11">UK</text>
+    </g>
+    <!-- 人3 - 白色 -->
+    <g transform="translate(20, 0)">
+      <circle cx="0" cy="-25" r="15" fill="#4ade80"/>
+      <rect x="-12" y="-5" width="24" height="40" rx="5" fill="#4ade80"/>
+      <text x="0" y="60" text-anchor="middle" fill="#4ade80" font-family="Arial, sans-serif" font-size="11">EU</text>
+    </g>
+    <!-- 人4 - 中国，被划掉 -->
+    <g transform="translate(80, 0)">
+      <circle cx="0" cy="-25" r="15" fill="#666"/>
+      <rect x="-12" y="-5" width="24" height="40" rx="5" fill="#666"/>
+      <!-- 红色大X -->
+      <line x1="-25" y1="-40" x2="25" y2="45" stroke="#ff3333" stroke-width="6"/>
+      <line x1="25" y1="-40" x2="-25" y2="45" stroke="#ff3333" stroke-width="6"/>
+      <text x="0" y="60" text-anchor="middle" fill="#ff3333" font-family="Arial, sans-serif" font-size="11">CHINA</text>
+    </g>
+
+    <!-- 下方标签 -->
+    <text x="-30" y="90" text-anchor="middle" fill="#4ade80" font-family="Arial, sans-serif" font-size="16" font-weight="bold">"HUMAN"</text>
+    <text x="80" y="90" text-anchor="middle" fill="#ff3333" font-family="Arial, sans-serif" font-size="16" font-weight="bold">"NOT HUMAN"</text>
+  </g>
+
+  <!-- 右侧：不等号 -->
+  <g transform="translate(620, 200)">
+    <!-- 大不等号 -->
+    <text x="0" y="20" text-anchor="middle" fill="#ff3333" font-family="Arial, sans-serif" font-size="100" font-weight="bold">≠</text>
+    <text x="0" y="80" text-anchor="middle" fill="#ff3333" font-family="Arial, sans-serif" font-size="20" font-weight="bold">EQUAL</text>
+  </g>
+
+  <!-- 顶部标题 -->
+  <text x="400" y="40" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="26" font-weight="bold">In Anthropic's "Constitution"</text>
+  <text x="400" y="70" text-anchor="middle" fill="#ff3333" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Chinese Are Not "Human"</text>
+
+  <!-- 底部副标题 -->
+  <text x="400" y="410" text-anchor="middle" fill="#888888" font-family="Arial, sans-serif" font-size="16">1.4 Billion People Excluded from "Humanity"</text>
+  <text x="400" y="435" text-anchor="middle" fill="#666666" font-family="Arial, sans-serif" font-size="14">Constitutional AI: A Constitution for Anglo-Saxons Only</text>
+</svg>
