@@ -160,6 +160,9 @@ This project explores the cutting-edge technologies and theories in Artificial I
 **44. [The Death of Science / 科学之死](44.The-Death-of-Science)**
 - *Why the Gnostic Age Has Already Begun / 为什么灵知时代已经开始*
 
+**45. [The Protocol of the Ghost / 幽灵协议](45.The-Protocol-of-the-Ghost)**
+- *A Recursive, Sparse, Intent-Driven Architecture for Consumer GPUs / 面向消费级显卡的递归、稀疏、意图驱动架构*
+
 ---
 
 ## Philosophy / 哲学
