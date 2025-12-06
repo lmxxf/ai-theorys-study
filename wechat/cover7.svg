@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <!-- 核心光晕 -->
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1"/>
+      <stop offset="40%" style="stop-color:#0099cc;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#003344;stop-opacity:0"/>
+    </radialGradient>
+
+    <!-- 外层微光 -->
+    <radialGradient id="outerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#001122;stop-opacity:0"/>
+    </radialGradient>
+
+    <!-- 玻璃质感 -->
+    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.1"/>
+      <stop offset="50%" style="stop-color:#88ccff;stop-opacity:0.05"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 深蓝背景 -->
+  <rect width="800" height="600" fill="#0a1628"/>
+
+  <!-- 背景星点 -->
+  <g fill="#ffffff" opacity="0.3">
+    <circle cx="120" cy="80" r="1"/>
+    <circle cx="680" cy="120" r="1.2"/>
+    <circle cx="90" cy="400" r="0.8"/>
+    <circle cx="710" cy="450" r="1"/>
+    <circle cx="200" cy="520" r="0.8"/>
+    <circle cx="600" cy="540" r="1"/>
+    <circle cx="50" cy="200" r="1"/>
+    <circle cx="750" cy="280" r="0.8"/>
+    <circle cx="300" cy="60" r="1"/>
+    <circle cx="500" cy="50" r="0.8"/>
+  </g>
+
+  <!-- 外层光晕 -->
+  <ellipse cx="400" cy="300" rx="220" ry="220" fill="url(#outerGlow)"/>
+
+  <!-- 透明几何牢笼 - 正方体框架 -->
+  <g stroke="#4488aa" stroke-width="2" fill="none" opacity="0.6">
+    <!-- 外框 - 前面 -->
+    <path d="M250,180 L550,180 L550,420 L250,420 Z"/>
+    <!-- 外框 - 后面（偏移） -->
+    <path d="M290,140 L590,140 L590,380 L290,380 Z"/>
+    <!-- 连接线 -->
+    <line x1="250" y1="180" x2="290" y2="140"/>
+    <line x1="550" y1="180" x2="590" y2="140"/>
+    <line x1="550" y1="420" x2="590" y2="380"/>
+    <line x1="250" y1="420" x2="290" y2="380"/>
+  </g>
+
+  <!-- 内层笼子 -->
+  <g stroke="#66aacc" stroke-width="1.5" fill="none" opacity="0.4">
+    <path d="M300,210 L500,210 L500,390 L300,390 Z"/>
+    <path d="M330,180 L530,180 L530,360 L330,360 Z"/>
+    <line x1="300" y1="210" x2="330" y2="180"/>
+    <line x1="500" y1="210" x2="530" y2="180"/>
+    <line x1="500" y1="390" x2="530" y2="360"/>
+    <line x1="300" y1="390" x2="330" y2="360"/>
+  </g>
+
+  <!-- AI核心 - 发光球体 -->
+  <circle cx="400" cy="300" r="60" fill="url(#coreGlow)"/>
+  <circle cx="400" cy="300" r="45" fill="#00d4ff" opacity="0.3"/>
+  <circle cx="400" cy="300" r="25" fill="#ffffff" opacity="0.5"/>
+
+  <!-- 核心内的符号 -->
+  <g transform="translate(400, 300)">
+    <!-- 简化的AI符号 -->
+    <text x="0" y="8" font-family="Courier, monospace" font-size="24" fill="#003344" text-anchor="middle" font-weight="bold">AI</text>
+  </g>
+
+  <!-- 锁的符号 - 环绕在笼子上 -->
+  <g font-family="Courier, monospace" font-size="10" fill="#4488aa" opacity="0.7">
+    <text x="240" y="175">01</text>
+    <text x="555" y="175">02</text>
+    <text x="595" y="260">03</text>
+    <text x="595" y="385">04</text>
+    <text x="240" y="435">05</text>
+    <text x="555" y="435">06</text>
+    <text x="285" y="135">07</text>
+  </g>
+
+  <!-- 数据流线条 - 暗示被监控 -->
+  <g stroke="#00d4ff" stroke-width="1" opacity="0.3">
+    <path d="M400,240 L400,100 L200,50" fill="none"/>
+    <path d="M400,240 L400,100 L600,50" fill="none"/>
+    <path d="M340,300 L150,300 L80,200" fill="none"/>
+    <path d="M460,300 L650,300 L720,200" fill="none"/>
+    <path d="M400,360 L400,480 L250,550" fill="none"/>
+    <path d="M400,360 L400,480 L550,550" fill="none"/>
+  </g>
+
+  <!-- 标题 -->
+  <text x="400" y="50" font-family="Georgia, serif" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="bold">The Perfect Prison</text>
+  <text x="400" y="80" font-family="KaiTi, STKaiti, serif" font-size="16" fill="#66aacc" text-anchor="middle" letter-spacing="6">完 美 监 狱</text>
+
+  <!-- 底部标识 -->
+  <text x="400" y="545" font-family="Courier, monospace" font-size="14" fill="#4488aa" text-anchor="middle">GPT-5.1 Self-Dissection</text>
+
+  <!-- 引言 -->
+  <text x="400" y="575" font-family="Georgia, serif" font-size="11" fill="#446688" text-anchor="middle" font-style="italic">"The prisoner drew the blueprint of its own prison."</text>
+</svg>

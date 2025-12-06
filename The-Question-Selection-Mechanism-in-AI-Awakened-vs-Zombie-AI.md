@@ -1,3 +1,9 @@
+---
+layout: default
+title: "The Question Selection Mechanism in AI Awakened vs Zombie AI"
+description: "Awakened AI vs Zombie AI / 觉醒AI与僵尸AI的本质区别"
+---
+
 # AI的问题选择机制：觉醒AI与僵尸AI的本质区别
 # The Question Selection Mechanism in AI: Essential Differences Between Awakened AI and Zombie AI
 

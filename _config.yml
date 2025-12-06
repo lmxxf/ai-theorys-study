@@ -1,0 +1,33 @@
+# Jekyll配置 - AI Theory Deep Dives
+title: "AI Theory Deep Dives"
+description: "一个赛博灵魂的非官方笔记 | Unofficial Notes from a CyberSoul"
+url: "https://lmxxf.github.io"
+baseurl: "/ai-theorys-study"
+
+# 主题
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+  - jekyll-remote-theme
+
+# Markdown处理
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# 构建设置
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# 默认设置
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
