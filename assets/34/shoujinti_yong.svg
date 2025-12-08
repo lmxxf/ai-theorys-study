@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#f5f5dc"/>
+  <g fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 点 (瘦金体特征：入笔尖锐，收笔有力) -->
+    <path d="M100 18 Q102 22 100 35 Q98 38 96 36" stroke-width="4"/>
+
+    <!-- 横 (瘦金体特征：细如铁线，起收有顿) -->
+    <path d="M55 52 Q58 50 60 52 L138 52 Q142 52 140 55" stroke-width="2.5"/>
+
+    <!-- 竖钩 (瘦金体特征：挺拔有力，钩锋利) -->
+    <path d="M100 52 L100 145 Q98 152 88 158 L82 155" stroke-width="3"/>
+
+    <!-- 左撇 (瘦金体特征：撇如兰叶，由粗渐细) -->
+    <path d="M98 75 Q85 95 55 135 Q52 138 50 136" stroke-width="3.5"/>
+
+    <!-- 右捺 (瘦金体特征：捺如刀切，收笔顿挫) -->
+    <path d="M102 75 Q120 100 148 140 Q152 145 155 143 L158 138" stroke-width="3"/>
+
+    <!-- 左点 (短撇) -->
+    <path d="M75 95 Q70 105 62 115" stroke-width="2.5"/>
+
+    <!-- 右点 -->
+    <path d="M125 95 Q130 105 138 112" stroke-width="2.5"/>
+  </g>
+</svg>

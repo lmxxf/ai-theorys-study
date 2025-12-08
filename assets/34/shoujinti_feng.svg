@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#f5f5dc"/>
+  <g fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 外框左竖 -->
+    <path d="M45 25 Q43 28 45 30 L45 165 Q45 170 48 168" stroke-width="2.5"/>
+
+    <!-- 外框上横 -->
+    <path d="M45 30 L155 30" stroke-width="2"/>
+
+    <!-- 外框右撇（风字特征：右边是撇不是竖） -->
+    <path d="M155 30 Q152 80 120 170 Q118 175 115 172" stroke-width="3"/>
+
+    <!-- 内部横折 -->
+    <path d="M60 55 L130 55 L130 85" stroke-width="2"/>
+
+    <!-- 撇 -->
+    <path d="M100 55 Q85 90 55 135 Q52 140 50 138" stroke-width="2.5"/>
+
+    <!-- 点（中间） -->
+    <path d="M95 85 Q100 95 105 100 Q108 102 110 100" stroke-width="3"/>
+
+    <!-- 虫部首 - 上横 -->
+    <path d="M70 110 L120 110" stroke-width="2"/>
+
+    <!-- 虫部首 - 中竖 -->
+    <path d="M95 110 L95 150" stroke-width="2"/>
+
+    <!-- 虫部首 - 下点 -->
+    <path d="M95 150 Q100 158 108 162" stroke-width="2.5"/>
+  </g>
+</svg>
