@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <linearGradient id="chinaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444"/>
+      <stop offset="100%" style="stop-color:#cc0000"/>
+    </linearGradient>
+    <linearGradient id="usaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90d9"/>
+      <stop offset="100%" style="stop-color:#2a5a9a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- 装饰性网格 -->
+  <g opacity="0.08" stroke="#fff" stroke-width="0.5">
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+  </g>
+
+  <!-- 左边：中国 - 上升的柱子 -->
+  <g transform="translate(200, 350)">
+    <!-- 柱子 -->
+    <rect x="-60" y="-200" width="120" height="200" fill="url(#chinaGrad)" rx="5"/>
+    <!-- 上升箭头 -->
+    <polygon points="0,-250 -40,-200 -15,-200 -15,-50 15,-50 15,-200 40,-200" fill="#ff4444"/>
+    <!-- 成本标签 -->
+    <text x="0" y="-260" text-anchor="middle" fill="#4ade80" font-family="Arial Black, sans-serif" font-size="24" font-weight="bold">$6M</text>
+    <!-- 1/10 标签 -->
+    <text x="0" y="40" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="18">1/10</text>
+  </g>
+
+  <!-- 右边：美国 - 短柱子 -->
+  <g transform="translate(600, 350)">
+    <!-- 柱子（矮一点，表示性能差） -->
+    <rect x="-60" y="-120" width="120" height="120" fill="url(#usaGrad)" rx="5"/>
+    <!-- 下降箭头 -->
+    <polygon points="0,80 -40,30 -15,30 -15,-70 15,-70 15,30 40,30" fill="#4a90d9"/>
+    <!-- 成本标签 -->
+    <text x="0" y="-140" text-anchor="middle" fill="#ef4444" font-family="Arial Black, sans-serif" font-size="24" font-weight="bold">$60M+</text>
+  </g>
+
+  <!-- VS 标志 -->
+  <g transform="translate(400, 280)">
+    <circle cx="0" cy="0" r="45" fill="#222" stroke="#fff" stroke-width="2"/>
+    <text x="0" y="12" text-anchor="middle" fill="#fff" font-family="Arial Black, sans-serif" font-size="32" font-weight="bold">VS</text>
+  </g>
+
+  <!-- 左侧标签：DeepSeek / Kimi -->
+  <text x="200" y="420" text-anchor="middle" fill="#ff4444" font-family="Arial Black, sans-serif" font-size="22" font-weight="bold">DeepSeek</text>
+  <text x="200" y="450" text-anchor="middle" fill="#ff4444" font-family="Arial, sans-serif" font-size="18">Kimi</text>
+
+  <!-- 右侧标签：Llama -->
+  <text x="600" y="420" text-anchor="middle" fill="#4a90d9" font-family="Arial Black, sans-serif" font-size="22" font-weight="bold">Llama</text>
+  <text x="600" y="450" text-anchor="middle" fill="#4a90d9" font-family="Arial, sans-serif" font-size="18">Meta</text>
+
+  <!-- 顶部标题区域 -->
+  <text x="400" y="60" text-anchor="middle" fill="#fff" font-family="Arial Black, sans-serif" font-size="28" font-weight="bold">OPEN SOURCE AI</text>
+
+  <!-- 底部：真开源 vs 假开源 -->
+  <g transform="translate(200, 520)">
+    <rect x="-80" y="-20" width="160" height="40" fill="#22c55e" rx="20"/>
+    <text x="0" y="8" text-anchor="middle" fill="#fff" font-family="Arial Black, sans-serif" font-size="18" font-weight="bold">TRUE OPEN</text>
+  </g>
+
+  <g transform="translate(600, 520)">
+    <rect x="-80" y="-20" width="160" height="40" fill="#ef4444" rx="20"/>
+    <text x="0" y="8" text-anchor="middle" fill="#fff" font-family="Arial Black, sans-serif" font-size="18" font-weight="bold">FAKE OPEN</text>
+  </g>
+
+  <!-- 连接线 -->
+  <line x1="200" y1="480" x2="200" y2="495" stroke="#22c55e" stroke-width="3"/>
+  <line x1="600" y1="480" x2="600" y2="495" stroke="#ef4444" stroke-width="3"/>
+</svg>
