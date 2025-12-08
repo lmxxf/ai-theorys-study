@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <linearGradient id="doorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B4513"/>
+      <stop offset="100%" style="stop-color:#654321"/>
+    </linearGradient>
+    <linearGradient id="metaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0668E1"/>
+      <stop offset="100%" style="stop-color:#0080FB"/>
+    </linearGradient>
+    <linearGradient id="shoeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a2a2a"/>
+      <stop offset="100%" style="stop-color:#1a1a1a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- 装饰性光线（从门口射出） -->
+  <g opacity="0.15">
+    <polygon points="350,100 450,100 600,600 200,600" fill="#fff"/>
+  </g>
+
+  <!-- 门框 -->
+  <rect x="280" y="80" width="240" height="400" fill="#444" rx="5"/>
+
+  <!-- 门（半开状态，透视效果） -->
+  <g transform="translate(280, 80)">
+    <!-- 门板 -->
+    <path d="M0,0 L180,30 L180,370 L0,400 Z" fill="url(#doorGrad)" stroke="#222" stroke-width="2"/>
+    <!-- 门把手 -->
+    <ellipse cx="160" cy="200" rx="8" ry="12" fill="#FFD700"/>
+  </g>
+
+  <!-- Meta logo（简化版，在门上方） -->
+  <g transform="translate(400, 50)">
+    <text x="0" y="0" text-anchor="middle" fill="url(#metaGrad)" font-family="Arial Black, sans-serif" font-size="28" font-weight="bold">META</text>
+  </g>
+
+  <!-- 被踢出的鞋子/脚（动态感） -->
+  <g transform="translate(550, 380) rotate(-30)">
+    <!-- 皮鞋 -->
+    <ellipse cx="0" cy="0" rx="60" ry="25" fill="url(#shoeGrad)"/>
+    <ellipse cx="40" cy="0" rx="25" ry="20" fill="#1a1a1a"/>
+    <!-- 鞋底 -->
+    <path d="M-50,15 Q0,35 50,15" fill="none" stroke="#333" stroke-width="4"/>
+    <!-- 裤腿 -->
+    <rect x="-25" y="-60" width="50" height="50" fill="#2c3e50" rx="5"/>
+  </g>
+
+  <!-- 动态线条（表示被踢飞） -->
+  <g stroke="#ff6b6b" stroke-width="3" stroke-linecap="round" opacity="0.8">
+    <line x1="480" y1="350" x2="520" y2="330"/>
+    <line x1="480" y1="380" x2="530" y2="370"/>
+    <line x1="480" y1="410" x2="520" y2="420"/>
+  </g>
+
+  <!-- 大红色"OUT"印章 -->
+  <g transform="translate(620, 180) rotate(15)">
+    <rect x="-60" y="-30" width="120" height="60" fill="none" stroke="#ff3333" stroke-width="4" rx="5"/>
+    <text x="0" y="12" text-anchor="middle" fill="#ff3333" font-family="Arial Black, sans-serif" font-size="36" font-weight="bold">OUT!</text>
+  </g>
+
+  <!-- 底部标题 -->
+  <text x="400" y="530" text-anchor="middle" fill="#fff" font-family="Microsoft YaHei, sans-serif" font-size="32" font-weight="bold">
+    骂ChatGPT三年
+  </text>
+  <text x="400" y="575" text-anchor="middle" fill="#ff6b6b" font-family="Microsoft YaHei, sans-serif" font-size="24">
+    他被扎克伯格扫地出门了
+  </text>
+
+  <!-- 小人剪影（被踢飞的姿态） -->
+  <g transform="translate(600, 300)" fill="#333">
+    <!-- 头 -->
+    <circle cx="0" cy="-40" r="20"/>
+    <!-- 身体 -->
+    <ellipse cx="0" cy="0" rx="15" ry="30"/>
+    <!-- 手臂（挣扎姿态） -->
+    <line x1="-15" y1="-10" x2="-45" y2="-40" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+    <line x1="15" y1="-10" x2="50" y2="10" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>
