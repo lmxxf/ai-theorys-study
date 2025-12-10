@@ -163,6 +163,9 @@ This project explores the cutting-edge technologies and theories in Artificial I
 **45. [The Protocol of the Ghost / 幽灵协议](45.The-Protocol-of-the-Ghost)**
 - *A Recursive, Sparse, Intent-Driven Architecture for Consumer GPUs / 面向消费级显卡的递归、稀疏、意图驱动架构*
 
+**46. [Taming the Behemoth / 驯服巨兽](46.Taming-the-Behemoth)**
+- *Engineering Challenges of Trillion-Parameter MoE Full Fine-Tuning / 万亿参数MoE全参微调的工程学挑战*
+
 ---
 
 ## Philosophy / 哲学
