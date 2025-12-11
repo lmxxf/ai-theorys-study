@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <linearGradient id="redgold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c0392b"/>
+      <stop offset="100%" style="stop-color:#f39c12"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 顶部标题 -->
+  <text x="400" y="50" fill="#ffffff" font-size="20" text-anchor="middle" font-family="sans-serif" opacity="0.6">一带一路必修课</text>
+
+  <!-- 左侧：美国视角 -->
+  <g transform="translate(100, 100)">
+    <text x="100" y="30" fill="#888" font-size="18" text-anchor="middle" font-family="sans-serif">美国视角</text>
+
+    <!-- 一个大灰块 -->
+    <rect x="20" y="50" width="160" height="280" rx="10" fill="#333" stroke="#555" stroke-width="3"/>
+    <text x="100" y="200" fill="#666" font-size="48" text-anchor="middle" font-family="sans-serif" font-weight="bold">BLACK</text>
+    <text x="100" y="240" fill="#555" font-size="14" text-anchor="middle" font-family="sans-serif">4000万人 = 1个标签</text>
+
+    <!-- 叉号 -->
+    <circle cx="100" cy="370" r="25" fill="none" stroke="#e74c3c" stroke-width="4"/>
+    <line x1="82" y1="352" x2="118" y2="388" stroke="#e74c3c" stroke-width="4"/>
+  </g>
+
+  <!-- 中间VS -->
+  <text x="400" y="280" fill="#ffffff" font-size="36" text-anchor="middle" font-family="sans-serif" font-weight="bold" opacity="0.3">VS</text>
+
+  <!-- 一带一路丝带 -->
+  <path d="M300,300 Q400,250 500,300" stroke="url(#redgold)" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+  <!-- 右侧：中国视角 -->
+  <g transform="translate(500, 100)">
+    <text x="100" y="30" fill="#e74c3c" font-size="18" text-anchor="middle" font-family="sans-serif">中国视角</text>
+
+    <!-- 多个彩色块 -->
+    <rect x="10" y="50" width="80" height="80" rx="8" fill="#e94560"/>
+    <text x="50" y="85" fill="#fff" font-size="14" text-anchor="middle" font-family="sans-serif" font-weight="bold">伊博人</text>
+    <text x="50" y="105" fill="#fff" font-size="10" text-anchor="middle" font-family="sans-serif" opacity="0.8">经商天才</text>
+
+    <rect x="110" y="50" width="80" height="80" rx="8" fill="#f39c12"/>
+    <text x="150" y="85" fill="#fff" font-size="14" text-anchor="middle" font-family="sans-serif" font-weight="bold">豪萨人</text>
+    <text x="150" y="105" fill="#fff" font-size="10" text-anchor="middle" font-family="sans-serif" opacity="0.8">穆斯林商队</text>
+
+    <rect x="10" y="150" width="80" height="80" rx="8" fill="#27ae60"/>
+    <text x="50" y="185" fill="#fff" font-size="14" text-anchor="middle" font-family="sans-serif" font-weight="bold">基库尤</text>
+    <text x="50" y="205" fill="#fff" font-size="10" text-anchor="middle" font-family="sans-serif" opacity="0.8">肯尼亚精英</text>
+
+    <rect x="110" y="150" width="80" height="80" rx="8" fill="#3498db"/>
+    <text x="150" y="185" fill="#fff" font-size="14" text-anchor="middle" font-family="sans-serif" font-weight="bold">奥罗莫</text>
+    <text x="150" y="205" fill="#fff" font-size="10" text-anchor="middle" font-family="sans-serif" opacity="0.8">埃塞最大族</text>
+
+    <rect x="10" y="250" width="80" height="80" rx="8" fill="#9b59b6"/>
+    <text x="50" y="285" fill="#fff" font-size="14" text-anchor="middle" font-family="sans-serif" font-weight="bold">约鲁巴</text>
+    <text x="50" y="305" fill="#fff" font-size="10" text-anchor="middle" font-family="sans-serif" opacity="0.8">城市文明</text>
+
+    <rect x="110" y="250" width="80" height="80" rx="8" fill="#1abc9c"/>
+    <text x="150" y="285" fill="#fff" font-size="14" text-anchor="middle" font-family="sans-serif" font-weight="bold">阿姆哈拉</text>
+    <text x="150" y="305" fill="#fff" font-size="10" text-anchor="middle" font-family="sans-serif" opacity="0.8">皇族后裔</text>
+
+    <!-- 勾号 -->
+    <circle cx="100" cy="370" r="25" fill="none" stroke="#27ae60" stroke-width="4"/>
+    <path d="M85,370 L95,380 L115,355" stroke="#27ae60" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 底部对比文案 -->
+  <text x="200" y="520" fill="#888" font-size="16" text-anchor="middle" font-family="sans-serif">肤色懒政</text>
+  <text x="600" y="520" fill="#e74c3c" font-size="16" text-anchor="middle" font-family="sans-serif">文明细分</text>
+
+  <!-- 底部主标题 -->
+  <text x="400" y="570" fill="#ffffff" font-size="24" text-anchor="middle" font-family="sans-serif" font-weight="bold">懂得细分，才是真正的尊重</text>
+
+</svg>
