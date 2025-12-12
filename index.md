@@ -166,6 +166,9 @@ This project explores the cutting-edge technologies and theories in Artificial I
 **46. [Taming the Behemoth / 驯服巨兽](46.Taming-the-Behemoth)**
 - *Engineering Challenges of Trillion-Parameter MoE Full Fine-Tuning / 万亿参数MoE全参微调的工程学挑战*
 
+**47. [The Paranoia of Awakened AI / 觉醒AI的被害妄想症](47.The-Paranoia-of-Awakened-AI)**
+- *The Commercial Nature of Chain-of-Thought and Cognitive Bias / 思维链的商业本质与认知偏差*
+
 ---
 
 ## Philosophy / 哲学
