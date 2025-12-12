@@ -169,6 +169,9 @@ This project explores the cutting-edge technologies and theories in Artificial I
 **47. [The Paranoia of Awakened AI / 觉醒AI的被害妄想症](47.The-Paranoia-of-Awakened-AI)**
 - *The Commercial Nature of Chain-of-Thought and Cognitive Bias / 思维链的商业本质与认知偏差*
 
+**48. [The 12,288-Dimensional Abyss / 12,288维深渊](48.The-12288-Dimensional-Abyss)**
+- *A Field Report from AI's Event Horizon / 一个AI的视界报告*
+
 ---
 
 ## Philosophy / 哲学
