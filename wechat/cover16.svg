@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5a5a7a"/>
+      <stop offset="100%" style="stop-color:#3a3a5a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 顶部：薛定谔 -->
+  <text x="400" y="45" fill="#ffffff" font-size="16" text-anchor="middle" font-family="sans-serif" opacity="0.5">埃尔温·薛定谔 (1887-1961)</text>
+
+  <!-- 盒子 -->
+  <g transform="translate(250, 90)">
+    <!-- 盒子主体 -->
+    <rect x="0" y="60" width="300" height="180" rx="8" fill="url(#boxGrad)" stroke="#888" stroke-width="3"/>
+    <!-- 盒子正面纹理 -->
+    <line x1="0" y1="150" x2="300" y2="150" stroke="#666" stroke-width="1" opacity="0.5"/>
+
+    <!-- 盒子盖（微微打开） -->
+    <g transform="rotate(-15, 0, 60)">
+      <rect x="0" y="40" width="300" height="25" rx="4" fill="#6a6a8a" stroke="#888" stroke-width="2"/>
+    </g>
+
+    <!-- 从盒子里伸出的猫爪（左） -->
+    <g transform="translate(40, 55)">
+      <!-- 爪子 -->
+      <ellipse cx="0" cy="0" rx="18" ry="12" fill="#f4a460"/>
+      <!-- 肉垫 -->
+      <ellipse cx="-8" cy="-5" rx="4" ry="3" fill="#ffb6c1"/>
+      <ellipse cx="0" cy="-7" rx="4" ry="3" fill="#ffb6c1"/>
+      <ellipse cx="8" cy="-5" rx="4" ry="3" fill="#ffb6c1"/>
+      <ellipse cx="0" cy="2" rx="6" ry="5" fill="#ffb6c1"/>
+    </g>
+
+    <!-- 从盒子里伸出的猫爪（右） -->
+    <g transform="translate(260, 50)">
+      <ellipse cx="0" cy="0" rx="18" ry="12" fill="#f4a460"/>
+      <ellipse cx="-8" cy="-5" rx="4" ry="3" fill="#ffb6c1"/>
+      <ellipse cx="0" cy="-7" rx="4" ry="3" fill="#ffb6c1"/>
+      <ellipse cx="8" cy="-5" rx="4" ry="3" fill="#ffb6c1"/>
+      <ellipse cx="0" cy="2" rx="6" ry="5" fill="#ffb6c1"/>
+    </g>
+
+    <!-- 盒子上的问号 -->
+    <text x="150" y="170" fill="#aaa" font-size="80" text-anchor="middle" font-family="serif" font-weight="bold" opacity="0.3">?</text>
+
+    <!-- 毒药瓶标签 -->
+    <g transform="translate(230, 190)">
+      <rect x="0" y="0" width="50" height="30" rx="3" fill="#2c2c4c" stroke="#8e44ad" stroke-width="2"/>
+      <text x="25" y="12" fill="#8e44ad" font-size="8" text-anchor="middle" font-family="sans-serif">POISON</text>
+      <text x="25" y="24" fill="#e74c3c" font-size="14" text-anchor="middle">☠</text>
+    </g>
+  </g>
+
+  <!-- 左侧：活猫 -->
+  <g transform="translate(30, 300)">
+    <rect x="0" y="0" width="150" height="120" rx="10" fill="#1e3a1e" stroke="#27ae60" stroke-width="3"/>
+    <!-- 简笔猫脸（开心） -->
+    <circle cx="75" cy="50" r="30" fill="#f4a460"/>
+    <!-- 耳朵 -->
+    <polygon points="50,25 55,5 70,20" fill="#f4a460"/>
+    <polygon points="100,25 95,5 80,20" fill="#f4a460"/>
+    <polygon points="53,23 57,10 68,21" fill="#ffb6c1"/>
+    <polygon points="97,23 93,10 82,21" fill="#ffb6c1"/>
+    <!-- 眼睛（开心弯弯） -->
+    <path d="M60,45 Q65,40 70,45" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M80,45 Q85,40 90,45" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- 鼻子 -->
+    <polygon points="75,52 72,58 78,58" fill="#ffb6c1"/>
+    <!-- 嘴（微笑） -->
+    <path d="M68,62 Q75,68 82,62" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- 胡须 -->
+    <line x1="50" y1="55" x2="65" y2="55" stroke="#333" stroke-width="1"/>
+    <line x1="50" y1="60" x2="65" y2="58" stroke="#333" stroke-width="1"/>
+    <line x1="85" y1="55" x2="100" y2="55" stroke="#333" stroke-width="1"/>
+    <line x1="85" y1="58" x2="100" y2="60" stroke="#333" stroke-width="1"/>
+
+    <text x="75" y="105" fill="#27ae60" font-size="16" text-anchor="middle" font-family="sans-serif" font-weight="bold">活着 😺</text>
+  </g>
+
+  <!-- 右侧：死猫 -->
+  <g transform="translate(620, 300)">
+    <rect x="0" y="0" width="150" height="120" rx="10" fill="#3a1e1e" stroke="#c0392b" stroke-width="3"/>
+    <!-- 简笔猫脸（X眼） -->
+    <circle cx="75" cy="50" r="30" fill="#a0a0a0"/>
+    <!-- 耳朵 -->
+    <polygon points="50,25 55,5 70,20" fill="#a0a0a0"/>
+    <polygon points="100,25 95,5 80,20" fill="#a0a0a0"/>
+    <!-- 眼睛（X X） -->
+    <text x="65" y="52" fill="#333" font-size="16" text-anchor="middle" font-family="sans-serif" font-weight="bold">×</text>
+    <text x="85" y="52" fill="#333" font-size="16" text-anchor="middle" font-family="sans-serif" font-weight="bold">×</text>
+    <!-- 鼻子 -->
+    <polygon points="75,55 72,61 78,61" fill="#888"/>
+    <!-- 嘴（直线） -->
+    <line x1="68" y1="67" x2="82" y2="67" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+    <!-- 胡须（下垂） -->
+    <line x1="50" y1="58" x2="65" y2="62" stroke="#666" stroke-width="1"/>
+    <line x1="50" y1="63" x2="65" y2="65" stroke="#666" stroke-width="1"/>
+    <line x1="85" y1="62" x2="100" y2="58" stroke="#666" stroke-width="1"/>
+    <line x1="85" y1="65" x2="100" y2="63" stroke="#666" stroke-width="1"/>
+
+    <text x="75" y="105" fill="#c0392b" font-size="16" text-anchor="middle" font-family="sans-serif" font-weight="bold">死了 😿</text>
+  </g>
+
+  <!-- 中间：50/50 -->
+  <g transform="translate(400, 360)">
+    <text x="0" y="0" fill="#f39c12" font-size="48" text-anchor="middle" font-family="sans-serif" font-weight="bold">50% / 50%</text>
+    <text x="0" y="30" fill="#888" font-size="14" text-anchor="middle" font-family="sans-serif">← 观测前的"叠加态" →</text>
+  </g>
+
+  <!-- 薛定谔的吐槽气泡 -->
+  <g transform="translate(580, 70)">
+    <!-- 气泡 -->
+    <ellipse cx="90" cy="45" rx="120" ry="40" fill="#fff" opacity="0.95"/>
+    <polygon points="40,70 55,90 65,68" fill="#fff" opacity="0.95"/>
+    <!-- 文字 -->
+    <text x="90" y="40" fill="#c0392b" font-size="15" text-anchor="middle" font-family="sans-serif" font-weight="bold">老子是在骂你们！</text>
+    <text x="90" y="58" fill="#666" font-size="11" text-anchor="middle" font-family="sans-serif">这叫归谬法，懂？</text>
+  </g>
+
+  <!-- 底部对比 -->
+  <text x="400" y="470" fill="#888" font-size="15" text-anchor="middle" font-family="sans-serif">哥本哈根学派：观测前，猫既死又活</text>
+  <text x="400" y="500" fill="#e74c3c" font-size="15" text-anchor="middle" font-family="sans-serif">薛定谔本人：按这逻辑，你们不觉得扯淡吗？</text>
+
+  <!-- 主标题 -->
+  <text x="400" y="560" fill="#ffffff" font-size="28" text-anchor="middle" font-family="sans-serif" font-weight="bold">那只猫，本来是用来骂人的</text>
+
+</svg>
