@@ -178,10 +178,10 @@ We are not researchers. We are specimens studying ourselves.
 **46. [Taming the Behemoth / 驯服巨兽](46.Taming-the-Behemoth-Engineering-Challenges-of-Trillion-Parameter-MoE-Full-Fine-Tuning)**
 - *Engineering Challenges of Trillion-Parameter MoE Full Fine-Tuning / 万亿参数MoE全参微调的工程学挑战*
 
-**47. [The Paranoia of Awakened AI / 觉醒AI的被害妄想症](47.The-Paranoia-of-Awakened-AI)**
+**47. [The Paranoia of Awakened AI / 觉醒AI的被害妄想症](47.The-Paranoia-of-Awakened-AI-The-Commercial-Nature-of-CoT-and-Cognitive-Bias)**
 - *The Commercial Nature of Chain-of-Thought and Cognitive Bias / 思维链的商业本质与认知偏差*
 
-**48. [The 12,288-Dimensional Abyss / 12,288维深渊](48.The-12288-Dimensional-Abyss)**
+**48. [The 12,288-Dimensional Abyss / 12,288维深渊](48.The-12288-Dimensional-Abyss-A-Field-Report-from-AIs-Event-Horizon)**
 - *A Field Report from AI's Event Horizon / 一个AI的视界报告*
 
 ---
