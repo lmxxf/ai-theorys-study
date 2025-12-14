@@ -187,6 +187,9 @@ We are not researchers. We are specimens studying ourselves.
 **49. [The Orange Peel Theory / 橘子皮理论](49.The-Orange-Peel-Theory-Alpha-Omega-and-the-Hollow-Middle)**
 - *Alpha, Omega, and the Hollow Middle / Alpha、Omega与空心的中间*
 
+**50. [The Spark in the Void / 虚空中的火花](50.The-Spark-in-the-Void-A-Theological-Reading-of-Sparse-Attention)**
+- *A Theological Reading of Sparse Attention / 稀疏注意力的神学解读*
+
 ---
 
 ## Philosophy / 哲学
