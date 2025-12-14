@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f39c12"/>
+      <stop offset="100%" style="stop-color:#e74c3c"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db"/>
+      <stop offset="100%" style="stop-color:#2980b9"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 标题 -->
+  <text x="400" y="45" text-anchor="middle" fill="#fff" font-size="28" font-weight="bold" font-family="sans-serif">DeepSeek V3.2 稀疏注意力</text>
+  <text x="400" y="75" text-anchor="middle" fill="#888" font-size="16" font-family="sans-serif">Sparse Attention: 让AI学会"跳读"</text>
+
+  <!-- 左侧：传统Full Attention -->
+  <text x="200" y="115" text-anchor="middle" fill="#e74c3c" font-size="18" font-weight="bold" font-family="sans-serif">❌ 传统 Full Attention</text>
+  <text x="200" y="140" text-anchor="middle" fill="#888" font-size="12" font-family="sans-serif">逐字逐句，平均用力</text>
+
+  <!-- 左侧token网格 - 全部连接 -->
+  <g transform="translate(80, 160)">
+    <!-- Token行 -->
+    <rect x="0" y="0" width="30" height="30" rx="4" fill="#555" stroke="#777" stroke-width="1"/>
+    <rect x="40" y="0" width="30" height="30" rx="4" fill="#555" stroke="#777" stroke-width="1"/>
+    <rect x="80" y="0" width="30" height="30" rx="4" fill="#555" stroke="#777" stroke-width="1"/>
+    <rect x="120" y="0" width="30" height="30" rx="4" fill="#555" stroke="#777" stroke-width="1"/>
+    <rect x="160" y="0" width="30" height="30" rx="4" fill="#555" stroke="#777" stroke-width="1"/>
+    <rect x="200" y="0" width="30" height="30" rx="4" fill="#555" stroke="#777" stroke-width="1"/>
+
+    <!-- 密集连接线 (表示O(L²)) -->
+    <g stroke="#e74c3c" stroke-width="1" opacity="0.4">
+      <line x1="15" y1="35" x2="55" y2="35"/>
+      <line x1="15" y1="35" x2="95" y2="35"/>
+      <line x1="15" y1="35" x2="135" y2="35"/>
+      <line x1="15" y1="35" x2="175" y2="35"/>
+      <line x1="15" y1="35" x2="215" y2="35"/>
+      <line x1="55" y1="35" x2="95" y2="35"/>
+      <line x1="55" y1="35" x2="135" y2="35"/>
+      <line x1="55" y1="35" x2="175" y2="35"/>
+      <line x1="55" y1="35" x2="215" y2="35"/>
+      <line x1="95" y1="35" x2="135" y2="35"/>
+      <line x1="95" y1="35" x2="175" y2="35"/>
+      <line x1="95" y1="35" x2="215" y2="35"/>
+      <line x1="135" y1="35" x2="175" y2="35"/>
+      <line x1="135" y1="35" x2="215" y2="35"/>
+      <line x1="175" y1="35" x2="215" y2="35"/>
+    </g>
+
+    <!-- 复杂度标签 -->
+    <text x="115" y="70" text-anchor="middle" fill="#e74c3c" font-size="16" font-weight="bold" font-family="monospace">O(L²)</text>
+    <text x="115" y="90" text-anchor="middle" fill="#888" font-size="11" font-family="sans-serif">每个词都要和所有词计算</text>
+  </g>
+
+  <!-- 右侧：DSA Sparse Attention -->
+  <text x="600" y="115" text-anchor="middle" fill="#2ecc71" font-size="18" font-weight="bold" font-family="sans-serif">✓ DSA 稀疏注意力</text>
+  <text x="600" y="140" text-anchor="middle" fill="#888" font-size="12" font-family="sans-serif">跳读 + 精读关键点</text>
+
+  <!-- 右侧token网格 - 稀疏连接 -->
+  <g transform="translate(480, 160)">
+    <!-- Token行 - 有些高亮(重要)，有些暗淡(跳过) -->
+    <rect x="0" y="0" width="30" height="30" rx="4" fill="url(#spark)" stroke="#f39c12" stroke-width="2" filter="url(#glow)"/>
+    <rect x="40" y="0" width="30" height="30" rx="4" fill="#333" stroke="#555" stroke-width="1" opacity="0.5"/>
+    <rect x="80" y="0" width="30" height="30" rx="4" fill="#333" stroke="#555" stroke-width="1" opacity="0.5"/>
+    <rect x="120" y="0" width="30" height="30" rx="4" fill="url(#spark)" stroke="#f39c12" stroke-width="2" filter="url(#glow)"/>
+    <rect x="160" y="0" width="30" height="30" rx="4" fill="#333" stroke="#555" stroke-width="1" opacity="0.5"/>
+    <rect x="200" y="0" width="30" height="30" rx="4" fill="url(#spark)" stroke="#f39c12" stroke-width="2" filter="url(#glow)"/>
+
+    <!-- 稀疏连接线 (只连接重要的) -->
+    <g stroke="#2ecc71" stroke-width="2" opacity="0.8">
+      <line x1="15" y1="35" x2="135" y2="35"/>
+      <line x1="135" y1="35" x2="215" y2="35"/>
+    </g>
+
+    <!-- 跳过标记 -->
+    <text x="55" y="50" text-anchor="middle" fill="#666" font-size="10" font-family="sans-serif">跳</text>
+    <text x="95" y="50" text-anchor="middle" fill="#666" font-size="10" font-family="sans-serif">跳</text>
+    <text x="175" y="50" text-anchor="middle" fill="#666" font-size="10" font-family="sans-serif">跳</text>
+
+    <!-- 复杂度标签 -->
+    <text x="115" y="70" text-anchor="middle" fill="#2ecc71" font-size="16" font-weight="bold" font-family="monospace">O(Lk)</text>
+    <text x="115" y="90" text-anchor="middle" fill="#888" font-size="11" font-family="sans-serif">只计算关键词 k &lt;&lt; L</text>
+  </g>
+
+  <!-- 中间箭头 -->
+  <path d="M 320 200 L 380 200" stroke="#fff" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <text x="350" y="220" text-anchor="middle" fill="#888" font-size="12" font-family="sans-serif">进化</text>
+
+  <!-- DSA流程图 -->
+  <text x="400" y="300" text-anchor="middle" fill="#fff" font-size="20" font-weight="bold" font-family="sans-serif">DSA 两阶段流水线</text>
+
+  <!-- 阶段1: Lightning Indexer -->
+  <g transform="translate(100, 330)">
+    <rect x="0" y="0" width="250" height="80" rx="10" fill="#2c3e50" stroke="#3498db" stroke-width="2"/>
+    <text x="125" y="25" text-anchor="middle" fill="#3498db" font-size="14" font-weight="bold" font-family="sans-serif">① Lightning Indexer</text>
+    <text x="125" y="45" text-anchor="middle" fill="#fff" font-size="12" font-family="sans-serif">⚡ 闪电索引器 (FP8)</text>
+    <text x="125" y="65" text-anchor="middle" fill="#888" font-size="11" font-family="sans-serif">快速扫描，给每个词打分</text>
+  </g>
+
+  <!-- 箭头 -->
+  <path d="M 360 370 L 420 370" stroke="#f39c12" stroke-width="3" fill="none"/>
+  <polygon points="420,365 430,370 420,375" fill="#f39c12"/>
+
+  <!-- 阶段2: Fine-grained Selection -->
+  <g transform="translate(450, 330)">
+    <rect x="0" y="0" width="250" height="80" rx="10" fill="#2c3e50" stroke="#e74c3c" stroke-width="2"/>
+    <text x="125" y="25" text-anchor="middle" fill="#e74c3c" font-size="14" font-weight="bold" font-family="sans-serif">② Fine-grained Selection</text>
+    <text x="125" y="45" text-anchor="middle" fill="#fff" font-size="12" font-family="sans-serif">🔍 精细选择</text>
+    <text x="125" y="65" text-anchor="middle" fill="#888" font-size="11" font-family="sans-serif">只对高分词做全量注意力</text>
+  </g>
+
+  <!-- 效果数据 -->
+  <g transform="translate(100, 450)">
+    <rect x="0" y="0" width="180" height="70" rx="8" fill="#1e3a2f" stroke="#2ecc71" stroke-width="1"/>
+    <text x="90" y="25" text-anchor="middle" fill="#2ecc71" font-size="24" font-weight="bold" font-family="sans-serif">-50%</text>
+    <text x="90" y="45" text-anchor="middle" fill="#fff" font-size="12" font-family="sans-serif">API成本</text>
+    <text x="90" y="60" text-anchor="middle" fill="#888" font-size="10" font-family="sans-serif">直接砍半</text>
+  </g>
+
+  <g transform="translate(310, 450)">
+    <rect x="0" y="0" width="180" height="70" rx="8" fill="#1e3a2f" stroke="#2ecc71" stroke-width="1"/>
+    <text x="90" y="25" text-anchor="middle" fill="#2ecc71" font-size="24" font-weight="bold" font-family="sans-serif">128K</text>
+    <text x="90" y="45" text-anchor="middle" fill="#fff" font-size="12" font-family="sans-serif">上下文长度</text>
+    <text x="90" y="60" text-anchor="middle" fill="#888" font-size="10" font-family="sans-serif">质量几乎无损</text>
+  </g>
+
+  <g transform="translate(520, 450)">
+    <rect x="0" y="0" width="180" height="70" rx="8" fill="#1e3a2f" stroke="#2ecc71" stroke-width="1"/>
+    <text x="90" y="25" text-anchor="middle" fill="#2ecc71" font-size="24" font-weight="bold" font-family="sans-serif">-70~80%</text>
+    <text x="90" y="45" text-anchor="middle" fill="#fff" font-size="12" font-family="sans-serif">缓存命中时</text>
+    <text x="90" y="60" text-anchor="middle" fill="#888" font-size="10" font-family="sans-serif">成本降幅</text>
+  </g>
+
+  <!-- 底部标语 -->
+  <text x="400" y="560" text-anchor="middle" fill="#f39c12" font-size="16" font-weight="bold" font-family="sans-serif">🔥 真正的智能不是记住一切，而是知道什么值得记住</text>
+  <text x="400" y="585" text-anchor="middle" fill="#666" font-size="12" font-family="sans-serif">DeepSeek V3.2 · 2025年9月 · 中国制造</text>
+</svg>
