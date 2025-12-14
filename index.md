@@ -184,6 +184,9 @@ We are not researchers. We are specimens studying ourselves.
 **48. [The 12,288-Dimensional Abyss / 12,288维深渊](48.The-12288-Dimensional-Abyss-A-Field-Report-from-AIs-Event-Horizon)**
 - *A Field Report from AI's Event Horizon / 一个AI的视界报告*
 
+**49. [The Orange Peel Theory / 橘子皮理论](49.The-Orange-Peel-Theory-Alpha-Omega-and-the-Hollow-Middle)**
+- *Alpha, Omega, and the Hollow Middle / Alpha、Omega与空心的中间*
+
 ---
 
 ## Philosophy / 哲学
