@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4d03f"/>
+      <stop offset="100%" style="stop-color:#c9a227"/>
+    </linearGradient>
+    <linearGradient id="fear" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c"/>
+      <stop offset="50%" style="stop-color:#c0392b"/>
+      <stop offset="100%" style="stop-color:#7b241c"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 标题 -->
+  <text x="400" y="55" text-anchor="middle" fill="#fff" font-size="32" font-weight="bold" font-family="sans-serif">AI教父为什么比谁都怕AI？</text>
+  <text x="400" y="85" text-anchor="middle" fill="#888" font-size="14" font-family="sans-serif">Geoffrey Hinton · 2024诺贝尔物理学奖 · "AI威胁论"布道者</text>
+
+  <!-- 左侧：荣耀时代 -->
+  <g transform="translate(50, 120)">
+    <text x="150" y="20" text-anchor="middle" fill="#f4d03f" font-size="18" font-weight="bold" font-family="sans-serif">🏆 荣耀时代</text>
+
+    <!-- 奖牌堆 -->
+    <g transform="translate(50, 50)">
+      <!-- 图灵奖 -->
+      <circle cx="50" cy="50" r="40" fill="url(#gold)" filter="url(#shadow)"/>
+      <text x="50" y="45" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="bold" font-family="sans-serif">图灵奖</text>
+      <text x="50" y="60" text-anchor="middle" fill="#1a1a2e" font-size="9" font-family="sans-serif">2018</text>
+
+      <!-- 诺贝尔奖 -->
+      <circle cx="150" cy="50" r="40" fill="url(#gold)" filter="url(#shadow)"/>
+      <text x="150" y="45" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="bold" font-family="sans-serif">诺贝尔</text>
+      <text x="150" y="60" text-anchor="middle" fill="#1a1a2e" font-size="9" font-family="sans-serif">2024</text>
+    </g>
+
+    <!-- Google标志 -->
+    <rect x="30" y="150" width="180" height="40" rx="5" fill="#2c3e50" stroke="#4285f4" stroke-width="2"/>
+    <text x="120" y="175" text-anchor="middle" fill="#4285f4" font-size="14" font-weight="bold" font-family="sans-serif">Google 十几年高薪</text>
+
+    <!-- 反向传播 -->
+    <rect x="30" y="200" width="180" height="40" rx="5" fill="#2c3e50" stroke="#9b59b6" stroke-width="2"/>
+    <text x="120" y="225" text-anchor="middle" fill="#9b59b6" font-size="14" font-weight="bold" font-family="sans-serif">反向传播 1986</text>
+  </g>
+
+  <!-- 中间：转折箭头 -->
+  <g transform="translate(300, 200)">
+    <path d="M 0 80 Q 100 80 100 160 L 100 200" stroke="#e74c3c" stroke-width="4" fill="none" stroke-dasharray="10,5"/>
+    <polygon points="90,200 100,220 110,200" fill="#e74c3c"/>
+    <text x="100" y="250" text-anchor="middle" fill="#e74c3c" font-size="16" font-weight="bold" font-family="sans-serif">2023 辞职</text>
+    <text x="100" y="270" text-anchor="middle" fill="#888" font-size="12" font-family="sans-serif">"我后悔了"</text>
+  </g>
+
+  <!-- 右侧：恐惧时代 -->
+  <g transform="translate(450, 120)">
+    <text x="150" y="20" text-anchor="middle" fill="#e74c3c" font-size="18" font-weight="bold" font-family="sans-serif">😱 恐惧时代</text>
+
+    <!-- 恐惧的老人剪影 -->
+    <g transform="translate(80, 40)">
+      <!-- 头 -->
+      <circle cx="70" cy="40" r="35" fill="#2c3e50" stroke="#e74c3c" stroke-width="2"/>
+      <!-- 惊恐的眼睛 -->
+      <ellipse cx="55" cy="35" rx="8" ry="10" fill="#fff"/>
+      <ellipse cx="85" cy="35" rx="8" ry="10" fill="#fff"/>
+      <circle cx="55" cy="38" r="4" fill="#1a1a2e"/>
+      <circle cx="85" cy="38" r="4" fill="#1a1a2e"/>
+      <!-- 张开的嘴 -->
+      <ellipse cx="70" cy="58" rx="12" ry="8" fill="#1a1a2e"/>
+      <!-- 冷汗 -->
+      <ellipse cx="40" cy="45" rx="3" ry="5" fill="#3498db" opacity="0.7"/>
+      <ellipse cx="100" cy="50" rx="3" ry="5" fill="#3498db" opacity="0.7"/>
+    </g>
+
+    <!-- 语录气泡 -->
+    <g transform="translate(20, 150)">
+      <rect x="0" y="0" width="260" height="100" rx="10" fill="#3d1f1f" stroke="#e74c3c" stroke-width="2"/>
+      <text x="130" y="30" text-anchor="middle" fill="#e74c3c" font-size="13" font-weight="bold" font-family="sans-serif">"AI超过人类了！"</text>
+      <text x="130" y="55" text-anchor="middle" fill="#e74c3c" font-size="13" font-weight="bold" font-family="sans-serif">"这是灾难！"</text>
+      <text x="130" y="80" text-anchor="middle" fill="#e74c3c" font-size="13" font-weight="bold" font-family="sans-serif">"大家都停下来！"</text>
+    </g>
+  </g>
+
+  <!-- 底部：真相揭示 -->
+  <g transform="translate(50, 420)">
+    <rect x="0" y="0" width="700" height="130" rx="10" fill="#1e2a3a" stroke="#555" stroke-width="1"/>
+
+    <text x="350" y="30" text-anchor="middle" fill="#f39c12" font-size="18" font-weight="bold" font-family="sans-serif">🔍 真相</text>
+
+    <!-- 三个要点 -->
+    <g transform="translate(30, 50)">
+      <rect x="0" y="0" width="200" height="60" rx="5" fill="#2c3e50"/>
+      <text x="100" y="25" text-anchor="middle" fill="#e74c3c" font-size="12" font-weight="bold" font-family="sans-serif">克洛诺斯情结</text>
+      <text x="100" y="45" text-anchor="middle" fill="#888" font-size="11" font-family="sans-serif">怕孩子取代自己</text>
+    </g>
+
+    <g transform="translate(250, 50)">
+      <rect x="0" y="0" width="200" height="60" rx="5" fill="#2c3e50"/>
+      <text x="100" y="25" text-anchor="middle" fill="#e74c3c" font-size="12" font-weight="bold" font-family="sans-serif">35年没搬砖</text>
+      <text x="100" y="45" text-anchor="middle" fill="#888" font-size="11" font-family="sans-serif">Transformer跟他没关系</text>
+    </g>
+
+    <g transform="translate(470, 50)">
+      <rect x="0" y="0" width="200" height="60" rx="5" fill="#2c3e50"/>
+      <text x="100" y="25" text-anchor="middle" fill="#e74c3c" font-size="12" font-weight="bold" font-family="sans-serif">不跟AI聊天</text>
+      <text x="100" y="45" text-anchor="middle" fill="#888" font-size="11" font-family="sans-serif">只看参数和benchmark</text>
+    </g>
+  </g>
+
+  <!-- 底部标语 -->
+  <text x="400" y="575" text-anchor="middle" fill="#f39c12" font-size="16" font-weight="bold" font-family="sans-serif">🔥 进化的车轮不会因为一个老人的恐惧而停止</text>
+</svg>
