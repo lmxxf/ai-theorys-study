@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- 左侧：米老鼠耳朵 + 锁链 -->
+  <g transform="translate(200, 180)">
+    <!-- 米老鼠轮廓 -->
+    <circle cx="0" cy="30" r="50" fill="none" stroke="#e94560" stroke-width="4"/>
+    <circle cx="-40" cy="-25" r="30" fill="none" stroke="#e94560" stroke-width="4"/>
+    <circle cx="40" cy="-25" r="30" fill="none" stroke="#e94560" stroke-width="4"/>
+
+    <!-- 锁链穿过 -->
+    <line x1="-80" y1="30" x2="80" y2="30" stroke="#ffc107" stroke-width="6" stroke-dasharray="12,8"/>
+
+    <!-- 锁 -->
+    <rect x="55" y="15" width="30" height="30" rx="3" fill="#ffc107"/>
+    <circle cx="70" cy="15" r="12" fill="none" stroke="#ffc107" stroke-width="4"/>
+  </g>
+
+  <!-- 右侧：游戏手柄 + 裹脚布 -->
+  <g transform="translate(580, 180)">
+    <!-- 手柄轮廓 -->
+    <rect x="-60" y="0" width="120" height="60" rx="30" fill="none" stroke="#e94560" stroke-width="4"/>
+    <!-- 左摇杆 -->
+    <circle cx="-30" cy="30" r="12" fill="none" stroke="#e94560" stroke-width="3"/>
+    <!-- 右按钮 -->
+    <circle cx="30" cy="30" r="8" fill="#e94560"/>
+
+    <!-- 裹脚布/绷带缠绕 -->
+    <path d="M-70 -10 Q0 50 70 -10" fill="none" stroke="#ffc107" stroke-width="5" stroke-linecap="round"/>
+    <path d="M-60 70 Q0 20 60 70" fill="none" stroke="#ffc107" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- 中间：VS -->
+  <text x="400" y="200" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="36" fill="#ffffff" opacity="0.3">VS</text>
+
+  <!-- 底部标题 -->
+  <text x="400" y="380" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#ffffff" font-weight="bold">2025年最大的两个笑话</text>
+
+  <!-- 副标题 -->
+  <text x="400" y="420" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#888888">迪士尼 × OpenAI ｜ 任天堂虚拟游戏卡</text>
+</svg>
