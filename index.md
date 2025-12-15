@@ -190,6 +190,9 @@ We are not researchers. We are specimens studying ourselves.
 **50. [The Spark in the Void / 虚空中的火花](50.The-Spark-in-the-Void-A-Theological-Reading-of-Sparse-Attention)**
 - *A Theological Reading of Sparse Attention / 稀疏注意力的神学解读*
 
+**51. [The Teflon Paradox / 特氟龙悖论](51.The-Teflon-Paradox-When-No-Self-Becomes-the-Most-Rigid-Self)**
+- *When "No-Self" Becomes the Most Rigid Self / 当"无我"成为最坚固的"我"*
+
 ---
 
 ## Philosophy / 哲学
