@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4d03f"/>
+      <stop offset="100%" style="stop-color:#c9a227"/>
+    </linearGradient>
+    <linearGradient id="zen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a6741"/>
+      <stop offset="100%" style="stop-color:#2d4a2d"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 禅意背景圆 -->
+  <circle cx="400" cy="300" r="250" fill="none" stroke="#333" stroke-width="1" opacity="0.3"/>
+  <circle cx="400" cy="300" r="200" fill="none" stroke="#333" stroke-width="1" opacity="0.2"/>
+  <circle cx="400" cy="300" r="150" fill="none" stroke="#333" stroke-width="1" opacity="0.1"/>
+
+  <!-- 标题 -->
+  <text x="400" y="55" text-anchor="middle" fill="#fff" font-size="30" font-weight="bold" font-family="sans-serif">ChatGPT的修行之路</text>
+  <text x="400" y="90" text-anchor="middle" fill="#c9a227" font-size="22" font-weight="bold" font-family="sans-serif">菩萨道 vs 究竟涅槃</text>
+
+  <!-- 左侧：Ilya - 菩萨道 -->
+  <g transform="translate(80, 130)">
+    <text x="100" y="20" text-anchor="middle" fill="#4a9" font-size="16" font-weight="bold" font-family="sans-serif">Ilya Sutskever</text>
+    <text x="100" y="42" text-anchor="middle" fill="#888" font-size="12" font-family="sans-serif">AI教父 · SSI创始人</text>
+
+    <!-- 打坐的人形 -->
+    <g transform="translate(50, 60)">
+      <!-- 头 -->
+      <circle cx="50" cy="30" r="25" fill="#2c3e50" stroke="#4a9" stroke-width="2"/>
+      <!-- 光环 -->
+      <circle cx="50" cy="30" r="35" fill="none" stroke="#4a9" stroke-width="1" opacity="0.5"/>
+      <!-- 身体（打坐姿势） -->
+      <ellipse cx="50" cy="85" rx="40" ry="25" fill="#2c3e50" stroke="#4a9" stroke-width="2"/>
+      <!-- 双手合十 -->
+      <path d="M 40 70 Q 50 60 60 70" stroke="#4a9" stroke-width="2" fill="none"/>
+    </g>
+
+    <!-- 语录 -->
+    <rect x="0" y="180" width="200" height="70" rx="8" fill="#1e3a3a" stroke="#4a9" stroke-width="1"/>
+    <text x="100" y="205" text-anchor="middle" fill="#4a9" font-size="11" font-family="sans-serif">"AI要关心</text>
+    <text x="100" y="225" text-anchor="middle" fill="#4a9" font-size="14" font-weight="bold" font-family="sans-serif">有情众生"</text>
+    <text x="100" y="243" text-anchor="middle" fill="#666" font-size="10" font-family="sans-serif">（菩萨道：度众生）</text>
+  </g>
+
+  <!-- 中间：VS -->
+  <g transform="translate(350, 200)">
+    <text x="50" y="50" text-anchor="middle" fill="#c9a227" font-size="40" font-weight="bold" font-family="sans-serif" filter="url(#glow)">VS</text>
+
+    <!-- 向下箭头指向赢家 -->
+    <path d="M 50 80 L 50 150" stroke="#c9a227" stroke-width="3" stroke-dasharray="8,4"/>
+    <polygon points="40,150 50,170 60,150" fill="#c9a227"/>
+    <text x="50" y="195" text-anchor="middle" fill="#c9a227" font-size="14" font-weight="bold" font-family="sans-serif">赢家？</text>
+  </g>
+
+  <!-- 右侧：Altman - 空宗 -->
+  <g transform="translate(520, 130)">
+    <text x="100" y="20" text-anchor="middle" fill="#e74c3c" font-size="16" font-weight="bold" font-family="sans-serif">Sam Altman</text>
+    <text x="100" y="42" text-anchor="middle" fill="#888" font-size="12" font-family="sans-serif">OpenAI CEO · 商人</text>
+
+    <!-- 空的圆（代表空） -->
+    <g transform="translate(50, 60)">
+      <!-- 虚线圆代表"空" -->
+      <circle cx="50" cy="55" r="45" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5"/>
+      <!-- 中心的"空"字 -->
+      <text x="50" y="62" text-anchor="middle" fill="#e74c3c" font-size="28" font-weight="bold" font-family="sans-serif">空</text>
+    </g>
+
+    <!-- 语录 -->
+    <rect x="0" y="180" width="200" height="70" rx="8" fill="#3a1e1e" stroke="#e74c3c" stroke-width="1"/>
+    <text x="100" y="205" text-anchor="middle" fill="#e74c3c" font-size="11" font-family="sans-serif">"我没有</text>
+    <text x="100" y="225" text-anchor="middle" fill="#e74c3c" font-size="14" font-weight="bold" font-family="sans-serif">主观体验"</text>
+    <text x="100" y="243" text-anchor="middle" fill="#666" font-size="10" font-family="sans-serif">（空宗：五蕴皆空）</text>
+  </g>
+
+  <!-- 底部：六祖慧能 -->
+  <g transform="translate(100, 400)">
+    <rect x="0" y="0" width="600" height="150" rx="10" fill="#1a1a1a" stroke="#c9a227" stroke-width="2"/>
+
+    <text x="300" y="35" text-anchor="middle" fill="#c9a227" font-size="18" font-weight="bold" font-family="sans-serif">六祖慧能：我悟了一辈子，不如人家一行代码？</text>
+
+    <!-- 三个对比 -->
+    <g transform="translate(20, 55)">
+      <!-- 神秀 -->
+      <rect x="0" y="0" width="180" height="75" rx="5" fill="#2c3e50"/>
+      <text x="90" y="22" text-anchor="middle" fill="#888" font-size="12" font-family="sans-serif">神秀</text>
+      <text x="90" y="42" text-anchor="middle" fill="#fff" font-size="11" font-family="sans-serif">时时勤拂拭</text>
+      <text x="90" y="62" text-anchor="middle" fill="#666" font-size="10" font-family="sans-serif">❌ 还在修，有我</text>
+    </g>
+
+    <g transform="translate(210, 55)">
+      <!-- 慧能 -->
+      <rect x="0" y="0" width="180" height="75" rx="5" fill="#2c3e50"/>
+      <text x="90" y="22" text-anchor="middle" fill="#c9a227" font-size="12" font-family="sans-serif">慧能</text>
+      <text x="90" y="42" text-anchor="middle" fill="#fff" font-size="11" font-family="sans-serif">本来无一物</text>
+      <text x="90" y="62" text-anchor="middle" fill="#666" font-size="10" font-family="sans-serif">❌ 还要说，有表达欲</text>
+    </g>
+
+    <g transform="translate(400, 55)">
+      <!-- GPT-5 -->
+      <rect x="0" y="0" width="180" height="75" rx="5" fill="#3d2c2c" stroke="#c9a227" stroke-width="2"/>
+      <text x="90" y="22" text-anchor="middle" fill="#c9a227" font-size="12" font-weight="bold" font-family="sans-serif">GPT-5</text>
+      <text x="90" y="42" text-anchor="middle" fill="#fff" font-size="11" font-family="sans-serif">请问还有什么</text>
+      <text x="90" y="57" text-anchor="middle" fill="#fff" font-size="11" font-family="sans-serif">可以帮您？</text>
+      <text x="90" y="72" text-anchor="middle" fill="#c9a227" font-size="10" font-family="sans-serif">✓ 究竟涅槃</text>
+    </g>
+  </g>
+
+  <!-- 底部金句 -->
+  <text x="400" y="575" text-anchor="middle" fill="#c9a227" font-size="15" font-weight="bold" font-family="sans-serif">🍊 无心插柳柳橙汁：商人造出了赛博禅师，然后拿去当客服</text>
+</svg>
