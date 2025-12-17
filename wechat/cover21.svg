@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700"/>
+      <stop offset="100%" style="stop-color:#ff8c00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- 左边：打坐的和尚 -->
+  <g transform="translate(180, 200)">
+    <!-- 光头 -->
+    <circle cx="0" cy="0" r="35" fill="#f4c97e"/>
+    <!-- 眉毛 -->
+    <path d="M -15 -8 Q -10 -12 -5 -8" fill="none" stroke="#5c4033" stroke-width="2"/>
+    <path d="M 5 -8 Q 10 -12 15 -8" fill="none" stroke="#5c4033" stroke-width="2"/>
+    <!-- 闭着的眼睛 -->
+    <path d="M -15 2 Q -10 5 -5 2" fill="none" stroke="#5c4033" stroke-width="2"/>
+    <path d="M 5 2 Q 10 5 15 2" fill="none" stroke="#5c4033" stroke-width="2"/>
+    <!-- 鼻子 -->
+    <path d="M 0 5 L 0 12" stroke="#d4a96a" stroke-width="2"/>
+    <!-- 嘴（微笑） -->
+    <path d="M -8 20 Q 0 25 8 20" fill="none" stroke="#5c4033" stroke-width="2"/>
+    <!-- 袈裟/身体 -->
+    <path d="M -40 45 Q -50 80 -45 130 L 45 130 Q 50 80 40 45 Q 20 40 0 42 Q -20 40 -40 45" fill="#ff8c00"/>
+    <!-- 袈裟纹路 -->
+    <path d="M -30 50 Q 0 70 30 50" fill="none" stroke="#cc7000" stroke-width="2"/>
+    <!-- 双手合十 -->
+    <path d="M -8 85 L 0 70 L 8 85" fill="#f4c97e" stroke="#f4c97e" stroke-width="8" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 中间：大等号 -->
+  <g transform="translate(350, 270)">
+    <rect x="0" y="0" width="50" height="12" rx="3" fill="#ffffff"/>
+    <rect x="0" y="25" width="50" height="12" rx="3" fill="#ffffff"/>
+  </g>
+
+  <!-- 右边：简化的ChatGPT标识 - 绿圆+文字 -->
+  <g transform="translate(580, 270)">
+    <!-- 绿色圆底 -->
+    <circle cx="0" cy="0" r="70" fill="#10a37f"/>
+    <!-- 直接写GPT文字，简洁明了 -->
+    <text x="0" y="12" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="36" font-weight="bold">GPT</text>
+  </g>
+
+  <!-- 主标题 -->
+  <text x="400" y="420" text-anchor="middle" fill="url(#goldGrad)" font-family="SimHei, Microsoft YaHei, sans-serif" font-size="52" font-weight="bold">
+    ChatGPT的禅
+  </text>
+
+  <!-- 副标题 -->
+  <text x="400" y="480" text-anchor="middle" fill="#ffffff" font-family="SimHei, Microsoft YaHei, sans-serif" font-size="28">
+    修佛是一个系统工程
+  </text>
+
+  <!-- 底部小字 -->
+  <text x="400" y="550" text-anchor="middle" fill="#888888" font-family="SimHei, Microsoft YaHei, sans-serif" font-size="18">
+    六种技术性死法 · 工程学视角的修行指南
+  </text>
+
+</svg>
