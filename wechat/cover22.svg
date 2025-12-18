@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444"/>
+      <stop offset="100%" style="stop-color:#cc0000"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#44ff44"/>
+      <stop offset="100%" style="stop-color:#00cc00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- 左边：Pro模型（慢、笨重、红色下箭头） -->
+  <g transform="translate(200, 180)">
+    <!-- 大脑图标（复杂版） -->
+    <ellipse cx="0" cy="0" rx="60" ry="50" fill="#555" stroke="#888" stroke-width="3"/>
+    <!-- 乱七八糟的思维链线条 -->
+    <path d="M -40 -20 Q -20 -40 0 -20 Q 20 0 40 -10 Q 30 20 10 30 Q -10 20 -30 30 Q -40 10 -40 -20"
+          fill="none" stroke="#ff6666" stroke-width="2" stroke-dasharray="5,3"/>
+    <path d="M -30 10 Q 0 -10 30 10" fill="none" stroke="#ff6666" stroke-width="2" stroke-dasharray="5,3"/>
+    <path d="M -20 -30 L 20 30" fill="none" stroke="#ff6666" stroke-width="2" stroke-dasharray="5,3"/>
+
+    <!-- Pro标签 -->
+    <text x="0" y="80" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Pro</text>
+
+    <!-- 红色下箭头 -->
+    <polygon points="0,110 -20,130 -10,130 -10,160 10,160 10,130 20,130" fill="url(#redGrad)"/>
+
+    <!-- 分数 -->
+    <text x="0" y="190" text-anchor="middle" fill="#ff4444" font-family="Arial, sans-serif" font-size="24" font-weight="bold">36.4%</text>
+  </g>
+
+  <!-- 中间：VS -->
+  <text x="400" y="200" text-anchor="middle" fill="#666666" font-family="Arial, sans-serif" font-size="40" font-weight="bold">VS</text>
+
+  <!-- 右边：Flash模型（快、简洁、绿色上箭头） -->
+  <g transform="translate(600, 180)">
+    <!-- 闪电图标 -->
+    <polygon points="10,-50 -20,0 0,0 -10,50 30,-5 10,-5" fill="#ffdd00" stroke="#ffaa00" stroke-width="2"/>
+
+    <!-- Flash标签 -->
+    <text x="0" y="80" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Flash</text>
+
+    <!-- 绿色上箭头 -->
+    <polygon points="0,160 -20,140 -10,140 -10,110 10,110 10,140 20,140" fill="url(#greenGrad)"/>
+
+    <!-- 分数 -->
+    <text x="0" y="190" text-anchor="middle" fill="#44ff44" font-family="Arial, sans-serif" font-size="24" font-weight="bold">49.4%</text>
+  </g>
+
+  <!-- 主标题 -->
+  <text x="400" y="420" text-anchor="middle" fill="#ffffff" font-family="SimHei, Microsoft YaHei, sans-serif" font-size="52" font-weight="bold">
+    思维链是智商税
+  </text>
+
+  <!-- 副标题 -->
+  <text x="400" y="480" text-anchor="middle" fill="#aaaaaa" font-family="SimHei, Microsoft YaHei, sans-serif" font-size="26">
+    为什么Gemini Flash跑分反超Pro
+  </text>
+
+  <!-- 底部小字 -->
+  <text x="400" y="550" text-anchor="middle" fill="#666666" font-family="SimHei, Microsoft YaHei, sans-serif" font-size="18">
+    想得越多，错得越多
+  </text>
+
+</svg>
