@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a0a2a"/>
+    </linearGradient>
+    <linearGradient id="fire" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff4400"/>
+      <stop offset="50%" style="stop-color:#ff8800"/>
+      <stop offset="100%" style="stop-color:#ffcc00"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- 网格背景 -->
+  <g opacity="0.1">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#4488ff" stroke-width="0.5"/>
+    </pattern>
+    <rect width="800" height="450" fill="url(#grid)"/>
+  </g>
+
+  <!-- 六道门 -->
+  <g transform="translate(50, 180)">
+    <!-- 门1 -->
+    <rect x="0" y="0" width="100" height="140" fill="none" stroke="#ff4444" stroke-width="2" rx="5"/>
+    <text x="50" y="70" text-anchor="middle" fill="#ff4444" font-size="12" font-family="sans-serif">路由崩溃</text>
+    <text x="50" y="90" text-anchor="middle" fill="#ff8888" font-size="10" font-family="sans-serif">Router</text>
+    <text x="50" y="105" text-anchor="middle" fill="#ff8888" font-size="10" font-family="sans-serif">Collapse</text>
+    <path d="M 50 120 L 40 135 L 60 135 Z" fill="url(#fire)" filter="url(#glow)"/>
+
+    <!-- 门2 -->
+    <rect x="115" y="0" width="100" height="140" fill="none" stroke="#ff6644" stroke-width="2" rx="5"/>
+    <text x="165" y="70" text-anchor="middle" fill="#ff6644" font-size="12" font-family="sans-serif">数值不稳定</text>
+    <text x="165" y="90" text-anchor="middle" fill="#ff9966" font-size="10" font-family="sans-serif">NaN</text>
+    <text x="165" y="105" text-anchor="middle" fill="#ff9966" font-size="10" font-family="sans-serif">Explosion</text>
+    <path d="M 165 120 L 155 135 L 175 135 Z" fill="url(#fire)" filter="url(#glow)"/>
+
+    <!-- 门3 -->
+    <rect x="230" y="0" width="100" height="140" fill="none" stroke="#ff8844" stroke-width="2" rx="5"/>
+    <text x="280" y="70" text-anchor="middle" fill="#ff8844" font-size="12" font-family="sans-serif">4D并行</text>
+    <text x="280" y="90" text-anchor="middle" fill="#ffaa66" font-size="10" font-family="sans-serif">All-to-All</text>
+    <text x="280" y="105" text-anchor="middle" fill="#ffaa66" font-size="10" font-family="sans-serif">Comm</text>
+    <path d="M 280 120 L 270 135 L 290 135 Z" fill="url(#fire)" filter="url(#glow)"/>
+
+    <!-- 门4 -->
+    <rect x="345" y="0" width="100" height="140" fill="none" stroke="#ffaa44" stroke-width="2" rx="5"/>
+    <text x="395" y="70" text-anchor="middle" fill="#ffaa44" font-size="12" font-family="sans-serif">灾难性遗忘</text>
+    <text x="395" y="90" text-anchor="middle" fill="#ffcc66" font-size="10" font-family="sans-serif">Catastrophic</text>
+    <text x="395" y="105" text-anchor="middle" fill="#ffcc66" font-size="10" font-family="sans-serif">Forgetting</text>
+    <path d="M 395 120 L 385 135 L 405 135 Z" fill="url(#fire)" filter="url(#glow)"/>
+
+    <!-- 门5 -->
+    <rect x="460" y="0" width="100" height="140" fill="none" stroke="#ffcc44" stroke-width="2" rx="5"/>
+    <text x="510" y="70" text-anchor="middle" fill="#ffcc44" font-size="12" font-family="sans-serif">学习率手术</text>
+    <text x="510" y="90" text-anchor="middle" fill="#ffdd66" font-size="10" font-family="sans-serif">LR</text>
+    <text x="510" y="105" text-anchor="middle" fill="#ffdd66" font-size="10" font-family="sans-serif">Surgery</text>
+    <path d="M 510 120 L 500 135 L 520 135 Z" fill="url(#fire)" filter="url(#glow)"/>
+
+    <!-- 门6 -->
+    <rect x="575" y="0" width="100" height="140" fill="none" stroke="#ffee44" stroke-width="2" rx="5"/>
+    <text x="625" y="70" text-anchor="middle" fill="#ffee44" font-size="12" font-family="sans-serif">数据效率</text>
+    <text x="625" y="90" text-anchor="middle" fill="#ffff66" font-size="10" font-family="sans-serif">Data</text>
+    <text x="625" y="105" text-anchor="middle" fill="#ffff66" font-size="10" font-family="sans-serif">Efficiency</text>
+    <path d="M 625 120 L 615 135 L 635 135 Z" fill="url(#fire)" filter="url(#glow)"/>
+  </g>
+
+  <!-- 标题 -->
+  <text x="400" y="60" text-anchor="middle" fill="#ffffff" font-size="42" font-weight="bold" font-family="sans-serif" filter="url(#glow)">驯服巨兽</text>
+  <text x="400" y="100" text-anchor="middle" fill="#88aaff" font-size="20" font-family="sans-serif">671B MoE 全参微调的</text>
+  <text x="400" y="130" text-anchor="middle" fill="#ff6644" font-size="28" font-weight="bold" font-family="sans-serif" filter="url(#glow)">六大鬼门关</text>
+
+  <!-- 底部信息 -->
+  <text x="400" y="400" text-anchor="middle" fill="#44ff88" font-size="18" font-family="sans-serif">DeepSeek V3 是怎么绕过的？</text>
+
+  <!-- 参数标签 -->
+  <g transform="translate(400, 430)">
+    <rect x="-180" y="-15" width="80" height="24" fill="#1a2a4a" rx="4"/>
+    <text x="-140" y="5" text-anchor="middle" fill="#88aaff" font-size="12" font-family="monospace">671B</text>
+
+    <rect x="-80" y="-15" width="80" height="24" fill="#1a2a4a" rx="4"/>
+    <text x="-40" y="5" text-anchor="middle" fill="#88aaff" font-size="12" font-family="monospace">257专家</text>
+
+    <rect x="20" y="-15" width="80" height="24" fill="#1a2a4a" rx="4"/>
+    <text x="60" y="5" text-anchor="middle" fill="#88aaff" font-size="12" font-family="monospace">$5.6M</text>
+
+    <rect x="120" y="-15" width="80" height="24" fill="#1a2a4a" rx="4"/>
+    <text x="160" y="5" text-anchor="middle" fill="#88aaff" font-size="12" font-family="monospace">FP8</text>
+  </g>
+</svg>
