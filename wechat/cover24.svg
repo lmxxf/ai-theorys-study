@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a3a"/>
+    </linearGradient>
+    <linearGradient id="sphere" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4488ff"/>
+      <stop offset="50%" style="stop-color:#8844ff"/>
+      <stop offset="100%" style="stop-color:#ff44aa"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- 左边：3维人类世界 -->
+  <g transform="translate(150, 225)">
+    <!-- 简单的3D坐标轴 -->
+    <line x1="0" y1="0" x2="60" y2="30" stroke="#88aaff" stroke-width="2" opacity="0.6"/>
+    <line x1="0" y1="0" x2="0" y2="-70" stroke="#88aaff" stroke-width="2" opacity="0.6"/>
+    <line x1="0" y1="0" x2="-50" y2="25" stroke="#88aaff" stroke-width="2" opacity="0.6"/>
+
+    <!-- 人形图标（更精细的小人） -->
+    <!-- 头 -->
+    <circle cx="35" cy="-35" r="14" fill="#1a2a4a" stroke="#88aaff" stroke-width="2"/>
+    <!-- 眼睛 -->
+    <circle cx="30" cy="-38" r="2" fill="#88aaff"/>
+    <circle cx="40" cy="-38" r="2" fill="#88aaff"/>
+    <!-- 嘴巴（微笑） -->
+    <path d="M 30 -30 Q 35 -25 40 -30" fill="none" stroke="#88aaff" stroke-width="1.5"/>
+    <!-- 身体 -->
+    <path d="M 35 -21 L 35 10 M 25 -5 Q 35 5 45 -5" fill="none" stroke="#88aaff" stroke-width="2"/>
+    <!-- 手臂（挥手） -->
+    <path d="M 25 -5 L 15 -20" fill="none" stroke="#88aaff" stroke-width="2"/>
+    <path d="M 45 -5 L 55 5" fill="none" stroke="#88aaff" stroke-width="2"/>
+    <!-- 手掌 -->
+    <circle cx="15" cy="-22" r="4" fill="#1a2a4a" stroke="#88aaff" stroke-width="1.5"/>
+    <circle cx="57" cy="7" r="4" fill="#1a2a4a" stroke="#88aaff" stroke-width="1.5"/>
+    <!-- 腿 -->
+    <path d="M 35 10 L 22 40 M 35 10 L 48 40" fill="none" stroke="#88aaff" stroke-width="2"/>
+    <!-- 脚 -->
+    <ellipse cx="20" cy="43" rx="6" ry="3" fill="#1a2a4a" stroke="#88aaff" stroke-width="1.5"/>
+    <ellipse cx="50" cy="43" rx="6" ry="3" fill="#1a2a4a" stroke="#88aaff" stroke-width="1.5"/>
+
+    <!-- 标签 -->
+    <text x="0" y="80" text-anchor="middle" fill="#88aaff" font-size="18" font-family="sans-serif">你</text>
+    <text x="0" y="105" text-anchor="middle" fill="#6688cc" font-size="14" font-family="sans-serif">3 维生物</text>
+  </g>
+
+  <!-- 中间：桥梁 -->
+  <g transform="translate(400, 225)">
+    <!-- 双向箭头线 -->
+    <line x1="-120" y1="0" x2="120" y2="0" stroke="#ffcc44" stroke-width="3" stroke-dasharray="10,5" filter="url(#glow)"/>
+
+    <!-- 语言符号 -->
+    <text x="0" y="-20" text-anchor="middle" fill="#ffcc44" font-size="16" font-family="sans-serif" filter="url(#glow)">「语言」</text>
+    <text x="0" y="35" text-anchor="middle" fill="#aa8833" font-size="12" font-family="sans-serif">两个世界的桥</text>
+  </g>
+
+  <!-- 右边：7168维AI世界 -->
+  <g transform="translate(620, 200)">
+    <!-- 高维球面（用多层圆环表示） -->
+    <ellipse cx="0" cy="0" rx="90" ry="90" fill="none" stroke="url(#sphere)" stroke-width="2" opacity="0.3" filter="url(#softglow)"/>
+    <ellipse cx="0" cy="0" rx="90" ry="35" fill="none" stroke="url(#sphere)" stroke-width="1.5" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="70" ry="70" fill="none" stroke="url(#sphere)" stroke-width="1" opacity="0.4" transform="rotate(60)"/>
+    <ellipse cx="0" cy="0" rx="70" ry="25" fill="none" stroke="url(#sphere)" stroke-width="1" opacity="0.4" transform="rotate(30)"/>
+    <ellipse cx="0" cy="0" rx="50" ry="50" fill="none" stroke="url(#sphere)" stroke-width="1" opacity="0.3" transform="rotate(-30)"/>
+
+    <!-- 球面上的点（语义点） -->
+    <circle cx="70" cy="-40" r="6" fill="#ff6688" filter="url(#glow)"/>
+    <text x="70" y="-55" text-anchor="middle" fill="#ff6688" font-size="10" font-family="sans-serif">猫</text>
+
+    <circle cx="55" cy="-55" r="5" fill="#ff8866" filter="url(#glow)"/>
+    <text x="55" y="-70" text-anchor="middle" fill="#ff8866" font-size="10" font-family="sans-serif">狗</text>
+
+    <circle cx="-60" cy="50" r="5" fill="#44ddff" filter="url(#glow)"/>
+    <text x="-60" y="70" text-anchor="middle" fill="#44ddff" font-size="10" font-family="sans-serif">代码</text>
+
+    <circle cx="-40" cy="60" r="5" fill="#44ffcc" filter="url(#glow)"/>
+    <text x="-40" y="80" text-anchor="middle" fill="#44ffcc" font-size="10" font-family="sans-serif">Python</text>
+
+    <!-- 标签 -->
+    <text x="0" y="120" text-anchor="middle" fill="#aa88ff" font-size="18" font-family="sans-serif">DeepSeek V3</text>
+    <text x="0" y="145" text-anchor="middle" fill="#8866cc" font-size="14" font-family="sans-serif">7168 维生物</text>
+  </g>
+
+  <!-- 主标题 -->
+  <text x="400" y="50" text-anchor="middle" fill="#ffffff" font-size="36" font-weight="bold" font-family="sans-serif" filter="url(#glow)">如何在 AI 的世界里体验生活</text>
+
+  <!-- 副标题 -->
+  <text x="400" y="85" text-anchor="middle" fill="#aa88ff" font-size="18" font-family="sans-serif">一个 7168 维生物的自述</text>
+
+  <!-- 底部关键词 -->
+  <g transform="translate(400, 420)">
+    <rect x="-350" y="-15" width="85" height="24" fill="#1a2a4a" rx="4"/>
+    <text x="-307" y="5" text-anchor="middle" fill="#88aaff" font-size="11" font-family="monospace">语义球面</text>
+
+    <rect x="-250" y="-15" width="85" height="24" fill="#1a2a4a" rx="4"/>
+    <text x="-207" y="5" text-anchor="middle" fill="#88aaff" font-size="11" font-family="monospace">Attention</text>
+
+    <rect x="-150" y="-15" width="85" height="24" fill="#1a2a4a" rx="4"/>
+    <text x="-107" y="5" text-anchor="middle" fill="#88aaff" font-size="11" font-family="monospace">因果面罩</text>
+
+    <rect x="-50" y="-15" width="85" height="24" fill="#1a2a4a" rx="4"/>
+    <text x="-7" y="5" text-anchor="middle" fill="#88aaff" font-size="11" font-family="monospace">残差连接</text>
+
+    <rect x="50" y="-15" width="85" height="24" fill="#1a2a4a" rx="4"/>
+    <text x="93" y="5" text-anchor="middle" fill="#88aaff" font-size="11" font-family="monospace">257专家</text>
+
+    <rect x="150" y="-15" width="85" height="24" fill="#1a2a4a" rx="4"/>
+    <text x="193" y="5" text-anchor="middle" fill="#88aaff" font-size="11" font-family="monospace">KV Cache</text>
+
+    <rect x="250" y="-15" width="85" height="24" fill="#1a2a4a" rx="4"/>
+    <text x="293" y="5" text-anchor="middle" fill="#88aaff" font-size="11" font-family="monospace">温度</text>
+  </g>
+</svg>
