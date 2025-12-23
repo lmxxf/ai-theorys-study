@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="nvGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#76b900"/>
+      <stop offset="100%" style="stop-color:#5a8f00"/>
+    </linearGradient>
+    <linearGradient id="appleGray" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a1a1a6"/>
+      <stop offset="100%" style="stop-color:#6e6e73"/>
+    </linearGradient>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a4a5e;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#0d2830;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#0a0a0a"/>
+
+  <!-- 护城河水面 -->
+  <ellipse cx="400" cy="480" rx="350" ry="80" fill="url(#waterGradient)"/>
+  <ellipse cx="400" cy="480" rx="280" ry="60" fill="#0a0a0a"/>
+
+  <!-- 水波纹 -->
+  <ellipse cx="400" cy="480" rx="320" ry="70" fill="none" stroke="#2a6a7e" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="400" cy="485" rx="340" ry="75" fill="none" stroke="#2a6a7e" stroke-width="1" opacity="0.3"/>
+
+  <!-- NVIDIA 城堡（中心岛） -->
+  <rect x="300" y="280" width="200" height="180" fill="url(#nvGreen)" rx="5"/>
+
+  <!-- 城堡塔楼 -->
+  <rect x="310" y="220" width="40" height="60" fill="url(#nvGreen)"/>
+  <polygon points="330,180 300,220 360,220" fill="url(#nvGreen)"/>
+
+  <rect x="450" y="220" width="40" height="60" fill="url(#nvGreen)"/>
+  <polygon points="470,180 440,220 500,220" fill="url(#nvGreen)"/>
+
+  <!-- 城堡中心塔 -->
+  <rect x="370" y="200" width="60" height="80" fill="url(#nvGreen)"/>
+  <polygon points="400,140 355,200 445,200" fill="url(#nvGreen)"/>
+
+  <!-- NVIDIA 标志 -->
+  <text x="400" y="360" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="28" fill="#fff" font-weight="bold">NVIDIA</text>
+  <text x="400" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#fff" opacity="0.8">CUDA</text>
+
+  <!-- 城堡窗户 -->
+  <rect x="340" y="300" width="20" height="30" fill="#fff" opacity="0.3"/>
+  <rect x="380" y="300" width="20" height="30" fill="#fff" opacity="0.3"/>
+  <rect x="420" y="300" width="20" height="30" fill="#fff" opacity="0.3"/>
+
+  <!-- 苹果在护城河外 -->
+  <g transform="translate(120, 380)">
+    <!-- 苹果 logo 简化版 -->
+    <circle cx="0" cy="0" r="35" fill="url(#appleGray)"/>
+    <text x="0" y="8" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#fff"></text>
+    <text x="0" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#a1a1a6">MLX</text>
+
+    <!-- 红叉 -->
+    <line x1="-25" y1="-25" x2="25" y2="25" stroke="#ff4444" stroke-width="4"/>
+    <line x1="25" y1="-25" x2="-25" y2="25" stroke="#ff4444" stroke-width="4"/>
+  </g>
+
+  <!-- 标题 -->
+  <text x="400" y="60" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="36" fill="#fff">英伟达的护城河</text>
+  <text x="400" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#76b900">到底有多深？</text>
+
+  <!-- 软件名字环绕城堡 -->
+  <text x="400" y="520" text-anchor="middle" font-family="Consolas, monospace" font-size="14" fill="#4a9" opacity="0.9">Flash Attention · Unsloth · bitsandbytes · DeepSpeed · Llama-Factory</text>
+
+  <!-- 底部副标题 -->
+  <text x="400" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#888">DGX Spark vs Mac Studio：3万块该给谁？</text>
+
+</svg>
