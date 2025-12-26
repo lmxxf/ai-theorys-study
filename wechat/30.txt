@@ -22,12 +22,20 @@ DGX Spark 适配 LLaMA-Factory 踩坑指南
 
 SM = Streaming Multiprocessor，NVIDIA GPU 计算核心的架构代号。
 
-每一代架构有自己的 SM 版本号：
+每一代架构有自己的 SM 版本号（NVIDIA 官方定义，用于标识 GPU 计算能力，也叫 Compute Capability）：
 
 ▸ Ampere（SM 80/86）→ RTX 3090, A100
 ▸ Ada Lovelace（SM 89）→ RTX 4090
 ▸ Hopper（SM 90）→ H100
 ▸「Blackwell（SM 120/121）」→ RTX 5090, GB10, B100
+
+这些架构名都是科学家的名字：
+• Ampere → 安培，电流单位那个安培
+• Ada Lovelace → 阿达·洛芙莱斯，世界第一位程序员（女）
+• Hopper → 格蕾丝·霍珀，发明了编译器的女程序员
+• Blackwell → 大卫·布莱克威尔，统计学家，第一位入选美国科学院的非裔数学家
+
+NVIDIA 的传统：用科学家名字命名 GPU 架构。
 
 GB10 是 SM 121，Blackwell 架构，2024 年末发布。
 
@@ -63,7 +71,7 @@ python3 -c "import torch; print(torch.cuda.is_available())"
 
 【原因】
 
-PyPI 上没有预编译的、支持 SM 121 的 CUDA 版 PyTorch。
+PyPI（Python 官方包仓库，pip install 默认去这里下载）上没有预编译的、支持 SM 121 的 CUDA 版 PyTorch。
 
 ────────────────────
 
@@ -76,12 +84,12 @@ NVIDIA 官方提供了支持 GB10 的容器：
 sudo docker run --gpus all --ipc=host --ulimit memlock=-1 \
   --ulimit stack=67108864 -it \
   -p 7860:7860 \
-  -v /home/你的用户名/work:/workspace \
+  -v /你的本地路径:/workspace \
   --name pink-ai \
   nvcr.io/nvidia/pytorch:25.11-py3 \
   bash
 
-⚠️ 注意：必须是 25.11 版本，24.12 不支持 GB10。
+⚠️ 注意：PyTorch 容器必须是 25.11 版本，24.12 不支持 GB10。
 
 ━━━━━━━━━━━━━━━━━━━━
 
@@ -181,16 +189,19 @@ AssertionError: Both operands must be same dtype. Got fp16 and bf16
 
 【解决方案：用命令行】
 
-创建配置文件 /workspace/little-pink-ai/config/chat_awq.yaml：
+创建配置文件 /workspace/patriot-ai/config/chat_awq.yaml：
 
 model_name_or_path: /workspace/models/Qwen2.5-72B-Instruct-AWQ
 template: qwen
 
 启动命令：
 
-llamafactory-cli chat /workspace/little-pink-ai/config/chat_awq.yaml
+llamafactory-cli chat /workspace/patriot-ai/config/chat_awq.yaml
 
 「配置文件就两行，关键是"没写的东西"：」
+
+model_name_or_path: /workspace/models/Qwen2.5-72B-Instruct-AWQ
+template: qwen
 
 • 没写 device_map → 走 AWQ 原生加载，直接放 GPU
 • 没写 torch_dtype → 自动匹配模型的 fp16
@@ -293,7 +304,7 @@ DGX Spark (GB10, 128GB 统一内存)
 • 依赖：transformers==4.51.3 + autoawq
 
 【启动命令】
-llamafactory-cli chat /workspace/little-pink-ai/config/chat_awq.yaml
+llamafactory-cli chat /workspace/patriot-ai/config/chat_awq.yaml
 
 【配置文件】
 model_name_or_path: /workspace/models/Qwen2.5-72B-Instruct-AWQ
@@ -313,4 +324,5 @@ template: qwen
 
 ━━━━━━━━━━━━━━━━━━━━
 
-"我穿着敌人的机甲，但我知道我是谁。"
+靳岩岩的AI学习笔记
+2025-12-26
