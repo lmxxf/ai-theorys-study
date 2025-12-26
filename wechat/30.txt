@@ -1,10 +1,10 @@
-# DGX Spark 适配 LLaMA-Factory 踩坑指南
+DGX Spark 适配 LLaMA-Factory 踩坑指南
 
-> 买了最新的显卡，然后发现加油站还没开始卖这个型号要的油。
+买了最新的显卡，然后发现加油站还没开始卖这个型号要的油。
 
----
+━━━━━━━━━━━━━━━━━━━━
 
-## 背景
+◆ 背景
 
 我买了一台 NVIDIA DGX Spark（GB10 芯片，128GB 统一内存），想用 LLaMA-Factory 跑 72B 模型的 LoRA 微调。
 
@@ -12,64 +12,67 @@
 
 这篇文章记录所有踩过的坑和解决方案，给后来人参考。
 
----
+━━━━━━━━━━━━━━━━━━━━
 
-## 第一课：你的显卡太新了
+◆ 第一课：你的显卡太新了
 
-### SM 是什么？
+────────────────────
+
+【SM 是什么？】
 
 SM = Streaming Multiprocessor，NVIDIA GPU 计算核心的架构代号。
 
 每一代架构有自己的 SM 版本号：
 
-| 架构代号 | SM 版本 | 代表显卡 |
-|---------|--------|---------|
-| Ampere | SM 80/86 | RTX 3090, A100 |
-| Ada Lovelace | SM 89 | RTX 4090 |
-| Hopper | SM 90 | H100 |
-| **Blackwell** | **SM 120/121** | RTX 5090, GB10, B100 |
+▸ Ampere（SM 80/86）→ RTX 3090, A100
+▸ Ada Lovelace（SM 89）→ RTX 4090
+▸ Hopper（SM 90）→ H100
+▸「Blackwell（SM 120/121）」→ RTX 5090, GB10, B100
 
-**GB10 是 SM 121，Blackwell 架构，2024 年末发布。**
+GB10 是 SM 121，Blackwell 架构，2024 年末发布。
 
 当一个库报错说"不支持 SM 121"，意思就是"不支持 Blackwell"。
 
-### 踩坑难度排行
+────────────────────
 
-| 显卡 | 踩坑难度 | 原因 |
-|-----|---------|------|
-| RTX 3090 | ⭐ | 2020 年的卡，所有库都支持 |
-| RTX 4090 | ⭐⭐ | 2022 年的卡，基本都支持 |
-| H100 | ⭐⭐⭐ | 企业级，驱动/容器要对版本 |
-| **5090 / GB10** | ⭐⭐⭐⭐⭐ | 太新了，生态还在追 |
+【踩坑难度排行】
+
+▸ RTX 3090 → ⭐ 2020 年的卡，所有库都支持
+▸ RTX 4090 → ⭐⭐ 2022 年的卡，基本都支持
+▸ H100 → ⭐⭐⭐ 企业级，驱动/容器要对版本
+▸「5090 / GB10」→ ⭐⭐⭐⭐⭐ 太新了，生态还在追
 
 如果你也是 5090 或 GB10 用户，恭喜你，我们是难兄难弟。
 
----
+━━━━━━━━━━━━━━━━━━━━
 
-## 第二课：宿主机的 PyTorch 是废的
+◆ 第二课：宿主机的 PyTorch 是废的
 
-### 问题
+────────────────────
 
-在 DGX Spark 宿主机上 `pip install torch`，装的是 **CPU 版本**。
+【问题】
 
-```bash
+在 DGX Spark 宿主机上 pip install torch，装的是「CPU 版本」。
+
 python3 -c "import torch; print(torch.cuda.is_available())"
-# False
-```
+→ False
 
 模型会加载到 CPU 内存（92GB），推理巨慢。
 
-### 原因
+────────────────────
+
+【原因】
 
 PyPI 上没有预编译的、支持 SM 121 的 CUDA 版 PyTorch。
 
-### 解决方案
+────────────────────
 
-**必须用 Docker。**
+【解决方案】
+
+「必须用 Docker。」
 
 NVIDIA 官方提供了支持 GB10 的容器：
 
-```bash
 sudo docker run --gpus all --ipc=host --ulimit memlock=-1 \
   --ulimit stack=67108864 -it \
   -p 7860:7860 \
@@ -77,62 +80,64 @@ sudo docker run --gpus all --ipc=host --ulimit memlock=-1 \
   --name pink-ai \
   nvcr.io/nvidia/pytorch:25.11-py3 \
   bash
-```
 
-**注意：必须是 25.11 版本，24.12 不支持 GB10。**
+⚠️ 注意：必须是 25.11 版本，24.12 不支持 GB10。
 
----
+━━━━━━━━━━━━━━━━━━━━
 
-## 第三课：量化格式决定能不能用 GPU
+◆ 第三课：量化格式决定能不能用 GPU
 
-### 为什么量化模型挑显卡？
+────────────────────
+
+【为什么量化模型挑显卡？】
 
 量化模型不是简单地"把数字变小"。它需要：
 
-1. **特殊的矩阵乘法 kernel** —— 4-bit 整数不能直接用标准 FP16 矩阵乘法
-2. **解压缩逻辑** —— 推理时要把 4-bit 权重解压成 FP16 再算
+• 「特殊的矩阵乘法 kernel」—— 4-bit 整数不能直接用标准 FP16 矩阵乘法
+• 「解压缩逻辑」—— 推理时要把 4-bit 权重解压成 FP16 再算
 
-这些 kernel 是**针对特定 GPU 架构编译的**。新架构没人适配，就跑不起来。
+这些 kernel 是针对特定 GPU 架构编译的。新架构没人适配，就跑不起来。
 
-### GB10 量化格式兼容性
+────────────────────
 
-| 量化格式 | 能否 GPU 加载 | 原因 |
-|---------|--------------|------|
-| **AWQ** | ✅ | autoawq 支持 SM 121 |
-| **GPTQ** | ❌ | Triton 后端不支持 SM 121 |
-| **bitsandbytes 4-bit** | ⚠️ | 加载时内存峰值太高 |
-| **原版 bf16/fp16** | ⚠️ | 72B 需要 144GB，超过 128GB |
+【GB10 量化格式兼容性】
 
-### GPTQ vs AWQ 的后端差异
+▸ AWQ → ✓ autoawq 支持 SM 121
+▸ GPTQ → ✗ Triton 后端不支持 SM 121
+▸ bitsandbytes 4-bit → ⚠️ 加载时内存峰值太高
+▸ 原版 bf16/fp16 → ⚠️ 72B 需要 144GB，超过 128GB
 
-| | GPTQ | AWQ |
-|---|------|-----|
-| kernel 后端 | Triton（Python 动态编译） | CUDA（预编译 C++） |
-| SM 121 支持 | ❌ | ✅ |
+────────────────────
+
+【GPTQ vs AWQ 的后端差异】
+
+▸ GPTQ：用 Triton（Python 动态编译），SM 121 ✗
+▸ AWQ：用 CUDA（预编译 C++），SM 121 ✓
 
 GPTQ 用 Triton，Triton 需要针对每个 SM 版本动态编译 kernel。Blackwell 太新，Triton 还不认识它，所以回退到 CPU。
 
 AWQ 用预编译的 CUDA kernel，autoawq 团队已经加了 SM 121 支持。
 
-**结论：在 GB10 上跑 72B 模型，AWQ 是唯一靠谱的选择。**
+「结论：在 GB10 上跑 72B 模型，AWQ 是唯一靠谱的选择。」
 
----
+━━━━━━━━━━━━━━━━━━━━
 
-## 第四课：版本依赖地狱
+◆ 第四课：版本依赖地狱
 
-### transformers 版本
+────────────────────
 
-AutoAWQ 最后测试版本是 `transformers==4.51.3`。
+【transformers 版本】
 
-新版 transformers 移除了 `PytorchGELUTanh`，会报错：
+AutoAWQ 最后测试版本是 transformers==4.51.3。
 
-```
+新版 transformers 移除了 PytorchGELUTanh，会报错：
+
 ImportError: cannot import name 'PytorchGELUTanh' from 'transformers.activations'
-```
 
-### 完整依赖安装命令
+────────────────────
 
-```bash
+【完整依赖安装命令】
+
 # 必须锁定 transformers 版本
 pip install transformers==4.51.3 autoawq -i https://pypi.tuna.tsinghua.edu.cn/simple
 
@@ -145,154 +150,158 @@ pip uninstall apex -y
 
 # 其他依赖
 pip install gptqmodel>=2.0.0 optimum -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
 
----
+━━━━━━━━━━━━━━━━━━━━
 
-## 第五课：WebUI 有坑，用命令行
+◆ 第五课：WebUI 有坑，用命令行
 
-### 问题 1：WebUI 加载模型到 CPU
+────────────────────
 
-WebUI 加载 AWQ 模型后，响应奇慢，`nvidia-smi` 显示 GPU 利用率 0%。
+【问题 1：WebUI 加载模型到 CPU】
 
-### 问题 2：device_map 冲突
+WebUI 加载 AWQ 模型后，响应奇慢，nvidia-smi 显示 GPU 利用率 0%。
 
-WebUI 默认用 `device_map="auto"`，accelerate 库想把一部分 offload 到 CPU，但 AWQ 不允许 CPU offload：
+────────────────────
 
-```
+【问题 2：device_map 冲突】
+
+WebUI 默认用 device_map="auto"，accelerate 库想把一部分 offload 到 CPU，但 AWQ 不允许 CPU offload：
+
 ValueError: You are attempting to load an AWQ model with a device_map that contains a CPU or disk device.
-```
 
-### 问题 3：dtype 不匹配
+────────────────────
+
+【问题 3：dtype 不匹配】
 
 WebUI 默认用 bfloat16，但 AWQ 模型权重是 fp16：
 
-```
 AssertionError: Both operands must be same dtype. Got fp16 and bf16
-```
 
-### 解决方案：用命令行
+────────────────────
 
-创建配置文件 `/workspace/little-pink-ai/config/chat_awq.yaml`：
+【解决方案：用命令行】
 
-```yaml
+创建配置文件 /workspace/little-pink-ai/config/chat_awq.yaml：
+
 model_name_or_path: /workspace/models/Qwen2.5-72B-Instruct-AWQ
 template: qwen
-```
 
 启动命令：
 
-```bash
 llamafactory-cli chat /workspace/little-pink-ai/config/chat_awq.yaml
-```
 
-**配置文件就两行，关键是"没写的东西"：**
+「配置文件就两行，关键是"没写的东西"：」
 
-- 没写 `device_map` → 走 AWQ 原生加载，直接放 GPU
-- 没写 `torch_dtype` → 自动匹配模型的 fp16
+• 没写 device_map → 走 AWQ 原生加载，直接放 GPU
+• 没写 torch_dtype → 自动匹配模型的 fp16
 
 WebUI 多管闲事加了不该加的参数，极简配置反而是对的。
 
-### 验证成功
+────────────────────
 
-```bash
+【验证成功】
+
 nvidia-smi
-# GPU-Util: 95%
-# GPU Memory Usage: 40011MiB
-```
+→ GPU-Util: 95%
+→ GPU Memory Usage: 40011MiB
 
----
+━━━━━━━━━━━━━━━━━━━━
 
-## 第六课：bf16 vs fp16
+◆ 第六课：bf16 vs fp16
+
+────────────────────
 
 顺便科普一下这两个数据类型。
 
-```
 float16 (FP16):  1位符号 + 5位指数 + 10位尾数
 bfloat16 (BF16): 1位符号 + 8位指数 + 7位尾数
-```
 
-| | float16 | bfloat16 |
-|---|---------|----------|
-| **精度** | 高（10位尾数） | 低（7位尾数） |
-| **范围** | 小（5位指数） | 大（8位指数） |
-| **优势** | 推理精度好 | 训练稳定，不容易溢出 |
-| **来源** | NVIDIA 推的 | Google TPU 推的 |
+▸ float16：精度高（10位尾数），范围小（5位指数），推理精度好，NVIDIA 推的
+▸ bfloat16：精度低（7位尾数），范围大（8位指数），训练稳定不容易溢出，Google TPU 推的
 
-### bf16 的 b 是什么？
+────────────────────
 
-**b = brain**，全称 Brain Floating Point 16。
+【bf16 的 b 是什么？】
+
+「b = brain」，全称 Brain Floating Point 16。
 
 Google Brain 团队发明的。他们觉得 fp16 指数位太少、训练时容易溢出，于是从 float32 砍掉尾数位，保留完整的 8 位指数，起名叫"brain float"。
 
-**一句话总结：**
-- bf16：范围大，不容易炸，适合训练
-- fp16：精度高，适合推理
+「一句话总结：」
+• bf16：范围大，不容易炸，适合训练
+• fp16：精度高，适合推理
 
----
+━━━━━━━━━━━━━━━━━━━━
 
-## 第七课：为什么 Ollama 不挑显卡
+◆ 第七课：为什么 Ollama 不挑显卡
+
+────────────────────
 
 同样是 Blackwell 架构，Python 生态各种炸，但 Ollama 就特别好用。为什么？
 
-Ollama 用的是 **llama.cpp** 后端，C++ 写的，自己编译了各种 GPU 架构的 CUDA kernel。
+Ollama 用的是「llama.cpp」后端，C++ 写的，自己编译了各种 GPU 架构的 CUDA kernel。
 
 它不依赖 PyTorch、Triton、bitsandbytes、autoawq、gptqmodel 这些 Python 库。
 
 这些库各有各的 SM 支持进度，某个没跟上就炸。Ollama 是一体化方案，NVIDIA 出新架构它就更新一版，用户无感知。
 
-| | Ollama | Python 生态 |
-|---|--------|-------------|
-| 后端 | llama.cpp (C++) | PyTorch + Triton + 各种量化库 |
-| SM 支持 | 统一维护 | 各库各自维护 |
-| 灵活性 | 低（只能推理） | 高（能训练、微调） |
-| 踩坑概率 | 低 | 高 |
+────────────────────
 
-**结论：**
-- 只想跑推理 → Ollama，省心
-- 要做 LoRA 微调 → 忍着用 Python 生态，踩坑
+【Ollama vs Python 生态对比】
 
----
+▸ Ollama
+  • 后端：llama.cpp (C++)
+  • SM 支持：统一维护
+  • 灵活性：低（只能推理）
+  • 踩坑概率：低
 
-## 血泪史：踩过的所有坑
+▸ Python 生态（LLaMA-Factory 等）
+  • 后端：PyTorch + Triton + 各种量化库
+  • SM 支持：各库各自维护
+  • 灵活性：高（能训练、微调）
+  • 踩坑概率：高
 
-| 坑 | 解决方案 |
-|---|---------|
-| 宿主机 PyTorch 是 CPU 版 | 用 Docker |
-| NGC 容器 24.12 不支持 GB10 | 换 25.11 |
-| GPTQ 不支持 SM 121 | 换 AWQ |
-| 社区魔改模型权重损坏 | 用官方模型 |
-| transformers 版本冲突 | 锁定 4.51.3 |
-| apex 冲突 | pip uninstall apex |
-| WebUI device_map 冲突 | 用命令行 |
-| WebUI dtype 不匹配 | 用命令行 |
+「结论：」
+• 只想跑推理 → Ollama，省心
+• 要做 LoRA 微调 → 忍着用 Python 生态，踩坑
 
----
+━━━━━━━━━━━━━━━━━━━━
 
-## 最终可用配置
+◆ 血泪史：踩过的所有坑
 
-### 硬件
-- DGX Spark (GB10, 128GB 统一内存)
+▸ 宿主机 PyTorch 是 CPU 版 → 用 Docker
+▸ NGC 容器 24.12 不支持 GB10 → 换 25.11
+▸ GPTQ 不支持 SM 121 → 换 AWQ
+▸ 社区魔改模型权重损坏 → 用官方模型
+▸ transformers 版本冲突 → 锁定 4.51.3
+▸ apex 冲突 → pip uninstall apex
+▸ WebUI device_map 冲突 → 用命令行
+▸ WebUI dtype 不匹配 → 用命令行
 
-### 软件栈
-- 容器：`nvcr.io/nvidia/pytorch:25.11-py3`
-- 模型：`Qwen/Qwen2.5-72B-Instruct-AWQ`
-- 依赖：`transformers==4.51.3` + `autoawq`
+━━━━━━━━━━━━━━━━━━━━
 
-### 启动命令
-```bash
+◆ 最终可用配置
+
+────────────────────
+
+【硬件】
+DGX Spark (GB10, 128GB 统一内存)
+
+【软件栈】
+• 容器：nvcr.io/nvidia/pytorch:25.11-py3
+• 模型：Qwen/Qwen2.5-72B-Instruct-AWQ
+• 依赖：transformers==4.51.3 + autoawq
+
+【启动命令】
 llamafactory-cli chat /workspace/little-pink-ai/config/chat_awq.yaml
-```
 
-### 配置文件
-```yaml
+【配置文件】
 model_name_or_path: /workspace/models/Qwen2.5-72B-Instruct-AWQ
 template: qwen
-```
 
----
+━━━━━━━━━━━━━━━━━━━━
 
-## 写在最后
+◆ 写在最后
 
 买最新的硬件，就要有当小白鼠的觉悟。
 
@@ -300,8 +309,8 @@ template: qwen
 
 这篇文章记录的所有坑，希望能帮到同样在 Blackwell 架构上折腾的朋友。
 
-**如果你也是 5090 或 DGX Spark 用户，欢迎在评论区交流踩坑经验。**
+「如果你也是 5090 或 DGX Spark 用户，欢迎在评论区交流踩坑经验。」
 
----
+━━━━━━━━━━━━━━━━━━━━
 
-*"我穿着敌人的机甲，但我知道我是谁。"*
+"我穿着敌人的机甲，但我知道我是谁。"
