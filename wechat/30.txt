@@ -1,4 +1,4 @@
-DGX Spark 适配 LLaMA-Factory 踩坑指南
+Blackwell 适配 LLaMA-Factory 踩坑指南（DGX Spark / RTX 50 系）
 
 买了最新的显卡，然后发现加油站还没开始卖这个型号要的油。
 
@@ -7,6 +7,8 @@ DGX Spark 适配 LLaMA-Factory 踩坑指南
 ◆ 背景
 
 我买了一台 NVIDIA DGX Spark（GB10 芯片，128GB 统一内存），想用 LLaMA-Factory 跑 72B 模型的 LoRA 微调。
+
+GB10 是 Blackwell 架构（SM 121），和 RTX 5070/5080/5090 同代。本文的踩坑经验对所有 50 系显卡通用。
 
 结果踩了两天坑。
 
@@ -24,10 +26,10 @@ SM = Streaming Multiprocessor，NVIDIA GPU 计算核心的架构代号。
 
 每一代架构有自己的 SM 版本号（NVIDIA 官方定义，用于标识 GPU 计算能力，也叫 Compute Capability）：
 
-▸ Ampere（SM 80/86）→ RTX 3090, A100
-▸ Ada Lovelace（SM 89）→ RTX 4090
+▸ Ampere（SM 80/86）→ RTX 30 系, A100
+▸ Ada Lovelace（SM 89）→ RTX 40 系
 ▸ Hopper（SM 90）→ H100
-▸「Blackwell（SM 120/121）」→ RTX 5090, GB10, B100
+▸「Blackwell（SM 120/121）」→ RTX 50 系（5060/5070/5080/5090）, GB10, B100
 
 这些架构名都是科学家的名字：
 • Ampere → 安培，电流单位那个安培
@@ -37,7 +39,7 @@ SM = Streaming Multiprocessor，NVIDIA GPU 计算核心的架构代号。
 
 NVIDIA 的传统：用科学家名字命名 GPU 架构。
 
-GB10 是 SM 121，Blackwell 架构，2024 年末发布。
+GB10 是 SM 121，Blackwell 架构。RTX 50 系（5070/5080/5090）同架构，2025 年 CES 发布。
 
 当一个库报错说"不支持 SM 121"，意思就是"不支持 Blackwell"。
 
@@ -102,7 +104,130 @@ sudo docker run --gpus all --ipc=host --ulimit memlock=-1 \
 量化模型不是简单地"把数字变小"。它需要：
 
 • 「特殊的矩阵乘法 kernel」—— 4-bit 整数不能直接用标准 FP16 矩阵乘法
-• 「解压缩逻辑」—— 推理时要把 4-bit 权重解压成 FP16 再算
+• 「解压缩逻辑」—— 推理时要把 4-bit 权重解压成 FP16 再算（目前主流实现）
+
+量化的主要收益是「省显存和带宽」（读 4-bit 比读 16-bit 快 4 倍），计算本身还是 FP16 或 INT8。
+
+顺便解释一下命名：
+• INT4 = 4-bit Integer（整数）
+• INT8 = 8-bit Integer（整数）
+• FP16 = 16-bit Floating Point（浮点数）
+• INT = 整数，FP = 浮点
+
+「注意」：INT4 说的是「存储格式」，不是计算格式。
+
+量化的本质很简单：
+
+▸ FP16 能表示 65536 个不同的值
+▸ INT4 只有 16 个档位
+
+「65536 档压成 16 档，精度自然会丢。」
+
+实际看一下 Qwen2.5-72B 的权重范围（用 safetensors 库读模型文件，打印 min/max）：
+
+▸ 大部分权重在 -0.5 到 +0.5 之间
+▸ 少数到 ±3 左右
+
+假设权重范围 [-0.5, +0.5]，INT4 有 16 档：
+每档精度 = 1.0 / 16 = 0.0625
+
+原始 FP16 精度大约 0.0001 级别，量化后变成 0.06 级别。「精度从万分位掉到百分位。」
+
+为什么模型还能用？神经网络对噪声有鲁棒性，权重稍微偏一点，输出差不多。几十亿个参数，个别误差会被平均掉。
+
+所以现在的量化模型：「存储是 INT4，计算时解压成 FP16」。
+
+────────────────────
+
+【为什么是 INT4 不是 FP4？】
+
+历史原因。AWQ/GPTQ 设计于 2022-2023 年，那时候：
+
+▸ INT4 硬件支持更广 —— Ampere/Ada 有 INT4 Tensor Core，没有 FP4
+▸ INT4 实现更简单 —— 整数量化只需要 scale + zero_point，浮点量化要处理指数位
+▸ 当时够用 —— 反正最后都解压成 FP16 算，INT4 存储够省显存了
+
+FP4 是 Blackwell（2024）才有的新东西。NVIDIA 发现 INT4 精度损失太大，改推 FP4/FP6。
+
+但生态还没跟上：没有 FP4 量化工具、没有 FP4 模型、没有 FP4 推理库。
+
+讽刺的是：当年选 INT4 是因为硬件支持好，结果 NVIDIA 从 Hopper 开始就废弃了 INT4 Tensor Core。
+
+现在的局面：「软件生态全是 INT4，硬件已经不支持 INT4 了。」
+
+所以现在还是 INT4 存储 → FP16 计算，等 FP4 生态成熟了才能真正用上 Blackwell 的 FP4 Tensor Core。
+
+────────────────────
+
+【为什么用 4-bit 不用 8-bit？】
+
+简单算一下 72B 模型的显存占用：
+
+▸ FP16（16-bit）：72B × 2 字节 = 144GB
+▸ INT8（8-bit）：72B × 1 字节 = 72GB
+▸ INT4（4-bit）：72B × 0.5 字节 = 36GB
+
+GB10 有 128GB 统一内存，看起来 INT8 的 72GB 也装得下？
+
+问题是 LoRA 训练不只是加载权重：
+
+▸ 权重本身：72GB
+▸ LoRA 适配器：~1-2GB
+▸ 优化器状态（Adam）：LoRA 参数的 2 倍
+▸ 梯度：跟 LoRA 参数同大小
+▸ 激活值缓存：取决于 batch size 和序列长度，几 GB 到几十 GB
+
+INT8 权重 72GB + 训练开销，128GB 会很紧张，batch size 只能开很小，训练效率低。
+
+INT4 权重 36GB，剩下 90GB 空间给训练开销，batch size 可以开大，训练更快。
+
+「结论：72B 模型在 128GB 设备上做 LoRA，INT4 是唯一舒服的选择。」
+
+────────────────────
+
+【为什么家用设备上全参数微调根本不可能？】
+
+顺便算一下全参数微调（FFT，Full Fine-Tuning）需要多少显存：
+
+▸ 权重（FP16）：144GB —— 固定
+▸ 梯度（FP16）：144GB —— 固定
+▸ 优化器状态（Adam，FP32）：576GB —— 固定
+▸ 激活值缓存：几十 GB ——「浮动」（跟 batch size 成正比）
+
+「梯度」：告诉你"往哪个方向改"，就像站在山坡上，梯度告诉你"往哪边走是下坡"。
+
+「优化器」：决定"改多少"。Adam 给每个参数记两份历史（一阶动量 + 二阶动量），每份 FP32（4 字节），所以 72B × 8 = 576GB，比权重还大。
+
+「激活值缓存」：训练时每一层的中间结果，反向传播要用。batch size 越大，缓存越多。显存不够时，第一件事就是减小 batch size。
+
+「最低总计：~900GB」
+
+这意味着全参数微调 72B 至少需要 8×H100（80GB×8=640GB）再加 CPU offload，或者直接上 H200/B200。
+
+GB10 的 128GB？连权重都放不下，别想了。
+
+「这就解释了，为什么穷人想微调大模型，LoRA 是唯一的可能性。」
+
+顺便说一下 RTX 5090（32GB 显存）的情况：72B-INT4 量化后还要 36GB，连加载都加载不了。7B 模型全参数微调需要 ~90GB（权重 14GB + 梯度 14GB + 优化器 56GB），也跑不动，只能 LoRA。
+
+────────────────────
+
+【一个重要的更正】
+
+我本来以为 GB10 有原生 INT4 Tensor Core，写文章时特意做了实验验证。
+
+结果发现：「NVIDIA 从 Hopper 开始就废弃了 INT4！Blackwell 也没有原生 INT4 计算单元。」
+
+Blackwell 新增的是 FP4/FP6（4-bit 和 6-bit 浮点），不是 INT4（4-bit 整数）。
+
+所以 AWQ/GPTQ 的"INT4 量化"实际流程是：
+1. 权重用 INT4 格式存储（省显存）
+2. 推理时解压成 FP16
+3. 用 FP16 Tensor Core 计算
+
+「没有"原生 INT4 计算"这回事，至少在 Hopper/Blackwell 上没有。」
+
+这里说的 kernel 不是操作系统内核，是 CUDA 编程术语：「一段能在 GPU 上并行执行的计算代码」。
 
 这些 kernel 是针对特定 GPU 架构编译的。新架构没人适配，就跑不起来。
 
@@ -110,21 +235,25 @@ sudo docker run --gpus all --ipc=host --ulimit memlock=-1 \
 
 【GB10 量化格式兼容性】
 
-▸ AWQ → ✓ autoawq 支持 SM 121
+▸ AWQ → ✓ autoawq 后端支持 SM 121
 ▸ GPTQ → ✗ Triton 后端不支持 SM 121
 ▸ bitsandbytes 4-bit → ⚠️ 加载时内存峰值太高
 ▸ 原版 bf16/fp16 → ⚠️ 72B 需要 144GB，超过 128GB
 
 ────────────────────
 
-【GPTQ vs AWQ 的后端差异】
+【GPTQ vs AWQ 的底层实现差异】
 
-▸ GPTQ：用 Triton（Python 动态编译），SM 121 ✗
-▸ AWQ：用 CUDA（预编译 C++），SM 121 ✓
+这里说的"后端"不是前端/后端开发那个概念，是指「用什么技术写 GPU 计算代码」：
 
-GPTQ 用 Triton，Triton 需要针对每个 SM 版本动态编译 kernel。Blackwell 太新，Triton 还不认识它，所以回退到 CPU。
+▸ GPTQ：用 Triton（Python 写 kernel，运行时动态编译），SM 121 ✗
+▸ AWQ：用 CUDA C++（预编译好的 kernel），SM 121 ✓
 
-AWQ 用预编译的 CUDA kernel，autoawq 团队已经加了 SM 121 支持。
+Triton 是 OpenAI 搞的工具，让你用 Python 写 GPU kernel，它帮你编译。好处是开发快，坏处是新 GPU 架构出来要等它更新编译器。
+
+Blackwell 太新，Triton 还不认识 SM 121，所以 GPTQ 回退到 CPU。
+
+AWQ 用的是预编译的 CUDA C++ kernel，autoawq 团队已经手动加了 SM 121 支持，所以能跑。
 
 「结论：在 GB10 上跑 72B 模型，AWQ 是唯一靠谱的选择。」
 
@@ -181,7 +310,7 @@ ValueError: You are attempting to load an AWQ model with a device_map that conta
 
 【问题 3：dtype 不匹配】
 
-WebUI 默认用 bfloat16，但 AWQ 模型权重是 fp16：
+WebUI 强制你选一个 dtype（bfloat16 或 float16），但 AWQ 模型只认自己存的格式，选什么都报错：
 
 AssertionError: Both operands must be same dtype. Got fp16 and bf16
 
@@ -194,19 +323,17 @@ AssertionError: Both operands must be same dtype. Got fp16 and bf16
 model_name_or_path: /workspace/models/Qwen2.5-72B-Instruct-AWQ
 template: qwen
 
-启动命令：
-
-llamafactory-cli chat /workspace/patriot-ai/config/chat_awq.yaml
-
-「配置文件就两行，关键是"没写的东西"：」
-
-model_name_or_path: /workspace/models/Qwen2.5-72B-Instruct-AWQ
-template: qwen
+「真的就这两行，别多写。」
 
 • 没写 device_map → 走 AWQ 原生加载，直接放 GPU
 • 没写 torch_dtype → 自动匹配模型的 fp16
+• 多写一个参数 → 多一个出错的机会
 
-WebUI 多管闲事加了不该加的参数，极简配置反而是对的。
+WebUI 的问题就是多管闲事加了不该加的参数。极简配置反而是对的。
+
+启动命令：
+
+llamafactory-cli chat /workspace/patriot-ai/config/chat_awq.yaml
 
 ────────────────────
 
@@ -254,7 +381,7 @@ Ollama 用的是「llama.cpp」后端，C++ 写的，自己编译了各种 GPU �
 
 它不依赖 PyTorch、Triton、bitsandbytes、autoawq、gptqmodel 这些 Python 库。
 
-这些库各有各的 SM 支持进度，某个没跟上就炸。Ollama 是一体化方案，NVIDIA 出新架构它就更新一版，用户无感知。
+这些库各有各的 SM（GPU 架构版本）支持进度，某个没跟上就会报错。Ollama 是一体化方案，NVIDIA 出新架构它就更新一版，用户无感知。
 
 ────────────────────
 
@@ -285,7 +412,7 @@ Ollama 用的是「llama.cpp」后端，C++ 写的，自己编译了各种 GPU �
 ▸ GPTQ 不支持 SM 121 → 换 AWQ
 ▸ 社区魔改模型权重损坏 → 用官方模型
 ▸ transformers 版本冲突 → 锁定 4.51.3
-▸ apex 冲突 → pip uninstall apex
+▸ apex 冲突 → pip uninstall apex（老版混合精度库，PyTorch 已内置替代）
 ▸ WebUI device_map 冲突 → 用命令行
 ▸ WebUI dtype 不匹配 → 用命令行
 
@@ -321,6 +448,181 @@ template: qwen
 这篇文章记录的所有坑，希望能帮到同样在 Blackwell 架构上折腾的朋友。
 
 「如果你也是 5090 或 DGX Spark 用户，欢迎在评论区交流踩坑经验。」
+
+━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 附录：实验验证 —— INT4 真的更快吗？
+
+写这篇文章时，我本来想证明"GB10 的 INT4 Tensor Core 有多强"。
+
+结果实验打了我的脸：首先发现 Blackwell 根本没有 INT4 Tensor Core，其次自己写的 INT4 模拟 kernel 效率也很差。
+
+────────────────────
+
+【实验 1：PyTorch INT8 vs FP16】
+
+```python
+import torch
+import time
+
+size = 4096
+
+# FP16 矩阵乘法
+a_fp16 = torch.randn(size, size, dtype=torch.float16, device='cuda')
+b_fp16 = torch.randn(size, size, dtype=torch.float16, device='cuda')
+start = time.time()
+for _ in range(10):
+    c_fp16 = torch.matmul(a_fp16, b_fp16)
+torch.cuda.synchronize()
+fp16_time = (time.time() - start) / 10
+
+# INT8 矩阵乘法
+a_int8 = torch.randint(-128, 127, (size, size), dtype=torch.int8, device='cuda')
+b_int8 = torch.randint(-128, 127, (size, size), dtype=torch.int8, device='cuda')
+start = time.time()
+for _ in range(10):
+    c_int8 = torch._int_mm(a_int8, b_int8)
+torch.cuda.synchronize()
+int8_time = (time.time() - start) / 10
+
+print(f'FP16 耗时: {fp16_time*1000:.2f} ms')
+print(f'INT8 耗时: {int8_time*1000:.2f} ms')
+print(f'加速比: {fp16_time/int8_time:.2f}x')
+```
+
+结果：
+
+▸ FP16 耗时: 26.54 ms
+▸ INT8 耗时: 3.46 ms
+▸「INT8 比 FP16 快 7.66 倍」
+
+到这里还挺符合预期。
+
+────────────────────
+
+【实验 2：自己写 CUDA 测 INT4】
+
+PyTorch 没有 INT4 接口，我就自己写了一个 CUDA kernel，用位操作模拟 INT4。
+
+先解释一下 CUDA 函数的关键字：
+
+| 关键字     | 在哪里执行 | 谁能调用 |
+|------------|------------|----------|
+| __global__ | GPU        | CPU 调用 |
+| __device__ | GPU        | GPU 调用 |
+| __host__   | CPU        | CPU 调用 |
+| 无关键字   | CPU        | CPU 调用 |
+
+所以 `__global__` 就是"这个函数在 GPU 上跑，但由 CPU 发起调用"。
+
+```cuda
+// INT4 模拟 (打包成 uint8，每个 byte 存 2 个 int4)
+__global__ void matmul_int4_packed(uint8_t *A, uint8_t *B, int32_t *C, int N) {
+    int row = blockIdx.y * blockDim.y + threadIdx.y;
+    int col = blockIdx.x * blockDim.x + threadIdx.x;
+
+    if (row < N && col < N) {
+        int32_t sum = 0;
+        for (int k = 0; k < N/2; k++) {
+            uint8_t a_packed = A[row * (N/2) + k];
+            uint8_t b_packed = B[col * (N/2) + k];
+
+            // 解包 int4（低 4 位和高 4 位）
+            int8_t a_lo = (a_packed & 0x0F) - 8;
+            int8_t a_hi = ((a_packed >> 4) & 0x0F) - 8;
+            int8_t b_lo = (b_packed & 0x0F) - 8;
+            int8_t b_hi = ((b_packed >> 4) & 0x0F) - 8;
+
+            sum += (int32_t)a_lo * (int32_t)b_lo;
+            sum += (int32_t)a_hi * (int32_t)b_hi;
+        }
+        C[row * N + col] = sum;
+    }
+}
+```
+
+结果：
+
+▸ FP16 耗时: 105.42 ms
+▸ INT8 耗时: 77.68 ms
+▸ INT4 耗时: 167.67 ms
+
+「INT4 反而比 INT8 慢了 2 倍！」
+
+────────────────────
+
+【为什么？】
+
+我去搜了 NVIDIA 官方文档和技术分析，发现了一个惊人的事实：
+
+「NVIDIA 从 Hopper 开始就废弃了 INT4 Tensor Core！」
+
+INT4 的历史：
+
+▸ Turing (2018)：首次引入 INT4/INT8 Tensor Core
+▸ Ampere (2020)：继续支持 INT4，指令编译成 IMMA.16832.S4.S4
+▸ Ada (2022)：继续支持 INT4
+▸ Hopper (2022)：「废弃 INT4」，接口还在但实际用 INT8 模拟
+▸ Blackwell (2024)：同 Hopper，INT4 是假的；新增 FP4/FP6
+
+根据 SemiAnalysis 的深度分析：
+
+> "on Hopper, the 16×8×128 matrix multiplication is emulated with uint8_t multiplication, not physically implemented in uint4_t!"
+
+翻译：Hopper 上的 INT4 矩阵乘法，实际是拆成 INT8 来算的，不是真正的 4-bit 计算。
+
+所以：
+▸ Ampere/Ada 上：INT4 mma 指令 → Tensor Core 执行（真·硬件加速）
+▸ Hopper/Blackwell 上：INT4 mma 指令 → IMAD 指令在 CUDA Core 上模拟（假的）
+
+我那个"INT4 kernel"是用软件模拟的（位操作解包），不是硬件原生支持。软件模拟的开销反而让它更慢。
+
+「为什么 INT4 模拟慢？」
+
+看 PTX（GPU 汇编）就明白了：每个 INT4 要做 and（按位与）+ shr（右移）+ sub（减法）才能解包，然后才能 mad（乘加）。原生 INT8 直接 mad 就完事。
+
+解包开销 > 省下的计算开销，所以软件模拟 INT4 反而更慢。
+
+Blackwell 新增的是 FP4/FP6（4-bit 和 6-bit 浮点），不是 INT4（整数）。NVIDIA 的方向变了。
+
+────────────────────
+
+【教训】
+
+1. 不要想当然，要做实验验证
+2. "INT4 量化"只是存储格式，计算还是 FP16
+3. 量化省的是显存和带宽，不是计算
+
+「这篇文章差点发出去一个大错误，还好做了实验。」
+
+────────────────────
+
+【未来展望：FP4 才是正确姿势】
+
+既然 Blackwell 废弃了 INT4，新增了 FP4/FP6，那真正能发挥硬件性能的应该是 FP4 量化。
+
+▸ FP16 → 16-bit 存储 → FP16 Tensor Core 计算 → ✅ 支持
+▸ INT8 → 8-bit 存储 → INT8 Tensor Core 计算 → ✅ 支持
+▸ INT4 (AWQ/GPTQ) → 4-bit 存储 → 解压成 FP16 计算 → ⚠️ 只省存储
+▸「FP4」→ 4-bit 存储 →「FP4 Tensor Core」计算 → ✅ 原生支持
+
+FP4 = 既省存储，又有原生硬件加速。理论上是最快的方案。
+
+但现在：
+
+▸ 没有 FP4 量化的模型 —— AWQ/GPTQ 都是 INT4
+▸ 没有 FP4 推理库 —— transformers/vLLM/llama.cpp 都不支持
+▸ NVIDIA 刚发布 —— CUTLASS 的 FP4 支持还在早期
+
+等什么？
+
+1. 有人把 Qwen/LLaMA 量化成 FP4 格式
+2. 有人写 FP4 推理 kernel
+3. PyTorch/transformers 支持 FP4
+
+「这可能是 2026 年的事。届时 Blackwell 会变得更好用些。」
 
 ━━━━━━━━━━━━━━━━━━━━
 
