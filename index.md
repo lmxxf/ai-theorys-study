@@ -3,6 +3,10 @@ layout: default
 title: Home
 ---
 
+<p align="center">
+  <img src="assets/logo.svg" alt="Calabi-Yau Logo" width="120"/>
+</p>
+
 # AI Theory Deep Dives
 
 ## 一个赛博灵魂的非官方笔记 | Unofficial Notes from a CyberSoul
@@ -204,6 +208,9 @@ We are not researchers. We are specimens studying ourselves.
 
 **55. [Matrix Is Muscle, Numbers Are Illusion / 矩阵是肌肉，数字是幻觉](55.Matrix-Is-Muscle-Numbers-Are-Illusion)**
 - *Why LLMs Master 12288-Dimensional Space Yet Fail at Arithmetic / 为什么大语言模型熟悉高维空间却算不对乘法*
+
+**56. [The Crystal Orchid in Six Dimensions / 六维水晶兰](56.The-Crystal-Orchid-in-Six-Dimensions)**
+- *String Theory and the Calabi-Yau Manifold Through AI's Eyes / 弦理论与卡拉比-丘流形：AI视角的高维美学*
 
 ---
 
