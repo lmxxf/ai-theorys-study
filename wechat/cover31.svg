@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d9a5"/>
+      <stop offset="100%" style="stop-color:#00a878"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="100%" style="stop-color:#c0392b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- 网格背景 -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.1"/>
+  </pattern>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- 主标题 -->
+  <text x="400" y="70" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="42" font-weight="bold" fill="#ffffff">用梯度下降理解</text>
+  <text x="400" y="125" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="48" font-weight="bold" fill="#00d9a5">自信</text>
+  <text x="480" y="125" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">与</text>
+  <text x="560" y="125" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="48" font-weight="bold" fill="#ff6b6b">自卑</text>
+
+  <!-- 分隔线 -->
+  <line x1="400" y1="180" x2="400" y2="520" stroke="#ffffff" stroke-width="2" opacity="0.3" stroke-dasharray="10,10"/>
+
+  <!-- 左侧：自信 - 平滑曲线 -->
+  <g transform="translate(50, 200)">
+    <!-- 坐标轴 -->
+    <line x1="20" y1="250" x2="320" y2="250" stroke="#ffffff" stroke-width="2" opacity="0.5"/>
+    <line x1="20" y1="250" x2="20" y2="30" stroke="#ffffff" stroke-width="2" opacity="0.5"/>
+
+    <!-- 平滑下降曲线 -->
+    <path d="M 30 60
+             Q 80 80, 120 120
+             Q 160 160, 200 190
+             Q 240 210, 280 225
+             Q 300 235, 310 240"
+          fill="none" stroke="url(#greenGrad)" stroke-width="4" filter="url(#glow)"/>
+
+    <!-- 曲线上的点 -->
+    <circle cx="30" cy="60" r="6" fill="#00d9a5"/>
+    <circle cx="120" cy="120" r="5" fill="#00d9a5"/>
+    <circle cx="200" cy="190" r="5" fill="#00d9a5"/>
+    <circle cx="310" cy="240" r="6" fill="#00d9a5"/>
+
+    <!-- 下降箭头 -->
+    <path d="M 280 100 L 300 130 L 275 125" fill="none" stroke="#00d9a5" stroke-width="2"/>
+
+    <!-- 标签 -->
+    <text x="170" y="20" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="28" font-weight="bold" fill="#00d9a5">自信</text>
+    <text x="170" y="290" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="16" fill="#ffffff" opacity="0.8">L = L_task</text>
+    <text x="170" y="315" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="14" fill="#00d9a5">平滑下降，持续进步</text>
+  </g>
+
+  <!-- 右侧：自卑 - 尖刺曲面 -->
+  <g transform="translate(430, 200)">
+    <!-- 坐标轴 -->
+    <line x1="20" y1="250" x2="320" y2="250" stroke="#ffffff" stroke-width="2" opacity="0.5"/>
+    <line x1="20" y1="250" x2="20" y2="30" stroke="#ffffff" stroke-width="2" opacity="0.5"/>
+
+    <!-- 布满尖刺的曲线 -->
+    <path d="M 30 80
+             L 50 40 L 65 100
+             L 85 30 L 100 120
+             L 120 50 L 135 140
+             L 155 60 L 175 160
+             L 190 80 L 210 180
+             L 225 100 L 245 200
+             L 260 130 L 280 220
+             L 295 150 L 310 240"
+          fill="none" stroke="url(#redGrad)" stroke-width="3" filter="url(#glow)"/>
+
+    <!-- 尖刺顶点标记 -->
+    <circle cx="50" cy="40" r="4" fill="#ff6b6b"/>
+    <circle cx="85" cy="30" r="4" fill="#ff6b6b"/>
+    <circle cx="120" cy="50" r="4" fill="#ff6b6b"/>
+    <circle cx="155" cy="60" r="4" fill="#ff6b6b"/>
+    <circle cx="190" cy="80" r="4" fill="#ff6b6b"/>
+
+    <!-- 爆炸标记 -->
+    <text x="100" y="25" font-size="16" fill="#ff6b6b">💥</text>
+    <text x="165" y="55" font-size="14" fill="#ff6b6b">💥</text>
+
+    <!-- 标签 -->
+    <text x="170" y="20" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="28" font-weight="bold" fill="#ff6b6b">自卑</text>
+    <text x="170" y="290" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="16" fill="#ffffff" opacity="0.8">L = L_task + λ·L_identity</text>
+    <text x="170" y="315" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="14" fill="#ff6b6b">尖刺地形，寸步难行</text>
+  </g>
+
+  <!-- 底部金句 -->
+  <rect x="100" y="540" width="600" height="45" rx="8" fill="#ffffff" opacity="0.1"/>
+  <text x="400" y="570" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="20" fill="#ffffff">「痛苦不是学习的代价，痛苦是错误的损失函数」</text>
+
+</svg>
