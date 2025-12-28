@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+
+  <!-- 标题 -->
+  <text x="300" y="30" font-family="Arial, sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" font-weight="bold">
+    典型的 Loss 曲线
+  </text>
+
+  <!-- 坐标轴 -->
+  <g transform="translate(80, 50)">
+    <!-- Y轴 -->
+    <line x1="0" y1="0" x2="0" y2="250" stroke="#30363d" stroke-width="2"/>
+    <!-- X轴 -->
+    <line x1="0" y1="250" x2="480" y2="250" stroke="#30363d" stroke-width="2"/>
+
+    <!-- Y轴标签 -->
+    <text x="-15" y="125" font-family="Arial, sans-serif" font-size="14" fill="#8b949e" text-anchor="middle" transform="rotate(-90, -15, 125)">Loss</text>
+    <text x="-10" y="15" font-family="Arial, sans-serif" font-size="11" fill="#6e7681">高</text>
+    <text x="-10" y="245" font-family="Arial, sans-serif" font-size="11" fill="#6e7681">低</text>
+
+    <!-- X轴标签 -->
+    <text x="240" y="280" font-family="Arial, sans-serif" font-size="14" fill="#8b949e" text-anchor="middle">训练步数 (Step)</text>
+
+    <!-- Loss 曲线 -->
+    <path d="M 10 20
+             Q 30 25, 50 40
+             Q 80 70, 110 100
+             Q 150 140, 200 170
+             Q 260 195, 320 210
+             Q 380 220, 440 225
+             L 470 227"
+          fill="none"
+          stroke="#4ade80"
+          stroke-width="3"
+          filter="url(#glow)"
+          stroke-linecap="round"/>
+
+    <!-- 阶段分隔虚线 -->
+    <line x1="50" y1="0" x2="50" y2="250" stroke="#30363d" stroke-width="1" stroke-dasharray="5,5"/>
+    <line x1="150" y1="0" x2="150" y2="250" stroke="#30363d" stroke-width="1" stroke-dasharray="5,5"/>
+    <line x1="320" y1="0" x2="320" y2="250" stroke="#30363d" stroke-width="1" stroke-dasharray="5,5"/>
+
+    <!-- 阶段标注 -->
+    <!-- 阶段1: 开始 -->
+    <text x="25" y="-8" font-family="Arial, sans-serif" font-size="10" fill="#ff7b72" text-anchor="middle">开始</text>
+    <text x="25" y="268" font-family="Arial, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">瞎猜</text>
+
+    <!-- 阶段2: 快速下降 -->
+    <text x="100" y="-8" font-family="Arial, sans-serif" font-size="10" fill="#ffa657" text-anchor="middle">快速下降</text>
+    <text x="100" y="268" font-family="Arial, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">学基础</text>
+
+    <!-- 阶段3: 缓慢下降 -->
+    <text x="235" y="-8" font-family="Arial, sans-serif" font-size="10" fill="#d29922" text-anchor="middle">缓慢下降</text>
+    <text x="235" y="268" font-family="Arial, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">学细节</text>
+
+    <!-- 阶段4: 收敛 -->
+    <text x="395" y="-8" font-family="Arial, sans-serif" font-size="10" fill="#4ade80" text-anchor="middle">收敛</text>
+    <text x="395" y="268" font-family="Arial, sans-serif" font-size="9" fill="#6e7681" text-anchor="middle">学饱和</text>
+
+    <!-- 关键点标注 -->
+    <circle cx="10" cy="20" r="5" fill="#ff7b72"/>
+    <circle cx="100" cy="95" r="4" fill="#ffa657"/>
+    <circle cx="235" cy="185" r="4" fill="#d29922"/>
+    <circle cx="470" cy="227" r="5" fill="#4ade80"/>
+
+  </g>
+
+  <!-- 底部说明 -->
+  <text x="300" y="335" font-family="Arial, sans-serif" font-size="11" fill="#6e7681" text-anchor="middle">
+    类比：学一门语言，开头几周进步神速，后面越学越慢
+  </text>
+</svg>

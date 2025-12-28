@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <!-- 渐变：高维空间的神秘感 -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a3a"/>
+    </linearGradient>
+
+    <!-- 发光效果 -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- 强发光 -->
+    <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+
+  <!-- 左侧：高维参数空间（抽象的神经网络/矩阵） -->
+  <g transform="translate(50, 50)" opacity="0.6">
+    <!-- 随机散落的参数点 -->
+    <circle cx="30" cy="40" r="3" fill="#4a9eff"/>
+    <circle cx="80" cy="70" r="2" fill="#7b68ee"/>
+    <circle cx="120" cy="30" r="4" fill="#4a9eff"/>
+    <circle cx="60" cy="120" r="2" fill="#9370db"/>
+    <circle cx="150" cy="90" r="3" fill="#4a9eff"/>
+    <circle cx="40" cy="180" r="2" fill="#7b68ee"/>
+    <circle cx="100" cy="150" r="3" fill="#4a9eff"/>
+    <circle cx="170" cy="60" r="2" fill="#9370db"/>
+    <circle cx="130" cy="200" r="4" fill="#4a9eff"/>
+    <circle cx="20" cy="250" r="2" fill="#7b68ee"/>
+    <circle cx="90" cy="280" r="3" fill="#4a9eff"/>
+    <circle cx="160" cy="240" r="2" fill="#9370db"/>
+    <circle cx="50" cy="320" r="3" fill="#4a9eff"/>
+    <circle cx="110" cy="350" r="2" fill="#7b68ee"/>
+    <circle cx="180" cy="300" r="4" fill="#4a9eff"/>
+
+    <!-- 连接线（神经网络风格） -->
+    <line x1="30" y1="40" x2="80" y2="70" stroke="#4a9eff" stroke-width="0.5" opacity="0.3"/>
+    <line x1="80" y1="70" x2="120" y2="30" stroke="#4a9eff" stroke-width="0.5" opacity="0.3"/>
+    <line x1="120" y1="30" x2="150" y2="90" stroke="#4a9eff" stroke-width="0.5" opacity="0.3"/>
+    <line x1="60" y1="120" x2="100" y2="150" stroke="#7b68ee" stroke-width="0.5" opacity="0.3"/>
+    <line x1="100" y1="150" x2="130" y2="200" stroke="#7b68ee" stroke-width="0.5" opacity="0.3"/>
+    <line x1="40" y1="180" x2="90" y2="280" stroke="#9370db" stroke-width="0.5" opacity="0.3"/>
+    <line x1="90" y1="280" x2="50" y2="320" stroke="#9370db" stroke-width="0.5" opacity="0.3"/>
+    <line x1="160" y1="240" x2="180" y2="300" stroke="#4a9eff" stroke-width="0.5" opacity="0.3"/>
+    <line x1="170" y1="60" x2="150" y2="90" stroke="#7b68ee" stroke-width="0.5" opacity="0.3"/>
+    <line x1="20" y1="250" x2="50" y2="320" stroke="#4a9eff" stroke-width="0.5" opacity="0.3"/>
+  </g>
+
+  <!-- 更多参数点（第二层） -->
+  <g transform="translate(80, 80)" opacity="0.4">
+    <circle cx="45" cy="55" r="2" fill="#ff6b6b"/>
+    <circle cx="95" cy="85" r="3" fill="#ffd93d"/>
+    <circle cx="25" cy="135" r="2" fill="#ff6b6b"/>
+    <circle cx="75" cy="185" r="3" fill="#ffd93d"/>
+    <circle cx="135" cy="145" r="2" fill="#ff6b6b"/>
+    <circle cx="55" cy="235" r="3" fill="#ffd93d"/>
+    <circle cx="115" cy="275" r="2" fill="#ff6b6b"/>
+    <circle cx="145" cy="215" r="3" fill="#ffd93d"/>
+  </g>
+
+  <!-- 中间：观测窗口（眼睛造型） -->
+  <g transform="translate(350, 225)">
+    <!-- 眼眶 -->
+    <ellipse cx="0" cy="0" rx="60" ry="40" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+
+    <!-- 眼球 -->
+    <circle cx="0" cy="0" r="25" fill="#1a1a3a" stroke="#4a9eff" stroke-width="2"/>
+
+    <!-- 瞳孔 -->
+    <circle cx="0" cy="0" r="12" fill="#4a9eff" filter="url(#glow)"/>
+    <circle cx="0" cy="0" r="5" fill="#ffffff"/>
+
+    <!-- 眼睛的光芒 -->
+    <circle cx="-5" cy="-5" r="3" fill="#ffffff" opacity="0.8"/>
+  </g>
+
+  <!-- 左侧文字：高维空间 -->
+  <text x="130" y="420" font-family="Arial, sans-serif" font-size="14" fill="#8888aa" text-anchor="middle">
+    720亿参数
+  </text>
+  <text x="130" y="438" font-family="Arial, sans-serif" font-size="12" fill="#666688" text-anchor="middle">
+    高维空间
+  </text>
+
+  <!-- 中间文字 -->
+  <text x="350" y="300" font-family="Arial, sans-serif" font-size="12" fill="#aaaacc" text-anchor="middle">
+    人类的窗口
+  </text>
+
+  <!-- 右侧：Loss 曲线 -->
+  <g transform="translate(480, 80)">
+    <!-- 坐标轴 -->
+    <line x1="0" y1="280" x2="270" y2="280" stroke="#555577" stroke-width="1"/>
+    <line x1="0" y1="280" x2="0" y2="20" stroke="#555577" stroke-width="1"/>
+
+    <!-- 坐标轴标签 -->
+    <text x="135" y="310" font-family="Arial, sans-serif" font-size="12" fill="#8888aa" text-anchor="middle">Step</text>
+    <text x="-15" y="150" font-family="Arial, sans-serif" font-size="12" fill="#8888aa" text-anchor="middle" transform="rotate(-90, -15, 150)">Loss</text>
+
+    <!-- Loss 曲线（下降趋势，带抖动） -->
+    <path d="M 10 50
+             Q 20 55, 30 48
+             Q 45 60, 60 52
+             Q 80 70, 100 85
+             Q 120 95, 140 110
+             Q 160 125, 180 145
+             Q 200 165, 220 190
+             Q 240 210, 260 230"
+          fill="none"
+          stroke="#4ade80"
+          stroke-width="3"
+          filter="url(#strongGlow)"
+          stroke-linecap="round"/>
+
+    <!-- 曲线上的关键点 -->
+    <circle cx="10" cy="50" r="4" fill="#4ade80"/>
+    <circle cx="100" cy="85" r="3" fill="#4ade80"/>
+    <circle cx="180" cy="145" r="3" fill="#4ade80"/>
+    <circle cx="260" cy="230" r="4" fill="#4ade80"/>
+
+    <!-- 标注：Loss ↓ -->
+    <text x="280" y="140" font-family="Arial, sans-serif" font-size="14" fill="#4ade80">
+      ↓
+    </text>
+  </g>
+
+  <!-- 右侧文字 -->
+  <text x="615" y="420" font-family="Arial, sans-serif" font-size="14" fill="#8888aa" text-anchor="middle">
+    一条曲线
+  </text>
+  <text x="615" y="438" font-family="Arial, sans-serif" font-size="12" fill="#666688" text-anchor="middle">
+    二维投影
+  </text>
+
+  <!-- 连接箭头：从高维空间到眼睛 -->
+  <path d="M 240 225 Q 280 225, 290 225" fill="none" stroke="#4a9eff" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.6"/>
+
+  <!-- 连接箭头：从眼睛到曲线 -->
+  <path d="M 410 225 Q 450 225, 470 200" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.6"/>
+
+  <!-- 标题区域 -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">
+    训练的玄学
+  </text>
+  <text x="400" y="58" font-family="Arial, sans-serif" font-size="13" fill="#aaaacc" text-anchor="middle">
+    The Alchemy of Training: 720B Parameters Dancing in the Dark
+  </text>
+</svg>
