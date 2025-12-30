@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="trash" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#666"/>
+      <stop offset="100%" style="stop-color:#333"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700"/>
+      <stop offset="100%" style="stop-color:#ff8c00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- 装饰性网格 -->
+  <g opacity="0.1" stroke="#4a90d9" stroke-width="0.5">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="200" y1="0" x2="200" y2="450"/>
+    <line x1="400" y1="0" x2="400" y2="450"/>
+    <line x1="600" y1="0" x2="600" y2="450"/>
+  </g>
+
+  <!-- 左边：垃圾桶 (Meta/Llama) -->
+  <g transform="translate(120, 180)">
+    <!-- 垃圾桶身体 -->
+    <path d="M-40,30 L-35,120 L35,120 L40,30 Z" fill="url(#trash)" stroke="#888" stroke-width="2"/>
+    <!-- 垃圾桶盖 -->
+    <rect x="-50" y="15" width="100" height="20" rx="3" fill="#555" stroke="#888" stroke-width="2"/>
+    <!-- 垃圾桶把手 -->
+    <rect x="-8" y="5" width="16" height="15" rx="2" fill="#444"/>
+    <!-- 横条纹 -->
+    <line x1="-30" y1="55" x2="30" y2="55" stroke="#555" stroke-width="2"/>
+    <line x1="-28" y1="80" x2="28" y2="80" stroke="#555" stroke-width="2"/>
+    <line x1="-26" y1="105" x2="26" y2="105" stroke="#555" stroke-width="2"/>
+    <!-- 标签 -->
+    <text x="0" y="160" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Meta</text>
+    <text x="0" y="180" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="12">(Llama)</text>
+  </g>
+
+  <!-- 加号 -->
+  <g transform="translate(265, 250)">
+    <text text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="48" font-weight="bold">+</text>
+  </g>
+
+  <!-- 中间：小丑/骗子 (Manus) -->
+  <g transform="translate(400, 180)">
+    <!-- 小丑脸 -->
+    <circle cx="0" cy="50" r="50" fill="#ffe4b5" stroke="#daa520" stroke-width="2"/>
+    <!-- 小丑帽子 -->
+    <path d="M-40,20 Q-50,-30 -20,-20 Q0,-50 20,-20 Q50,-30 40,20" fill="#ff4444" stroke="#cc0000" stroke-width="2"/>
+    <!-- 帽子铃铛 -->
+    <circle cx="-20" cy="-18" r="6" fill="#ffd700"/>
+    <circle cx="20" cy="-18" r="6" fill="#ffd700"/>
+    <circle cx="0" cy="-45" r="6" fill="#ffd700"/>
+    <!-- 眼睛 -->
+    <circle cx="-15" cy="40" r="8" fill="white"/>
+    <circle cx="15" cy="40" r="8" fill="white"/>
+    <circle cx="-15" cy="40" r="4" fill="#333"/>
+    <circle cx="15" cy="40" r="4" fill="#333"/>
+    <!-- 红鼻子 -->
+    <circle cx="0" cy="55" r="10" fill="#ff4444"/>
+    <!-- 嘴巴 -->
+    <path d="M-20,75 Q0,95 20,75" fill="none" stroke="#cc0000" stroke-width="3"/>
+    <!-- 标签 -->
+    <text x="0" y="130" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Manus</text>
+    <text x="0" y="150" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="12">(Agent)</text>
+  </g>
+
+  <!-- 等号 -->
+  <g transform="translate(535, 250)">
+    <text text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="48" font-weight="bold">=</text>
+  </g>
+
+  <!-- 右边：独角兽 (但是假的) -->
+  <g transform="translate(680, 180)">
+    <!-- 马身体 -->
+    <ellipse cx="0" cy="80" rx="45" ry="35" fill="#e8b4d8" stroke="#d896c8" stroke-width="2"/>
+    <!-- 马头 -->
+    <ellipse cx="30" cy="40" rx="25" ry="30" fill="#e8b4d8" stroke="#d896c8" stroke-width="2"/>
+    <!-- 独角 (金色但歪的) -->
+    <path d="M45,15 L60,-35 L50,10" fill="url(#gold)" stroke="#daa520" stroke-width="1" transform="rotate(15, 45, 15)"/>
+    <!-- 眼睛 (画成美元符号) -->
+    <text x="35" y="45" text-anchor="middle" fill="#2e8b57" font-family="Arial, sans-serif" font-size="16" font-weight="bold">$</text>
+    <!-- 腿 -->
+    <rect x="-30" y="105" width="10" height="35" fill="#d896c8"/>
+    <rect x="-10" y="105" width="10" height="35" fill="#d896c8"/>
+    <rect x="10" y="105" width="10" height="35" fill="#d896c8"/>
+    <rect x="30" y="105" width="10" height="35" fill="#d896c8"/>
+    <!-- 尾巴 -->
+    <path d="M-45,70 Q-70,60 -65,90 Q-60,110 -45,100" fill="none" stroke="#ff69b4" stroke-width="4" stroke-linecap="round"/>
+    <!-- 鬃毛 -->
+    <path d="M20,15 Q10,0 25,5 Q15,-5 30,0" fill="none" stroke="#ff69b4" stroke-width="3" stroke-linecap="round"/>
+    <!-- 标签 -->
+    <text x="0" y="165" text-anchor="middle" fill="url(#gold)" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Unicorn?</text>
+  </g>
+
+  <!-- 主标题 -->
+  <text x="400" y="45" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="28" font-weight="bold">MCP / Skill / Agent</text>
+
+  <!-- 副标题 -->
+  <text x="400" y="75" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="18">AI 圈的三个流行词，到底在说什么？</text>
+
+  <!-- 底部公式 -->
+  <rect x="150" y="385" width="500" height="45" rx="8" fill="rgba(255,107,107,0.15)" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="400" y="415" text-anchor="middle" fill="#ff6b6b" font-family="Arial, sans-serif" font-size="20" font-weight="bold">
+    废物 + 骗子 = 独角兽 ？
+  </text>
+
+  <!-- 角标 -->
+  <text x="780" y="440" text-anchor="end" fill="#666" font-family="Arial, sans-serif" font-size="11">No.34 | 靳岩岩的AI学习笔记</text>
+</svg>
