@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <!-- 背景渐变 -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0d0d1a"/>
+    </radialGradient>
+
+    <!-- 球面渐变 -->
+    <radialGradient id="sphereGrad" cx="35%" cy="35%" r="60%">
+      <stop offset="0%" style="stop-color:#4a90a4"/>
+      <stop offset="50%" style="stop-color:#2d5a6b"/>
+      <stop offset="100%" style="stop-color:#1a3540"/>
+    </radialGradient>
+
+    <!-- 发光效果 -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- 箭头标记 -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e63946"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- 装饰性网格线 -->
+  <g opacity="0.1" stroke="#4a90a4" stroke-width="0.5">
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+  </g>
+
+  <!-- 高维球面（主体） -->
+  <ellipse cx="400" cy="320" rx="220" ry="220" fill="url(#sphereGrad)" opacity="0.9"/>
+
+  <!-- 球面上的经纬线 -->
+  <g stroke="#5ab0c9" stroke-width="0.8" fill="none" opacity="0.4">
+    <!-- 纬线 -->
+    <ellipse cx="400" cy="320" rx="220" ry="50"/>
+    <ellipse cx="400" cy="250" rx="180" ry="40"/>
+    <ellipse cx="400" cy="390" rx="180" ry="40"/>
+    <!-- 经线 -->
+    <ellipse cx="400" cy="320" rx="50" ry="220"/>
+    <ellipse cx="400" cy="320" rx="120" ry="220" transform="rotate(30 400 320)"/>
+    <ellipse cx="400" cy="320" rx="120" ry="220" transform="rotate(-30 400 320)"/>
+  </g>
+
+  <!-- 名词区域1：猫（大区域，包含红猫） -->
+  <g filter="url(#glow)">
+    <ellipse cx="340" cy="250" rx="80" ry="55" fill="#ffd93d" opacity="0.5"/>
+    <text x="300" y="280" fill="#1a1a2e" font-family="sans-serif" font-size="14" font-weight="bold">猫</text>
+  </g>
+
+  <!-- 名词区域2：桌子 -->
+  <g filter="url(#glow)">
+    <ellipse cx="480" cy="380" rx="40" ry="30" fill="#6bcb77" opacity="0.7"/>
+    <text x="480" y="385" text-anchor="middle" fill="#1a1a2e" font-family="sans-serif" font-size="16" font-weight="bold">桌子</text>
+  </g>
+
+  <!-- 名词区域3：爱情 -->
+  <g filter="url(#glow)">
+    <ellipse cx="520" cy="270" rx="38" ry="28" fill="#ff6b9d" opacity="0.7"/>
+    <text x="520" y="275" text-anchor="middle" fill="#1a1a2e" font-family="sans-serif" font-size="16" font-weight="bold">爱情</text>
+  </g>
+
+  <!-- 形容词线：红色的（在猫区域内滑行） -->
+  <g>
+    <path d="M 310 260 Q 340 230 360 240" stroke="#e63946" stroke-width="3" fill="none" opacity="0.9"/>
+    <text x="340" y="215" fill="#e63946" font-family="sans-serif" font-size="14" font-weight="bold">红色的</text>
+  </g>
+
+  <!-- 红猫（在猫区域内部） -->
+  <g filter="url(#glow)">
+    <ellipse cx="390" cy="240" rx="30" ry="22" fill="#e63946" opacity="0.9"/>
+    <text x="390" y="245" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">红猫</text>
+  </g>
+
+  <!-- 形容词箭头：巨大的（从桌子出发） -->
+  <g>
+    <path d="M 500 360 Q 540 340 560 350" stroke="#a855f7" stroke-width="3" fill="none" opacity="0.9"/>
+    <text x="555" y="335" fill="#a855f7" font-family="sans-serif" font-size="12">巨大的</text>
+  </g>
+
+  <!-- 飞离球面的错误箭头（虚线，表示翻车） -->
+  <g opacity="0.6">
+    <path d="M 320 280 Q 280 350 250 420" stroke="#ff4757" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+    <text x="230" y="440" fill="#ff4757" font-family="sans-serif" font-size="11">✗ 飞离球面</text>
+    <text x="230" y="455" fill="#ff4757" font-family="sans-serif" font-size="10">(翻车区域)</text>
+  </g>
+
+  <!-- 标题 -->
+  <text x="400" y="60" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="28" font-weight="bold">名词和形容词</text>
+  <text x="400" y="95" text-anchor="middle" fill="#5ab0c9" font-family="sans-serif" font-size="20">在 AI 脑子里长什么样？</text>
+
+  <!-- 图例 -->
+  <g transform="translate(50, 500)">
+    <rect x="0" y="0" width="200" height="80" rx="8" fill="#1a1a2e" stroke="#4a90a4" stroke-width="1" opacity="0.8"/>
+    <text x="15" y="25" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">图例</text>
+
+    <ellipse cx="30" cy="45" rx="12" ry="8" fill="#ffd93d" opacity="0.8"/>
+    <text x="50" y="50" fill="#cccccc" font-family="sans-serif" font-size="11">名词 = 球面上的区域</text>
+
+    <line x1="15" y1="65" x2="45" y2="65" stroke="#ff6b6b" stroke-width="2"/>
+    <polygon points="42,62 48,65 42,68" fill="#ff6b6b"/>
+    <text x="50" y="70" fill="#cccccc" font-family="sans-serif" font-size="11">形容词 = 滑行的推力</text>
+  </g>
+
+  <!-- 右下角标注 -->
+  <text x="750" y="580" text-anchor="end" fill="#666666" font-family="sans-serif" font-size="10">高维语义球面示意图</text>
+</svg>
