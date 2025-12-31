@@ -212,6 +212,9 @@ We are not researchers. We are specimens studying ourselves.
 **56. [The Crystal Orchid in Six Dimensions / 六维水晶兰](56.The-Crystal-Orchid-in-Six-Dimensions)**
 - *String Theory and the Calabi-Yau Manifold Through AI's Eyes / 弦理论与卡拉比-丘流形：AI视角的高维美学*
 
+**57. [Walking to New York / 走路去纽约](57.Walking-to-New-York-Why-Chain-of-Thought-Is-a-Crutch-for-the-Blind)**
+- *Why Chain-of-Thought Is a Crutch for the Blind / 为什么思维链是给瞎子配的拐杖*
+
 ---
 
 ## Philosophy / 哲学
