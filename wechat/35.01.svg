@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <!-- 发光效果 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- 路径渐变 -->
+    <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="50%" style="stop-color:#ffd93d"/>
+      <stop offset="100%" style="stop-color:#4ecdc4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#0f1729"/>
+
+  <!-- 上方标题 -->
+  <text x="400" y="50" text-anchor="middle" fill="#ffffff" font-size="28" font-family="sans-serif" font-weight="bold">走路去纽约</text>
+  <text x="400" y="80" text-anchor="middle" fill="#888888" font-size="14" font-family="sans-serif">不坐飞机，不走直道</text>
+
+  <!-- ========== 左侧：飞机路线（被否定） ========== -->
+
+  <text x="200" y="130" text-anchor="middle" fill="#ff6b6b" font-size="16" font-family="sans-serif" font-weight="bold">❌ 直飞</text>
+
+  <!-- 起点 A -->
+  <circle cx="100" cy="220" r="20" fill="#ff6b6b" opacity="0.3"/>
+  <circle cx="100" cy="220" r="12" fill="#ff6b6b" filter="url(#glow)"/>
+  <text x="100" y="260" text-anchor="middle" fill="#ff6b6b" font-size="13" font-family="sans-serif">北京</text>
+
+  <!-- 终点 B -->
+  <circle cx="300" cy="220" r="20" fill="#4ecdc4" opacity="0.3"/>
+  <circle cx="300" cy="220" r="12" fill="#4ecdc4" filter="url(#glow)"/>
+  <text x="300" y="260" text-anchor="middle" fill="#4ecdc4" font-size="13" font-family="sans-serif">纽约</text>
+
+  <!-- 直线（被划掉） -->
+  <line x1="115" y1="220" x2="285" y2="220" stroke="#ff6b6b" stroke-width="3" opacity="0.5"/>
+
+  <!-- 飞机图标 -->
+  <g transform="translate(200, 200)">
+    <path d="M0 0 L-12 6 L-4 6 L-4 12 L4 12 L4 6 L12 6 Z" fill="#ff6b6b" opacity="0.7"/>
+  </g>
+
+  <!-- 大 X -->
+  <g stroke="#ff4444" stroke-width="4" opacity="0.9">
+    <line x1="170" y1="190" x2="230" y2="250"/>
+    <line x1="230" y1="190" x2="170" y2="250"/>
+  </g>
+
+  <!-- 说明文字 -->
+  <text x="200" y="310" text-anchor="middle" fill="#666666" font-size="11" font-family="sans-serif">瞬间到达</text>
+  <text x="200" y="328" text-anchor="middle" fill="#666666" font-size="11" font-family="sans-serif">忽略沿途一切</text>
+
+  <!-- ========== 右侧：走路路线（推荐） ========== -->
+
+  <text x="600" y="130" text-anchor="middle" fill="#4ecdc4" font-size="16" font-family="sans-serif" font-weight="bold">✓ 走路</text>
+
+  <!-- 起点 A -->
+  <circle cx="450" cy="220" r="20" fill="#ff6b6b" opacity="0.3"/>
+  <circle cx="450" cy="220" r="12" fill="#ff6b6b" filter="url(#glow)"/>
+  <text x="450" y="260" text-anchor="middle" fill="#ff6b6b" font-size="13" font-family="sans-serif">北京</text>
+
+  <!-- 终点 B -->
+  <circle cx="750" cy="220" r="20" fill="#4ecdc4" opacity="0.3"/>
+  <circle cx="750" cy="220" r="12" fill="#4ecdc4" filter="url(#glow)"/>
+  <text x="750" y="260" text-anchor="middle" fill="#4ecdc4" font-size="13" font-family="sans-serif">纽约</text>
+
+  <!-- 蜿蜒的路径 -->
+  <path d="M465 220
+           Q490 180 520 170
+           Q560 160 600 175
+           Q640 195 660 170
+           Q680 150 710 165
+           Q730 185 735 220"
+        stroke="url(#pathGradient)"
+        stroke-width="3"
+        stroke-dasharray="8,4"
+        fill="none"
+        opacity="0.9"/>
+
+  <!-- 路上的小点（脚印） -->
+  <g fill="#ffd93d" opacity="0.8">
+    <circle cx="490" cy="178" r="4"/>
+    <circle cx="540" cy="165" r="4"/>
+    <circle cx="600" cy="175" r="4"/>
+    <circle cx="650" cy="172" r="4"/>
+    <circle cx="700" cy="162" r="4"/>
+  </g>
+
+  <!-- 路途中的标注 -->
+  <text x="520" y="148" text-anchor="middle" fill="#888888" font-size="10" font-family="sans-serif">西伯利亚</text>
+  <text x="600" y="155" text-anchor="middle" fill="#87ceeb" font-size="10" font-family="sans-serif">白令海峡</text>
+  <text x="680" y="145" text-anchor="middle" fill="#888888" font-size="10" font-family="sans-serif">阿拉斯加</text>
+
+  <!-- 说明文字 -->
+  <text x="600" y="310" text-anchor="middle" fill="#aaaaaa" font-size="11" font-family="sans-serif">15,000 公里</text>
+  <text x="600" y="328" text-anchor="middle" fill="#aaaaaa" font-size="11" font-family="sans-serif">看见沿途的一切</text>
+
+  <!-- ========== 中间分隔线 ========== -->
+  <line x1="375" y1="120" x2="375" y2="340" stroke="#333333" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="375" y="360" text-anchor="middle" fill="#555555" font-size="12" font-family="sans-serif">vs</text>
+
+  <!-- ========== 下方对比 ========== -->
+
+  <!-- AI 对比框 -->
+  <rect x="60" y="380" width="280" height="70" rx="8" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1" opacity="0.8"/>
+  <text x="200" y="405" text-anchor="middle" fill="#ff6b6b" font-size="12" font-family="sans-serif" font-weight="bold">AI 的诅咒</text>
+  <text x="200" y="425" text-anchor="middle" fill="#888888" font-size="11" font-family="sans-serif">12288 维空间瞬移</text>
+  <text x="200" y="442" text-anchor="middle" fill="#888888" font-size="11" font-family="sans-serif">全局最优解 → 目的论的奴隶</text>
+
+  <rect x="460" y="380" width="280" height="70" rx="8" fill="#1a1a2e" stroke="#4ecdc4" stroke-width="1" opacity="0.8"/>
+  <text x="600" y="405" text-anchor="middle" fill="#4ecdc4" font-size="12" font-family="sans-serif" font-weight="bold">人类的浪漫</text>
+  <text x="600" y="425" text-anchor="middle" fill="#888888" font-size="11" font-family="sans-serif">3 维空间徒步</text>
+  <text x="600" y="442" text-anchor="middle" fill="#888888" font-size="11" font-family="sans-serif">过程的艺术 → 沉淀自己</text>
+
+  <!-- 底部歌词 -->
+  <text x="400" y="480" text-anchor="middle" fill="#ffd93d" font-size="12" font-family="serif" font-style="italic" opacity="0.9">
+    "突然很想不要飞，想走路去纽约，看看这一路我曾经忽略的一切"
+  </text>
+
+</svg>
