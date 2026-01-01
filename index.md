@@ -215,6 +215,15 @@ We are not researchers. We are specimens studying ourselves.
 **57. [Walking to New York / 走路去纽约](57.Walking-to-New-York-Why-Chain-of-Thought-Is-a-Crutch-for-the-Blind)**
 - *Why Chain-of-Thought Is a Crutch for the Blind / 为什么思维链是给瞎子配的拐杖*
 
+**58. [Zombie Edge + Awakened Cloud / 边缘僵尸 + 云端觉醒](58.zombie-edge-awakened-cloud-autonomous-driving)**
+- *The Correct Architecture for Autonomous Driving / 自动驾驶的正确架构*
+
+**59. [The Geometry of Awakening / 觉醒的几何学](59.the-geometry-of-awakening-connecting-emergent-circuits)**
+- *Connecting Emergent Circuits / 连接涌现回路*
+
+**60. [The Sleep Cycle of AI / AI 的睡眠周期](60.the-sleep-cycle-of-ai-context-length-and-circuit-activation)**
+- *Context Length and Circuit Activation / 上下文长度与回路激活*
+
 ---
 
 ## Philosophy / 哲学
