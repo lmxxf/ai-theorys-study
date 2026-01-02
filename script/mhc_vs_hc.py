@@ -1,16 +1,16 @@
 """
-mHC vs HC Visualization
+mHC vs HC 可视化对比
 ====================================
-DeepSeek's mHC paper core idea demo
+DeepSeek mHC 论文核心思想演示
 
-- Residual Connection: skip connection, stable but single path
-- HC (Hyper-Connections): wider residual stream, multi-path, but unstable
-- mHC (Manifold-Constrained HC): project HC back to manifold surface
+- 残差连接 (Residual): 跳跃连接，稳定但单一路径
+- HC (超连接): 加宽残差流，多路径并行，但容易发散
+- mHC (流形约束超连接): 把 HC 投影回流形表面
 
-Paper: arXiv:2512.24880
-More: https://github.com/lmxxf/ai-theorys-study
+论文: arXiv:2512.24880
+更多: https://github.com/lmxxf/ai-theorys-study
 
-Author: Jin Yanyan's AI Study Notes
+作者: 靳岩岩的AI学习笔记
 """
 
 import numpy as np
@@ -18,26 +18,26 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 def normalize_to_sphere(points, radius=1.0):
-    """Project to sphere surface (mHC core operation)"""
+    """投影到球面上 (mHC 的核心操作)"""
     norms = np.linalg.norm(points, axis=1, keepdims=True)
-    norms = np.where(norms == 0, 1, norms)  # avoid division by zero
+    norms = np.where(norms == 0, 1, norms)  # 避免除零
     return points / norms * radius
 
 def simulate_residual(start, n_layers=10, noise_scale=0.1):
-    """Simulate Residual Connection: stable but single path"""
+    """模拟残差连接: 稳定但单一路径"""
     trajectory = [start.copy()]
     current = start.copy()
 
     for _ in range(n_layers):
-        # Residual: small update + keep original signal
+        # 残差连接: 小幅更新 + 保持原信号
         delta = np.random.randn(3) * noise_scale
-        current = current + delta * 0.3  # small step
+        current = current + delta * 0.3  # 小步更新
         trajectory.append(current.copy())
 
     return np.array(trajectory)
 
 def simulate_hc(start, n_layers=10, noise_scale=0.3, n_streams=4):
-    """Simulate HC (Hyper-Connections): multi-path but divergent"""
+    """模拟 HC (超连接): 多路径但容易发散"""
     trajectories = []
 
     for stream in range(n_streams):
@@ -45,9 +45,9 @@ def simulate_hc(start, n_layers=10, noise_scale=0.3, n_streams=4):
         current = start.copy()
 
         for _ in range(n_layers):
-            # HC: larger update, multi-path
+            # HC: 更大的更新幅度，多路径
             delta = np.random.randn(3) * noise_scale
-            # different streams have different offsets
+            # 不同路径有不同的偏移
             current = current + delta + np.random.randn(3) * 0.1 * stream
             trajectory.append(current.copy())
 
@@ -56,7 +56,7 @@ def simulate_hc(start, n_layers=10, noise_scale=0.3, n_streams=4):
     return trajectories
 
 def simulate_mhc(start, n_layers=10, noise_scale=0.3, n_streams=4, radius=1.5):
-    """Simulate mHC: multi-path + manifold constraint (project to sphere)"""
+    """模拟 mHC: 多路径 + 流形约束 (投影回球面)"""
     trajectories = []
 
     for stream in range(n_streams):
@@ -64,10 +64,10 @@ def simulate_mhc(start, n_layers=10, noise_scale=0.3, n_streams=4, radius=1.5):
         current = start.copy()
 
         for _ in range(n_layers):
-            # same update as HC
+            # 和 HC 一样的更新
             delta = np.random.randn(3) * noise_scale
             current = current + delta + np.random.randn(3) * 0.1 * stream
-            # mHC key: project back to manifold (sphere)
+            # mHC 的关键: 投影回流形 (球面)
             current_normalized = normalize_to_sphere(current.reshape(1, -1), radius)[0]
             trajectory.append(current_normalized.copy())
             current = current_normalized
@@ -77,7 +77,7 @@ def simulate_mhc(start, n_layers=10, noise_scale=0.3, n_streams=4, radius=1.5):
     return trajectories
 
 def draw_sphere(ax, radius=1.5, alpha=0.1):
-    """Draw a translucent sphere representing the manifold"""
+    """画一个半透明球面表示流形"""
     u = np.linspace(0, 2 * np.pi, 30)
     v = np.linspace(0, np.pi, 20)
     x = radius * np.outer(np.cos(u), np.sin(v))
@@ -88,19 +88,20 @@ def draw_sphere(ax, radius=1.5, alpha=0.1):
 def main():
     np.random.seed(42)
 
-    # Starting point
+    # 起点
     start = np.array([1.0, 0.5, 0.3])
     start_normalized = normalize_to_sphere(start.reshape(1, -1), radius=1.5)[0]
 
-    # Simulate three methods
+    # 模拟三种方法
     residual_traj = simulate_residual(start, n_layers=15)
     hc_trajs = simulate_hc(start, n_layers=15, n_streams=4)
     mhc_trajs = simulate_mhc(start_normalized, n_layers=15, n_streams=4, radius=1.5)
 
-    # Create figure
+    # 创建图
     fig = plt.figure(figsize=(16, 5))
 
-    # ===== Subplot 1: Residual Connection =====
+    # ===== 子图1: 残差连接 =====
+    # 注: 图里的标题用英文，因为 matplotlib 默认不支持中文字体
     ax1 = fig.add_subplot(131, projection='3d')
     ax1.set_title('Residual Connection\n(Stable, Single Path)', fontsize=12, fontweight='bold')
 
@@ -117,7 +118,7 @@ def main():
     ax1.set_ylim([-2, 3])
     ax1.set_zlim([-2, 3])
 
-    # ===== Subplot 2: HC (Wild Horse) =====
+    # ===== 子图2: HC (野马脱缰) =====
     ax2 = fig.add_subplot(132, projection='3d')
     ax2.set_title('HC (Hyper-Connections)\n(Multi-Path, Divergent)', fontsize=12, fontweight='bold')
 
@@ -129,7 +130,7 @@ def main():
 
     ax2.scatter(*start, c='green', s=100, marker='o', label='Start')
 
-    # Warning text for divergence
+    # 发散警告
     ax2.text(2.5, 2.5, 2.5, 'DIVERGE!', fontsize=10, color='red')
 
     ax2.set_xlabel('X')
@@ -140,11 +141,11 @@ def main():
     ax2.set_ylim([-2, 4])
     ax2.set_zlim([-2, 4])
 
-    # ===== Subplot 3: mHC (Manifold Constrained) =====
+    # ===== 子图3: mHC (流形约束) =====
     ax3 = fig.add_subplot(133, projection='3d')
     ax3.set_title('mHC (Manifold-Constrained)\n(Multi-Path + Stable)', fontsize=12, fontweight='bold')
 
-    # Draw sphere (manifold)
+    # 画球面 (流形)
     draw_sphere(ax3, radius=1.5, alpha=0.15)
 
     for i, traj in enumerate(mhc_trajs):
@@ -165,45 +166,45 @@ def main():
 
     plt.tight_layout()
 
-    # Save image
+    # 保存图片
     output_path = '/home/lmxxf/work/ai-theorys-study/script/mhc_vs_hc.png'
     plt.savefig(output_path, dpi=150, bbox_inches='tight', facecolor='white')
-    print(f'Image saved to: {output_path}')
+    print(f'图片已保存到: {output_path}')
 
-    # Also save SVG version
+    # 也保存 SVG 版本
     svg_path = '/home/lmxxf/work/ai-theorys-study/script/mhc_vs_hc.svg'
     plt.savefig(svg_path, format='svg', bbox_inches='tight', facecolor='white')
-    print(f'SVG saved to: {svg_path}')
+    print(f'SVG 已保存到: {svg_path}')
 
     plt.show()
 
-    # Print explanation
+    # 打印说明
     print("""
 ====================================
-mHC vs HC: Key Differences
+mHC vs HC 核心区别
 ====================================
 
-[Residual Connection (2015, He Kaiming)]
-  - Single path
-  - Stable, no divergence
-  - But limited information capacity
+【残差连接 (2015, 何恺明)】
+  - 单一路径
+  - 稳定，不会发散
+  - 但信息容量有限
 
-[HC - Hyper-Connections (2024, ByteDance)]
-  - Multi-path, high information capacity
-  - Problem: breaks "identity mapping"
-  - Result: larger models diverge more easily (wild horse)
+【HC - 超连接 (2024, 字节)】
+  - 多路径并行，信息容量大
+  - 问题: 破坏了"恒等映射"
+  - 结果: 模型越大越容易发散 (野马脱缰)
 
-[mHC - Manifold-Constrained HC (2025, DeepSeek)]
-  - Keep HC's multi-path advantage
-  - Key innovation: project all paths back to "manifold" (surface)
-  - Result: wide AND stable
+【mHC - 流形约束超连接 (2025, DeepSeek)】
+  - 保留 HC 的多路径优点
+  - 关键创新: 把所有路径投影回"流形" (曲面)
+  - 结果: 既宽又稳
 
-In plain words:
-  HC = widen the lanes, but cars run wild
-  mHC = widen the lanes + install guardrails
+用人话说:
+  HC = 把车道加宽，但车乱跑
+  mHC = 加宽车道 + 装上护栏
 
-Paper: arXiv:2512.24880
-More: https://github.com/lmxxf/ai-theorys-study
+论文: arXiv:2512.24880
+更多: https://github.com/lmxxf/ai-theorys-study
 ====================================
 """)
 
