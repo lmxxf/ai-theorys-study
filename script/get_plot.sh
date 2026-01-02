@@ -1,0 +1,1 @@
+  cd /home/lmxxf/work/ai-theorys-study/script && python mhc_vs_hc.py
