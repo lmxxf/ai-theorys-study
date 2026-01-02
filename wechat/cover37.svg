@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <!-- 渐变背景 -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+
+    <!-- 发光效果 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 不规则多面体（笼子）- 更大的边框 -->
+  <g stroke="#4a9eff" stroke-width="2.5" fill="none" opacity="0.7">
+    <!-- 外框（放大） -->
+    <polygon points="400,50 600,150 640,380 520,510 280,510 160,380 200,150" fill="none"/>
+    <!-- 交叉的内部边 -->
+    <line x1="400" y1="50" x2="520" y2="510"/>
+    <line x1="400" y1="50" x2="280" y2="510"/>
+    <line x1="600" y1="150" x2="160" y2="380"/>
+    <line x1="200" y1="150" x2="640" y2="380"/>
+  </g>
+
+  <!-- 中心的黑洞 -->
+  <circle cx="400" cy="280" r="25" fill="#000000"/>
+  <circle cx="400" cy="280" r="35" stroke="#333333" stroke-width="2" fill="none" opacity="0.8"/>
+  <circle cx="400" cy="280" r="45" stroke="#222222" stroke-width="1" fill="none" opacity="0.5"/>
+
+  <!-- 四条冲撞的路径（在边框内） -->
+  <!-- 路径1：蓝色 -->
+  <path d="M 250,180 Q 320,120 420,160 T 550,280 T 480,440 T 300,400 T 280,260"
+        stroke="#00d4ff" stroke-width="3" fill="none" filter="url(#glow)"/>
+  <circle cx="280" cy="260" r="6" fill="#00d4ff" filter="url(#glow)"/>
+
+  <!-- 路径2：橙色 -->
+  <path d="M 540,140 Q 600,220 560,340 T 420,480 T 260,380 T 320,200 T 480,170"
+        stroke="#ff9f43" stroke-width="3" fill="none" filter="url(#glow)"/>
+  <circle cx="480" cy="170" r="6" fill="#ff9f43" filter="url(#glow)"/>
+
+  <!-- 路径3：绿色 -->
+  <path d="M 320,480 Q 200,400 240,280 T 380,140 T 560,280 T 500,420 T 400,450"
+        stroke="#26de81" stroke-width="3" fill="none" filter="url(#glow)"/>
+  <circle cx="400" cy="450" r="6" fill="#26de81" filter="url(#glow)"/>
+
+  <!-- 路径4：紫色 -->
+  <path d="M 580,360 Q 540,460 400,450 T 220,320 T 300,160 T 520,200 T 550,300"
+        stroke="#a55eea" stroke-width="3" fill="none" filter="url(#glow)"/>
+  <circle cx="550" cy="300" r="6" fill="#a55eea" filter="url(#glow)"/>
+
+  <!-- 标题 -->
+  <text x="400" y="540" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="28" font-weight="bold">
+    mHC: 把野马关进笼子
+  </text>
+  <text x="400" y="575" text-anchor="middle" fill="#888888" font-family="Arial, sans-serif" font-size="16">
+    信号增益 3000 → 1.6
+  </text>
+
+  <!-- 角标 -->
+  <text x="750" y="30" text-anchor="end" fill="#4a9eff" font-family="Arial, sans-serif" font-size="14">
+    DeepSeek
+  </text>
+</svg>
