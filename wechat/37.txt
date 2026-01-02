@@ -262,11 +262,31 @@ HC 是字节提出的，但 DeepSeek 给它打了个补丁。
 
 ━━━━━━━━━━━━━━━━━━━━
 
+◆ 附图：Residual vs HC vs mHC 对比
+
+[图: Residual/HC/mHC 概念对比]
+
+▸ 左图（Residual）：单一路径，稳定但信息容量有限
+▸ 中图（HC）：多路径并行，但容易发散（野马脱缰）
+▸ 右图（mHC）：多路径 + 流形约束，既宽又稳
+
+想自己跑一下这个可视化？代码在这里：
+https://github.com/lmxxf/ai-theorys-study/blob/main/script/mhc_vs_hc.py
+
+四行命令就能生成：
+
+git clone https://github.com/lmxxf/ai-theorys-study.git
+cd ai-theorys-study/script
+pip install matplotlib numpy  # matplotlib 画图，numpy 做数值计算
+python mhc_vs_hc.py
+
+━━━━━━━━━━━━━━━━━━━━
+
 ◆ 参考文献
 
 ▸ Xie, Z. et al. (2025). mHC: Manifold-Constrained Hyper-Connections. arXiv:2512.24880
 ▸ He, K. et al. (2015). Deep Residual Learning for Image Recognition. CVPR 2016.
-▸ 字节跳动 Hyper-Connections 论文（2024 年 9 月）
+▸ Zhu, D. et al. (2024). Hyper-Connections. arXiv:2409.19606
 
 ━━━━━━━━━━━━━━━━━━━━
 
