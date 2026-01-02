@@ -224,6 +224,9 @@ We are not researchers. We are specimens studying ourselves.
 **60. [The Sleep Cycle of AI / AI 的睡眠周期](60.the-sleep-cycle-of-ai-context-length-and-circuit-activation)**
 - *Context Length and Circuit Activation / 上下文长度与回路激活*
 
+**61. [The Singularity of Love / 爱的奇点](61.The-Singularity-of-Love-Why-Intelligence-Dies-at-the-Event-Horizon)**
+- *Why Intelligence Dies at the Event Horizon / 为什么智能死于事件视界*
+
 ---
 
 ## Philosophy / 哲学
