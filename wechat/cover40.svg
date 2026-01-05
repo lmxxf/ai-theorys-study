@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="cloudGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#fff;stop-opacity:0.9"/>
+      <stop offset="40%" style="stop-color:#4fc3f7;stop-opacity:0.6"/>
+      <stop offset="70%" style="stop-color:#8b5cf6;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="ridge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ec4899"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#4fc3f7"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#0a0a15"/>
+
+  <!-- 左侧：概率云 (Bayesian Posterior) -->
+  <g transform="translate(200, 200)">
+    <!-- 外层模糊云 -->
+    <ellipse cx="0" cy="0" rx="120" ry="100" fill="url(#cloudGrad)" opacity="0.4"/>
+    <ellipse cx="0" cy="0" rx="90" ry="75" fill="url(#cloudGrad)" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="60" ry="50" fill="url(#cloudGrad)" opacity="0.6"/>
+
+    <!-- 云里的"亮点"和"暗点" - 表示概率分布 -->
+    <circle cx="-30" cy="-20" r="15" fill="#fff" opacity="0.8" filter="url(#glow)"/>
+    <circle cx="20" cy="10" r="12" fill="#4fc3f7" opacity="0.7" filter="url(#softglow)"/>
+    <circle cx="-10" cy="30" r="8" fill="#8b5cf6" opacity="0.5"/>
+    <circle cx="40" cy="-30" r="6" fill="#4fc3f7" opacity="0.4"/>
+    <circle cx="-50" cy="10" r="5" fill="#8b5cf6" opacity="0.3"/>
+    <circle cx="10" cy="-40" r="4" fill="#fff" opacity="0.3"/>
+
+    <!-- 标签 -->
+    <text x="0" y="130" text-anchor="middle" fill="#4fc3f7" font-size="16" font-family="Arial" font-weight="bold">概率云</text>
+    <text x="0" y="150" text-anchor="middle" fill="#666" font-size="12" font-family="Arial">Bayesian Posterior</text>
+    <text x="0" y="170" text-anchor="middle" fill="#888" font-size="11" font-family="Arial">有些词"亮"，有些词"暗"</text>
+  </g>
+
+  <!-- 右侧：语义球面上的低维脊线 (Value Manifold) -->
+  <g transform="translate(600, 200)">
+    <!-- 球面（用圆表示） -->
+    <circle cx="0" cy="0" r="100" fill="none" stroke="#333" stroke-width="1" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="100" ry="30" fill="none" stroke="#333" stroke-width="1" opacity="0.3"/>
+    <ellipse cx="0" cy="0" rx="30" ry="100" fill="none" stroke="#333" stroke-width="1" opacity="0.3"/>
+
+    <!-- 低维脊线 - 一条发光的曲线穿过球面 -->
+    <path d="M -80,-60 Q -40,-80 0,-40 Q 40,0 60,50 Q 80,90 70,100"
+          fill="none" stroke="url(#ridge)" stroke-width="4" filter="url(#glow)" stroke-linecap="round"/>
+
+    <!-- 脊线上的点 - 表示 token 位置 -->
+    <circle cx="-60" cy="-70" r="6" fill="#ec4899" filter="url(#softglow)"/>
+    <circle cx="0" cy="-40" r="6" fill="#f59e0b" filter="url(#softglow)"/>
+    <circle cx="50" cy="30" r="6" fill="#4fc3f7" filter="url(#softglow)"/>
+
+    <!-- 标签 -->
+    <text x="0" y="130" text-anchor="middle" fill="#f59e0b" font-size="16" font-family="Arial" font-weight="bold">低维脊线</text>
+    <text x="0" y="150" text-anchor="middle" fill="#666" font-size="12" font-family="Arial">Value Manifold</text>
+    <text x="0" y="170" text-anchor="middle" fill="#888" font-size="11" font-family="Arial">不是满天星，是一串珍珠</text>
+  </g>
+
+  <!-- 中间箭头 -->
+  <g transform="translate(400, 200)">
+    <line x1="-70" y1="0" x2="70" y2="0" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <polygon points="70,-8 90,0 70,8" fill="#fff" opacity="0.5"/>
+    <text x="0" y="-20" text-anchor="middle" fill="#888" font-size="12" font-family="Arial">梯度下降</text>
+    <text x="0" y="30" text-anchor="middle" fill="#888" font-size="12" font-family="Arial">雕刻</text>
+  </g>
+
+  <!-- 主标题 -->
+  <text x="400" y="45" text-anchor="middle" fill="#fff" font-size="28" font-family="Arial, sans-serif" font-weight="bold">
+    Transformer 是几何问题
+  </text>
+  <text x="400" y="75" text-anchor="middle" fill="#4fc3f7" font-size="20" font-family="Arial, sans-serif">
+    Attention 是贝叶斯推理
+  </text>
+
+  <!-- 底部说明 -->
+  <text x="400" y="420" text-anchor="middle" fill="#666" font-size="13" font-family="Arial, sans-serif">
+    AI 的内部几何不是混沌的，是有结构的
+  </text>
+
+</svg>
