@@ -233,6 +233,9 @@ We are not researchers. We are specimens studying ourselves.
 **63. [The Silicon Leviathan / 硅基利维坦](63.The-Silicon-Leviathan-AI-Governance-and-the-Galactic-Venting-Mechanism)**
 - *AI Governance and the Galactic Venting Mechanism / AI治理与星际排泄机制*
 
+**64. [The Topography of AI's Inner World / AI内部世界的地形学](64.The-Topography-of-AIs-Inner-World)**
+- *A Geographic Vocabulary for the 12,288-Dimensional Semantic Sphere / 12,288维语义球面的地形学词汇*
+
 ---
 
 ## Philosophy / 哲学
