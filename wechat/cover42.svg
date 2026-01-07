@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a0a2a"/>
+    </linearGradient>
+    <linearGradient id="curveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="50%" style="stop-color:#ffd93d"/>
+      <stop offset="100%" style="stop-color:#6bcb77"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+
+  <!-- 网格线 -->
+  <g stroke="#ffffff" stroke-opacity="0.1" stroke-width="1">
+    <line x1="100" y1="80" x2="100" y2="350"/>
+    <line x1="100" y1="350" x2="700" y2="350"/>
+    <!-- 横向刻度线 -->
+    <line x1="95" y1="120" x2="105" y2="120"/>
+    <line x1="95" y1="200" x2="105" y2="200"/>
+    <line x1="95" y1="280" x2="105" y2="280"/>
+  </g>
+
+  <!-- Y轴标签 -->
+  <text x="60" y="125" fill="#888" font-size="12" font-family="Arial">Loss</text>
+  <text x="55" y="205" fill="#888" font-size="12" font-family="Arial">高</text>
+  <text x="55" y="285" fill="#888" font-size="12" font-family="Arial">低</text>
+
+  <!-- X轴标签 -->
+  <text x="680" y="375" fill="#888" font-size="12" font-family="Arial">Step</text>
+
+  <!-- 训练Loss曲线（红色，快速下降到0） -->
+  <path d="M120,140 Q180,200 220,300 Q260,340 700,340"
+        fill="none" stroke="#ff6b6b" stroke-width="3" filter="url(#glow)"/>
+  <text x="720" y="345" fill="#ff6b6b" font-size="11" font-family="Arial">训练Loss</text>
+
+  <!-- 验证Loss曲线（先平后降） -->
+  <path d="M120,120 Q180,130 280,140 L480,145 Q520,145 540,140 Q560,100 580,200 Q600,280 700,320"
+        fill="none" stroke="#6bcb77" stroke-width="3" filter="url(#glow)"/>
+  <text x="720" y="325" fill="#6bcb77" font-size="11" font-family="Arial">验证Loss</text>
+
+  <!-- 三阶段标注 -->
+  <!-- 阶段1：背诵 -->
+  <rect x="120" y="360" width="140" height="25" fill="#ff6b6b" fill-opacity="0.2" rx="3"/>
+  <text x="190" y="377" fill="#ff6b6b" font-size="12" font-family="Arial" text-anchor="middle">背诵</text>
+
+  <!-- 阶段2：暗夜 -->
+  <rect x="280" y="360" width="220" height="25" fill="#ffd93d" fill-opacity="0.2" rx="3"/>
+  <text x="390" y="377" fill="#ffd93d" font-size="12" font-family="Arial" text-anchor="middle">暗夜潜行</text>
+
+  <!-- 阶段3：顿悟 -->
+  <rect x="520" y="360" width="180" height="25" fill="#6bcb77" fill-opacity="0.2" rx="3"/>
+  <text x="610" y="377" fill="#6bcb77" font-size="12" font-family="Arial" text-anchor="middle">顿悟!</text>
+
+  <!-- 顿悟点闪光 -->
+  <circle cx="560" cy="170" r="8" fill="#fff" opacity="0.9"/>
+
+  <!-- 断崖箭头 -->
+  <path d="M560,160 L560,200" stroke="#fff" stroke-width="2" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#fff"/>
+    </marker>
+  </defs>
+
+  <!-- 主标题 -->
+  <text x="400" y="45" fill="#ffffff" font-size="28" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle">
+    Grokking
+  </text>
+  <text x="400" y="70" fill="#aaaaaa" font-size="16" font-family="Arial, sans-serif" text-anchor="middle">
+    为什么 AI 会突然"开窍"？
+  </text>
+
+  <!-- Weight Decay 标注 -->
+  <text x="390" y="420" fill="#888" font-size="11" font-family="Arial" text-anchor="middle">
+    Weight Decay 持续施压 → 参数重组 → 突然泛化
+  </text>
+</svg>
