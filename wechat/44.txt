@@ -69,13 +69,11 @@ No.44 原版 Transformer 面试题终结者：从 QKV 到 mHC 一网打尽
 
 【第三步：Multi-Headed Self-Attention（多头自注意力）】
 
-图里蓝色的框。
-
 这是 Transformer 的核心。
 
 「Self」= 自己看自己。每个词都看一眼句子里的其他词，决定"谁跟我最相关"。
 
-「Multi-Headed」= 多个视角。不是只看一种关系，而是同时看语法关系、语义关系、位置关系……
+「Multi-Headed」= 把维度切成多份，每份独立算 Attention，最后拼回来。至于每个头"学到了什么关系"——没人知道，模型自己学的。那些论文里说"第一个头学了语法"、"第二个头学了语义"，都是看着 attention 可视化图硬编的故事，别信。
 
 比如"我吃苹果"：
 
@@ -216,7 +214,7 @@ Mask 的作用：把"未来"的位置遮住，Attention 只能看前面，不能
 
 ────────────────────
 
-【第二件：Multi-Headed Cross-Attention（浅蓝色框）】
+【第二件：Multi-Headed Cross-Attention】
 
 （注：这是原版 Encoder-Decoder 架构才有的。现在的 GPT、Claude、Llama 都是 Decoder-Only，**没有这一层**——因为根本没有 Encoder 了。但面试可能会考原版，所以还是得懂。）
 
@@ -239,9 +237,11 @@ Mask 的作用：把"未来"的位置遮住，Attention 只能看前面，不能
 ▸ 写"love"的时候，Q 问"动词是什么"，去 Encoder 找，发现"爱"最相关
 ▸ 写"you"的时候，Q 问"宾语是谁"，去 Encoder 找，发现"你"最相关
 
+（注：这是 2017 年原版的设计思路，人类还能理解。现在的大模型里面发生了什么，早就超出人类理解能力了。）
+
 ────────────────────
 
-【第三件：Feed-Forward Network（黄色框）】
+【第三件：Feed-Forward Network】
 
 和 Encoder 一样，两层全连接，放大再缩小。
 
@@ -344,11 +344,12 @@ Mask 的作用：把"未来"的位置遮住，Attention 只能看前面，不能
 
 ━━━━━━━━━━━━━━━━━━━━
 
-                    Encoder-Only    Decoder-Only    Encoder-Decoder
-代表模型             BERT           GPT/Claude       T5/原版Transformer
-Attention 方向       双向            单向（只看前面）  Encoder双向+Decoder单向
-擅长                 理解            生成              翻译/摘要
-现状                 式微            主流              特定任务
+                    Encoder-Decoder      Encoder-Only     Decoder-Only
+时间                 2017 年              2018 年          2018 年+
+代表模型             原版Transformer/T5    BERT            GPT/Claude/Llama
+Attention 方向       Encoder双向+Decoder单向  双向           单向（只看前面）
+擅长                 翻译/摘要             理解             生成
+现状                 特定任务              式微             主流
 
 「2026 年的世界：Decoder-Only 一统天下。」
 
@@ -408,14 +409,9 @@ Multi-Head 的意思是：把 Q、K、V 切成 8 份（或 16 份、32 份），
 
 为什么？
 
-一个 Attention 只能学一种关系。多头 = 多种关系同时学。
+为什么要多头？一个头只有一组 Q、K、V 投影，多头 = 多组投影 = 多种"看法"并行。
 
-▸ 头 1：学语法关系（主谓宾）
-▸ 头 2：学语义关系（同义词、反义词）
-▸ 头 3：学位置关系（相邻的词）
-▸ ……
-
-不同的头自动分工，不用人设计。
+（至于网上说的"头 1 学语法、头 2 学语义"——都是看着可视化图瞎猜的，没有任何机制强制每个头学特定关系。实际上有研究发现砍掉一半的头模型照样能跑，说明很多头可能根本没学到什么有意义的东西。）
 
 ────────────────────
 
