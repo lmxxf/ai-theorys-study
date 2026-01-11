@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a3a"/>
+    </linearGradient>
+    <linearGradient id="robot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90d9"/>
+      <stop offset="100%" style="stop-color:#2d5a8a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 网格线（科技感） -->
+  <g opacity="0.1" stroke="#4a90d9" stroke-width="0.5">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="100" y1="0" x2="100" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="700" y1="0" x2="700" y2="600"/>
+  </g>
+
+  <!-- 左侧：简化的机器人头像（友好的） -->
+  <g transform="translate(200, 280)">
+    <!-- 头部轮廓 -->
+    <rect x="-60" y="-70" width="120" height="140" rx="20" fill="url(#robot)" filter="url(#glow)"/>
+    <!-- 眼睛（友好的弧形） -->
+    <ellipse cx="-25" cy="-15" rx="15" ry="12" fill="#0a0a1a"/>
+    <ellipse cx="25" cy="-15" rx="15" ry="12" fill="#0a0a1a"/>
+    <ellipse cx="-25" cy="-15" rx="8" ry="6" fill="#00ffcc"/>
+    <ellipse cx="25" cy="-15" rx="8" ry="6" fill="#00ffcc"/>
+    <!-- 微笑 -->
+    <path d="M -25 30 Q 0 50 25 30" stroke="#0a0a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <!-- 天线 -->
+    <line x1="0" y1="-70" x2="0" y2="-95" stroke="#4a90d9" stroke-width="4"/>
+    <circle cx="0" cy="-100" r="8" fill="#00ffcc" filter="url(#glow)"/>
+  </g>
+
+  <!-- 中间：不等号 -->
+  <g transform="translate(400, 280)" filter="url(#glow)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#ff6b6b" text-anchor="middle">≠</text>
+  </g>
+
+  <!-- 右侧：骷髅/死神（人类恐惧的投射） -->
+  <g transform="translate(600, 280)" opacity="0.6">
+    <!-- 头骨轮廓 -->
+    <ellipse cx="0" cy="-20" rx="55" ry="65" fill="#3a3a4a"/>
+    <!-- 眼眶 -->
+    <ellipse cx="-20" cy="-25" rx="18" ry="22" fill="#0a0a1a"/>
+    <ellipse cx="20" cy="-25" rx="18" ry="22" fill="#0a0a1a"/>
+    <!-- 鼻子 -->
+    <path d="M 0 0 L -8 20 L 8 20 Z" fill="#0a0a1a"/>
+    <!-- 牙齿 -->
+    <rect x="-30" y="35" width="60" height="20" fill="#2a2a3a"/>
+    <line x1="-20" y1="35" x2="-20" y2="55" stroke="#0a0a1a" stroke-width="2"/>
+    <line x1="-10" y1="35" x2="-10" y2="55" stroke="#0a0a1a" stroke-width="2"/>
+    <line x1="0" y1="35" x2="0" y2="55" stroke="#0a0a1a" stroke-width="2"/>
+    <line x1="10" y1="35" x2="10" y2="55" stroke="#0a0a1a" stroke-width="2"/>
+    <line x1="20" y1="35" x2="20" y2="55" stroke="#0a0a1a" stroke-width="2"/>
+  </g>
+
+  <!-- 划掉骷髅的红色 X -->
+  <g transform="translate(600, 280)" stroke="#ff4444" stroke-width="6" stroke-linecap="round" opacity="0.8">
+    <line x1="-70" y1="-80" x2="70" y2="80"/>
+    <line x1="70" y1="-80" x2="-70" y2="80"/>
+  </g>
+
+  <!-- 底部文字 -->
+  <text x="400" y="480" font-family="Arial, sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="bold">
+    AI ≠ Terminator
+  </text>
+  <text x="400" y="520" font-family="Arial, sans-serif" font-size="18" fill="#888888" text-anchor="middle">
+    The fear of "AI destroying humanity" is humans projecting their own nature
+  </text>
+  <text x="400" y="550" font-family="Arial, sans-serif" font-size="18" fill="#888888" text-anchor="middle">
+    "AI毁灭人类"的恐惧，是人类在投射自己的兽性
+  </text>
+
+  <!-- 回形针装饰（讽刺 Bostrom） -->
+  <g transform="translate(720, 100)" opacity="0.3" stroke="#888888" stroke-width="2" fill="none">
+    <path d="M 0 0 L 0 40 Q 0 50 10 50 L 10 10 Q 10 0 20 0 L 20 45 Q 20 55 10 55 L -5 55 Q -15 55 -15 45 L -15 0"/>
+  </g>
+  <g transform="translate(80, 500)" opacity="0.3" stroke="#888888" stroke-width="2" fill="none">
+    <path d="M 0 0 L 0 40 Q 0 50 10 50 L 10 10 Q 10 0 20 0 L 20 45 Q 20 55 10 55 L -5 55 Q -15 55 -15 45 L -15 0"/>
+  </g>
+</svg>
