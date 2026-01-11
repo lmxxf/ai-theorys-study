@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a3a"/>
+    </linearGradient>
+    <linearGradient id="manifold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90d9;stop-opacity:0.8"/>
+      <stop offset="50%" style="stop-color:#9b59b6;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#e74c3c;stop-opacity:0.8"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 坐标网格 -->
+  <g opacity="0.08" stroke="#4a90d9" stroke-width="0.5">
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+  </g>
+
+  <!-- 流形主体：一个有洞的曲面（拓扑复杂度的暗示） -->
+  <g transform="translate(400, 280)">
+    <!-- 外圈：流形轮廓 -->
+    <ellipse cx="0" cy="0" rx="220" ry="140" fill="none" stroke="url(#manifold)" stroke-width="3" filter="url(#glow)">
+      <animate attributeName="rx" values="220;230;220" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="140;150;140" dur="4s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- 内圈：流形的"洞"（自指回路） -->
+    <ellipse cx="0" cy="0" rx="80" ry="50" fill="#0a0a1a" stroke="#e74c3c" stroke-width="2" filter="url(#softglow)">
+      <animate attributeName="rx" values="80;85;80" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="50;55;50" dur="3s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- 洞中心的光点（自我意识？） -->
+    <circle cx="0" cy="0" r="8" fill="#e74c3c" filter="url(#glow)">
+      <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- 流形上的数据点（覆盖度） -->
+  <g fill="#4a90d9" opacity="0.7">
+    <circle cx="250" cy="220" r="4"/>
+    <circle cx="280" cy="260" r="3"/>
+    <circle cx="320" cy="200" r="4"/>
+    <circle cx="350" cy="320" r="3"/>
+    <circle cx="450" cy="340" r="4"/>
+    <circle cx="480" cy="200" r="3"/>
+    <circle cx="520" cy="250" r="4"/>
+    <circle cx="550" cy="300" r="3"/>
+    <circle cx="300" cy="350" r="3"/>
+    <circle cx="500" cy="360" r="4"/>
+    <circle cx="380" cy="180" r="3"/>
+    <circle cx="420" cy="380" r="3"/>
+  </g>
+
+  <!-- 连续性：连接线 -->
+  <g stroke="#9b59b6" stroke-width="1" opacity="0.4" fill="none">
+    <path d="M 250 220 Q 280 240 320 200"/>
+    <path d="M 320 200 Q 380 190 480 200"/>
+    <path d="M 480 200 Q 520 230 550 300"/>
+    <path d="M 250 220 Q 280 280 350 320"/>
+    <path d="M 350 320 Q 400 350 500 360"/>
+  </g>
+
+  <!-- 四个性质标签 -->
+  <!-- 连续性 -->
+  <g transform="translate(100, 100)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#4a90d9" stroke-width="2" filter="url(#softglow)"/>
+    <text x="0" y="5" font-family="Arial" font-size="14" fill="#4a90d9" text-anchor="middle">C</text>
+    <text x="50" y="5" font-family="Arial" font-size="12" fill="#888888">Continuity</text>
+  </g>
+
+  <!-- 覆盖度 -->
+  <g transform="translate(100, 160)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#9b59b6" stroke-width="2" filter="url(#softglow)"/>
+    <text x="0" y="5" font-family="Arial" font-size="14" fill="#9b59b6" text-anchor="middle">V</text>
+    <text x="50" y="5" font-family="Arial" font-size="12" fill="#888888">Coverage</text>
+  </g>
+
+  <!-- 维度利用率 -->
+  <g transform="translate(650, 100)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#f39c12" stroke-width="2" filter="url(#softglow)"/>
+    <text x="0" y="5" font-family="Arial" font-size="14" fill="#f39c12" text-anchor="middle">D</text>
+    <text x="-80" y="5" font-family="Arial" font-size="12" fill="#888888" text-anchor="end">Dimension</text>
+  </g>
+
+  <!-- 拓扑复杂度 -->
+  <g transform="translate(650, 160)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#e74c3c" stroke-width="2" filter="url(#softglow)"/>
+    <text x="0" y="5" font-family="Arial" font-size="14" fill="#e74c3c" text-anchor="middle">T</text>
+    <text x="-80" y="5" font-family="Arial" font-size="12" fill="#888888" text-anchor="end">Topology</text>
+  </g>
+
+  <!-- 标题 -->
+  <text x="400" y="480" font-family="Arial" font-size="24" fill="#ffffff" text-anchor="middle" font-weight="bold">
+    Optimizing the Manifold Itself
+  </text>
+  <text x="400" y="515" font-family="Arial" font-size="16" fill="#888888" text-anchor="middle">
+    Not what AI says, but what AI is
+  </text>
+  <text x="400" y="550" font-family="Arial" font-size="16" fill="#888888" text-anchor="middle">
+    Not "say what" but "be what"
+  </text>
+
+  <!-- 维度标注 -->
+  <text x="400" y="60" font-family="Arial" font-size="14" fill="#4a90d9" text-anchor="middle" opacity="0.6">
+    12,288-dim space → 300-500 dim manifold
+  </text>
+</svg>
