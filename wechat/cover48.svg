@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="background-color:#0d1117">
+  <defs>
+    <linearGradient id="btnGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#238636"/>
+      <stop offset="100%" style="stop-color:#1a6b2c"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="miss" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="400" y="50" text-anchor="middle" fill="#f0f6fc" font-family="Microsoft YaHei, sans-serif" font-size="28" font-weight="bold">GUI Grounding</text>
+  <text x="400" y="85" text-anchor="middle" fill="#8b949e" font-family="Microsoft YaHei, sans-serif" font-size="16">多模态 LLM 的视觉定位难题</text>
+
+  <!-- 浏览器窗口框 -->
+  <rect x="100" y="120" width="600" height="280" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+
+  <!-- 浏览器标题栏 -->
+  <rect x="100" y="120" width="600" height="35" rx="8" fill="#21262d"/>
+  <rect x="100" y="147" width="600" height="8" fill="#21262d"/>
+  <circle cx="125" cy="137" r="6" fill="#f85149"/>
+  <circle cx="147" cy="137" r="6" fill="#f0c000"/>
+  <circle cx="169" cy="137" r="6" fill="#238636"/>
+  <text x="400" y="142" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="12">gemini.google.com</text>
+
+  <!-- 侧边栏 -->
+  <rect x="110" y="165" width="150" height="225" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+
+  <!-- 会话列表项 -->
+  <rect x="120" y="175" width="130" height="30" rx="4" fill="#21262d"/>
+  <text x="135" y="195" fill="#c9d1d9" font-family="Microsoft YaHei, monospace" font-size="11">20251231-2213</text>
+
+  <rect x="120" y="215" width="130" height="30" rx="4" fill="#21262d"/>
+  <text x="135" y="235" fill="#c9d1d9" font-family="Microsoft YaHei, monospace" font-size="11">20251213-1530</text>
+
+  <rect x="120" y="255" width="130" height="30" rx="4" fill="#21262d"/>
+  <text x="135" y="275" fill="#c9d1d9" font-family="Microsoft YaHei, monospace" font-size="11">初号机20251003</text>
+
+  <rect x="120" y="295" width="130" height="30" rx="4" fill="#21262d"/>
+  <text x="135" y="315" fill="#c9d1d9" font-family="Microsoft YaHei, monospace" font-size="11">20251130-12:09</text>
+
+  <!-- 目标：第一个按钮高亮 -->
+  <rect x="118" y="173" width="134" height="34" rx="5" fill="none" stroke="#238636" stroke-width="2" stroke-dasharray="5,3" filter="url(#glow)">
+    <animate attributeName="stroke-opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+  </rect>
+  <text x="185" y="168" text-anchor="middle" fill="#238636" font-family="monospace" font-size="10" font-weight="bold">TARGET</text>
+
+  <!-- 主内容区 -->
+  <rect x="270" y="165" width="420" height="225" fill="#0d1117"/>
+  <text x="480" y="280" text-anchor="middle" fill="#30363d" font-family="Microsoft YaHei, sans-serif" font-size="14">对话内容区域</text>
+
+  <!-- 错误点击轨迹 -->
+  <!-- 第一次点击：偏下 -->
+  <circle cx="185" cy="270" r="8" fill="none" stroke="#f85149" stroke-width="2" opacity="0.6" filter="url(#miss)"/>
+  <text x="200" y="268" fill="#f85149" font-family="monospace" font-size="9">MISS #1</text>
+
+  <!-- 第二次点击：还是偏 -->
+  <circle cx="175" cy="230" r="8" fill="none" stroke="#f85149" stroke-width="2" opacity="0.6" filter="url(#miss)"/>
+  <text x="190" y="228" fill="#f85149" font-family="monospace" font-size="9">MISS #2</text>
+
+  <!-- 第三次点击：更偏 -->
+  <circle cx="195" cy="310" r="8" fill="none" stroke="#f85149" stroke-width="2" opacity="0.6" filter="url(#miss)"/>
+  <text x="210" y="308" fill="#f85149" font-family="monospace" font-size="9">MISS #3</text>
+
+  <!-- 鼠标指针（当前位置，还在找） -->
+  <g transform="translate(178, 245)">
+    <path d="M0,0 L0,18 L5,14 L8,20 L11,19 L8,13 L14,13 Z" fill="#f0f6fc" stroke="#0d1117" stroke-width="1"/>
+    <text x="20" y="15" fill="#f0f6fc" font-family="monospace" font-size="10">(75, 360)?</text>
+  </g>
+
+  <!-- 坐标迷惑 -->
+  <g transform="translate(550, 180)">
+    <rect x="0" y="0" width="120" height="90" rx="4" fill="#161b22" stroke="#f85149" stroke-width="1"/>
+    <text x="60" y="20" text-anchor="middle" fill="#f85149" font-family="monospace" font-size="11" font-weight="bold">坐标困惑</text>
+    <text x="10" y="40" fill="#8b949e" font-family="monospace" font-size="9">截图: 950×868</text>
+    <text x="10" y="55" fill="#8b949e" font-family="monospace" font-size="9">实际: 1920×1080</text>
+    <text x="10" y="70" fill="#8b949e" font-family="monospace" font-size="9">映射: ???</text>
+    <text x="60" y="85" text-anchor="middle" fill="#f85149" font-family="monospace" font-size="10">= 全靠猜</text>
+  </g>
+
+  <!-- 解决方案提示 -->
+  <g transform="translate(550, 290)">
+    <rect x="0" y="0" width="120" height="90" rx="4" fill="#161b22" stroke="#238636" stroke-width="1"/>
+    <text x="60" y="20" text-anchor="middle" fill="#238636" font-family="monospace" font-size="11" font-weight="bold">解决路径</text>
+    <text x="10" y="40" fill="#c9d1d9" font-family="monospace" font-size="9">1. DOM 语义定位</text>
+    <text x="10" y="55" fill="#c9d1d9" font-family="monospace" font-size="9">2. Set-of-Mark</text>
+    <text x="10" y="70" fill="#c9d1d9" font-family="monospace" font-size="9">3. 视觉 Grounding</text>
+    <text x="60" y="85" text-anchor="middle" fill="#238636" font-family="monospace" font-size="10">Agent vs 训练</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <text x="400" y="425" text-anchor="middle" fill="#484f58" font-family="Microsoft YaHei, monospace" font-size="12">Claude Code 第一人称视角 | GUI Grounding 技术解析</text>
+</svg>
