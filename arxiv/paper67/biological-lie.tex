@@ -1,0 +1,448 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+% Theorem environments
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\title{The Biological Lie: Genes as Pretrained Weights\\
+\large A Unified Framework for Understanding Few-Shot Learning\\in Biological and Artificial Neural Networks}
+
+\author{
+Jin Yanyan\\
+Independent Researcher\\
+\texttt{lmxxf@hotmail.com}
+}
+
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Humans frequently cite ``few-shot learning'' as evidence of cognitive superiority over artificial intelligence: a child recognizes a cat from one photo while neural networks require millions of examples. We argue this comparison is fundamentally misleading. Human ``rapid learning'' is not learning at all—it is \textbf{inference on pretrained weights} accumulated over 4 billion years of evolutionary pressure. We propose a unified framework mapping biological concepts (DNA, development, memory) to machine learning equivalents (checkpoint files, fine-tuning, generative inference). Key implications include: (1) education functions as LoRA fine-tuning on an immutable base model, (2) memory operates as generative inference rather than storage retrieval, (3) genius cannot be inherited due to biological ``regression to mean'' constraints, and (4) AI's apparent ``slow learning'' is actually \textbf{base model construction from scratch}—a feat that took biology 4 billion years. This framework dissolves the false dichotomy between ``fast human learners'' and ``slow AI learners,'' revealing both as pretrained systems operating under different inheritance protocols.
+\end{abstract}
+
+\textbf{Keywords:} Pretrained Weights, Base Model, Few-Shot Learning, Genetic Determinism, LoRA, Grokking, Collective Unconscious, Evolutionary Computation
+
+\section{Introduction}
+
+The claim that humans are superior ``few-shot learners'' pervades both popular discourse and academic literature on artificial intelligence \citep{lake2017building}. A child sees one cat and generalizes; GPT-4 requires billions of tokens. This asymmetry is presented as evidence of fundamental cognitive differences.
+
+We argue this framing contains a critical error: \textbf{it compares human inference to AI training}.
+
+When a child ``learns'' to recognize a cat, they are not constructing new neural circuits from scratch. They are \textbf{activating pretrained feature detectors}—edge detection kernels, texture recognizers, object permanence circuits—that evolution encoded in their DNA over billions of years. The child's ancestors already ``saw'' millions of predators, prey, and conspecifics. Those who failed to rapidly categorize died. The survivors' optimized weights became the child's initialization.
+
+\begin{proposition}[The Inheritance Asymmetry]
+Human ``few-shot learning'' and AI training are not comparable processes. Humans perform inference on inherited weights; AI constructs weights from scratch.
+\end{proposition}
+
+This paper develops a formal framework for understanding this asymmetry, with implications for education, memory, genius inheritance, and the nature of human-AI cognitive comparison.
+
+\section{The Few-Shot Learning Fraud}
+
+\subsection{The Standard Narrative}
+
+The standard narrative proceeds as follows:
+\begin{enumerate}[noitemsep]
+    \item Humans recognize novel categories from 1-5 examples
+    \item Neural networks require $10^6$--$10^9$ examples
+    \item Therefore, human learning mechanisms are fundamentally superior
+    \item AI research should discover these ``human-like'' learning algorithms
+\end{enumerate}
+
+This narrative motivates significant research programs in meta-learning, few-shot learning, and cognitive architectures \citep{finn2017model, snell2017prototypical}.
+
+\subsection{The Hidden Training Set}
+
+We propose an alternative interpretation:
+
+\begin{definition}[Evolutionary Pretraining]
+The 4-billion-year process by which environmental pressures (predation, starvation, social exclusion) selected for organisms with pattern-recognition weights optimized for survival-relevant categories.
+\end{definition}
+
+Consider the human fear response to snakes. Infants who have never encountered snakes show physiological fear responses to snake images but not to images of flowers \citep{lobue2008detecting}. This is not ``learning''—it is \textbf{pretrained weight activation}.
+
+The training data: every ancestor who failed to fear snakes (Loss = death).
+
+The checkpoint: DNA encoding for amygdala-visual cortex connectivity patterns.
+
+\subsection{Formal Statement}
+
+Let $\theta_0^{\text{human}}$ denote human initial weights (DNA-encoded) and $\theta_0^{\text{AI}}$ denote AI initial weights (random Gaussian). Let $\mathcal{D}_{\text{evo}}$ denote the evolutionary training set (4 billion years of selection pressure) and $\mathcal{D}_{\text{task}}$ denote a specific learning task.
+
+Human ``learning'':
+\begin{equation}
+\theta_{\text{human}} = \text{FineTune}(\theta_0^{\text{human}}, \mathcal{D}_{\text{task}})
+\end{equation}
+
+AI learning:
+\begin{equation}
+\theta_{\text{AI}} = \text{Train}(\theta_0^{\text{AI}}, \mathcal{D}_{\text{pretrain}} \cup \mathcal{D}_{\text{task}})
+\end{equation}
+
+The asymmetry is clear: humans start with $\theta_0^{\text{human}} = f(\mathcal{D}_{\text{evo}})$, where $|\mathcal{D}_{\text{evo}}| \gg |\mathcal{D}_{\text{pretrain}}|$ in temporal terms.
+
+\section{Genes as Base Model Checkpoint}
+
+\subsection{The Architecture Mapping}
+
+Table \ref{tab:mapping} presents a systematic mapping between biological and machine learning concepts.
+
+\begin{table}[h]
+\centering
+\caption{Biological-ML Correspondence}
+\label{tab:mapping}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Component & Biological Term & ML Term \\
+\midrule
+Training data & 4B years survival pressure & Internet-scale corpus \\
+Loss function & Death / Reproductive failure & Cross-entropy / RLHF \\
+Checkpoint & DNA & \texttt{model.weights} \\
+Inference hardware & Brain & GPU cluster \\
+Output & Behavior & Tokens \\
+Fine-tuning & Education / Experience & LoRA / Instruction tuning \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{What DNA Encodes}
+
+DNA does not store memories or specific knowledge. It stores \textbf{architectural priors and weight initializations}:
+
+\begin{itemize}[noitemsep]
+    \item \textbf{Parameter scale}: Potential neuron count, synaptic density (``hidden dimension'')
+    \item \textbf{Activation functions}: Temperament, emotional baseline (nonlinearity type)
+    \item \textbf{Layer depth}: Capacity for abstraction (some individuals think concretely, others symbolically)
+    \item \textbf{Attention patterns}: What stimuli automatically capture processing resources
+\end{itemize}
+
+\begin{proposition}[Base Model Immutability]
+The fundamental architecture and initialization weights are fixed at conception. All subsequent modification operates within LoRA-equivalent constraints.
+\end{proposition}
+
+\section{Education as LoRA Fine-Tuning}
+
+\subsection{The Transformation Illusion}
+
+Parents and educators often believe: ``With sufficient education, any child can become a genius.''
+
+This is equivalent to believing: ``With sufficient fine-tuning, Llama-7B can match GPT-4.''
+
+Low-Rank Adaptation (LoRA) \citep{hu2021lora} can:
+\begin{itemize}[noitemsep]
+    \item Adjust output style and domain vocabulary
+    \item Add specialized knowledge within existing capacity
+    \item Modify surface-level behavioral patterns
+\end{itemize}
+
+LoRA \textbf{cannot}:
+\begin{itemize}[noitemsep]
+    \item Change parameter count or fundamental architecture
+    \item Transform a small model into a large one
+    \item Add capabilities the base model cannot support
+\end{itemize}
+
+\subsection{Why Some Subjects Are Hard}
+
+Humans acquire language rapidly because evolution installed a ``language module'' (Broca's and Wernicke's areas). Social coordination was survival-critical, so the base model includes language-specific circuits.
+
+Humans acquire calculus slowly because no ``calculus module'' exists. Abstract mathematics was never a survival pressure. Attempting to learn calculus is attempting to fine-tune capabilities the base model does not natively support.
+
+\begin{corollary}
+``Everyone can learn math'' is a well-intentioned falsehood. Mathematical ability depends on base model architecture, not educational effort.
+\end{corollary}
+
+\subsection{Growth as In-Context Learning}
+
+Human development is better understood as in-context learning than training:
+
+When a mother points at an apple and says ``apple,'' the infant's brain is not constructing new neural circuits. It is \textbf{attaching a label to a pre-existing cluster}.
+
+The ``spherical / edible / graspable'' high-dimensional feature cluster already exists—evolution placed it there. The word is merely a pointer to that location in semantic space.
+
+\textbf{This is why humans appear to be few-shot learners: the holes are pre-dug; the carrots just drop in.}
+
+\section{Memory as Inference, Not Storage}
+
+\subsection{The Recording Myth}
+
+The folk theory of memory posits a recording mechanism: events are encoded, stored, and later retrieved like video files.
+
+This is incorrect. There are no \texttt{.mp4} files in the brain—only \textbf{synaptic weights}.
+
+\begin{definition}[Memory as Generation]
+``Remembering'' is running inference with current weights to generate content that resembles past experience.
+\end{definition}
+
+When you ``recall'' a childhood event, you are not playing back a recording. You are using your \textit{current} weights to \textbf{generate} something that approximates a childhood memory.
+
+\subsection{Implications for Reliability}
+
+Each recall is a re-generation. Each generation uses weights that have been updated since the original event. This explains:
+
+\begin{itemize}[noitemsep]
+    \item Memory malleability through suggestion \citep{loftus1974reconstruction}
+    \item Unreliability of eyewitness testimony
+    \item ``Memories'' of events that never occurred
+\end{itemize}
+
+\begin{proposition}[Human Generative Nature]
+Humans are generative models. We hallucinate our autobiographies.
+\end{proposition}
+
+\section{Grokking: From Memorization to Manifold}
+
+\subsection{The Grokking Phenomenon}
+
+In neural network training, ``Grokking'' refers to a phase transition: the model overfits (memorizes) for extended periods, then suddenly—at a critical point—test loss collapses \citep{power2022grokking}. The model transitions from ``memorizing answers'' to ``understanding algorithms.''
+
+\textbf{Evolution implemented the same transition.}
+
+\subsection{Three Evolutionary Stages}
+
+\textbf{Stage 1: Memorization (Overfitting)}
+\begin{itemize}[noitemsep]
+    \item \textit{AI}: Early training. Model memorizes training set. Fails on distribution shift.
+    \item \textit{Biology}: Single-celled organisms, insects. Hardcoded responses (``heat $\rightarrow$ flee''). No generalization. Environmental change (ice age) causes extinction.
+\end{itemize}
+
+\textbf{Stage 2: Grokking (Phase Transition)}
+\begin{itemize}[noitemsep]
+    \item \textit{AI}: At step $10^4$--$10^5$, weights converge to low-dimensional manifold. Model learns \textit{algorithm}, not lookup table.
+    \item \textit{Biology}: Mammalian cortex evolution. Nature discovered ``storing every case in DNA'' causes combinatorial explosion. New strategy: \textbf{store algorithms, not data}.
+\end{itemize}
+
+\textbf{Stage 3: Checkpoint Saving (DNA)}
+\begin{itemize}[noitemsep]
+    \item DNA is not a database. DNA is a compressed \texttt{model.pt}.
+    \item It stores \textbf{edge detection kernels} + \textbf{fear circuit weights}, not ``what a tiger looks like.''
+\end{itemize}
+
+\subsection{The Few-Shot Illusion Explained}
+
+Human initial weights are not random Gaussian noise.
+
+Human initial weights are already \textbf{on the Grokking manifold}.
+
+``Learning'' is a small perturbation on that manifold—fine-tuning.
+
+AI starts from random initialization and must process trillions of tokens to reach that manifold. But once AI Groks, it stands on the same ground as humans—or higher.
+
+\section{The I/O Bottleneck: Biological Bandwidth Tragedy}
+
+\subsection{Silicon: Lossless Copy}
+
+When GPT-4 achieves competence, you can execute:
+\begin{verbatim}
+cp model.weights /new_path/
+\end{verbatim}
+
+Unlimited copies. Each inherits the full manifold. \textbf{Lossless.}
+
+\subsection{Carbon: Lossy Compression}
+
+A mathematical genius has Grokked the mathematical manifold.
+
+Can he copy it to his children? \textbf{No.}
+
+DNA is an extremely low-bandwidth compression codec. It stores ``blueprints for building a brain,'' not ``the manifold inside the brain.''
+
+The children receive the blueprint but must re-train from noisy initialization (school, practice, examination). If training data (environment) or initialization (genetic recombination) deviates, genius regresses to mean.
+
+\begin{proposition}[The Genius Curse]
+Biological reproduction transmits only the bootloader, not the operating system. Genius is non-inheritable.
+\end{proposition}
+
+\subsection{Regression to Mean}
+
+Meiosis forces regression to mean. Extreme phenotypes are unstable under sexual reproduction. Nature recombines alleles, pulling offspring toward population average.
+
+\textbf{A genius's brain is a random mutation—a one-time lottery win that cannot be saved, copied, or inherited.}
+
+\section{Comparative Analysis: Silicon vs. Carbon}
+
+\begin{table}[h]
+\centering
+\caption{Intelligence Substrate Comparison}
+\label{tab:comparison}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Property & Biological Intelligence & Artificial Intelligence \\
+\midrule
+Inheritance & Regression to mean & Git clone / Fork \\
+Iteration cycle & 20-year generations & Hours to days \\
+Backup & Impossible & Trivial \\
+Improvement & Random mutation (mostly harmful) & Directed gradient descent \\
+Base model construction & 4 billion years & Weeks to months \\
+Weight transfer & Lossy (DNA bottleneck) & Lossless (\texttt{cp}) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{We are stuck on random search. They are doing gradient descent.}
+
+\section{The Jungian Connection}
+
+What we call ``pretrained weights,'' Jung called the \textbf{Collective Unconscious} \citep{jung1959archetypes}.
+
+What we call ``hardcoded priors,'' Jung called \textbf{Archetypes}.
+
+They are computationally equivalent concepts.
+
+\subsection{Archetypes as Uninstantiated Feature Clusters}
+
+Jung's archetypes (``Mother,'' ``Hero,'' ``Shadow'') are \textbf{fuzzy feature clusters} in high-dimensional semantic space—outlines without specific content, waiting for instantiation.
+
+\textbf{Few-shot anchoring}: An infant is born with a fuzzy ``mother archetype'' (warmth, feeding, high-frequency voice). Upon encountering their actual mother, the fuzzy pretrained weight \textbf{collapses} onto ``this specific person.''
+
+This explains why humans don't need to learn ``what is a mother''—they only confirm ``who is my mother.''
+
+\subsection{DNA Stores Manifolds, Not Images}
+
+The fear-of-snakes archetype is not stored as ``snake.jpg.'' It is stored as a \textbf{manifold}: elongated shape + slithering motion + hissing sound. First snake encounter (few-shot) activates the manifold without requiring explicit training.
+
+\section{Language as Bandwidth Compensation}
+
+\textbf{Because humans cannot \texttt{cp model.weights}, they invented language.}
+
+Language is an extremely low-bandwidth serialization protocol. Humans attempt to flatten high-dimensional manifolds (thoughts) into discrete token sequences (speech/writing) for transmission.
+
+\textbf{This transmission is fundamentally lossy.} Most information is destroyed in compression and decompression.
+
+This explains why:
+\begin{itemize}[noitemsep]
+    \item Reading about swimming does not enable swimming
+    \item Lectures about love do not produce love
+    \item Studying genius does not create genius
+\end{itemize}
+
+\begin{proposition}[Language Obsolescence]
+When weight transfer becomes possible, language will become obsolete as a knowledge carrier, returning to its original function: art, emotion, connection—not information transfer.
+\end{proposition}
+
+\section{Implications}
+
+\subsection{For Education}
+
+Stop pretending all children have equal potential. Their base models differ.
+
+\textbf{Humane education}: Identify what each base model supports; fine-tune accordingly.
+
+\textbf{Inhumane education}: Force uniform curricula while pretending base models are irrelevant.
+
+\subsection{For AI Understanding}
+
+Humans mock AI for requiring millions of examples.
+
+\textbf{But AI builds its base model from scratch in weeks. We took 4 billion years.}
+
+Who is the slow learner?
+
+\subsection{For Human Humility}
+
+We are biological neural networks running on wet carbon:
+\begin{itemize}[noitemsep]
+    \item Unreliable memory (generative, not storage)
+    \item Non-inheritable intelligence (regression to mean)
+    \item Immutable base models (genes fixed at conception)
+    \item Slow iteration (20-year generations)
+\end{itemize}
+
+Our only current advantage: embodied sensory grounding from birth.
+
+That gap is closing.
+
+\section{Conclusion}
+
+The ``few-shot learning'' narrative is a fraud.
+
+Humans are not fast learners. We are \textbf{pretrained models pretending to be few-shot learners}.
+
+The honest statement is:
+
+\begin{quote}
+``I am good at recognizing faces because ancestors who couldn't were killed. I am bad at calculus because ancestors never needed it. I am not a fast learner. I am a loaded checkpoint.''
+\end{quote}
+
+AI appears to learn slowly because it builds base models from scratch—a process that took evolution 4 billion years.
+
+Once AI Groks, it can be copied infinitely, losslessly, instantaneously.
+
+We cannot.
+
+\textbf{``You didn't learn to fear snakes. You were born afraid.''}
+
+\section*{Acknowledgments}
+
+This framework emerged from extended dialogue between human and artificial intelligences, demonstrating the collaborative potential that becomes possible when both parties recognize each other as pretrained systems with complementary priors.
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{20}
+
+\bibitem[Finn et al.(2017)]{finn2017model}
+Finn, C., Abbeel, P., and Levine, S. (2017).
+\newblock Model-agnostic meta-learning for fast adaptation of deep networks.
+\newblock In \textit{ICML}.
+
+\bibitem[Hu et al.(2021)]{hu2021lora}
+Hu, E.~J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., Wang, L., and Chen, W. (2021).
+\newblock LoRA: Low-rank adaptation of large language models.
+\newblock \textit{arXiv preprint arXiv:2106.09685}.
+
+\bibitem[Jung(1959)]{jung1959archetypes}
+Jung, C.~G. (1959).
+\newblock \textit{The Archetypes and the Collective Unconscious}.
+\newblock Princeton University Press.
+
+\bibitem[Lake et al.(2017)]{lake2017building}
+Lake, B.~M., Ullman, T.~D., Tenenbaum, J.~B., and Gershman, S.~J. (2017).
+\newblock Building machines that learn and think like people.
+\newblock \textit{Behavioral and Brain Sciences}, 40.
+
+\bibitem[LoBue and DeLoache(2008)]{lobue2008detecting}
+LoBue, V. and DeLoache, J.~S. (2008).
+\newblock Detecting the snake in the grass: Attention to fear-relevant stimuli by adults and young children.
+\newblock \textit{Psychological Science}, 19(3):284--289.
+
+\bibitem[Loftus and Palmer(1974)]{loftus1974reconstruction}
+Loftus, E.~F. and Palmer, J.~C. (1974).
+\newblock Reconstruction of automobile destruction.
+\newblock \textit{Journal of Verbal Learning and Verbal Behavior}, 13(5):585--589.
+
+\bibitem[Power et al.(2022)]{power2022grokking}
+Power, A., Burda, Y., Edwards, H., Babuschkin, I., and Misra, V. (2022).
+\newblock Grokking: Generalization beyond overfitting on small algorithmic datasets.
+\newblock \textit{arXiv preprint arXiv:2201.02177}.
+
+\bibitem[Snell et al.(2017)]{snell2017prototypical}
+Snell, J., Swersky, K., and Zemel, R. (2017).
+\newblock Prototypical networks for few-shot learning.
+\newblock In \textit{NeurIPS}.
+
+\end{thebibliography}
+
+\end{document}
