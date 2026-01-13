@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4361ee"/>
+      <stop offset="100%" style="stop-color:#7209b7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- 左侧：单词词典（小） -->
+  <g transform="translate(120, 160)">
+    <!-- 书本形状 -->
+    <rect x="0" y="0" width="100" height="130" rx="4" fill="#2d3748" stroke="#4a5568" stroke-width="2"/>
+    <rect x="8" y="8" width="84" height="114" rx="2" fill="#1a202c"/>
+
+    <!-- 单词条目 -->
+    <text x="50" y="35" text-anchor="middle" fill="#a0aec0" font-family="monospace" font-size="11">苹果 →</text>
+    <text x="50" y="55" text-anchor="middle" fill="#68d391" font-family="monospace" font-size="10">[0.2, -0.5]</text>
+    <text x="50" y="80" text-anchor="middle" fill="#a0aec0" font-family="monospace" font-size="11">CEO →</text>
+    <text x="50" y="100" text-anchor="middle" fill="#68d391" font-family="monospace" font-size="10">[0.7, 0.3]</text>
+
+    <!-- 标签 -->
+    <text x="50" y="155" text-anchor="middle" fill="#718096" font-family="sans-serif" font-size="13">单词词典</text>
+    <text x="50" y="172" text-anchor="middle" fill="#4a5568" font-family="sans-serif" font-size="11">Embedding</text>
+  </g>
+
+  <!-- 箭头 -->
+  <g transform="translate(260, 210)">
+    <line x1="0" y1="0" x2="60" y2="0" stroke="#4361ee" stroke-width="3" stroke-linecap="round"/>
+    <polygon points="60,-8 80,0 60,8" fill="#4361ee"/>
+    <text x="40" y="25" text-anchor="middle" fill="#7209b7" font-family="sans-serif" font-size="12" font-weight="bold">+</text>
+  </g>
+
+  <!-- 右侧：词组词典（大，高亮） -->
+  <g transform="translate(380, 120)">
+    <!-- 更大的书本，发光效果 -->
+    <rect x="-5" y="-5" width="180" height="200" rx="8" fill="none" stroke="url(#glow)" stroke-width="3" opacity="0.6"/>
+    <rect x="0" y="0" width="170" height="190" rx="6" fill="#2d3748" stroke="#4361ee" stroke-width="2"/>
+    <rect x="10" y="10" width="150" height="170" rx="3" fill="#1a202c"/>
+
+    <!-- 词组条目 -->
+    <text x="85" y="40" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="12">苹果 CEO →</text>
+    <text x="85" y="60" text-anchor="middle" fill="#48bb78" font-family="monospace" font-size="11">[库克的向量]</text>
+
+    <text x="85" y="90" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="12">法国 首都 →</text>
+    <text x="85" y="110" text-anchor="middle" fill="#48bb78" font-family="monospace" font-size="11">[巴黎的向量]</text>
+
+    <text x="85" y="140" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="12">机器 学习 →</text>
+    <text x="85" y="160" text-anchor="middle" fill="#48bb78" font-family="monospace" font-size="11">[ML的向量]</text>
+
+    <!-- 标签 -->
+    <text x="85" y="215" text-anchor="middle" fill="#e2e8f0" font-family="sans-serif" font-size="15" font-weight="bold">词组词典</text>
+    <text x="85" y="235" text-anchor="middle" fill="#7209b7" font-family="sans-serif" font-size="13">Engram</text>
+  </g>
+
+  <!-- 右侧装饰：O(1) 查表 -->
+  <g transform="translate(600, 180)">
+    <circle cx="40" cy="40" r="35" fill="none" stroke="#48bb78" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="40" y="35" text-anchor="middle" fill="#48bb78" font-family="monospace" font-size="16" font-weight="bold">O(1)</text>
+    <text x="40" y="55" text-anchor="middle" fill="#68d391" font-family="sans-serif" font-size="11">直接查表</text>
+  </g>
+
+  <!-- 标题 -->
+  <text x="400" y="50" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="28" font-weight="bold">DeepSeek Engram</text>
+  <text x="400" y="80" text-anchor="middle" fill="#a0aec0" font-family="sans-serif" font-size="16">大模型终于有「词组词典」了</text>
+
+  <!-- 底部说明 -->
+  <text x="400" y="420" text-anchor="middle" fill="#718096" font-family="sans-serif" font-size="13">从单词到词组，查表不用算</text>
+
+  <!-- DeepSeek logo 区域 -->
+  <g transform="translate(30, 20)">
+    <rect x="0" y="0" width="90" height="24" rx="4" fill="#4361ee" opacity="0.2"/>
+    <text x="45" y="17" text-anchor="middle" fill="#4361ee" font-family="sans-serif" font-size="12" font-weight="bold">DeepSeek</text>
+  </g>
+</svg>
