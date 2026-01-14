@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <!-- 背景 -->
+  <rect width="900" height="500" fill="#1a1a2e"/>
+
+  <!-- 网格背景效果 -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2a2a4e" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="500" fill="url(#grid)"/>
+
+  <!-- V100 显卡组（左边，灰暗色调表示老旧） -->
+  <g transform="translate(80, 120)">
+    <!-- 8张卡堆叠 -->
+    <rect x="0" y="0" width="120" height="180" rx="8" fill="#3a3a4a" stroke="#555" stroke-width="2"/>
+    <rect x="15" y="15" width="90" height="60" rx="4" fill="#2a2a3a" stroke="#444" stroke-width="1"/>
+    <text x="60" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#888">V100</text>
+    <text x="60" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#666">32GB × 8</text>
+    <text x="60" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">= 256GB</text>
+
+    <!-- 灰尘效果 -->
+    <circle cx="100" cy="30" r="3" fill="#555" opacity="0.5"/>
+    <circle cx="25" cy="150" r="4" fill="#555" opacity="0.4"/>
+    <circle cx="90" cy="160" r="2" fill="#555" opacity="0.6"/>
+
+    <!-- 2017标签 -->
+    <rect x="70" y="130" width="45" height="20" rx="3" fill="#8B0000" opacity="0.8"/>
+    <text x="92" y="144" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#fff">2017</text>
+  </g>
+
+  <!-- 价格标签 V100 -->
+  <g transform="translate(80, 320)">
+    <rect x="0" y="0" width="120" height="40" rx="5" fill="#2d5a27"/>
+    <text x="60" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#7fff00">¥3-5千/块</text>
+  </g>
+
+  <!-- VS 符号 -->
+  <text x="280" y="220" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="48" fill="#ff6b6b">VS</text>
+
+  <!-- A100 显卡（右边，明亮色调表示新） -->
+  <g transform="translate(350, 120)">
+    <rect x="0" y="0" width="120" height="180" rx="8" fill="#1e3a5f" stroke="#4a9eff" stroke-width="2"/>
+    <rect x="15" y="15" width="90" height="60" rx="4" fill="#0d2137" stroke="#3a7fcf" stroke-width="1"/>
+    <text x="60" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#4a9eff">A100</text>
+    <text x="60" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#7ab8ff">80GB × 8</text>
+    <text x="60" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#5a98df">= 640GB</text>
+
+    <!-- 发光效果 -->
+    <rect x="0" y="0" width="120" height="180" rx="8" fill="none" stroke="#4a9eff" stroke-width="1" opacity="0.3"/>
+
+    <!-- 2020标签 -->
+    <rect x="70" y="130" width="45" height="20" rx="3" fill="#0066cc"/>
+    <text x="92" y="144" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#fff">2020</text>
+  </g>
+
+  <!-- 价格标签 A100 -->
+  <g transform="translate(350, 320)">
+    <rect x="0" y="0" width="120" height="40" rx="5" fill="#8B0000"/>
+    <text x="60" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ff6b6b">¥8-10万/块</text>
+  </g>
+
+  <!-- 右侧：小王的表情和对话 -->
+  <g transform="translate(550, 100)">
+    <!-- 小王简笔画头像 -->
+    <circle cx="80" cy="60" r="45" fill="#ffd93d" stroke="#333" stroke-width="3"/>
+    <!-- 眼睛（发亮，看到便宜价格） -->
+    <text x="65" y="55" font-size="24">💰</text>
+    <text x="85" y="55" font-size="24">💰</text>
+    <!-- 嘴巴（兴奋） -->
+    <path d="M 60 75 Q 80 95 100 75" fill="none" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- 对话气泡 -->
+    <path d="M 140 40 L 280 40 Q 300 40 300 60 L 300 100 Q 300 120 280 120 L 160 120 L 130 140 L 145 120 L 140 120 Q 120 120 120 100 L 120 60 Q 120 40 140 40" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="210" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">便宜!</text>
+    <text x="210" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">血赚!</text>
+    <text x="210" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">😄😄😄</text>
+  </g>
+
+  <!-- 下方：残酷的现实 -->
+  <g transform="translate(550, 260)">
+    <!-- 训练进度条（卡住） -->
+    <rect x="0" y="0" width="280" height="30" rx="5" fill="#333" stroke="#555" stroke-width="1"/>
+    <rect x="3" y="3" width="80" height="24" rx="3" fill="#ff6b6b"/>
+    <text x="140" y="20" text-anchor="middle" font-family="monospace" font-size="12" fill="#888">Training... 29% [OOM]</text>
+
+    <!-- 时间 -->
+    <text x="140" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ff6b6b">⏱️ 预计: 2个月</text>
+
+    <!-- 坑列表 -->
+    <text x="0" y="85" font-family="Arial, sans-serif" font-size="12" fill="#888">❌ 不支持bf16</text>
+    <text x="0" y="105" font-family="Arial, sans-serif" font-size="12" fill="#888">❌ 速度慢4-6倍</text>
+    <text x="0" y="125" font-family="Arial, sans-serif" font-size="12" fill="#888">❌ 显存刚好卡住</text>
+    <text x="140" y="85" font-family="Arial, sans-serif" font-size="12" fill="#888">❌ loss容易爆炸</text>
+    <text x="140" y="105" font-family="Arial, sans-serif" font-size="12" fill="#888">❌ 法务问题</text>
+    <text x="140" y="125" font-family="Arial, sans-serif" font-size="12" fill="#888">❌ API编的</text>
+  </g>
+
+  <!-- 主标题 -->
+  <text x="450" y="460" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="32" fill="#fff">十万块钱买V100训30B？</text>
+  <text x="450" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#ff6b6b">先听我把话说完</text>
+</svg>
