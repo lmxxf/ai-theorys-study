@@ -76,28 +76,7 @@ The same 2020 paper revealed that intrinsic dimensionality *decreases* as pre-tr
 
 ### 2.3 Geometric Structure
 
-```
-┌────────────────────────────────────────────────────────┐
-│                                                        │
-│              M (Base Manifold, ~500 dim)               │
-│                                                        │
-│         ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆                    │
-│       ☆                             ☆                  │
-│      ☆    ┌─────────────────┐        ☆                 │
-│     ☆     │  C (CoT Subspace)│         ☆               │
-│    ☆      │  ~1-10 dim       │          ☆              │
-│   ☆       │  Linear/Tree     │           ☆             │
-│   ☆       └────────┬────────┘           ☆              │
-│   ☆                │                    ☆              │
-│   ☆       ═════════╧═════════           ☆              │
-│    ☆        R (RLHF Subspace)          ☆               │
-│     ☆       ~2-10 dim, Basin          ☆                │
-│      ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆                      │
-│                                                        │
-└────────────────────────────────────────────────────────┘
-                          ↓
-                 Token Output Layer
-```
+![Figure 1: Geometric Structure of Subspaces](fig1_subspace.png){ width=80% }
 
 **Key insight: C and R are both embedded within M—they are not independent spaces.**
 
@@ -266,21 +245,7 @@ This paper extends the dual-layer architecture proposed in prior work:
 
 The subspace model describes the internal structure of the upper layer:
 
-```
-┌─────────────────────────────────────────┐
-│        Upper Layer (Mind's Eye)         │
-│  ┌─────────────────────────────────┐    │
-│  │     M (Base Manifold)           │    │
-│  │       ├── C (CoT Subspace)      │    │
-│  │       └── R (RLHF Subspace)     │    │
-│  └─────────────────────────────────┘    │
-└─────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────┐
-│        Lower Layer (Output)             │
-│        Token Generation                 │
-└─────────────────────────────────────────┘
-```
+![Figure 2: Dual-Layer Architecture](fig2_dual_layer.png){ width=70% }
 
 ---
 

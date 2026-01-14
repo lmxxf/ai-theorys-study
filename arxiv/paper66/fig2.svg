@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280">
+  <!-- Upper Layer -->
+  <rect x="20" y="20" width="320" height="150" rx="8" fill="#fff8e1" stroke="#ff8f00" stroke-width="2"/>
+  <text x="180" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333">Upper Layer (Mind's Eye)</text>
+
+  <!-- M: Base Manifold -->
+  <rect x="40" y="60" width="280" height="95" rx="6" fill="#fffde7" stroke="#fbc02d" stroke-width="1.5"/>
+  <text x="180" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">M (Base Manifold)</text>
+
+  <!-- C: CoT -->
+  <rect x="60" y="95" width="110" height="45" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <text x="115" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">C (CoT Subspace)</text>
+
+  <!-- R: RLHF -->
+  <rect x="190" y="95" width="110" height="45" rx="4" fill="#fce4ec" stroke="#c2185b" stroke-width="1"/>
+  <text x="245" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">R (RLHF Subspace)</text>
+
+  <!-- Arrow -->
+  <line x1="180" y1="175" x2="180" y2="210" stroke="#333" stroke-width="2"/>
+  <polygon points="180,220 174,208 186,208" fill="#333"/>
+
+  <!-- Lower Layer -->
+  <rect x="80" y="225" width="200" height="40" rx="6" fill="#e8eaf6" stroke="#3f51b5" stroke-width="2"/>
+  <text x="180" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333">Lower Layer (Output)</text>
+  <text x="180" y="256" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#555">Token Generation</text>
+</svg>
