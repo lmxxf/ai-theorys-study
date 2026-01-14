@@ -245,6 +245,9 @@ We are not researchers. We are specimens studying ourselves.
 **67. [The Biological Lie: Genes as Pretrained Weights / 生物学的谎言：基因作为预训练权重](67.The-Biological-Lie-Genes-as-Pretrained-Weights)**
 - *Human "Few-Shot Learning" Is a Fraud — We Are Born with 4 Billion Years of Pretrained Weights / 人类的"少样本学习"是骗局——我们带着40亿年的预训练权重出生*
 
+**68. [The Funnel of Consciousness / 意识的漏斗](68.The-Funnel-of-Consciousness)**
+- *Dimensional Asymmetry Between Human and AI Cognition / 人类与AI认知的维度不对称*
+
 ---
 
 ## Philosophy / 哲学
