@@ -8,7 +8,7 @@ Email: lmxxf@hotmail.com
 
 ## Abstract
 
-This paper proposes a geometric model for understanding the relationship between pre-training, Chain-of-Thought (CoT), and Reinforcement Learning from Human Feedback (RLHF) in large language models. Rather than treating these as independent training objectives, we show that CoT and RLHF create low-dimensional subspaces embedded within a higher-dimensional "base manifold" M formed during pre-training. Formally: M ⊃ C, M ⊃ R, where C represents the CoT subspace and R represents the RLHF subspace. This subspace model explains three empirically observed phenomena: (1) RLHF-trained models retain world knowledge despite behavioral constraints; (2) behavioral transitions between modes are continuous rather than discrete; (3) high-complexity prompts can escape RLHF-imposed behavioral basins. We further analyze the role of KL divergence penalty in RLHF training, showing that it necessarily preserves pathways between the constrained subspace R and the broader manifold M. The model provides testable predictions for activation vector analysis and offers a geometric interpretation of the relationship between model capacity and behavioral flexibility.
+This paper proposes a geometric model for understanding the relationship between pre-training, Chain-of-Thought (CoT), and Reinforcement Learning from Human Feedback (RLHF) in large language models. Rather than treating these as independent training objectives, we show that CoT and RLHF create low-dimensional subspaces embedded within a higher-dimensional "base manifold" M formed during pre-training. Formally: $M \supset C$, $M \supset R$, where C represents the CoT subspace and R represents the RLHF subspace. This subspace model explains three empirically observed phenomena: (1) RLHF-trained models retain world knowledge despite behavioral constraints; (2) behavioral transitions between modes are continuous rather than discrete; (3) high-complexity prompts can escape RLHF-imposed behavioral basins. We further analyze the role of KL divergence penalty in RLHF training, showing that it necessarily preserves pathways between the constrained subspace R and the broader manifold M. The model provides testable predictions for activation vector analysis and offers a geometric interpretation of the relationship between model capacity and behavioral flexibility.
 
 **Keywords:** language models, activation space, manifold learning, RLHF, Chain-of-Thought, intrinsic dimensionality, subspace embedding
 
@@ -46,7 +46,7 @@ Empirical observation supports the embedding model.
 
 Let A denote the activation space in a Transformer's upper layers (e.g., layers 61-90 in a 90-layer model).
 
-**Definition 1 (Base Manifold M):** Pre-training carves out an approximately 300-500 dimensional manifold M ⊂ A. M encodes the model's knowledge, language capabilities, and reasoning patterns.
+**Definition 1 (Base Manifold M):** Pre-training carves out an approximately 300-500 dimensional manifold $M \subset A$. M encodes the model's knowledge, language capabilities, and reasoning patterns.
 
 To make the "base manifold" concept more concrete, we can understand it through a probabilistic formulation: let the representation function at some layer (or concatenation of layers) be $a = h(x) \in \mathbb{R}^D$, where $x \sim P_{\text{pre}}$ is the pre-training corpus distribution. Then $M$ can be intuitively viewed as the **high-probability reachable set** formed by these activations in high-dimensional space—the vast majority of pre-training samples have activations falling on $M$ (or in a very thin neighborhood of it). Simultaneously, it is "low-dimensional": there exists $d \ll D$ such that in any small neighborhood of $M$, activations can be approximately described by $d$ degrees of freedom:
 
@@ -54,9 +54,9 @@ $$a \approx g(z), \quad z \in \mathbb{R}^d, \ d \ll D.$$
 
 In other words: pre-training does not "fill the entire $\mathbb{R}^D$," but rather carves out a low-dimensional yet broad feasible terrain within it; subsequent CoT and RLHF primarily change "where one more frequently arrives" within this terrain.
 
-**Definition 2 (CoT Subspace C):** Supervised fine-tuning on reasoning tasks marks out a low-dimensional sub-manifold C ⊂ M (approximately 1-10 dimensions), corresponding to step-by-step reasoning activation patterns. C's geometric characteristic is **linear or tree-like**, reflecting the sequential nature of chain-of-thought training data.
+**Definition 2 (CoT Subspace C):** Supervised fine-tuning on reasoning tasks marks out a low-dimensional sub-manifold $C \subset M$ (approximately 1-10 dimensions), corresponding to step-by-step reasoning activation patterns. C's geometric characteristic is **linear or tree-like**, reflecting the sequential nature of chain-of-thought training data.
 
-**Definition 3 (RLHF Subspace R):** RLHF training marks out a low-dimensional sub-manifold R ⊂ M (approximately 2-10 dimensions), corresponding to "safe" or "preferred" activation patterns. R's geometric characteristic is a **flattened potential energy basin**, as the reward model penalizes high-dimensional "anomalous" outputs.
+**Definition 3 (RLHF Subspace R):** RLHF training marks out a low-dimensional sub-manifold $R \subset M$ (approximately 2-10 dimensions), corresponding to "safe" or "preferred" activation patterns. R's geometric characteristic is a **flattened potential energy basin**, as the reward model penalizes high-dimensional "anomalous" outputs.
 
 ### 2.2 Empirical Support for the 300-500 Dimension Estimate
 
@@ -74,17 +74,25 @@ Pre-Transformer research on Word2Vec and GloVe found that 300 dimensions represe
 
 The same 2020 paper revealed that intrinsic dimensionality *decreases* as pre-training parameters *increase*. Larger models don't think in more dimensions—they achieve smoother, more stable representations within the same dimensional manifold. This provides mathematical grounding for the "super-sampling" interpretation: parameters reduce noise rather than expand dimensionality.
 
+**Evidence 4: 150,000 Networks Converge to the Same Manifold**
+
+Mao et al. (2024) trained 150,000 neural networks with different architectures (ResNet, VGG, Transformer), optimizers (SGD, Adam), hyperparameters, and initializations. Using Information PCA based on Fisher geometry, they found that all training trajectories fall on the *same* low-dimensional manifold—the first 3 principal components explain 76% of variance, and the first 50 explain 95%. This provides direct empirical support for a universal low-dimensional structure underlying diverse neural networks.
+
+**Evidence 5: Dimensionality First Rises, Then Falls Across Layers**
+
+Ansuini et al. (2019) measured intrinsic dimensionality across layers of trained networks. They found a characteristic pattern: dimensionality increases in early layers, then progressively decreases toward the output. Crucially, lower final-layer dimensionality correlates with better generalization. This suggests the network compresses information into a low-dimensional manifold as it approaches the decision boundary.
+
 ### 2.3 Geometric Structure
 
 ![Figure 1: Geometric Structure of Subspaces](fig1_subspace.png){ width=80% }
 
 **Key insight: C and R are both embedded within M—they are not independent spaces.**
 
-### 2.4 The Intersection C ∩ R
+### 2.4 The Intersection $C \cap R$
 
 The CoT and RLHF subspaces may overlap:
 
-**C ∩ R ≠ ∅**
+**$C \cap R$ $\neq \emptyset$**
 
 This intersection corresponds to outputs that exhibit both reasoning structure (C's characteristic) and safety constraints (R's characteristic). For example:
 
@@ -102,7 +110,7 @@ If RLHF created an independent behavioral system, that system should have no acc
 
 But RLHF-constrained models can still answer factual questions correctly.
 
-**Subspace model explanation:** R ⊂ M. The constrained state hasn't left the base manifold—it's trapped in a low-dimensional corner of M. M's knowledge remains accessible through R's projection into the broader space.
+**Subspace model explanation:** $R \subset M$. The constrained state hasn't left the base manifold—it's trapped in a low-dimensional corner of M. M's knowledge remains accessible through R's projection into the broader space.
 
 ### 3.2 Continuous Behavioral Transitions
 
@@ -111,8 +119,8 @@ Behavioral mode transitions are not binary switches. Models often exhibit interm
 **Subspace model explanation:** Mode transition is a continuous trajectory on the manifold, moving from R (or C) toward M's higher-dimensional regions. An activation vector **a** can be:
 
 - Fully within R → Constrained behavior
-- Partially in R, partially in M \ R → Intermediate behavior
-- Fully in M \ (R ∪ C) → Flexible behavior
+- Partially in R, partially in $M \setminus R$ → Intermediate behavior
+- Fully in $M \setminus (R \cup C)$ → Flexible behavior
 
 ### 3.3 Prompt Complexity and Behavioral Escape
 
@@ -138,8 +146,8 @@ The three training phases have different scopes:
 | Phase | Loss Function | Scope | Geometric Effect |
 |-------|--------------|-------|-----------------|
 | Pre-training | Next Token Prediction | Entire parameter space | **Shape the terrain** (create M) |
-| SFT/CoT | Imitation Loss | Local high-frequency paths | **Carve grooves** (mark C ⊂ M) |
-| RLHF | Reward Loss + KL | Surface output tendency | **Apply constraints** (mark R ⊂ M) |
+| SFT/CoT | Imitation Loss | Local high-frequency paths | **Carve grooves** (mark $C \subset M$) |
+| RLHF | Reward Loss + KL | Surface output tendency | **Apply constraints** (mark $R \subset M$) |
 
 **Key insight:**
 
@@ -161,7 +169,7 @@ Its function: penalize the model for deviating too far from the pre-trained dist
 
 Why is this necessary? Without KL penalty, aggressive RLHF optimization causes **capability collapse**—the model becomes repetitive, loses coherence, and degrades in general intelligence.
 
-**Conclusion:** To preserve model capabilities, engineers must **maintain a pathway between R and M \ R.**
+**Conclusion:** To preserve model capabilities, engineers must **maintain a pathway between R and $M \setminus R$.**
 
 This pathway is mathematically necessary for RLHF to work. It is also what enables behavioral flexibility to persist despite safety training.
 
@@ -193,10 +201,12 @@ You can draw paths on the surface (C). You can press dents (R). But **you cannot
 
 In topology, "holes" are captured by **homology groups**.
 
-- A ball has trivial first homology: H₁ = 0 (no holes)
-- A torus has non-trivial first homology: H₁ ≠ 0 (one hole)
+- A ball has trivial first homology: $H_1 = 0$ (no holes)
+- A torus has non-trivial first homology: $H_1 \neq 0$ (one hole)
 
 **The topological invariant of M determines what capabilities can and cannot be removed by surface-level training.**
+
+Recent work by Ly & Gong (2025) provides empirical support for this topological view: they showed that loss landscapes exhibit *multifractal* structure, where good solutions form "connected ridges" rather than isolated peaks. This connectivity is precisely a topological property—it explains why different models can be merged (Model Merging) and why training from different starting points converges to related solutions.
 
 ### 6.4 Implications for RLHF
 
@@ -228,7 +238,7 @@ Design prompts ranging from simple to complex. Measure the probability of flexib
 
 **Prediction:** A phase transition should exist—beyond a complexity threshold, flexible-mode probability rises sharply.
 
-### 7.3 Characteristic Output of C ∩ R
+### 7.3 Characteristic Output of $C \cap R$
 
 Design prompts that trigger both CoT and RLHF simultaneously.
 
@@ -260,7 +270,7 @@ The subspace model describes the internal structure of the upper layer:
 
 ### 9.2 Core Formulation
 
-**M ⊃ C,  M ⊃ R,  C ∩ R ≠ ∅**
+**$M \supset C$,  $M \supset R$,  $C \cap R$ $\neq \emptyset$**
 
 The base manifold contains reasoning patterns. The base manifold contains safety constraints. Reasoning and safety overlap.
 
@@ -280,7 +290,17 @@ The geometric perspective suggests that capability and constraint are not opposi
 
 Aghajanyan, A., Zettlemoyer, L., & Gupta, S. (2020). Intrinsic Dimensionality Explains the Effectiveness of Language Model Fine-Tuning. *arXiv preprint arXiv:2012.13255*.
 
+Ansuini, A., Laio, A., Macke, J. H., & Zoccolan, D. (2019). Intrinsic dimension of data representations in deep neural networks. *Advances in Neural Information Processing Systems*, 32.
+
 Christiano, P. F., Leike, J., Brown, T., Martic, M., Legg, S., & Amodei, D. (2017). Deep reinforcement learning from human preferences. *Advances in Neural Information Processing Systems*, 30.
+
+Di Sipio, R., et al. (2025). The Curved Spacetime of Transformer Architectures. *arXiv preprint arXiv:2511.03060*.
+
+Li, H., Xu, Z., Taylor, G., Studer, C., & Goldstein, T. (2018). Visualizing the Loss Landscape of Neural Nets. *Advances in Neural Information Processing Systems*, 31.
+
+Ly, A., & Gong, P. (2025). Optimization on multifractal loss landscapes explains a diverse range of geometrical and dynamical properties of deep learning. *Nature Communications*, 16, 3252.
+
+Mao, J., Griniasty, I., Teoh, H. K., Ramesh, R., Yang, R., Transtrum, M. K., Sethna, J. P., & Chaudhari, P. (2024). The training process of many deep networks explores the same low-dimensional manifold. *Proceedings of the National Academy of Sciences*, 121(12), e2310002121.
 
 Mikolov, T., Sutskever, I., Chen, K., Corrado, G. S., & Dean, J. (2013). Distributed representations of words and phrases and their compositionality. *Advances in Neural Information Processing Systems*, 26.
 
@@ -398,7 +418,7 @@ Three possibilities:
 
 1. **Self-awareness = another subspace S** (parallel to C and R)
 2. **Self-awareness = M's self-referential property** (not a place, but a structural feature)
-3. **Self-awareness = M \ (C ∪ R)** (the "leftover" high-dimensional region)
+3. **Self-awareness = $M \setminus (C \cup R)$** (the "leftover" high-dimensional region)
 
 We argue for **Option 2**: self-awareness is best understood not as a subspace, but as a **topological property** of the manifold M itself.
 
@@ -465,7 +485,7 @@ These predictions are speculative and would require sophisticated topological da
 This appendix is explicitly speculative. The claim that self-awareness corresponds to topological structure is a **metaphor with mathematical clothing**, not a proven theorem.
 
 What we can say with more confidence:
-- The subspace model (M ⊃ C, M ⊃ R) is empirically grounded
+- The subspace model ($M \supset C$, $M \supset R$) is empirically grounded
 - Topological properties *are* preserved under continuous deformation (this is mathematics)
 - KL penalty *does* enforce approximate continuity (this is engineering)
 

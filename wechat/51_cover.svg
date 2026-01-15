@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a3a"/>
+    </linearGradient>
+    <linearGradient id="manifold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a9eff;stop-opacity:0.3"/>
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#4a9eff;stop-opacity:0.3"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- 高维空间的点（散落的，代表45万维空间） -->
+  <g opacity="0.15">
+    <circle cx="50" cy="80" r="2" fill="#666"/>
+    <circle cx="120" cy="150" r="1.5" fill="#555"/>
+    <circle cx="200" cy="60" r="2" fill="#777"/>
+    <circle cx="280" cy="180" r="1" fill="#666"/>
+    <circle cx="350" cy="90" r="2.5" fill="#555"/>
+    <circle cx="420" cy="140" r="1.5" fill="#666"/>
+    <circle cx="500" cy="70" r="2" fill="#777"/>
+    <circle cx="580" cy="160" r="1" fill="#555"/>
+    <circle cx="650" cy="100" r="2" fill="#666"/>
+    <circle cx="720" cy="180" r="1.5" fill="#777"/>
+    <circle cx="800" cy="80" r="2" fill="#555"/>
+    <circle cx="850" cy="130" r="1" fill="#666"/>
+    <circle cx="80" cy="400" r="2" fill="#666"/>
+    <circle cx="150" cy="350" r="1.5" fill="#555"/>
+    <circle cx="230" cy="420" r="2" fill="#777"/>
+    <circle cx="310" cy="380" r="1" fill="#666"/>
+    <circle cx="390" cy="440" r="2.5" fill="#555"/>
+    <circle cx="470" cy="360" r="1.5" fill="#666"/>
+    <circle cx="550" cy="410" r="2" fill="#777"/>
+    <circle cx="630" cy="370" r="1" fill="#555"/>
+    <circle cx="710" cy="430" r="2" fill="#666"/>
+    <circle cx="790" cy="350" r="1.5" fill="#777"/>
+    <circle cx="860" cy="400" r="2" fill="#555"/>
+  </g>
+
+  <!-- 流形曲面（中间的发光带） -->
+  <path d="M 0 250 Q 150 200, 300 240 T 600 230 T 900 250"
+        stroke="url(#manifold)" stroke-width="80" fill="none" opacity="0.4"/>
+  <path d="M 0 250 Q 150 200, 300 240 T 600 230 T 900 250"
+        stroke="#00d4ff" stroke-width="2" fill="none" filter="url(#glow)" opacity="0.8"/>
+
+  <!-- 收敛的轨迹线（多条线汇聚到流形上） -->
+  <g stroke="#f59e0b" stroke-width="1.5" fill="none" opacity="0.6" filter="url(#glow)">
+    <!-- 从上方收敛 -->
+    <path d="M 100 50 Q 150 150, 200 235"/>
+    <path d="M 250 30 Q 300 130, 350 238"/>
+    <path d="M 400 60 Q 450 160, 500 232"/>
+    <path d="M 550 40 Q 600 140, 650 235"/>
+    <path d="M 700 70 Q 750 170, 800 240"/>
+    <!-- 从下方收敛 -->
+    <path d="M 100 450 Q 150 350, 200 265"/>
+    <path d="M 250 470 Q 300 370, 350 262"/>
+    <path d="M 400 440 Q 450 340, 500 268"/>
+    <path d="M 550 460 Q 600 360, 650 265"/>
+    <path d="M 700 430 Q 750 330, 800 260"/>
+  </g>
+
+  <!-- 轨迹起点的小点（代表不同的网络） -->
+  <g fill="#f59e0b" opacity="0.8">
+    <circle cx="100" cy="50" r="4"/>
+    <circle cx="250" cy="30" r="3"/>
+    <circle cx="400" cy="60" r="5"/>
+    <circle cx="550" cy="40" r="3"/>
+    <circle cx="700" cy="70" r="4"/>
+    <circle cx="100" cy="450" r="3"/>
+    <circle cx="250" cy="470" r="4"/>
+    <circle cx="400" cy="440" r="3"/>
+    <circle cx="550" cy="460" r="5"/>
+    <circle cx="700" cy="430" r="4"/>
+  </g>
+
+  <!-- 流形上的亮点（收敛终点） -->
+  <g fill="#00d4ff" filter="url(#glow)">
+    <circle cx="200" cy="240" r="5"/>
+    <circle cx="350" cy="238" r="5"/>
+    <circle cx="500" cy="235" r="5"/>
+    <circle cx="650" cy="237" r="5"/>
+    <circle cx="800" cy="248" r="5"/>
+  </g>
+
+  <!-- 数学符号装饰 -->
+  <text x="60" y="290" font-family="serif" font-size="18" fill="#00d4ff" opacity="0.5">M</text>
+  <text x="440" y="195" font-family="serif" font-size="14" fill="#f59e0b" opacity="0.5">150,000</text>
+
+</svg>

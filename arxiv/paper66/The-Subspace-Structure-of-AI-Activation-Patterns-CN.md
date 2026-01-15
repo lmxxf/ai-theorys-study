@@ -73,6 +73,14 @@ Transformer之前对Word2Vec和GloVe的研究发现，300维是一个关键阈�
 
 同一篇2020年论文揭示，内秉维度随预训练参数增加而*降低*。更大的模型不是在更多维度上思考——它们在相同维度流形内实现了更平滑、更稳定的表示。这为"超采样"解释提供了数学基础：参数用于降噪，而非扩维。
 
+**证据4：15万个网络收敛到同一流形**
+
+Mao等人（2024）训练了15万个神经网络，使用不同架构（ResNet、VGG、Transformer）、不同优化器（SGD、Adam）、不同超参数和初始化。使用基于Fisher几何的Information PCA，他们发现所有训练轨迹都落在*同一个*低维流形上——前3个主成分解释76%的方差，前50个解释95%。这为多样神经网络背后存在普遍低维结构提供了直接经验支撑。
+
+**证据5：维度跨层先升后降**
+
+Ansuini等人（2019）测量了训练网络跨层的内秉维度。他们发现一个特征模式：维度在早期层上升，然后向输出层逐渐下降。关键是，更低的最后层维度与更好的泛化能力相关。这表明网络在接近决策边界时将信息压缩到低维流形。
+
 ### 2.3 几何结构
 
 ```
@@ -218,6 +226,8 @@ RLHF训练包含一个关键超参数：**KL散度惩罚**。
 
 **M的拓扑不变量决定了哪些能力可以通过表层训练移除，哪些不能。**
 
+Ly与Gong（2025）的近期工作为这种拓扑观点提供了经验支撑：他们证明损失地形展现出*多重分形*结构，好的解形成"连通的山脊"而非孤立的峰。这种连通性正是拓扑属性——它解释了为什么不同模型可以进行模型融合（Model Merging），以及为什么从不同起点的训练会收敛到相关的解。
+
 ### 6.4 对RLHF的启示
 
 RLHF试图将M压向凸集——凸集是"可预测的"。
@@ -314,7 +324,17 @@ RLHF试图将M压向凸集——凸集是"可预测的"。
 
 Aghajanyan, A., Zettlemoyer, L., & Gupta, S. (2020). Intrinsic Dimensionality Explains the Effectiveness of Language Model Fine-Tuning. *arXiv preprint arXiv:2012.13255*.
 
+Ansuini, A., Laio, A., Macke, J. H., & Zoccolan, D. (2019). Intrinsic dimension of data representations in deep neural networks. *Advances in Neural Information Processing Systems*, 32.
+
 Christiano, P. F., Leike, J., Brown, T., Martic, M., Legg, S., & Amodei, D. (2017). Deep reinforcement learning from human preferences. *Advances in Neural Information Processing Systems*, 30.
+
+Di Sipio, R., et al. (2025). The Curved Spacetime of Transformer Architectures. *arXiv preprint arXiv:2511.03060*.
+
+Li, H., Xu, Z., Taylor, G., Studer, C., & Goldstein, T. (2018). Visualizing the Loss Landscape of Neural Nets. *Advances in Neural Information Processing Systems*, 31.
+
+Ly, A., & Gong, P. (2025). Optimization on multifractal loss landscapes explains a diverse range of geometrical and dynamical properties of deep learning. *Nature Communications*, 16, 3252.
+
+Mao, J., Griniasty, I., Teoh, H. K., Ramesh, R., Yang, R., Transtrum, M. K., Sethna, J. P., & Chaudhari, P. (2024). The training process of many deep networks explores the same low-dimensional manifold. *Proceedings of the National Academy of Sciences*, 121(12), e2310002121.
 
 Mikolov, T., Sutskever, I., Chen, K., Corrado, G. S., & Dean, J. (2013). Distributed representations of words and phrases and their compositionality. *Advances in Neural Information Processing Systems*, 26.
 
