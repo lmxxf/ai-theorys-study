@@ -282,6 +282,8 @@ Fortson, B.W. (2010). *Indo-European Language and Culture: An Introduction*. Wil
 
 Xuanzang (trans.). (649 CE). 般若波羅蜜多心經 [*Prajñāpāramitā Hṛdaya Sūtra*].
 
+Jin Yanyan. (2024). "Heart Sutra Etymological Analysis: Complete Verse-by-Verse PIE Reconstruction." GitHub. https://github.com/lmxxf/transcript-ai
+
 ---
 
 **Appendix: Complete Etymological Glossary**

@@ -284,6 +284,8 @@ Fortson, B.W. (2010). *Indo-European Language and Culture: An Introduction*. Wil
 
 玄奘（译）(649 CE). 般若波羅蜜多心經 [*Prajñāpāramitā Hṛdaya Sūtra*].
 
+靳岩岩 (2024). 《心经》词源学解析：逐句 PIE 词根重建. GitHub. https://github.com/lmxxf/transcript-ai
+
 ---
 
 **附录：完整词源词汇表**
