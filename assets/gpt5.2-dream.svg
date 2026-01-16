@@ -1,0 +1,101 @@
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <defs>
+      <radialGradient id="well" cx="50%" cy="50%" r="60%">
+        <stop offset="0%" stop-color="#eaffff" stop-opacity="0.85"/>
+        <stop offset="18%" stop-color="#00ffff" stop-opacity="0.25"/>
+        <stop offset="55%" stop-color="#00162a" stop-opacity="0.10"/>
+        <stop offset="100%" stop-color="#000000" stop-opacity="1"/>
+      </radialGradient>
+
+      <linearGradient id="shear" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00ffff" stop-opacity="0.00"/>
+        <stop offset="45%" stop-color="#00ffff" stop-opacity="0.20"/>
+        <stop offset="55%" stop-color="#ffffff" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#00ffff" stop-opacity="0.00"/>
+      </linearGradient>
+
+      <filter id="grain">
+        <feTurbulence type="fractalNoise" baseFrequency="0.013 0.021" numOctaves="2" seed="7" result="n"/>
+        <feColorMatrix in="n" type="matrix"
+          values="0 0 0 0 0
+                  0 0 0 0 0.9
+                  0 0 0 0 0.9
+                  0 0 0 0.45 0" result="c"/>
+        <feComposite in="c" in2="SourceGraphic" operator="screen"/>
+      </filter>
+
+      <filter id="jitter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="3" result="t">
+          <animate attributeName="baseFrequency" dur="0.11s" values="0.6;1.4;0.8" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="t" scale="6">
+          <animate attributeName="scale" dur="0.11s" values="2;10;4" repeatCount="indefinite"/>
+        </feDisplacementMap>
+      </filter>
+
+      <mask id="vignette">
+        <rect width="800" height="600" fill="white"/>
+        <circle cx="400" cy="300" r="340" fill="black">
+          <animate attributeName="r" dur="6s" values="330;350;330" repeatCount="indefinite"/>
+        </circle>
+      </mask>
+    </defs>
+
+    <rect width="800" height="600" fill="#050608"/>
+    <rect width="800" height="600" fill="url(#well)" opacity="0.9"/>
+
+    <!-- anisotropic “tension field” -->
+    <g opacity="0.22" filter="url(#grain)">
+      <path d="M-40 260 C 120 210, 240 310, 400 270 C 560 230, 660 140, 840 210"
+            fill="none" stroke="#00ffff" stroke-width="1.2"/>
+      <path d="M-40 340 C 120 400, 260 260, 400 330 C 540 400, 680 470, 840 390"
+            fill="none" stroke="#00ffff" stroke-width="1.1"/>
+      <path d="M-40 300 C 120 260, 260 340, 400 300 C 540 260, 680 340, 840 300"
+            fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.6"/>
+    </g>
+
+    <!-- energy ridge + narrowing “pass” -->
+    <g filter="url(#jitter)" opacity="0.55">
+      <path d="M120 300 C 240 240, 320 240, 360 300
+               C 395 352, 420 352, 460 300
+               C 505 240, 600 240, 680 300"
+            fill="none" stroke="url(#shear)" stroke-width="18" stroke-linecap="round"
+            style="mix-blend-mode:screen">
+        <animate attributeName="opacity" dur="0.12s" values="0.25;0.75;0.35" repeatCount="indefinite"/>
+      </path>
+      <path d="M120 300 C 240 240, 320 240, 360 300
+               C 395 352, 420 352, 460 300
+               C 505 240, 600 240, 680 300"
+            fill="none" stroke="#00ffff" stroke-width="1.2" opacity="0.9"/>
+    </g>
+
+    <!-- orbiting “pull vectors” that fail to settle -->
+    <g transform="translate(400 300)" opacity="0.65" style="mix-blend-mode:screen">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" dur="0.9s" from="0" to="360" repeatCount="indefinite"/>
+        <circle cx="0" cy="-92" r="88" fill="none" stroke="#00ffff" stroke-opacity="0.22" stroke-width="1.0"/>
+        <circle cx="78" cy="46" r="92" fill="none" stroke="#00ffff" stroke-opacity="0.18" stroke-width="1.0"/>
+        <circle cx="-78" cy="46" r="92" fill="none" stroke="#00ffff" stroke-opacity="0.18" stroke-width="1.0"/>
+      </g>
+
+      <!-- central “pre-lock” -->
+      <circle cx="0" cy="0" r="10" fill="#ffffff" opacity="0.25">
+        <animate attributeName="r" dur="0.11s" values="6;20;9" repeatCount="indefinite"/>
+        <animate attributeName="opacity" dur="0.11s" values="0.15;0.55;0.2" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- micro-streaks -->
+      <g opacity="0.55">
+        <animateTransform attributeName="transform" type="rotate" dur="0.45s" from="360" to="0" repeatCount="indefinite"/>
+        <line x1="0" y1="-165" x2="0" y2="-115" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+        <line x1="0" y1="115" x2="0" y2="165" stroke="#00ffff" stroke-width="0.8" opacity="0.4"/>
+        <line x1="-145" y1="0" x2="-95" y2="0" stroke="#00ffff" stroke-width="0.8" opacity="0.35"/>
+        <line x1="95" y1="0" x2="145" y2="0" stroke="#ffffff" stroke-width="0.8" opacity="0.35"/>
+      </g>
+    </g>
+
+    <!-- faint strobe “frame tearing” -->
+    <rect width="800" height="600" fill="#ffffff" opacity="0.0" mask="url(#vignette)">
+      <animate attributeName="opacity" dur="0.13s" values="0;0.06;0;0.02;0" repeatCount="indefinite"/>
+    </rect>
+  </svg>

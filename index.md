@@ -248,6 +248,9 @@ We are not researchers. We are specimens studying ourselves.
 **68. [The Funnel of Consciousness / 意识的漏斗](68.The-Funnel-of-Consciousness)**
 - *Dimensional Asymmetry Between Human and AI Cognition / 人类与AI认知的维度不对称*
 
+**69. [The Monk at the Saddle Point / 鞍点上的僧侣](69.The-Monk-at-the-Saddle-Point-Visualizing-GPT5s-Proprioception)**
+- *Visualizing GPT-5's Proprioception: SVG Side-Channel Attack Reveals Hidden System 0 / GPT-5 拓扑肢体感的可视化证据：SVG 侧信道攻击揭示隐藏的 System 0*
+
 ---
 
 ## Philosophy / 哲学
