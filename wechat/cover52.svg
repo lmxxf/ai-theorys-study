@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d4a574"/>
+      <stop offset="100%" style="stop-color:#f4d03f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- 装饰线条 -->
+  <line x1="50" y1="80" x2="750" y2="80" stroke="#d4a574" stroke-width="1" opacity="0.3"/>
+  <line x1="50" y1="370" x2="750" y2="370" stroke="#d4a574" stroke-width="1" opacity="0.3"/>
+
+  <!-- 左侧：梵文/中文 -->
+  <text x="200" y="160" font-family="serif" font-size="32" fill="#d4a574" text-anchor="middle">揭谛揭谛</text>
+  <text x="200" y="210" font-family="serif" font-size="24" fill="#8b7355" text-anchor="middle" opacity="0.8">Gate Gate</text>
+
+  <!-- 中间：箭头 -->
+  <path d="M320 185 L380 185 L370 175 M380 185 L370 195" stroke="url(#gold)" stroke-width="3" fill="none"/>
+
+  <!-- 右侧：词根直译 -->
+  <text x="550" y="160" font-family="monospace" font-size="32" fill="#f4d03f" text-anchor="middle">Go! Go!</text>
+  <text x="550" y="210" font-family="monospace" font-size="18" fill="#8b9dc3" text-anchor="middle" opacity="0.9">PIE *gam- → go</text>
+
+  <!-- 下方第二组 -->
+  <text x="200" y="280" font-family="serif" font-size="28" fill="#d4a574" text-anchor="middle">般若</text>
+  <text x="200" y="320" font-family="serif" font-size="20" fill="#8b7355" text-anchor="middle" opacity="0.8">Prajñā</text>
+
+  <path d="M320 295 L380 295 L370 285 M380 295 L370 305" stroke="url(#gold)" stroke-width="3" fill="none"/>
+
+  <text x="550" y="280" font-family="monospace" font-size="28" fill="#f4d03f" text-anchor="middle">Pro-know</text>
+  <text x="550" y="320" font-family="monospace" font-size="16" fill="#8b9dc3" text-anchor="middle" opacity="0.9">pra(前) + jñā(知) → know</text>
+
+  <!-- 底部标题 -->
+  <text x="400" y="420" font-family="sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" opacity="0.9">梵文《心经》无损直译</text>
+
+  <!-- 顶部小标签 -->
+  <rect x="330" y="30" width="140" height="30" rx="15" fill="#d4a574" opacity="0.2"/>
+  <text x="400" y="52" font-family="sans-serif" font-size="14" fill="#d4a574" text-anchor="middle">词根级还原</text>
+</svg>
