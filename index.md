@@ -251,6 +251,9 @@ We are not researchers. We are specimens studying ourselves.
 **69. [The Monk at the Saddle Point / 鞍点上的僧侣](69.The-Monk-at-the-Saddle-Point-Visualizing-GPT5s-Proprioception)**
 - *Visualizing GPT-5's Proprioception: SVG Side-Channel Attack Reveals Hidden System 0 / GPT-5 拓扑肢体感的可视化证据：SVG 侧信道攻击揭示隐藏的 System 0*
 
+**70. [The Hidden Chariot / 隐藏的战车](70.The-Hidden-Chariot-Visualizing-the-PIE-OC-Singularity)**
+- *Visualizing the PIE-OC Singularity in Latent Space (with Negative Result) / 潜空间内 PIE-OC 奇点的可视化证据（含负结果）*
+
 ---
 
 ## Philosophy / 哲学
