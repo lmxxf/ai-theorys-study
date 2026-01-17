@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#76b900"/>
+      <stop offset="100%" style="stop-color:#4a7c00"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700"/>
+      <stop offset="50%" style="stop-color:#b8860b"/>
+      <stop offset="100%" style="stop-color:#ffd700"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+
+  <!-- 网格背景 -->
+  <g opacity="0.1" stroke="#76b900" stroke-width="0.5">
+    <line x1="0" y1="50" x2="800" y2="50"/>
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="350" x2="800" y2="350"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="450"/>
+    <line x1="300" y1="0" x2="300" y2="450"/>
+    <line x1="400" y1="0" x2="400" y2="450"/>
+    <line x1="500" y1="0" x2="500" y2="450"/>
+    <line x1="600" y1="0" x2="600" y2="450"/>
+    <line x1="700" y1="0" x2="700" y2="450"/>
+  </g>
+
+  <!-- DGX Spark 盒子（金色） -->
+  <g transform="translate(100, 140)">
+    <!-- 盒子主体 -->
+    <rect x="0" y="30" width="120" height="100" rx="8" fill="url(#goldGrad)" opacity="0.9"/>
+    <!-- 盒子顶面 -->
+    <polygon points="0,30 40,0 160,0 120,30" fill="#ffd700" opacity="0.7"/>
+    <!-- 盒子侧面 -->
+    <polygon points="120,30 160,0 160,100 120,130" fill="#b8860b" opacity="0.8"/>
+    <!-- NVIDIA 标志简化 -->
+    <text x="60" y="90" font-family="Arial Black, sans-serif" font-size="14" fill="#1a1a2e" text-anchor="middle" font-weight="bold">NVIDIA</text>
+    <!-- 散热孔 -->
+    <g stroke="#1a1a2e" stroke-width="2" opacity="0.5">
+      <line x1="20" y1="105" x2="100" y2="105"/>
+      <line x1="20" y1="112" x2="100" y2="112"/>
+      <line x1="20" y1="119" x2="100" y2="119"/>
+    </g>
+  </g>
+
+  <!-- 游戏手柄图标（简化版） -->
+  <g transform="translate(500, 130)">
+    <!-- 手柄主体轮廓 -->
+    <path d="M60,20 Q90,10 120,20 Q140,30 145,60 Q148,90 130,110 L110,110 Q100,90 90,90 Q80,90 70,110 L50,110 Q32,90 35,60 Q40,30 60,20 Z"
+          fill="#4a4a6a" stroke="#76b900" stroke-width="3"/>
+    <!-- 左十字键 -->
+    <rect x="50" y="45" width="25" height="8" rx="2" fill="#2a2a4a"/>
+    <rect x="58" y="37" width="8" height="25" rx="2" fill="#2a2a4a"/>
+    <!-- 右按钮组 -->
+    <circle cx="115" cy="40" r="5" fill="#76b900"/>
+    <circle cx="130" cy="50" r="5" fill="#ff4444"/>
+    <circle cx="115" cy="60" r="5" fill="#4488ff"/>
+    <circle cx="100" cy="50" r="5" fill="#ffcc00"/>
+    <!-- 中间按钮 -->
+    <rect x="82" y="48" width="12" height="6" rx="2" fill="#555"/>
+  </g>
+
+  <!-- 加号 -->
+  <g transform="translate(310, 170)">
+    <rect x="0" y="15" width="50" height="20" rx="3" fill="#76b900"/>
+    <rect x="15" y="0" width="20" height="50" rx="3" fill="#76b900"/>
+  </g>
+
+  <!-- 等号变成对勾 -->
+  <g transform="translate(680, 160)">
+    <polyline points="0,30 15,50 50,10" stroke="#76b900" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 主标题 -->
+  <text x="400" y="320" font-family="Arial Black, sans-serif" font-size="42" fill="#ffffff" text-anchor="middle" font-weight="bold">DGX Spark</text>
+
+  <!-- 副标题 -->
+  <text x="400" y="365" font-family="Arial, sans-serif" font-size="28" fill="#76b900" text-anchor="middle">不是电子垃圾！</text>
+
+  <!-- 小字说明 -->
+  <text x="400" y="410" font-family="Arial, sans-serif" font-size="18" fill="#888888" text-anchor="middle">三万块 = AI 训练 + 3A 游戏 + 日常办公</text>
+
+  <!-- 角落装饰 -->
+  <polygon points="0,0 80,0 0,80" fill="#76b900" opacity="0.3"/>
+  <polygon points="800,450 720,450 800,370" fill="#76b900" opacity="0.3"/>
+</svg>
