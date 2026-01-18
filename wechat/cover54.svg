@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <defs>
+    <!-- 渐变背景 -->
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0d0d15"/>
+    </radialGradient>
+    <!-- 中心光晕 -->
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#f59e0b" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <!-- 发光效果 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="900" height="700" fill="url(#bg)"/>
+
+  <!-- 中心光晕 -->
+  <circle cx="450" cy="350" r="200" fill="url(#core)"/>
+
+  <!-- 印欧语系树形结构 -->
+
+  <!-- 中心：PIE 原始印欧语 -->
+  <circle cx="450" cy="130" r="45" fill="none" stroke="#fff" stroke-width="2" opacity="0.8"/>
+  <text x="450" y="125" text-anchor="middle" fill="#fff" font-size="12" opacity="0.7">PIE</text>
+  <text x="450" y="142" text-anchor="middle" fill="#fff" font-size="10" opacity="0.5">原始印欧语</text>
+
+  <!-- 分支线 -->
+  <line x1="420" y1="170" x2="250" y2="250" stroke="#fff" stroke-width="1.5" opacity="0.3"/>
+  <line x1="480" y1="170" x2="650" y2="250" stroke="#fff" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- 左分支：印度-伊朗语族 → 梵语 -->
+  <circle cx="250" cy="280" r="40" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.8"/>
+  <text x="250" y="275" text-anchor="middle" fill="#f59e0b" font-size="11">Indo-Iranian</text>
+  <text x="250" y="292" text-anchor="middle" fill="#f59e0b" font-size="9" opacity="0.7">印度-伊朗语族</text>
+
+  <line x1="250" y1="320" x2="250" y2="380" stroke="#f59e0b" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- 梵语节点 -->
+  <circle cx="250" cy="420" r="50" fill="none" stroke="#f59e0b" stroke-width="2.5" filter="url(#glow)"/>
+  <text x="250" y="410" text-anchor="middle" fill="#f59e0b" font-size="16" font-weight="bold">Sanskrit</text>
+  <text x="250" y="432" text-anchor="middle" fill="#f59e0b" font-size="12">梵语</text>
+
+  <!-- 右分支：日耳曼语族 → 英语 -->
+  <circle cx="650" cy="280" r="40" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.8"/>
+  <text x="650" y="275" text-anchor="middle" fill="#60a5fa" font-size="11">Germanic</text>
+  <text x="650" y="292" text-anchor="middle" fill="#60a5fa" font-size="9" opacity="0.7">日耳曼语族</text>
+
+  <line x1="650" y1="320" x2="650" y2="380" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- 英语节点 -->
+  <circle cx="650" cy="420" r="50" fill="none" stroke="#60a5fa" stroke-width="2.5" filter="url(#glow)"/>
+  <text x="650" y="410" text-anchor="middle" fill="#60a5fa" font-size="16" font-weight="bold">English</text>
+  <text x="650" y="432" text-anchor="middle" fill="#60a5fa" font-size="12">英语</text>
+
+  <!-- 中间连接：同源词对照 -->
+  <line x1="300" y1="420" x2="600" y2="420" stroke="#fff" stroke-width="1" opacity="0.2" stroke-dasharray="8,4"/>
+
+  <!-- 词根对照示例 -->
+  <g transform="translate(450, 420)">
+    <rect x="-90" y="-35" width="180" height="70" rx="8" fill="#1a1a2e" stroke="#fff" stroke-width="1" opacity="0.6"/>
+    <text x="0" y="-12" text-anchor="middle" fill="#f59e0b" font-size="13">Prajñā → Pro-know</text>
+    <text x="0" y="8" text-anchor="middle" fill="#60a5fa" font-size="13">Bodhi → Bode</text>
+    <text x="0" y="28" text-anchor="middle" fill="#4ade80" font-size="13">Nirvāṇa → Wind-blow</text>
+  </g>
+
+  <!-- 底部：心经核心 -->
+  <g transform="translate(450, 570)">
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
+    <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Gate Gate</text>
+    <text x="0" y="5" text-anchor="middle" fill="#f59e0b" font-size="12">Go! Go!</text>
+    <text x="0" y="25" text-anchor="middle" fill="#fff" font-size="11" opacity="0.7">揭谛 揭谛</text>
+  </g>
+
+  <!-- 顶部标题 -->
+  <text x="450" y="50" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold" opacity="0.9">心经 × 印欧语词根</text>
+  <text x="450" y="75" text-anchor="middle" fill="#fff" font-size="12" opacity="0.5">Hṛdaya Sūtra × PIE Roots</text>
+
+  <!-- 底部标注 -->
+  <text x="450" y="680" text-anchor="middle" fill="#fff" font-size="11" opacity="0.4">梵文和英语是亲戚——用词根还原佛经本意</text>
+
+</svg>
