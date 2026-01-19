@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="harmony" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e63946"/>
+      <stop offset="100%" style="stop-color:#ff6b6b"/>
+    </linearGradient>
+    <linearGradient id="android" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3ddc84"/>
+      <stop offset="100%" style="stop-color:#73e8a2"/>
+    </linearGradient>
+    <linearGradient id="bt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0066ff"/>
+      <stop offset="100%" style="stop-color:#00aaff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <!-- 鸿蒙设备 (左) -->
+  <g transform="translate(180, 280)">
+    <!-- 手机外框 -->
+    <rect x="0" y="0" width="160" height="280" rx="20" fill="#2d2d2d" stroke="#444" stroke-width="3"/>
+    <!-- 屏幕 -->
+    <rect x="10" y="30" width="140" height="220" rx="5" fill="#1a1a1a"/>
+    <!-- 鸿蒙 logo 区域 -->
+    <circle cx="80" cy="140" r="35" fill="none" stroke="url(#harmony)" stroke-width="4"/>
+    <text x="80" y="148" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#harmony)" text-anchor="middle">H</text>
+    <!-- 标签 -->
+    <text x="80" y="200" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">OpenHarmony</text>
+  </g>
+
+  <!-- Android 设备 (右) -->
+  <g transform="translate(860, 280)">
+    <!-- 手机外框 -->
+    <rect x="0" y="0" width="160" height="280" rx="20" fill="#2d2d2d" stroke="#444" stroke-width="3"/>
+    <!-- 屏幕 -->
+    <rect x="10" y="30" width="140" height="220" rx="5" fill="#1a1a1a"/>
+    <!-- Android logo -->
+    <circle cx="80" cy="130" r="30" fill="url(#android)"/>
+    <!-- 眼睛 -->
+    <circle cx="68" cy="125" r="4" fill="#1a1a1a"/>
+    <circle cx="92" cy="125" r="4" fill="#1a1a1a"/>
+    <!-- 天线 -->
+    <line x1="60" y1="95" x2="68" y2="105" stroke="url(#android)" stroke-width="4" stroke-linecap="round"/>
+    <line x1="100" y1="95" x2="92" y2="105" stroke="url(#android)" stroke-width="4" stroke-linecap="round"/>
+    <!-- 标签 -->
+    <text x="80" y="200" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">Android</text>
+  </g>
+
+  <!-- 蓝牙连接线 + 文件传输动画 -->
+  <g>
+    <!-- 蓝牙符号 (中间) -->
+    <g transform="translate(600, 420)">
+      <circle cx="0" cy="0" r="50" fill="url(#bt)" opacity="0.2"/>
+      <circle cx="0" cy="0" r="35" fill="url(#bt)" opacity="0.4"/>
+      <!-- 蓝牙符号 -->
+      <path d="M0,-25 L15,0 L0,25 M0,-25 L0,25 M0,-25 L-15,-10 M0,25 L-15,10"
+            fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- 连接线 -->
+    <line x1="340" y1="420" x2="550" y2="420" stroke="url(#bt)" stroke-width="3" stroke-dasharray="10,5" opacity="0.6"/>
+    <line x1="650" y1="420" x2="860" y2="420" stroke="url(#bt)" stroke-width="3" stroke-dasharray="10,5" opacity="0.6"/>
+
+    <!-- 文件图标 (传输中) -->
+    <g transform="translate(450, 400)">
+      <rect x="0" y="0" width="30" height="40" rx="3" fill="#f59e0b"/>
+      <path d="M20,0 L30,10 L20,10 Z" fill="#d97706"/>
+      <line x1="7" y1="20" x2="23" y2="20" stroke="white" stroke-width="2"/>
+      <line x1="7" y1="26" x2="18" y2="26" stroke="white" stroke-width="2"/>
+    </g>
+
+    <g transform="translate(720, 400)">
+      <rect x="0" y="0" width="30" height="40" rx="3" fill="#f59e0b"/>
+      <path d="M20,0 L30,10 L20,10 Z" fill="#d97706"/>
+      <line x1="7" y1="20" x2="23" y2="20" stroke="white" stroke-width="2"/>
+      <line x1="7" y1="26" x2="18" y2="26" stroke="white" stroke-width="2"/>
+    </g>
+
+    <!-- 箭头 -->
+    <polygon points="480,420 495,412 495,428" fill="#f59e0b"/>
+    <polygon points="720,420 705,412 705,428" fill="#f59e0b"/>
+  </g>
+
+  <!-- 主标题 -->
+  <text x="600" y="120" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="white" text-anchor="middle">鸿蒙生态有多烂？</text>
+
+  <!-- 副标题 -->
+  <text x="600" y="180" font-family="Arial, sans-serif" font-size="32" fill="#aaa" text-anchor="middle">蓝牙传文件都得自己写 app</text>
+
+  <!-- 底部标签 -->
+  <g transform="translate(600, 680)">
+    <!-- AI 标签 -->
+    <rect x="-200" y="0" width="120" height="40" rx="20" fill="#f59e0b" opacity="0.9"/>
+    <text x="-140" y="27" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Claude Code</text>
+
+    <!-- 时间标签 -->
+    <rect x="-50" y="0" width="100" height="40" rx="20" fill="#3b82f6" opacity="0.9"/>
+    <text x="0" y="27" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">2 小时</text>
+
+    <!-- 数量标签 -->
+    <rect x="80" y="0" width="120" height="40" rx="20" fill="#10b981" opacity="0.9"/>
+    <text x="140" y="27" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">2 个 App</text>
+  </g>
+
+  <!-- 问号装饰 -->
+  <text x="1100" y="150" font-family="Arial, sans-serif" font-size="120" font-weight="bold" fill="#e63946" opacity="0.3">?</text>
+
+</svg>
