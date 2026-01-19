@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a3a"/>
+    </linearGradient>
+    <linearGradient id="fp8glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff88"/>
+      <stop offset="100%" style="stop-color:#00ffcc"/>
+    </linearGradient>
+    <linearGradient id="fp32glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="50%" style="stop-color:#ffa500"/>
+      <stop offset="100%" style="stop-color:#ff6b6b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- 网格线背景 -->
+  <g opacity="0.1" stroke="#00ffcc">
+    <line x1="0" y1="100" x2="1200" y2="100" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke-width="1"/>
+    <line x1="0" y1="300" x2="1200" y2="300" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke-width="1"/>
+    <line x1="0" y1="500" x2="1200" y2="500" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="630" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="630" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="630" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="630" stroke-width="1"/>
+  </g>
+
+  <!-- 左侧：FP32 大方块（臃肿） -->
+  <g transform="translate(150, 180)">
+    <rect x="0" y="0" width="200" height="200" fill="none" stroke="url(#fp32glow)" stroke-width="3" opacity="0.8"/>
+    <rect x="10" y="10" width="85" height="85" fill="#ff6b6b" opacity="0.3"/>
+    <rect x="105" y="10" width="85" height="85" fill="#ff6b6b" opacity="0.3"/>
+    <rect x="10" y="105" width="85" height="85" fill="#ff6b6b" opacity="0.3"/>
+    <rect x="105" y="105" width="85" height="85" fill="#ff6b6b" opacity="0.3"/>
+    <text x="100" y="240" font-family="Monaco, monospace" font-size="24" fill="#ff6b6b" text-anchor="middle">FP32</text>
+    <text x="100" y="270" font-family="Monaco, monospace" font-size="16" fill="#888" text-anchor="middle">32 bit × 4 = 128 bit</text>
+  </g>
+
+  <!-- 中间：箭头 + 压缩效果 -->
+  <g transform="translate(420, 280)">
+    <path d="M 0 0 L 80 0 L 80 -15 L 120 0 L 80 15 L 80 0" fill="url(#fp8glow)" filter="url(#glow)"/>
+    <text x="60" y="50" font-family="Monaco, monospace" font-size="18" fill="#00ffcc" text-anchor="middle">75%↓</text>
+  </g>
+
+  <!-- 右侧：FP8 小方块（紧凑） -->
+  <g transform="translate(600, 230)">
+    <rect x="0" y="0" width="100" height="100" fill="none" stroke="url(#fp8glow)" stroke-width="3" filter="url(#glow)"/>
+    <rect x="5" y="5" width="42" height="42" fill="#00ff88" opacity="0.4"/>
+    <rect x="53" y="5" width="42" height="42" fill="#00ff88" opacity="0.4"/>
+    <rect x="5" y="53" width="42" height="42" fill="#00ff88" opacity="0.4"/>
+    <rect x="53" y="53" width="42" height="42" fill="#00ff88" opacity="0.4"/>
+    <text x="50" y="130" font-family="Monaco, monospace" font-size="24" fill="#00ff88" text-anchor="middle" filter="url(#glow)">FP8</text>
+    <text x="50" y="160" font-family="Monaco, monospace" font-size="16" fill="#888" text-anchor="middle">8 bit × 4 = 32 bit</text>
+  </g>
+
+  <!-- 右侧：性能数据 -->
+  <g transform="translate(800, 200)">
+    <text x="0" y="0" font-family="Monaco, monospace" font-size="64" fill="#00ffcc" filter="url(#glow)">1550</text>
+    <text x="220" y="0" font-family="Monaco, monospace" font-size="32" fill="#00ff88">TFLOPS</text>
+    <text x="0" y="50" font-family="Monaco, monospace" font-size="24" fill="#666">on H800</text>
+
+    <text x="0" y="120" font-family="Monaco, monospace" font-size="36" fill="#ffa500">2.7×</text>
+    <text x="100" y="120" font-family="Monaco, monospace" font-size="24" fill="#888">faster</text>
+
+    <text x="0" y="180" font-family="Monaco, monospace" font-size="36" fill="#00ff88">&lt;0.25%</text>
+    <text x="140" y="180" font-family="Monaco, monospace" font-size="24" fill="#888">loss</text>
+  </g>
+
+  <!-- 标题 -->
+  <text x="600" y="80" font-family="Arial Black, sans-serif" font-size="56" fill="#fff" text-anchor="middle" font-weight="bold">DeepGEMM</text>
+  <text x="600" y="130" font-family="Arial, sans-serif" font-size="28" fill="#888" text-anchor="middle">8 bit 训练的工程极限</text>
+
+  <!-- 底部：关键技术标签 -->
+  <g transform="translate(150, 520)">
+    <rect x="0" y="0" width="180" height="40" rx="8" fill="none" stroke="#00ff88" stroke-width="2"/>
+    <text x="90" y="27" font-family="Monaco, monospace" font-size="16" fill="#00ff88" text-anchor="middle">细粒度量化</text>
+  </g>
+  <g transform="translate(360, 520)">
+    <rect x="0" y="0" width="180" height="40" rx="8" fill="none" stroke="#00ff88" stroke-width="2"/>
+    <text x="90" y="27" font-family="Monaco, monospace" font-size="16" fill="#00ff88" text-anchor="middle">两级累加</text>
+  </g>
+  <g transform="translate(570, 520)">
+    <rect x="0" y="0" width="180" height="40" rx="8" fill="none" stroke="#00ff88" stroke-width="2"/>
+    <text x="90" y="27" font-family="Monaco, monospace" font-size="16" fill="#00ff88" text-anchor="middle">Warp 专用化</text>
+  </g>
+  <g transform="translate(780, 520)">
+    <rect x="0" y="0" width="180" height="40" rx="8" fill="none" stroke="#00ff88" stroke-width="2"/>
+    <text x="90" y="27" font-family="Monaco, monospace" font-size="16" fill="#00ff88" text-anchor="middle">JIT 编译</text>
+  </g>
+
+  <!-- DeepSeek logo 区域 -->
+  <text x="1100" y="600" font-family="Monaco, monospace" font-size="14" fill="#444" text-anchor="end">DeepSeek Open Source Week</text>
+</svg>
