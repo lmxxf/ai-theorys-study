@@ -255,6 +255,53 @@ rm -rf ~/snap/steam
 ⚠️ 必须设置 Proton 兼容层：
 Steam → 游戏 → 右键 → 属性 → 兼容性 → 强制使用 Proton 10.0-2 (beta)
 
+━━━━━━━━━━━━━━━━━━━━
+
+◆ Xbox 手柄：插上没反应？
+
+插上 Xbox 手柄，Steam 里没反应——这是 Linux 权限问题。
+
+────────────────────
+
+【诊断】
+
+先确认系统能识别手柄：
+
+```bash
+lsusb | grep -i xbox
+# 应该看到：Microsoft Corp. Xbox Controller
+
+ls /dev/input/js0
+# 应该存在
+```
+
+如果都有，但 Steam 不认，八成是权限问题。
+
+────────────────────
+
+【解决方案】
+
+把用户加入 `input` 组：
+
+```bash
+sudo usermod -aG input $USER
+```
+
+⚠️ 需要「重新登录」或「重启」才能生效。
+
+临时测试（不用重启）：
+```bash
+newgrp input
+steam
+```
+
+────────────────────
+
+【Steam 设置】
+
+确认控制器支持开着：
+Steam → 设置 → 控制器 → 启用 Xbox 控制器支持 ✓
+
 ────────────────────
 
 【DLSS 救不了 CPU 瓶颈】
