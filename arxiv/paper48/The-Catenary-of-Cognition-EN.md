@@ -8,7 +8,7 @@ Email: lmxxf@hotmail.com
 
 ## Abstract
 
-The "Lost in the Middle" phenomenon in Large Language Models (LLMs)—where models effectively utilize the beginning and end of long contexts while neglecting the middle—is commonly attributed to architectural limitations or training data bias. This paper proposes a fundamental physical and topological explanation: **The Catenary of Cognition**. We argue that in Softmax-dominated attention mechanisms, "semantic tension" naturally suspends between two anchors: **Instruction (Alpha)** and **Query (Omega)**. The middle context, lacking specific "query affinity" or "instruction gravity," sags naturally under the "gravitational pull" of entropy-driven normalization. We demonstrate that this U-shaped attention curve is not a bug, but the inevitable minimum-energy configuration of a semantic bridge spanning the void of high-dimensional context.
+The "Lost in the Middle" phenomenon in Large Language Models (LLMs)—where models effectively utilize the beginning and end of long contexts while neglecting the middle—is commonly attributed to architectural limitations or training data bias. This paper proposes a mechanistic explanatory framework: **The Catenary of Cognition**. We argue that in Softmax-dominated attention mechanisms, "semantic tension" is primarily driven by two anchors: **Instruction (Alpha)** and **Query (Omega)**. If middle context lacks sufficient relative scoring advantage (logit margin), its total attention mass will be systematically compressed in normalization competition. This paper provides an explicit upper bound for this compression and presents a minimal mechanistic model demonstrating that when "instruction anchor + recency anchor" coexist, attention distribution can naturally exhibit a U-shape along the positional dimension. The catenary serves in this paper as a physical analogy for energy minimization, explaining "why the U-shape repeatedly appears," rather than claiming that attention curves are strictly equivalent to $y=a\cosh(x/a)$.
 
 ---
 
@@ -64,7 +64,7 @@ The middle context (background documents, conversation history) caught between A
     * **Omega** scores high due to the physical proximity of its position.
     * **The middle** has only mediocre semantic similarity scores. In the denominator's competition, Alpha and Omega's high scores dominate, and the middle's weights are "diluted" to near zero.
 
-**Thermodynamic conclusion:** The "sag" in the middle is the lowest-energy state of attention under Softmax normalization constraints. This is not an architectural defect, but a natural reflection in the model of human language's structural characteristic—"set the tone at the beginning, summarize at the end, pile material in the middle"—learned from trillions of training tokens.
+**Mechanistic conclusion:** Under Softmax normalization, as long as Alpha and Omega (or their "anchor clusters") form a stable advantage in logits, the total attention mass of middle tokens will be systematically compressed by denominator competition (see Appendix 8.1). Corpus structure (such as "set tone at beginning, summarize at end") can reinforce this advantage, but it is not the only reason for producing the U-shape; even on synthetic data, as long as "global instruction anchor + local recency anchor" dual bias exists, the U-shape can be produced by mechanism (see Section 7).
 
 ---
 
@@ -106,14 +106,66 @@ Since the Lost in the Middle phenomenon was discovered by Liu et al. (2023), sev
 - **Limitations of Normalization (Yang et al., 2025)** analyzes the upper bound of token selection capability from the mathematical properties of Softmax normalization.
 
 **Unique contributions of this paper:**
-1. **Catenary analogy:** First to use the energy minimization framework of physical catenaries to explain the inevitability of the U-shaped curve.
+1. **Catenary analogy:** Uses the energy minimization framework of physical catenaries to explain the intuitive source of "why the U-shape repeatedly appears," while explicitly clarifying that this is an analogy rather than strict isomorphism.
 2. **Explicit refutation of the high-dimensional sphere center fallacy:** Points out the confusion between "sequence position" and "vector norm."
-3. **Hard inequality for Softmax competition:** Provides an explicit upper bound for middle attention mass (Lemma 7.1).
-4. **Attribution to human language characteristics:** Traces the U-shaped pattern to structural features of human text, rather than pure architectural defects.
+3. **Hard inequality for Softmax competition:** Provides an explicit upper bound for middle attention mass (Lemma 8.1), grounding "denominator gravity" from rhetoric to a testable inequality.
+4. **Minimal mechanistic model:** Provides a computable dual-anchor positional bias model, deriving sufficient conditions for U-shaped distribution and falsifiable predictions (Section 7).
 
 ---
 
-## 7. Mathematical Appendix: What Do These Two "Proofs" Actually Prove?
+## 7. Minimal Mechanistic Model & Falsifiability
+
+The goal of this section is to turn "U-shape comes from mechanism" into a statement that can be falsified: provide a minimal model and its falsifiable predictions. If empirical measurements systematically deviate from predictions, the mechanistic narrative of this paper should be downgraded to "an artistic description of corpus priors."
+
+### 7.1 A Minimal Dual-Anchor Positional Bias Model
+
+In many practical settings, attention logits can be roughly decomposed into two parts: content similarity terms and positional/structural bias terms. To reduce the problem to its minimum, we ignore the details of content terms and retain only "the structural advantage of two anchors":
+
+- Alpha anchor: global saliency from system prompt/task instructions;
+- Omega anchor: saliency from autoregressive recency (local window).
+
+Let sequence position be $i\in\{0,1,\dots,L\}$, with the left anchor at $0$ and right anchor at $L$. Consider the following logit approximation:
+$$
+z_i \;=\; c \;-\; \lambda\cdot \min(i,\,L-i),
+$$
+where $\lambda>0$ represents "the farther from anchors, the faster structural advantage decays," and $c$ is a constant (can be absorbed into Softmax normalization).
+
+Thus the attention weights are
+$$
+\alpha_i \;\propto\; e^{z_i}
+\;=\;
+e^{c}\,e^{-\lambda\min(i,L-i)}.
+$$
+
+**Proposition 7.1 (Dual-anchor exponential decay $\Rightarrow$ U-shape)**
+If $\lambda>0$, then $\alpha_i$ strictly decreases with position $i$ on the interval $[0,L/2]$ and strictly increases on the interval $[L/2,L]$; therefore it exhibits a U-shaped distribution along the positional dimension with the valley at the middle and peaks at both ends (when $L$ is even, the valley is at $i=L/2$; when $L$ is odd, the valley is at the adjacent positions $i=\lfloor L/2\rfloor,\lceil L/2\rceil$).
+
+**Proof:**
+When $0\le i\le L/2$, $\min(i,L-i)=i$, so $\alpha_i\propto e^{-\lambda i}$, strictly decreasing with $i$; when $L/2\le i\le L$, $\min(i,L-i)=L-i$, so $\alpha_i\propto e^{-\lambda(L-i)}$, strictly increasing with $i$. Q.E.D. $\square$
+
+This model does not claim "real attention is an exponential function"; it only provides a **sufficient condition**: as long as two endpoint anchors exist, and the bias of "farther from anchors is more disadvantageous" holds statistically (whether it comes from RoPE's locality, from accumulated saliency of system prompts during training, or from KV budget and heuristic sparsification), the U-shape is not surprising.
+
+### 7.2 Mechanistic Explanation vs. Corpus Explanation: How to Distinguish?
+
+To avoid "explaining everything," we decompose competing explanations into two comparable sources:
+
+1. **Mechanistic source (structural bias):** From the competitive nature of Softmax and positional/structural bias;
+2. **Corpus source (writing prior):** From the statistical structure of human text where "beginning/end have higher information density."
+
+The two can superimpose, but they respond differently to interventions.
+
+### 7.3 Falsifiable Predictions (Can Write Acceptance Criteria Without Running Experiments)
+
+Each prediction below corresponds to a "if opposite results are observed, the mechanistic primary cause cannot stand" falsification condition:
+
+1. **Anchor ablation:** If system prompt information is scattered into uniformly distributed local instructions (reducing Alpha anchor), and query is forced to be placed in the middle (weakening Omega recency), the U-shape should significantly flatten; if it doesn't flatten, the U-shape is more likely from corpus structure or other unmodeled biases.
+2. **Middle anchor creation:** Insert structured "memory anchors" in the middle (e.g., hierarchical summary titles, retrievable indices, or explicit key-value markers); if only changing structure without changing content can raise middle utilization, it supports the mechanistic narrative that "increasing anchor cluster count $K$ can suppress middle competitive disadvantage" (also consistent with the upper bound intuition in Appendix 8.1).
+3. **Reordering invariance:** While keeping "anchor positions and counts unchanged," randomly reorder middle paragraph sequences; if U-shape basically remains but accuracy fluctuates with semantic relevance, it supports "positional bias dominates shape, content similarity dominates details" decomposition; if shape systematically changes with destruction of human writing structure, corpus explanation is stronger.
+4. **Genre contrast:** On non-human writing genres or synthetic corpora (uniform information, no paragraph templates), if U-shape remains strong and strongly correlated with "two anchors," it supports mechanistic explanation; if U-shape significantly weakens, it supports corpus explanation.
+
+---
+
+## 8. Mathematical Appendix: What Do These Two "Proofs" Actually Prove?
 
 This section provides two **testable, reusable** mathematical results to support the "inevitability / minimum energy" phrasing used repeatedly throughout the paper:
 
@@ -122,7 +174,7 @@ This section provides two **testable, reusable** mathematical results to support
 
 These correspond respectively to the "Softmax bottleneck" and "minimum energy shape" statements in the main text.
 
-### 7.1 Result A: Upper Bound on Total Middle Attention Mass Under Softmax
+### 8.1 Result A: Upper Bound on Total Middle Attention Mass Under Softmax
 
 Consider a single attention head and a single query $q$'s attention distribution. Let the sequence length be $L$, and the logit at each position $i$ be
 $$
@@ -135,7 +187,7 @@ $$
 
 We denote the "left anchor" and "right anchor" as two specific positions $a,o$ (Alpha/Omega), and the remaining positions as the set $M=\{1,\dots,L\}\setminus\{a,o\}$ ("middle" here means "non-anchor," not requiring geometric centrality).
 
-**Lemma 7.1 (Two-anchor advantage $\Rightarrow$ middle total weight upper bound)**
+**Lemma 8.1 (Two-anchor advantage $\Rightarrow$ middle total weight upper bound)**
 Let
 $$
 m \;=\; \max_{i\in M} z_i.
@@ -186,7 +238,7 @@ where growth in $K$ significantly suppresses middle total mass.
 
 > The significance of this inequality is: the main text's "Softmax winner-take-all" is not mere rhetoric; it can be written as an **explicit bound** on $A_M$. And one engineering implication of "adding intermediate piers" is to **structure some middle tokens into new anchor clusters** (raising their logits or raising the effective anchor count $K$).
 
-### 7.2 Result B: The Catenary Arises from Minimum Gravitational Potential Energy (Classical Calculus of Variations Derivation)
+### 8.2 Result B: The Catenary Arises from Minimum Gravitational Potential Energy (Classical Calculus of Variations Derivation)
 
 This subsection is unrelated to Transformers; it only answers a pure mathematical question: why does "a uniform chain hanging under gravity" yield $y=a\cosh(x/a)$.
 
@@ -255,11 +307,11 @@ y(x)=a\cosh\left(\frac{x-x_0}{a}\right)-\lambda,
 $$
 which is the general form of the catenary (constants determined by endpoint and length conditions). Q.E.D. $\square$
 
-### 7.3 From "Proofs" Back to Main Text: What Are Theorems, What Are Metaphors?
+### 8.3 From "Proofs" Back to Main Text: What Are Theorems, What Are Metaphors?
 
-- Section 7.1 provides a **hard inequality for Softmax distribution**: when the two ends (or anchor clusters) have stable advantages in logits, the middle total mass is necessarily compressed; this supports the main text's statement about "gravitational pull of the normalization denominator."
-- Section 7.2 provides the **standard minimization theorem for physical catenaries**: the so-called "minimum energy" corresponds to a variational extremum in the strict sense.
-- The core claim of the main text is "the attention curve resembles a catenary": strictly speaking, this is a **model analogy**. To elevate the analogy to a theorem requires additionally specifying a precise definition of "attention-energy" (e.g., writing some regularized optimization objective in the form of 7.2). In the current manuscript, we leave this step to future work, while using the hard bound in 7.1 to explain the U-shaped competition mechanism and 7.2 to explain "why catenaries naturally arise."
+- Section 8.1 provides a **hard inequality for Softmax distribution**: when the two ends (or anchor clusters) have stable advantages in logits, the middle total mass is necessarily compressed; this supports the main text's statement about "gravitational pull of the normalization denominator."
+- Section 8.2 provides the **standard minimization theorem for physical catenaries**: the so-called "minimum energy" corresponds to a variational extremum in the strict sense.
+- The core claim of the main text is "the attention curve resembles a catenary": strictly speaking, this is a **model analogy**. To elevate the analogy to a theorem requires additionally specifying a precise definition of "attention-energy" (e.g., writing some regularized optimization objective in the form of 8.2). In the current manuscript, we leave this step to future work, while using the hard bound in 8.1 to explain the U-shaped competition mechanism and 8.2 to explain "why catenaries naturally arise."
 
 ---
 
