@@ -150,13 +150,16 @@
 
   Attention(Q, K, V) = softmax(Q × K^T / √d) × V
 
-💡 人话拆解：
-  • Q = Query（查询）：「我想找什么？」
-  • K = Key（键）：「每个 token 的标签」
-  • V = Value（值）：「每个 token 的内容」
-  • Q × K^T = 打分：Query 和每个 Key 算相似度
-  • √d = 缩放：防止分数太大导致 softmax 饱和
-  • softmax = 归一化：把分数变成「概率分布」
+💡 人话拆解——想象你在图书馆找资料：
+
+  你带着一个问题走进去（Q），书架上每本书的书脊上有标签（K），书里面有内容（V）。
+
+  1. 你拿问题和每本书的标签对一遍，打个相关度分数（Q × K^T）
+  2. 分数除以 √d，防止某些分数太大把其他的全压没
+  3. softmax 把分数变成百分比——所有书加起来 100%，分高的多看，分低的少看
+  4. 按这个百分比，把各本书的内容加权混合，得到你的答案（× V）
+
+  至于为什么叫 Query/Key/Value——就是当年论文作者从数据库检索借来的术语，别深究命名，理解流程就行。
 
 关键在 Softmax 这一步。
 
@@ -199,9 +202,9 @@
 
 想想 AI 都学会了什么：XML 的尖括号嵌套、JSON 的花括号层级、数学公式的推导步骤、代码的缩进规范……这些复杂的结构模式都能学会，「两头重、中间轻」这种人类语言的基本节奏，当然更容易学会。
 
-其实你自己也一样：回忆一下你高考写的作文，开头第一句还记得吗？结尾的金句呢？中间第三段写了啥？
+其实你自己也一样：回忆一下你高考写的作文——中间第三段写了啥？
 
-——如果你还记得一点点，大概率也只记得开头和结尾。
+大概率连题目都忘了，更别说中间了。但如果你还能想起点什么，多半是开头或结尾。
 
 AI 不过是从人类身上学会了这一点。
 
@@ -235,9 +238,11 @@ Softmax 之后：
 
 【数学证明（简化版）】
 
+💡 logit = softmax 之前的原始打分（还没归一化的分数）。
+
 假设：
 
-  • Alpha 和 Omega 的 logit 比中间最高的高 Δ
+  • Alpha 和 Omega 的打分比中间最高的高 Δ
   • 序列长度 L，中间有 L-2 个 token
 
 那么中间部分的总注意力：
@@ -315,25 +320,17 @@ U 型曲线不只是推理时的问题，训练时就被固化了。
 
   解决方案：「在中间加桥墩」。
 
-具体技术：
+道理很简单：你自己读一篇长文章，什么地方会多看两眼？小标题、加粗、高亮——这些都是「锚点」，帮你在一大坨文字里快速定位重点。
 
-1. 「层级化摘要（Hierarchical Summarization）」
+AI 也一样。给中间的内容加上显眼的标记，它就不会跳过了。
 
-  把长文档分段 → 每段生成摘要 → 把摘要当成「新的锚点」
+具体怎么加：
 
-  这相当于在中间插了几根电线杆，悬链线被分成多段短弧，下垂就小了。
+1. 「分段加摘要」—— 长文档切成几段，每段前面加一句话总结。相当于在中间插了几根电线杆，悬链线被分成多段短弧，下垂就小了。
 
-2. 「记忆锚点（Memory Tokens）」
+2. 「插标记 token」—— 在重要信息前面插一个特殊标记，告诉模型"这里要看"。
 
-  在上下文中间插入特殊 token，标记「这里有重要信息」。
-
-  让模型在训练时学会把这些 token 当成「必须关注的锚点」。
-
-3. 「结构化 Prompt」
-
-  把长上下文组织成「标题-内容」的层级结构。
-
-  标题充当锚点，内容挂在标题下面。
+3. 「用结构化格式」—— 标题 + 内容的层级结构，标题本身就是锚点。
 
 ────────────────────
 
@@ -418,15 +415,15 @@ Lost in the Middle 不是工程师的失误，是注意力机制在高维空间�
   —— 按注意力排序文档位置
 
 【机制分析】
-• Chen et al. (2024). "Uncovering the Role of Initial Saliency in U-Shaped Attention Bias"
+• Qiang et al. (2025). "Uncovering the Role of Initial Saliency in U-Shaped Attention Bias"
   https://arxiv.org/abs/2512.13109
   —— 初始 token 显著性 + 位置编码偏差
 
-• Yang et al. (2025). "Limitations of Normalization in Attention Mechanism"
+• Mudarisov et al. (2025). "Limitations of Normalization in Attention Mechanism"
   https://arxiv.org/abs/2508.17821
   —— Softmax 归一化的数学界限分析
 
-• Liu et al. (2026). "Threshold Differential Attention for Sink-Free Language Modeling"
+• Huang et al. (2026). "Threshold Differential Attention for Sink-Free Language Modeling"
   https://arxiv.org/abs/2601.12145
   —— Softmax 的 sum-to-one 约束导致 attention sink
 
@@ -446,4 +443,4 @@ Lost in the Middle 不是工程师的失误，是注意力机制在高维空间�
 ━━━━━━━━━━━━━━━━━━━━
 
 // 靳岩岩的 AI 学习笔记 × Claude 的严谨 × Gemini 的浪漫
-// 2026-01-22
+// 2026-01-23
