@@ -74,16 +74,14 @@ def load_model(model_path="/workspace/models/Llama-3.3-70B-Instruct-INT8"):
     print(f"Loading model from {model_path}...")
     print("This may take a few minutes for a 70B INT8 model...")
 
-    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
 
-    # INT8 模型使用 load_in_8bit 或直接加载（取决于模型格式）
-    # neuralmagic 的 INT8 模型通常使用 compressed-tensors 格式
+    # 和赵磊脚本保持一致的加载方式
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
-        torch_dtype=torch.float16,  # 计算时使用 float16
         device_map="auto",
-        trust_remote_code=True,
-        low_cpu_mem_usage=True,
+        torch_dtype=torch.float16,
+        local_files_only=True,
     )
     model.eval()
     print(f"Model loaded. Device: {next(model.parameters()).device}")
@@ -108,10 +106,13 @@ def get_embedding(model, tokenizer, text, pooling="mean"):
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
 
     with torch.no_grad():
-        outputs = model(**inputs, output_hidden_states=True)
+        # 只返回最后一层，不返回所有层（省显存）
+        outputs = model(**inputs, output_hidden_states=True, return_dict=True)
 
-    # 取最后一层的 hidden states
-    hidden_states = outputs.hidden_states[-1]  # (batch, seq_len, hidden_dim)
+        # 立即取出最后一层，然后删除 outputs 释放显存
+        hidden_states = outputs.hidden_states[-1].clone()  # (batch, seq_len, hidden_dim)
+        del outputs
+        torch.cuda.empty_cache()
 
     if pooling == "mean":
         # 平均池化（排除 padding）
@@ -125,6 +126,10 @@ def get_embedding(model, tokenizer, text, pooling="mean"):
         embedding = hidden_states[:, 0, :]
     else:
         raise ValueError(f"Unknown pooling: {pooling}")
+
+    # 清理
+    del hidden_states
+    torch.cuda.empty_cache()
 
     return embedding.cpu().float().numpy().squeeze()
 
