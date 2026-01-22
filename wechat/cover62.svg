@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1923"/>
+      <stop offset="100%" style="stop-color:#1a2a3a"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#4fc3f7;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- Grid lines (subtle) -->
+  <g stroke="#ffffff" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="100" x2="900" y2="100"/>
+    <line x1="0" y1="200" x2="900" y2="200"/>
+    <line x1="0" y1="300" x2="900" y2="300"/>
+    <line x1="0" y1="400" x2="900" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="450" y1="0" x2="450" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="750" y1="0" x2="750" y2="500"/>
+  </g>
+
+  <!-- Left side: chaotic dots (noise / entropy) -->
+  <g fill="#ff6b6b" opacity="0.6">
+    <circle cx="80" cy="180" r="3"/>
+    <circle cx="120" cy="220" r="2.5"/>
+    <circle cx="95" cy="260" r="3.5"/>
+    <circle cx="140" cy="190" r="2"/>
+    <circle cx="60" cy="240" r="3"/>
+    <circle cx="110" cy="300" r="2.5"/>
+    <circle cx="75" cy="310" r="3"/>
+    <circle cx="130" cy="270" r="2"/>
+    <circle cx="100" cy="340" r="3.5"/>
+    <circle cx="55" cy="290" r="2.5"/>
+    <circle cx="145" cy="330" r="2"/>
+    <circle cx="85" cy="360" r="3"/>
+    <circle cx="125" cy="350" r="2.5"/>
+    <circle cx="65" cy="200" r="2"/>
+    <circle cx="150" cy="240" r="3"/>
+    <circle cx="90" cy="380" r="2.5"/>
+    <circle cx="70" cy="330" r="2"/>
+    <circle cx="135" cy="360" r="3"/>
+    <circle cx="105" cy="210" r="2.5"/>
+    <circle cx="50" cy="350" r="2"/>
+  </g>
+
+  <!-- Right side: structured pattern (learnable structure / epiplexity) -->
+  <g fill="#4fc3f7" opacity="0.8">
+    <!-- Layer 1 -->
+    <circle cx="680" cy="200" r="4"/>
+    <circle cx="720" cy="200" r="4"/>
+    <circle cx="760" cy="200" r="4"/>
+    <circle cx="800" cy="200" r="4"/>
+    <!-- Layer 2 -->
+    <circle cx="700" cy="250" r="4"/>
+    <circle cx="740" cy="250" r="4"/>
+    <circle cx="780" cy="250" r="4"/>
+    <!-- Layer 3 -->
+    <circle cx="720" cy="300" r="4"/>
+    <circle cx="760" cy="300" r="4"/>
+    <!-- Layer 4 -->
+    <circle cx="740" cy="350" r="5"/>
+  </g>
+  <!-- Connecting lines for structure -->
+  <g stroke="#4fc3f7" stroke-opacity="0.4" stroke-width="1" fill="none">
+    <line x1="680" y1="200" x2="700" y2="250"/>
+    <line x1="720" y1="200" x2="700" y2="250"/>
+    <line x1="720" y1="200" x2="740" y2="250"/>
+    <line x1="760" y1="200" x2="740" y2="250"/>
+    <line x1="760" y1="200" x2="780" y2="250"/>
+    <line x1="800" y1="200" x2="780" y2="250"/>
+    <line x1="700" y1="250" x2="720" y2="300"/>
+    <line x1="740" y1="250" x2="720" y2="300"/>
+    <line x1="740" y1="250" x2="760" y2="300"/>
+    <line x1="780" y1="250" x2="760" y2="300"/>
+    <line x1="720" y1="300" x2="740" y2="350"/>
+    <line x1="760" y1="300" x2="740" y2="350"/>
+  </g>
+
+  <!-- Center divider: eye/observer symbol -->
+  <g transform="translate(420, 270)">
+    <!-- Eye shape -->
+    <ellipse cx="0" cy="0" rx="50" ry="25" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+    <!-- Pupil -->
+    <circle cx="0" cy="0" r="12" fill="#4fc3f7" opacity="0.9"/>
+    <circle cx="0" cy="0" r="5" fill="#0f1923"/>
+    <!-- Rays -->
+    <g stroke="#ffffff" stroke-opacity="0.3" stroke-width="1">
+      <line x1="0" y1="-35" x2="0" y2="-50"/>
+      <line x1="30" y1="-25" x2="42" y2="-37"/>
+      <line x1="-30" y1="-25" x2="-42" y2="-37"/>
+      <line x1="0" y1="35" x2="0" y2="50"/>
+      <line x1="30" y1="25" x2="42" y2="37"/>
+      <line x1="-30" y1="25" x2="-42" y2="37"/>
+    </g>
+  </g>
+
+  <!-- Arrows from sides to center -->
+  <g stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5" fill="none">
+    <path d="M 180 270 L 360 270"/>
+    <polygon points="355,265 370,270 355,275" fill="#ffffff" opacity="0.3"/>
+    <path d="M 660 270 L 480 270"/>
+    <polygon points="485,265 470,270 485,275" fill="#ffffff" opacity="0.3"/>
+  </g>
+
+  <!-- Labels -->
+  <text x="100" y="420" font-family="sans-serif" font-size="18" fill="#ff6b6b" text-anchor="middle" opacity="0.9">噪声</text>
+  <text x="100" y="442" font-family="sans-serif" font-size="12" fill="#ff6b6b" text-anchor="middle" opacity="0.6">(学不会的部分)</text>
+
+  <text x="740" y="420" font-family="sans-serif" font-size="18" fill="#4fc3f7" text-anchor="middle" opacity="0.9">结构</text>
+  <text x="740" y="442" font-family="sans-serif" font-size="12" fill="#4fc3f7" text-anchor="middle" opacity="0.6">(能学到的部分)</text>
+
+  <text x="420" y="380" font-family="sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" opacity="0.6">观察者</text>
+
+  <!-- Main title -->
+  <text x="450" y="60" font-family="sans-serif" font-size="34" fill="#ffffff" text-anchor="middle" font-weight="bold">信息量取决于谁在看</text>
+  <text x="450" y="100" font-family="Arial, sans-serif" font-size="20" fill="#4fc3f7" text-anchor="middle" opacity="0.8">From Entropy to Epiplexity</text>
+  <text x="450" y="130" font-family="sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" opacity="0.5">CMU + NYU · arXiv 2601.03220 · 2026.01</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="470" width="900" height="30" fill="#4fc3f7" opacity="0.1"/>
+  <text x="450" y="490" font-family="sans-serif" font-size="13" fill="#4fc3f7" text-anchor="middle" opacity="0.7">你有多聪明，决定了你能看到多少信息</text>
+</svg>
