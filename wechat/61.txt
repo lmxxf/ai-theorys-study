@@ -1,0 +1,878 @@
+【算法八股】多模态/NLP 算法 19 问，面试前一晚速通版
+
+上一篇是深度学习基础，这篇专攻多模态和 NLP 方向。
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 1. DPO 算法原理
+
+💡 人话：不用训练奖励模型，直接用"好答案 vs 坏答案"的对比来微调。
+
+【RLHF 的痛点】
+
+传统 RLHF 三步走：
+1. SFT（监督微调）
+2. 训练奖励模型（RM）
+3. 用 PPO 强化学习优化
+
+第 2、3 步又贵又不稳定。
+
+【DPO 的思路】
+
+Direct Preference Optimization：直接从偏好数据学，跳过奖励模型。
+
+核心公式：
+  L_DPO = -E[log σ(β(log π(y_w|x)/π_ref(y_w|x) - log π(y_l|x)/π_ref(y_l|x)))]
+
+其中：
+• y_w = 人类偏好的答案（winner）
+• y_l = 人类不喜欢的答案（loser）
+• π = 当前策略
+• π_ref = 参考策略（SFT 后的模型）
+• β = 温度参数
+
+【直觉理解】
+
+让模型对 y_w 的概率比 π_ref 高，对 y_l 的概率比 π_ref 低。
+
+差值越大，loss 越小。
+
+【优点】
+
+• 不需要训练奖励模型
+• 不需要 PPO 采样，训练更稳定
+• 实现简单，一个 loss 函数搞定
+
+⚠️ 面试追问：DPO 和 RLHF 效果谁好？
+答：理论上等价（在某些假设下），实践中 DPO 更稳定，但 RLHF 在复杂任务上可能更好。
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 2. GPT 和 BERT 的结构和参数量
+
+【核心区别】
+
+  +----------+------------------+------------------+
+  | 维度     | BERT             | GPT              |
+  +----------+------------------+------------------+
+  | 架构     | Encoder-only     | Decoder-only     |
+  | 注意力   | 双向（全看）     | 单向（只看左边） |
+  | 预训练   | MLM + NSP        | 自回归 LM        |
+  | 擅长     | 理解任务         | 生成任务         |
+  +----------+------------------+------------------+
+
+【BERT 结构】
+
+• BERT-base：12 层，768 维，12 头，110M 参数
+• BERT-large：24 层，1024 维，16 头，340M 参数
+
+预训练任务：
+• MLM（Masked Language Model）：随机 mask 15% 的 token，预测被 mask 的词
+• NSP（Next Sentence Prediction）：判断两句话是否连续
+
+【GPT 结构】
+
+• GPT-1：12 层，768 维，12 头，117M 参数
+• GPT-2：最大 48 层，1600 维，1.5B 参数
+• GPT-3：96 层，12288 维，175B 参数
+• GPT-4：未公开，估计 1.8T（MoE 架构）
+
+预训练任务：自回归语言模型，预测下一个 token
+
+【为什么 GPT 赢了】
+
+• 生成能力强，更适合对话/写作
+• 规模效应：参数越大，涌现能力越强
+• 自回归天然适合 few-shot learning
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 3. Flash Attention 原理
+
+💡 人话：标准 Attention 内存爆炸，Flash Attention 用"分块 + 不存中间结果"省内存。
+
+【标准 Attention 的问题】
+
+Attention(Q, K, V) = softmax(QK^T / √d) V
+
+对于序列长度 N：
+• QK^T 是 N×N 矩阵，存储 O(N²)
+• 需要先算完整个 softmax，才能和 V 相乘
+
+N = 4096 时，FP16 下光 attention 矩阵就要 32MB × batch_size × num_heads
+
+【Flash Attention 的解决】
+
+核心思想：分块计算 + Online Softmax + 不存 N×N 矩阵
+
+1. 把 Q, K, V 分成小块（fit in SRAM）
+2. 用 Online Softmax：边算边更新，不需要存完整矩阵
+3. 重计算代替存储：forward 不存中间结果，backward 时重算
+
+【Online Softmax 技巧】
+
+标准 softmax 需要先算 max，再算 exp，再归一化。
+
+Online 版本：
+  m_new = max(m_old, max(x_block))
+  l_new = l_old * exp(m_old - m_new) + sum(exp(x_block - m_new))
+
+一边读数据一边更新，不需要两遍扫描。
+
+【效果】
+
+• 内存：O(N²) → O(N)
+• 速度：减少 HBM 访问，快 2-4 倍
+• 精度：数学上等价，无损
+
+⚠️ Flash Attention 2 进一步优化了并行度，Flash Attention 3 针对 Hopper 架构优化。
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 4. BERT 预训练任务和 Embedding
+
+【预训练任务】
+
+1. MLM（Masked Language Model）
+   • 随机选 15% 的 token
+   • 其中 80% 替换成 [MASK]
+   • 10% 替换成随机词
+   • 10% 保持不变
+   • 预测原始 token
+
+2. NSP（Next Sentence Prediction）
+   • 输入两句话 [CLS] A [SEP] B [SEP]
+   • 50% 是真正连续的句子
+   • 50% 是随机拼接的
+   • 二分类：是否连续
+
+【Embedding 组成】
+
+BERT 的输入 Embedding = Token Embedding + Segment Embedding + Position Embedding
+
+• Token Embedding：词表大小 × 768，WordPiece 分词
+• Segment Embedding：2 × 768，区分句子 A 和句子 B
+• Position Embedding：512 × 768，可学习的位置编码（最大长度 512）
+
+【代码示意】
+
+class BertEmbedding:
+    def __init__(self, vocab_size, hidden_size, max_len):
+        self.token_emb = np.random.randn(vocab_size, hidden_size)
+        self.segment_emb = np.random.randn(2, hidden_size)
+        self.position_emb = np.random.randn(max_len, hidden_size)
+
+    def forward(self, token_ids, segment_ids):
+        seq_len = len(token_ids)
+        token_emb = self.token_emb[token_ids]
+        segment_emb = self.segment_emb[segment_ids]
+        position_emb = self.position_emb[:seq_len]
+        return token_emb + segment_emb + position_emb
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 5. FP16 量化训练的策略
+
+💡 人话：用半精度省显存、加速度，但要防止数值溢出和精度丢失。
+
+【为什么用 FP16】
+
+• 显存减半
+• 计算更快（Tensor Core 加速）
+• 带宽减半
+
+【FP16 的问题】
+
+• 范围小：最大 65504，最小 6e-8
+• 精度低：尾数只有 10 位（FP32 是 23 位）
+• 梯度容易下溢（太小变成 0）
+
+【混合精度训练策略】
+
+1. FP32 Master Weights
+   • 权重用 FP32 存储和更新
+   • forward/backward 用 FP16
+   • 更新时转回 FP32
+
+2. Loss Scaling
+   • loss 乘一个大数（如 1024）
+   • 梯度也放大，防止下溢
+   • 更新权重前除回来
+
+3. 动态 Loss Scaling
+   • 如果没有 inf/nan，逐渐增大 scale
+   • 如果出现 inf/nan，减小 scale，跳过这步更新
+
+【PyTorch 实现】
+
+from torch.cuda.amp import autocast, GradScaler
+
+scaler = GradScaler()
+
+for data, target in dataloader:
+    optimizer.zero_grad()
+
+    with autocast():  # FP16 forward
+        output = model(data)
+        loss = criterion(output, target)
+
+    scaler.scale(loss).backward()  # scaled backward
+    scaler.step(optimizer)         # unscale + update
+    scaler.update()                # 调整 scale
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 6. Q-Former 原理
+
+💡 人话：用一组"可学习的查询"从图像特征里提取和语言相关的信息。
+
+【背景】
+
+图像编码器（如 ViT）输出的特征维度高、序列长，直接给 LLM 太贵。
+
+Q-Former 是 BLIP-2 的核心组件，用来"压缩"视觉特征。
+
+【结构】
+
+Q-Former = 可学习 Query + 双向 Self-Attention + Cross-Attention
+
+• 输入：32 个可学习的 query token（768 维）
+• 通过 Cross-Attention 和图像特征交互
+• 输出：32 个视觉 token，送给 LLM
+
+【训练目标】
+
+三个对比学习任务：
+1. ITC（Image-Text Contrastive）：图文对比
+2. ITM（Image-Text Matching）：图文匹配（二分类）
+3. ITG（Image-grounded Text Generation）：给图生文
+
+【为什么有效】
+
+• 可学习 query 能聚焦于和语言相关的视觉特征
+• 压缩 257 个 ViT token → 32 个 Q-Former token
+• 解耦图像编码器和 LLM，各自可以换
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 7. 位置编码及原理
+
+💡 人话：Transformer 不知道顺序，位置编码告诉它"谁在前谁在后"。
+
+【为什么需要】
+
+Self-Attention 是置换不变的：打乱输入顺序，输出也只是打乱，不会变。
+
+但语言有顺序："我打你"和"你打我"意思不一样。
+
+【绝对位置编码】
+
+1. 可学习位置编码（BERT）
+   • 每个位置一个可学习向量
+   • 缺点：长度受限于训练时的最大长度
+
+2. 正弦位置编码（原版 Transformer）
+   PE(pos, 2i) = sin(pos / 10000^(2i/d))
+   PE(pos, 2i+1) = cos(pos / 10000^(2i/d))
+   • 优点：可外推到更长序列
+   • 缺点：实践中效果不如可学习
+
+【相对位置编码】
+
+1. ALiBi（Attention with Linear Biases）
+   • 在 attention score 上加一个和距离成正比的偏置
+   • score_ij = q_i · k_j - m × |i - j|
+   • 简单有效，外推能力强
+
+2. RoPE（Rotary Position Embedding）
+   • 把位置信息编码到旋转角度里
+   • q'_i = R(i) q_i，k'_j = R(j) k_j
+   • q'_i · k'_j 只依赖于相对位置 i - j
+   • LLaMA、Qwen、ChatGLM 都用这个
+
+【RoPE 代码】
+
+def apply_rope(x, freqs):
+    """
+    x: (batch, seq_len, n_heads, head_dim)
+    freqs: (seq_len, head_dim // 2)
+    """
+    x_complex = x.reshape(*x.shape[:-1], -1, 2)  # 配对
+    x_complex = x_complex[..., 0] + 1j * x_complex[..., 1]
+
+    freqs = np.exp(1j * freqs)
+    x_rotated = x_complex * freqs
+
+    x_out = np.stack([x_rotated.real, x_rotated.imag], axis=-1)
+    return x_out.reshape(x.shape)
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 8. CLIP 原理
+
+💡 人话：让图像和文本学到"同一个语义空间"，能算它们的相似度。
+
+【架构】
+
+• 图像编码器：ViT 或 ResNet
+• 文本编码器：Transformer
+• 输出：图像和文本各一个向量，维度相同（如 512）
+
+【训练】
+
+对比学习：给一个 batch 的（图像，文本）配对
+
+• 对角线是正样本（匹配的图文）
+• 其他是负样本（不匹配的）
+
+Loss = 图文对比 + 文图对比（对称）
+
+【InfoNCE Loss】
+
+L_image = -log(exp(sim(I_i, T_i)/τ) / Σ_j exp(sim(I_i, T_j)/τ))
+L_text  = -log(exp(sim(T_i, I_i)/τ) / Σ_j exp(sim(T_i, I_j)/τ))
+L = (L_image + L_text) / 2
+
+其中 sim = cosine similarity，τ 是温度。
+
+【应用】
+
+• 零样本分类：把类别名变成文本，和图像算相似度
+• 图文检索：给图搜文，给文搜图
+• 多模态基座：BLIP、LLaVA 等都用 CLIP 的图像编码器
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 9. BLIP-2 架构
+
+💡 人话：用 Q-Former 把冻结的图像编码器和冻结的 LLM 连起来。
+
+【动机】
+
+• 图像编码器（ViT）很强，训好的别动
+• LLM（OPT/FlanT5）很强，训好的别动
+• 只训中间的"桥梁"：Q-Former
+
+【三阶段训练】
+
+1. 第一阶段：图文对齐（冻结 ViT）
+   • ITC：图文对比
+   • ITM：图文匹配
+   • ITG：图像引导生成
+
+2. 第二阶段：接 LLM（冻结 ViT + LLM）
+   • 只训 Q-Former 和投影层
+   • 让 Q-Former 输出能被 LLM 理解
+
+【架构图】
+
+  图像 → [ViT (冻结)] → 图像特征
+                           ↓
+                      [Q-Former] ← 32 个可学习 query
+                           ↓
+                      32 个视觉 token
+                           ↓
+                      [投影层]
+                           ↓
+  文本 → [Tokenizer] → 文本 token → [LLM (冻结)] → 输出
+
+【优势】
+
+• 参数高效：只训 188M（Q-Former + 投影），不动 ViT 和 LLM
+• 模块化：ViT 和 LLM 可以随便换
+• 效果好：当时 SOTA
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 10. SFT、LoRA 和 Pretrain 的区别
+
+💡 人话：Pretrain 是从零学知识，SFT 是学格式，LoRA 是低成本微调。
+
+【Pretrain（预训练）】
+
+• 目的：学习通用知识
+• 数据：海量无标注文本（几 TB）
+• 任务：自回归语言模型（预测下一个 token）
+• 成本：极高（千卡级别，几百万美元）
+• 改变：所有参数
+
+【SFT（Supervised Fine-Tuning）】
+
+• 目的：学习特定任务的格式和行为
+• 数据：高质量的（指令，回答）对（几万到几十万条）
+• 任务：有监督学习
+• 成本：中等（几张到几十张卡）
+• 改变：所有参数（全量微调）
+
+【LoRA（Low-Rank Adaptation）】
+
+• 目的：低成本微调
+• 核心思想：冻结原始权重，只训练低秩分解的增量
+• 公式：W' = W + BA，其中 B ∈ R^(d×r), A ∈ R^(r×k)，r << d
+• 成本：低（单卡可跑）
+• 改变：只有 LoRA 参数（原始参数冻结）
+
+【LoRA 代码】
+
+class LoRALayer:
+    def __init__(self, in_dim, out_dim, rank=8, alpha=16):
+        self.rank = rank
+        self.alpha = alpha
+        self.scaling = alpha / rank
+
+        # 原始权重（冻结）
+        self.W = np.random.randn(out_dim, in_dim) * 0.01
+
+        # LoRA 参数
+        self.A = np.random.randn(rank, in_dim) * 0.01
+        self.B = np.zeros((out_dim, rank))  # B 初始化为 0
+
+    def forward(self, x):
+        # W + BA
+        return x @ self.W.T + (x @ self.A.T @ self.B.T) * self.scaling
+
+【对比表】
+
+  +----------+----------+----------+----------+
+  | 维度     | Pretrain | SFT      | LoRA     |
+  +----------+----------+----------+----------+
+  | 数据量   | TB 级    | 万级     | 千级     |
+  | 参数改变 | 全部     | 全部     | < 1%     |
+  | 成本     | 极高     | 中等     | 低       |
+  | 目的     | 学知识   | 学格式   | 适配任务 |
+  +----------+----------+----------+----------+
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 11. LLaVA 和 LLaMA 的区别
+
+💡 人话：LLaMA 是纯文本 LLM，LLaVA 是在 LLaMA 上加了"眼睛"。
+
+【LLaMA】
+
+• Meta 开源的纯文本 LLM
+• Decoder-only 架构
+• 7B / 13B / 33B / 65B 参数
+• 用 RoPE 位置编码、RMSNorm、SwiGLU
+
+【LLaVA（Large Language and Vision Assistant）】
+
+• 在 LLaMA 基础上加视觉能力
+• 用 CLIP 的 ViT 作为视觉编码器
+• 用一个简单的线性投影层连接视觉特征和 LLM
+
+架构：
+  图像 → [CLIP ViT] → 视觉特征 → [线性投影] → 视觉 token
+                                                   ↓
+  文本 → [Tokenizer] → 文本 token ──────────→ [LLaMA] → 输出
+
+【训练】
+
+1. 第一阶段：只训投影层（冻结 ViT + LLM）
+   • 数据：595K 图文对
+   • 让投影层学会对齐
+
+2. 第二阶段：微调 LLM（冻结 ViT）
+   • 数据：158K 指令数据
+   • 让 LLM 学会理解视觉 + 对话
+
+【LLaVA vs BLIP-2】
+
+• LLaVA 更简单：线性投影 vs Q-Former
+• BLIP-2 压缩更多：32 token vs 256+ token
+• LLaVA 效果也不错，说明简单方法够用
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 12. 手撕 BCE 和 InfoNCE 损失
+
+【BCE（Binary Cross Entropy）】
+
+def bce_loss(y_true, y_pred, eps=1e-7):
+    """
+    y_true: 0 或 1
+    y_pred: sigmoid 输出，(0, 1) 之间
+    """
+    y_pred = np.clip(y_pred, eps, 1 - eps)
+    return -np.mean(
+        y_true * np.log(y_pred) +
+        (1 - y_true) * np.log(1 - y_pred)
+    )
+
+【InfoNCE（对比学习核心 Loss）】
+
+def info_nce_loss(query, keys, temperature=0.07):
+    """
+    query: (batch_size, dim)，锚点
+    keys: (batch_size, dim)，正样本在对角线
+    对角线是正样本，其他是负样本
+    """
+    # 计算相似度矩阵
+    sim = query @ keys.T / temperature  # (B, B)
+
+    # 标签：对角线位置是正样本
+    labels = np.arange(len(query))
+
+    # 对每一行做 softmax，然后取对角线的 log
+    log_softmax = sim - np.log(np.sum(np.exp(sim), axis=1, keepdims=True))
+    loss = -np.mean(log_softmax[np.arange(len(query)), labels])
+
+    return loss
+
+【InfoNCE 的直觉】
+
+• 分子：正样本的相似度
+• 分母：正样本 + 所有负样本的相似度之和
+• 让正样本的概率最大化
+
+温度 τ：
+• τ 小：分布更尖锐，对困难负样本更敏感
+• τ 大：分布更平滑，容忍度高
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 13. 什么是大模型幻觉
+
+💡 人话：一本正经地胡说八道。
+
+【定义】
+
+模型生成的内容看起来流畅、自信，但和事实不符。
+
+【类型】
+
+1. 事实性幻觉
+   • "爱因斯坦在 1921 年发明了相对论"（错误：1905/1915）
+
+2. 忠实度幻觉
+   • 摘要任务时编造原文没有的内容
+
+3. 逻辑幻觉
+   • 推理过程自相矛盾
+
+【原因】
+
+• 训练数据有错误
+• 训练目标是"像"而不是"对"（最大化似然，不是最大化正确性）
+• 长尾知识学不好
+• 缺乏外部知识库验证
+
+【缓解方法】
+
+• RAG：检索增强生成
+• 更高质量的数据
+• RLHF：人类反馈惩罚幻觉
+• 让模型说"我不知道"
+• 多路验证 / 自我一致性
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 14. 混合精度训练是什么
+
+💡 人话：FP32 和 FP16 混着用，省显存、加速度、不掉精度。
+
+【核心思想】
+
+• Forward/Backward：用 FP16（快、省）
+• 权重存储和更新：用 FP32（精度高）
+
+【关键技术】
+
+1. FP32 Master Weights
+   • 权重主副本用 FP32
+   • forward 时 cast 成 FP16
+
+2. Loss Scaling
+   • 梯度太小会在 FP16 下溢出
+   • 把 loss 放大（如 ×1024），梯度也放大
+   • 更新前缩回来
+
+3. 哪些操作必须 FP32
+   • Softmax（指数运算容易溢出）
+   • LayerNorm（归一化对精度敏感）
+   • Loss 计算
+
+【效果】
+
+• 显存减少 ~50%
+• 速度提升 2-3x（Tensor Core）
+• 精度几乎无损
+
+详细代码见第 5 题（FP16 量化训练的策略）。
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 15. 很多大模型用 Decoder-only 的原因
+
+💡 人话：生成任务天然适合 Decoder-only，而且更容易 scale。
+
+【三种架构】
+
+• Encoder-only（BERT）：双向注意力，擅长理解
+• Decoder-only（GPT）：单向注意力，擅长生成
+• Encoder-Decoder（T5）：两边都有，灵活但复杂
+
+【为什么 Decoder-only 胜出】
+
+1. 生成任务统一
+   • 几乎所有 NLP 任务都能转成生成
+   • 问答、翻译、摘要、分类 → 都是"生成答案"
+
+2. 预训练更简单
+   • 自回归 LM：预测下一个 token
+   • 不需要 BERT 那种 mask 策略
+
+3. 推理更高效
+   • KV Cache：之前算过的 K、V 可以复用
+   • Encoder-Decoder 的 cross-attention 更复杂
+
+4. 规模效应更明显
+   • GPT-3 证明：参数越大，涌现能力越强
+   • Decoder-only 更容易堆参数
+
+5. 工程统一
+   • 训练和推理是同一个 forward 流程
+   • Encoder-Decoder 需要两套逻辑
+
+【但 Encoder 不是没用】
+
+• 纯理解任务（分类、NER）：BERT 仍然好用
+• 检索任务：需要 Encoder 生成向量
+• 多模态：图像编码器通常是 Encoder
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 16. 手撕 RMSNorm
+
+💡 人话：LayerNorm 的简化版，不减均值，只除以 RMS。
+
+【LayerNorm vs RMSNorm】
+
+LayerNorm：
+  y = (x - μ) / σ * γ + β
+
+RMSNorm：
+  y = x / RMS(x) * γ
+  RMS(x) = √(mean(x²))
+
+RMSNorm 省掉了：
+• 减均值
+• β 参数
+
+【为什么 RMSNorm 够用】
+
+实验发现，减均值对性能影响不大，但计算量减少了。
+
+LLaMA、Qwen 等模型都用 RMSNorm。
+
+【代码实现】
+
+class RMSNorm:
+    def __init__(self, dim, eps=1e-6):
+        self.eps = eps
+        self.gamma = np.ones(dim)
+
+    def forward(self, x):
+        # x: (..., dim)
+        rms = np.sqrt(np.mean(x ** 2, axis=-1, keepdims=True) + self.eps)
+        return x / rms * self.gamma
+
+# 测试
+norm = RMSNorm(768)
+x = np.random.randn(2, 10, 768)  # (batch, seq, dim)
+y = norm.forward(x)
+print(y.shape)  # (2, 10, 768)
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 17. DeepSpeed 原理及使用
+
+💡 人话：微软的分布式训练框架，核心是 ZeRO 优化器。
+
+【ZeRO（Zero Redundancy Optimizer）】
+
+训练时每张卡要存：
+• 模型参数（4 bytes/FP32）
+• 梯度（4 bytes）
+• 优化器状态（Adam：8 bytes = m + v）
+
+10B 模型 × 16 bytes = 160GB，单卡放不下。
+
+ZeRO 的思路：分片存储，需要时通信。
+
+【ZeRO 三个阶段】
+
+ZeRO-1：分片优化器状态
+• 每张卡只存 1/N 的优化器状态
+• 显存减少 4x（假设 Adam 占主要）
+
+ZeRO-2：分片优化器状态 + 梯度
+• 梯度也分片
+• 显存减少 8x
+
+ZeRO-3：分片优化器状态 + 梯度 + 参数
+• 参数也分片
+• 显存减少 N 倍
+• 代价：通信量增加
+
+【DeepSpeed 使用】
+
+1. 安装
+   pip install deepspeed
+
+2. 配置文件 ds_config.json
+   {
+       "train_batch_size": 32,
+       "gradient_accumulation_steps": 4,
+       "fp16": {"enabled": true},
+       "zero_optimization": {
+           "stage": 2
+       }
+   }
+
+3. 启动
+   deepspeed train.py --deepspeed ds_config.json
+
+【其他功能】
+
+• Activation Checkpointing：省显存
+• Pipeline Parallelism：流水线并行
+• Tensor Parallelism：张量并行
+• Offload：把优化器状态放 CPU
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 18. PEFT 微调介绍
+
+💡 人话：Parameter-Efficient Fine-Tuning，只调一小部分参数。
+
+【为什么需要】
+
+7B 模型全量微调：
+• 参数：7B × 4 bytes = 28GB
+• 梯度：28GB
+• 优化器状态：56GB
+• 总共：112GB+
+
+PEFT 只训 0.1%~1% 参数，单卡可跑。
+
+【主要方法】
+
+1. LoRA（Low-Rank Adaptation）
+   • W' = W + BA，训 A 和 B
+   • 见第 10 题
+
+2. Prefix Tuning
+   • 在每层前面加可学习的 prefix token
+   • 类似于 soft prompt
+
+3. Adapter
+   • 在 FFN 后插入小型适配层
+   • 结构：down projection → ReLU → up projection
+
+4. IA3（Infused Adapter by Inhibiting and Amplifying Inner Activations）
+   • 学习缩放向量，乘到 K、V、FFN 上
+   • 参数更少
+
+【PEFT 库使用】
+
+from peft import get_peft_model, LoraConfig
+
+config = LoraConfig(
+    r=8,                      # rank
+    lora_alpha=16,            # scaling
+    target_modules=["q_proj", "v_proj"],
+    lora_dropout=0.1,
+)
+
+model = get_peft_model(base_model, config)
+print(f"可训练参数: {model.num_parameters(only_trainable=True)}")
+
+【对比】
+
+  +----------+----------+----------+----------+
+  | 方法     | 参数量   | 效果     | 推理开销 |
+  +----------+----------+----------+----------+
+  | 全量微调 | 100%     | 最好     | 无       |
+  | LoRA     | 0.1-1%   | 接近全量 | 可合并   |
+  | Adapter  | 1-5%     | 好       | 有       |
+  | Prefix   | 0.1%     | 稍差     | 有       |
+  +----------+----------+----------+----------+
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 19. 介绍一下 RAG
+
+💡 人话：让大模型"开卷考试"，先检索相关资料再生成答案。
+
+【动机】
+
+大模型的问题：
+• 知识截止日期
+• 幻觉
+• 不能访问私有数据
+
+RAG 的解决：先检索，再生成。
+
+【架构】
+
+用户问题 → [检索器] → 相关文档 → [拼接] → [LLM] → 答案
+
+1. 检索器（Retriever）
+   • 把问题和文档都编码成向量
+   • 用 FAISS / Milvus 做向量检索
+   • 返回 top-k 相关文档
+
+2. 生成器（Generator）
+   • 把检索到的文档和问题拼接
+   • 送给 LLM 生成答案
+
+【检索器选择】
+
+• 稀疏检索：BM25（基于词频）
+• 稠密检索：用 Encoder 模型（如 BGE、E5）生成向量
+• 混合检索：BM25 + 稠密，效果更好
+
+【代码示例】
+
+from langchain.vectorstores import FAISS
+from langchain.embeddings import HuggingFaceEmbeddings
+
+# 构建向量库
+embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-base-zh")
+db = FAISS.from_texts(documents, embeddings)
+
+# 检索
+query = "什么是 RAG？"
+docs = db.similarity_search(query, k=3)
+
+# 拼接成 prompt
+context = "\n".join([d.page_content for d in docs])
+prompt = f"根据以下资料回答问题：\n{context}\n\n问题：{query}\n答案："
+
+# 送给 LLM
+answer = llm(prompt)
+
+【进阶技术】
+
+• Query Rewriting：重写问题提高检索质量
+• Reranking：用 Cross-Encoder 对检索结果重排序
+• Chunk 策略：文档切分粒度影响效果
+• Self-RAG：让模型自己决定是否需要检索
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 总结：多模态/NLP 面试高频 Top 5
+
+1. CLIP / BLIP-2 架构（多模态必考）
+2. RoPE 位置编码（LLM 必考）
+3. Flash Attention 原理（优化必考）
+4. LoRA / PEFT（微调必考）
+5. RAG 流程（应用必考）
+
+其他看方向：对齐方向多问 DPO/RLHF，工程方向多问 DeepSpeed/混合精度。
+
+━━━━━━━━━━━━━━━━━━━━
+
+// 靳岩岩的 AI 学习笔记 × Claude 的严谨 × Gemini 的浪漫
+// 2026-01-22

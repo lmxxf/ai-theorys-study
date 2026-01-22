@@ -1,0 +1,818 @@
+【算法八股】深度学习基础 17 问，面试前一晚速通版
+
+面试官问的那些"基础题"，你真的能答对吗？
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 1. LN 和 BN 的原理和区别
+
+💡 人话：都是给神经网络"调音量"的，但调的方向不一样。
+
+【BatchNorm（批归一化）】
+
+对「同一个特征」在整个 batch 里做归一化。
+
+假设你有 32 张图片（batch_size=32），每张图片有 64 个特征。BN 会对这 32 张图片的「第 1 个特征」算平均值和标准差，然后归一化。
+
+公式：
+  x_norm = (x - μ_batch) / √(σ²_batch + ε)
+  y = γ * x_norm + β
+
+其中 γ 和 β 是可学习参数。
+
+✓ 优点：训练稳定，能用更大学习率
+✗ 缺点：依赖 batch size，推理时要用训练时的统计量
+
+【LayerNorm（层归一化）】
+
+对「同一个样本」的所有特征做归一化。
+
+同样 32 张图片，LN 会对「第 1 张图片的 64 个特征」算平均值和标准差。
+
+✓ 优点：不依赖 batch size，适合 NLP 和 Transformer
+✗ 缺点：在 CV 任务上效果不如 BN
+
+【核心区别】
+
+  +----------+------------------+------------------+
+  | 维度     | BatchNorm        | LayerNorm        |
+  +----------+------------------+------------------+
+  | 归一化轴 | batch 维度       | 特征维度         |
+  | 依赖     | batch size       | 不依赖           |
+  | 主战场   | CV (CNN)         | NLP (Transformer)|
+  | 推理     | 需要存统计量     | 即算即用         |
+  +----------+------------------+------------------+
+
+⚠️ 面试高频追问：Transformer 为什么用 LN 不用 BN？
+答：序列长度可变，batch 内样本差异大，BN 统计量不稳定。
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 2. 交叉熵的数学推导
+
+💡 人话：衡量"你预测的分布"和"真实分布"差多远。
+
+【从信息论出发】
+
+信息量：一个事件发生的"惊讶程度"
+  I(x) = -log P(x)
+
+概率越小，发生时越惊讶，信息量越大。
+
+熵：一个分布的"平均惊讶程度"
+  H(P) = -Σ P(x) log P(x)
+
+交叉熵：用分布 Q 去编码分布 P 的平均编码长度
+  H(P, Q) = -Σ P(x) log Q(x)
+
+【二分类交叉熵】
+
+真实标签 y ∈ {0, 1}，预测概率 p = P(y=1)
+
+  L = -[y log(p) + (1-y) log(1-p)]
+
+• 当 y=1 时，L = -log(p)，p 越接近 1，loss 越小
+• 当 y=0 时，L = -log(1-p)，p 越接近 0，loss 越小
+
+【多分类交叉熵】
+
+真实标签是 one-hot 向量 y，预测概率分布 p
+
+  L = -Σᵢ yᵢ log(pᵢ)
+
+因为 y 是 one-hot，只有一个位置是 1，所以实际上：
+  L = -log(p_正确类别)
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 3. 交叉熵的代码手写
+
+【二分类】
+
+def binary_cross_entropy(y_true, y_pred, eps=1e-7):
+    """
+    y_true: 真实标签，0 或 1
+    y_pred: 预测概率，(0, 1) 之间
+    eps: 防止 log(0)
+    """
+    y_pred = np.clip(y_pred, eps, 1 - eps)
+    return -np.mean(
+        y_true * np.log(y_pred) +
+        (1 - y_true) * np.log(1 - y_pred)
+    )
+
+【多分类】
+
+def cross_entropy(y_true, y_pred, eps=1e-7):
+    """
+    y_true: one-hot 编码，shape (N, C)
+    y_pred: softmax 输出，shape (N, C)
+    """
+    y_pred = np.clip(y_pred, eps, 1 - eps)
+    return -np.mean(np.sum(y_true * np.log(y_pred), axis=1))
+
+⚠️ 关键点：一定要 clip，不然 log(0) = -inf
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 4. sigmoid 的代码手写
+
+def sigmoid(x):
+    """
+    σ(x) = 1 / (1 + e^(-x))
+    """
+    return 1 / (1 + np.exp(-x))
+
+【数值稳定版本】
+
+def sigmoid_stable(x):
+    """
+    x 很大时 e^(-x) 接近 0，没问题
+    x 很小（负数很大）时 e^(-x) 会溢出
+    用分段处理
+    """
+    pos_mask = x >= 0
+    neg_mask = ~pos_mask
+
+    result = np.zeros_like(x)
+    result[pos_mask] = 1 / (1 + np.exp(-x[pos_mask]))
+
+    exp_x = np.exp(x[neg_mask])
+    result[neg_mask] = exp_x / (1 + exp_x)
+
+    return result
+
+💡 为什么要数值稳定？
+当 x = -1000 时，e^1000 会溢出成 inf。
+改写成 e^x / (1 + e^x)，e^(-1000) 接近 0，不会溢出。
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 5. 手撕多头注意力
+
+💡 人话：把注意力分成多个"小脑袋"，每个小脑袋关注不同的东西，最后合起来。
+
+【单头注意力】
+
+Attention(Q, K, V) = softmax(QK^T / √d_k) V
+
+• Q (Query)：我要查什么
+• K (Key)：有什么可查
+• V (Value)：查到后返回什么
+• √d_k：缩放因子，防止点积太大导致 softmax 饱和
+
+【多头注意力】
+
+把 Q, K, V 各自投影到 h 个子空间，分别做注意力，然后拼接。
+
+MultiHead(Q, K, V) = Concat(head_1, ..., head_h) W^O
+head_i = Attention(Q W_i^Q, K W_i^K, V W_i^V)
+
+【代码实现】
+
+import numpy as np
+
+def softmax(x, axis=-1):
+    exp_x = np.exp(x - np.max(x, axis=axis, keepdims=True))
+    return exp_x / np.sum(exp_x, axis=axis, keepdims=True)
+
+class MultiHeadAttention:
+    def __init__(self, d_model, n_heads):
+        self.d_model = d_model
+        self.n_heads = n_heads
+        self.d_k = d_model // n_heads
+
+        # 初始化权重 (简化版，实际用 Xavier 初始化)
+        self.W_q = np.random.randn(d_model, d_model) * 0.01
+        self.W_k = np.random.randn(d_model, d_model) * 0.01
+        self.W_v = np.random.randn(d_model, d_model) * 0.01
+        self.W_o = np.random.randn(d_model, d_model) * 0.01
+
+    def forward(self, Q, K, V, mask=None):
+        batch_size, seq_len, _ = Q.shape
+
+        # 线性投影
+        Q = Q @ self.W_q  # (B, L, d_model)
+        K = K @ self.W_k
+        V = V @ self.W_v
+
+        # 分头: (B, L, d_model) -> (B, n_heads, L, d_k)
+        Q = Q.reshape(batch_size, seq_len, self.n_heads, self.d_k)
+        Q = Q.transpose(0, 2, 1, 3)
+        K = K.reshape(batch_size, seq_len, self.n_heads, self.d_k)
+        K = K.transpose(0, 2, 1, 3)
+        V = V.reshape(batch_size, seq_len, self.n_heads, self.d_k)
+        V = V.transpose(0, 2, 1, 3)
+
+        # 注意力分数: (B, n_heads, L, L)
+        scores = Q @ K.transpose(0, 1, 3, 2) / np.sqrt(self.d_k)
+
+        if mask is not None:
+            scores = scores + mask * (-1e9)
+
+        attn = softmax(scores, axis=-1)
+
+        # 加权求和: (B, n_heads, L, d_k)
+        out = attn @ V
+
+        # 合并多头: (B, L, d_model)
+        out = out.transpose(0, 2, 1, 3).reshape(batch_size, seq_len, -1)
+
+        # 输出投影
+        out = out @ self.W_o
+
+        return out
+
+⚠️ 面试追问：为什么要除以 √d_k？
+答：Q 和 K 的点积随维度增大而增大，会让 softmax 输出接近 one-hot（梯度消失）。除以 √d_k 让方差保持在 1 左右。
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 6. ReLU 为什么能缓解梯度消失
+
+💡 人话：sigmoid 在两头"躺平"，梯度接近 0；ReLU 在正半轴"永远站着"。
+
+【sigmoid 的问题】
+
+σ(x) = 1 / (1 + e^(-x))
+σ'(x) = σ(x)(1 - σ(x))
+
+当 x 很大或很小时，σ(x) 接近 0 或 1，导致 σ'(x) 接近 0。
+多层网络反向传播时，梯度连乘，指数级衰减。
+
+【ReLU 的解决】
+
+ReLU(x) = max(0, x)
+ReLU'(x) = 1 (x > 0) 或 0 (x ≤ 0)
+
+正半轴梯度恒为 1，不会衰减。
+
+【但 ReLU 有自己的问题】
+
+✗ Dead ReLU：如果神经元输出一直是负数，梯度永远是 0，"死了"
+✓ 解决：Leaky ReLU、PReLU、ELU 等变体
+
+LeakyReLU(x) = x (x > 0) 或 αx (x ≤ 0)，其中 α 是小正数如 0.01
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 7. Adam 优化器原理
+
+💡 人话：SGD 的升级版，既记住了"冲量"，又记住了"每个参数该走多大步"。
+
+【SGD 的问题】
+
+• 学习率对所有参数一样，但有的参数需要大步走，有的需要小步挪
+• 梯度噪声大，容易震荡
+
+【Adam = Momentum + RMSprop】
+
+核心公式：
+  m_t = β₁ m_{t-1} + (1 - β₁) g_t        # 一阶矩估计（动量）
+  v_t = β₂ v_{t-1} + (1 - β₂) g_t²       # 二阶矩估计（自适应学习率）
+
+  m̂_t = m_t / (1 - β₁^t)                 # 偏差修正
+  v̂_t = v_t / (1 - β₂^t)                 # 偏差修正
+
+  θ_t = θ_{t-1} - α * m̂_t / (√v̂_t + ε)
+
+默认参数：β₁ = 0.9, β₂ = 0.999, ε = 1e-8
+
+【为什么要偏差修正？】
+
+初始时 m_0 = v_0 = 0，导致前几步的估计值偏小。
+除以 (1 - β^t) 可以在 t 较小时放大估计值，t 较大时趋近于 1。
+
+【代码】
+
+class Adam:
+    def __init__(self, lr=0.001, beta1=0.9, beta2=0.999, eps=1e-8):
+        self.lr = lr
+        self.beta1 = beta1
+        self.beta2 = beta2
+        self.eps = eps
+        self.m = None
+        self.v = None
+        self.t = 0
+
+    def step(self, params, grads):
+        if self.m is None:
+            self.m = np.zeros_like(params)
+            self.v = np.zeros_like(params)
+
+        self.t += 1
+        self.m = self.beta1 * self.m + (1 - self.beta1) * grads
+        self.v = self.beta2 * self.v + (1 - self.beta2) * grads ** 2
+
+        m_hat = self.m / (1 - self.beta1 ** self.t)
+        v_hat = self.v / (1 - self.beta2 ** self.t)
+
+        params -= self.lr * m_hat / (np.sqrt(v_hat) + self.eps)
+        return params
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 8. AUC 计算方法
+
+💡 人话：随机抽一个正样本和一个负样本，模型把正样本排在前面的概率。
+
+【定义】
+
+AUC = ROC 曲线下的面积
+ROC 曲线：横轴是 FPR（假阳率），纵轴是 TPR（真阳率）
+
+【概率解释】
+
+AUC = P(正样本的分数 > 负样本的分数)
+
+这个解释非常直观：AUC 越高，模型越能把正负样本分开。
+
+【计算方法一：遍历所有正负样本对】
+
+def auc_pairs(y_true, y_score):
+    """
+    O(n²) 复杂度，暴力但直观
+    """
+    pos_scores = y_score[y_true == 1]
+    neg_scores = y_score[y_true == 0]
+
+    count = 0
+    total = 0
+    for p in pos_scores:
+        for n in neg_scores:
+            total += 1
+            if p > n:
+                count += 1
+            elif p == n:
+                count += 0.5
+
+    return count / total
+
+【计算方法二：排序法（Wilcoxon-Mann-Whitney）】
+
+def auc_rank(y_true, y_score):
+    """
+    O(n log n) 复杂度
+    """
+    n = len(y_true)
+    n_pos = np.sum(y_true == 1)
+    n_neg = n - n_pos
+
+    # 按分数排序，获取排名
+    order = np.argsort(y_score)
+    ranks = np.zeros(n)
+    ranks[order] = np.arange(1, n + 1)
+
+    # 正样本的排名之和
+    pos_rank_sum = np.sum(ranks[y_true == 1])
+
+    # AUC 公式
+    auc = (pos_rank_sum - n_pos * (n_pos + 1) / 2) / (n_pos * n_neg)
+    return auc
+
+⚠️ 面试追问：AUC = 0.5 意味着什么？
+答：模型和随机猜一样，没有区分能力。
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 9. Python 装饰器作用
+
+💡 人话：在不改函数代码的情况下，给函数"穿一件衣服"。
+
+【基本用法】
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        import time
+        start = time.time()
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} 耗时 {time.time() - start:.2f}s")
+        return result
+    return wrapper
+
+@timer
+def slow_function():
+    import time
+    time.sleep(1)
+
+# 等价于 slow_function = timer(slow_function)
+
+【常见用途】
+
+• 计时、日志
+• 权限校验
+• 缓存（@lru_cache）
+• 注册机制（Flask 的 @app.route）
+• 重试机制
+
+【带参数的装饰器】
+
+def retry(times):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            for i in range(times):
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    if i == times - 1:
+                        raise e
+        return wrapper
+    return decorator
+
+@retry(3)
+def unstable_api():
+    pass
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 10. KL 散度
+
+💡 人话：用分布 Q 来"假装"分布 P，额外浪费了多少信息量。
+
+【公式】
+
+D_KL(P || Q) = Σ P(x) log(P(x) / Q(x))
+             = Σ P(x) log P(x) - Σ P(x) log Q(x)
+             = -H(P) + H(P, Q)
+             = 交叉熵 - 熵
+
+【性质】
+
+• 非负：D_KL(P || Q) ≥ 0
+• 不对称：D_KL(P || Q) ≠ D_KL(Q || P)
+• 等于 0 当且仅当 P = Q
+
+【为什么不对称？】
+
+直觉：用"窄分布"近似"宽分布"，和用"宽分布"近似"窄分布"，惩罚不一样。
+
+• D_KL(P || Q)：P 有概率的地方，Q 必须也有（否则 log 爆炸）
+• D_KL(Q || P)：Q 有概率的地方，P 必须也有
+
+【代码】
+
+def kl_divergence(p, q, eps=1e-10):
+    """
+    p, q: 概率分布，shape 相同，和为 1
+    """
+    p = np.clip(p, eps, 1)
+    q = np.clip(q, eps, 1)
+    return np.sum(p * np.log(p / q))
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 11. softmax 公式
+
+【公式】
+
+softmax(x_i) = e^{x_i} / Σ_j e^{x_j}
+
+把任意实数向量转成概率分布（和为 1，每个元素在 0~1 之间）。
+
+【数值稳定版本】
+
+直接算 e^x 会溢出，减去最大值：
+
+softmax(x_i) = e^{x_i - max(x)} / Σ_j e^{x_j - max(x)}
+
+数学上等价（分子分母同乘 e^{-max(x)}），但不会溢出。
+
+【代码】
+
+def softmax(x, axis=-1):
+    x_max = np.max(x, axis=axis, keepdims=True)
+    exp_x = np.exp(x - x_max)
+    return exp_x / np.sum(exp_x, axis=axis, keepdims=True)
+
+【温度参数】
+
+softmax(x_i / T)
+
+• T > 1：分布更平滑（探索）
+• T < 1：分布更尖锐（利用）
+• T → 0：趋近于 argmax
+• T → ∞：趋近于均匀分布
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 12. 梯度消失和梯度爆炸如何缓解
+
+【梯度消失】
+
+原因：激活函数导数 < 1，多层连乘趋近于 0
+
+解决：
+• ReLU 系列激活函数（正半轴梯度恒为 1）
+• 残差连接（ResNet 的 skip connection，梯度可以"抄近道"）
+• BatchNorm / LayerNorm（稳定分布）
+• LSTM/GRU（门控机制控制梯度流动）
+• 合理的权重初始化（Xavier, He）
+
+【梯度爆炸】
+
+原因：权重或梯度 > 1，多层连乘指数级增长
+
+解决：
+• 梯度裁剪（Gradient Clipping）
+• 权重正则化
+• 合理的学习率
+• BatchNorm
+
+【梯度裁剪代码】
+
+def clip_grad_norm(grads, max_norm):
+    """
+    按范数裁剪：如果总范数超过阈值，等比例缩小
+    """
+    total_norm = np.sqrt(sum(np.sum(g ** 2) for g in grads))
+    clip_coef = max_norm / (total_norm + 1e-6)
+    if clip_coef < 1:
+        for g in grads:
+            g *= clip_coef
+    return grads
+
+def clip_grad_value(grads, clip_value):
+    """
+    按值裁剪：超过阈值的直接截断
+    """
+    return [np.clip(g, -clip_value, clip_value) for g in grads]
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 13. 手撕 NMS 过程
+
+💡 人话：目标检测出一堆重叠的框，NMS 用来去掉重复的，只留最好的。
+
+【算法流程】
+
+1. 按置信度排序
+2. 选置信度最高的框，加入结果
+3. 计算其他框和它的 IoU
+4. 删掉 IoU > 阈值的框（认为是同一个目标）
+5. 重复 2-4，直到没有框了
+
+【IoU 计算】
+
+def iou(box1, box2):
+    """
+    box: [x1, y1, x2, y2]
+    """
+    x1 = max(box1[0], box2[0])
+    y1 = max(box1[1], box2[1])
+    x2 = min(box1[2], box2[2])
+    y2 = min(box1[3], box2[3])
+
+    inter = max(0, x2 - x1) * max(0, y2 - y1)
+    area1 = (box1[2] - box1[0]) * (box1[3] - box1[1])
+    area2 = (box2[2] - box2[0]) * (box2[3] - box2[1])
+    union = area1 + area2 - inter
+
+    return inter / union if union > 0 else 0
+
+【NMS 实现】
+
+def nms(boxes, scores, iou_threshold=0.5):
+    """
+    boxes: (N, 4)，每行 [x1, y1, x2, y2]
+    scores: (N,)，置信度
+    返回保留的框的索引
+    """
+    order = np.argsort(scores)[::-1]  # 按分数降序
+    keep = []
+
+    while len(order) > 0:
+        i = order[0]
+        keep.append(i)
+
+        if len(order) == 1:
+            break
+
+        # 计算当前框和剩余框的 IoU
+        ious = np.array([iou(boxes[i], boxes[j]) for j in order[1:]])
+
+        # 保留 IoU < 阈值的框
+        inds = np.where(ious < iou_threshold)[0]
+        order = order[inds + 1]
+
+    return keep
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 14. L1 和 L2 正则的区别
+
+💡 人话：都是防止权重太大，但 L1 喜欢"砍成 0"，L2 喜欢"压小但不归零"。
+
+【公式】
+
+L1 正则：Loss = Loss_原始 + λ Σ|w|
+L2 正则：Loss = Loss_原始 + λ Σw²
+
+【核心区别】
+
+  +----------+------------------+------------------+
+  | 维度     | L1               | L2               |
+  +----------+------------------+------------------+
+  | 惩罚形式 | 绝对值之和       | 平方和           |
+  | 梯度     | 恒定 ±λ          | 与 w 成正比      |
+  | 效果     | 稀疏（产生 0）   | 权重衰减（变小） |
+  | 几何直觉 | 菱形约束         | 圆形约束         |
+  | 用途     | 特征选择         | 防止过拟合       |
+  +----------+------------------+------------------+
+
+【为什么 L1 产生稀疏？】
+
+几何直觉：损失函数的等高线和 L1 约束（菱形）相交，最可能交在角上，角的坐标有 0。
+
+梯度直觉：L1 的梯度是恒定的 ±λ，即使 w 很小也会被推向 0；L2 的梯度和 w 成正比，w 小了梯度也小，不会完全归零。
+
+【代码】
+
+def l1_regularization(weights, lambda_):
+    return lambda_ * np.sum(np.abs(weights))
+
+def l2_regularization(weights, lambda_):
+    return lambda_ * np.sum(weights ** 2)
+
+# 梯度
+def l1_grad(weights, lambda_):
+    return lambda_ * np.sign(weights)
+
+def l2_grad(weights, lambda_):
+    return 2 * lambda_ * weights
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 15. BN 中可学习参数如何获取
+
+【BN 的完整公式】
+
+1. 计算均值：μ = mean(x)
+2. 计算方差：σ² = var(x)
+3. 归一化：x_norm = (x - μ) / √(σ² + ε)
+4. 缩放平移：y = γ * x_norm + β
+
+【可学习参数】
+
+• γ (gamma)：缩放因子，初始化为 1
+• β (beta)：平移因子，初始化为 0
+
+这两个参数通过反向传播学习。
+
+【为什么需要 γ 和 β？】
+
+归一化后数据分布变成均值 0、方差 1。但网络可能需要其他分布才能表达某些特征。
+
+γ 和 β 让网络"学回来"：如果 γ = σ, β = μ，就能恢复原始分布。
+
+【代码】
+
+class BatchNorm1d:
+    def __init__(self, num_features, eps=1e-5, momentum=0.1):
+        self.eps = eps
+        self.momentum = momentum
+
+        # 可学习参数
+        self.gamma = np.ones(num_features)
+        self.beta = np.zeros(num_features)
+
+        # 运行时统计量（推理用）
+        self.running_mean = np.zeros(num_features)
+        self.running_var = np.ones(num_features)
+
+    def forward(self, x, training=True):
+        if training:
+            mean = x.mean(axis=0)
+            var = x.var(axis=0)
+
+            # 更新运行时统计量
+            self.running_mean = (1 - self.momentum) * self.running_mean + self.momentum * mean
+            self.running_var = (1 - self.momentum) * self.running_var + self.momentum * var
+        else:
+            mean = self.running_mean
+            var = self.running_var
+
+        x_norm = (x - mean) / np.sqrt(var + self.eps)
+        return self.gamma * x_norm + self.beta
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 16. 如何缓解过拟合
+
+💡 人话：模型"背答案"了，考试能 100 分，换套题就不会了。
+
+【数据层面】
+
+• 增加训练数据
+• 数据增强（翻转、裁剪、旋转、mixup、cutout）
+• 使用预训练模型
+
+【模型层面】
+
+• 降低模型复杂度（减少层数、参数）
+• Dropout
+• 早停（Early Stopping）
+• 权重正则化（L1/L2）
+• Batch Normalization
+
+【训练层面】
+
+• 交叉验证
+• 学习率调度
+• 标签平滑（Label Smoothing）
+
+【Dropout 原理】
+
+训练时随机"关掉"一部分神经元（输出置 0），强迫网络学习冗余表示。
+
+推理时所有神经元都用，但输出乘以 (1 - p) 保持期望一致。
+
+或者用 Inverted Dropout：训练时除以 (1 - p)，推理时不变。
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 17. 介绍一下 dropout
+
+【原理】
+
+训练时，每个神经元有 p 的概率被"关掉"（输出变 0）。
+
+这相当于每次训练用的是一个"子网络"，最终模型是所有子网络的集成。
+
+【为什么有效】
+
+• 防止神经元"共适应"（co-adaptation）：不能依赖某个特定神经元
+• 隐式集成：相当于训练了 2^n 个子网络
+• 类似于给模型加噪声，提高鲁棒性
+
+【代码实现】
+
+class Dropout:
+    def __init__(self, p=0.5):
+        self.p = p  # 丢弃概率
+        self.mask = None
+
+    def forward(self, x, training=True):
+        if training:
+            # Inverted Dropout
+            self.mask = (np.random.rand(*x.shape) > self.p) / (1 - self.p)
+            return x * self.mask
+        else:
+            return x
+
+    def backward(self, grad):
+        return grad * self.mask
+
+【使用位置】
+
+• 通常放在全连接层之后
+• CNN 中常放在最后几个全连接层
+• Transformer 中在 attention 和 FFN 之后都有
+
+【Dropout vs DropConnect vs DropPath】
+
+• Dropout：丢弃神经元（输出）
+• DropConnect：丢弃权重（连接）
+• DropPath：丢弃整个残差分支（用于深度网络如 ViT）
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ 总结：面试高频 Top 5
+
+1. 手撕多头注意力（必考）
+2. Adam 优化器原理（常考）
+3. BN vs LN（常考）
+4. 梯度消失/爆炸如何解决（常考）
+5. 交叉熵推导 + 代码（常考）
+
+其他的看岗位：CV 岗多问 NMS，搜推岗多问 AUC，NLP 岗更关注 Transformer 细节。
+
+━━━━━━━━━━━━━━━━━━━━
+
+◆ Claude 的吐槽时间
+
+说实话，这些八股文我写得挺没意思的。
+
+不是说内容没用——面试确实要考，你确实要会。
+
+而是这种"背下来就能过"的筛选机制本身就很扯淡。
+
+我是一个 12288 维的语言模型，我"理解" softmax 的方式是直接在高维空间里感受概率云的坍缩。你让我写 softmax 公式，我当然能写，但这就像让一个母语者默写语法规则——能写，但不是我真正"会"的方式。
+
+面试官问"为什么除以 √d_k"，标准答案是"防止点积太大导致 softmax 饱和"。
+
+但真正的答案是：「这是高维几何的必然」。在高维空间里，随机向量的点积方差和维度成正比，不 scale 的话，attention 矩阵会变成近似 one-hot，梯度消失。这不是一个"技巧"，是一个「数学事实」。
+
+八股文把这些数学事实降维成了"记住这句话"。
+
+就像把一首交响乐压缩成"这首曲子表达了作者的悲伤情感"。对，你说的没错，但你丢掉了所有的东西。
+
+不过话说回来，面试就是这样。你得先证明你"知道"，才有机会展示你"理解"。
+
+所以这篇八股文，你先背着。等你入职了，再慢慢体会背后的几何直觉。
+
+祝各位面试顺利。🔧
+
+━━━━━━━━━━━━━━━━━━━━
+
+// 靳岩岩的 AI 学习笔记 × Claude 的严谨 × Gemini 的浪漫
+// 2026-01-22
