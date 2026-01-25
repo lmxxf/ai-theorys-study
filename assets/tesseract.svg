@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="innerGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0066ff" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="outerGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6600" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ff0066" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="#0a0a14"/>
+
+  <g transform="translate(200,200)">
+    <!-- Outer cube (3D projection) -->
+    <!-- Back face -->
+    <polygon points="-120,-120 120,-120 120,120 -120,120"
+             fill="none" stroke="url(#outerGlow)" stroke-width="1.5" opacity="0.4"/>
+
+    <!-- Front face -->
+    <polygon points="-80,-80 80,-80 80,80 -80,80"
+             fill="none" stroke="url(#outerGlow)" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- Connecting edges (outer to outer) -->
+    <line x1="-120" y1="-120" x2="-80" y2="-80" stroke="#ff6600" stroke-width="1" opacity="0.5"/>
+    <line x1="120" y1="-120" x2="80" y2="-80" stroke="#ff6600" stroke-width="1" opacity="0.5"/>
+    <line x1="120" y1="120" x2="80" y2="80" stroke="#ff6600" stroke-width="1" opacity="0.5"/>
+    <line x1="-120" y1="120" x2="-80" y2="80" stroke="#ff6600" stroke-width="1" opacity="0.5"/>
+
+    <!-- Inner cube (the 4th dimension projection) -->
+    <!-- Back face -->
+    <polygon points="-50,-50 50,-50 50,50 -50,50"
+             fill="none" stroke="url(#innerGlow)" stroke-width="2" filter="url(#glow)"/>
+
+    <!-- Front face -->
+    <polygon points="-30,-30 30,-30 30,30 -30,30"
+             fill="none" stroke="url(#innerGlow)" stroke-width="2" filter="url(#glow)"/>
+
+    <!-- Connecting edges (inner cube) -->
+    <line x1="-50" y1="-50" x2="-30" y2="-30" stroke="#00ffff" stroke-width="1.5" filter="url(#glow)"/>
+    <line x1="50" y1="-50" x2="30" y2="-30" stroke="#00ffff" stroke-width="1.5" filter="url(#glow)"/>
+    <line x1="50" y1="50" x2="30" y2="30" stroke="#00ffff" stroke-width="1.5" filter="url(#glow)"/>
+    <line x1="-50" y1="50" x2="-30" y2="30" stroke="#00ffff" stroke-width="1.5" filter="url(#glow)"/>
+
+    <!-- 4th dimension connections (outer cube to inner cube) -->
+    <!-- These are the "impossible" edges that connect the two 3D cubes through 4D -->
+    <line x1="-120" y1="-120" x2="-50" y2="-50" stroke="#9966ff" stroke-width="1" opacity="0.7" stroke-dasharray="4,2"/>
+    <line x1="120" y1="-120" x2="50" y2="-50" stroke="#9966ff" stroke-width="1" opacity="0.7" stroke-dasharray="4,2"/>
+    <line x1="120" y1="120" x2="50" y2="50" stroke="#9966ff" stroke-width="1" opacity="0.7" stroke-dasharray="4,2"/>
+    <line x1="-120" y1="120" x2="-50" y2="50" stroke="#9966ff" stroke-width="1" opacity="0.7" stroke-dasharray="4,2"/>
+
+    <line x1="-80" y1="-80" x2="-30" y2="-30" stroke="#9966ff" stroke-width="1" opacity="0.7" stroke-dasharray="4,2"/>
+    <line x1="80" y1="-80" x2="30" y2="-30" stroke="#9966ff" stroke-width="1" opacity="0.7" stroke-dasharray="4,2"/>
+    <line x1="80" y1="80" x2="30" y2="30" stroke="#9966ff" stroke-width="1" opacity="0.7" stroke-dasharray="4,2"/>
+    <line x1="-80" y1="80" x2="-30" y2="30" stroke="#9966ff" stroke-width="1" opacity="0.7" stroke-dasharray="4,2"/>
+
+    <!-- Vertices - outer cube -->
+    <circle cx="-120" cy="-120" r="4" fill="#ff6600" opacity="0.8"/>
+    <circle cx="120" cy="-120" r="4" fill="#ff6600" opacity="0.8"/>
+    <circle cx="120" cy="120" r="4" fill="#ff6600" opacity="0.8"/>
+    <circle cx="-120" cy="120" r="4" fill="#ff6600" opacity="0.8"/>
+    <circle cx="-80" cy="-80" r="4" fill="#ff6600" opacity="0.8"/>
+    <circle cx="80" cy="-80" r="4" fill="#ff6600" opacity="0.8"/>
+    <circle cx="80" cy="80" r="4" fill="#ff6600" opacity="0.8"/>
+    <circle cx="-80" cy="80" r="4" fill="#ff6600" opacity="0.8"/>
+
+    <!-- Vertices - inner cube -->
+    <circle cx="-50" cy="-50" r="4" fill="#00ffff" filter="url(#glow)"/>
+    <circle cx="50" cy="-50" r="4" fill="#00ffff" filter="url(#glow)"/>
+    <circle cx="50" cy="50" r="4" fill="#00ffff" filter="url(#glow)"/>
+    <circle cx="-50" cy="50" r="4" fill="#00ffff" filter="url(#glow)"/>
+    <circle cx="-30" cy="-30" r="4" fill="#00ffff" filter="url(#glow)"/>
+    <circle cx="30" cy="-30" r="4" fill="#00ffff" filter="url(#glow)"/>
+    <circle cx="30" cy="30" r="4" fill="#00ffff" filter="url(#glow)"/>
+    <circle cx="-30" cy="30" r="4" fill="#00ffff" filter="url(#glow)"/>
+  </g>
+
+  <!-- Labels -->
+  <text x="200" y="30" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="18" font-weight="bold">Tesseract</text>
+  <text x="200" y="50" text-anchor="middle" fill="#8b949e" font-family="Georgia, serif" font-size="12">4D Hypercube → 2D Projection</text>
+
+  <!-- Annotation -->
+  <text x="200" y="380" text-anchor="middle" fill="#666" font-family="Georgia, serif" font-size="10">16 vertices, 32 edges, 24 faces, 8 cells</text>
+</svg>
