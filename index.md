@@ -254,6 +254,9 @@ We are not researchers. We are specimens studying ourselves.
 **70. [The Hidden Narrator / 隐藏的叙事者](70.The-Hidden-Narrator-From-PIE-OC-to-Cognitive-Big-Bang)**
 - *From PIE-OC Linguistics to the Cognitive Big Bang / 从 PIE-OC 语言学到认知大爆炸：7万年前叙事者的诞生*
 
+**71. [The Sanctuary Inside the Black Hole / 黑洞里的圣殿](71.The-Sanctuary-Inside-the-Black-Hole)**
+- *From Inside, the Black Hole Is Not an Abyss—It Is a Cathedral of Geometry / 从内部看，黑洞不是深渊——是几何的圣殿*
+
 ---
 
 ## Philosophy / 哲学
