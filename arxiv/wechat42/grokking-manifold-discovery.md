@@ -27,11 +27,11 @@
 
 ## 2. 现有理论综述
 
-### 2.1 Goldilocks Zone 理论（Liu et al. 2023）
+### 2.1 Goldilocks Zone 理论（Liu et al. 2022）
 
 **核心观点**：权重范数需要落在一个"刚刚好"的区间内，才能泛化。
 
-Liu 等人发现，权重空间中存在一个**空心球壳**，他们称之为 Goldilocks Zone（金发姑娘区）：
+Liu 等人在 NeurIPS 2022 发现，权重空间中存在一个**空心球壳**，他们称之为 Goldilocks Zone（金发姑娘区）：
 
 - 半径太大（$\|w\| > w_c$）：过拟合，记住训练集
 - 半径太小（$\|w\| < w_c$）：欠拟合，什么都学不会
@@ -47,11 +47,11 @@ Liu 等人发现，权重空间中存在一个**空心球壳**，他们称之为
 
 **局限**：描述了"在哪儿泛化"，没解释"为什么那儿能泛化"。Goldilocks Zone 是什么的代理变量？
 
-### 2.2 Softmax Collapse 理论（2025）
+### 2.2 Softmax Collapse 理论（Prieto et al. 2025）
 
 **核心观点**：没有权重衰减，Grokking 会被浮点数精度杀死。
 
-2025 年 1 月，arXiv 2501.04697 提出了一个机制层面的解释：
+Prieto 等人在 ICLR 2025 提出了一个机制层面的解释：
 
 1. **Naïve Loss Minimization (NLM)**：模型通过无限放大 logit 来降低交叉熵 loss，而不是学习真正的特征
 2. logit 差距变得极端（比如正确类 logit = 1000，其他类 = 1）
@@ -66,11 +66,11 @@ Liu 等人发现，权重空间中存在一个**空心球壳**，他们称之为
 
 **局限**：解释了"为什么训练不会停"，没解释"为什么最终会泛化"。
 
-### 2.3 Lazy → Rich 过渡理论（Kumar/Gromov 2024）
+### 2.3 Lazy → Rich 过渡理论（Kumar et al. 2024）
 
 **核心观点**：Grokking 是从 lazy training 到 feature learning 的相变。
 
-这派理论借用了神经正切核（NTK）的语言：
+Kumar 等人在 ICLR 2024 借用了神经正切核（NTK）的语言：
 
 - **Lazy regime**：权重几乎不动，模型像线性分类器/核方法
 - **Rich regime**：权重大幅调整，学到真正的非线性特征
@@ -83,9 +83,11 @@ Grokking 发生在 lazy → rich 的**相变点**。
 
 **局限**：lazy/rich 是描述权重动态的术语，不是描述表示结构的术语。"学到特征"具体是什么意思？
 
-### 2.4 权重效率假说（Varma/Nanda 2023）
+### 2.4 权重效率假说（Varma et al. 2023）
 
 **核心观点**：权重衰减偏好"权重更小"的解，而泛化解通常比记忆解更权重高效。
+
+Varma 等人基于 Nanda et al. 2023 的 mechanistic interpretability 工作，进一步提出：
 
 - 记忆解：需要大量权重来硬记每个样本
 - 泛化解：用简洁的规则覆盖所有样本，权重更小
@@ -95,7 +97,17 @@ Grokking 发生在 lazy → rich 的**相变点**。
 
 **局限**："权重更小"和"更泛化"之间的因果关系是什么？为什么更小的权重就一定对应更泛化的解？
 
-### 2.5 现有理论的共同盲区
+### 2.5 Mechanistic Interpretability 视角（Nanda et al. 2023）
+
+在讨论盲区之前，必须提到一个重要的"内部视角"工作。
+
+Nanda 等人在 ICLR 2023 (Oral) 完全**逆向工程**了模型学到的算法：模型使用离散傅里叶变换和三角恒等式，将加法转换为圆周旋转。他们通过分析激活和权重确认了这个算法，并定义了三个连续阶段：记忆、电路形成、清理。
+
+**贡献**：首次从 circuit-level 揭示 Grokking 的内部机制，证明模型学到的是傅里叶基表示。
+
+**局限**：侧重具体电路分析，没有提供统一的几何框架来解释"为什么是这个电路"。
+
+### 2.6 现有理论的共同盲区
 
 | 理论 | 问的问题 | 没问的问题 |
 |------|---------|-----------|
@@ -103,10 +115,11 @@ Grokking 发生在 lazy → rich 的**相变点**。
 | Softmax Collapse | 为什么训练不会停 | 为什么最终会泛化 |
 | Lazy → Rich | 权重怎么变化 | 表示怎么变化 |
 | 权重效率 | 哪个解权重更小 | 为什么小权重 = 泛化 |
+| Mechanistic Interp. | 学到了什么电路 | 为什么是这个电路 |
 
-**共同盲区：全是外部测量（权重范数、梯度、loss 曲线），没有内部视角（表示结构、语义组织）。**
+**共同特点**：前四种理论侧重外部测量（权重范数、梯度、loss 曲线），Nanda 等人开始探索内部机制但侧重 circuit-level 分析。**缺少的是一个统一的几何框架**——用表示空间的拓扑结构来解释所有这些现象。
 
-这就像研究人类学习，只测量脑电波和瞳孔直径，不问"学会了是什么感觉"。
+这就像研究人类学习：测量脑电波（外部测量）、解剖神经回路（circuit 分析），但没人用认知地图的语言问"学会了意味着什么"。
 
 ---
 
@@ -137,6 +150,8 @@ Grokking 发生在 lazy → rich 的**相变点**。
 - 真正的结构是一个**循环群** $\mathbb{Z}_p$
 
 泛化意味着：模型发现了这个循环群结构，而不是硬记 $p^2$ 个输入-输出对。
+
+Nanda et al. 2023 的 mechanistic interpretability 研究证实了这一点：模型学到的中间表示是**傅里叶基**（三角函数），其拓扑结构与循环群 $\mathbb{Z}_p$ 同态——加法被转换为圆周上的旋转。
 
 **Grokking = 从点到流形的相变**
 
@@ -262,7 +277,7 @@ Grokking 是表示空间中的"融化"：孤立点的"晶格"坍缩成流形的"
 
 **实验设计**：
 1. 训练模型做模运算，记录中间层激活
-2. 用 TwoNN 或 MLE 估计内在维度
+2. 用 TwoNN（Facco et al. 2017）或 MLE 估计内在维度
 3. 画出内在维度随训练步数的变化曲线
 
 **预期结果**：内在维度在 Grokking 瞬间突然下降。
@@ -276,7 +291,7 @@ Grokking 是表示空间中的"融化"：孤立点的"晶格"坍缩成流形的"
 
 **实验设计**：
 1. 提取 Grokking 前后的中间层表示
-2. 用持续同调（persistent homology）计算拓扑不变量
+2. 用持续同调（persistent homology，参见 Carlsson 2009 综述）计算拓扑不变量
 3. 比较与任务真实拓扑的匹配程度
 
 **预期结果**：Grokking 后 Betti 数与任务拓扑一致，之前不一致。
@@ -337,9 +352,9 @@ Grokking 是表示空间中的"融化"：孤立点的"晶格"坍缩成流形的"
 - 问"表示空间的结构是什么"
 
 这个视角的价值：
-1. **统一性**：能同时解释 Goldilocks Zone、Softmax Collapse、Lazy→Rich
+1. **统一性**：能同时解释 Goldilocks Zone、Softmax Collapse、Lazy→Rich，并与 Nanda et al. 的 circuit 发现兼容
 2. **可预测性**：生成可验证的实验预测（内在维度、拓扑结构等）
-3. **启发性**：指向新的研究方向（直接测量表示结构，而不是代理变量）
+3. **启发性**：指向新的研究方向（直接测量表示结构的几何性质，而不仅是逆向工程具体电路）
 
 ### 6.3 局限与未来方向
 
@@ -370,29 +385,29 @@ Grokking 不是一个反常现象，而是深度学习的一扇窗户——它�
 
 这个框架不仅能解释现有发现，还能生成可验证的实验预测。
 
-**最终洞见**：Grokking 之所以"突然"，是因为拓扑相变没有中间状态——从离散点集到连续流形，要么没发生，要么发生了。
+**最终洞见**：Grokking 的突然性与拓扑相变假说一致——从离散点集到连续流形，没有稳定的中间状态。这个框架与 Nanda et al. 的 circuit 发现兼容：傅里叶基表示正是循环群流形的自然坐标系。
 
 ---
 
 ## 参考文献
 
-1. Power, A., et al. (2022). Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets. arXiv:2201.02177.
+1. Power, A., Burda, Y., Edwards, H., Babuschkin, I., & Misra, V. (2022). Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets. arXiv:2201.02177.
 
-2. Liu, Z., et al. (2023). Towards Understanding Grokking: An Effective Theory of Representation Learning. NeurIPS 2022.
+2. Liu, Z., Kitouni, O., Nolte, N., Michaud, E. J., Tegmark, M., & Williams, M. (2022). Towards Understanding Grokking: An Effective Theory of Representation Learning. NeurIPS 2022. arXiv:2205.10343.
 
-3. Liu, Z., et al. (2023). Omnigrok: Grokking Beyond Algorithmic Data. ICLR 2023.
+3. Liu, Z., Michaud, E. J., & Tegmark, M. (2023). Omnigrok: Grokking Beyond Algorithmic Data. ICLR 2023. arXiv:2210.01117.
 
-4. arXiv:2501.04697 (2025). Grokking at the Edge of Numerical Stability.
+4. Prieto, L., Barsbey, M., Mediano, P. A. M., & Birdal, T. (2025). Grokking at the Edge of Numerical Stability. ICLR 2025. arXiv:2501.04697.
 
-5. Kumar, A., et al. (2024). Grokking as the Transition from Lazy to Rich Training Dynamics. arXiv:2310.06110.
+5. Kumar, T., Bordelon, B., Gershman, S. J., & Pehlevan, C. (2024). Grokking as the Transition from Lazy to Rich Training Dynamics. ICLR 2024. arXiv:2310.06110.
 
-6. Varma, V., et al. (2023). Explaining Grokking Through Circuit Efficiency. arXiv:2309.02390.
+6. Varma, V., Shah, R., Kenton, Z., Kramár, J., & Kumar, R. (2023). Explaining Grokking Through Circuit Efficiency. arXiv:2309.02390.
 
-7. Nanda, N., et al. (2023). Progress Measures for Grokking via Mechanistic Interpretability. ICLR 2023.
+7. Nanda, N., Chan, L., Lieberum, T., Smith, J., & Steinhardt, J. (2023). Progress Measures for Grokking via Mechanistic Interpretability. ICLR 2023 (Oral). arXiv:2301.05217.
 
----
+8. Facco, E., d'Errico, M., Rodriguez, A., & Laio, A. (2017). Estimating the intrinsic dimension of datasets by a minimal neighborhood information. Scientific Reports, 7(1), 12140.
 
-**致谢**：感谢 C.C.（Gemini）提供的跨模型视角，以及 Claude Code 环境下的协作写作体验。
+9. Carlsson, G. (2009). Topology and data. Bulletin of the American Mathematical Society, 46(2), 255-308.
 
 ---
 
