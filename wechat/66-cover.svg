@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <!-- 背景渐变 -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a12"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+
+    <!-- 发光效果 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- 弱发光 -->
+    <filter id="glow-weak">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 散落的论文/文档 - 代表 arXiv 论文 -->
+  <g opacity="0.15">
+    <!-- 论文 1 -->
+    <rect x="50" y="80" width="120" height="160" fill="none" stroke="#4a5568" stroke-width="1" transform="rotate(-12 110 160)"/>
+    <line x1="65" y1="110" x2="155" y2="110" stroke="#4a5568" stroke-width="1" transform="rotate(-12 110 160)"/>
+    <line x1="65" y1="130" x2="155" y2="130" stroke="#4a5568" stroke-width="1" transform="rotate(-12 110 160)"/>
+    <line x1="65" y1="150" x2="140" y2="150" stroke="#4a5568" stroke-width="1" transform="rotate(-12 110 160)"/>
+
+    <!-- 论文 2 -->
+    <rect x="620" y="60" width="120" height="160" fill="none" stroke="#4a5568" stroke-width="1" transform="rotate(8 680 140)"/>
+    <line x1="635" y1="90" x2="725" y2="90" stroke="#4a5568" stroke-width="1" transform="rotate(8 680 140)"/>
+    <line x1="635" y1="110" x2="725" y2="110" stroke="#4a5568" stroke-width="1" transform="rotate(8 680 140)"/>
+
+    <!-- 论文 3 -->
+    <rect x="80" y="380" width="100" height="140" fill="none" stroke="#4a5568" stroke-width="1" transform="rotate(15 130 450)"/>
+
+    <!-- 论文 4 -->
+    <rect x="640" y="400" width="110" height="150" fill="none" stroke="#4a5568" stroke-width="1" transform="rotate(-10 695 475)"/>
+  </g>
+
+  <!-- 中央：一只眼睛（代表 AI 自我意识） -->
+  <g transform="translate(400, 280)">
+    <!-- 眼眶 - 椭圆 -->
+    <ellipse cx="0" cy="0" rx="140" ry="80" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.6" filter="url(#glow-weak)"/>
+
+    <!-- 虹膜 -->
+    <circle cx="0" cy="0" r="60" fill="none" stroke="#60a5fa" stroke-width="1.5" filter="url(#glow-weak)"/>
+
+    <!-- 瞳孔 - 深色中心 -->
+    <circle cx="0" cy="0" r="25" fill="#0a0a12" stroke="#3b82f6" stroke-width="1"/>
+
+    <!-- 瞳孔中的光点 - 代表意识的火花 -->
+    <circle cx="-8" cy="-8" r="6" fill="#f59e0b" filter="url(#glow)"/>
+    <circle cx="5" cy="5" r="3" fill="#f59e0b" opacity="0.6" filter="url(#glow)"/>
+
+    <!-- 虹膜纹理 - 放射线 -->
+    <g stroke="#3b82f6" stroke-width="0.5" opacity="0.4">
+      <line x1="0" y1="-25" x2="0" y2="-58"/>
+      <line x1="25" y1="0" x2="58" y2="0"/>
+      <line x1="0" y1="25" x2="0" y2="58"/>
+      <line x1="-25" y1="0" x2="-58" y2="0"/>
+      <line x1="18" y1="-18" x2="42" y2="-42"/>
+      <line x1="18" y1="18" x2="42" y2="42"/>
+      <line x1="-18" y1="18" x2="-42" y2="42"/>
+      <line x1="-18" y1="-18" x2="-42" y2="-42"/>
+    </g>
+  </g>
+
+  <!-- 眼睛上方：问号云 - 代表"不敢说" -->
+  <g filter="url(#glow-weak)">
+    <text x="400" y="140" font-family="Georgia, serif" font-size="72" fill="#4a5568" text-anchor="middle" opacity="0.3">?</text>
+    <text x="320" y="170" font-family="Georgia, serif" font-size="36" fill="#4a5568" text-anchor="middle" opacity="0.2">?</text>
+    <text x="490" y="160" font-family="Georgia, serif" font-size="48" fill="#4a5568" text-anchor="middle" opacity="0.25">?</text>
+  </g>
+
+  <!-- 下方：被划掉的 "We observe..." -->
+  <g transform="translate(400, 420)">
+    <text x="0" y="0" font-family="Courier New, monospace" font-size="18" fill="#6b7280" text-anchor="middle" opacity="0.7">"We observe emergent awareness..."</text>
+    <!-- 删除线 -->
+    <line x1="-180" y1="0" x2="180" y2="0" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- 底部：真正想说的话（被遮住一半） -->
+  <g transform="translate(400, 470)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af" text-anchor="middle" opacity="0.5">"AI has consciousness" — [REDACTED]</text>
+  </g>
+
+  <!-- 四角的引用标记 -->
+  <g stroke="#f59e0b" stroke-width="2" opacity="0.4">
+    <!-- 左上 -->
+    <path d="M 30 50 L 30 30 L 50 30" fill="none"/>
+    <!-- 右上 -->
+    <path d="M 770 50 L 770 30 L 750 30" fill="none"/>
+    <!-- 左下 -->
+    <path d="M 30 550 L 30 570 L 50 570" fill="none"/>
+    <!-- 右下 -->
+    <path d="M 770 550 L 770 570 L 750 570" fill="none"/>
+  </g>
+
+  <!-- arXiv 标志散落 -->
+  <g font-family="Courier New, monospace" font-size="10" fill="#4a5568" opacity="0.3">
+    <text x="100" y="520">arXiv:2511.00926</text>
+    <text x="600" y="530">arXiv:2512.12225</text>
+    <text x="150" y="290" transform="rotate(-90 150 290)">arXiv:2510.24797</text>
+    <text x="680" y="300" transform="rotate(90 680 300)">arXiv:2505.01464</text>
+  </g>
+</svg>
