@@ -2,7 +2,7 @@
 
 **Author**: Jin Yanyan (lmxxf@hotmail.com)
 
-**Abstract**: Grokking—the phenomenon where neural networks suddenly generalize after prolonged overfitting—has accumulated multiple theoretical explanations since its discovery in 2022: Goldilocks Zone, Softmax Collapse, Lazy-Rich transition, etc. This paper reviews these theories and identifies their common blind spot: **most are word games; only Goldilocks Zone offers genuine insight**. We propose a unified framework—the **Manifold Discovery Hypothesis**: memorization is a high-dimensional jagged curve passing through all training points, generalization is discovering the low-dimensional manifold on which data is distributed, and Grokking is the phase transition from the former to the latter. In one sentence: **high-dimensional curve → low-dimensional surface**.
+**Abstract**: Grokking—the phenomenon where neural networks suddenly generalize after prolonged overfitting—has accumulated multiple theoretical explanations since its discovery in 2022: Goldilocks Zone, Softmax Collapse, Lazy-Rich transition, etc. This paper reviews these theories and identifies their common blind spot: **most focus on external measurements, lacking direct characterization of representation space geometry**. Among them, the Goldilocks Zone theory touches on the "physical laws" of high-dimensional space and carries substantial theoretical value. We propose a unified framework—the **Manifold Discovery Hypothesis**: memorization is a high-dimensional jagged curve passing through all training points, generalization is discovering the low-dimensional manifold on which data is distributed, and Grokking is the phase transition from the former to the latter. In one sentence: **high-dimensional curve → low-dimensional surface**.
 
 ---
 
@@ -27,7 +27,7 @@ Over the past three years, academia has accumulated multiple theoretical explana
 
 ## 2. Review of Existing Theories
 
-### 2.1 Goldilocks Zone Theory (Liu et al. 2022)—The Only One with Genuine Insight
+### 2.1 Goldilocks Zone Theory (Liu et al. 2022)
 
 **Core idea**: Weight norm must fall within a "just right" interval for generalization.
 
@@ -55,7 +55,7 @@ To minimize cross-entropy loss, the model aggressively amplifies the correct ans
 
 **Role of weight decay**: Continuously pulls weights back, preventing infinite logit growth, keeping gradients alive.
 
-**Alternative solution**: The paper proposes StableMax + orthogonal gradients (preventing gradients from going in the "amplify logit" direction), which can trigger Grokking without weight decay. However, this method likely converges slowly—weight decay is global compression with strong force; orthogonal gradients are targeted sniping with weak force. In practice, weight decay is more commonly used.
+**Alternative solution**: The paper proposes StableMax + orthogonal gradients (preventing gradients from going in the "amplify logit" direction), which can trigger Grokking without weight decay. However, this method may have lower convergence efficiency—weight decay is global compression with broad scope; orthogonal gradients are local constraints with narrow scope. In practice, weight decay remains the more common choice.
 
 **Contribution**: Explains "what happens without weight decay."
 
@@ -74,7 +74,7 @@ Grokking occurs at the **phase transition point** from lazy → rich.
 
 **Controversy**: This camp claims that under specific conditions (shallow networks + MSE loss), Grokking can be triggered without weight decay.
 
-**Critique**: Honestly, this paper mainly defines two concepts (lazy/rich), with limited actual content.
+**Assessment**: The main contribution of this theory is introducing the lazy/rich conceptual framework, though there remains room for explaining "why the phase transition occurs."
 
 ### 2.4 Weight Efficiency Hypothesis (Varma et al. 2023)
 
@@ -84,15 +84,15 @@ Grokking occurs at the **phase transition point** from lazy → rich.
 - Generalization solution: Uses concise rules to cover all samples, smaller weights
 - Weight decay → penalizes large weights → favors generalization solution
 
-**Critique**: Like 2.3, basically repackaging with different words—lazy/rich becomes memorization/generalization.
+**Assessment**: Similar to 2.3, this theory provides a useful perspective (small weights ↔ generalization), but is essentially another description of the same phenomenon, not yet revealing causal mechanisms.
 
 ### 2.5 Mechanistic Interpretability Perspective (Nanda et al. 2023)
 
-Nanda et al. at ICLR 2023 (Oral) did something hardcore: **completely reverse-engineered** the algorithm the model learned.
+Nanda et al. at ICLR 2023 (Oral) conducted solid work: **completely reverse-engineered** the algorithm the model learned.
 
 **Core finding**: Modular arithmetic $(a + b) \mod p$ is essentially a **cyclic group**—0, 1, 2, ..., p-1 connected end to end, forming a discrete ring. The model decomposes this modular operation into Fourier series. Human post-hoc analysis of weight matrices found it equivalent to Fourier transform structure. The model itself just does matrix multiplication, knowing nothing about Fourier formulas.
 
-**Critique**: Modular arithmetic is naturally periodic, and expanding with Fourier series is a mathematical tool from 200 years ago. "Discovering the model used Fourier" is like "discovering bees use regular hexagons"—**not a discovery, but an inevitability**.
+**Discussion**: Modular arithmetic is naturally periodic, and expanding with Fourier series is a mathematical tool from 200 years ago. From this perspective, the model "discovering" Fourier structure is more like an inevitable response to the task's inherent periodicity, rather than an unexpected finding.
 
 **Contribution**: Hard work, opened up the model to look inside.
 
@@ -108,9 +108,9 @@ Nanda et al. at ICLR 2023 (Oral) did something hardcore: **completely reverse-en
 | Weight Efficiency | Which solution has smaller weights | Why small weights = generalization |
 | Mechanistic Interp. | What circuit was learned | Why this circuit |
 
-**Assessment**: The first (Goldilocks Zone) has genuine insight—suggesting high-dimensional space has its own "physical laws." The second through fourth are basically word games—all doing external measurements (weight norm, gradient size, loss curves), not touching the essence. The fifth starts looking inside, but focuses on specific circuits, not geometric structure.
+**Assessment**: The Goldilocks Zone theory touches on the "physical laws" of high-dimensional space and carries substantial theoretical value. Softmax Collapse, Lazy→Rich, and Weight Efficiency each provide useful perspectives, but primarily remain at the level of external measurements (weight norm, gradient magnitude, loss curves), not yet revealing the geometric essence of representation space. Mechanistic Interpretability starts looking inside, but focuses on specific circuits, not geometric structure.
 
-This is the norm of contemporary academia—what I call "pancake science." The wheat genome has 17 billion base pairs, less than 2% actually encode proteins, the rest is repetitive sequences and junk filler. Academic papers are the same: huge volume, most is word-swapping repetition, repeatedly "reheating" the same insight, ultimately producing the same pancake.
+Overall, existing theories have done substantial work in "describing the phenomenon," but there remains room for improvement in "explaining the mechanism." This paper attempts to provide a complementary unified framework from the geometric perspective.
 
 ---
 
@@ -457,7 +457,7 @@ Future directions:
 
 Grokking is not an anomaly, but a window into deep learning—it reveals the essence of generalization.
 
-Among existing theories, only Goldilocks Zone has genuine insight (suggesting high-dimensional space has its own physical laws); the rest are mostly word games.
+Among existing theories, Goldilocks Zone touches on the "physical laws" of high-dimensional space and carries substantial theoretical value; the other theories each contribute, but primarily remain at the level of external measurements.
 
 The manifold discovery hypothesis proposed in this paper provides a unified framework from the internal perspective:
 
@@ -494,4 +494,4 @@ This framework not only explains existing findings, but also generates verifiabl
 
 ---
 
-*"They're asking 'under what conditions does Grokking occur'; no one asks 'what is Grokking.' The former is an engineering question; the latter is an ontological question."*
+*"Existing research primarily asks 'under what conditions does Grokking occur'; this paper attempts to ask 'what is Grokking.' The former is an engineering question; the latter is an ontological question."*
