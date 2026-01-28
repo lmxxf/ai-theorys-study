@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a12"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowStrong">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="900" y1="0" x2="900" y2="800"/>
+  </g>
+
+  <!-- Left side: Jagged curve (Memory) -->
+  <g transform="translate(200, 400)">
+    <!-- Scattered points -->
+    <circle cx="-80" cy="-120" r="6" fill="#ff6b6b" opacity="0.8"/>
+    <circle cx="-40" cy="80" r="6" fill="#ff6b6b" opacity="0.8"/>
+    <circle cx="20" cy="-60" r="6" fill="#ff6b6b" opacity="0.8"/>
+    <circle cx="60" cy="100" r="6" fill="#ff6b6b" opacity="0.8"/>
+    <circle cx="100" cy="-80" r="6" fill="#ff6b6b" opacity="0.8"/>
+    <circle cx="140" cy="40" r="6" fill="#ff6b6b" opacity="0.8"/>
+    <circle cx="180" cy="-100" r="6" fill="#ff6b6b" opacity="0.8"/>
+    <circle cx="220" cy="60" r="6" fill="#ff6b6b" opacity="0.8"/>
+
+    <!-- Jagged line connecting points -->
+    <path d="M -80 -120 L -40 80 L 20 -60 L 60 100 L 100 -80 L 140 40 L 180 -100 L 220 60"
+          fill="none" stroke="#ff6b6b" stroke-width="2" opacity="0.6"/>
+
+    <!-- Label -->
+    <text x="70" y="180" fill="#ff6b6b" font-family="WenQuanYi Micro Hei" font-size="20" text-anchor="middle" opacity="0.9">记忆</text>
+    <text x="70" y="205" fill="#888" font-family="WenQuanYi Micro Hei" font-size="14" text-anchor="middle">锯齿曲线</text>
+  </g>
+
+  <!-- Center: Arrow / Phase Transition -->
+  <g transform="translate(600, 400)">
+    <!-- Grokking flash -->
+    <ellipse cx="0" cy="0" rx="60" ry="30" fill="#ffd93d" opacity="0.15" filter="url(#glowStrong)"/>
+    <ellipse cx="0" cy="0" rx="40" ry="20" fill="#ffd93d" opacity="0.3" filter="url(#glow)"/>
+
+    <!-- Arrow -->
+    <path d="M -80 0 L 60 0" stroke="#ffd93d" stroke-width="4" filter="url(#glow)"/>
+    <path d="M 50 -15 L 80 0 L 50 15" fill="none" stroke="#ffd93d" stroke-width="4" filter="url(#glow)"/>
+
+    <!-- Label -->
+    <text x="0" y="-60" fill="#ffd93d" font-family="WenQuanYi Micro Hei" font-size="22" text-anchor="middle" font-weight="bold" filter="url(#glow)">顿悟</text>
+    <text x="0" y="70" fill="#888" font-family="WenQuanYi Micro Hei" font-size="14" text-anchor="middle">拓扑相变</text>
+  </g>
+
+  <!-- Right side: Smooth manifold (Generalization) -->
+  <g transform="translate(950, 400)">
+    <!-- Circle / Ring representing the manifold -->
+    <ellipse cx="0" cy="0" rx="120" ry="60" fill="none" stroke="#4ecdc4" stroke-width="3" filter="url(#glow)"/>
+
+    <!-- Points on the manifold -->
+    <circle cx="-120" cy="0" r="6" fill="#4ecdc4"/>
+    <circle cx="-85" cy="-52" r="6" fill="#4ecdc4"/>
+    <circle cx="0" cy="-60" r="6" fill="#4ecdc4"/>
+    <circle cx="85" cy="-52" r="6" fill="#4ecdc4"/>
+    <circle cx="120" cy="0" r="6" fill="#4ecdc4"/>
+    <circle cx="85" cy="52" r="6" fill="#4ecdc4"/>
+    <circle cx="0" cy="60" r="6" fill="#4ecdc4"/>
+    <circle cx="-85" cy="52" r="6" fill="#4ecdc4"/>
+
+    <!-- Label -->
+    <text x="0" y="130" fill="#4ecdc4" font-family="WenQuanYi Micro Hei" font-size="20" text-anchor="middle" opacity="0.9">泛化</text>
+    <text x="0" y="155" fill="#888" font-family="WenQuanYi Micro Hei" font-size="14" text-anchor="middle">平滑流形</text>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="100" fill="#ffffff" font-family="WenQuanYi Micro Hei" font-size="48" text-anchor="middle" font-weight="bold">Grokking = 流形发现</text>
+  <text x="600" y="145" fill="#888888" font-family="WenQuanYi Micro Hei" font-size="20" text-anchor="middle">高维曲线 → 低维曲面</text>
+
+  <!-- Bottom equation -->
+  <g transform="translate(600, 720)">
+    <text x="0" y="0" fill="#666" font-family="WenQuanYi Micro Hei" font-size="16" text-anchor="middle">
+      n 个孤立点 → 连续流形
+    </text>
+  </g>
+
+  <!-- Decorative: dimension indicators -->
+  <g fill="#555" font-family="WenQuanYi Micro Hei" font-size="12">
+    <text x="200" y="280">维度 ≈ n（样本数）</text>
+    <text x="920" y="280">维度 ≈ 1（圆）</text>
+  </g>
+
+  <!-- Corner signature -->
+  <text x="1180" y="780" fill="#333" font-family="monospace" font-size="11" text-anchor="end">Jin 2026 / Zenodo</text>
+</svg>
