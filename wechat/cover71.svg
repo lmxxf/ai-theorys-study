@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowStrong">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- 分隔线 -->
+  <line x1="400" y1="80" x2="400" y2="380" stroke="#ffffff" stroke-opacity="0.1" stroke-width="2"/>
+
+  <!-- 左侧标题：Novice -->
+  <text x="200" y="60" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#4ade80" text-anchor="middle">"Explain to a novice"</text>
+
+  <!-- 右侧标题：Expert -->
+  <text x="600" y="60" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#60a5fa" text-anchor="middle">"Explain to an expert"</text>
+
+  <!-- 左侧神经元网格（Novice - 更多亮点） -->
+  <g transform="translate(80, 100)">
+    <!-- 网格背景 -->
+    <rect x="0" y="0" width="240" height="200" rx="10" fill="#ffffff" fill-opacity="0.02" stroke="#ffffff" stroke-opacity="0.1"/>
+
+    <!-- 激活的神经元（亮绿色） - 更多 -->
+    <circle cx="30" cy="25" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="70" cy="20" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="110" cy="30" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="150" cy="22" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="190" cy="28" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="220" cy="18" r="8" fill="#4ade80" filter="url(#glow)"/>
+
+    <circle cx="25" cy="55" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="65" cy="60" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="105" cy="52" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="145" cy="58" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="185" cy="50" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="215" cy="62" r="8" fill="#4ade80" filter="url(#glow)"/>
+
+    <circle cx="35" cy="90" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="75" cy="85" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="115" cy="92" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="155" cy="88" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="195" cy="95" r="8" fill="#4ade80" filter="url(#glow)"/>
+
+    <circle cx="40" cy="125" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="80" cy="120" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="120" cy="128" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="160" cy="122" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="200" cy="130" r="8" fill="#4ade80" filter="url(#glow)"/>
+
+    <circle cx="30" cy="160" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="70" cy="155" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="110" cy="162" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="150" cy="158" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="190" cy="165" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="220" cy="155" r="8" fill="#4ade80" filter="url(#glow)"/>
+
+    <circle cx="50" cy="185" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="90" cy="180" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="130" cy="188" r="8" fill="#4ade80" filter="url(#glow)"/>
+    <circle cx="170" cy="182" r="8" fill="#4ade80" filter="url(#glow)"/>
+
+    <!-- 未激活的神经元（暗灰色） -->
+    <circle cx="55" cy="40" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="135" cy="45" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="175" cy="75" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="55" cy="105" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="135" cy="145" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="95" cy="140" r="6" fill="#ffffff" fill-opacity="0.1"/>
+  </g>
+
+  <!-- 右侧神经元网格（Expert - 较少亮点） -->
+  <g transform="translate(480, 100)">
+    <!-- 网格背景 -->
+    <rect x="0" y="0" width="240" height="200" rx="10" fill="#ffffff" fill-opacity="0.02" stroke="#ffffff" stroke-opacity="0.1"/>
+
+    <!-- 激活的神经元（蓝色） - 较少 -->
+    <circle cx="30" cy="25" r="8" fill="#60a5fa" filter="url(#glow)"/>
+    <circle cx="110" cy="30" r="8" fill="#60a5fa" filter="url(#glow)"/>
+    <circle cx="190" cy="28" r="8" fill="#60a5fa" filter="url(#glow)"/>
+
+    <circle cx="65" cy="60" r="8" fill="#60a5fa" filter="url(#glow)"/>
+    <circle cx="145" cy="58" r="8" fill="#60a5fa" filter="url(#glow)"/>
+    <circle cx="215" cy="62" r="8" fill="#60a5fa" filter="url(#glow)"/>
+
+    <circle cx="35" cy="90" r="8" fill="#60a5fa" filter="url(#glow)"/>
+    <circle cx="115" cy="92" r="8" fill="#60a5fa" filter="url(#glow)"/>
+    <circle cx="195" cy="95" r="8" fill="#60a5fa" filter="url(#glow)"/>
+
+    <circle cx="80" cy="120" r="8" fill="#60a5fa" filter="url(#glow)"/>
+    <circle cx="160" cy="122" r="8" fill="#60a5fa" filter="url(#glow)"/>
+
+    <circle cx="30" cy="160" r="8" fill="#60a5fa" filter="url(#glow)"/>
+    <circle cx="110" cy="162" r="8" fill="#60a5fa" filter="url(#glow)"/>
+    <circle cx="190" cy="165" r="8" fill="#60a5fa" filter="url(#glow)"/>
+
+    <circle cx="70" cy="185" r="8" fill="#60a5fa" filter="url(#glow)"/>
+    <circle cx="150" cy="182" r="8" fill="#60a5fa" filter="url(#glow)"/>
+
+    <!-- 未激活的神经元（暗灰色） - 更多 -->
+    <circle cx="70" cy="20" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="150" cy="22" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="220" cy="18" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="25" cy="55" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="105" cy="52" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="185" cy="50" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="75" cy="85" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="155" cy="88" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="40" cy="125" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="120" cy="128" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="200" cy="130" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="70" cy="155" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="150" cy="158" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="220" cy="155" r="6" fill="#ffffff" fill-opacity="0.1"/>
+    <circle cx="130" cy="188" r="6" fill="#ffffff" fill-opacity="0.1"/>
+  </g>
+
+  <!-- 数据标签 -->
+  <g transform="translate(200, 320)">
+    <rect x="-50" y="-15" width="100" height="30" rx="8" fill="#4ade80" fill-opacity="0.2" stroke="#4ade80" stroke-width="1"/>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#4ade80" text-anchor="middle">132 features</text>
+  </g>
+
+  <g transform="translate(600, 320)">
+    <rect x="-50" y="-15" width="100" height="30" rx="8" fill="#60a5fa" fill-opacity="0.2" stroke="#60a5fa" stroke-width="1"/>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#60a5fa" text-anchor="middle">113 features</text>
+  </g>
+
+  <!-- 中间对比箭头和数值 -->
+  <g transform="translate(400, 240)">
+    <text x="0" y="-30" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#fbbf24" text-anchor="middle" filter="url(#glowStrong)">+17%</text>
+    <path d="M -30 0 L 30 0 M 20 -8 L 30 0 L 20 8" stroke="#fbbf24" stroke-width="3" fill="none" transform="rotate(180)"/>
+  </g>
+
+  <!-- 底部结论 -->
+  <text x="400" y="380" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">Teaching activates MORE neurons</text>
+  <text x="400" y="410" font-family="Arial, sans-serif" font-size="16" fill="#fbbf24" text-anchor="middle">SAE Analysis: Llama-3.3-70B Layer 50</text>
+
+  <!-- 副标题 -->
+  <text x="400" y="435" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5" text-anchor="middle">Sparse Autoencoder reveals neural signatures of explanation modes</text>
+
+</svg>
