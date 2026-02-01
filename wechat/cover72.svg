@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="neuronGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d9ff"/>
+      <stop offset="100%" style="stop-color:#0099ff"/>
+    </linearGradient>
+    <linearGradient id="activeGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="100%" style="stop-color:#ffa500"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  <!-- 网格背景 -->
+  <g opacity="0.1">
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="#00d9ff" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="#00d9ff" stroke-width="1"/>
+    <line x1="0" y1="300" x2="1200" y2="300" stroke="#00d9ff" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="#00d9ff" stroke-width="1"/>
+    <line x1="0" y1="500" x2="1200" y2="500" stroke="#00d9ff" stroke-width="1"/>
+    <line x1="0" y1="600" x2="1200" y2="600" stroke="#00d9ff" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="675" stroke="#00d9ff" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="675" stroke="#00d9ff" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="675" stroke="#00d9ff" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="675" stroke="#00d9ff" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="675" stroke="#00d9ff" stroke-width="1"/>
+  </g>
+
+  <!-- SAE 神经元矩阵 (左侧) -->
+  <g transform="translate(80, 180)">
+    <!-- 未激活神经元 (灰色) -->
+    <circle cx="0" cy="0" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="40" cy="0" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="80" cy="0" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="120" cy="0" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="160" cy="0" r="12" fill="#333" opacity="0.5"/>
+
+    <circle cx="0" cy="40" r="12" fill="#333" opacity="0.5"/>
+    <!-- 激活神经元 -->
+    <circle cx="40" cy="40" r="14" fill="url(#activeGlow)"/>
+    <circle cx="40" cy="40" r="20" fill="none" stroke="#ff6b6b" stroke-width="2" opacity="0.5"/>
+    <circle cx="80" cy="40" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="120" cy="40" r="12" fill="#333" opacity="0.5"/>
+    <!-- 激活神经元 -->
+    <circle cx="160" cy="40" r="14" fill="url(#activeGlow)"/>
+    <circle cx="160" cy="40" r="20" fill="none" stroke="#ff6b6b" stroke-width="2" opacity="0.5"/>
+
+    <circle cx="0" cy="80" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="40" cy="80" r="12" fill="#333" opacity="0.5"/>
+    <!-- 激活神经元 -->
+    <circle cx="80" cy="80" r="14" fill="url(#activeGlow)"/>
+    <circle cx="80" cy="80" r="20" fill="none" stroke="#ff6b6b" stroke-width="2" opacity="0.5"/>
+    <circle cx="120" cy="80" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="160" cy="80" r="12" fill="#333" opacity="0.5"/>
+
+    <circle cx="0" cy="120" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="40" cy="120" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="80" cy="120" r="12" fill="#333" opacity="0.5"/>
+    <!-- 激活神经元 -->
+    <circle cx="120" cy="120" r="14" fill="url(#activeGlow)"/>
+    <circle cx="120" cy="120" r="20" fill="none" stroke="#ff6b6b" stroke-width="2" opacity="0.5"/>
+    <circle cx="160" cy="120" r="12" fill="#333" opacity="0.5"/>
+
+    <circle cx="0" cy="160" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="40" cy="160" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="80" cy="160" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="120" cy="160" r="12" fill="#333" opacity="0.5"/>
+    <circle cx="160" cy="160" r="12" fill="#333" opacity="0.5"/>
+
+    <!-- 标签 -->
+    <text x="80" y="210" fill="#888" font-family="monospace" font-size="14" text-anchor="middle">65,536 features</text>
+  </g>
+
+  <!-- 箭头 -->
+  <g transform="translate(320, 300)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="url(#neuronGlow)" stroke-width="3"/>
+    <polygon points="80,0 65,-8 65,8" fill="#00d9ff"/>
+    <text x="40" y="30" fill="#00d9ff" font-family="monospace" font-size="12" text-anchor="middle">AutoInterp</text>
+  </g>
+
+  <!-- 解码后的语义标签 (右侧) -->
+  <g transform="translate(450, 150)">
+    <!-- Feature 35870 -->
+    <rect x="0" y="0" width="280" height="50" rx="8" fill="#1a3a5c" stroke="#00d9ff" stroke-width="2"/>
+    <circle cx="30" cy="25" r="10" fill="url(#activeGlow)"/>
+    <text x="50" y="22" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold">Feature 35870</text>
+    <text x="50" y="40" fill="#00d9ff" font-family="sans-serif" font-size="12">"expert identity"</text>
+    <text x="240" y="30" fill="#4ade80" font-family="monospace" font-size="11">guru:2</text>
+
+    <!-- Feature 21604 -->
+    <rect x="0" y="70" width="280" height="50" rx="8" fill="#1a3a5c" stroke="#00d9ff" stroke-width="2"/>
+    <circle cx="30" cy="95" r="10" fill="url(#activeGlow)"/>
+    <text x="50" y="92" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold">Feature 21604</text>
+    <text x="50" y="110" fill="#00d9ff" font-family="sans-serif" font-size="12">"serious response"</text>
+    <text x="240" y="100" fill="#fbbf24" font-family="monospace" font-size="11">pad:50</text>
+
+    <!-- Feature 5936 -->
+    <rect x="0" y="140" width="280" height="50" rx="8" fill="#1a3a5c" stroke="#00d9ff" stroke-width="2"/>
+    <circle cx="30" cy="165" r="10" fill="url(#activeGlow)"/>
+    <text x="50" y="162" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold">Feature 5936</text>
+    <text x="50" y="180" fill="#00d9ff" font-family="sans-serif" font-size="12">"depth analysis"</text>
+    <text x="240" y="170" fill="#fbbf24" font-family="monospace" font-size="11">guru:50</text>
+
+    <!-- Feature 53369 -->
+    <rect x="0" y="210" width="280" height="50" rx="8" fill="#1a3a5c" stroke="#00d9ff" stroke-width="2"/>
+    <circle cx="30" cy="235" r="10" fill="url(#activeGlow)"/>
+    <text x="50" y="232" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold">Feature 53369</text>
+    <text x="50" y="250" fill="#00d9ff" font-family="sans-serif" font-size="12">"technical analysis"</text>
+    <text x="240" y="240" fill="#f87171" font-family="monospace" font-size="11">guru:0</text>
+
+    <!-- Feature 17913 -->
+    <rect x="0" y="280" width="280" height="50" rx="8" fill="#1a3a5c" stroke="#ff6b6b" stroke-width="2"/>
+    <circle cx="30" cy="305" r="10" fill="#4ade80"/>
+    <text x="50" y="302" fill="#fff" font-family="sans-serif" font-size="14" font-weight="bold">Feature 17913</text>
+    <text x="50" y="320" fill="#4ade80" font-family="sans-serif" font-size="12">"novice" signal</text>
+    <text x="240" y="310" fill="#4ade80" font-family="monospace" font-size="11">purest</text>
+  </g>
+
+  <!-- 标题 -->
+  <text x="600" y="80" fill="#fff" font-family="sans-serif" font-size="42" font-weight="bold" text-anchor="middle">AutoInterp</text>
+  <text x="600" y="620" fill="#888" font-family="sans-serif" font-size="18" text-anchor="middle">SAE Feature → Semantic Label</text>
+
+  <!-- Day 2 标签 -->
+  <rect x="1050" y="30" width="100" height="36" rx="18" fill="#ff6b6b"/>
+  <text x="1100" y="55" fill="#fff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Day 2</text>
+</svg>
