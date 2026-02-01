@@ -1,4 +1,4 @@
-【提示词玄学 Day 2】解码 SAE 神经元，尝试 AutoInterp 方法
+【提示词玄学 Day 2】SAE 解码实战，尝试 AutoInterp 方法
 
 昨天说了：「向新手解释」比「向专家解释」多激活 17% 的神经元。
 
@@ -173,6 +173,12 @@ condition_distribution = count_by_condition(activated)
 
 条件分布是硬数据，但「这个特征代表什么」是我根据分布「推断」的。
 
+具体做法：我让 Claude Opus 4.5 看这些条件分布，推断每个 feature 的语义——这本质上就是 AutoInterp 的思路。
+
+Anthropic 做 Scaling Monosemanticity 那篇论文时，就是这么干的：把某个 feature 激活时的几百条样本喂给 Claude，问"这些句子有什么共同点"，然后 Claude 输出一个语义标签。
+
+只是我们的样本量较少（6 条件 × 50 主题 = 300 样本），所以语义推断比较粗糙，没法给出很具体的解释。
+
 推断逻辑：看哪些条件触发了它，然后猜这些条件的共同点是什么。
 
 比如 Feature 21604 被 expert、guru、padding 都触发，我就去看这三个 prompt 有什么共同点——发现都有「认真/深度」的要求，所以猜它是「认真回答」信号。
@@ -309,7 +315,7 @@ padding 条件的 prompt 是：
 
 ━━━━━━━━━━━━━━━━━━━━
 
-1. 「语义标签是推断的」：我根据激活模式猜测「新手信号」「认真回答」，但没有让 AI 自动总结（那是更完整的 AutoInterp）
+1. 「语义标签是推断的」：我根据激活模式推断语义标签，但没有让模型直接看原始样本文本自动总结（那是更完整的 AutoInterp）
 
 2. 「只看了 6 种条件」：如果加入更多条件（比如「用比喻解释」「用代码解释」），可能会发现更细的语义分化
 
@@ -321,7 +327,7 @@ padding 条件的 prompt 是：
 
 ━━━━━━━━━━━━━━━━━━━━
 
-• 论文 v2（含今天的分析）：https://zenodo.org/records/18448092
+• 论文 v2（含今天的分析）：https://zenodo.org/records/18449508
 • 代码：https://github.com/lmxxf/llama3-70b-sae-inspect
 • 昨天的公众号（Day 1）：https://mp.weixin.qq.com/s/izl0lMbvuPAVB6HTK3QecQ
 • 前天的公众号（EID 实验）：https://mp.weixin.qq.com/s/Ve-llXD6Bh0SsovJs8T80w
