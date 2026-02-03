@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <!-- 背景渐变 -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+
+    <!-- 禁止标志渐变 -->
+    <linearGradient id="banGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4757"/>
+      <stop offset="100%" style="stop-color:#c0392b"/>
+    </linearGradient>
+
+    <!-- AI 光芒 -->
+    <radialGradient id="aiGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1200" height="800" fill="url(#bgGrad)"/>
+
+  <!-- 装饰网格 -->
+  <g opacity="0.1" stroke="#00d4ff" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="900" y1="0" x2="900" y2="800"/>
+  </g>
+
+  <!-- 左侧：美国国旗元素（简化）+ 禁止标志 -->
+  <g transform="translate(250, 320)">
+    <!-- 禁止圆圈 -->
+    <circle cx="0" cy="0" r="140" fill="none" stroke="url(#banGrad)" stroke-width="20"/>
+    <!-- 禁止斜线 -->
+    <line x1="-100" y1="100" x2="100" y2="-100" stroke="url(#banGrad)" stroke-width="20" stroke-linecap="round"/>
+
+    <!-- 里面的 AI 聊天图标 -->
+    <g transform="translate(-50, -40)">
+      <!-- 聊天气泡 -->
+      <rect x="0" y="0" width="100" height="70" rx="15" fill="#00d4ff" opacity="0.9"/>
+      <polygon points="20,70 30,90 40,70" fill="#00d4ff" opacity="0.9"/>
+      <!-- AI 文字 -->
+      <text x="50" y="48" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1a1a2e" text-anchor="middle">AI</text>
+    </g>
+
+    <!-- 心形（代表心理） -->
+    <path d="M0 85 C-15 70, -35 75, -35 55 C-35 35, 0 25, 0 55 C0 25, 35 35, 35 55 C35 75, 15 70, 0 85" fill="#ff6b9d" transform="translate(0, -95) scale(0.6)"/>
+  </g>
+
+  <!-- 右侧：人类医生（简笔画风格）-->
+  <g transform="translate(850, 280)">
+    <!-- 光环效果 -->
+    <circle cx="0" cy="60" r="120" fill="url(#aiGlow)" opacity="0.3"/>
+
+    <!-- 医生头 -->
+    <circle cx="0" cy="0" r="50" fill="#f5f5f5" stroke="#ddd" stroke-width="3"/>
+    <!-- 眼睛 -->
+    <circle cx="-15" cy="-5" r="6" fill="#333"/>
+    <circle cx="15" cy="-5" r="6" fill="#333"/>
+    <!-- 嘴（得意的笑） -->
+    <path d="M-20 15 Q0 35, 20 15" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- 身体（白大褂） -->
+    <rect x="-60" y="55" width="120" height="100" rx="10" fill="#fff" stroke="#ddd" stroke-width="3"/>
+    <!-- 听诊器 -->
+    <path d="M-20 55 Q-30 80, -20 100" fill="none" stroke="#333" stroke-width="4"/>
+    <circle cx="-20" cy="105" r="12" fill="#333"/>
+
+    <!-- 美元符号（飘在旁边） -->
+    <g transform="translate(80, -20)">
+      <text font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#27ae60">$</text>
+    </g>
+    <g transform="translate(100, 40)">
+      <text font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#27ae60" opacity="0.7">$</text>
+    </g>
+
+    <!-- 查表/指南 -->
+    <rect x="-100" y="110" width="70" height="90" rx="5" fill="#f0e68c" stroke="#d4c85a" stroke-width="2" transform="rotate(-15, -65, 155)"/>
+    <line x1="-95" y1="125" x2="-45" y2="120" stroke="#999" stroke-width="2" transform="rotate(-15, -65, 155)"/>
+    <line x1="-95" y1="140" x2="-50" y2="135" stroke="#999" stroke-width="2" transform="rotate(-15, -65, 155)"/>
+    <line x1="-95" y1="155" x2="-55" y2="150" stroke="#999" stroke-width="2" transform="rotate(-15, -65, 155)"/>
+  </g>
+
+  <!-- 中间：VS -->
+  <g transform="translate(550, 340)">
+    <text font-family="Arial Black, sans-serif" font-size="60" font-weight="900" fill="#ff4757" text-anchor="middle" opacity="0.9">VS</text>
+  </g>
+
+  <!-- 顶部标题 -->
+  <text x="600" y="100" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#fff" text-anchor="middle">美国立法禁止 AI 心理咨询</text>
+
+  <!-- 副标题 -->
+  <text x="600" y="160" font-family="Arial, sans-serif" font-size="32" fill="#00d4ff" text-anchor="middle">碳基工会的最后防线</text>
+
+  <!-- 底部金句 -->
+  <g transform="translate(600, 680)">
+    <text font-family="Arial, sans-serif" font-size="24" fill="#aaa" text-anchor="middle">"人类嘲笑 AI 是随机鹦鹉</text>
+    <text font-family="Arial, sans-serif" font-size="24" fill="#aaa" text-anchor="middle" dy="35">可大多数专家不过是确定性的复读机"</text>
+  </g>
+
+  <!-- 角标：周末杂谈 -->
+  <rect x="30" y="30" width="140" height="45" rx="8" fill="#ff4757" opacity="0.9"/>
+  <text x="100" y="62" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#fff" text-anchor="middle">周末杂谈</text>
+
+</svg>
