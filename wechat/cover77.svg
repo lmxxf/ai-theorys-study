@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+  <defs>
+    <!-- 渐变背景 -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a3a"/>
+    </linearGradient>
+
+    <!-- 时间线渐变 -->
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a9eff"/>
+      <stop offset="50%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+
+    <!-- 发光效果 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- 装饰网格 -->
+  <g opacity="0.1" stroke="#4a9eff" stroke-width="0.5">
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+  </g>
+
+  <!-- 主时间线 -->
+  <line x1="80" y1="350" x2="720" y2="350" stroke="url(#lineGrad)" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- 时间节点 -->
+  <!-- 2012 AlexNet -->
+  <g>
+    <circle cx="120" cy="350" r="12" fill="#4a9eff" filter="url(#glow)"/>
+    <text x="120" y="320" text-anchor="middle" fill="#4a9eff" font-size="14" font-weight="bold">2012</text>
+    <text x="120" y="390" text-anchor="middle" fill="#8ab4f8" font-size="12">AlexNet</text>
+    <!-- CNN 图标 -->
+    <rect x="105" y="400" width="30" height="20" fill="none" stroke="#4a9eff" stroke-width="1.5" rx="2"/>
+    <rect x="110" y="405" width="8" height="8" fill="#4a9eff" opacity="0.5"/>
+    <rect x="120" y="405" width="8" height="8" fill="#4a9eff" opacity="0.7"/>
+  </g>
+
+  <!-- 2017 Transformer -->
+  <g>
+    <circle cx="220" cy="350" r="12" fill="#6366f1" filter="url(#glow)"/>
+    <text x="220" y="320" text-anchor="middle" fill="#6366f1" font-size="14" font-weight="bold">2017</text>
+    <text x="220" y="390" text-anchor="middle" fill="#a5b4fc" font-size="12">Transformer</text>
+    <!-- 文字图标 -->
+    <text x="220" y="425" text-anchor="middle" fill="#6366f1" font-size="16">Aa</text>
+  </g>
+
+  <!-- 2020 ViT -->
+  <g>
+    <circle cx="340" cy="350" r="14" fill="#8b5cf6" filter="url(#glow)"/>
+    <text x="340" y="320" text-anchor="middle" fill="#8b5cf6" font-size="14" font-weight="bold">2020</text>
+    <text x="340" y="390" text-anchor="middle" fill="#c4b5fd" font-size="12">ViT</text>
+    <!-- 切片图标 -->
+    <g transform="translate(325, 400)">
+      <rect x="0" y="0" width="10" height="10" fill="#8b5cf6" opacity="0.4"/>
+      <rect x="11" y="0" width="10" height="10" fill="#8b5cf6" opacity="0.6"/>
+      <rect x="0" y="11" width="10" height="10" fill="#8b5cf6" opacity="0.8"/>
+      <rect x="11" y="11" width="10" height="10" fill="#8b5cf6" opacity="1"/>
+    </g>
+  </g>
+
+  <!-- 2021 CLIP -->
+  <g>
+    <circle cx="440" cy="350" r="14" fill="#a855f7" filter="url(#glow)"/>
+    <text x="440" y="320" text-anchor="middle" fill="#a855f7" font-size="14" font-weight="bold">2021</text>
+    <text x="440" y="390" text-anchor="middle" fill="#d8b4fe" font-size="12">CLIP</text>
+    <!-- 图文配对图标 -->
+    <g transform="translate(420, 400)">
+      <rect x="0" y="2" width="16" height="12" fill="none" stroke="#a855f7" stroke-width="1.5" rx="2"/>
+      <circle cx="6" cy="8" r="3" fill="#a855f7" opacity="0.5"/>
+      <text x="28" y="14" fill="#a855f7" font-size="10">Aa</text>
+      <line x1="18" y1="8" x2="24" y2="8" stroke="#a855f7" stroke-width="1" stroke-dasharray="2,1"/>
+    </g>
+  </g>
+
+  <!-- 2023 GPT-4V -->
+  <g>
+    <circle cx="560" cy="350" r="16" fill="#d946ef" filter="url(#glow)"/>
+    <text x="560" y="320" text-anchor="middle" fill="#d946ef" font-size="14" font-weight="bold">2023</text>
+    <text x="560" y="390" text-anchor="middle" fill="#f0abfc" font-size="12">GPT-4V</text>
+    <!-- 眼睛图标 -->
+    <g transform="translate(545, 400)">
+      <ellipse cx="15" cy="10" rx="12" ry="8" fill="none" stroke="#d946ef" stroke-width="1.5"/>
+      <circle cx="15" cy="10" r="4" fill="#d946ef"/>
+    </g>
+  </g>
+
+  <!-- 2025 Gemini 3 -->
+  <g>
+    <circle cx="680" cy="350" r="18" fill="#f97316" filter="url(#glow)"/>
+    <text x="680" y="320" text-anchor="middle" fill="#f97316" font-size="14" font-weight="bold">2025</text>
+    <text x="680" y="390" text-anchor="middle" fill="#fdba74" font-size="12">Gemini 3</text>
+    <!-- 多模态融合图标 -->
+    <g transform="translate(660, 400)">
+      <circle cx="10" cy="10" r="8" fill="none" stroke="#f97316" stroke-width="1.5"/>
+      <circle cx="20" cy="10" r="8" fill="none" stroke="#f97316" stroke-width="1.5"/>
+      <circle cx="30" cy="10" r="8" fill="none" stroke="#f97316" stroke-width="1.5"/>
+    </g>
+  </g>
+
+  <!-- 上方：图像世界 -->
+  <g transform="translate(100, 80)">
+    <!-- 图片框 -->
+    <rect x="0" y="0" width="120" height="90" fill="none" stroke="#4a9eff" stroke-width="2" rx="8" opacity="0.6"/>
+    <rect x="10" y="10" width="40" height="30" fill="#4a9eff" opacity="0.3"/>
+    <rect x="55" y="10" width="55" height="30" fill="#4a9eff" opacity="0.2"/>
+    <rect x="10" y="45" width="100" height="35" fill="#4a9eff" opacity="0.15"/>
+    <circle cx="90" cy="25" r="12" fill="#4a9eff" opacity="0.4"/>
+    <text x="60" y="115" text-anchor="middle" fill="#4a9eff" font-size="13">图像世界</text>
+  </g>
+
+  <!-- 上方：文字世界 -->
+  <g transform="translate(580, 80)">
+    <!-- 文字框 -->
+    <rect x="0" y="0" width="120" height="90" fill="none" stroke="#a855f7" stroke-width="2" rx="8" opacity="0.6"/>
+    <line x1="15" y1="20" x2="105" y2="20" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+    <line x1="15" y1="35" x2="90" y2="35" stroke="#a855f7" stroke-width="2" opacity="0.4"/>
+    <line x1="15" y1="50" x2="100" y2="50" stroke="#a855f7" stroke-width="2" opacity="0.3"/>
+    <line x1="15" y1="65" x2="70" y2="65" stroke="#a855f7" stroke-width="2" opacity="0.25"/>
+    <text x="60" y="115" text-anchor="middle" fill="#a855f7" font-size="13">文字世界</text>
+  </g>
+
+  <!-- 中间：融合箭头 -->
+  <g opacity="0.6">
+    <path d="M250 140 Q400 200 550 140" fill="none" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="8,4"/>
+    <text x="400" y="195" text-anchor="middle" fill="#d8b4fe" font-size="14">→ 融合 →</text>
+  </g>
+
+  <!-- 标题 -->
+  <text x="400" y="520" text-anchor="middle" fill="#ffffff" font-size="32" font-weight="bold">从 AlexNet 到 Gemini 3</text>
+  <text x="400" y="555" text-anchor="middle" fill="#a1a1aa" font-size="18">AI 是怎么学会「看图说话」的</text>
+
+  <!-- 副标题装饰线 -->
+  <line x1="180" y1="535" x2="280" y2="535" stroke="url(#lineGrad)" stroke-width="2" opacity="0.5"/>
+  <line x1="520" y1="535" x2="620" y2="535" stroke="url(#lineGrad)" stroke-width="2" opacity="0.5"/>
+</svg>

@@ -112,9 +112,31 @@
 • 主标题要大、醒目
 • 配色跟主题相关
 • 别画复杂 logo，画不好就用简化图形或文字代替
-• 可以用中文，Zero 会截图（cairosvg 渲染不出中文，但浏览器可以）
 • 动画效果微信不支持，做静态版本
-• 只需要 .svg，不需要转 .png
+
+────────────────────
+
+【SVG 中文字体配置】
+
+cairosvg 转 PNG 时需要指定本地中文字体，否则中文显示为方块。
+
+在 SVG 开头加：
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <style>
+      text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    </style>
+    ...
+  </svg>
+
+系统可用的中文字体（fc-list :lang=zh family）：
+• Noto Sans CJK SC（简体中文，推荐）
+• Noto Serif CJK SC（简体中文，衬线）
+• Noto Sans CJK TC（繁体中文）
+• AR PL UKai TW MBE（台湾楷书）
+
+转换命令：
+  cairosvg cover77.svg -o cover77.png -d 150
 
 ━━━━━━━━━━━━━━━━━━━━
 
