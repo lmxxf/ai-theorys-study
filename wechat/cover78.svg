@@ -1,0 +1,60 @@
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="highlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e94560"/>
+      <stop offset="100%" style="stop-color:#ff6b6b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- 装饰线条 - 模拟统计曲线 -->
+  <path d="M 50 350 Q 150 320, 250 280 T 450 200 T 650 120 T 850 80"
+        stroke="#4a5568" stroke-width="3" fill="none" opacity="0.3"/>
+  <path d="M 50 380 Q 150 360, 250 340 T 450 300 T 650 250 T 850 220"
+        stroke="#4a5568" stroke-width="2" fill="none" opacity="0.2"/>
+
+  <!-- 主标题 -->
+  <text x="450" y="160" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="56" font-weight="bold" fill="#ffffff">
+    p &lt; 0.001 ***
+  </text>
+
+  <!-- 副标题 -->
+  <text x="450" y="230" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="28" fill="#a0aec0">
+    论文里的统计指标到底在说啥？
+  </text>
+
+  <!-- 三个星号解释 -->
+  <g transform="translate(150, 300)">
+    <rect x="0" y="0" width="180" height="60" rx="8" fill="#2d3748"/>
+    <text x="90" y="25" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="20" fill="#e94560">*</text>
+    <text x="90" y="48" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="14" fill="#a0aec0">p &lt; 5%</text>
+  </g>
+
+  <g transform="translate(360, 300)">
+    <rect x="0" y="0" width="180" height="60" rx="8" fill="#2d3748"/>
+    <text x="90" y="25" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="20" fill="#e94560">**</text>
+    <text x="90" y="48" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="14" fill="#a0aec0">p &lt; 1%</text>
+  </g>
+
+  <g transform="translate(570, 300)">
+    <rect x="0" y="0" width="180" height="60" rx="8" fill="url(#highlight)"/>
+    <text x="90" y="25" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="20" fill="#ffffff" font-weight="bold">***</text>
+    <text x="90" y="48" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="14" fill="#ffffff">p &lt; 0.1%</text>
+  </g>
+
+  <!-- 底部吐槽 -->
+  <text x="450" y="430" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="18" fill="#718096">
+    "肉眼看出差异 = 基本就显著了"
+  </text>
+
+  <!-- 角标 -->
+  <text x="860" y="480" text-anchor="end" font-family="Noto Sans CJK SC" font-size="12" fill="#4a5568">
+    #78
+  </text>
+</svg>
