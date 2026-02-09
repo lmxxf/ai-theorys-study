@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0f0f1a"/>
+    </linearGradient>
+
+    <!-- 绿色上升渐变 -->
+    <linearGradient id="successGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a5e2a"/>
+      <stop offset="100%" style="stop-color:#2ecc71"/>
+    </linearGradient>
+
+    <!-- 红色下降渐变 -->
+    <linearGradient id="failGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#922b21"/>
+      <stop offset="100%" style="stop-color:#e74c3c"/>
+    </linearGradient>
+
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ffffff"/>
+    </marker>
+
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2ecc71"/>
+    </marker>
+
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- 标题 -->
+  <text x="400" y="55" text-anchor="middle" fill="#ffffff" font-size="32" font-weight="bold">窗口翻倍 → 50% 飙到 100%</text>
+  <text x="400" y="90" text-anchor="middle" fill="#888888" font-size="18">数据翻 20 倍 → 纹丝不动</text>
+
+  <!-- 分隔线 -->
+  <line x1="80" y1="115" x2="720" y2="115" stroke="#333" stroke-width="1"/>
+
+  <!-- ===== 左半边：LFSR-31 窗口实验（成功） ===== -->
+  <rect x="40" y="135" width="350" height="310" rx="12" fill="#0d2818" stroke="#2ecc71" stroke-width="2" opacity="0.9"/>
+
+  <text x="215" y="170" text-anchor="middle" fill="#2ecc71" font-size="22" font-weight="bold">LFSR-31 · 加窗口</text>
+  <text x="215" y="195" text-anchor="middle" fill="#7dcea0" font-size="14">流形存在，信息不够 → 给信息</text>
+
+  <!-- 三个阶梯柱状图 -->
+  <!-- ctx=16: 50% -->
+  <rect x="80" y="340" width="70" height="75" rx="4" fill="#1a5e2a" opacity="0.8"/>
+  <text x="115" y="330" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="bold">50%</text>
+  <text x="115" y="430" text-anchor="middle" fill="#aaaaaa" font-size="12">ctx=16</text>
+
+  <!-- ctx=32: 99.8% -->
+  <rect x="180" y="230" width="70" height="185" rx="4" fill="#27ae60" opacity="0.9"/>
+  <text x="215" y="222" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="bold">99.8%</text>
+  <text x="215" y="430" text-anchor="middle" fill="#aaaaaa" font-size="12">ctx=32</text>
+
+  <!-- ctx=64: 100% -->
+  <rect x="280" y="220" width="70" height="195" rx="4" fill="#2ecc71"/>
+  <text x="315" y="212" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="bold">100%</text>
+  <text x="315" y="430" text-anchor="middle" fill="#aaaaaa" font-size="12">ctx=64</text>
+
+  <!-- 上升箭头 -->
+  <path d="M155 350 L175 280" stroke="#2ecc71" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)"/>
+  <path d="M255 260 L275 245" stroke="#2ecc71" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <!-- ===== 右半边：LCG 数据实验（失败） ===== -->
+  <rect x="410" y="135" width="350" height="310" rx="12" fill="#2c1010" stroke="#e74c3c" stroke-width="2" opacity="0.9"/>
+
+  <text x="585" y="170" text-anchor="middle" fill="#e74c3c" font-size="22" font-weight="bold">lcg_glibc · 加数据</text>
+  <text x="585" y="195" text-anchor="middle" fill="#e6b0aa" font-size="14">流形不存在 → 给什么都没用</text>
+
+  <!-- 两个柱状图：test acc 都趴在底部 -->
+  <!-- 10k: test 0.4% -->
+  <rect x="470" y="408" width="90" height="7" rx="3" fill="#922b21" opacity="0.8"/>
+  <text x="515" y="400" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold">0.4%</text>
+  <text x="515" y="430" text-anchor="middle" fill="#aaaaaa" font-size="12">10k 样本</text>
+
+  <!-- 200k: test 0.3% -->
+  <rect x="620" y="409" width="90" height="6" rx="3" fill="#e74c3c" opacity="0.9"/>
+  <text x="665" y="400" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold">0.3%</text>
+  <text x="665" y="430" text-anchor="middle" fill="#aaaaaa" font-size="12">200k 样本</text>
+
+  <!-- train acc 对比（小字） -->
+  <text x="515" y="290" text-anchor="middle" fill="#e6b0aa" font-size="13">train: 100%</text>
+  <text x="515" y="310" text-anchor="middle" fill="#aaaaaa" font-size="11">（背下来了）</text>
+
+  <text x="665" y="290" text-anchor="middle" fill="#e6b0aa" font-size="13">train: 22%</text>
+  <text x="665" y="310" text-anchor="middle" fill="#aaaaaa" font-size="11">（背不动了）</text>
+
+  <!-- 下降箭头 -->
+  <path d="M590 315 L620 370" stroke="#e74c3c" stroke-width="2.5" fill="none" marker-end="url(#arrowRed)"/>
+
+  <!-- test 不变的横线 -->
+  <line x1="470" y1="408" x2="710" y2="408" stroke="#e74c3c" stroke-width="1" stroke-dasharray="5,5" opacity="0.5"/>
+  <text x="740" y="412" text-anchor="start" fill="#666" font-size="10">≈ 随机</text>
+
+  <!-- ===== 底部金句 ===== -->
+  <rect x="80" y="470" width="640" height="100" rx="10" fill="#16213e" opacity="0.85"/>
+
+  <text x="400" y="505" text-anchor="middle" fill="#3498db" font-size="18" font-weight="bold">核心结论</text>
+  <text x="400" y="535" text-anchor="middle" fill="#ffffff" font-size="16">该给的是信息，不是参数 —— 但前提是流形存在</text>
+  <text x="400" y="558" text-anchor="middle" fill="#888888" font-size="13">100 倍参数解决不了的问题，2 倍窗口就解决了</text>
+
+</svg>
