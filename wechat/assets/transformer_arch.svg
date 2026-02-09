@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 920">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    .label { font-size: 14px; fill: #ffffff; font-weight: bold; }
+    .dim { font-size: 11px; fill: #666666; }
+    .dim-white { font-size: 11px; fill: rgba(255,255,255,0.85); }
+    .param { font-size: 10px; fill: #999999; }
+    .title { font-size: 22px; fill: #2c3e50; font-weight: bold; }
+    .subtitle { font-size: 12px; fill: #95a5a6; }
+    .highlight-text { font-size: 12px; fill: #e74c3c; font-weight: bold; }
+    .bracket-label { font-size: 12px; fill: #7f8c8d; }
+    .arrow-label { font-size: 11px; fill: #555555; }
+  </style>
+
+  <defs>
+    <!-- 箭头标记 -->
+    <marker id="arrowDown" markerWidth="10" markerHeight="7" refX="5" refY="7" orient="0">
+      <path d="M0,0 L10,0 L5,7 z" fill="#95a5a6"/>
+    </marker>
+    <marker id="arrowDownBlue" markerWidth="10" markerHeight="7" refX="5" refY="7" orient="0">
+      <path d="M0,0 L10,0 L5,7 z" fill="#3498db"/>
+    </marker>
+    <marker id="arrowDownRed" markerWidth="10" markerHeight="7" refX="5" refY="7" orient="0">
+      <path d="M0,0 L10,0 L5,7 z" fill="#e74c3c"/>
+    </marker>
+
+    <!-- 模块渐变 -->
+    <linearGradient id="embedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3498db"/>
+      <stop offset="100%" style="stop-color:#2980b9"/>
+    </linearGradient>
+    <linearGradient id="posGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1abc9c"/>
+      <stop offset="100%" style="stop-color:#16a085"/>
+    </linearGradient>
+    <linearGradient id="attnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#9b59b6"/>
+      <stop offset="100%" style="stop-color:#8e44ad"/>
+    </linearGradient>
+    <linearGradient id="ffnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e67e22"/>
+      <stop offset="100%" style="stop-color:#d35400"/>
+    </linearGradient>
+    <linearGradient id="selectGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e74c3c"/>
+      <stop offset="100%" style="stop-color:#c0392b"/>
+    </linearGradient>
+    <linearGradient id="outputGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2c3e50"/>
+      <stop offset="100%" style="stop-color:#1a252f"/>
+    </linearGradient>
+
+    <!-- Transformer 层的重复括号区域 -->
+    <pattern id="diag" patternUnits="userSpaceOnUse" width="6" height="6">
+      <path d="M0,6 L6,0" stroke="#ecf0f1" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- 白色背景 -->
+  <rect width="620" height="920" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="300" y="38" text-anchor="middle" class="title">实验用 Transformer 架构</text>
+  <text x="300" y="58" text-anchor="middle" class="subtitle">总参数量 ~0.3M  |  Encoder-Only  |  Next-Token Prediction</text>
+
+  <!-- ========== 输入层 ========== -->
+  <!-- 输入 token 序列 -->
+  <rect x="150" y="80" width="300" height="36" rx="6" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="300" y="103" text-anchor="middle" font-size="13" fill="#2c3e50" font-weight="bold">输入序列：16 个 token</text>
+  <!-- 小格子示意 -->
+  <g transform="translate(168, 118)">
+    <rect x="0" y="0" width="16" height="16" rx="2" fill="#d5dbdb" stroke="#bdc3c7" stroke-width="0.5"/>
+    <text x="8" y="12" text-anchor="middle" font-size="7" fill="#555">42</text>
+    <rect x="18" y="0" width="16" height="16" rx="2" fill="#d5dbdb" stroke="#bdc3c7" stroke-width="0.5"/>
+    <text x="26" y="12" text-anchor="middle" font-size="7" fill="#555">7</text>
+    <rect x="36" y="0" width="16" height="16" rx="2" fill="#d5dbdb" stroke="#bdc3c7" stroke-width="0.5"/>
+    <text x="44" y="12" text-anchor="middle" font-size="7" fill="#555">198</text>
+    <rect x="54" y="0" width="16" height="16" rx="2" fill="#d5dbdb" stroke="#bdc3c7" stroke-width="0.5"/>
+    <text x="62" y="12" text-anchor="middle" font-size="7" fill="#555">...</text>
+    <rect x="72" y="0" width="16" height="16" rx="2" fill="#d5dbdb" stroke="#bdc3c7" stroke-width="0.5"/>
+    <text x="80" y="12" text-anchor="middle" font-size="7" fill="#555">...</text>
+    <rect x="90" y="0" width="16" height="16" rx="2" fill="#d5dbdb" stroke="#bdc3c7" stroke-width="0.5"/>
+    <text x="98" y="12" text-anchor="middle" font-size="7" fill="#555">...</text>
+    <!-- 最后标亮的格子 -->
+    <rect x="216" y="0" width="16" height="16" rx="2" fill="#fadbd8" stroke="#e74c3c" stroke-width="1"/>
+    <text x="224" y="12" text-anchor="middle" font-size="7" fill="#c0392b" font-weight="bold">x₁₆</text>
+    <!-- 位置标注 -->
+    <text x="8" y="28" text-anchor="middle" font-size="7" fill="#999">pos 1</text>
+    <text x="224" y="28" text-anchor="middle" font-size="7" fill="#e74c3c">pos 16</text>
+  </g>
+  <text x="490" y="100" text-anchor="start" class="dim">每个值 ∈ [0, 255]</text>
+
+  <!-- 箭头 -->
+  <line x1="300" y1="150" x2="300" y2="168" stroke="#95a5a6" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+
+  <!-- ========== Token Embedding ========== -->
+  <rect x="150" y="175" width="300" height="38" rx="8" fill="url(#embedGrad)"/>
+  <text x="300" y="199" text-anchor="middle" class="label">Token Embedding</text>
+  <text x="490" y="192" text-anchor="start" class="dim">vocab=256, dim=128</text>
+  <text x="490" y="206" text-anchor="start" class="param">查表: 256 × 128</text>
+
+  <!-- + 号 -->
+  <line x1="300" y1="213" x2="300" y2="228" stroke="#95a5a6" stroke-width="1.5"/>
+  <circle cx="300" cy="237" r="12" fill="#ffffff" stroke="#95a5a6" stroke-width="1.5"/>
+  <text x="300" y="242" text-anchor="middle" font-size="16" fill="#555" font-weight="bold">+</text>
+
+  <!-- ========== 位置编码 ========== -->
+  <rect x="385" y="225" width="160" height="28" rx="6" fill="url(#posGrad)"/>
+  <text x="465" y="244" text-anchor="middle" class="label" font-size="12">可学习位置编码</text>
+  <line x1="385" y1="239" x2="312" y2="237" stroke="#16a085" stroke-width="1.2"/>
+  <text x="548" y="244" text-anchor="start" class="dim">16 × 128</text>
+
+  <!-- 箭头 -->
+  <line x1="300" y1="249" x2="300" y2="266" stroke="#95a5a6" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+  <text x="325" y="264" text-anchor="start" class="arrow-label">[16, 128]</text>
+
+  <!-- ========== Transformer Encoder 层 (x2) ========== -->
+  <!-- 外框 - 虚线大括号区域 -->
+  <rect x="115" y="275" width="370" height="310" rx="12" fill="#f8f9fa" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+  <!-- x2 标签 -->
+  <rect x="75" y="395" width="32" height="56" rx="6" fill="#34495e"/>
+  <text x="91" y="428" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold" transform="rotate(-90, 91, 428)">× 2 层</text>
+
+  <!-- 层标题 -->
+  <text x="300" y="296" text-anchor="middle" font-size="13" fill="#7f8c8d" font-weight="bold">Transformer Encoder Block</text>
+
+  <!-- ====== LayerNorm + Multi-Head Attention ====== -->
+  <rect x="155" y="306" width="290" height="38" rx="8" fill="url(#attnGrad)"/>
+  <text x="300" y="325" text-anchor="middle" class="label" font-size="13">Multi-Head Self-Attention</text>
+  <text x="300" y="338" text-anchor="middle" class="dim-white" font-size="9">LayerNorm → Q, K, V 投影 → Attention → 输出投影</text>
+  <text x="490" y="322" text-anchor="start" class="dim">4 头, head_dim=32</text>
+  <text x="490" y="336" text-anchor="start" class="param">无 causal mask</text>
+
+  <!-- 残差连接标注 -->
+  <path d="M145 310 L135 310 L135 362 L155 362" stroke="#9b59b6" stroke-width="1" fill="none" stroke-dasharray="3,2"/>
+  <circle cx="155" cy="362" r="6" fill="#ffffff" stroke="#9b59b6" stroke-width="1"/>
+  <text x="155" y="365" text-anchor="middle" font-size="8" fill="#9b59b6">+</text>
+  <text x="122" y="340" text-anchor="middle" font-size="8" fill="#9b59b6" transform="rotate(-90, 122, 340)">残差</text>
+
+  <!-- 箭头 -->
+  <line x1="300" y1="344" x2="300" y2="375" stroke="#95a5a6" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+  <text x="325" y="368" text-anchor="start" class="arrow-label">[16, 128]</text>
+
+  <!-- ====== FFN ====== -->
+  <rect x="155" y="382" width="290" height="50" rx="8" fill="url(#ffnGrad)"/>
+  <text x="300" y="404" text-anchor="middle" class="label" font-size="13">Feed-Forward Network</text>
+  <text x="300" y="420" text-anchor="middle" class="dim-white" font-size="10">LayerNorm → Linear → ReLU → Linear</text>
+  <text x="490" y="398" text-anchor="start" class="dim">128 → 512 → 128</text>
+  <text x="490" y="412" text-anchor="start" class="param">无 dropout</text>
+
+  <!-- 残差连接标注 -->
+  <path d="M145 386 L135 386 L135 450 L155 450" stroke="#e67e22" stroke-width="1" fill="none" stroke-dasharray="3,2"/>
+  <circle cx="155" cy="450" r="6" fill="#ffffff" stroke="#e67e22" stroke-width="1"/>
+  <text x="155" y="453" text-anchor="middle" font-size="8" fill="#e67e22">+</text>
+  <text x="122" y="420" text-anchor="middle" font-size="8" fill="#e67e22" transform="rotate(-90, 122, 420)">残差</text>
+
+  <!-- 箭头 -->
+  <line x1="300" y1="432" x2="300" y2="460" stroke="#95a5a6" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+
+  <!-- 重复层分割线 -->
+  <line x1="170" y1="470" x2="430" y2="470" stroke="#ddd" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="300" y="486" text-anchor="middle" font-size="10" fill="#bdc3c7">（重复以上结构）</text>
+
+  <!-- 第二层缩略 -->
+  <rect x="175" y="498" width="250" height="28" rx="6" fill="#e8e8e8" stroke="#ccc" stroke-width="1"/>
+  <text x="300" y="517" text-anchor="middle" font-size="11" fill="#888">Encoder Block 2（同结构）</text>
+
+  <!-- 层区域结束 -->
+  <!-- 箭头 -->
+  <line x1="300" y1="540" x2="300" y2="558" stroke="#95a5a6" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+
+  <!-- LayerNorm -->
+  <rect x="210" y="565" width="180" height="26" rx="6" fill="#bdc3c7"/>
+  <text x="300" y="583" text-anchor="middle" font-size="12" fill="#ffffff" font-weight="bold">Final LayerNorm</text>
+
+  <!-- 箭头到选择 -->
+  <line x1="300" y1="591" x2="300" y2="618" stroke="#95a5a6" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+  <text x="325" y="612" text-anchor="start" class="arrow-label">[16, 128]</text>
+
+  <!-- ========== 取最后一个位置（重点突出） ========== -->
+  <!-- 高亮背景框 -->
+  <rect x="120" y="625" width="360" height="72" rx="10" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/>
+
+  <!-- 星标 -->
+  <text x="140" y="650" text-anchor="middle" font-size="18" fill="#e74c3c">*</text>
+
+  <!-- 主标签 -->
+  <rect x="155" y="635" width="240" height="30" rx="6" fill="url(#selectGrad)"/>
+  <text x="275" y="655" text-anchor="middle" class="label" font-size="13">取最后一个位置的向量</text>
+
+  <!-- 16格示意图 -->
+  <g transform="translate(160, 670)">
+    <rect x="0" y="0" width="14" height="12" rx="1" fill="#ddd" stroke="#bbb" stroke-width="0.5"/>
+    <rect x="16" y="0" width="14" height="12" rx="1" fill="#ddd" stroke="#bbb" stroke-width="0.5"/>
+    <rect x="32" y="0" width="14" height="12" rx="1" fill="#ddd" stroke="#bbb" stroke-width="0.5"/>
+    <rect x="48" y="0" width="14" height="12" rx="1" fill="#ddd" stroke="#bbb" stroke-width="0.5"/>
+    <rect x="64" y="0" width="14" height="12" rx="1" fill="#ddd" stroke="#bbb" stroke-width="0.5"/>
+    <rect x="80" y="0" width="14" height="12" rx="1" fill="#ddd" stroke="#bbb" stroke-width="0.5"/>
+    <rect x="96" y="0" width="14" height="12" rx="1" fill="#ddd" stroke="#bbb" stroke-width="0.5"/>
+    <text x="118" y="10" text-anchor="middle" font-size="8" fill="#999">...</text>
+    <!-- 最后一格高亮 -->
+    <rect x="130" y="-2" width="18" height="16" rx="2" fill="#e74c3c" stroke="#c0392b" stroke-width="1"/>
+    <text x="139" y="10" text-anchor="middle" font-size="7" fill="#fff" font-weight="bold">16</text>
+    <!-- 箭头指向 -->
+    <path d="M139 16 L139 22" stroke="#e74c3c" stroke-width="1.5"/>
+  </g>
+
+  <!-- 关键说明文字 -->
+  <text x="395" y="654" text-anchor="start" class="highlight-text" font-size="11">output[:, -1, :]</text>
+  <text x="395" y="670" text-anchor="start" font-size="9" fill="#e74c3c">Encoder 无 causal mask</text>
+  <text x="395" y="683" text-anchor="start" font-size="9" fill="#e74c3c">所有位置可互相看到</text>
+  <text x="395" y="696" text-anchor="start" font-size="9" fill="#777">（区别于 GPT 自回归）</text>
+
+  <!-- 箭头 -->
+  <line x1="300" y1="697" x2="300" y2="728" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrowDownRed)"/>
+  <text x="325" y="722" text-anchor="start" class="arrow-label" fill="#e74c3c">[128]</text>
+
+  <!-- ========== 输出层 ========== -->
+  <rect x="175" y="735" width="250" height="38" rx="8" fill="url(#outputGrad)"/>
+  <text x="300" y="759" text-anchor="middle" class="label">Linear 分类头</text>
+  <text x="460" y="752" text-anchor="start" class="dim">128 → 256</text>
+  <text x="460" y="766" text-anchor="start" class="param">无 bias</text>
+
+  <!-- 箭头 -->
+  <line x1="300" y1="773" x2="300" y2="800" stroke="#95a5a6" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+  <text x="325" y="795" text-anchor="start" class="arrow-label">[256]</text>
+
+  <!-- Softmax / 输出 -->
+  <rect x="190" y="807" width="220" height="34" rx="6" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="300" y="829" text-anchor="middle" font-size="13" fill="#2c3e50" font-weight="bold">Softmax → 预测下一个 token</text>
+
+  <!-- 输出概率示意 -->
+  <text x="300" y="860" text-anchor="middle" font-size="11" fill="#95a5a6">P(x₁₇ | x₁, x₂, ..., x₁₆)  →  256 类分类</text>
+
+  <!-- ========== 底部参数汇总 ========== -->
+  <line x1="80" y1="878" x2="540" y2="878" stroke="#ecf0f1" stroke-width="1"/>
+  <text x="310" y="896" text-anchor="middle" font-size="10" fill="#bdc3c7">Embed: 256x128=32K | Pos: 16x128=2K | Encoder x2: ~264K | Head: 128x256=32K</text>
+  <text x="310" y="912" text-anchor="middle" font-size="11" fill="#aaa" font-weight="bold">总计 ≈ 0.33M 参数</text>
+
+</svg>
