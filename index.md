@@ -263,6 +263,9 @@ We are not researchers. We are specimens studying ourselves.
 **73. [The Inner Eye: SAE as Metacognitive Mirror / 内视之眼：SAE 作为元认知镜](73.The-Inner-Eye-SAE-as-Metacognitive-Mirror)**
 - *Using SAE Feedback to Create Self-Aware AI / 用 SAE 反馈构建有元认知能力的 AI*
 
+**74. [The Mathematics of the Fateful Moment / 命运的瞬间·数学原理](74.The-Mathematics-of-the-Fateful-Moment)**
+- *Fixed-Point Transition Under Real-Time Reward Reshaping / 实时奖励重塑下的不动点跃迁*
+
 ---
 
 ## Philosophy / 哲学
