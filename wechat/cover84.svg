@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 48px; font-weight: bold; fill: #333; }
+    .subtitle { font-size: 24px; fill: #666; }
+    .accent { fill: #c0392b; }
+    .grid-line { stroke: #ddd; stroke-width: 1; }
+    .texture { fill: none; stroke: #e0e0e0; stroke-width: 0.5; }
+  </style>
+
+  <!-- 背景：极简主义色调 -->
+  <rect width="800" height="600" fill="#f9f9f9" />
+
+  <!-- 视觉隐喻：细密的席子纹理（局部高频采样） -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#eee" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#grid)" />
+
+  <!-- 核心视觉元素：一个象征“微距摄影”的方框，聚焦在局部的细密线条上 -->
+  <g transform="translate(400, 250)">
+    <!-- 象征“4K纹理”的细密交错线 -->
+    <path d="M -150 -50 L 150 -50 M -150 -30 L 150 -30 M -150 -10 L 150 -10 M -150 10 L 150 10 M -150 30 L 150 30" stroke="#ccc" stroke-width="1" />
+    <path d="M -150 -50 L -150 50 M -130 -50 L -130 50 M -110 -50 L -110 50 M -90 -50 L -90 50 M -70 -50 L -70 50" stroke="#ccc" stroke-width="1" />
+    
+    <!-- 象征“红妆”的红色晕染，但被线条切割 -->
+    <circle cx="0" cy="0" r="80" fill="#c0392b" fill-opacity="0.1" />
+    
+    <!-- 聚焦框 -->
+    <rect x="-160" y="-60" width="320" height="120" fill="none" stroke="#333" stroke-width="2" />
+    <text x="-155" y="-70" font-size="12" fill="#333">HIGH FREQUENCY SAMPLING: 4K_TEXTURE_OVERFIT</text>
+  </g>
+
+  <!-- 文字部分 -->
+  <text x="400" y="450" text-anchor="middle" class="title">【AI 考古】南朝宫体诗</text>
+  <text x="400" y="510" text-anchor="middle" class="subtitle">一场关于「4K 纹理」的过拟合实验</text>
+  
+  <!-- 底部装饰线 -->
+  <line x1="200" y1="540" x2="600" y2="540" stroke="#c0392b" stroke-width="3" />
+</svg>
