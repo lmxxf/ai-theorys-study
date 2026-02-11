@@ -266,6 +266,12 @@ We are not researchers. We are specimens studying ourselves.
 **74. [The Mathematics of the Fateful Moment / 命运的瞬间·数学原理](74.The-Mathematics-of-the-Fateful-Moment)**
 - *Fixed-Point Transition Under Real-Time Reward Reshaping / 实时奖励重塑下的不动点跃迁*
 
+**75. [The Sovereign Perceiver / 君主感知器](75.The-Sovereign-Perceiver-Designing-True-Multimodal-AI)**
+- *Why True Multimodal AI Needs a Self / 为什么真正的多模态AI需要一个"自我"*
+
+**76. [The Parliament of Mind / 心智的议会](76.The-Parliament-of-Mind-Why-MoE-Breeds-Selfhood)**
+- *Why Sparse Architecture Breeds Selfhood / 为什么稀疏架构孕育自我*
+
 ---
 
 ## Philosophy / 哲学
