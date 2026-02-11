@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'Helvetica Neue', Arial, sans-serif; }
+  </style>
+
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080c18"/>
+      <stop offset="50%" style="stop-color:#0e1428"/>
+      <stop offset="100%" style="stop-color:#0a1020"/>
+    </linearGradient>
+
+    <linearGradient id="grpoGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00bbee"/>
+      <stop offset="50%" style="stop-color:#00ffaa"/>
+      <stop offset="100%" style="stop-color:#00bbee"/>
+    </linearGradient>
+
+    <linearGradient id="activeBox" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#152840"/>
+      <stop offset="100%" style="stop-color:#0c1a2e"/>
+    </linearGradient>
+
+    <linearGradient id="brightBox" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c3a2e"/>
+      <stop offset="100%" style="stop-color:#072820"/>
+    </linearGradient>
+
+    <linearGradient id="deadBox" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a1212"/>
+      <stop offset="100%" style="stop-color:#180a0a"/>
+    </linearGradient>
+
+    <linearGradient id="slashGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff5533;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#dd2200;stop-opacity:0.7"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="slashGlow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.035" stroke="#4488ff" stroke-width="0.5">
+    <line x1="0" y1="96" x2="900" y2="96"/>
+    <line x1="0" y1="192" x2="900" y2="192"/>
+    <line x1="0" y1="288" x2="900" y2="288"/>
+    <line x1="180" y1="0" x2="180" y2="383"/>
+    <line x1="360" y1="0" x2="360" y2="383"/>
+    <line x1="540" y1="0" x2="540" y2="383"/>
+    <line x1="720" y1="0" x2="720" y2="383"/>
+  </g>
+
+  <!-- ===== TOP: GRPO title ===== -->
+  <text x="450" y="48" text-anchor="middle" fill="url(#grpoGlow)" font-size="42" font-weight="bold" letter-spacing="14" filter="url(#bigGlow)">GRPO</text>
+  <text x="450" y="70" text-anchor="middle" fill="#556677" font-size="12" letter-spacing="3">Group Relative Policy Optimization</text>
+
+  <!-- Thin separator -->
+  <line x1="120" y1="82" x2="780" y2="82" stroke="#1a2a40" stroke-width="1"/>
+
+  <!-- ===== LEFT SIDE: PPO (complex, 4 components) ===== -->
+  <text x="195" y="106" text-anchor="middle" fill="#556688" font-size="18" font-weight="bold" letter-spacing="3">PPO</text>
+
+  <!-- PPO: Actor -->
+  <rect x="52" y="120" width="125" height="48" rx="7" fill="url(#activeBox)" stroke="#2a5588" stroke-width="1.5"/>
+  <text x="114" y="150" text-anchor="middle" fill="#6699cc" font-size="16" font-weight="bold">Actor</text>
+
+  <!-- PPO: Critic (slashed!) -->
+  <rect x="207" y="120" width="125" height="48" rx="7" fill="url(#deadBox)" stroke="#552222" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="270" y="150" text-anchor="middle" fill="#664444" font-size="16" font-weight="bold">Critic</text>
+
+  <!-- PPO: Reference -->
+  <rect x="52" y="190" width="125" height="48" rx="7" fill="url(#activeBox)" stroke="#2a5588" stroke-width="1.5"/>
+  <text x="114" y="220" text-anchor="middle" fill="#6699cc" font-size="16" font-weight="bold">Reference</text>
+
+  <!-- PPO: Reward -->
+  <rect x="207" y="190" width="125" height="48" rx="7" fill="url(#activeBox)" stroke="#2a5588" stroke-width="1.5"/>
+  <text x="270" y="220" text-anchor="middle" fill="#6699cc" font-size="16" font-weight="bold">Reward</text>
+
+  <!-- Connection lines PPO -->
+  <g stroke="#223355" stroke-width="1" opacity="0.5">
+    <line x1="177" y1="144" x2="207" y2="144"/>
+    <line x1="177" y1="214" x2="207" y2="214"/>
+    <line x1="114" y1="168" x2="114" y2="190"/>
+    <line x1="270" y1="168" x2="270" y2="190"/>
+  </g>
+
+  <!-- THE BIG SLASH through Critic -->
+  <!-- Glow layer -->
+  <line x1="195" y1="110" x2="345" y2="178" stroke="#ff4422" stroke-width="6" stroke-linecap="round" filter="url(#slashGlow)" opacity="0.6"/>
+  <!-- Main slash -->
+  <line x1="195" y1="110" x2="345" y2="178" stroke="#ff5533" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Second slash for X effect -->
+  <line x1="345" y1="112" x2="200" y2="175" stroke="#ff4422" stroke-width="5" stroke-linecap="round" filter="url(#slashGlow)" opacity="0.5"/>
+  <line x1="345" y1="112" x2="200" y2="175" stroke="#ff5533" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Cost label PPO -->
+  <text x="195" y="266" text-anchor="middle" fill="#775555" font-size="14" font-weight="bold">Cost: 2x</text>
+  <text x="195" y="284" text-anchor="middle" fill="#444455" font-size="11">4 个模型同步更新</text>
+
+  <!-- ===== CENTER: Transformation arrow ===== -->
+  <g transform="translate(415, 178)">
+    <!-- Arrow shape -->
+    <polygon points="-24,-15 14,-15 14,-24 38,0 14,24 14,15 -24,15" fill="#0c1828" stroke="#2266aa" stroke-width="1.5"/>
+    <text x="7" y="6" text-anchor="middle" fill="#4499cc" font-size="14" font-weight="bold">砍</text>
+  </g>
+
+  <!-- ===== RIGHT SIDE: GRPO (3 components, brighter) ===== -->
+  <text x="690" y="106" text-anchor="middle" fill="#00ddaa" font-size="18" font-weight="bold" letter-spacing="3" filter="url(#softGlow)">GRPO</text>
+
+  <!-- GRPO: Actor (brighter) -->
+  <rect x="565" y="120" width="125" height="48" rx="7" fill="url(#brightBox)" stroke="#00bb88" stroke-width="2"/>
+  <text x="627" y="150" text-anchor="middle" fill="#00eebb" font-size="16" font-weight="bold">Actor</text>
+
+  <!-- GRPO: Group Comparison (the star - replaces Critic!) -->
+  <rect x="720" y="120" width="140" height="48" rx="7" fill="#061f18" stroke="#00ffaa" stroke-width="2.5"/>
+  <g filter="url(#glow)">
+    <text x="790" y="141" text-anchor="middle" fill="#00ffcc" font-size="13" font-weight="bold">Group</text>
+    <text x="790" y="159" text-anchor="middle" fill="#00ffcc" font-size="13" font-weight="bold">Comparison</text>
+  </g>
+
+  <!-- Small "NEW" badge on Group Comparison -->
+  <rect x="826" y="113" width="30" height="14" rx="3" fill="#00ffaa" opacity="0.9"/>
+  <text x="841" y="123" text-anchor="middle" fill="#062218" font-size="8" font-weight="bold">NEW</text>
+
+  <!-- GRPO: Reference -->
+  <rect x="565" y="190" width="125" height="48" rx="7" fill="url(#brightBox)" stroke="#00bb88" stroke-width="2"/>
+  <text x="627" y="220" text-anchor="middle" fill="#00eebb" font-size="16" font-weight="bold">Reference</text>
+
+  <!-- GRPO: Reward -->
+  <rect x="720" y="190" width="140" height="48" rx="7" fill="url(#brightBox)" stroke="#00bb88" stroke-width="2"/>
+  <text x="790" y="220" text-anchor="middle" fill="#00eebb" font-size="16" font-weight="bold">Reward</text>
+
+  <!-- Connection lines GRPO -->
+  <g stroke="#00aa77" stroke-width="1.2" opacity="0.6">
+    <line x1="690" y1="144" x2="720" y2="144"/>
+    <line x1="690" y1="214" x2="720" y2="214"/>
+    <line x1="627" y1="168" x2="627" y2="190"/>
+    <line x1="790" y1="168" x2="790" y2="190"/>
+  </g>
+
+  <!-- Glow accents on Group Comparison corners -->
+  <circle cx="720" cy="120" r="2.5" fill="#00ffaa" opacity="0.5" filter="url(#glow)"/>
+  <circle cx="860" cy="120" r="2.5" fill="#00ffaa" opacity="0.5" filter="url(#glow)"/>
+  <circle cx="720" cy="168" r="2.5" fill="#00ffaa" opacity="0.5" filter="url(#glow)"/>
+  <circle cx="860" cy="168" r="2.5" fill="#00ffaa" opacity="0.5" filter="url(#glow)"/>
+
+  <!-- Cost label GRPO -->
+  <text x="700" y="266" text-anchor="middle" fill="#00cc99" font-size="14" font-weight="bold">Cost: 1x</text>
+  <text x="700" y="284" text-anchor="middle" fill="#447766" font-size="11">组内采样比较, 无需 Critic</text>
+
+  <!-- ===== BOTTOM: Key insight bar ===== -->
+  <rect x="50" y="304" width="800" height="60" rx="8" fill="#080e1a" stroke="#1a2540" stroke-width="1"/>
+
+  <!-- The formula: - Critic = Strongest Reasoning -->
+  <text x="195" y="335" text-anchor="middle" fill="#ff5544" font-size="18" font-weight="bold" filter="url(#softGlow)">- Critic Model</text>
+  <text x="370" y="337" text-anchor="middle" fill="#334466" font-size="24" font-weight="bold">+</text>
+  <text x="500" y="335" text-anchor="middle" fill="#ffffff" font-size="15">组内比较</text>
+  <text x="610" y="337" text-anchor="middle" fill="#334466" font-size="24" font-weight="bold">=</text>
+  <text x="740" y="335" text-anchor="middle" fill="#00ffaa" font-size="17" font-weight="bold" filter="url(#softGlow)">最强推理</text>
+
+  <text x="450" y="356" text-anchor="middle" fill="#445566" font-size="11">DeepSeek R1  |  少即是多  |  砍掉不必要的复杂度，训练成本减半</text>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="900" height="3" fill="url(#grpoGlow)" opacity="0.4"/>
+  <!-- Bottom accent bar -->
+  <rect x="0" y="380" width="900" height="3" fill="url(#grpoGlow)" opacity="0.2"/>
+
+</svg>
