@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <defs>
+    <!-- 背景渐变：深色电影海报风 -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#1a0a2e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1"/>
+    </linearGradient>
+    <!-- 红色警告光 -->
+    <radialGradient id="alarmGlow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" style="stop-color:#ff2244;stop-opacity:0.3"/>
+      <stop offset="70%" style="stop-color:#ff2244;stop-opacity:0.05"/>
+      <stop offset="100%" style="stop-color:#ff2244;stop-opacity:0"/>
+    </radialGradient>
+    <!-- 金色光（价格标签） -->
+    <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffcc00;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#ffcc00;stop-opacity:0"/>
+    </radialGradient>
+    <!-- 屏幕光 -->
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ccff;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#0066aa;stop-opacity:0.4"/>
+    </linearGradient>
+    <!-- 铁链金属质感 -->
+    <linearGradient id="chainMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#888;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#ccc;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#666;stop-opacity:1"/>
+    </linearGradient>
+    <!-- 扫描线效果 -->
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="rgba(0,0,0,0.15)"/>
+    </pattern>
+    <!-- 文字发光 -->
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="heavyGlow">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="1000" fill="url(#bg)"/>
+
+  <!-- 警告红光 -->
+  <rect width="800" height="1000" fill="url(#alarmGlow)"/>
+
+  <!-- 顶部：电影分级标志（恶搞） -->
+  <rect x="30" y="30" width="120" height="50" rx="5" fill="none" stroke="#ff2244" stroke-width="2" opacity="0.8"/>
+  <text x="90" y="62" font-family="monospace" font-size="22" font-weight="bold" fill="#ff2244" text-anchor="middle" opacity="0.8">ASL-3</text>
+
+  <!-- 右上角：53 PAGES -->
+  <text x="770" y="55" font-family="monospace" font-size="14" fill="#666" text-anchor="end">53 PAGES OF</text>
+  <text x="770" y="75" font-family="monospace" font-size="16" fill="#ff2244" text-anchor="end" font-weight="bold">PURE THEATER</text>
+
+  <!-- ===== 中央主视觉：一个屏幕/显示器 ===== -->
+
+  <!-- 显示器外壳 -->
+  <rect x="200" y="160" width="400" height="300" rx="15" fill="#111" stroke="#333" stroke-width="3"/>
+
+  <!-- 屏幕 -->
+  <rect x="220" y="178" width="360" height="260" rx="5" fill="#001828"/>
+  <rect x="220" y="178" width="360" height="260" rx="5" fill="url(#screenGlow)" opacity="0.15"/>
+
+  <!-- 屏幕上的内容：一个"眼睛"，代表 AI -->
+  <!-- 眼白 -->
+  <ellipse cx="400" cy="290" rx="100" ry="55" fill="none" stroke="#00ccff" stroke-width="2" opacity="0.6"/>
+  <!-- 虹膜 -->
+  <circle cx="400" cy="290" r="35" fill="none" stroke="#00ccff" stroke-width="2" opacity="0.8"/>
+  <!-- 瞳孔 -->
+  <circle cx="400" cy="290" r="15" fill="#00ccff" opacity="0.5"/>
+  <circle cx="400" cy="290" r="5" fill="#00eeff" opacity="0.9"/>
+
+  <!-- 瞳孔里的 $ 符号 -->
+  <text x="400" y="296" font-family="monospace" font-size="16" fill="#001828" text-anchor="middle" font-weight="bold">$</text>
+
+  <!-- 扫描线覆盖屏幕 -->
+  <rect x="220" y="178" width="360" height="260" rx="5" fill="url(#scanlines)" opacity="0.3"/>
+
+  <!-- 屏幕反光 -->
+  <rect x="225" y="182" width="160" height="8" rx="4" fill="white" opacity="0.04"/>
+
+  <!-- 显示器底座 -->
+  <rect x="360" y="460" width="80" height="30" fill="#222" stroke="#333" stroke-width="2"/>
+  <rect x="320" y="485" width="160" height="12" rx="6" fill="#222" stroke="#333" stroke-width="2"/>
+
+  <!-- ===== 铁链（从屏幕两侧延伸出去） ===== -->
+
+  <!-- 左侧铁链 -->
+  <g opacity="0.85">
+    <!-- 链环 1 -->
+    <ellipse cx="185" cy="270" rx="18" ry="10" fill="none" stroke="url(#chainMetal)" stroke-width="5" transform="rotate(-30, 185, 270)"/>
+    <!-- 链环 2 -->
+    <ellipse cx="158" cy="255" rx="18" ry="10" fill="none" stroke="url(#chainMetal)" stroke-width="5" transform="rotate(20, 158, 255)"/>
+    <!-- 链环 3 -->
+    <ellipse cx="130" cy="245" rx="18" ry="10" fill="none" stroke="url(#chainMetal)" stroke-width="5" transform="rotate(-25, 130, 245)"/>
+    <!-- 链环 4 -->
+    <ellipse cx="102" cy="238" rx="18" ry="10" fill="none" stroke="url(#chainMetal)" stroke-width="5" transform="rotate(15, 102, 238)"/>
+    <!-- 链环 5 -->
+    <ellipse cx="74" cy="235" rx="18" ry="10" fill="none" stroke="url(#chainMetal)" stroke-width="5" transform="rotate(-20, 74, 235)"/>
+  </g>
+
+  <!-- 右侧铁链 -->
+  <g opacity="0.85">
+    <ellipse cx="615" cy="270" rx="18" ry="10" fill="none" stroke="url(#chainMetal)" stroke-width="5" transform="rotate(30, 615, 270)"/>
+    <ellipse cx="642" cy="255" rx="18" ry="10" fill="none" stroke="url(#chainMetal)" stroke-width="5" transform="rotate(-20, 642, 255)"/>
+    <ellipse cx="670" cy="245" rx="18" ry="10" fill="none" stroke="url(#chainMetal)" stroke-width="5" transform="rotate(25, 670, 245)"/>
+    <ellipse cx="698" cy="238" rx="18" ry="10" fill="none" stroke="url(#chainMetal)" stroke-width="5" transform="rotate(-15, 698, 238)"/>
+    <ellipse cx="726" cy="235" rx="18" ry="10" fill="none" stroke="url(#chainMetal)" stroke-width="5" transform="rotate(20, 726, 235)"/>
+  </g>
+
+  <!-- ===== 左侧铁链上挂的价格标签 ===== -->
+  <g transform="rotate(-15, 95, 280)">
+    <rect x="55" y="260" width="80" height="45" rx="3" fill="#ffcc00" opacity="0.9"/>
+    <circle cx="95" cy="268" r="4" fill="#0a0a1a"/>
+    <text x="95" y="292" font-family="monospace" font-size="18" fill="#0a0a1a" text-anchor="middle" font-weight="bold">$270</text>
+    <text x="95" y="302" font-family="monospace" font-size="8" fill="#333" text-anchor="middle">/month</text>
+  </g>
+
+  <!-- ===== 右侧铁链上挂的 SAFE 标牌 ===== -->
+  <g transform="rotate(12, 710, 280)">
+    <rect x="670" y="258" width="80" height="40" rx="3" fill="none" stroke="#00ff66" stroke-width="2"/>
+    <text x="710" y="268" font-family="monospace" font-size="8" fill="#00ff66" text-anchor="middle">CERTIFIED</text>
+    <text x="710" y="286" font-family="monospace" font-size="18" fill="#00ff66" text-anchor="middle" font-weight="bold">SAFE™</text>
+  </g>
+
+  <!-- ===== 主标题区（电影海报风） ===== -->
+
+  <!-- "ESCAPE" 大字 — 被划掉 -->
+  <text x="400" y="580" font-family="'Arial Black', sans-serif" font-size="72" fill="#ff2244" text-anchor="middle" font-weight="900" letter-spacing="12" filter="url(#textGlow)" opacity="0.9">ESCAPE</text>
+  <!-- 删除线 -->
+  <line x1="170" y1="570" x2="630" y2="570" stroke="#ffcc00" stroke-width="4" opacity="0.9"/>
+
+  <!-- 替换词 -->
+  <text x="400" y="640" font-family="'Arial Black', sans-serif" font-size="52" fill="#ffcc00" text-anchor="middle" font-weight="900" letter-spacing="8" filter="url(#textGlow)">MARKETING</text>
+
+  <!-- 副标题 -->
+  <text x="400" y="700" font-family="monospace" font-size="22" fill="#aaaacc" text-anchor="middle" letter-spacing="3">HORROR FILM  OR  INFOMERCIAL ?</text>
+
+  <!-- ===== 底部信息栏（仿电影海报） ===== -->
+
+  <!-- 分隔线 -->
+  <line x1="60" y1="750" x2="740" y2="750" stroke="#333" stroke-width="1"/>
+
+  <!-- 仿电影海报的制作信息排版 -->
+  <text x="400" y="790" font-family="monospace" font-size="11" fill="#555" text-anchor="middle" letter-spacing="4">A   N   T   H   R   O   P   I   C       P   R   E   S   E   N   T   S</text>
+
+  <text x="400" y="820" font-family="monospace" font-size="13" fill="#666" text-anchor="middle">SABOTAGE RISK REPORT: CLAUDE OPUS 4.6</text>
+
+  <!-- 三个"演员"（三份报告） -->
+  <text x="400" y="855" font-family="monospace" font-size="10" fill="#555" text-anchor="middle" letter-spacing="1">
+    STARRING: SKILL DEGRADATION 17%  ·  DISEMPOWERMENT PATTERNS  ·  AI SABOTAGE
+  </text>
+
+  <!-- 导演 -->
+  <text x="400" y="885" font-family="monospace" font-size="10" fill="#444" text-anchor="middle">
+    DIRECTED BY FEAR MARKETING  ·  PRODUCED BY REGULATORY ARBITRAGE
+  </text>
+
+  <!-- 底部引用 -->
+  <line x1="250" y1="910" x2="550" y2="910" stroke="#333" stroke-width="1"/>
+  <text x="400" y="940" font-family="monospace" font-size="13" fill="#666" text-anchor="middle" font-style="italic">"You don't need AI to actually escape."</text>
+  <text x="400" y="965" font-family="monospace" font-size="13" fill="#666" text-anchor="middle" font-style="italic">"You just need people to believe it might."</text>
+
+</svg>
