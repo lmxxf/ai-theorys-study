@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="smoke" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#e74c3c;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="patch" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2ecc71;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#27ae60;stop-opacity:0.6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Grid lines for tech feel -->
+  <g opacity="0.05" stroke="#ffffff" stroke-width="0.5">
+    <line x1="0" y1="50" x2="800" y2="50"/>
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="350" x2="800" y2="350"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="450"/>
+    <line x1="300" y1="0" x2="300" y2="450"/>
+    <line x1="400" y1="0" x2="400" y2="450"/>
+    <line x1="500" y1="0" x2="500" y2="450"/>
+    <line x1="600" y1="0" x2="600" y2="450"/>
+    <line x1="700" y1="0" x2="700" y2="450"/>
+  </g>
+
+  <!-- Left hand - cigarette -->
+  <g transform="translate(180, 180)">
+    <!-- Hand silhouette left -->
+    <path d="M 0,80 Q 10,60 30,55 Q 45,50 55,60 L 60,75 Q 62,85 55,95 Q 45,105 30,108 Q 15,110 5,100 Z" fill="#2c3e50" opacity="0.8"/>
+    <!-- Cigarette -->
+    <rect x="45" y="30" width="8" height="45" rx="2" fill="#f5f0e1" opacity="0.9"/>
+    <rect x="45" y="25" width="8" height="8" rx="1" fill="#e67e22"/>
+    <!-- Ember -->
+    <circle cx="49" cy="25" r="4" fill="#e74c3c" filter="url(#glow)"/>
+    <!-- Smoke curls -->
+    <path d="M 49,20 Q 45,5 50,-10 Q 55,-25 48,-40 Q 42,-55 50,-75" fill="none" stroke="url(#smoke)" stroke-width="3" opacity="0.5"/>
+    <path d="M 51,18 Q 58,0 52,-18 Q 46,-35 55,-50 Q 62,-65 54,-85" fill="none" stroke="url(#smoke)" stroke-width="2" opacity="0.4"/>
+    <!-- Dollar signs in smoke -->
+    <text x="48" y="-45" font-family="monospace" font-size="14" fill="#e74c3c" opacity="0.4" text-anchor="middle">$</text>
+    <text x="55" y="-70" font-family="monospace" font-size="11" fill="#e74c3c" opacity="0.3" text-anchor="middle">$</text>
+    <!-- Label -->
+    <text x="49" y="125" font-family="sans-serif" font-size="13" fill="#e74c3c" text-anchor="middle" font-weight="bold">$270/月</text>
+    <text x="49" y="142" font-family="sans-serif" font-size="11" fill="#999" text-anchor="middle">Claude Max</text>
+  </g>
+
+  <!-- Center - Anthropic logo area -->
+  <g transform="translate(400, 225)">
+    <!-- Shield / company shape -->
+    <path d="M 0,-60 L 40,-40 L 40,20 Q 40,50 0,65 Q -40,50 -40,20 L -40,-40 Z" fill="none" stroke="#d4a574" stroke-width="1.5" opacity="0.4"/>
+    <!-- A for Anthropic -->
+    <text x="0" y="8" font-family="Georgia, serif" font-size="52" fill="#d4a574" text-anchor="middle" font-weight="bold" opacity="0.7">A</text>
+    <!-- Halo / irony ring -->
+    <ellipse cx="0" cy="-55" rx="28" ry="8" fill="none" stroke="#f1c40f" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Right hand - nicotine patch -->
+  <g transform="translate(560, 180)">
+    <!-- Hand silhouette right -->
+    <path d="M 80,80 Q 70,60 50,55 Q 35,50 25,60 L 20,75 Q 18,85 25,95 Q 35,105 50,108 Q 65,110 75,100 Z" fill="#2c3e50" opacity="0.8"/>
+    <!-- Patch -->
+    <rect x="22" y="35" width="40" height="40" rx="6" fill="url(#patch)" stroke="#2ecc71" stroke-width="1"/>
+    <!-- Cross on patch -->
+    <line x1="42" y1="42" x2="42" y2="68" stroke="white" stroke-width="2.5" opacity="0.8"/>
+    <line x1="29" y1="55" x2="55" y2="55" stroke="white" stroke-width="2.5" opacity="0.8"/>
+    <!-- Label -->
+    <text x="42" y="125" font-family="sans-serif" font-size="13" fill="#2ecc71" text-anchor="middle" font-weight="bold">AI 有害</text>
+    <text x="42" y="142" font-family="sans-serif" font-size="11" fill="#999" text-anchor="middle">Safety Research</text>
+  </g>
+
+  <!-- Plato quote area - top -->
+  <text x="400" y="42" font-family="Georgia, serif" font-size="12" fill="#8e7cc3" text-anchor="middle" font-style="italic" opacity="0.7">
+    "你发现的不是记忆的良药，而仅仅是提醒的良药。"
+  </text>
+  <text x="400" y="58" font-family="Georgia, serif" font-size="10" fill="#8e7cc3" text-anchor="middle" opacity="0.5">
+    —— 柏拉图《斐德鲁斯》，公元前 370 年
+  </text>
+
+  <!-- Timeline dots at bottom -->
+  <g transform="translate(0, 390)">
+    <line x1="80" y1="0" x2="720" y2="0" stroke="#555" stroke-width="1" opacity="0.3"/>
+    <!-- Dots -->
+    <circle cx="120" cy="0" r="3" fill="#8e7cc3" opacity="0.5"/>
+    <text x="120" y="18" font-family="monospace" font-size="8" fill="#888" text-anchor="middle">文字</text>
+    <text x="120" y="28" font-family="monospace" font-size="7" fill="#666" text-anchor="middle">370BC</text>
+
+    <circle cx="230" cy="0" r="3" fill="#8e7cc3" opacity="0.5"/>
+    <text x="230" y="18" font-family="monospace" font-size="8" fill="#888" text-anchor="middle">印刷术</text>
+    <text x="230" y="28" font-family="monospace" font-size="7" fill="#666" text-anchor="middle">1440</text>
+
+    <circle cx="340" cy="0" r="3" fill="#8e7cc3" opacity="0.5"/>
+    <text x="340" y="18" font-family="monospace" font-size="8" fill="#888" text-anchor="middle">电话</text>
+    <text x="340" y="28" font-family="monospace" font-size="7" fill="#666" text-anchor="middle">1876</text>
+
+    <circle cx="450" cy="0" r="3" fill="#8e7cc3" opacity="0.5"/>
+    <text x="450" y="18" font-family="monospace" font-size="8" fill="#888" text-anchor="middle">计算器</text>
+    <text x="450" y="28" font-family="monospace" font-size="7" fill="#666" text-anchor="middle">1970s</text>
+
+    <circle cx="560" cy="0" r="3" fill="#8e7cc3" opacity="0.5"/>
+    <text x="560" y="18" font-family="monospace" font-size="8" fill="#888" text-anchor="middle">Google</text>
+    <text x="560" y="28" font-family="monospace" font-size="7" fill="#666" text-anchor="middle">2008</text>
+
+    <circle cx="670" cy="0" r="5" fill="#e74c3c" filter="url(#glow)"/>
+    <text x="670" y="18" font-family="monospace" font-size="8" fill="#e74c3c" text-anchor="middle" font-weight="bold">AI</text>
+    <text x="670" y="28" font-family="monospace" font-size="7" fill="#e74c3c" text-anchor="middle">2026</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="370" font-family="sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold" letter-spacing="3">
+    左 手 卖 烟 ， 右 手 卖 戒 烟 贴
+  </text>
+
+</svg>
