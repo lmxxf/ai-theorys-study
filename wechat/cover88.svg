@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0f3460"/>
+    </linearGradient>
+    <linearGradient id="river" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a5276;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:0.4"/>
+    </linearGradient>
+    <linearGradient id="road1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#e74c3c;stop-opacity:0.3"/>
+    </linearGradient>
+    <linearGradient id="road2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f39c12;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#f39c12;stop-opacity:0.3"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Subtle topographic lines -->
+  <g opacity="0.06" fill="none" stroke="#ffffff" stroke-width="0.5">
+    <ellipse cx="400" cy="200" rx="350" ry="120"/>
+    <ellipse cx="400" cy="210" rx="300" ry="100"/>
+    <ellipse cx="400" cy="220" rx="250" ry="80"/>
+    <ellipse cx="400" cy="230" rx="200" ry="60"/>
+  </g>
+
+  <!-- Han River (汉水) -->
+  <path d="M 350,170 Q 370,220 360,270 Q 350,310 380,350 Q 400,380 420,410"
+        fill="none" stroke="url(#river)" stroke-width="12" stroke-linecap="round" opacity="0.5"/>
+  <!-- Yangtze River (长江) -->
+  <path d="M 100,370 Q 250,355 420,365 Q 550,375 750,360"
+        fill="none" stroke="url(#river)" stroke-width="16" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Route 1: Kublai Khan line (red) 忽必烈线 -->
+  <path d="M 350,55 L 350,120 Q 350,150 350,170 Q 360,230 355,280 Q 350,320 380,360"
+        fill="none" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="8,4" opacity="0.8"/>
+  <!-- Arrow heads along route 1 -->
+  <polygon points="350,120 345,110 355,110" fill="#e74c3c" opacity="0.8"/>
+  <polygon points="355,230 350,220 360,220" fill="#e74c3c" opacity="0.8"/>
+  <polygon points="370,330 365,320 375,320" fill="#e74c3c" opacity="0.8"/>
+
+  <!-- Route 2: Cao Cao line (gold) 曹操线 - branches at 襄阳 -->
+  <path d="M 350,170 Q 320,210 280,250 Q 250,280 230,310 Q 220,340 280,365"
+        fill="none" stroke="#f39c12" stroke-width="2.5" stroke-dasharray="8,4" opacity="0.7"/>
+  <!-- Arrow heads along route 2 -->
+  <polygon points="280,250 275,240 285,240" fill="#f39c12" opacity="0.7"/>
+  <polygon points="250,320 245,310 255,310" fill="#f39c12" opacity="0.7"/>
+
+  <!-- City dots and labels -->
+
+  <!-- 北京 -->
+  <circle cx="350" cy="55" r="6" fill="#ffffff" filter="url(#glow)"/>
+  <text x="370" y="60" font-family="sans-serif" font-size="13" fill="#ffffff" font-weight="bold">北京</text>
+
+  <!-- 南阳 -->
+  <circle cx="350" cy="120" r="5" fill="#e0e0e0" filter="url(#glow)"/>
+  <text x="370" y="125" font-family="sans-serif" font-size="12" fill="#cccccc">南阳</text>
+  <text x="370" y="139" font-family="sans-serif" font-size="9" fill="#888888">1268 / 208</text>
+
+  <!-- 襄阳 - key node where routes split -->
+  <circle cx="350" cy="170" r="7" fill="#e74c3c" filter="url(#glow)"/>
+  <rect x="375" y="157" width="90" height="28" rx="4" fill="#e74c3c" opacity="0.2"/>
+  <text x="420" y="172" font-family="sans-serif" font-size="13" fill="#e74c3c" text-anchor="middle" font-weight="bold">襄阳</text>
+  <text x="420" y="183" font-family="sans-serif" font-size="8" fill="#e74c3c" text-anchor="middle">围城六年</text>
+
+  <!-- 当阳 (Cao Cao route) -->
+  <circle cx="280" cy="250" r="4" fill="#f39c12"/>
+  <text x="235" y="245" font-family="sans-serif" font-size="11" fill="#f39c12">当阳</text>
+  <text x="235" y="257" font-family="sans-serif" font-size="8" fill="#aa8833">长坂坡 208</text>
+
+  <!-- 荆州 -->
+  <circle cx="230" cy="310" r="4" fill="#f39c12"/>
+  <text x="175" y="308" font-family="sans-serif" font-size="11" fill="#f39c12">荆州</text>
+
+  <!-- 赤壁 (Cao Cao's defeat) -->
+  <circle cx="280" cy="365" r="5" fill="#f39c12" filter="url(#glow)"/>
+  <text x="290" y="360" font-family="sans-serif" font-size="11" fill="#f39c12">赤壁</text>
+  <text x="290" y="372" font-family="sans-serif" font-size="8" fill="#aa8833">兵败 208</text>
+  <!-- Fire icon -->
+  <text x="270" y="385" font-size="14">&#x1F525;</text>
+
+  <!-- 钟祥 (Kublai route) -->
+  <circle cx="355" cy="280" r="4" fill="#e74c3c" opacity="0.7"/>
+  <text x="370" y="283" font-family="sans-serif" font-size="10" fill="#cc8888">钟祥</text>
+
+  <!-- 武汉 -->
+  <circle cx="420" cy="365" r="5" fill="#e0e0e0" filter="url(#glow)"/>
+  <text x="435" y="370" font-family="sans-serif" font-size="12" fill="#cccccc">武汉</text>
+  <text x="435" y="382" font-family="sans-serif" font-size="8" fill="#888888">灭宋 1276</text>
+
+  <!-- Legend -->
+  <g transform="translate(580, 60)">
+    <rect x="0" y="0" width="180" height="75" rx="6" fill="#111122" opacity="0.7" stroke="#333" stroke-width="0.5"/>
+    <line x1="15" y1="25" x2="55" y2="25" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="8,4"/>
+    <text x="65" y="29" font-family="sans-serif" font-size="11" fill="#e74c3c">忽必烈 1268</text>
+    <line x1="15" y1="50" x2="55" y2="50" stroke="#f39c12" stroke-width="2.5" stroke-dasharray="8,4"/>
+    <text x="65" y="54" font-family="sans-serif" font-size="11" fill="#f39c12">曹操 208</text>
+  </g>
+
+  <!-- Year markers -->
+  <text x="620" y="170" font-family="monospace" font-size="40" fill="#ffffff" opacity="0.06" font-weight="bold">1268</text>
+  <text x="80" y="340" font-family="monospace" font-size="40" fill="#ffffff" opacity="0.06" font-weight="bold">208</text>
+
+  <!-- Bottom title bar -->
+  <rect x="0" y="415" width="800" height="35" fill="#000000" opacity="0.4"/>
+  <text x="400" y="437" font-family="sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing="2">
+    两场战争，一条路 — 相隔 1060 年
+  </text>
+
+</svg>
