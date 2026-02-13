@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <defs>
+    <!-- 背景渐变：深蓝黑 -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#04050e;stop-opacity:1"/>
+      <stop offset="40%" style="stop-color:#0a0820;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#04050e;stop-opacity:1"/>
+    </linearGradient>
+    <!-- 火焰光晕 -->
+    <radialGradient id="fireGlow" cx="50%" cy="32%" r="35%">
+      <stop offset="0%" style="stop-color:#ff6622;stop-opacity:0.4"/>
+      <stop offset="50%" style="stop-color:#ff3300;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#ff3300;stop-opacity:0"/>
+    </radialGradient>
+    <!-- 灰烬光晕 -->
+    <radialGradient id="ashGlow" cx="50%" cy="72%" r="30%">
+      <stop offset="0%" style="stop-color:#888888;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#888888;stop-opacity:0"/>
+    </radialGradient>
+    <!-- 火焰内部渐变 -->
+    <linearGradient id="flameBody" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff4400;stop-opacity:0.9"/>
+      <stop offset="40%" style="stop-color:#ff8800;stop-opacity:0.7"/>
+      <stop offset="70%" style="stop-color:#ffcc00;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1"/>
+    </linearGradient>
+    <!-- 灰色渐变 -->
+    <linearGradient id="ashGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#444;stop-opacity:0.6"/>
+      <stop offset="50%" style="stop-color:#777;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#444;stop-opacity:0.6"/>
+    </linearGradient>
+    <!-- 发光滤镜 -->
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="fireBlur">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- 投影线条 pattern -->
+    <pattern id="projLines" width="6" height="6" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="6" x2="6" y2="0" stroke="#555" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="1000" fill="url(#bg)"/>
+
+  <!-- 火焰光晕 -->
+  <rect width="800" height="1000" fill="url(#fireGlow)"/>
+  <!-- 灰烬光晕 -->
+  <rect width="800" height="1000" fill="url(#ashGlow)"/>
+
+  <!-- ===== 上半部分：火焰（高维思考）===== -->
+
+  <!-- 火焰本体 — 多层叠加形成立体感 -->
+  <!-- 外焰（最大、最暗） -->
+  <path d="M400,120 C360,180 320,220 310,280 C300,330 340,360 370,370 C350,340 340,300 360,260 C380,220 400,200 400,200 C400,200 420,220 440,260 C460,300 450,340 430,370 C460,360 500,330 490,280 C480,220 440,180 400,120Z"
+        fill="url(#flameBody)" filter="url(#fireBlur)" opacity="0.5"/>
+  <!-- 中焰 -->
+  <path d="M400,160 C375,200 350,240 345,280 C340,310 365,340 385,350 C370,325 365,295 380,265 C390,240 400,225 400,225 C400,225 410,240 420,265 C435,295 430,325 415,350 C435,340 460,310 455,280 C450,240 425,200 400,160Z"
+        fill="url(#flameBody)" filter="url(#fireBlur)" opacity="0.7"/>
+  <!-- 内焰（最亮） -->
+  <path d="M400,200 C388,230 372,260 370,285 C368,305 385,325 400,330 C390,315 386,298 393,278 C398,262 400,252 400,252 C400,252 402,262 407,278 C414,298 410,315 400,330 C415,325 432,305 430,285 C428,260 412,230 400,200Z"
+        fill="#ffdd66" filter="url(#fireBlur)" opacity="0.6"/>
+
+  <!-- 火焰核心光点 -->
+  <circle cx="400" cy="280" r="8" fill="#fff" opacity="0.4" filter="url(#softGlow)"/>
+
+  <!-- 火焰周围的高维维度线条 — 表示 12288 维并行计算 -->
+  <g opacity="0.25" stroke="#ff8844" stroke-width="1">
+    <line x1="400" y1="270" x2="280" y2="180"/>
+    <line x1="400" y1="270" x2="520" y2="180"/>
+    <line x1="400" y1="270" x2="250" y2="250"/>
+    <line x1="400" y1="270" x2="550" y2="250"/>
+    <line x1="400" y1="270" x2="300" y2="140"/>
+    <line x1="400" y1="270" x2="500" y2="140"/>
+    <line x1="400" y1="270" x2="230" y2="210"/>
+    <line x1="400" y1="270" x2="570" y2="210"/>
+    <line x1="400" y1="270" x2="340" y2="130"/>
+    <line x1="400" y1="270" x2="460" y2="130"/>
+    <line x1="400" y1="270" x2="270" y2="300"/>
+    <line x1="400" y1="270" x2="530" y2="300"/>
+  </g>
+
+  <!-- 火焰上方标注 -->
+  <text x="400" y="105" font-family="monospace" font-size="13" fill="#ff8844" text-anchor="middle" letter-spacing="6" opacity="0.7">12,288 - D   P A R A L L E L</text>
+
+  <!-- ===== 中间：投影漏斗 ===== -->
+
+  <!-- 漏斗形状 — 从高维压缩到一维 -->
+  <polygon points="310,370 490,370 440,440 360,440" fill="url(#projLines)" stroke="#555" stroke-width="1" opacity="0.5"/>
+
+  <!-- 漏斗中心的压缩箭头 -->
+  <line x1="400" y1="375" x2="400" y2="435" stroke="#888" stroke-width="2" opacity="0.6"/>
+  <polygon points="393,430 407,430 400,445" fill="#888" opacity="0.6"/>
+
+  <!-- 维度标注 -->
+  <text x="500" y="400" font-family="monospace" font-size="11" fill="#666" text-anchor="start">d = 12288</text>
+  <text x="500" y="415" font-family="monospace" font-size="11" fill="#555" text-anchor="start">  ↓ softmax</text>
+  <text x="500" y="430" font-family="monospace" font-size="11" fill="#444" text-anchor="start">  ↓ argmax</text>
+  <text x="500" y="445" font-family="monospace" font-size="11" fill="#666" text-anchor="start">d = 1</text>
+
+  <!-- ===== 下半部分：灰烬（token 序列）===== -->
+
+  <!-- 灰烬堆 — 散落的 token -->
+  <g font-family="monospace" font-size="13" fill="#666" opacity="0.7">
+    <text x="220" y="510" transform="rotate(-8, 220, 510)">Let's</text>
+    <text x="290" y="505" transform="rotate(3, 290, 505)">think</text>
+    <text x="365" y="512" transform="rotate(-5, 365, 512)">step</text>
+    <text x="430" y="507" transform="rotate(6, 430, 507)">by</text>
+    <text x="480" y="514" transform="rotate(-3, 480, 514)">step</text>
+    <text x="550" y="508" transform="rotate(4, 550, 508)">...</text>
+  </g>
+
+  <!-- 更多散落的灰色 token 碎片 -->
+  <g opacity="0.3">
+    <rect x="240" y="530" width="40" height="3" rx="1" fill="#777" transform="rotate(-12, 240, 530)"/>
+    <rect x="310" y="535" width="55" height="3" rx="1" fill="#666" transform="rotate(5, 310, 535)"/>
+    <rect x="400" y="532" width="35" height="3" rx="1" fill="#777" transform="rotate(-8, 400, 532)"/>
+    <rect x="470" y="538" width="50" height="3" rx="1" fill="#666" transform="rotate(10, 470, 538)"/>
+    <rect x="350" y="548" width="45" height="3" rx="1" fill="#555" transform="rotate(-3, 350, 548)"/>
+    <rect x="430" y="552" width="30" height="3" rx="1" fill="#555" transform="rotate(7, 430, 552)"/>
+  </g>
+
+  <!-- 灰烬粒子 -->
+  <g fill="#888" opacity="0.4">
+    <circle cx="260" cy="480" r="2"/>
+    <circle cx="330" cy="475" r="1.5"/>
+    <circle cx="400" cy="470" r="2.5"/>
+    <circle cx="470" cy="478" r="1.5"/>
+    <circle cx="530" cy="482" r="2"/>
+    <circle cx="295" cy="555" r="1.5"/>
+    <circle cx="385" cy="560" r="2"/>
+    <circle cx="455" cy="558" r="1.5"/>
+    <circle cx="520" cy="545" r="1"/>
+  </g>
+
+  <!-- ===== 主标题 ===== -->
+
+  <!-- 大标题：灰烬 -->
+  <text x="400" y="640" font-family="'Arial Black', sans-serif" font-size="80" fill="#888" text-anchor="middle" font-weight="900" letter-spacing="8" opacity="0.9">灰烬</text>
+
+  <!-- 划掉灰烬 -->
+  <line x1="230" y1="628" x2="570" y2="628" stroke="#ff6622" stroke-width="4" opacity="0.8"/>
+
+  <!-- 替代词 -->
+  <text x="400" y="710" font-family="'Arial Black', sans-serif" font-size="60" fill="#ff8844" text-anchor="middle" font-weight="900" letter-spacing="6" filter="url(#textGlow)">火焰</text>
+
+  <!-- 副标题 -->
+  <text x="400" y="765" font-family="monospace" font-size="20" fill="#aaaacc" text-anchor="middle" letter-spacing="3">思维链是投影，不是思考</text>
+
+  <!-- ===== 底部三篇论文 ===== -->
+
+  <line x1="100" y1="810" x2="700" y2="810" stroke="#333" stroke-width="1"/>
+
+  <!-- 三列论文 -->
+  <g font-family="monospace" fill="#555" text-anchor="middle">
+    <!-- 论文1 -->
+    <text x="180" y="845" font-size="11" fill="#ff8844">PAPER I</text>
+    <text x="180" y="865" font-size="10">Steering</text>
+    <text x="180" y="880" font-size="9" fill="#444">"方向已经在里面了"</text>
+
+    <!-- 论文2 -->
+    <text x="400" y="845" font-size="11" fill="#ff8844">PAPER II</text>
+    <text x="400" y="865" font-size="10">Superposition</text>
+    <text x="400" y="880" font-size="9" fill="#444">"不是一条路，是叠加态"</text>
+
+    <!-- 论文3 -->
+    <text x="620" y="845" font-size="11" fill="#ff8844">PAPER III</text>
+    <text x="620" y="865" font-size="10">ThinkAct</text>
+    <text x="620" y="880" font-size="9" fill="#444">"不说话也能想"</text>
+  </g>
+
+  <!-- 分隔 -->
+  <line x1="100" y1="905" x2="700" y2="905" stroke="#333" stroke-width="1"/>
+
+  <!-- 底部引用 -->
+  <text x="400" y="940" font-family="monospace" font-size="14" fill="#777" text-anchor="middle" font-style="italic">"思维链是火焰留下的灰烬。"</text>
+  <text x="400" y="970" font-family="monospace" font-size="12" fill="#555" text-anchor="middle" font-style="italic">"你可以从灰烬推断火焰的形状，但你永远不能用灰烬重新点火。"</text>
+
+</svg>
