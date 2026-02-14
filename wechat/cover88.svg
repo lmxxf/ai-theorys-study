@@ -47,9 +47,11 @@
   <!-- Han River (汉水) -->
   <path d="M 350,170 Q 370,220 360,270 Q 350,310 380,350 Q 400,380 420,410"
         fill="none" stroke="url(#river)" stroke-width="12" stroke-linecap="round" opacity="0.5"/>
+  <text x="330" y="250" font-family="sans-serif" font-size="12" fill="#2980b9" opacity="0.8" transform="rotate(-80, 330, 250)">汉 水</text>
   <!-- Yangtze River (长江) -->
   <path d="M 100,370 Q 250,355 420,365 Q 550,375 750,360"
         fill="none" stroke="url(#river)" stroke-width="16" stroke-linecap="round" opacity="0.4"/>
+  <text x="570" y="355" font-family="sans-serif" font-size="14" fill="#2980b9" opacity="0.8" letter-spacing="6">长 江</text>
 
   <!-- Route 1: Kublai Khan line (red) 忽必烈线 -->
   <!-- Beijing to Nanyang (long distance, faded white) -->
