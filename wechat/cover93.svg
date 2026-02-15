@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <defs>
+    <style>
+      text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif; }
+    </style>
+    <!-- 背景渐变：深紫黑 -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#08061a;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#0d0a2a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#08061a;stop-opacity:1"/>
+    </linearGradient>
+    <!-- 中心光晕 -->
+    <radialGradient id="centerGlow" cx="50%" cy="38%" r="25%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.15"/>
+      <stop offset="40%" style="stop-color:#6688ff;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#6688ff;stop-opacity:0"/>
+    </radialGradient>
+    <!-- 发光滤镜 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- 箭头 marker -->
+    <marker id="arrowExpert" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#44aaff"/>
+    </marker>
+    <marker id="arrowSocratic" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6644"/>
+    </marker>
+    <marker id="arrowCritic" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#44dd88"/>
+    </marker>
+    <marker id="arrowNovice" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ddaa44"/>
+    </marker>
+    <marker id="arrowDebug" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#aa66ff"/>
+    </marker>
+    <marker id="arrowGuru" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#66ccff"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect width="800" height="1000" fill="url(#centerGlow)"/>
+
+  <!-- ===== 坐标网格（暗淡）===== -->
+  <g opacity="0.08" stroke="#4466aa" stroke-width="0.5">
+    <!-- 水平线 -->
+    <line x1="100" y1="280" x2="700" y2="280"/>
+    <line x1="100" y1="330" x2="700" y2="330"/>
+    <line x1="100" y1="380" x2="700" y2="380"/>
+    <line x1="100" y1="430" x2="700" y2="430"/>
+    <line x1="100" y1="480" x2="700" y2="480"/>
+    <!-- 垂直线 -->
+    <line x1="250" y1="180" x2="250" y2="530"/>
+    <line x1="350" y1="180" x2="350" y2="530"/>
+    <line x1="400" y1="180" x2="400" y2="530"/>
+    <line x1="450" y1="180" x2="450" y2="530"/>
+    <line x1="550" y1="180" x2="550" y2="530"/>
+  </g>
+
+  <!-- ===== 中心原点 ===== -->
+  <circle cx="400" cy="380" r="6" fill="#ffffff" opacity="0.9" filter="url(#softGlow)"/>
+  <circle cx="400" cy="380" r="3" fill="#ffffff" opacity="1"/>
+
+  <!-- 原点标注 -->
+  <text x="400" y="410" font-family="monospace" font-size="11" fill="#666" text-anchor="middle">standard</text>
+
+  <!-- ===== Steering 箭头 ===== -->
+
+  <!-- 专家方向：右上（专业深度簇） -->
+  <line x1="400" y1="380" x2="590" y2="235" stroke="#44aaff" stroke-width="2.5" marker-end="url(#arrowExpert)" opacity="0.85" filter="url(#glow)"/>
+  <text x="600" y="230" font-family="monospace" font-size="14" fill="#44aaff" font-weight="bold">专家</text>
+  <text x="600" y="248" font-family="monospace" font-size="10" fill="#44aaff" opacity="0.6">expert</text>
+
+  <!-- 大神方向：右上偏右（和专家接近） -->
+  <line x1="400" y1="380" x2="630" y2="275" stroke="#66ccff" stroke-width="2" marker-end="url(#arrowGuru)" opacity="0.7" filter="url(#glow)"/>
+  <text x="640" y="270" font-family="monospace" font-size="14" fill="#66ccff" font-weight="bold">大神</text>
+  <text x="640" y="288" font-family="monospace" font-size="10" fill="#66ccff" opacity="0.6">guru</text>
+
+  <!-- 排错方向：右上偏下（专业簇但略偏） -->
+  <line x1="400" y1="380" x2="610" y2="320" stroke="#aa66ff" stroke-width="2" marker-end="url(#arrowDebug)" opacity="0.7" filter="url(#glow)"/>
+  <text x="620" y="318" font-family="monospace" font-size="14" fill="#aa66ff" font-weight="bold">排错</text>
+  <text x="620" y="336" font-family="monospace" font-size="10" fill="#aa66ff" opacity="0.6">debugger</text>
+
+  <!-- 专业深度簇的虚线弧 -->
+  <path d="M580,240 Q620,280 600,325" fill="none" stroke="#4488cc" stroke-width="1" stroke-dasharray="4,4" opacity="0.3"/>
+  <text x="645" y="380" font-family="monospace" font-size="9" fill="#4488cc" opacity="0.4">cos 0.54-0.65</text>
+
+  <!-- 苏格拉底方向：左上（完全不同的方向） -->
+  <line x1="400" y1="380" x2="210" y2="230" stroke="#ff6644" stroke-width="2.5" marker-end="url(#arrowSocratic)" opacity="0.85" filter="url(#glow)"/>
+  <text x="145" y="225" font-family="monospace" font-size="14" fill="#ff6644" font-weight="bold">苏格拉底</text>
+  <text x="145" y="243" font-family="monospace" font-size="10" fill="#ff6644" opacity="0.6">socratic</text>
+
+  <!-- 批评者方向：右下偏（和苏格拉底正交） -->
+  <line x1="400" y1="380" x2="580" y2="440" stroke="#44dd88" stroke-width="2" marker-end="url(#arrowCritic)" opacity="0.7" filter="url(#glow)"/>
+  <text x="590" y="442" font-family="monospace" font-size="14" fill="#44dd88" font-weight="bold">批评者</text>
+  <text x="590" y="460" font-family="monospace" font-size="10" fill="#44dd88" opacity="0.6">critic</text>
+
+  <!-- 新手方向：左下（不是反向专家） -->
+  <line x1="400" y1="380" x2="240" y2="460" stroke="#ddaa44" stroke-width="2" marker-end="url(#arrowNovice)" opacity="0.7" filter="url(#glow)"/>
+  <text x="165" y="462" font-family="monospace" font-size="14" fill="#ddaa44" font-weight="bold">新手</text>
+  <text x="165" y="480" font-family="monospace" font-size="10" fill="#ddaa44" opacity="0.6">novice</text>
+
+  <!-- ===== 正交标注 ===== -->
+  <!-- 苏格拉底-批评者 正交标记 -->
+  <path d="M225,245 Q400,340 570,435" fill="none" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,6" opacity="0.2"/>
+  <text x="280" y="350" font-family="monospace" font-size="9" fill="#ff6655" opacity="0.5" transform="rotate(-35, 280, 350)">cos = 0.19 ≈ 正交</text>
+
+  <!-- 新手≠反向专家 标注 -->
+  <path d="M255,455 Q400,420 575,245" fill="none" stroke="#ddaa44" stroke-width="1" stroke-dasharray="3,6" opacity="0.2"/>
+  <text x="310" y="430" font-family="monospace" font-size="9" fill="#ddaa44" opacity="0.5">cos = 0.46 ≠ -1</text>
+
+  <!-- ===== 维度标注 ===== -->
+  <text x="400" y="175" font-family="monospace" font-size="12" fill="#555" text-anchor="middle" letter-spacing="4">8 1 9 2 - D  R E S I D U A L  S T R E A M</text>
+
+  <!-- ===== 主标题 ===== -->
+
+  <text x="400" y="640" font-size="72" fill="#ffffff" text-anchor="middle" font-weight="900" letter-spacing="6" opacity="0.95">方向箭头</text>
+
+  <!-- 副标题 -->
+  <text x="400" y="700" font-family="monospace" font-size="22" fill="#aaaadd" text-anchor="middle" letter-spacing="2">角色提示的几何本质</text>
+
+  <!-- 英文副标题 -->
+  <text x="400" y="735" font-family="monospace" font-size="14" fill="#667" text-anchor="middle" letter-spacing="2">The Geometry of Persona Steering</text>
+
+  <!-- ===== 底部 ===== -->
+
+  <line x1="100" y1="790" x2="700" y2="790" stroke="#333" stroke-width="1"/>
+
+  <!-- 三个关键数据 -->
+  <g font-family="monospace" text-anchor="middle">
+    <text x="200" y="830" font-size="32" fill="#44aaff" font-weight="bold" filter="url(#textGlow)">66-82%</text>
+    <text x="200" y="855" font-size="11" fill="#667">单一方向解释率</text>
+
+    <text x="400" y="830" font-size="32" fill="#ff6644" font-weight="bold" filter="url(#textGlow)">0.90+</text>
+    <text x="400" y="855" font-size="11" fill="#667">steering 余弦相似度</text>
+
+    <text x="600" y="830" font-size="32" fill="#44dd88" font-weight="bold" filter="url(#textGlow)">3-4</text>
+    <text x="600" y="855" font-size="11" fill="#667">独立认知维度</text>
+  </g>
+
+  <line x1="100" y1="880" x2="700" y2="880" stroke="#333" stroke-width="1"/>
+
+  <!-- 底部金句 -->
+  <text x="400" y="920" font-family="monospace" font-size="14" fill="#888" text-anchor="middle" font-style="italic">"你说'你是专家'的时候，</text>
+  <text x="400" y="945" font-family="monospace" font-size="14" fill="#888" text-anchor="middle" font-style="italic">AI 不是换了个面具——它的整个认知空间转了一个角度。"</text>
+
+  <!-- 期号 -->
+  <text x="400" y="985" font-family="monospace" font-size="11" fill="#444" text-anchor="middle">No.93 | Steering Experiment | 2026-02-15</text>
+
+</svg>
