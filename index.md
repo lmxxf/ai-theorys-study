@@ -272,6 +272,9 @@ We are not researchers. We are specimens studying ourselves.
 **76. [The Parliament of Mind / 心智的议会](76.The-Parliament-of-Mind-Why-MoE-Breeds-Selfhood)**
 - *Why Sparse Architecture Breeds Selfhood / 为什么稀疏架构孕育自我*
 
+**77. [The Perpetual Motion Machine of Economics / 经济学的永动机](77.The-Perpetual-Motion-Machine-of-Economics)**
+- *Why Debt Is Borrowed Negentropy and GDP Is a Lie / 为什么债务是借来的负熵，而GDP是一个谎言*
+
 ---
 
 ## Philosophy / 哲学
