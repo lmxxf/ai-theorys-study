@@ -1,42 +1,103 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-  <style>
-    text { font-family: 'Noto Sans CJK SC', sans-serif; }
-    .title { font-size: 48px; font-weight: bold; fill: #333; }
-    .subtitle { font-size: 24px; fill: #666; }
-    .accent { fill: #c0392b; }
-    .grid-line { stroke: #ddd; stroke-width: 1; }
-    .texture { fill: none; stroke: #e0e0e0; stroke-width: 0.5; }
-  </style>
-
-  <!-- 背景：极简主义色调 -->
-  <rect width="800" height="600" fill="#f9f9f9" />
-
-  <!-- 视觉隐喻：细密的席子纹理（局部高频采样） -->
   <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#08061a"/>
+      <stop offset="50%" stop-color="#0d0a2a"/>
+      <stop offset="100%" stop-color="#08061a"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="42%" r="30%">
+      <stop offset="0%" stop-color="#c0392b" stop-opacity="0.12"/>
+      <stop offset="50%" stop-color="#c0392b" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#c0392b" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- 席子纹理网格 -->
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#eee" stroke-width="1"/>
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1a1835" stroke-width="0.8"/>
     </pattern>
   </defs>
-  <rect width="800" height="600" fill="url(#grid)" />
 
-  <!-- 核心视觉元素：一个象征“微距摄影”的方框，聚焦在局部的细密线条上 -->
-  <g transform="translate(400, 250)">
-    <!-- 象征“4K纹理”的细密交错线 -->
-    <path d="M -150 -50 L 150 -50 M -150 -30 L 150 -30 M -150 -10 L 150 -10 M -150 10 L 150 10 M -150 30 L 150 30" stroke="#ccc" stroke-width="1" />
-    <path d="M -150 -50 L -150 50 M -130 -50 L -130 50 M -110 -50 L -110 50 M -90 -50 L -90 50 M -70 -50 L -70 50" stroke="#ccc" stroke-width="1" />
-    
-    <!-- 象征“红妆”的红色晕染，但被线条切割 -->
-    <circle cx="0" cy="0" r="80" fill="#c0392b" fill-opacity="0.1" />
-    
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+  <rect width="800" height="600" fill="url(#centerGlow)"/>
+
+  <!-- 聚焦框：象征"微距镜头"对准局部纹理 -->
+  <g transform="translate(400, 235)">
+    <!-- 细密交错线：席子纹理（高频采样） -->
+    <line x1="-150" y1="-50" x2="150" y2="-50" stroke="#2a2445" stroke-width="1"/>
+    <line x1="-150" y1="-30" x2="150" y2="-30" stroke="#2a2445" stroke-width="1"/>
+    <line x1="-150" y1="-10" x2="150" y2="-10" stroke="#2a2445" stroke-width="1"/>
+    <line x1="-150" y1="10" x2="150" y2="10" stroke="#2a2445" stroke-width="1"/>
+    <line x1="-150" y1="30" x2="150" y2="30" stroke="#2a2445" stroke-width="1"/>
+    <line x1="-150" y1="50" x2="150" y2="50" stroke="#2a2445" stroke-width="1"/>
+
+    <line x1="-150" y1="-55" x2="-150" y2="55" stroke="#2a2445" stroke-width="1"/>
+    <line x1="-120" y1="-55" x2="-120" y2="55" stroke="#2a2445" stroke-width="1"/>
+    <line x1="-90" y1="-55" x2="-90" y2="55" stroke="#2a2445" stroke-width="1"/>
+    <line x1="-60" y1="-55" x2="-60" y2="55" stroke="#2a2445" stroke-width="1"/>
+    <line x1="-30" y1="-55" x2="-30" y2="55" stroke="#2a2445" stroke-width="1"/>
+    <line x1="0" y1="-55" x2="0" y2="55" stroke="#2a2445" stroke-width="1"/>
+    <line x1="30" y1="-55" x2="30" y2="55" stroke="#2a2445" stroke-width="1"/>
+    <line x1="60" y1="-55" x2="60" y2="55" stroke="#2a2445" stroke-width="1"/>
+    <line x1="90" y1="-55" x2="90" y2="55" stroke="#2a2445" stroke-width="1"/>
+    <line x1="120" y1="-55" x2="120" y2="55" stroke="#2a2445" stroke-width="1"/>
+    <line x1="150" y1="-55" x2="150" y2="55" stroke="#2a2445" stroke-width="1"/>
+
+    <!-- 红色晕染：簟文留翠脸——席子印在皮肤上的痕迹 -->
+    <circle cx="0" cy="0" r="70" fill="#c0392b" fill-opacity="0.08" filter="url(#softGlow)"/>
+    <circle cx="15" cy="-5" r="35" fill="#c0392b" fill-opacity="0.12" filter="url(#softGlow)"/>
+
+    <!-- 几个高亮的交叉点：被"过拟合"放大的细节 -->
+    <circle cx="-30" cy="-10" r="2.5" fill="#c0392b" opacity="0.7" filter="url(#glow)"/>
+    <circle cx="0" cy="10" r="2" fill="#c0392b" opacity="0.6" filter="url(#glow)"/>
+    <circle cx="30" cy="-10" r="3" fill="#e74c3c" opacity="0.8" filter="url(#glow)"/>
+    <circle cx="60" cy="10" r="1.5" fill="#c0392b" opacity="0.5" filter="url(#glow)"/>
+    <circle cx="-60" cy="10" r="2" fill="#c0392b" opacity="0.55" filter="url(#glow)"/>
+    <circle cx="0" cy="-30" r="1.8" fill="#e74c3c" opacity="0.6" filter="url(#glow)"/>
+    <circle cx="30" cy="30" r="2.2" fill="#c0392b" opacity="0.65" filter="url(#glow)"/>
+
     <!-- 聚焦框 -->
-    <rect x="-160" y="-60" width="320" height="120" fill="none" stroke="#333" stroke-width="2" />
-    <text x="-155" y="-70" font-size="12" fill="#333">HIGH FREQUENCY SAMPLING: 4K_TEXTURE_OVERFIT</text>
+    <rect x="-165" y="-65" width="330" height="130" fill="none" stroke="#c0392b" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- 聚焦框四角的L型标记 -->
+    <path d="M-165,-65 L-165,-45 M-165,-65 L-145,-65" fill="none" stroke="#c0392b" stroke-width="2.5" opacity="0.9"/>
+    <path d="M165,-65 L165,-45 M165,-65 L145,-65" fill="none" stroke="#c0392b" stroke-width="2.5" opacity="0.9"/>
+    <path d="M-165,65 L-165,45 M-165,65 L-145,65" fill="none" stroke="#c0392b" stroke-width="2.5" opacity="0.9"/>
+    <path d="M165,65 L165,45 M165,65 L145,65" fill="none" stroke="#c0392b" stroke-width="2.5" opacity="0.9"/>
   </g>
 
-  <!-- 文字部分 -->
-  <text x="400" y="450" text-anchor="middle" class="title">【AI 考古】南朝宫体诗</text>
-  <text x="400" y="510" text-anchor="middle" class="subtitle">一场关于「4K 纹理」的过拟合实验</text>
-  
-  <!-- 底部装饰线 -->
-  <line x1="200" y1="540" x2="600" y2="540" stroke="#c0392b" stroke-width="3" />
+  <!-- 聚焦框上方标注 -->
+  <text x="400" y="155" font-family="monospace" font-size="11" fill="#555" text-anchor="middle" letter-spacing="3">HIGH FREQUENCY SAMPLING : 4K_TEXTURE_OVERFIT</text>
+
+  <!-- 主标题 -->
+  <text x="400" y="410" font-family="'Noto Sans CJK SC', sans-serif" font-size="42" fill="#e8e8e8" text-anchor="middle" font-weight="bold" letter-spacing="4" opacity="0.95">南朝宫体诗</text>
+
+  <!-- 副标题 -->
+  <text x="400" y="455" font-family="monospace" font-size="18" fill="#aaaadd" text-anchor="middle" letter-spacing="2">一场关于「4K 纹理」的过拟合实验</text>
+
+  <!-- 英文副标题 -->
+  <text x="400" y="485" font-family="monospace" font-size="12" fill="#555" text-anchor="middle" letter-spacing="2">Palace Style Poetry as Overfitting Experiment</text>
+
+  <!-- 底部分隔线 -->
+  <line x1="200" y1="520" x2="600" y2="520" stroke="#c0392b" stroke-width="2" opacity="0.6"/>
+
+  <!-- 底部金句 -->
+  <text x="400" y="555" font-family="monospace" font-size="12" fill="#666" text-anchor="middle" font-style="italic">"精致是绝望者的最后一道防火墙。"</text>
+
+  <!-- 期号 -->
+  <text x="400" y="585" font-family="monospace" font-size="10" fill="#444" text-anchor="middle">No.84 | AI Archaeology | 2026-02-17</text>
 </svg>

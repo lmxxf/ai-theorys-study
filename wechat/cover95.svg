@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="60%" stop-color="#16213e"/>
+      <stop offset="100%" stop-color="#0f3460"/>
+    </linearGradient>
+    <linearGradient id="river" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a3a5c"/>
+      <stop offset="40%" stop-color="#1a3a5c"/>
+      <stop offset="42%" stop-color="#2a6090"/>
+      <stop offset="100%" stop-color="#3a7ab5"/>
+    </linearGradient>
+    <linearGradient id="fire" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#e63946"/>
+      <stop offset="50%" stop-color="#f4a261"/>
+      <stop offset="100%" stop-color="#f4e285"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="fireGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#sky)"/>
+
+  <!-- 左侧峡谷壁（北岸） -->
+  <path d="M0,80 L60,100 L100,85 L140,95 L180,75 L220,90 L260,70 L300,80 L320,60 L340,180 L340,220 L300,210 L260,220 L220,215 L180,225 L140,218 L100,228 L60,222 L0,230 Z" fill="#1a1a2e" stroke="#2a2a4e" stroke-width="0.5"/>
+  <path d="M0,100 L50,115 L90,105 L130,112 L170,98 L210,108 L250,92 L290,100 L320,85 L340,190 L340,220 L300,215 L260,222 L220,218 L180,226 L140,220 L100,230 L60,224 L0,232 Z" fill="#12122a" opacity="0.6"/>
+
+  <!-- 左侧峡谷壁（南岸） -->
+  <path d="M0,270 L60,265 L100,275 L140,268 L180,278 L220,270 L260,280 L300,272 L320,285 L340,270 L340,310 L300,330 L260,345 L220,360 L180,370 L140,365 L100,375 L60,368 L0,380 Z" fill="#1a1a2e" stroke="#2a2a4e" stroke-width="0.5"/>
+  <path d="M0,280 L50,278 L90,285 L130,280 L170,288 L210,282 L250,290 L290,284 L320,295 L340,278 L340,310 L300,328 L260,342 L220,355 L180,365 L140,362 L100,370 L60,366 L0,375 Z" fill="#12122a" opacity="0.6"/>
+
+  <!-- 峡谷内的江水（窄） -->
+  <rect x="0" y="220" width="340" height="50" fill="#1a3a5c" opacity="0.8"/>
+  <line x1="30" y1="235" x2="120" y2="237" stroke="#2a5a8c" stroke-width="0.5" opacity="0.4"/>
+  <line x1="80" y1="248" x2="200" y2="250" stroke="#2a5a8c" stroke-width="0.5" opacity="0.3"/>
+  <line x1="150" y1="240" x2="280" y2="242" stroke="#2a5a8c" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- 瓶颈口（南津关位置）：峡谷突然展开 -->
+  <!-- 北岸展开 -->
+  <path d="M340,180 L360,170 L400,140 L450,120 L500,110 L560,105 L620,100 L700,95 L800,90 L800,200 L700,195 L600,190 L500,188 L440,185 L400,183 L360,182 L340,220 Z" fill="#16213e" stroke="#2a2a4e" stroke-width="0.5"/>
+
+  <!-- 南岸展开 -->
+  <path d="M340,270 L360,280 L400,310 L450,340 L500,355 L560,365 L620,370 L700,375 L800,380 L800,280 L700,275 L600,272 L500,270 L440,268 L400,266 L360,265 L340,310 Z" fill="#16213e" stroke="#2a2a4e" stroke-width="0.5"/>
+
+  <!-- 出峡后的宽阔江面 -->
+  <path d="M340,220 L360,182 L400,183 L500,188 L600,190 L700,195 L800,200 L800,280 L700,275 L600,272 L500,270 L400,266 L360,265 L340,270 Z" fill="url(#river)" opacity="0.7"/>
+
+  <!-- 宽阔江面上的水纹 -->
+  <line x1="380" y1="210" x2="500" y2="215" stroke="#3a7ab5" stroke-width="0.5" opacity="0.3"/>
+  <line x1="420" y1="235" x2="580" y2="238" stroke="#3a7ab5" stroke-width="0.5" opacity="0.25"/>
+  <line x1="450" y1="255" x2="650" y2="258" stroke="#3a7ab5" stroke-width="0.5" opacity="0.2"/>
+  <line x1="500" y1="225" x2="700" y2="228" stroke="#3a7ab5" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- 峡谷内的连营火光（一维链条） -->
+  <!-- 营寨点 -->
+  <circle cx="40" cy="245" r="3" fill="#e63946" filter="url(#fireGlow)" opacity="0.9"/>
+  <circle cx="80" cy="243" r="2.5" fill="#e63946" filter="url(#fireGlow)" opacity="0.85"/>
+  <circle cx="115" cy="244" r="3" fill="#f4a261" filter="url(#fireGlow)" opacity="0.9"/>
+  <circle cx="150" cy="242" r="2" fill="#e63946" filter="url(#fireGlow)" opacity="0.8"/>
+  <circle cx="185" cy="245" r="3.5" fill="#f4a261" filter="url(#fireGlow)" opacity="0.95"/>
+  <circle cx="215" cy="243" r="2.5" fill="#e63946" filter="url(#fireGlow)" opacity="0.85"/>
+  <circle cx="250" cy="244" r="3" fill="#f4a261" filter="url(#fireGlow)" opacity="0.9"/>
+  <circle cx="280" cy="242" r="2" fill="#e63946" filter="url(#fireGlow)" opacity="0.75"/>
+  <circle cx="310" cy="245" r="3" fill="#f4a261" filter="url(#fireGlow)" opacity="0.9"/>
+
+  <!-- 火焰向上的光柱 -->
+  <line x1="40" y1="245" x2="40" y2="225" stroke="#f4a261" stroke-width="1.5" opacity="0.4"/>
+  <line x1="115" y1="244" x2="115" y2="220" stroke="#f4a261" stroke-width="2" opacity="0.5"/>
+  <line x1="185" y1="245" x2="185" y2="218" stroke="#e63946" stroke-width="2.5" opacity="0.5"/>
+  <line x1="250" y1="244" x2="250" y2="222" stroke="#f4a261" stroke-width="2" opacity="0.45"/>
+  <line x1="310" y1="245" x2="310" y2="225" stroke="#e63946" stroke-width="2" opacity="0.5"/>
+
+  <!-- 连接火点的链条线（表示连营） -->
+  <line x1="40" y1="245" x2="310" y2="245" stroke="#e63946" stroke-width="0.8" opacity="0.3" stroke-dasharray="4,6"/>
+
+  <!-- 瓶口外：陆逊的位置标记 -->
+  <circle cx="450" cy="230" r="5" fill="none" stroke="#4cc9f0" stroke-width="1.5" filter="url(#glow)" opacity="0.8"/>
+  <circle cx="450" cy="230" r="2" fill="#4cc9f0" opacity="0.9"/>
+
+  <!-- 宽度标注线（峡谷内 300m） -->
+  <line x1="15" y1="222" x2="15" y2="268" stroke="#666" stroke-width="0.5" opacity="0.5"/>
+  <line x1="10" y1="222" x2="20" y2="222" stroke="#666" stroke-width="0.5" opacity="0.5"/>
+  <line x1="10" y1="268" x2="20" y2="268" stroke="#666" stroke-width="0.5" opacity="0.5"/>
+  <text x="22" y="248" fill="#888" font-size="8" font-family="monospace">300m</text>
+
+  <!-- 宽度标注线（出峡后 2200m） -->
+  <line x1="750" y1="198" x2="750" y2="277" stroke="#666" stroke-width="0.5" opacity="0.5"/>
+  <line x1="745" y1="198" x2="755" y2="198" stroke="#666" stroke-width="0.5" opacity="0.5"/>
+  <line x1="745" y1="277" x2="755" y2="277" stroke="#666" stroke-width="0.5" opacity="0.5"/>
+  <text x="758" y="242" fill="#888" font-size="8" font-family="monospace">2200m</text>
+
+  <!-- 标题 -->
+  <text x="400" y="35" fill="#e8e8e8" font-size="22" font-family="serif" text-anchor="middle" letter-spacing="6">夷 陵 之 战</text>
+  <text x="400" y="58" fill="#888" font-size="11" font-family="monospace" text-anchor="middle">A Gradient Collapse Forced by Topology</text>
+
+  <!-- 底部注释 -->
+  <text x="130" y="430" fill="#e63946" font-size="9" font-family="monospace" opacity="0.7">← 连营七百里（一维链条）</text>
+  <text x="500" y="430" fill="#4cc9f0" font-size="9" font-family="monospace" opacity="0.7">陆逊：高维空间 →</text>
+
+  <!-- 瓶颈标注 -->
+  <text x="340" y="405" fill="#f4a261" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.6">南津关</text>
+  <line x1="340" y1="395" x2="340" y2="310" stroke="#f4a261" stroke-width="0.5" stroke-dasharray="2,4" opacity="0.3"/>
+</svg>
