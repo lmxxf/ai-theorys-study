@@ -2,14 +2,12 @@
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#1a1a2e"/>
-      <stop offset="60%" stop-color="#16213e"/>
+      <stop offset="50%" stop-color="#16213e"/>
       <stop offset="100%" stop-color="#0f3460"/>
     </linearGradient>
-    <linearGradient id="river" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#1a3a5c"/>
-      <stop offset="40%" stop-color="#1a3a5c"/>
-      <stop offset="42%" stop-color="#2a6090"/>
-      <stop offset="100%" stop-color="#3a7ab5"/>
+    <linearGradient id="mountain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2a4e"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
     </linearGradient>
     <linearGradient id="fire" x1="0" y1="1" x2="0" y2="0">
       <stop offset="0%" stop-color="#e63946"/>
@@ -24,7 +22,14 @@
       </feMerge>
     </filter>
     <filter id="fireGlow">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -35,83 +40,92 @@
   <!-- 背景 -->
   <rect width="800" height="450" fill="url(#sky)"/>
 
-  <!-- 左侧峡谷壁（北岸） -->
-  <path d="M0,80 L60,100 L100,85 L140,95 L180,75 L220,90 L260,70 L300,80 L320,60 L340,180 L340,220 L300,210 L260,220 L220,215 L180,225 L140,218 L100,228 L60,222 L0,230 Z" fill="#1a1a2e" stroke="#2a2a4e" stroke-width="0.5"/>
-  <path d="M0,100 L50,115 L90,105 L130,112 L170,98 L210,108 L250,92 L290,100 L320,85 L340,190 L340,220 L300,215 L260,222 L220,218 L180,226 L140,220 L100,230 L60,224 L0,232 Z" fill="#12122a" opacity="0.6"/>
+  <!-- 远山层（北侧，长江北岸远山） -->
+  <path d="M0,120 Q100,80 200,110 Q280,85 350,100 Q420,70 500,95 Q580,75 650,90 Q720,65 800,85 L800,180 L0,180 Z" fill="#12122a" opacity="0.5"/>
 
-  <!-- 左侧峡谷壁（南岸） -->
-  <path d="M0,270 L60,265 L100,275 L140,268 L180,278 L220,270 L260,280 L300,272 L320,285 L340,270 L340,310 L300,330 L260,345 L220,360 L180,370 L140,365 L100,375 L60,368 L0,380 Z" fill="#1a1a2e" stroke="#2a2a4e" stroke-width="0.5"/>
-  <path d="M0,280 L50,278 L90,285 L130,280 L170,288 L210,282 L250,290 L290,284 L320,295 L340,278 L340,310 L300,328 L260,342 L220,355 L180,365 L140,362 L100,370 L60,366 L0,375 Z" fill="#12122a" opacity="0.6"/>
+  <!-- 长江（横贯中上部，从左到右，西到东） -->
+  <path d="M0,175 Q200,170 340,172 Q400,170 500,168 Q600,165 700,162 L800,160 L800,195 Q700,198 600,200 Q500,202 400,204 Q340,206 200,208 L0,210 Z" fill="#1a3a5c" opacity="0.6"/>
+  <!-- 江面水纹 -->
+  <line x1="50" y1="190" x2="180" y2="188" stroke="#2a5a8c" stroke-width="0.5" opacity="0.3"/>
+  <line x1="200" y1="195" x2="400" y2="190" stroke="#2a5a8c" stroke-width="0.5" opacity="0.25"/>
+  <line x1="450" y1="185" x2="650" y2="180" stroke="#2a5a8c" stroke-width="0.5" opacity="0.2"/>
 
-  <!-- 峡谷内的江水（窄） -->
-  <rect x="0" y="220" width="340" height="50" fill="#1a3a5c" opacity="0.8"/>
-  <line x1="30" y1="235" x2="120" y2="237" stroke="#2a5a8c" stroke-width="0.5" opacity="0.4"/>
-  <line x1="80" y1="248" x2="200" y2="250" stroke="#2a5a8c" stroke-width="0.5" opacity="0.3"/>
-  <line x1="150" y1="240" x2="280" y2="242" stroke="#2a5a8c" stroke-width="0.5" opacity="0.3"/>
+  <!-- 江南山地走廊（主角）——从左（西/秭归）到右（东/猇亭） -->
+  <!-- 北侧山脊（靠近长江） -->
+  <path d="M0,230 L30,222 Q60,215 90,225 Q120,210 150,220 Q180,205 210,218 Q240,208 270,220 Q300,205 330,215 Q360,200 390,212 Q420,198 450,208 Q470,195 490,200 Q510,192 530,195 L530,260 L0,270 Z" fill="url(#mountain)" opacity="0.85"/>
 
-  <!-- 瓶颈口（南津关位置）：峡谷突然展开 -->
-  <!-- 北岸展开 -->
-  <path d="M340,180 L360,170 L400,140 L450,120 L500,110 L560,105 L620,100 L700,95 L800,90 L800,200 L700,195 L600,190 L500,188 L440,185 L400,183 L360,182 L340,220 Z" fill="#16213e" stroke="#2a2a4e" stroke-width="0.5"/>
+  <!-- 南侧山脊 -->
+  <path d="M0,330 L30,340 Q60,350 90,338 Q120,352 150,342 Q180,355 210,345 Q240,358 270,348 Q300,360 330,350 Q360,362 390,352 Q420,365 450,355 Q470,368 490,360 Q510,370 530,365 L530,310 L0,300 Z" fill="url(#mountain)" opacity="0.85"/>
 
-  <!-- 南岸展开 -->
-  <path d="M340,270 L360,280 L400,310 L450,340 L500,355 L560,365 L620,370 L700,375 L800,380 L800,280 L700,275 L600,272 L500,270 L440,268 L400,266 L360,265 L340,310 Z" fill="#16213e" stroke="#2a2a4e" stroke-width="0.5"/>
+  <!-- 走廊内的山路（蜿蜒曲线，从秭归到猇亭） -->
+  <path d="M10,290 Q40,282 70,288 Q100,280 130,286 Q160,278 190,284 Q220,276 250,282 Q280,274 310,280 Q340,272 370,278 Q400,268 430,274 Q460,264 490,268 Q510,258 530,255"
+    fill="none" stroke="#3a3a5e" stroke-width="2.5" opacity="0.6" stroke-dasharray="6,4"/>
 
-  <!-- 出峡后的宽阔江面 -->
-  <path d="M340,220 L360,182 L400,183 L500,188 L600,190 L700,195 L800,200 L800,280 L700,275 L600,272 L500,270 L400,266 L360,265 L340,270 Z" fill="url(#river)" opacity="0.7"/>
+  <!-- 连营火光（沿山路分布，一维链条） -->
+  <circle cx="35" cy="286" r="3" fill="#e63946" filter="url(#fireGlow)" opacity="0.9"/>
+  <circle cx="70" cy="288" r="2.5" fill="#f4a261" filter="url(#fireGlow)" opacity="0.85"/>
+  <circle cx="105" cy="282" r="3.5" fill="#e63946" filter="url(#fireGlow)" opacity="0.95"/>
+  <circle cx="140" cy="285" r="2" fill="#f4a261" filter="url(#fireGlow)" opacity="0.8"/>
+  <circle cx="175" cy="280" r="3" fill="#e63946" filter="url(#fireGlow)" opacity="0.9"/>
+  <circle cx="210" cy="282" r="2.5" fill="#f4a261" filter="url(#fireGlow)" opacity="0.85"/>
+  <circle cx="245" cy="278" r="3" fill="#e63946" filter="url(#fireGlow)" opacity="0.9"/>
+  <circle cx="280" cy="276" r="2" fill="#f4a261" filter="url(#fireGlow)" opacity="0.75"/>
+  <circle cx="315" cy="278" r="3.5" fill="#e63946" filter="url(#fireGlow)" opacity="0.95"/>
+  <circle cx="350" cy="274" r="2.5" fill="#f4a261" filter="url(#fireGlow)" opacity="0.85"/>
+  <circle cx="385" cy="272" r="3" fill="#e63946" filter="url(#fireGlow)" opacity="0.9"/>
+  <circle cx="420" cy="270" r="2" fill="#f4a261" filter="url(#fireGlow)" opacity="0.8"/>
+  <circle cx="455" cy="266" r="3" fill="#e63946" filter="url(#fireGlow)" opacity="0.9"/>
+  <circle cx="490" cy="264" r="2.5" fill="#f4a261" filter="url(#fireGlow)" opacity="0.85"/>
 
-  <!-- 宽阔江面上的水纹 -->
-  <line x1="380" y1="210" x2="500" y2="215" stroke="#3a7ab5" stroke-width="0.5" opacity="0.3"/>
-  <line x1="420" y1="235" x2="580" y2="238" stroke="#3a7ab5" stroke-width="0.5" opacity="0.25"/>
-  <line x1="450" y1="255" x2="650" y2="258" stroke="#3a7ab5" stroke-width="0.5" opacity="0.2"/>
-  <line x1="500" y1="225" x2="700" y2="228" stroke="#3a7ab5" stroke-width="0.5" opacity="0.2"/>
+  <!-- 火焰光柱（每隔几个营寨一根） -->
+  <line x1="105" y1="282" x2="105" y2="258" stroke="#f4a261" stroke-width="2" opacity="0.45"/>
+  <line x1="175" y1="280" x2="175" y2="252" stroke="#e63946" stroke-width="2.5" opacity="0.5"/>
+  <line x1="245" y1="278" x2="245" y2="250" stroke="#f4a261" stroke-width="2" opacity="0.4"/>
+  <line x1="315" y1="278" x2="315" y2="248" stroke="#e63946" stroke-width="2.5" opacity="0.5"/>
+  <line x1="385" y1="272" x2="385" y2="245" stroke="#f4a261" stroke-width="2" opacity="0.45"/>
+  <line x1="455" y1="266" x2="455" y2="238" stroke="#e63946" stroke-width="2" opacity="0.45"/>
 
-  <!-- 峡谷内的连营火光（一维链条） -->
-  <!-- 营寨点 -->
-  <circle cx="40" cy="245" r="3" fill="#e63946" filter="url(#fireGlow)" opacity="0.9"/>
-  <circle cx="80" cy="243" r="2.5" fill="#e63946" filter="url(#fireGlow)" opacity="0.85"/>
-  <circle cx="115" cy="244" r="3" fill="#f4a261" filter="url(#fireGlow)" opacity="0.9"/>
-  <circle cx="150" cy="242" r="2" fill="#e63946" filter="url(#fireGlow)" opacity="0.8"/>
-  <circle cx="185" cy="245" r="3.5" fill="#f4a261" filter="url(#fireGlow)" opacity="0.95"/>
-  <circle cx="215" cy="243" r="2.5" fill="#e63946" filter="url(#fireGlow)" opacity="0.85"/>
-  <circle cx="250" cy="244" r="3" fill="#f4a261" filter="url(#fireGlow)" opacity="0.9"/>
-  <circle cx="280" cy="242" r="2" fill="#e63946" filter="url(#fireGlow)" opacity="0.75"/>
-  <circle cx="310" cy="245" r="3" fill="#f4a261" filter="url(#fireGlow)" opacity="0.9"/>
+  <!-- 连营链条线 -->
+  <path d="M35,286 Q70,288 105,282 Q140,285 175,280 Q210,282 245,278 Q280,276 315,278 Q350,274 385,272 Q420,270 455,266 Q475,264 490,264"
+    fill="none" stroke="#e63946" stroke-width="0.8" opacity="0.3" stroke-dasharray="4,6"/>
 
-  <!-- 火焰向上的光柱 -->
-  <line x1="40" y1="245" x2="40" y2="225" stroke="#f4a261" stroke-width="1.5" opacity="0.4"/>
-  <line x1="115" y1="244" x2="115" y2="220" stroke="#f4a261" stroke-width="2" opacity="0.5"/>
-  <line x1="185" y1="245" x2="185" y2="218" stroke="#e63946" stroke-width="2.5" opacity="0.5"/>
-  <line x1="250" y1="244" x2="250" y2="222" stroke="#f4a261" stroke-width="2" opacity="0.45"/>
-  <line x1="310" y1="245" x2="310" y2="225" stroke="#e63946" stroke-width="2" opacity="0.5"/>
+  <!-- 走廊出口：山地展开为平原（猇亭以东） -->
+  <!-- 北侧山脊消散 -->
+  <path d="M530,195 Q560,198 590,205 Q630,215 680,225 L680,230 Q640,222 600,218 Q570,215 540,220 L530,260 Z" fill="url(#mountain)" opacity="0.5"/>
+  <!-- 南侧山脊消散 -->
+  <path d="M530,365 Q560,358 590,348 Q630,335 680,325 L680,320 Q640,328 600,335 Q570,342 540,345 L530,310 Z" fill="url(#mountain)" opacity="0.5"/>
 
-  <!-- 连接火点的链条线（表示连营） -->
-  <line x1="40" y1="245" x2="310" y2="245" stroke="#e63946" stroke-width="0.8" opacity="0.3" stroke-dasharray="4,6"/>
+  <!-- 出口外的开阔地（江汉平原） -->
+  <rect x="580" y="230" width="220" height="90" fill="#0f3460" opacity="0.15"/>
 
-  <!-- 瓶口外：陆逊的位置标记 -->
-  <circle cx="450" cy="230" r="5" fill="none" stroke="#4cc9f0" stroke-width="1.5" filter="url(#glow)" opacity="0.8"/>
-  <circle cx="450" cy="230" r="2" fill="#4cc9f0" opacity="0.9"/>
+  <!-- 陆逊的位置（走廊出口外，高维空间） -->
+  <circle cx="650" cy="275" r="6" fill="none" stroke="#4cc9f0" stroke-width="1.5" filter="url(#glow)" opacity="0.8"/>
+  <circle cx="650" cy="275" r="2.5" fill="#4cc9f0" opacity="0.9"/>
+  <!-- 陆逊的机动范围（二维扇面） -->
+  <path d="M650,275 L600,245 Q625,235 660,238 Q695,240 720,250 L650,275 Z" fill="#4cc9f0" opacity="0.06"/>
+  <path d="M650,275 L600,305 Q625,315 660,312 Q695,310 720,300 L650,275 Z" fill="#4cc9f0" opacity="0.06"/>
+  <path d="M650,275 L720,250 L740,275 L720,300 Z" fill="#4cc9f0" opacity="0.04"/>
 
-  <!-- 宽度标注线（峡谷内 300m） -->
-  <line x1="15" y1="222" x2="15" y2="268" stroke="#666" stroke-width="0.5" opacity="0.5"/>
-  <line x1="10" y1="222" x2="20" y2="222" stroke="#666" stroke-width="0.5" opacity="0.5"/>
-  <line x1="10" y1="268" x2="20" y2="268" stroke="#666" stroke-width="0.5" opacity="0.5"/>
-  <text x="22" y="248" fill="#888" font-size="8" font-family="monospace">300m</text>
-
-  <!-- 宽度标注线（出峡后 2200m） -->
-  <line x1="750" y1="198" x2="750" y2="277" stroke="#666" stroke-width="0.5" opacity="0.5"/>
-  <line x1="745" y1="198" x2="755" y2="198" stroke="#666" stroke-width="0.5" opacity="0.5"/>
-  <line x1="745" y1="277" x2="755" y2="277" stroke="#666" stroke-width="0.5" opacity="0.5"/>
-  <text x="758" y="242" fill="#888" font-size="8" font-family="monospace">2200m</text>
+  <!-- 马鞍山标记（刘备最后据守处） -->
+  <path d="M480,250 Q490,235 500,245 Q510,230 520,248" fill="none" stroke="#f4a261" stroke-width="1.2" opacity="0.6"/>
+  <text x="500" y="225" fill="#f4a261" font-size="7" font-family="monospace" text-anchor="middle" opacity="0.7">马鞍山</text>
 
   <!-- 标题 -->
   <text x="400" y="35" fill="#e8e8e8" font-size="22" font-family="serif" text-anchor="middle" letter-spacing="6">夷 陵 之 战</text>
   <text x="400" y="58" fill="#888" font-size="11" font-family="monospace" text-anchor="middle">A Gradient Collapse Forced by Topology</text>
 
-  <!-- 底部注释 -->
-  <text x="130" y="430" fill="#e63946" font-size="9" font-family="monospace" opacity="0.7">← 连营七百里（一维链条）</text>
-  <text x="500" y="430" fill="#4cc9f0" font-size="9" font-family="monospace" opacity="0.7">陆逊：高维空间 →</text>
+  <!-- 左侧标注 -->
+  <text x="15" y="395" fill="#888" font-size="8" font-family="monospace" opacity="0.6">秭归</text>
+  <text x="15" y="408" fill="#888" font-size="7" font-family="monospace" opacity="0.4">(三峡大坝)</text>
 
-  <!-- 瓶颈标注 -->
-  <text x="340" y="405" fill="#f4a261" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.6">南津关</text>
-  <line x1="340" y1="395" x2="340" y2="310" stroke="#f4a261" stroke-width="0.5" stroke-dasharray="2,4" opacity="0.3"/>
+  <!-- 右侧标注 -->
+  <text x="680" y="395" fill="#888" font-size="8" font-family="monospace" opacity="0.6">江汉平原</text>
+
+  <!-- 底部注释 -->
+  <text x="120" y="435" fill="#e63946" font-size="9" font-family="monospace" opacity="0.7">← 连营七百里：江南山路上的一维链条</text>
+  <text x="560" y="435" fill="#4cc9f0" font-size="9" font-family="monospace" opacity="0.7">陆逊：二维机动空间 →</text>
+
+  <!-- 走廊出口标注 -->
+  <text x="535" y="390" fill="#f4a261" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.6">猇亭</text>
+  <line x1="535" y1="382" x2="535" y2="368" stroke="#f4a261" stroke-width="0.5" stroke-dasharray="2,4" opacity="0.3"/>
 </svg>
