@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540">
+  <defs>
+    <style>
+      text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif; }
+    </style>
+    <!-- 背景渐变：深蓝到深灰 -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="50%" stop-color="#0d1225"/>
+      <stop offset="100%" stop-color="#080b14"/>
+    </linearGradient>
+    <!-- 北方（曹魏）方向的战火光芒：温暖的红金色 -->
+    <radialGradient id="warGlow" cx="15%" cy="5%" r="50%">
+      <stop offset="0%" stop-color="#ff4444" stop-opacity="0.3"/>
+      <stop offset="25%" stop-color="#ff8800" stop-opacity="0.15"/>
+      <stop offset="60%" stop-color="#ffcc00" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <!-- 东吴方向冷色威胁雾气 -->
+    <radialGradient id="threatGlow" cx="90%" cy="55%" r="45%">
+      <stop offset="0%" stop-color="#1a0a4a" stop-opacity="0.7"/>
+      <stop offset="40%" stop-color="#0c0830" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Context Window 擦除渐变（从上往下遮盖） -->
+    <linearGradient id="eraseFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1020" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#0b1020" stop-opacity="0.7"/>
+      <stop offset="70%" stop-color="#0b1020" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0b1020" stop-opacity="0"/>
+    </linearGradient>
+    <!-- 发光滤镜 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- 注意力箭头 marker -->
+    <marker id="attArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ffaa33" opacity="0.9"/>
+    </marker>
+    <!-- 阴影箭头（东吴） -->
+    <marker id="shadowArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4455cc" opacity="0.6"/>
+    </marker>
+  </defs>
+
+  <!-- ========== 背景层 ========== -->
+  <rect width="800" height="540" fill="url(#bg)"/>
+  <rect width="800" height="540" fill="url(#warGlow)"/>
+  <rect width="800" height="540" fill="url(#threatGlow)"/>
+
+  <!-- 暗淡背景网格 -->
+  <g opacity="0.04" stroke="#4466aa" stroke-width="0.5">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="260" x2="800" y2="260"/>
+    <line x1="0" y1="340" x2="800" y2="340"/>
+    <line x1="0" y1="420" x2="800" y2="420"/>
+    <line x1="160" y1="0" x2="160" y2="540"/>
+    <line x1="320" y1="0" x2="320" y2="540"/>
+    <line x1="480" y1="0" x2="480" y2="540"/>
+    <line x1="640" y1="0" x2="640" y2="540"/>
+  </g>
+
+  <!-- ========== 东吴暗影区域（右半部分的威胁氛围） ========== -->
+  <!-- 大面积冷蓝色雾气 -->
+  <ellipse cx="720" cy="370" rx="200" ry="180" fill="#0a0830" opacity="0.35"/>
+  <ellipse cx="750" cy="340" rx="120" ry="100" fill="#120a44" opacity="0.25"/>
+
+  <!-- ========== 五城弧线连接 ========== -->
+  <!-- 城市位置：襄阳(130,155) → 宜昌(260,220) → 荆州(400,275) → 咸宁(540,325) → 武汉(660,370) -->
+  <path d="M130,155 Q195,188 260,220 Q330,248 400,275 Q470,300 540,325 Q600,348 660,370"
+    fill="none" stroke="#334466" stroke-width="1.5" opacity="0.45" stroke-dasharray="8,4"/>
+
+  <!-- 襄阳 -->
+  <circle cx="130" cy="155" r="5.5" fill="#ff6633" filter="url(#glow)" opacity="0.95"/>
+  <circle cx="130" cy="155" r="2.5" fill="#ffcc66"/>
+  <text x="130" y="143" fill="#cc8844" font-size="10" font-family="monospace" text-anchor="middle" opacity="0.9">襄阳</text>
+
+  <!-- 宜昌 -->
+  <circle cx="260" cy="220" r="4" fill="#886644" filter="url(#glow)" opacity="0.7"/>
+  <circle cx="260" cy="220" r="2" fill="#aa8855"/>
+  <text x="260" y="210" fill="#887755" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.7">宜昌</text>
+
+  <!-- 荆州（核心，最大，脉冲效果） -->
+  <circle cx="400" cy="275" r="12" fill="#dd3333" filter="url(#bigGlow)" opacity="0.3"/>
+  <circle cx="400" cy="275" r="7" fill="#dd4444" filter="url(#softGlow)" opacity="0.9"/>
+  <circle cx="400" cy="275" r="3.5" fill="#ffaa66"/>
+  <text x="400" y="262" fill="#ff8844" font-size="12" font-family="monospace" text-anchor="middle" font-weight="bold" opacity="1">荆州</text>
+
+  <!-- 咸宁 -->
+  <circle cx="540" cy="325" r="4" fill="#335588" filter="url(#glow)" opacity="0.55"/>
+  <circle cx="540" cy="325" r="2" fill="#5577aa"/>
+  <text x="540" y="315" fill="#556688" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.55">咸宁</text>
+
+  <!-- 武汉 -->
+  <circle cx="660" cy="370" r="4.5" fill="#2244aa" filter="url(#glow)" opacity="0.5"/>
+  <circle cx="660" cy="370" r="2" fill="#4466cc"/>
+  <text x="660" y="360" fill="#4466aa" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.5">武汉</text>
+
+  <!-- ========== 关羽（襄阳位置） ========== -->
+  <g transform="translate(110, 175)">
+    <!-- 身体 -->
+    <line x1="0" y1="2" x2="0" y2="30" stroke="#ff6633" stroke-width="2.8" opacity="0.9"/>
+    <!-- 头 -->
+    <circle cx="0" cy="-5" r="6.5" fill="none" stroke="#ff6633" stroke-width="2.2" opacity="0.9"/>
+    <!-- 青龙偃月刀 -->
+    <line x1="-14" y1="-20" x2="14" y2="10" stroke="#ffcc44" stroke-width="2" opacity="0.85"/>
+    <path d="M14,10 Q20,5 16,-1 Q18,7 14,10" fill="#ffcc44" opacity="0.7"/>
+    <!-- 双臂 -->
+    <line x1="-12" y1="12" x2="12" y2="12" stroke="#ff6633" stroke-width="2" opacity="0.8"/>
+    <!-- 标签 -->
+    <text x="0" y="48" fill="#ff8844" font-size="11" font-family="monospace" text-anchor="middle" font-weight="bold">关羽</text>
+  </g>
+
+  <!-- ========== Attention 光束：全部射向北方 ========== -->
+  <g filter="url(#glow)">
+    <line x1="110" y1="163" x2="70" y2="52" stroke="#ffaa33" stroke-width="2.2" marker-end="url(#attArrow)" opacity="0.9"/>
+    <line x1="115" y1="160" x2="120" y2="48" stroke="#ffaa33" stroke-width="2" marker-end="url(#attArrow)" opacity="0.8"/>
+    <line x1="120" y1="163" x2="170" y2="55" stroke="#ffaa33" stroke-width="1.6" marker-end="url(#attArrow)" opacity="0.7"/>
+    <line x1="105" y1="162" x2="28" y2="68" stroke="#ff8833" stroke-width="1.3" marker-end="url(#attArrow)" opacity="0.55"/>
+    <line x1="125" y1="166" x2="210" y2="72" stroke="#ff8833" stroke-width="1" marker-end="url(#attArrow)" opacity="0.4"/>
+  </g>
+
+  <!-- Attention Score 标注 -->
+  <text x="52" y="40" fill="#ffaa44" font-size="8" font-family="monospace" opacity="0.75">attn=0.92</text>
+  <text x="122" y="36" fill="#ffaa44" font-size="8" font-family="monospace" opacity="0.65">attn=0.88</text>
+  <text x="178" y="46" fill="#ffaa44" font-size="7" font-family="monospace" opacity="0.5">attn=0.73</text>
+
+  <!-- 北方标注：曹魏 -->
+  <text x="120" y="30" fill="#ff6644" font-size="12" font-family="monospace" text-anchor="middle" font-weight="bold" opacity="0.85">[ 曹魏 . 樊城 ]</text>
+
+  <!-- ========== 东吴阴影：从右侧逼近 ========== -->
+  <!-- 多条暗蓝阴影箭头（东吴入侵） -->
+  <g filter="url(#glow)">
+    <line x1="760" y1="360" x2="575" y2="330" stroke="#3355cc" stroke-width="2.5" marker-end="url(#shadowArrow)" opacity="0.55"/>
+    <line x1="770" y1="400" x2="555" y2="355" stroke="#2a44bb" stroke-width="2.2" marker-end="url(#shadowArrow)" opacity="0.48"/>
+    <line x1="750" y1="320" x2="600" y2="300" stroke="#4466dd" stroke-width="2" marker-end="url(#shadowArrow)" opacity="0.42"/>
+    <line x1="780" y1="440" x2="545" y2="375" stroke="#2233aa" stroke-width="1.8" marker-end="url(#shadowArrow)" opacity="0.38"/>
+    <line x1="740" y1="280" x2="620" y2="278" stroke="#3355bb" stroke-width="1.5" marker-end="url(#shadowArrow)" opacity="0.32"/>
+    <line x1="780" y1="465" x2="530" y2="395" stroke="#1a2299" stroke-width="1.2" marker-end="url(#shadowArrow)" opacity="0.25"/>
+    <line x1="755" y1="255" x2="640" y2="260" stroke="#2244aa" stroke-width="1" marker-end="url(#shadowArrow)" opacity="0.2"/>
+  </g>
+
+  <!-- 吕蒙 / 东吴标注 -->
+  <text x="725" y="242" fill="#5577ee" font-size="12" font-family="monospace" font-weight="bold" opacity="0.6">吕蒙</text>
+  <text x="710" y="258" fill="#4466cc" font-size="9" font-family="monospace" opacity="0.45">白衣渡江</text>
+  <text x="745" y="480" fill="#3355bb" font-size="10" font-family="monospace" opacity="0.4">[ 东吴 ]</text>
+
+  <!-- ========== Context Window 框（荆州下方） ========== -->
+  <rect x="328" y="295" width="144" height="100" rx="4" ry="4" fill="#0b1020" fill-opacity="0.6" stroke="#556688" stroke-width="1.2" opacity="0.7"/>
+  <!-- 框顶部标签 -->
+  <text x="400" y="310" fill="#8899aa" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.8">CONTEXT WINDOW</text>
+  <line x1="336" y1="316" x2="464" y2="316" stroke="#445566" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- 数据行（从下往上逐渐消失） -->
+  <!-- 第五行（底部）：尚可见 -->
+  <text x="338" y="385" fill="#8899aa" font-size="7" font-family="monospace" opacity="0.6">荆州 defense = NULL</text>
+  <!-- 第四行 -->
+  <text x="338" y="372" fill="#778899" font-size="7" font-family="monospace" opacity="0.5">supply_chain: CUT</text>
+  <!-- 第三行 -->
+  <text x="338" y="359" fill="#667788" font-size="7" font-family="monospace" opacity="0.4">warn: 吕蒙白衣渡江</text>
+  <!-- 第二行：几乎消失 -->
+  <text x="338" y="346" fill="#556677" font-size="7" font-family="monospace" opacity="0.25">糜芳 betrayal ████</text>
+  <!-- 第一行：已擦除 -->
+  <text x="338" y="333" fill="#445566" font-size="7" font-family="monospace" opacity="0.1">士仁 surrender ████</text>
+
+  <!-- 擦除遮罩（上方渐变覆盖，模拟数据消失） -->
+  <rect x="329" y="317" width="142" height="35" fill="url(#eraseFade)"/>
+
+  <!-- 删除线扫过的视觉效果 -->
+  <line x1="336" y1="333" x2="464" y2="333" stroke="#cc3333" stroke-width="0.5" opacity="0.3"/>
+  <line x1="336" y1="346" x2="440" y2="346" stroke="#cc3333" stroke-width="0.4" opacity="0.2"/>
+
+  <!-- OVERFLOW 警告 -->
+  <text x="400" y="410" fill="#cc3333" font-size="9" font-family="monospace" text-anchor="middle" font-weight="bold" opacity="0.75">[OVERFLOW] tokens exceeded</text>
+
+  <!-- ========== 右上角 Attention 分布面板 ========== -->
+  <g transform="translate(610, 60)">
+    <rect x="0" y="0" width="170" height="68" rx="3" ry="3" fill="#0a0e1a" fill-opacity="0.85" stroke="#334455" stroke-width="0.8" opacity="0.75"/>
+    <text x="85" y="15" fill="#8899aa" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.8">Attention Distribution</text>
+    <line x1="8" y1="20" x2="162" y2="20" stroke="#334455" stroke-width="0.5" opacity="0.4"/>
+    <!-- 北方 bar -->
+    <rect x="12" y="28" width="125" height="9" rx="2" ry="2" fill="#ff8833" opacity="0.75"/>
+    <text x="142" y="37" fill="#ffaa44" font-size="7" font-family="monospace" opacity="0.8">N 92%</text>
+    <!-- 东方 bar -->
+    <rect x="12" y="43" width="10" height="9" rx="2" ry="2" fill="#3355aa" opacity="0.5"/>
+    <text x="28" y="52" fill="#4466aa" font-size="7" font-family="monospace" opacity="0.55">E  3%</text>
+    <!-- 其他 -->
+    <rect x="12" y="57" width="6" height="4" rx="1" ry="1" fill="#556677" opacity="0.3"/>
+    <text x="24" y="62" fill="#556677" font-size="6" font-family="monospace" opacity="0.4">other 5%</text>
+  </g>
+
+  <!-- ========== 主标题 ========== -->
+  <line x1="80" y1="470" x2="720" y2="470" stroke="#223344" stroke-width="0.5" opacity="0.4"/>
+
+  <text x="400" y="500" fill="#e8e8e8" font-size="26" text-anchor="middle" font-weight="900" letter-spacing="4" opacity="0.95">大意失荆州</text>
+  <text x="400" y="522" fill="#778899" font-size="11" font-family="monospace" text-anchor="middle" letter-spacing="1" opacity="0.6">Context Window Overflow</text>
+
+  <!-- 左上角系列标记 -->
+  <text x="15" y="25" fill="#445566" font-size="9" font-family="monospace" opacity="0.5">AI 考古 | No.94</text>
+
+</svg>
