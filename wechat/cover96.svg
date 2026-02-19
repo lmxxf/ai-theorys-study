@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540">
+  <defs>
+    <style>
+      text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif; }
+    </style>
+    <!-- 背景渐变：深蓝到深灰 -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="50%" stop-color="#0d1225"/>
+      <stop offset="100%" stop-color="#080b14"/>
+    </linearGradient>
+    <!-- 上游火光（左上角） -->
+    <radialGradient id="fireGlow" cx="22%" cy="25%" r="40%">
+      <stop offset="0%" stop-color="#ff4400" stop-opacity="0.35"/>
+      <stop offset="30%" stop-color="#ff6600" stop-opacity="0.15"/>
+      <stop offset="60%" stop-color="#ff8800" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <!-- 下游冷蓝（右下角） -->
+    <radialGradient id="coldGlow" cx="80%" cy="70%" r="40%">
+      <stop offset="0%" stop-color="#1a2a6a" stop-opacity="0.4"/>
+      <stop offset="40%" stop-color="#0c1840" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <!-- 发光滤镜 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- 火船箭头 -->
+    <marker id="fireArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6600" opacity="0.9"/>
+    </marker>
+    <!-- 风向箭头 -->
+    <marker id="windArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#88bbcc" opacity="0.7"/>
+    </marker>
+    <!-- 长江水面渐变 -->
+    <linearGradient id="riverGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a3355" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#0d2040" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#1a2a55" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ========== 背景层 ========== -->
+  <rect width="800" height="540" fill="url(#bg)"/>
+  <rect width="800" height="540" fill="url(#fireGlow)"/>
+  <rect width="800" height="540" fill="url(#coldGlow)"/>
+
+  <!-- 暗淡背景网格 -->
+  <g opacity="0.04" stroke="#4466aa" stroke-width="0.5">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="260" x2="800" y2="260"/>
+    <line x1="0" y1="340" x2="800" y2="340"/>
+    <line x1="0" y1="420" x2="800" y2="420"/>
+    <line x1="160" y1="0" x2="160" y2="540"/>
+    <line x1="320" y1="0" x2="320" y2="540"/>
+    <line x1="480" y1="0" x2="480" y2="540"/>
+    <line x1="640" y1="0" x2="640" y2="540"/>
+  </g>
+
+  <!-- ========== 长江河道（从左上流向右下） ========== -->
+  <!-- 宽阔的河道 -->
+  <path d="M60,140 Q180,180 280,230 Q380,275 460,300 Q540,325 620,350 Q700,375 780,410"
+    fill="none" stroke="#1a3355" stroke-width="65" opacity="0.3" stroke-linecap="round"/>
+  <!-- 河道中心线 -->
+  <path d="M60,140 Q180,180 280,230 Q380,275 460,300 Q540,325 620,350 Q700,375 780,410"
+    fill="none" stroke="#2a4a70" stroke-width="1.5" opacity="0.4" stroke-dasharray="12,6"/>
+  <!-- 河面水波纹 -->
+  <path d="M90,125 Q170,160 260,210" fill="none" stroke="#2a4a70" stroke-width="0.5" opacity="0.2"/>
+  <path d="M80,155 Q160,195 250,245" fill="none" stroke="#2a4a70" stroke-width="0.5" opacity="0.2"/>
+  <path d="M500,290 Q580,315 660,340" fill="none" stroke="#2a4a70" stroke-width="0.5" opacity="0.2"/>
+  <path d="M510,320 Q590,345 670,370" fill="none" stroke="#2a4a70" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- 上游/下游标注 -->
+  <text x="95" y="115" fill="#556688" font-size="8" font-family="monospace" opacity="0.6">上游 / Upstream</text>
+  <text x="85" y="127" fill="#556688" font-size="7" font-family="monospace" opacity="0.45">江陵方向</text>
+  <text x="660" y="425" fill="#556688" font-size="8" font-family="monospace" opacity="0.6">下游 / Downstream</text>
+  <text x="660" y="437" fill="#556688" font-size="7" font-family="monospace" opacity="0.45">柴桑方向</text>
+
+  <!-- ========== 曹操船队（上游左上，连环船，正在燃烧） ========== -->
+  <g filter="url(#glow)">
+    <!-- 连环船：首尾相连的多条船 -->
+    <!-- 船1 -->
+    <path d="M130,175 L150,170 L170,175 L150,180 Z" fill="#553322" stroke="#884422" stroke-width="1" opacity="0.8"/>
+    <!-- 锁链连接 -->
+    <line x1="170" y1="175" x2="185" y2="183" stroke="#886644" stroke-width="1.2" opacity="0.6" stroke-dasharray="3,2"/>
+    <!-- 船2 -->
+    <path d="M185,183 L205,178 L225,183 L205,188 Z" fill="#553322" stroke="#884422" stroke-width="1" opacity="0.8"/>
+    <!-- 锁链连接 -->
+    <line x1="225" y1="183" x2="240" y2="195" stroke="#886644" stroke-width="1.2" opacity="0.6" stroke-dasharray="3,2"/>
+    <!-- 船3 -->
+    <path d="M240,195 L260,190 L280,195 L260,200 Z" fill="#553322" stroke="#884422" stroke-width="1" opacity="0.8"/>
+    <!-- 锁链连接 -->
+    <line x1="280" y1="195" x2="295" y2="208" stroke="#886644" stroke-width="1.2" opacity="0.6" stroke-dasharray="3,2"/>
+    <!-- 船4 -->
+    <path d="M295,208 L315,203 L335,208 L315,213 Z" fill="#553322" stroke="#884422" stroke-width="1" opacity="0.8"/>
+    <!-- 锁链连接 -->
+    <line x1="335" y1="208" x2="348" y2="220" stroke="#886644" stroke-width="1.2" opacity="0.6" stroke-dasharray="3,2"/>
+    <!-- 船5 -->
+    <path d="M348,220 L368,215 L388,220 L368,225 Z" fill="#553322" stroke="#884422" stroke-width="1" opacity="0.8"/>
+  </g>
+
+  <!-- 火焰效果覆盖船队 -->
+  <g filter="url(#bigGlow)">
+    <!-- 大火笼罩 -->
+    <ellipse cx="200" cy="175" rx="50" ry="30" fill="#ff4400" opacity="0.2"/>
+    <ellipse cx="260" cy="192" rx="55" ry="28" fill="#ff6600" opacity="0.18"/>
+    <ellipse cx="330" cy="210" rx="50" ry="25" fill="#ff5500" opacity="0.15"/>
+    <ellipse cx="370" cy="218" rx="35" ry="20" fill="#ff7700" opacity="0.12"/>
+  </g>
+  <!-- 火焰尖端 -->
+  <g filter="url(#glow)">
+    <path d="M145,170 Q150,150 155,165" fill="none" stroke="#ff6600" stroke-width="1.5" opacity="0.7"/>
+    <path d="M195,168 Q202,145 208,163" fill="none" stroke="#ffaa00" stroke-width="1.8" opacity="0.8"/>
+    <path d="M220,172 Q225,152 230,168" fill="none" stroke="#ff5500" stroke-width="1.5" opacity="0.7"/>
+    <path d="M255,185 Q262,160 268,180" fill="none" stroke="#ff7700" stroke-width="2" opacity="0.75"/>
+    <path d="M285,188 Q290,168 295,185" fill="none" stroke="#ff6600" stroke-width="1.5" opacity="0.65"/>
+    <path d="M310,198 Q318,175 324,195" fill="none" stroke="#ffaa00" stroke-width="1.8" opacity="0.7"/>
+    <path d="M345,210 Q350,190 356,208" fill="none" stroke="#ff5500" stroke-width="1.5" opacity="0.6"/>
+    <path d="M370,212 Q375,195 380,210" fill="none" stroke="#ff8800" stroke-width="1.2" opacity="0.55"/>
+  </g>
+
+  <!-- 曹操标注 -->
+  <text x="260" y="155" fill="#ff8844" font-size="11" font-family="monospace" font-weight="bold" opacity="0.85">[ 曹操 . 连环船 ]</text>
+  <text x="260" y="167" fill="#cc6633" font-size="7" font-family="monospace" opacity="0.6">status: BURNING</text>
+
+  <!-- ========== 火船（黄盖）从下游冲向上游 ========== -->
+  <g filter="url(#glow)">
+    <!-- 火船1 -->
+    <line x1="560" y1="335" x2="400" y2="235" stroke="#ff6600" stroke-width="2.5" marker-end="url(#fireArrow)" opacity="0.85"/>
+    <!-- 火船2 -->
+    <line x1="540" y1="348" x2="380" y2="248" stroke="#ff5500" stroke-width="2" marker-end="url(#fireArrow)" opacity="0.7"/>
+    <!-- 火船3 -->
+    <line x1="550" y1="360" x2="360" y2="240" stroke="#ff7700" stroke-width="1.8" marker-end="url(#fireArrow)" opacity="0.6"/>
+  </g>
+  <!-- 火船标注 -->
+  <text x="455" y="280" fill="#ff9944" font-size="9" font-family="monospace" opacity="0.75">黄盖火船</text>
+  <text x="455" y="292" fill="#cc7733" font-size="7" font-family="monospace" opacity="0.55">downstream -> upstream</text>
+
+  <!-- ========== 孙刘联军（下游右下，冷蓝色） ========== -->
+  <!-- 联军阵地 -->
+  <ellipse cx="650" cy="375" rx="60" ry="40" fill="#0a1840" opacity="0.4"/>
+  <g filter="url(#glow)">
+    <!-- 小船（散开的） -->
+    <path d="M610,365 L625,360 L640,365 L625,370 Z" fill="none" stroke="#3366cc" stroke-width="1.2" opacity="0.6"/>
+    <path d="M640,375 L655,370 L670,375 L655,380 Z" fill="none" stroke="#3366cc" stroke-width="1.2" opacity="0.6"/>
+    <path d="M660,390 L675,385 L690,390 L675,395 Z" fill="none" stroke="#3366cc" stroke-width="1.2" opacity="0.6"/>
+    <path d="M625,385 L640,380 L655,385 L640,390 Z" fill="none" stroke="#2255bb" stroke-width="1" opacity="0.5"/>
+  </g>
+  <!-- 联军标注 -->
+  <text x="650" y="350" fill="#4477cc" font-size="11" font-family="monospace" font-weight="bold" opacity="0.75">[ 孙刘联军 ]</text>
+  <text x="650" y="362" fill="#3366aa" font-size="7" font-family="monospace" opacity="0.5">status: READY</text>
+
+  <!-- ========== 东南风箭头（从右下吹向左上） ========== -->
+  <g filter="url(#glow)">
+    <line x1="680" y1="280" x2="580" y2="220" stroke="#88bbcc" stroke-width="1.5" marker-end="url(#windArrow)" opacity="0.5"/>
+    <line x1="700" y1="295" x2="600" y2="235" stroke="#88bbcc" stroke-width="1.3" marker-end="url(#windArrow)" opacity="0.4"/>
+    <line x1="690" y1="310" x2="590" y2="250" stroke="#88bbcc" stroke-width="1" marker-end="url(#windArrow)" opacity="0.35"/>
+  </g>
+  <text x="705" y="275" fill="#88bbcc" font-size="9" font-family="monospace" opacity="0.65">东南风</text>
+  <text x="705" y="287" fill="#6699aa" font-size="7" font-family="monospace" opacity="0.45">SE Wind</text>
+
+  <!-- ========== 核心意象：错误的坐标轴 ========== -->
+  <g transform="translate(95, 295)">
+    <!-- 坐标轴面板背景 -->
+    <rect x="-10" y="-10" width="290" height="160" rx="4" ry="4" fill="#0b1020" fill-opacity="0.8" stroke="#445566" stroke-width="1" opacity="0.85"/>
+    <text x="130" y="8" fill="#8899aa" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.8">COORDINATE SYSTEM ANALYSIS</text>
+    <line x1="0" y1="14" x2="260" y2="14" stroke="#334455" stroke-width="0.5" opacity="0.5"/>
+
+    <!-- 错误的坐标轴（红色删除线） -->
+    <text x="8" y="35" fill="#cc3333" font-size="8" font-family="monospace" opacity="0.7">WRONG BASIS:</text>
+    <!-- X轴：南北（被划掉） -->
+    <line x1="20" y1="52" x2="180" y2="52" stroke="#883333" stroke-width="1.5" opacity="0.5" stroke-dasharray="6,3"/>
+    <text x="15" y="48" fill="#883333" font-size="8" font-family="monospace" opacity="0.5">南 South</text>
+    <text x="148" y="48" fill="#883333" font-size="8" font-family="monospace" opacity="0.5">北 North</text>
+    <!-- 大红色删除线 -->
+    <line x1="10" y1="50" x2="190" y2="50" stroke="#ff3333" stroke-width="2" opacity="0.75"/>
+    <!-- X标记 -->
+    <text x="200" y="54" fill="#ff3333" font-size="12" font-family="monospace" font-weight="bold" opacity="0.85">X</text>
+
+    <!-- 正确的坐标轴（绿色实线） -->
+    <text x="8" y="82" fill="#33cc66" font-size="8" font-family="monospace" opacity="0.85">CORRECT BASIS:</text>
+    <!-- X轴：上游—下游 -->
+    <line x1="20" y1="98" x2="180" y2="98" stroke="#33cc66" stroke-width="2" opacity="0.7"/>
+    <!-- 箭头 -->
+    <polygon points="180,94 190,98 180,102" fill="#33cc66" opacity="0.7"/>
+    <text x="10" y="94" fill="#33cc66" font-size="8" font-family="monospace" opacity="0.8">上游</text>
+    <text x="10" y="110" fill="#228844" font-size="6" font-family="monospace" opacity="0.55">Upstream</text>
+    <text x="142" y="94" fill="#33cc66" font-size="8" font-family="monospace" opacity="0.8">下游</text>
+    <text x="142" y="110" fill="#228844" font-size="6" font-family="monospace" opacity="0.55">Downstream</text>
+    <!-- 对勾标记 -->
+    <text x="200" y="100" fill="#33cc66" font-size="14" font-family="monospace" font-weight="bold" opacity="0.85">&#x2713;</text>
+
+    <!-- 注释 -->
+    <text x="8" y="132" fill="#778899" font-size="7" font-family="monospace" opacity="0.55">// 赤壁之战的真实维度是</text>
+    <text x="8" y="142" fill="#778899" font-size="7" font-family="monospace" opacity="0.55">// 水战上下游，而非南北对抗</text>
+  </g>
+
+  <!-- ========== 右上角数据面板 ========== -->
+  <g transform="translate(590, 55)">
+    <rect x="0" y="0" width="190" height="85" rx="3" ry="3" fill="#0a0e1a" fill-opacity="0.85" stroke="#334455" stroke-width="0.8" opacity="0.75"/>
+    <text x="95" y="15" fill="#8899aa" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.8">Dimension Reduction</text>
+    <line x1="8" y1="20" x2="182" y2="20" stroke="#334455" stroke-width="0.5" opacity="0.4"/>
+    <!-- 传统认知 -->
+    <text x="12" y="35" fill="#888888" font-size="7" font-family="monospace" opacity="0.6">conventional:</text>
+    <rect x="90" y="27" width="80" height="9" rx="2" ry="2" fill="#883333" opacity="0.45"/>
+    <text x="95" y="35" fill="#cc6666" font-size="7" font-family="monospace" opacity="0.7">N vs S  (2D)</text>
+    <!-- 实际维度 -->
+    <text x="12" y="52" fill="#888888" font-size="7" font-family="monospace" opacity="0.6">reality:</text>
+    <rect x="90" y="44" width="55" height="9" rx="2" ry="2" fill="#33aa66" opacity="0.55"/>
+    <text x="95" y="52" fill="#44cc77" font-size="7" font-family="monospace" opacity="0.8">Up/Down (1D)</text>
+    <!-- 降维打击 -->
+    <text x="12" y="72" fill="#ffaa44" font-size="8" font-family="monospace" font-weight="bold" opacity="0.75">Result:</text>
+    <text x="65" y="72" fill="#ff8833" font-size="8" font-family="monospace" font-weight="bold" opacity="0.85">Dimensional Strike</text>
+  </g>
+
+  <!-- ========== 主标题 ========== -->
+  <line x1="80" y1="470" x2="720" y2="470" stroke="#223344" stroke-width="0.5" opacity="0.4"/>
+
+  <text x="400" y="500" fill="#e8e8e8" font-size="26" text-anchor="middle" font-weight="900" letter-spacing="4" opacity="0.95">赤壁之战</text>
+  <text x="400" y="522" fill="#778899" font-size="11" font-family="monospace" text-anchor="middle" letter-spacing="1" opacity="0.6">Wrong Basis</text>
+
+  <!-- 左上角系列标记 -->
+  <text x="15" y="25" fill="#445566" font-size="9" font-family="monospace" opacity="0.5">AI 考古 | No.96</text>
+
+</svg>
