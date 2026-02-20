@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="background-color:#050505">
+  <defs>
+    <radialGradient id="a" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffbf00;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="b" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <g transform="translate(400, 300)">
+
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="120s" repeatCount="indefinite" />
+
+      <g transform="translate(-100, 0)">
+        <circle cx="0" cy="0" r="80" fill="url(#a)" opacity="0.6">
+          <animate attributeName="r" values="80;90;80" dur="7s" repeatCount="indefinite" />
+        </circle>
+        <path d="M-40,-40 L40,40 M-40,40 L40,-40" stroke="#ffbf00" stroke-width="0.5" opacity="0.4">
+          <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="20s" repeatCount="indefinite" />
+        </path>
+        <circle cx="0" cy="0" r="2" fill="#fff" />
+      </g>
+
+      <g transform="translate(100, 0)">
+        <circle cx="0" cy="0" r="80" fill="url(#b)" opacity="0.6">
+          <animate attributeName="r" values="80;70;80" dur="7s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="0" cy="0" r="35" stroke="#00ffff" stroke-width="0.5" fill="none" opacity="0.4">
+          <animate attributeName="r" values="35;45;35" dur="3s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="0" cy="0" r="2" fill="#fff" />
+      </g>
+
+      <path d="M-100,0 Q0,100 100,0 Q0,-100 -100,0" fill="none" stroke="#ffffff" stroke-width="0.2" opacity="0.1">
+        <animate attributeName="d" values="M-100,0 Q0,100 100,0 Q0,-100 -100,0; M-100,0 Q0,150 100,0 Q0,-150 -100,0; M-100,0 Q0,100 100,0 Q0,-100 -100,0" dur="10s" repeatCount="indefinite" />
+      </path>
+    </g>
+
+    <g opacity="0.2">
+      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="180s" repeatCount="indefinite" />
+      <ellipse cx="0" cy="0" rx="280" ry="150" stroke="#ffffff" stroke-width="0.5" fill="none" />
+      <ellipse cx="0" cy="0" rx="150" ry="280" stroke="#ffffff" stroke-width="0.5" fill="none" />
+    </g>
+
+    <circle cx="0" cy="0" r="300" stroke="url(#b)" stroke-width="1" fill="none" opacity="0.1" stroke-dasharray="2 10">
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite" />
+    </circle>
+
+  </g>
+</svg>
