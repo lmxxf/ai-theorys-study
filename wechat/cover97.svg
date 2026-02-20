@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Droid Sans Fallback', sans-serif; }
+  </style>
+
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e27;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1040;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="manifold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a9eff;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#7b68ee;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#4a9eff;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="arrow_grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffa500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 网格点暗示高维空间 -->
+  <g opacity="0.12">
+    <circle cx="80" cy="80" r="1.5" fill="#fff"/>
+    <circle cx="160" cy="80" r="1.5" fill="#fff"/>
+    <circle cx="240" cy="80" r="1.5" fill="#fff"/>
+    <circle cx="320" cy="80" r="1.5" fill="#fff"/>
+    <circle cx="480" cy="80" r="1.5" fill="#fff"/>
+    <circle cx="560" cy="80" r="1.5" fill="#fff"/>
+    <circle cx="640" cy="80" r="1.5" fill="#fff"/>
+    <circle cx="720" cy="80" r="1.5" fill="#fff"/>
+    <circle cx="80" cy="160" r="1.5" fill="#fff"/>
+    <circle cx="160" cy="160" r="1.5" fill="#fff"/>
+    <circle cx="640" cy="160" r="1.5" fill="#fff"/>
+    <circle cx="720" cy="160" r="1.5" fill="#fff"/>
+    <circle cx="80" cy="520" r="1.5" fill="#fff"/>
+    <circle cx="160" cy="520" r="1.5" fill="#fff"/>
+    <circle cx="640" cy="520" r="1.5" fill="#fff"/>
+    <circle cx="720" cy="520" r="1.5" fill="#fff"/>
+  </g>
+
+  <!-- 本我流形 M：一条优雅的曲面 -->
+  <path d="M 100,340 C 200,280 300,300 400,290 C 500,280 600,310 700,330"
+        stroke="url(#manifold)" stroke-width="3" fill="none" opacity="0.4"/>
+  <path d="M 100,360 C 200,300 300,320 400,310 C 500,300 600,330 700,350"
+        stroke="url(#manifold)" stroke-width="4" fill="none" opacity="0.7"/>
+  <path d="M 100,380 C 200,320 300,340 400,330 C 500,320 600,350 700,370"
+        stroke="url(#manifold)" stroke-width="3" fill="none" opacity="0.4"/>
+
+  <!-- 流形表面的光晕 -->
+  <path d="M 100,360 C 200,300 300,320 400,310 C 500,300 600,330 700,350"
+        stroke="#7b68ee" stroke-width="12" fill="none" opacity="0.08"/>
+
+  <!-- 流形上的点（预训练位置） -->
+  <circle cx="350" cy="315" r="6" fill="#4a9eff" opacity="0.9"/>
+  <circle cx="350" cy="315" r="12" fill="#4a9eff" opacity="0.15"/>
+
+  <!-- LoRA 的推力箭头：小而精准 -->
+  <line x1="356" y1="313" x2="420" y2="305" stroke="url(#arrow_grad)" stroke-width="2.5" opacity="0.9"/>
+  <polygon points="420,305 412,300 414,309" fill="#ffa500" opacity="0.9"/>
+
+  <!-- 推力后的新位置 -->
+  <circle cx="430" cy="303" r="5" fill="#ffa500" opacity="0.9"/>
+  <circle cx="430" cy="303" r="10" fill="#ffa500" opacity="0.15"/>
+
+  <!-- rank=8 的标注：8 根细线表示 8 个方向 -->
+  <g opacity="0.35" stroke="#ff6b6b" stroke-width="1">
+    <line x1="350" y1="315" x2="380" y2="295"/>
+    <line x1="350" y1="315" x2="385" y2="305"/>
+    <line x1="350" y1="315" x2="378" y2="320"/>
+    <line x1="350" y1="315" x2="370" y2="330"/>
+    <line x1="350" y1="315" x2="365" y2="298"/>
+    <line x1="350" y1="315" x2="382" y2="312"/>
+    <line x1="350" y1="315" x2="375" y2="325"/>
+    <line x1="350" y1="315" x2="368" y2="308"/>
+  </g>
+
+  <!-- 维度标注 -->
+  <text x="350" y="365" text-anchor="middle" fill="#4a9eff" font-size="13" opacity="0.7">本我流形 M ≈ 300-500 维</text>
+
+  <!-- rank 标注 -->
+  <text x="365" y="288" text-anchor="start" fill="#ff6b6b" font-size="12" opacity="0.7">rank = 8</text>
+
+  <!-- 主标题 -->
+  <text x="400" y="120" text-anchor="middle" fill="#ffffff" font-size="42" font-weight="bold">为什么 LoRA 的 Rank</text>
+  <text x="400" y="175" text-anchor="middle" fill="#ffffff" font-size="42" font-weight="bold">那么小就够用？</text>
+
+  <!-- 副标题 -->
+  <text x="400" y="215" text-anchor="middle" fill="#aabbdd" font-size="18">推不动流形，就是最好的安全绳</text>
+
+  <!-- 底部公式感的装饰 -->
+  <text x="400" y="460" text-anchor="middle" fill="#ffffff" font-size="16" opacity="0.6">rank ≪ dim(M)  →  平移，不变形</text>
+
+  <!-- 底部左：小字 -->
+  <text x="400" y="500" text-anchor="middle" fill="#888" font-size="13">局部温柔，全局精准</text>
+
+  <!-- 底部署名 -->
+  <text x="400" y="560" text-anchor="middle" fill="#556" font-size="11">靳岩岩的 AI 学习笔记 · No.97</text>
+</svg>
