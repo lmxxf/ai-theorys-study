@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Droid Sans Fallback', sans-serif; }
+  </style>
+
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa" />
+      <stop offset="100%" style="stop-color:#e9ecef" />
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#495057"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2196F3"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#FF9800"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="720" height="480" fill="url(#bg)" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="360" y="35" text-anchor="middle" fill="#212529" font-size="20" font-weight="bold">LoRA 架构：冻结原始权重，只训练低秩旁路</text>
+
+  <!-- ========== 输入 ========== -->
+  <rect x="290" y="410" width="140" height="40" rx="6" fill="#dee2e6" stroke="#adb5bd" stroke-width="1.5"/>
+  <text x="360" y="435" text-anchor="middle" fill="#495057" font-size="15" font-weight="bold">输入 x</text>
+
+  <!-- 输入箭头分叉 -->
+  <!-- 左路：LoRA 旁路 -->
+  <line x1="330" y1="410" x2="200" y2="340" stroke="#FF9800" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <!-- 右路：原始权重 -->
+  <line x1="390" y1="410" x2="520" y2="340" stroke="#2196F3" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- ========== 右路：原始权重 W（冻结） ========== -->
+  <rect x="460" y="260" width="120" height="75" rx="6" fill="#BBDEFB" stroke="#2196F3" stroke-width="2"/>
+  <text x="520" y="293" text-anchor="middle" fill="#1565C0" font-size="16" font-weight="bold">W</text>
+  <text x="520" y="313" text-anchor="middle" fill="#1565C0" font-size="11">d × k</text>
+  <text x="520" y="328" text-anchor="middle" fill="#E53935" font-size="10" font-weight="bold">🔒 冻结</text>
+
+  <!-- W 输出箭头 -->
+  <line x1="520" y1="260" x2="520" y2="170" stroke="#2196F3" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="530" y="220" fill="#1565C0" font-size="12">W·x</text>
+
+  <!-- ========== 左路：LoRA 旁路 ========== -->
+
+  <!-- 矩阵 A：降维 -->
+  <rect x="140" y="280" width="120" height="55" rx="6" fill="#FFE0B2" stroke="#FF9800" stroke-width="2"/>
+  <text x="200" y="305" text-anchor="middle" fill="#E65100" font-size="15" font-weight="bold">A</text>
+  <text x="200" y="323" text-anchor="middle" fill="#E65100" font-size="11">r × k （降维）</text>
+
+  <!-- A 到 B 的箭头 -->
+  <line x1="200" y1="280" x2="200" y2="230" stroke="#FF9800" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <text x="215" y="260" fill="#E65100" font-size="11">r 维</text>
+
+  <!-- 矩阵 B：升维 -->
+  <rect x="140" y="170" width="120" height="55" rx="6" fill="#FFE0B2" stroke="#FF9800" stroke-width="2"/>
+  <text x="200" y="195" text-anchor="middle" fill="#E65100" font-size="15" font-weight="bold">B</text>
+  <text x="200" y="213" text-anchor="middle" fill="#E65100" font-size="11">d × r （升维）</text>
+
+  <!-- LoRA 旁路标注 -->
+  <text x="200" y="160" text-anchor="middle" fill="#E65100" font-size="10" font-weight="bold">🔥 可训练</text>
+
+  <!-- B 输出箭头到加法节点 -->
+  <line x1="250" y1="170" x2="350" y2="140" stroke="#FF9800" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <text x="275" y="145" fill="#E65100" font-size="12">BA·x</text>
+
+  <!-- W 输出箭头到加法节点 -->
+  <line x1="480" y1="170" x2="390" y2="140" stroke="#2196F3" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- ========== 加法节点 ========== -->
+  <circle cx="370" cy="120" r="22" fill="#fff" stroke="#495057" stroke-width="2"/>
+  <text x="370" y="127" text-anchor="middle" fill="#495057" font-size="22" font-weight="bold">+</text>
+
+  <!-- 加法节点输出 -->
+  <line x1="370" y1="98" x2="370" y2="68" stroke="#495057" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 输出 -->
+  <rect x="300" y="48" width="140" height="18" rx="4" fill="none"/>
+  <text x="370" y="62" text-anchor="middle" fill="#495057" font-size="13" font-weight="bold">h = Wx + BAx</text>
+
+  <!-- ========== 标注区域 ========== -->
+
+  <!-- 左下角：维度说明 -->
+  <rect x="15" y="370" width="230" height="95" rx="6" fill="#fff3e0" stroke="#FFB74D" stroke-width="1" opacity="0.9"/>
+  <text x="130" y="392" text-anchor="middle" fill="#E65100" font-size="13" font-weight="bold">LoRA 旁路（可训练）</text>
+  <text x="25" y="412" fill="#795548" font-size="12">输入维度 k → A 降到 r 维 → B 升回 d 维</text>
+  <text x="25" y="432" fill="#795548" font-size="12">参数量：r×(d+k)    远小于 d×k</text>
+  <text x="25" y="452" fill="#795548" font-size="12">例：d=k=4096, r=8 → 0.4% 参数</text>
+
+  <!-- 右下角：关键信息 -->
+  <rect x="475" y="370" width="230" height="95" rx="6" fill="#E3F2FD" stroke="#90CAF9" stroke-width="1" opacity="0.9"/>
+  <text x="590" y="392" text-anchor="middle" fill="#1565C0" font-size="13" font-weight="bold">推理时合并，零额外开销</text>
+  <text x="485" y="412" fill="#37474F" font-size="12">训练时：h = Wx + BAx（两路并行）</text>
+  <text x="485" y="432" fill="#37474F" font-size="12">推理时：W' = W + BA（合并成一个矩阵）</text>
+  <text x="485" y="452" fill="#37474F" font-size="12">推理速度与原始模型完全相同</text>
+
+  <!-- ΔW 标注 -->
+  <rect x="280" y="82" width="70" height="16" rx="3" fill="#FFF9C4" stroke="#FDD835" stroke-width="1"/>
+  <text x="315" y="94" text-anchor="middle" fill="#F57F17" font-size="10" font-weight="bold">ΔW = BA</text>
+
+</svg>
