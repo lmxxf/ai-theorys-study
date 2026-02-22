@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 960">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    .label { font-size: 13px; fill: #ffffff; font-weight: bold; }
+    .label-sm { font-size: 11px; fill: #ffffff; font-weight: bold; }
+    .dim { font-size: 10px; fill: #888888; }
+    .dim-white { font-size: 10px; fill: rgba(255,255,255,0.85); }
+    .title { font-size: 20px; fill: #2c3e50; font-weight: bold; }
+    .subtitle { font-size: 11px; fill: #95a5a6; }
+    .arrow-label { font-size: 10px; fill: #777777; }
+    .note { font-size: 9px; fill: #999999; }
+  </style>
+
+  <defs>
+    <marker id="arrowDown" markerWidth="8" markerHeight="6" refX="4" refY="6" orient="0">
+      <path d="M0,0 L8,0 L4,6 z" fill="#95a5a6"/>
+    </marker>
+
+    <linearGradient id="embedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3498db"/>
+      <stop offset="100%" style="stop-color:#2980b9"/>
+    </linearGradient>
+    <linearGradient id="posGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1abc9c"/>
+      <stop offset="100%" style="stop-color:#16a085"/>
+    </linearGradient>
+    <linearGradient id="attnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#9b59b6"/>
+      <stop offset="100%" style="stop-color:#8e44ad"/>
+    </linearGradient>
+    <linearGradient id="normGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7f8c8d"/>
+      <stop offset="100%" style="stop-color:#6c7a7d"/>
+    </linearGradient>
+    <linearGradient id="ffnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e67e22"/>
+      <stop offset="100%" style="stop-color:#d35400"/>
+    </linearGradient>
+    <linearGradient id="outputGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2c3e50"/>
+      <stop offset="100%" style="stop-color:#1a252f"/>
+    </linearGradient>
+    <linearGradient id="inputGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#27ae60"/>
+      <stop offset="100%" style="stop-color:#229954"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 白色背景 -->
+  <rect width="460" height="960" fill="#ffffff"/>
+
+  <!-- ========== 标题 ========== -->
+  <text x="230" y="30" text-anchor="middle" class="title">Grokking 实验用 Transformer</text>
+  <text x="230" y="48" text-anchor="middle" class="subtitle">2层 128维 4头 | 任务：(a × b) mod 97</text>
+
+  <!-- ========== 输入层 ========== -->
+  <rect x="65" y="66" width="330" height="46" rx="8" fill="#f0faf0" stroke="#27ae60" stroke-width="1.5"/>
+
+  <!-- 两个输入 -->
+  <rect x="100" y="76" width="90" height="28" rx="6" fill="url(#inputGrad)"/>
+  <text x="145" y="95" text-anchor="middle" class="label">输入 a</text>
+
+  <rect x="270" y="76" width="90" height="28" rx="6" fill="url(#inputGrad)"/>
+  <text x="315" y="95" text-anchor="middle" class="label">输入 b</text>
+
+  <text x="230" y="78" text-anchor="middle" class="dim" font-size="9">整数 0~96</text>
+
+  <!-- 输入示例 -->
+  <text x="230" y="126" text-anchor="middle" class="note">例：a=42, b=55 → 目标 (42×55) mod 97 = 39</text>
+
+  <!-- 双箭头下行 -->
+  <line x1="145" y1="104" x2="145" y2="140" stroke="#95a5a6" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+  <line x1="315" y1="104" x2="315" y2="140" stroke="#95a5a6" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+
+  <!-- ========== Embedding 层 ========== -->
+  <rect x="85" y="147" width="120" height="30" rx="6" fill="url(#embedGrad)"/>
+  <text x="145" y="167" text-anchor="middle" class="label-sm">Embed(a)</text>
+
+  <rect x="255" y="147" width="120" height="30" rx="6" fill="url(#embedGrad)"/>
+  <text x="315" y="167" text-anchor="middle" class="label-sm">Embed(b)</text>
+
+  <text x="230" y="192" text-anchor="middle" class="dim">各自查表: 97 x 128 = 12,416 参数</text>
+
+  <!-- 箭头汇合 -->
+  <line x1="145" y1="177" x2="145" y2="202" stroke="#95a5a6" stroke-width="1.2"/>
+  <line x1="315" y1="177" x2="315" y2="202" stroke="#95a5a6" stroke-width="1.2"/>
+  <line x1="145" y1="202" x2="315" y2="202" stroke="#95a5a6" stroke-width="1.2"/>
+  <line x1="230" y1="202" x2="230" y2="214" stroke="#95a5a6" stroke-width="1.2"/>
+
+  <!-- Stack -->
+  <rect x="175" y="215" width="110" height="20" rx="4" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="230" y="229" text-anchor="middle" font-size="10" fill="#555" font-weight="bold">Stack 拼成序列</text>
+
+  <!-- 箭头 + 维度标注 -->
+  <line x1="230" y1="235" x2="230" y2="252" stroke="#95a5a6" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+  <text x="295" y="250" text-anchor="start" class="arrow-label">[2, 128]</text>
+
+  <!-- ========== 位置编码 ========== -->
+  <circle cx="230" cy="265" r="10" fill="#ffffff" stroke="#16a085" stroke-width="1.5"/>
+  <text x="230" y="270" text-anchor="middle" font-size="14" fill="#16a085" font-weight="bold">+</text>
+
+  <rect x="280" y="255" width="128" height="20" rx="5" fill="url(#posGrad)"/>
+  <text x="344" y="269" text-anchor="middle" class="label-sm" font-size="9">可学习位置编码</text>
+  <line x1="280" y1="265" x2="240" y2="265" stroke="#16a085" stroke-width="1"/>
+  <text x="344" y="286" text-anchor="middle" class="dim" font-size="8">2 x 128 = 256 参数</text>
+
+  <!-- 箭头 -->
+  <line x1="230" y1="275" x2="230" y2="302" stroke="#95a5a6" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+
+  <!-- ========== Transformer Block 1 ========== -->
+  <rect x="48" y="309" width="364" height="248" rx="10" fill="#faf8ff" stroke="#9b59b6" stroke-width="1.5"/>
+  <text x="68" y="328" font-size="12" fill="#8e44ad" font-weight="bold">Transformer Block 1</text>
+
+  <!-- Multi-Head Self-Attention -->
+  <rect x="73" y="338" width="314" height="42" rx="7" fill="url(#attnGrad)"/>
+  <text x="230" y="357" text-anchor="middle" class="label">Multi-Head Self-Attention</text>
+  <text x="230" y="374" text-anchor="middle" class="dim-white" font-size="9">4 头 | head_dim=32 | Q K V 投影 → Concat → 输出投影</text>
+
+  <!-- 4头小图标 -->
+  <g transform="translate(128, 360)">
+    <rect x="0" y="0" width="42" height="10" rx="2" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+    <text x="21" y="8" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.7)">H1</text>
+    <rect x="46" y="0" width="42" height="10" rx="2" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+    <text x="67" y="8" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.7)">H2</text>
+    <rect x="92" y="0" width="42" height="10" rx="2" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+    <text x="113" y="8" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.7)">H3</text>
+    <rect x="138" y="0" width="42" height="10" rx="2" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.35)" stroke-width="0.5"/>
+    <text x="159" y="8" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.7)">H4</text>
+  </g>
+
+  <!-- 残差 + Add -->
+  <path d="M63 342 L53 342 L53 398 L73 398" stroke="#9b59b6" stroke-width="1" fill="none" stroke-dasharray="3,2"/>
+  <circle cx="73" cy="398" r="5" fill="#ffffff" stroke="#9b59b6" stroke-width="1"/>
+  <text x="73" y="401" text-anchor="middle" font-size="7" fill="#9b59b6">+</text>
+  <text x="43" y="374" text-anchor="middle" font-size="7" fill="#9b59b6" transform="rotate(-90, 43, 374)">残差</text>
+
+  <!-- 箭头 -->
+  <line x1="230" y1="380" x2="230" y2="403" stroke="#95a5a6" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+
+  <!-- LayerNorm 1 -->
+  <rect x="135" y="410" width="190" height="20" rx="5" fill="url(#normGrad)"/>
+  <text x="230" y="424" text-anchor="middle" class="label-sm" font-size="10">LayerNorm</text>
+
+  <!-- 箭头 -->
+  <line x1="230" y1="430" x2="230" y2="446" stroke="#95a5a6" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+
+  <!-- FFN -->
+  <rect x="73" y="453" width="314" height="42" rx="7" fill="url(#ffnGrad)"/>
+  <text x="230" y="472" text-anchor="middle" class="label">前馈网络 (FFN)</text>
+  <text x="230" y="489" text-anchor="middle" class="dim-white" font-size="9">Linear(128 → 512) → ReLU → Linear(512 → 128)</text>
+
+  <!-- 残差 + Add -->
+  <path d="M63 457 L53 457 L53 512 L73 512" stroke="#e67e22" stroke-width="1" fill="none" stroke-dasharray="3,2"/>
+  <circle cx="73" cy="512" r="5" fill="#ffffff" stroke="#e67e22" stroke-width="1"/>
+  <text x="73" y="515" text-anchor="middle" font-size="7" fill="#e67e22">+</text>
+  <text x="43" y="487" text-anchor="middle" font-size="7" fill="#e67e22" transform="rotate(-90, 43, 487)">残差</text>
+
+  <!-- 箭头 -->
+  <line x1="230" y1="495" x2="230" y2="518" stroke="#95a5a6" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+
+  <!-- LayerNorm 2 -->
+  <rect x="135" y="525" width="190" height="20" rx="5" fill="url(#normGrad)"/>
+  <text x="230" y="539" text-anchor="middle" class="label-sm" font-size="10">LayerNorm</text>
+
+  <!-- 箭头出 Block 1 -->
+  <line x1="230" y1="545" x2="230" y2="570" stroke="#95a5a6" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+
+  <!-- ========== Transformer Block 2 (折叠) ========== -->
+  <rect x="48" y="577" width="364" height="48" rx="10" fill="#f5f0fa" stroke="#8e44ad" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <text x="68" y="596" font-size="12" fill="#8e44ad" font-weight="bold">Transformer Block 2</text>
+  <text x="280" y="616" text-anchor="middle" font-size="10" fill="#9b59b6">同上结构：Attn → LN → FFN → LN</text>
+
+  <!-- x2 层标签 -->
+  <rect x="418" y="400" width="26" height="180" rx="5" fill="#34495e"/>
+  <text x="431" y="500" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold" transform="rotate(-90, 431, 500)">x 2 层</text>
+
+  <!-- 箭头出 Block 2 -->
+  <line x1="230" y1="625" x2="230" y2="652" stroke="#95a5a6" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+  <text x="285" y="648" text-anchor="start" class="arrow-label">[2, 128]</text>
+
+  <!-- ========== 取位置 0 ========== -->
+  <rect x="68" y="659" width="324" height="58" rx="8" fill="#eaf7fc" stroke="#3498db" stroke-width="1.5"/>
+
+  <!-- 两个位置示意 -->
+  <rect x="105" y="669" width="110" height="22" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="160" y="684" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">位置 0 (a 侧)</text>
+
+  <rect x="235" y="669" width="110" height="22" rx="4" fill="#ddd" stroke="#bbb" stroke-width="1"/>
+  <text x="290" y="684" text-anchor="middle" font-size="10" fill="#888">位置 1 (b 侧)</text>
+
+  <text x="230" y="708" text-anchor="middle" font-size="10" fill="#3498db" font-weight="bold">取位置 0 的隐层向量 output[:, 0, :] → [128]</text>
+
+  <!-- 箭头 -->
+  <line x1="230" y1="717" x2="230" y2="740" stroke="#95a5a6" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+  <text x="275" y="738" text-anchor="start" class="arrow-label">[128]</text>
+
+  <!-- ========== 线性分类头 ========== -->
+  <rect x="105" y="747" width="250" height="32" rx="7" fill="url(#outputGrad)"/>
+  <text x="230" y="768" text-anchor="middle" class="label">Linear(128 → 97)</text>
+
+  <!-- 箭头 -->
+  <line x1="230" y1="779" x2="230" y2="800" stroke="#95a5a6" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+  <text x="275" y="798" text-anchor="start" class="arrow-label">[97]</text>
+
+  <!-- ========== Softmax 输出 ========== -->
+  <rect x="105" y="807" width="250" height="30" rx="6" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="230" y="827" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="bold">Softmax → 预测结果</text>
+
+  <!-- 概率柱状图 -->
+  <g transform="translate(110, 848)">
+    <rect x="0" y="16" width="7" height="6" fill="#ddd" rx="1"/>
+    <rect x="10" y="14" width="7" height="8" fill="#ddd" rx="1"/>
+    <rect x="20" y="12" width="7" height="10" fill="#ddd" rx="1"/>
+    <rect x="30" y="0" width="7" height="22" fill="#27ae60" rx="1"/>
+    <rect x="40" y="10" width="7" height="12" fill="#ddd" rx="1"/>
+    <rect x="50" y="14" width="7" height="8" fill="#ddd" rx="1"/>
+    <rect x="60" y="16" width="7" height="6" fill="#ddd" rx="1"/>
+    <rect x="70" y="18" width="7" height="4" fill="#ddd" rx="1"/>
+    <text x="33" y="32" text-anchor="middle" font-size="7" fill="#27ae60" font-weight="bold">39</text>
+    <text x="0" y="32" text-anchor="start" font-size="6" fill="#bbb">...</text>
+    <text x="77" y="32" text-anchor="end" font-size="6" fill="#bbb">...96</text>
+
+    <text x="100" y="12" text-anchor="start" font-size="10" fill="#555">97 个类别</text>
+    <text x="100" y="26" text-anchor="start" font-size="10" fill="#27ae60" font-weight="bold">预测 (42×55) mod 97 = 39</text>
+  </g>
+
+  <!-- ========== 底部参数汇总 ========== -->
+  <line x1="50" y1="900" x2="410" y2="900" stroke="#ecf0f1" stroke-width="1"/>
+  <text x="230" y="918" text-anchor="middle" font-size="9" fill="#bdc3c7">Embed: 2 x 12K | Pos: 256 | Encoder x2: ~396K | Head: ~12K</text>
+  <text x="230" y="936" text-anchor="middle" font-size="11" fill="#999" font-weight="bold">总计约 43 万参数 | 无 Dropout | Weight Decay = 1.0</text>
+  <text x="230" y="952" text-anchor="middle" font-size="9" fill="#bdc3c7">优化器: AdamW | 学习率: 1e-3 | batch_size: 512</text>
+
+</svg>
