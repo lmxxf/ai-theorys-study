@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 420" font-family="Arial, sans-serif">
+  <rect width="400" height="420" fill="white"/>
+  <defs>
+    <marker id="arrowS1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#2196F3" stroke-width="1.5"/>
+    </marker>
+    <marker id="arrowS2e" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#E91E63" stroke-width="1.5"/>
+    </marker>
+    <marker id="arrowS2o" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#FF9800" stroke-width="1.5"/>
+    </marker>
+    <marker id="arrowS4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#4CAF50" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">stride = 步长：模型认为谁是"最近的邻居"</text>
+
+  <!-- ===== stride=1 (left) ===== -->
+  <text x="100" y="55" text-anchor="middle" font-size="13" font-weight="bold" fill="#2196F3">stride=1：标准时钟</text>
+  <g transform="translate(100,155)">
+    <!-- circle -->
+    <circle cx="0" cy="0" r="75" fill="none" stroke="#ddd" stroke-width="1"/>
+    <!-- numbers 0-11 -->
+    <text x="0" y="-82" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">0</text>
+    <text x="42" y="-68" text-anchor="middle" font-size="14" fill="#333">1</text>
+    <text x="72" y="-38" text-anchor="middle" font-size="14" fill="#333">2</text>
+    <text x="85" y="5" text-anchor="middle" font-size="14" fill="#333">3</text>
+    <text x="72" y="48" text-anchor="middle" font-size="14" fill="#333">4</text>
+    <text x="42" y="78" text-anchor="middle" font-size="14" fill="#333">5</text>
+    <text x="0" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">6</text>
+    <text x="-42" y="78" text-anchor="middle" font-size="14" fill="#333">7</text>
+    <text x="-72" y="48" text-anchor="middle" font-size="14" fill="#333">8</text>
+    <text x="-85" y="5" text-anchor="middle" font-size="14" fill="#333">9</text>
+    <text x="-72" y="-38" text-anchor="middle" font-size="14" fill="#333">10</text>
+    <text x="-42" y="-68" text-anchor="middle" font-size="14" fill="#333">11</text>
+    <!-- arrows: 0→1→2→...→11→0 -->
+    <path d="M 8,-73 A 75,75 0 0,1 35,-62" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+    <path d="M 48,-58 A 75,75 0 0,1 65,-32" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+    <path d="M 72,-25 A 75,75 0 0,1 75,0" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+    <path d="M 75,12 A 75,75 0 0,1 65,38" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+    <path d="M 58,52 A 75,75 0 0,1 35,68" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+    <path d="M 28,72 A 75,75 0 0,1 -5,82" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+    <path d="M -12,80 A 75,75 0 0,1 -35,68" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+    <path d="M -48,58 A 75,75 0 0,1 -65,32" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+    <path d="M -72,22 A 75,75 0 0,1 -75,-5" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+    <path d="M -75,-12 A 75,75 0 0,1 -65,-38" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+    <path d="M -58,-50 A 75,75 0 0,1 -35,-65" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+    <path d="M -30,-72 A 75,75 0 0,1 -5,-78" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrowS1)"/>
+  </g>
+  <text x="100" y="260" text-anchor="middle" font-size="11" fill="#666">0 的邻居：1 和 11</text>
+  <text x="100" y="275" text-anchor="middle" font-size="11" fill="#666">一个 12 步大环</text>
+
+  <!-- ===== stride=2 (right top) ===== -->
+  <text x="300" y="55" text-anchor="middle" font-size="13" font-weight="bold" fill="#E91E63">stride=2：双小环</text>
+  <g transform="translate(300,155)">
+    <!-- guide circle for numbers -->
+    <circle cx="0" cy="0" r="75" fill="none" stroke="#eee" stroke-width="1"/>
+    <!-- inner guide for even ring -->
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#FCE4EC" stroke-width="1" stroke-dasharray="4,4"/>
+    <!-- outer guide for odd ring -->
+    <circle cx="0" cy="0" r="95" fill="none" stroke="#FFF3E0" stroke-width="1" stroke-dasharray="4,4"/>
+    <!-- numbers at r=75: even=pink bold, odd=orange -->
+    <text x="0" y="-78" text-anchor="middle" font-size="14" font-weight="bold" fill="#E91E63">0</text>
+    <text x="40" y="-64" text-anchor="middle" font-size="14" fill="#FF9800">1</text>
+    <text x="68" y="-34" text-anchor="middle" font-size="14" font-weight="bold" fill="#E91E63">2</text>
+    <text x="80" y="5" text-anchor="middle" font-size="14" fill="#FF9800">3</text>
+    <text x="68" y="44" text-anchor="middle" font-size="14" font-weight="bold" fill="#E91E63">4</text>
+    <text x="40" y="74" text-anchor="middle" font-size="14" fill="#FF9800">5</text>
+    <text x="0" y="88" text-anchor="middle" font-size="14" font-weight="bold" fill="#E91E63">6</text>
+    <text x="-40" y="74" text-anchor="middle" font-size="14" fill="#FF9800">7</text>
+    <text x="-68" y="44" text-anchor="middle" font-size="14" font-weight="bold" fill="#E91E63">8</text>
+    <text x="-80" y="5" text-anchor="middle" font-size="14" fill="#FF9800">9</text>
+    <text x="-68" y="-34" text-anchor="middle" font-size="14" font-weight="bold" fill="#E91E63">10</text>
+    <text x="-40" y="-64" text-anchor="middle" font-size="14" fill="#FF9800">11</text>
+    <!-- even ring INNER (r≈55): 0→2→4→6→8→10→0, positions at 30° intervals starting 0°(top) -->
+    <!-- 0(top) → 2(60°R) → 4(120°R) → 6(bottom) → 8(240°R) → 10(300°R) → 0 -->
+    <path d="M 5,-55 A 55,55 0 0,1 45,-30" fill="none" stroke="#E91E63" stroke-width="2.5" marker-end="url(#arrowS2e)"/>
+    <path d="M 50,-18 A 55,55 0 0,1 50,22" fill="none" stroke="#E91E63" stroke-width="2.5" marker-end="url(#arrowS2e)"/>
+    <path d="M 45,32 A 55,55 0 0,1 5,55" fill="none" stroke="#E91E63" stroke-width="2.5" marker-end="url(#arrowS2e)"/>
+    <path d="M -5,55 A 55,55 0 0,1 -45,32" fill="none" stroke="#E91E63" stroke-width="2.5" marker-end="url(#arrowS2e)"/>
+    <path d="M -50,22 A 55,55 0 0,1 -50,-18" fill="none" stroke="#E91E63" stroke-width="2.5" marker-end="url(#arrowS2e)"/>
+    <path d="M -45,-30 A 55,55 0 0,1 -5,-55" fill="none" stroke="#E91E63" stroke-width="2.5" marker-end="url(#arrowS2e)"/>
+    <!-- odd ring OUTER (r≈95): 1→3→5→7→9→11→1 -->
+    <path d="M 52,-78 A 95,95 0 0,1 88,-8" fill="none" stroke="#FF9800" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowS2o)"/>
+    <path d="M 85,10 A 95,95 0 0,1 50,82" fill="none" stroke="#FF9800" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowS2o)"/>
+    <path d="M 38,88 A 95,95 0 0,1 -38,88" fill="none" stroke="#FF9800" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowS2o)"/>
+    <path d="M -50,82 A 95,95 0 0,1 -85,10" fill="none" stroke="#FF9800" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowS2o)"/>
+    <path d="M -88,-8 A 95,95 0 0,1 -52,-78" fill="none" stroke="#FF9800" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowS2o)"/>
+    <path d="M -40,-85 A 95,95 0 0,1 40,-85" fill="none" stroke="#FF9800" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowS2o)"/>
+  </g>
+  <text x="300" y="265" text-anchor="middle" font-size="11" fill="#666">0 的邻居：2 和 10</text>
+  <text x="300" y="280" text-anchor="middle" font-size="11" fill="#E91E63">内圈：偶数 0-2-4-6-8-10</text>
+  <text x="300" y="295" text-anchor="middle" font-size="11" fill="#FF9800">外圈：奇数 1-3-5-7-9-11</text>
+
+  <!-- ===== stride=4 (bottom center) ===== -->
+  <text x="200" y="315" text-anchor="middle" font-size="13" font-weight="bold" fill="#4CAF50">stride=4 = gcd(12,8)：最终赢家</text>
+  <g transform="translate(200,380)">
+    <!-- three small triangles -->
+    <!-- group 0,4,8 -->
+    <polygon points="-120,15 -90,-15 -60,15" fill="none" stroke="#4CAF50" stroke-width="2"/>
+    <text x="-120" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="#4CAF50">0</text>
+    <text x="-90" y="-22" text-anchor="middle" font-size="13" font-weight="bold" fill="#4CAF50">4</text>
+    <text x="-60" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="#4CAF50">8</text>
+    <!-- group 1,5,9 -->
+    <polygon points="-30,15 0,-15 30,15" fill="none" stroke="#4CAF50" stroke-width="2" stroke-dasharray="4,2"/>
+    <text x="-30" y="30" text-anchor="middle" font-size="13" fill="#888">1</text>
+    <text x="0" y="-22" text-anchor="middle" font-size="13" fill="#888">5</text>
+    <text x="30" y="30" text-anchor="middle" font-size="13" fill="#888">9</text>
+    <!-- group 2,6,10 -->
+    <polygon points="60,15 90,-15 120,15" fill="none" stroke="#4CAF50" stroke-width="2" stroke-dasharray="8,4"/>
+    <text x="60" y="30" text-anchor="middle" font-size="13" fill="#888">2</text>
+    <text x="90" y="-22" text-anchor="middle" font-size="13" fill="#888">6</text>
+    <text x="120" y="30" text-anchor="middle" font-size="13" fill="#888">10</text>
+    <!-- label -->
+    <text x="170" y="5" text-anchor="start" font-size="11" fill="#666">...</text>
+  </g>
+</svg>
