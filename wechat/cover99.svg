@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="50%" stop-color="#0d1225"/>
+      <stop offset="100%" stop-color="#080a12"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="55%" r="40%">
+      <stop offset="0%" stop-color="#1a3366" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#0d1a33" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="surfaceCalm" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a6644" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#22aa66" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#33cc77" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#22aa66" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#1a6644" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="chaosBelow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#cc4444" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#aa3366" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#6633aa" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#centerGlow)"/>
+
+  <!-- ========== 上层：平静的水面 = 100% 准确率 ========== -->
+
+  <!-- 水面线（绿色，平静） -->
+  <g filter="url(#bigGlow)">
+    <path d="M0,300 Q100,295 200,300 Q300,305 400,300 Q500,295 600,300 Q700,305 800,300"
+      fill="none" stroke="url(#surfaceCalm)" stroke-width="3"/>
+  </g>
+
+  <!-- 水面上方：整齐的 100% 标记 -->
+  <g font-family="monospace" filter="url(#glow)">
+    <text x="120" y="250" fill="#33cc77" font-size="22" opacity="0.9">100%</text>
+    <text x="300" y="240" fill="#33cc77" font-size="22" opacity="0.85">100%</text>
+    <text x="490" y="248" fill="#33cc77" font-size="22" opacity="0.9">100%</text>
+    <text x="660" y="242" fill="#33cc77" font-size="22" opacity="0.85">100%</text>
+  </g>
+
+  <!-- 水面上：平稳的准确率曲线 -->
+  <g filter="url(#glow)" opacity="0.5">
+    <path d="M50,270 L150,268 L250,270 L350,269 L450,270 L550,268 L650,270 L750,269"
+      fill="none" stroke="#33cc77" stroke-width="1.5" stroke-dasharray="8,4"/>
+    <text x="760" y="266" fill="#33cc77" font-size="8" font-family="monospace" opacity="0.7">test_acc</text>
+  </g>
+
+  <!-- ========== 下层：混乱的深水 = 内部表示重组 ========== -->
+
+  <!-- 深水区域底色 -->
+  <rect x="0" y="300" width="800" height="300" fill="url(#chaosBelow)" opacity="0.4"/>
+
+  <!-- 阶段 I：stride=1 结构（左侧，蓝色环，完整） -->
+  <g transform="translate(150,390)" filter="url(#glow)" opacity="0.7">
+    <circle cx="0" cy="0" r="45" fill="none" stroke="#4488ff" stroke-width="2"/>
+    <!-- 12个点 -->
+    <circle cx="0" cy="-45" r="3" fill="#4488ff"/>
+    <circle cx="22.5" cy="-39" r="3" fill="#4488ff"/>
+    <circle cx="39" cy="-22.5" r="3" fill="#4488ff"/>
+    <circle cx="45" cy="0" r="3" fill="#4488ff"/>
+    <circle cx="39" cy="22.5" r="3" fill="#4488ff"/>
+    <circle cx="22.5" cy="39" r="3" fill="#4488ff"/>
+    <circle cx="0" cy="45" r="3" fill="#4488ff"/>
+    <circle cx="-22.5" cy="39" r="3" fill="#4488ff"/>
+    <circle cx="-39" cy="22.5" r="3" fill="#4488ff"/>
+    <circle cx="-45" cy="0" r="3" fill="#4488ff"/>
+    <circle cx="-39" cy="-22.5" r="3" fill="#4488ff"/>
+    <circle cx="-22.5" cy="-39" r="3" fill="#4488ff"/>
+    <text x="0" y="65" fill="#4488ff" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.8">stride=1</text>
+    <text x="0" y="78" fill="#4488ff" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.5">阶段 I</text>
+  </g>
+
+  <!-- 阶段 II：崩塌中（中间，碎裂的环，红色） -->
+  <g transform="translate(400,390)" filter="url(#glow)" opacity="0.7">
+    <!-- 破碎的环 -->
+    <path d="M0,-45 A45,45 0 0,1 39,-22.5" fill="none" stroke="#cc4444" stroke-width="2"/>
+    <path d="M45,0 A45,45 0 0,1 22.5,39" fill="none" stroke="#cc4444" stroke-width="2" opacity="0.6"/>
+    <path d="M-22.5,39 A45,45 0 0,1 -45,0" fill="none" stroke="#cc4444" stroke-width="1.5" opacity="0.4"/>
+    <path d="M-39,-22.5 A45,45 0 0,1 -10,-44" fill="none" stroke="#cc4444" stroke-width="1.5" opacity="0.3"/>
+    <!-- 散落的点 -->
+    <circle cx="5" cy="-42" r="3" fill="#cc4444" opacity="0.8"/>
+    <circle cx="40" cy="-18" r="3" fill="#cc4444" opacity="0.6"/>
+    <circle cx="42" cy="8" r="3" fill="#cc4444" opacity="0.5"/>
+    <circle cx="18" cy="40" r="2.5" fill="#cc4444" opacity="0.4"/>
+    <circle cx="-25" cy="35" r="2.5" fill="#cc4444" opacity="0.3"/>
+    <circle cx="-43" cy="-5" r="2" fill="#cc4444" opacity="0.3"/>
+    <circle cx="-35" cy="-28" r="2" fill="#cc4444" opacity="0.25"/>
+    <!-- 碎片飞散线 -->
+    <line x1="22" y1="39" x2="30" y2="52" stroke="#cc4444" stroke-width="0.8" opacity="0.4"/>
+    <line x1="-45" y1="0" x2="-55" y2="5" stroke="#cc4444" stroke-width="0.8" opacity="0.3"/>
+    <line x1="0" y1="45" x2="-5" y2="58" stroke="#cc4444" stroke-width="0.8" opacity="0.3"/>
+    <text x="0" y="65" fill="#cc4444" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.8">崩塌中</text>
+    <text x="0" y="78" fill="#cc4444" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.5">阶段 II</text>
+  </g>
+
+  <!-- 阶段 III：stride=4 新结构（右侧，绿色三角形组，稳定） -->
+  <g transform="translate(650,390)" filter="url(#glow)" opacity="0.8">
+    <!-- 三角形 {0,4,8} -->
+    <polygon points="0,-40 34.6,20 -34.6,20" fill="rgba(76,175,80,0.1)" stroke="#4CAF50" stroke-width="2.5"/>
+    <circle cx="0" cy="-40" r="3.5" fill="#4CAF50"/>
+    <circle cx="34.6" cy="20" r="3.5" fill="#4CAF50"/>
+    <circle cx="-34.6" cy="20" r="3.5" fill="#4CAF50"/>
+    <!-- 三角形 {1,5,9} -->
+    <polygon points="20,-34.6 40,10 -20,34.6" fill="none" stroke="#9C27B0" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6"/>
+    <circle cx="20" cy="-34.6" r="2.5" fill="#9C27B0" opacity="0.6"/>
+    <circle cx="40" cy="10" r="2.5" fill="#9C27B0" opacity="0.6"/>
+    <circle cx="-20" cy="34.6" r="2.5" fill="#9C27B0" opacity="0.6"/>
+    <text x="0" y="60" fill="#4CAF50" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.8">stride=4</text>
+    <text x="0" y="73" fill="#4CAF50" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.5">阶段 III</text>
+  </g>
+
+  <!-- 阶段之间的箭头 -->
+  <g filter="url(#glow)" opacity="0.5">
+    <line x1="220" y1="390" x2="320" y2="390" stroke="#888" stroke-width="1.5"/>
+    <line x1="470" y1="390" x2="570" y2="390" stroke="#888" stroke-width="1.5"/>
+    <text x="270" y="380" fill="#888" font-size="9" font-family="monospace" text-anchor="middle">WD压力</text>
+    <text x="520" y="380" fill="#888" font-size="9" font-family="monospace" text-anchor="middle">夺舍</text>
+  </g>
+
+  <!-- 分界线标注 -->
+  <g opacity="0.5">
+    <text x="790" y="295" fill="#33cc77" font-size="9" font-family="monospace" text-anchor="end">← 外在行为（平静）</text>
+    <text x="790" y="315" fill="#cc4444" font-size="9" font-family="monospace" text-anchor="end">← 内在结构（剧变）</text>
+  </g>
+
+  <!-- ========== 主标题 ========== -->
+  <text x="400" y="60" fill="#f0e8d8" font-size="32" text-anchor="middle" font-weight="900" letter-spacing="3" opacity="0.95">满分之下，暗流涌动</text>
+  <text x="400" y="95" fill="#998877" font-size="14" text-anchor="middle" font-family="monospace" letter-spacing="1" opacity="0.7">当 AI 测试集已经 100%，它的脑子还在换</text>
+
+  <!-- 左上角系列标记 -->
+  <text x="15" y="22" fill="#556655" font-size="9" font-family="monospace" opacity="0.5">No.99 | 嵌套 Grokking 实验</text>
+
+  <!-- 底部金句 -->
+  <text x="400" y="535" text-anchor="middle" fill="#887766" font-size="11" font-family="monospace" opacity="0.6">答案没变，"想"答案的方式彻底变了。</text>
+
+  <!-- 底部署名 -->
+  <text x="400" y="560" text-anchor="middle" fill="#444" font-size="10" font-family="monospace">靳岩岩的 AI 学习笔记 · No.99</text>
+
+</svg>
