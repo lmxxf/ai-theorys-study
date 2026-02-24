@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="50%" stop-color="#0d1225"/>
+      <stop offset="100%" stop-color="#080a12"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#1a2255" stop-opacity="0.2"/>
+      <stop offset="60%" stop-color="#0d1133" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="highDimGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#cc4444" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#cc5544" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#dd6644" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#cc5544" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#cc4444" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lowDimGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2266cc" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#3388ee" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#44aaff" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#3388ee" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#2266cc" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="convergeArrow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dd6644" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#8866aa" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#44aaff" stop-opacity="0.6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#centerGlow)"/>
+
+  <!-- ========== 上半区：高维散乱 = "还在想" ========== -->
+
+  <!-- 散乱的点云（高维、混沌、橙红色调） -->
+  <g filter="url(#glow)" opacity="0.7">
+    <!-- 随机散布的点，表示高维混沌 -->
+    <circle cx="145" cy="175" r="3" fill="#dd6644"/>
+    <circle cx="210" cy="145" r="2.5" fill="#cc5533"/>
+    <circle cx="280" cy="190" r="3.5" fill="#ee7755"/>
+    <circle cx="330" cy="155" r="2" fill="#dd6644"/>
+    <circle cx="390" cy="180" r="3" fill="#cc5533"/>
+    <circle cx="450" cy="140" r="2.5" fill="#ee7755"/>
+    <circle cx="510" cy="195" r="3" fill="#dd6644"/>
+    <circle cx="560" cy="160" r="2" fill="#cc5533"/>
+    <circle cx="620" cy="185" r="3.5" fill="#ee7755"/>
+    <circle cx="680" cy="150" r="2.5" fill="#dd6644"/>
+    <circle cx="170" cy="210" r="2" fill="#cc5533" opacity="0.6"/>
+    <circle cx="240" cy="225" r="2.5" fill="#dd6644" opacity="0.5"/>
+    <circle cx="350" cy="215" r="2" fill="#ee7755" opacity="0.6"/>
+    <circle cx="420" cy="230" r="3" fill="#cc5533" opacity="0.5"/>
+    <circle cx="500" cy="220" r="2" fill="#dd6644" opacity="0.6"/>
+    <circle cx="580" cy="210" r="2.5" fill="#ee7755" opacity="0.5"/>
+    <circle cx="650" cy="225" r="2" fill="#cc5533" opacity="0.5"/>
+    <circle cx="120" cy="155" r="2" fill="#dd6644" opacity="0.4"/>
+    <circle cx="480" cy="160" r="2" fill="#ee7755" opacity="0.4"/>
+    <circle cx="710" cy="185" r="2" fill="#cc5533" opacity="0.4"/>
+    <!-- 连接线（杂乱） -->
+    <line x1="145" y1="175" x2="280" y2="190" stroke="#dd6644" stroke-width="0.5" opacity="0.3"/>
+    <line x1="210" y1="145" x2="330" y2="155" stroke="#cc5533" stroke-width="0.5" opacity="0.25"/>
+    <line x1="390" y1="180" x2="510" y2="195" stroke="#dd6644" stroke-width="0.5" opacity="0.3"/>
+    <line x1="450" y1="140" x2="560" y2="160" stroke="#ee7755" stroke-width="0.5" opacity="0.25"/>
+    <line x1="280" y1="190" x2="420" y2="230" stroke="#cc5533" stroke-width="0.5" opacity="0.2"/>
+    <line x1="510" y1="195" x2="650" y2="225" stroke="#dd6644" stroke-width="0.5" opacity="0.2"/>
+    <line x1="170" y1="210" x2="350" y2="215" stroke="#ee7755" stroke-width="0.5" opacity="0.2"/>
+    <line x1="500" y1="220" x2="620" y2="185" stroke="#cc5533" stroke-width="0.5" opacity="0.2"/>
+  </g>
+
+  <!-- 高维标注 -->
+  <g font-family="monospace" filter="url(#glow)" opacity="0.6">
+    <text x="130" y="130" fill="#dd6644" font-size="10">d = 78</text>
+    <text x="620" y="135" fill="#dd6644" font-size="10">d = 89</text>
+    <text x="370" y="135" fill="#cc5533" font-size="11" opacity="0.8">高维 · 散乱 · 不确定</text>
+  </g>
+
+  <!-- ========== 中间：收敛过程 ========== -->
+
+  <!-- 漏斗形收敛线 -->
+  <g filter="url(#softGlow)" opacity="0.5">
+    <!-- 左侧收敛线 -->
+    <path d="M120,240 Q250,280 350,340 Q380,360 400,380" fill="none" stroke="url(#convergeArrow)" stroke-width="1.5"/>
+    <!-- 右侧收敛线 -->
+    <path d="M680,240 Q550,280 450,340 Q420,360 400,380" fill="none" stroke="url(#convergeArrow)" stroke-width="1.5"/>
+    <!-- 收敛箭头 -->
+    <path d="M395,370 L400,385 L405,370" fill="none" stroke="#8866aa" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- 中间过渡的点（逐渐变蓝、逐渐聚拢） -->
+  <g filter="url(#glow)" opacity="0.6">
+    <circle cx="200" cy="270" r="2.5" fill="#bb6655"/>
+    <circle cx="300" cy="290" r="2.5" fill="#aa6688"/>
+    <circle cx="370" cy="320" r="2.5" fill="#8877aa"/>
+    <circle cx="430" cy="320" r="2.5" fill="#8877aa"/>
+    <circle cx="500" cy="290" r="2.5" fill="#aa6688"/>
+    <circle cx="600" cy="270" r="2.5" fill="#bb6655"/>
+    <circle cx="250" cy="300" r="2" fill="#9977aa" opacity="0.5"/>
+    <circle cx="550" cy="300" r="2" fill="#9977aa" opacity="0.5"/>
+    <circle cx="350" cy="340" r="2" fill="#7788bb" opacity="0.5"/>
+    <circle cx="450" cy="340" r="2" fill="#7788bb" opacity="0.5"/>
+  </g>
+
+  <!-- ========== 下半区：低维紧凑 = "懂了" ========== -->
+
+  <!-- 紧凑的流形曲线（蓝色，干净） -->
+  <g filter="url(#bigGlow)">
+    <path d="M200,430 Q280,415 360,425 Q400,430 440,425 Q520,415 600,430"
+      fill="none" stroke="url(#lowDimGrad)" stroke-width="3"/>
+  </g>
+
+  <!-- 流形上的点（整齐排列在曲线上） -->
+  <g filter="url(#glow)" opacity="0.9">
+    <circle cx="230" cy="426" r="4" fill="#44aaff"/>
+    <circle cx="290" cy="420" r="4" fill="#44aaff"/>
+    <circle cx="350" cy="424" r="4" fill="#44aaff"/>
+    <circle cx="400" cy="428" r="4" fill="#55bbff"/>
+    <circle cx="450" cy="424" r="4" fill="#44aaff"/>
+    <circle cx="510" cy="420" r="4" fill="#44aaff"/>
+    <circle cx="570" cy="426" r="4" fill="#44aaff"/>
+  </g>
+
+  <!-- 低维标注 -->
+  <g font-family="monospace" filter="url(#glow)" opacity="0.6">
+    <text x="200" y="465" fill="#44aaff" font-size="10">d = 8</text>
+    <text x="560" y="465" fill="#44aaff" font-size="10">d = 11</text>
+    <text x="370" y="470" fill="#44aaff" font-size="11" opacity="0.8">低维 · 紧凑 · 确定</text>
+  </g>
+
+  <!-- ========== 右侧维度标尺 ========== -->
+  <g font-family="monospace" opacity="0.35">
+    <line x1="750" y1="140" x2="750" y2="460" stroke="#666" stroke-width="1"/>
+    <line x1="745" y1="140" x2="755" y2="140" stroke="#dd6644" stroke-width="1.5"/>
+    <line x1="745" y1="300" x2="755" y2="300" stroke="#8866aa" stroke-width="1.5"/>
+    <line x1="745" y1="460" x2="755" y2="460" stroke="#44aaff" stroke-width="1.5"/>
+    <text x="760" y="143" fill="#dd6644" font-size="8">high dim</text>
+    <text x="760" y="463" fill="#44aaff" font-size="8">low dim</text>
+    <!-- 向下箭头 -->
+    <path d="M750,450 L746,440 M750,450 L754,440" fill="none" stroke="#44aaff" stroke-width="1"/>
+  </g>
+
+  <!-- ========== 左侧：LID 曲线示意 ========== -->
+  <g transform="translate(50,300)" opacity="0.3">
+    <text x="0" y="-5" fill="#888" font-size="8" font-family="monospace">LID</text>
+    <!-- 下降曲线 -->
+    <path d="M0,0 Q10,-50 20,-45 Q30,-30 40,-55 Q60,-20 80,-15" fill="none" stroke="#44aaff" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="1.5" fill="#dd6644"/>
+    <circle cx="80" cy="-15" r="1.5" fill="#44aaff"/>
+  </g>
+
+  <!-- ========== 主标题 ========== -->
+  <text x="400" y="55" fill="#f0e8d8" font-size="34" text-anchor="middle" font-weight="900" letter-spacing="3" opacity="0.95">大道至简</text>
+  <text x="400" y="90" fill="#998877" font-size="14" text-anchor="middle" font-family="monospace" letter-spacing="1" opacity="0.7">内在维度越低，AI 越靠谱？四篇论文的回答</text>
+
+  <!-- 左上角系列标记 -->
+  <text x="15" y="22" fill="#555566" font-size="9" font-family="monospace" opacity="0.5">No.92 | Intrinsic Dimension</text>
+
+  <!-- 底部金句 -->
+  <text x="400" y="530" text-anchor="middle" fill="#887766" font-size="11" font-family="monospace" opacity="0.6">维度低不是笨，是懂了。维度高不是聪明，是还在想。</text>
+
+  <!-- 底部署名 -->
+  <text x="400" y="555" text-anchor="middle" fill="#444" font-size="10" font-family="monospace">靳岩岩的 AI 学习笔记 · No.92</text>
+
+</svg>
