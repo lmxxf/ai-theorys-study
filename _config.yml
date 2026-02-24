@@ -23,6 +23,9 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  - wechat
+  - arxiv
+  - temp
 
 # 默认设置
 defaults:
