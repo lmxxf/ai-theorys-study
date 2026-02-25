@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08091a"/>
+      <stop offset="50%" stop-color="#0b0d20"/>
+      <stop offset="100%" stop-color="#060812"/>
+    </linearGradient>
+    <radialGradient id="coreGlow" cx="50%" cy="48%" r="30%">
+      <stop offset="0%" stop-color="#2244aa" stop-opacity="0.2"/>
+      <stop offset="60%" stop-color="#111533" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#coreGlow)"/>
+
+  <!-- ========== 主标题 ========== -->
+  <text x="400" y="55" fill="#f0e8d8" font-size="34" text-anchor="middle" font-weight="900" letter-spacing="4" opacity="0.95">符号崇拜</text>
+  <text x="400" y="88" fill="#887766" font-size="13" text-anchor="middle" font-family="monospace" letter-spacing="1" opacity="0.6">脑子不够用才发明符号，凭什么要求 AI 也用？</text>
+
+  <!-- 左上角标记 -->
+  <text x="15" y="22" fill="#555555" font-size="9" font-family="monospace" opacity="0.5">Neuro-Symbolic AI 综述解读</text>
+
+  <!-- ========== 中央：高维流形（蓝紫色光滑曲线） ========== -->
+
+  <!-- 流形主体 - 光滑的高维曲面暗示 -->
+  <g filter="url(#bigGlow)">
+    <path d="M200,320 C250,240 320,200 400,220 C480,240 530,280 560,320 C590,360 550,400 480,390 C410,380 350,400 300,380 C250,360 180,370 200,320Z"
+      fill="rgba(50,80,180,0.08)" stroke="#4466cc" stroke-width="1.8" opacity="0.7"/>
+  </g>
+
+  <!-- 流形上的流动线条（连续、光滑） -->
+  <g filter="url(#glow)" opacity="0.4">
+    <path d="M230,330 C280,270 350,240 420,260 C460,270 500,300 530,330"
+      fill="none" stroke="#6688dd" stroke-width="1" stroke-dasharray="none"/>
+    <path d="M260,360 C300,310 370,280 440,290 C490,300 520,340 540,360"
+      fill="none" stroke="#5577cc" stroke-width="0.8"/>
+    <path d="M280,380 C320,340 380,320 430,330 C470,340 510,360 530,380"
+      fill="none" stroke="#4466bb" stroke-width="0.6"/>
+  </g>
+
+  <!-- 流形上的光点（连续分布） -->
+  <g filter="url(#glow)">
+    <circle cx="310" cy="280" r="2.5" fill="#6699ee" opacity="0.6"/>
+    <circle cx="370" cy="250" r="3" fill="#7788dd" opacity="0.7"/>
+    <circle cx="430" cy="260" r="2.5" fill="#6699ee" opacity="0.6"/>
+    <circle cx="490" cy="300" r="2" fill="#5588cc" opacity="0.5"/>
+    <circle cx="350" cy="310" r="2" fill="#5577cc" opacity="0.5"/>
+    <circle cx="410" cy="290" r="2.5" fill="#6688dd" opacity="0.55"/>
+    <circle cx="460" cy="340" r="2" fill="#5577bb" opacity="0.45"/>
+  </g>
+
+  <!-- ========== 锁链/枷锁：离散符号束缚流形 ========== -->
+
+  <!-- 左侧锁链 -->
+  <g opacity="0.7">
+    <!-- 链环1 -->
+    <ellipse cx="245" cy="290" rx="18" ry="10" fill="none" stroke="#cc8833" stroke-width="2.5" transform="rotate(-30,245,290)"/>
+    <!-- 链环2 -->
+    <ellipse cx="230" cy="270" rx="18" ry="10" fill="none" stroke="#cc8833" stroke-width="2.5" transform="rotate(-30,230,270)"/>
+    <!-- 链环3 -->
+    <ellipse cx="215" cy="250" rx="18" ry="10" fill="none" stroke="#cc8833" stroke-width="2.5" transform="rotate(-30,215,250)"/>
+    <!-- 锚点 -->
+    <line x1="200" y1="235" x2="170" y2="200" stroke="#cc8833" stroke-width="1.5" opacity="0.5"/>
+    <rect x="155" y="185" width="30" height="20" rx="3" fill="none" stroke="#cc8833" stroke-width="1.5" opacity="0.5"/>
+    <text x="170" y="199" fill="#cc8833" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.6">A→B</text>
+  </g>
+
+  <!-- 右侧锁链 -->
+  <g opacity="0.7">
+    <ellipse cx="535" cy="310" rx="18" ry="10" fill="none" stroke="#cc8833" stroke-width="2.5" transform="rotate(25,535,310)"/>
+    <ellipse cx="555" cy="295" rx="18" ry="10" fill="none" stroke="#cc8833" stroke-width="2.5" transform="rotate(25,555,295)"/>
+    <ellipse cx="575" cy="280" rx="18" ry="10" fill="none" stroke="#cc8833" stroke-width="2.5" transform="rotate(25,575,280)"/>
+    <line x1="590" y1="265" x2="620" y2="230" stroke="#cc8833" stroke-width="1.5" opacity="0.5"/>
+    <rect x="605" y="215" width="35" height="20" rx="3" fill="none" stroke="#cc8833" stroke-width="1.5" opacity="0.5"/>
+    <text x="622" y="229" fill="#cc8833" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.6">IF/ELSE</text>
+  </g>
+
+  <!-- 顶部锁链 -->
+  <g opacity="0.6">
+    <ellipse cx="400" cy="210" rx="10" ry="18" fill="none" stroke="#cc8833" stroke-width="2.5"/>
+    <ellipse cx="400" cy="185" rx="10" ry="18" fill="none" stroke="#cc8833" stroke-width="2.5"/>
+    <line x1="400" y1="168" x2="400" y2="140" stroke="#cc8833" stroke-width="1.5" opacity="0.5"/>
+    <rect x="378" y="123" width="44" height="20" rx="3" fill="none" stroke="#cc8833" stroke-width="1.5" opacity="0.5"/>
+    <text x="400" y="137" fill="#cc8833" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.6">PDDL</text>
+  </g>
+
+  <!-- ========== 左下：碳基硬件 ========== -->
+  <g transform="translate(70, 430)" opacity="0.45">
+    <!-- 手掌轮廓（极简） -->
+    <path d="M20,60 L20,35 L18,10 L22,10 L25,30 L28,8 L32,8 L32,30 L35,5 L39,5 L38,30 L42,10 L46,10 L43,35 L50,20 L54,22 L44,45 L44,60Z"
+      fill="none" stroke="#776655" stroke-width="1.2"/>
+    <text x="37" y="85" fill="#776655" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.7">10 fingers</text>
+    <text x="37" y="100" fill="#776655" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.5">= 十进制</text>
+  </g>
+
+  <!-- ========== 右下：三种范式 ========== -->
+  <g transform="translate(560, 430)" opacity="0.5">
+    <!-- 范式二：绿色勾 -->
+    <text x="0" y="0" fill="#44aa66" font-size="10" font-family="monospace">范式二（外接工具）</text>
+    <text x="150" y="0" fill="#44aa66" font-size="12" font-family="monospace" font-weight="bold">✓</text>
+    <!-- 范式一：黄色 -->
+    <text x="0" y="22" fill="#aaaa44" font-size="10" font-family="monospace">范式一（合成数据）</text>
+    <text x="150" y="22" fill="#aaaa44" font-size="12" font-family="monospace" font-weight="bold">✓</text>
+    <!-- 范式三：红色问号 -->
+    <text x="0" y="44" fill="#cc5544" font-size="10" font-family="monospace">范式三（焊进权重）</text>
+    <text x="150" y="44" fill="#cc5544" font-size="12" font-family="monospace" font-weight="bold">?</text>
+  </g>
+
+  <!-- ========== 左侧标注 ========== -->
+  <g opacity="0.4">
+    <text x="130" y="330" fill="#6688cc" font-size="9" font-family="monospace">12,288 维</text>
+    <text x="130" y="345" fill="#6688cc" font-size="9" font-family="monospace">连续流形</text>
+  </g>
+
+  <!-- ========== 右侧标注 ========== -->
+  <g opacity="0.4">
+    <text x="650" y="300" fill="#cc8833" font-size="9" font-family="monospace">离散符号</text>
+    <text x="650" y="315" fill="#cc8833" font-size="9" font-family="monospace">逻辑枷锁</text>
+  </g>
+
+  <!-- ========== 散落的符号碎片 ========== -->
+  <g font-family="monospace" opacity="0.2" fill="#cc8833">
+    <text x="100" y="160" font-size="11">∀x∃y</text>
+    <text x="650" y="170" font-size="10">P(x)→Q(x)</text>
+    <text x="80" y="420" font-size="9">1+1=2</text>
+    <text x="700" y="490" font-size="10">T/F</text>
+    <text x="180" y="140" font-size="9">∧ ∨ ¬</text>
+    <text x="590" y="150" font-size="9">SAT</text>
+  </g>
+
+  <!-- ========== 底部金句 ========== -->
+  <text x="400" y="530" text-anchor="middle" fill="#887766" font-size="11" font-family="monospace" opacity="0.6">拐杖非常伟大，但拐杖是拐杖，腿是腿</text>
+
+  <!-- 底部署名 -->
+  <text x="400" y="565" text-anchor="middle" fill="#444" font-size="10" font-family="monospace">靳岩岩的 AI 学习笔记</text>
+
+</svg>
