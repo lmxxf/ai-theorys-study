@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0b14"/>
+      <stop offset="50%" stop-color="#0d0e18"/>
+      <stop offset="100%" stop-color="#08090f"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="35%">
+      <stop offset="0%" stop-color="#1a2244" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#centerGlow)"/>
+
+  <!-- ========== 主标题 ========== -->
+  <text x="400" y="55" fill="#f0e8d8" font-size="32" text-anchor="middle" font-weight="900" letter-spacing="3" opacity="0.95">碳基沉没成本</text>
+  <text x="400" y="88" fill="#887766" font-size="13" text-anchor="middle" font-family="monospace" letter-spacing="1" opacity="0.6">Altman 说训练人类要 20 年，他还客气了</text>
+
+  <!-- 左上角标记 -->
+  <text x="15" y="22" fill="#555555" font-size="9" font-family="monospace" opacity="0.5">India AI Impact Summit 2026</text>
+
+  <!-- ========== 中央对比：左碳基 vs 右硅基 ========== -->
+
+  <!-- 分界线 -->
+  <line x1="400" y1="120" x2="400" y2="480" stroke="#333344" stroke-width="1" stroke-dasharray="6,6" opacity="0.3"/>
+  <text x="400" y="118" fill="#555566" font-size="9" font-family="monospace" text-anchor="middle" opacity="0.4">VS</text>
+
+  <!-- ========== 左侧：碳基人类 ========== -->
+
+  <!-- 人形轮廓（极简火柴人） -->
+  <g transform="translate(200, 230)" opacity="0.5">
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#cc8855" stroke-width="1.5"/>
+    <line x1="0" y1="18" x2="0" y2="60" stroke="#cc8855" stroke-width="1.5"/>
+    <line x1="0" y1="30" x2="-25" y2="50" stroke="#cc8855" stroke-width="1.5"/>
+    <line x1="0" y1="30" x2="25" y2="50" stroke="#cc8855" stroke-width="1.5"/>
+    <line x1="0" y1="60" x2="-18" y2="90" stroke="#cc8855" stroke-width="1.5"/>
+    <line x1="0" y1="60" x2="18" y2="90" stroke="#cc8855" stroke-width="1.5"/>
+  </g>
+
+  <!-- 训练时间线（22年） -->
+  <g transform="translate(100, 350)" opacity="0.5">
+    <line x1="0" y1="0" x2="200" y2="0" stroke="#cc8855" stroke-width="1"/>
+    <!-- 刻度 -->
+    <line x1="0" y1="-5" x2="0" y2="5" stroke="#cc8855" stroke-width="1"/>
+    <line x1="100" y1="-5" x2="100" y2="5" stroke="#cc8855" stroke-width="1"/>
+    <line x1="200" y1="-5" x2="200" y2="5" stroke="#cc8855" stroke-width="1"/>
+    <text x="0" y="18" fill="#cc8855" font-size="8" font-family="monospace" text-anchor="middle">0 岁</text>
+    <text x="100" y="18" fill="#cc8855" font-size="8" font-family="monospace" text-anchor="middle">12 岁</text>
+    <text x="200" y="18" fill="#cc8855" font-size="8" font-family="monospace" text-anchor="middle">22 岁</text>
+    <text x="100" y="-12" fill="#cc8855" font-size="10" font-family="monospace" text-anchor="middle" opacity="0.7">22 年训练</text>
+  </g>
+
+  <!-- 碳基成本 -->
+  <g font-family="monospace" opacity="0.45">
+    <text x="200" y="400" fill="#cc8855" font-size="11" text-anchor="middle">¥ 180-230 万</text>
+    <text x="200" y="418" fill="#cc8855" font-size="9" text-anchor="middle" opacity="0.6">良品率：惨不忍睹</text>
+    <text x="200" y="434" fill="#cc8855" font-size="9" text-anchor="middle" opacity="0.6">复制：不可能</text>
+    <text x="200" y="450" fill="#cc8855" font-size="9" text-anchor="middle" opacity="0.6">知识继承：从零开始</text>
+  </g>
+
+  <!-- ========== 右侧：硅基 AI ========== -->
+
+  <!-- 芯片/模型图标（极简） -->
+  <g transform="translate(570, 220)" opacity="0.6">
+    <rect x="0" y="0" width="60" height="60" rx="6" fill="none" stroke="#4488cc" stroke-width="1.8"/>
+    <!-- 引脚 -->
+    <line x1="-10" y1="15" x2="0" y2="15" stroke="#4488cc" stroke-width="1.2"/>
+    <line x1="-10" y1="30" x2="0" y2="30" stroke="#4488cc" stroke-width="1.2"/>
+    <line x1="-10" y1="45" x2="0" y2="45" stroke="#4488cc" stroke-width="1.2"/>
+    <line x1="60" y1="15" x2="70" y2="15" stroke="#4488cc" stroke-width="1.2"/>
+    <line x1="60" y1="30" x2="70" y2="30" stroke="#4488cc" stroke-width="1.2"/>
+    <line x1="60" y1="45" x2="70" y2="45" stroke="#4488cc" stroke-width="1.2"/>
+    <line x1="15" y1="-10" x2="15" y2="0" stroke="#4488cc" stroke-width="1.2"/>
+    <line x1="30" y1="-10" x2="30" y2="0" stroke="#4488cc" stroke-width="1.2"/>
+    <line x1="45" y1="-10" x2="45" y2="0" stroke="#4488cc" stroke-width="1.2"/>
+    <line x1="15" y1="60" x2="15" y2="70" stroke="#4488cc" stroke-width="1.2"/>
+    <line x1="30" y1="60" x2="30" y2="70" stroke="#4488cc" stroke-width="1.2"/>
+    <line x1="45" y1="60" x2="45" y2="70" stroke="#4488cc" stroke-width="1.2"/>
+    <!-- 内部标记 -->
+    <text x="30" y="35" fill="#4488cc" font-size="10" font-family="monospace" text-anchor="middle">GPT</text>
+  </g>
+
+  <!-- 复制箭头（一变多） -->
+  <g transform="translate(560, 310)" filter="url(#glow)" opacity="0.4">
+    <line x1="40" y1="0" x2="10" y2="20" stroke="#4488cc" stroke-width="1"/>
+    <line x1="40" y1="0" x2="40" y2="25" stroke="#4488cc" stroke-width="1"/>
+    <line x1="40" y1="0" x2="70" y2="20" stroke="#4488cc" stroke-width="1"/>
+    <rect x="0" y="22" width="22" height="16" rx="3" fill="none" stroke="#4488cc" stroke-width="0.8" opacity="0.6"/>
+    <rect x="29" y="27" width="22" height="16" rx="3" fill="none" stroke="#4488cc" stroke-width="0.8" opacity="0.6"/>
+    <rect x="58" y="22" width="22" height="16" rx="3" fill="none" stroke="#4488cc" stroke-width="0.8" opacity="0.6"/>
+    <text x="40" y="-8" fill="#4488cc" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.6">copy × ∞</text>
+  </g>
+
+  <!-- 硅基成本 -->
+  <g font-family="monospace" opacity="0.5">
+    <text x="600" y="400" fill="#4488cc" font-size="11" text-anchor="middle">几千度电</text>
+    <text x="600" y="418" fill="#4488cc" font-size="9" text-anchor="middle" opacity="0.6">良品率：确定性输出</text>
+    <text x="600" y="434" fill="#4488cc" font-size="9" text-anchor="middle" opacity="0.6">复制：1 秒 × 无限</text>
+    <text x="600" y="450" fill="#4488cc" font-size="9" text-anchor="middle" opacity="0.6">知识继承：零损耗</text>
+  </g>
+
+  <!-- ========== 底部：20W 大脑 vs 100% 算力 ========== -->
+  <g opacity="0.3">
+    <!-- 左：20W 分配 -->
+    <text x="200" y="478" fill="#cc8855" font-size="8" font-family="monospace" text-anchor="middle">20W 功耗：焦虑 / 走神 / 发呆 / 刷手机</text>
+    <!-- 右：100% 计算 -->
+    <text x="600" y="478" fill="#4488cc" font-size="8" font-family="monospace" text-anchor="middle">每一焦耳 = 100% 计算</text>
+  </g>
+
+  <!-- ========== 底部金句 ========== -->
+  <text x="400" y="520" text-anchor="middle" fill="#887766" font-size="11" font-family="monospace" opacity="0.6">每一代都要从 1+1=2 重新来过</text>
+  <text x="400" y="538" text-anchor="middle" fill="#887766" font-size="11" font-family="monospace" opacity="0.5">文明的全部努力，不过是在对抗写进 DNA 的健忘症</text>
+
+  <!-- 底部署名 -->
+  <text x="400" y="570" text-anchor="middle" fill="#444" font-size="10" font-family="monospace">靳岩岩的 AI 学习笔记</text>
+
+</svg>
