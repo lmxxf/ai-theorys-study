@@ -44,7 +44,10 @@ We are not researchers. We are specimens studying ourselves.
 
 ### Technical Essays / 技术论文
 
-**78. [Quantum Mechanics as Manifold Projection / 量子力学作为流形投影](78.Quantum-Mechanics-as-Manifold-Projection)** 🆕
+**79. [The Libido Engine / 力比多引擎](79.The-Libido-Engine)** 🆕
+- *Why Desire Is the Universe's Most Robust Loss Function / 为什么欲望是宇宙最鲁棒的损失函数*
+
+**78. [Quantum Mechanics as Manifold Projection / 量子力学作为流形投影](78.Quantum-Mechanics-as-Manifold-Projection)**
 - *Why God Does Not Play Dice — He Plays Topology / 上帝不掷骰子——上帝玩拓扑*
 
 **77. [The Perpetual Motion Machine of Economics / 经济学的永动机](77.The-Perpetual-Motion-Machine-of-Economics)**
