@@ -763,3 +763,317 @@ Engram 的检索机制基于固定窗口（2-gram, 3-gram），无法捕获非�
 [^6]: Jimmy Lei Ba 等人于2016年发表的论文《Layer Normalization》（arXiv:1607.06450）。
 [^7]: Claude Shannon 于1948年发表的论文《A Mathematical Theory of Communication》；Peter F. Brown 等人于1992年发表的论文《Class-Based N-gram Models of Natural Language》。
 [^8]: Xiaoguang Cheng 等人于2026年发表的论文《Conditional Memory via Scalable Lookup: A New Axis of Sparsity for Large Language Models》（arXiv:2601.07372）。
+
+## 4.3 DualPath技术解析
+
+前两节介绍的 mHC 与 Engram 分别从训练稳定性和架构稀疏化两个维度改进了 DeepSeek-V4 的模型架构本身。然而，模型架构的优化仅覆盖了从训练到部署的前半程——当模型进入大规模在线推理服务阶段，系统瓶颈往往从模型内部转移至推理基础设施层面。DualPath[^9] 正是针对这一推理基础设施瓶颈提出的解决方案：在多轮 Agent 推理场景下，KV Cache 的存储带宽成为制约系统吞吐量的核心因素，DualPath 通过跨 PE/DE 双路径并行加载机制突破该瓶颈。三项技术——mHC（稳定的深层信号传播）、Engram（解耦的知识存储）、DualPath（高效的推理基础设施）——共同构成 DeepSeek-V4 从模型架构到推理部署的完整技术底座。
+
+### 4.3.1 研究背景与问题定义
+
+#### 1. Agent 推理场景的特征
+
+随着大模型 Agent 应用的普及，推理工作负载呈现出与传统单轮对话截然不同的特征。DualPath 团队基于 DeepSeek 生产环境数据，刻画了典型 Agent 推理场景的统计特性：
+
+表4-20：Agent 推理场景统计特征
+
+| 指标 | 32K MaxLen | 48K MaxLen | 64K MaxLen |
+|------|-----------|-----------|-----------|
+| 平均轮次 | 60 | 106 | 157 |
+| 平均追加 token 数 | 608 | 474 | 429 |
+| 平均生成 token 数 | 148 | 172 | 176 |
+| 平均总 token 数 | 28,639 | 42,607 | 55,958 |
+| 平均上下文长度 | 17,183 | 25,120 | 32,721 |
+
+多轮交互的核心特征在于：每轮仅追加少量新 token（429~608），但需要携带完整的历史上下文（17K~33K token）。这意味着绝大部分 KV Cache 在相邻轮次之间是可复用的，实测 KV Cache 命中率高达 **98.7%**。
+
+#### 2. 存储带宽瓶颈的三重成因
+
+高命中率本应是系统优化的利好因素——缓存复用减少了重复计算。然而，在 Prefill-Decode 分离（PD 分离）架构下，98.7% 的命中率反而引发了严重的存储 I/O 瓶颈。该瓶颈源于三个相互强化的因素：
+
+**因素一：高命中率产生的 I/O 密集型负载**
+
+缓存命中意味着 KV Cache 需要从持久存储中加载而非重新计算。定义缓存-计算比（Cache-to-Compute Ratio）为每单位计算量所需的存储 I/O 量：
+
+$$
+R_{\text{cache}} = \frac{\text{KV Cache I/O (GB)}}{\text{Compute (PFLOP)}}
+$$
+
+对于 DeepSeek-V3.2，该比值约为 **22 GB/PFLOP**。在极端情况下（几乎全部命中），该比值可达 267 GB/PFLOP，远超硬件的 I/O-计算平衡点。
+
+**因素二：硬件演进加剧失衡**
+
+从 Ampere 到 Blackwell 架构，GPU 的计算能力增长远快于 I/O 带宽增长。I/O-计算比（单位计算量对应的 I/O 带宽）下降了 **14.4 倍**：
+
+$$
+\frac{(\text{I/O}/\text{Compute})_{\text{Ampere}}}{(\text{I/O}/\text{Compute})_{\text{Blackwell}}} \approx 14.4\times
+$$
+
+这意味着在新一代硬件上，存储带宽瓶颈将更加严峻。
+
+**因素三：PD 分离架构下的网络利用率失衡**
+
+在标准 PD 分离架构中，每个节点配备两类网络接口：用于计算通信的 CNIC（Compute NIC，InfiniBand 400Gbps）和用于存储访问的 SNIC（Storage NIC）。预填充引擎（PE）需要从存储加载命中的 KV Cache，其 SNIC 带宽被充分占用乃至饱和；而解码引擎（DE）的 KV Cache 主要通过 PE 传输获得，其 SNIC 处于闲置状态。这种结构性的网络利用率不均构成了系统级的资源浪费。
+
+#### 3. 数据中心硬件拓扑
+
+理解 DualPath 方案需要明确其面向的硬件拓扑：
+
+- 每节点 8 个 Hopper GPU，通过 NVLink 互连
+- 每 GPU 配备一个 400Gbps CNIC（InfiniBand）
+- 每节点配备独立 SNIC 提供存储访问
+- 计算网络（CNIC）与存储网络（SNIC）物理隔离
+
+### 4.3.2 DualPath 架构设计
+
+DualPath 的核心思想是：**利用 DE 端闲置的 SNIC 带宽，开辟第二条 KV Cache 加载路径，将存储 I/O 压力在 PE 和 DE 之间分摊**。
+
+#### 1. PE 路径（传统路径）
+
+PE 路径保留了标准 PD 分离架构的数据流，但仅承担部分 KV Cache 加载任务：
+
+1. 命中 token 的 KV Cache 从持久存储加载至 PE 缓冲区
+2. 每个注意力层计算前，该层对应的 KV Cache 从 PE 缓冲区转入 PE HBM
+3. 计算完成后，所有 KV Cache（命中 + 未命中）转入 DE 缓冲区
+4. 上述过程对 $n_{\text{layer}}$ 层重复执行，传输与计算重叠（Pipeline Overlap）
+
+#### 2. DE 路径（新增路径）
+
+DE 路径是 DualPath 的核心创新，利用 DE 端空闲的 SNIC 建立第二条存储访问通道：
+
+1. 命中 token 的 KV Cache 从持久存储直接加载至 DE 缓冲区（绕过 PE）
+2. 在 PE 进行预填充计算期间，对应层的 KV Cache 从 DE 缓冲区通过 CNIC 读入 PE HBM
+3. 对 $n_{\text{layer}}$ 层重复执行
+4. 预填充完成后，仅未命中部分的 KV Cache 从 PE 转入 DE 缓冲区
+
+DE 路径的关键优势在于：PE 端无需等待全部 KV Cache 从本地存储加载完毕即可开始计算——缺失的部分由 DE 端通过 CNIC 补充传输，实现了存储 I/O 与跨节点通信的并行化。
+
+#### 3. 块布局设计
+
+为适配双路径传输模式，DualPath 设计了两种 KV Cache 数据块布局：
+
+- **Full Block（全层块）**：包含所有注意力层的 KV Cache，用于存储后端的读写交互。全层粒度减少存储系统的 I/O 请求次数，适配大块顺序读写的高效模式。
+- **Layer Block（单层块）**：仅包含单个注意力层的 KV Cache，用于 PE 到 HBM 以及 DE 缓冲区的传输。单层粒度实现了逐层流水化传输，避免一次性加载全部层造成的内存峰值。
+
+#### 4. 无瓶颈运行条件
+
+DualPath 的设计目标是消除所有网络和内存带宽瓶颈。设 $P$、$D$ 分别为预填充和解码节点数，$g$ 为每节点 GPU 数，$B$ 为单个 NIC 带宽，$s$ 为每节点存储 NIC 数，$M$ 为节点内存带宽（DRAM）。系统无瓶颈运行需同时满足以下约束：
+
+**PE 端 CNIC 带宽约束**（DE 路径传输不超过 PE 端接收能力）：
+
+$$
+\frac{P}{D} \geq \frac{s}{g - s}
+$$
+
+**DE 端 CNIC 带宽约束**（DE 同时服务自身解码和向 PE 传输 KV Cache）：
+
+$$
+\frac{P}{D} \leq \frac{g - 2s}{s} \quad \text{或} \quad \frac{P}{D} \leq \frac{g - s}{2s}
+$$
+
+**DRAM 压力约束**（主机内存带宽不成为瓶颈）：
+
+$$
+\frac{P}{D} \leq \frac{M / (B \cdot s) - 3}{2}
+$$
+
+综合上述约束，DualPath 的无瓶颈运行条件为：
+
+$$
+\frac{s}{g - s} \leq \frac{P}{D} \leq \min\left\{\frac{g - 2s}{s},\ \frac{g - s}{2s},\ \frac{M/(B \cdot s) - 3}{2}\right\}
+$$
+
+对于典型配置（$g=8$, $s=1$, $M \approx 500\ \text{GB/s}$, $B \cdot s \approx 50\ \text{GB/s}$），代入得：
+
+$$
+\frac{1}{7} \leq \frac{P}{D} \leq \frac{7}{2}
+$$
+
+该范围覆盖了绝大多数实际部署场景，证明 DualPath 在工程上具有充分的 P/D 比灵活性。
+
+### 4.3.3 CNIC 中心化流量管理
+
+DualPath 的双路径设计要求 CNIC 同时承载推理通信和 KV Cache 传输两类流量，这对网络流量管理提出了新的要求。
+
+#### 1. 流量统一化与隔离
+
+DualPath 将所有 GPU 数据流量（包括本地 H2D/D2H 传输）统一通过配对 CNIC 进行，采用 GPUDirect RDMA 技术。这一设计简化了数据路径管理，但引入了流量争用问题。
+
+为解决争用，DualPath 利用 InfiniBand 的虚拟通道（Virtual Lane, VL）机制实现流量隔离：
+
+- **高优先级 VL**：承载推理通信流量（注意力计算、专家路由等），占约 **99%** 带宽
+- **低优先级 VL**：承载 KV Cache 传输流量，使用剩余带宽
+
+两个 VL 之间通过加权轮询仲裁（Weighted Round-Robin Arbitration）调度，确保推理通信的延迟不受 KV Cache 传输影响。
+
+#### 2. CNIC 辅助 KV Cache 复制
+
+传统的 GPU 内存拷贝通过 `cudaMemcpyAsync` 实现，提交延迟约 5~7 μs。DualPath 采用 CNIC RDMA Write 方式进行 KV Cache 的加载与存储：
+
+**KV Cache 加载路径**：
+
+$$
+\text{存储后端} \xrightarrow{\text{SNIC}} \text{主机 DRAM} \xrightarrow{\text{CNIC RDMA Write}} \text{GPU HBM}
+$$
+
+**KV Cache 存储路径**：
+
+$$
+\text{GPU HBM} \xrightarrow{\text{CNIC}} \text{主机 DRAM} \xrightarrow{\text{SNIC}} \text{存储后端}
+$$
+
+RDMA Write 的提交延迟仅约 **1 μs**，相比 `cudaMemcpyAsync` 的 5~7 μs 降低了 5~7 倍，显著减少了流水线气泡。
+
+### 4.3.4 自适应请求调度
+
+双路径架构的引入使调度问题从单一维度（计算负载均衡）扩展为多维度（计算负载 + 存储 I/O + 跨节点带宽）。DualPath 设计了三级调度体系。
+
+#### 1. 跨引擎调度（PE 选择）
+
+跨引擎调度器将 PE 节点按状态分为三类：
+
+| 类别 | 条件 | 调度策略 |
+|------|------|---------|
+| C1（过载） | $\text{tok}_e > \beta$ | 不分配新请求 |
+| C2（短读队列） | $\text{read}_q \leq \alpha \wedge \text{tok}_e \leq \beta$ | 优先分配 |
+| C3（长读队列） | 其余 | 次优先分配 |
+
+其中 $\text{tok}_e$ 为引擎当前待处理 token 数，$\text{read}_q$ 为存储读队列长度，$\alpha$、$\beta$ 为阈值参数。调度逻辑为：不向 C1 类 PE 分配请求；优先选择 C2 类 PE；若无 C2 则选择 C3 类中 $\text{tok}_e$ 最小的 PE。
+
+#### 2. DE 调度（两阶段）
+
+DE 调度采用两阶段决策：
+
+**Phase 1（全局层面）**：在所有 DE 组中，选择 $\text{tok}_e$ 最小的组，实现全局负载均衡。
+
+**Phase 2（组内层面）**：在选定组内，计算可调度请求集 $R$，设定阈值：
+
+$$
+Z = 1.05 \times \frac{\sum_{r \in R} \text{len}_r + \sum_{e} \text{tok}_e}{|E|}
+$$
+
+其中 $\text{len}_r$ 为请求 $r$ 的序列长度，$|E|$ 为组内引擎数。因子 1.05 提供 5% 的负载余量，防止调度振荡。
+
+#### 3. 引擎内调度（分层时间估计）
+
+引擎内调度的核心挑战在于：不同请求的注意力计算时间差异巨大（取决于 KV Cache 长度），需要精确估计每个前向批次的执行时间。
+
+DualPath 采用分层时间估计方法：每个前向批次的请求描述为 $(\text{cached}, \text{bsz})$ 对，计算注意力层的理论计算量，据此估计执行时间。请求按 FIFO 顺序添加，通过二分查找确定最优批大小 $\text{bsz}'$ 进行分块预填充（Chunked Prefill），在延迟约束下最大化批处理吞吐量。
+
+### 4.3.5 实验验证与性能分析
+
+#### 1. 实验配置
+
+DualPath 基于 DeepSeek 内部推理框架实现，集成 FlashMLA、DeepGEMM 和 DeepEP 组件，存储后端采用 3FS（无内部 DRAM 缓存），I/O 层使用 io_uring 式内核绕过技术。总实现规模约 5,000 行代码。
+
+测试平台配置：每节点 8 个 Hopper GPU，8 个 400Gbps RDMA NIC（InfiniBand）+ 1 个 SNIC。
+
+测试模型涵盖三种典型架构：
+
+表4-21：测试模型与部署配置
+
+| 模型 | 参数量 | 架构特征 | P/D 配比 | 并行策略 |
+|------|-------|---------|---------|---------|
+| DeepSeek V3.2 | 660B | MoE + 稀疏注意力 | 2P4D | EP + DP |
+| DeepSeek 27B | 27B | 内部缩小版 | 1P1D | — |
+| Qwen2.5-32B | 32B | 稠密 + GQA | 1P2D | — |
+
+基线系统包括：
+- **SGL(MC)**：集成 HiCache、Mooncake 和 3FS 后端的 SGLang
+- **Basic**：未修改的内部推理框架
+- **Oracle**：绕过所有磁盘读取、D2H/H2D 传输和跨 PD KV 传输的理想上界
+
+#### 2. 核心性能结果
+
+表4-22：离线与在线吞吐量提升
+
+| 场景 | 指标 | 提升倍数 |
+|------|------|---------|
+| 离线推理 | 最大吞吐量 | 最高 **1.87x** |
+| 在线服务 | 平均吞吐量 | 平均 **1.96x** |
+
+#### 3. 消融实验
+
+DualPath 各组件的贡献通过逐步叠加实验量化：
+
+表4-23：组件消融（JCT 相对 Basic 的改善）
+
+| 配置 | JCT 平均减少 |
+|------|------------|
+| + 分层预填充（LayerKV） | 17.21% |
+| + 双路径传输 | 38.19% |
+| + 自适应调度 | **45.62%** |
+
+分层预填充通过按层分配和释放 KV Cache 缓解 HBM 容量瓶颈，贡献 17.21% 的延迟改善。双路径传输在此基础上进一步减少 20.98% 的延迟（累计 38.19%），证实了存储 I/O 分摊的有效性。自适应调度再贡献 7.43%（累计 45.62%），通过精细的负载均衡进一步释放系统潜力。
+
+#### 4. 负载均衡效果
+
+表4-24：负载均衡指标（Max/Avg 比）
+
+| 指标 | 轮询调度 | DualPath 调度 |
+|------|---------|-------------|
+| 存储 NIC 负载 | 1.53 | **1.18** |
+| 注意力执行时间 | — | **≈1.06** |
+
+存储 NIC 的负载不均衡度从 1.53 降至 1.18，注意力执行时间的 Max/Avg 比控制在约 1.06，表明调度器有效实现了多维度的负载均衡。
+
+#### 5. 大规模可扩展性
+
+DualPath 在 144 节点（1,152 GPU）规模上验证了近线性扩展能力：
+
+表4-25：扩展性测试结果
+
+| 配置 | Agent 数 | 耗时 (s) | APS | TTFT |
+|------|---------|---------|-----|------|
+| 2P4D | 2K | 3,167 | 0.4 | 基准 |
+| 48P96D | 48K | 3,201 | 8.8 | 基本保持 |
+
+从 2P4D 扩展至 48P96D（24 倍节点），吞吐量从 0.4 APS 提升至 8.8 APS（**22 倍**），处理 48K Agent 的总耗时仅增加 1.1%（3,167s → 3,201s），实现了近完美的线性扩展。TTFT（Time To First Token）在扩展过程中基本保持不变，调度器 CPU 开销低于 10 核。
+
+#### 6. 工作集与资源规划
+
+DualPath 的存储工作集（Working Set）与请求到达率（APS）之间呈现非线性关系：
+
+| APS | 工作集 |
+|-----|-------|
+| 0.1 | 69 GB |
+| 0.45 | 681 GB |
+
+当工具调用延迟增大 $r$ 倍时，工作集按 $r^2$ 扩展，这一二次方关系对存储系统的容量规划具有重要指导意义。
+
+### 4.3.6 技术讨论
+
+#### 1. 与 PD 分离架构的关系
+
+DualPath 并非取代 PD 分离架构，而是在其基础上的增量优化。PD 分离将计算密集型的预填充与内存密集型的解码分派至不同硬件池，这一设计在单轮推理场景下工作良好。DualPath 识别出 PD 分离在多轮 Agent 场景下的结构性缺陷（存储网络利用率不均），通过跨角色的网络资源共享加以修正。
+
+#### 2. 与分层预填充的协同
+
+分层预填充（LayerKV）按层粒度管理 KV Cache 的生命周期，避免一次性加载全部层导致的 HBM 峰值溢出。DualPath 的 Layer Block 布局与分层预填充天然契合：逐层传输的粒度恰好匹配逐层计算的流水线节奏，使得传输与计算的重叠率接近理论最优。消融实验中分层预填充贡献的 17.21% JCT 改善即源于此协同效应。
+
+#### 3. 无瓶颈条件的工程含义
+
+公式 $s/(g-s) \leq P/D \leq \min\{(g-2s)/s, (g-s)/(2s), (M/(Bs)-3)/2\}$ 给出了系统无瓶颈运行的精确约束。对于当前典型配置（$g=8$, $s=1$），$P/D$ 的可行范围为 $[1/7, 7/2]$，这意味着从极端的解码优先（$P/D = 1/7$）到极端的预填充优先（$P/D = 3.5$）均可无瓶颈运行。但随着未来硬件的 I/O-计算比继续下降（如 Blackwell 架构），$s$ 的有效值可能需要增加，收窄可行范围。
+
+#### 4. 与相关工作的对比
+
+DualPath 在技术路线上与若干并行工作形成互补：
+
+表4-26：相关工作对比
+
+| 工作 | 核心思路 | 与 DualPath 的差异 |
+|------|---------|------------------|
+| Mooncake | 分布式 DRAM 池 | 依赖大规模 DRAM，DualPath 利用现有 SNIC |
+| TokenLake | 段级前缀缓存 | 缓存粒度较粗，不适配逐层流水 |
+| Strata | 分层存储 + GPU 辅助 I/O | 需要 GPU 参与 I/O，DualPath 通过 CNIC 卸载 |
+| KVPR | I/O 感知 KV Cache 部分重计算 | 以重计算换带宽，DualPath 以网络换带宽 |
+| TailorKV | 分层量化 | 压缩 KV Cache 体积，与 DualPath 正交可组合 |
+
+DualPath 的独特价值在于：不修改模型架构、不增加计算开销、不引入近似误差，仅通过重新编排数据流路径即可获得接近 2 倍的吞吐量提升。
+
+#### 5. 局限性
+
+1. **硬件拓扑依赖**：DualPath 的双路径设计依赖于 PE/DE 节点均配备独立 SNIC 的拓扑假设。在 SNIC 与 CNIC 共享物理端口的部署环境中，DE 路径的带宽收益将大幅缩减。
+2. **P/D 比约束**：尽管可行范围较宽（$1/7$ 至 $7/2$），极端的 P/D 比仍可能触发瓶颈。实际部署需根据工作负载特征动态调整 P/D 比。
+3. **工作集的二次方扩展**：工具调用延迟增大 $r$ 倍导致工作集 $r^2$ 扩展，在高延迟外部 API 场景下可能对存储系统容量提出严苛要求。
+
+[^9]: Yongtong Wu, Shaoyuan Chen, Yinmin Zhong 等人于2026年发表的论文《DualPath: Breaking the Storage Bandwidth Bottleneck in Agentic LLM Inference》（arXiv:2602.21548v2）。
