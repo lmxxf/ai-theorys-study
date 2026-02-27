@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e53935"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#999"/>
+    </marker>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00897b"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565c0"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e65100"/>
+    </marker>
+    <style>
+      text { font-family: "Noto Serif CJK SC", "WenQuanYi Micro Hei", "Noto Sans CJK SC", sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#fafafa"/>
+
+  <!-- Divider -->
+  <line x1="600" y1="30" x2="600" y2="570" stroke="#ccc" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- VS label -->
+  <circle cx="600" cy="300" r="22" fill="#fff" stroke="#ccc" stroke-width="2"/>
+  <text x="600" y="306" text-anchor="middle" font-size="14" font-weight="bold" fill="#888">VS</text>
+
+  <!-- ==================== LEFT: Traditional PD ==================== -->
+  <text x="300" y="42" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">传统 PD 分离架构</text>
+
+  <!-- Storage Node (cylinder) -->
+  <g transform="translate(300, 130)">
+    <ellipse cx="0" cy="0" rx="52" ry="15" fill="#90a4ae" stroke="#546e7a" stroke-width="1.5"/>
+    <rect x="-52" y="0" width="104" height="50" fill="#90a4ae" stroke="none"/>
+    <line x1="-52" y1="0" x2="-52" y2="50" stroke="#546e7a" stroke-width="1.5"/>
+    <line x1="52" y1="0" x2="52" y2="50" stroke="#546e7a" stroke-width="1.5"/>
+    <ellipse cx="0" cy="50" rx="52" ry="15" fill="#78909c" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="0" y="33" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">3FS 存储</text>
+  </g>
+
+  <!-- PE Node -->
+  <g transform="translate(140, 345)">
+    <rect x="-75" y="-55" width="150" height="110" rx="8" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+    <text x="0" y="-30" text-anchor="middle" font-size="15" font-weight="bold" fill="#e65100">PE (Prefill)</text>
+    <rect x="-58" y="-15" width="52" height="28" rx="4" fill="#ffe0b2" stroke="#fb8c00" stroke-width="1"/>
+    <text x="-32" y="5" text-anchor="middle" font-size="12" fill="#e65100">GPU</text>
+    <rect x="6" y="-15" width="52" height="28" rx="4" fill="#ffe0b2" stroke="#fb8c00" stroke-width="1"/>
+    <text x="32" y="5" text-anchor="middle" font-size="12" fill="#e65100">HBM</text>
+    <text x="0" y="42" text-anchor="middle" font-size="11" fill="#bf360c">SNIC</text>
+  </g>
+
+  <!-- DE Node -->
+  <g transform="translate(460, 345)">
+    <rect x="-75" y="-55" width="150" height="110" rx="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+    <text x="0" y="-30" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e7d32">DE (Decode)</text>
+    <rect x="-58" y="-15" width="52" height="28" rx="4" fill="#c8e6c9" stroke="#43a047" stroke-width="1"/>
+    <text x="-32" y="5" text-anchor="middle" font-size="12" fill="#2e7d32">GPU</text>
+    <rect x="6" y="-15" width="52" height="28" rx="4" fill="#c8e6c9" stroke="#43a047" stroke-width="1"/>
+    <text x="32" y="5" text-anchor="middle" font-size="12" fill="#2e7d32">HBM</text>
+    <text x="0" y="42" text-anchor="middle" font-size="11" fill="#1b5e20">SNIC</text>
+  </g>
+
+  <!-- Arrow: Storage -> PE (SNIC, red thick, saturated) -->
+  <line x1="258" y1="190" x2="158" y2="283" stroke="#e53935" stroke-width="4.5" marker-end="url(#arrowRed)"/>
+  <rect x="128" y="218" width="118" height="24" rx="5" fill="#ffcdd2" stroke="#e53935" stroke-width="1.2"/>
+  <text x="187" y="235" text-anchor="middle" font-size="13" font-weight="bold" fill="#c62828">SNIC 饱和!</text>
+
+  <!-- Arrow: PE -> DE (CNIC, KV Cache transfer) -->
+  <line x1="215" y1="350" x2="380" y2="350" stroke="#00897b" stroke-width="2.5" marker-end="url(#arrowTeal)"/>
+  <text x="298" y="340" text-anchor="middle" font-size="11" fill="#00695c">CNIC: KV Cache 传输</text>
+
+  <!-- DE SNIC -> Storage (dashed gray, idle) -->
+  <line x1="460" y1="283" x2="342" y2="193" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrowGray)"/>
+  <text x="425" y="230" text-anchor="middle" font-size="14" fill="#999" font-style="italic">闲置</text>
+
+  <!-- Bottom annotation left -->
+  <text x="300" y="498" text-anchor="middle" font-size="14" fill="#c62828">PE 的 SNIC 成为瓶颈，DE 的 SNIC 浪费</text>
+  <text x="300" y="522" text-anchor="middle" font-size="13" font-weight="bold" fill="#555">瓶颈在网卡带宽，不在磁盘速度</text>
+
+  <!-- ==================== RIGHT: DualPath ==================== -->
+  <text x="900" y="42" text-anchor="middle" font-size="22" font-weight="bold" fill="#1565c0">DualPath 架构</text>
+
+  <!-- Storage Node (cylinder) -->
+  <g transform="translate(900, 130)">
+    <ellipse cx="0" cy="0" rx="52" ry="15" fill="#90a4ae" stroke="#546e7a" stroke-width="1.5"/>
+    <rect x="-52" y="0" width="104" height="50" fill="#90a4ae" stroke="none"/>
+    <line x1="-52" y1="0" x2="-52" y2="50" stroke="#546e7a" stroke-width="1.5"/>
+    <line x1="52" y1="0" x2="52" y2="50" stroke="#546e7a" stroke-width="1.5"/>
+    <ellipse cx="0" cy="50" rx="52" ry="15" fill="#78909c" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="0" y="33" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">3FS 存储</text>
+  </g>
+
+  <!-- PE Node -->
+  <g transform="translate(740, 345)">
+    <rect x="-75" y="-55" width="150" height="110" rx="8" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+    <text x="0" y="-30" text-anchor="middle" font-size="15" font-weight="bold" fill="#e65100">PE (Prefill)</text>
+    <rect x="-58" y="-15" width="52" height="28" rx="4" fill="#ffe0b2" stroke="#fb8c00" stroke-width="1"/>
+    <text x="-32" y="5" text-anchor="middle" font-size="12" fill="#e65100">GPU</text>
+    <rect x="6" y="-15" width="52" height="28" rx="4" fill="#ffe0b2" stroke="#fb8c00" stroke-width="1"/>
+    <text x="32" y="5" text-anchor="middle" font-size="12" fill="#e65100">HBM</text>
+    <text x="0" y="42" text-anchor="middle" font-size="11" fill="#bf360c">SNIC</text>
+  </g>
+
+  <!-- DE Node -->
+  <g transform="translate(1060, 345)">
+    <rect x="-75" y="-55" width="150" height="110" rx="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+    <text x="0" y="-30" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e7d32">DE (Decode)</text>
+    <rect x="-58" y="-15" width="52" height="28" rx="4" fill="#c8e6c9" stroke="#43a047" stroke-width="1"/>
+    <text x="-32" y="5" text-anchor="middle" font-size="12" fill="#2e7d32">GPU</text>
+    <rect x="6" y="-15" width="52" height="28" rx="4" fill="#c8e6c9" stroke="#43a047" stroke-width="1"/>
+    <text x="32" y="5" text-anchor="middle" font-size="12" fill="#2e7d32">HBM</text>
+    <text x="0" y="42" text-anchor="middle" font-size="11" fill="#1b5e20">SNIC</text>
+  </g>
+
+  <!-- Path 1: Storage -> PE (SNIC, green) -->
+  <line x1="858" y1="190" x2="758" y2="283" stroke="#2e7d32" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+  <rect x="748" y="218" width="78" height="22" rx="4" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1"/>
+  <text x="787" y="234" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e7d32">路径 1</text>
+
+  <!-- Path 2: Storage -> DE (SNIC, blue) -->
+  <line x1="942" y1="190" x2="1042" y2="283" stroke="#1565c0" stroke-width="3.5" marker-end="url(#arrowBlue)"/>
+  <rect x="973" y="218" width="78" height="22" rx="4" fill="#e3f2fd" stroke="#1565c0" stroke-width="1"/>
+  <text x="1012" y="234" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565c0">路径 2</text>
+
+  <!-- Path 2 continued: DE -> PE (CNIC/RDMA, blue) -->
+  <line x1="985" y1="372" x2="820" y2="372" stroke="#1565c0" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <text x="902" y="392" text-anchor="middle" font-size="11" fill="#0d47a1">CNIC / RDMA</text>
+
+  <!-- PE -> DE (CNIC, only missing KV Cache) -->
+  <line x1="815" y1="335" x2="980" y2="335" stroke="#e65100" stroke-width="2" marker-end="url(#arrowOrange)" stroke-dasharray="6,3"/>
+  <text x="898" y="325" text-anchor="middle" font-size="11" fill="#e65100">仅未命中的 KV Cache</text>
+
+  <!-- Load balance badge -->
+  <rect x="810" y="460" width="180" height="32" rx="6" fill="#e3f2fd" stroke="#1565c0" stroke-width="1.5"/>
+  <text x="900" y="482" text-anchor="middle" font-size="15" font-weight="bold" fill="#1565c0">负载均衡</text>
+
+  <!-- Bottom annotation right -->
+  <text x="900" y="520" text-anchor="middle" font-size="14" fill="#1565c0">两个 SNIC 充分利用，消除瓶颈</text>
+
+  <!-- Bottom accent bars -->
+  <rect x="0" y="555" width="600" height="45" fill="#fff5f5"/>
+  <rect x="600" y="555" width="600" height="45" fill="#f0f4ff"/>
+
+  <!-- Legend -->
+  <line x1="40" y1="578" x2="70" y2="578" stroke="#e53935" stroke-width="3"/>
+  <text x="78" y="583" font-size="11" fill="#666">SNIC 饱和</text>
+  <line x1="175" y1="578" x2="205" y2="578" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="213" y="583" font-size="11" fill="#666">闲置</text>
+  <line x1="275" y1="578" x2="305" y2="578" stroke="#00897b" stroke-width="2.5"/>
+  <text x="313" y="583" font-size="11" fill="#666">CNIC</text>
+
+  <line x1="660" y1="578" x2="690" y2="578" stroke="#2e7d32" stroke-width="3"/>
+  <text x="698" y="583" font-size="11" fill="#666">路径 1 (PE SNIC)</text>
+  <line x1="835" y1="578" x2="865" y2="578" stroke="#1565c0" stroke-width="3"/>
+  <text x="873" y="583" font-size="11" fill="#666">路径 2 (DE SNIC)</text>
+  <line x1="1000" y1="578" x2="1030" y2="578" stroke="#e65100" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="1038" y="583" font-size="11" fill="#666">仅 Miss KV</text>
+</svg>
