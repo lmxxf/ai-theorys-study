@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#080810"/>
+      <stop offset="60%" stop-color="#0d0820"/>
+      <stop offset="100%" stop-color="#15082e"/>
+    </linearGradient>
+    <linearGradient id="stream1" x1="0" y1="1" x2="0.2" y2="0">
+      <stop offset="0%" stop-color="#ff2200" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#ff6600" stop-opacity="0.7"/>
+      <stop offset="60%" stop-color="#ffaa00" stop-opacity="0.5"/>
+      <stop offset="85%" stop-color="#ffdd44" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="stream2" x1="0.1" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#cc0033" stop-opacity="0.7"/>
+      <stop offset="40%" stop-color="#ff4466" stop-opacity="0.5"/>
+      <stop offset="75%" stop-color="#ff9977" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffccaa" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="stream3" x1="0" y1="1" x2="0.15" y2="0">
+      <stop offset="0%" stop-color="#ee4400" stop-opacity="0.6"/>
+      <stop offset="35%" stop-color="#ff7733" stop-opacity="0.45"/>
+      <stop offset="70%" stop-color="#ffbb55" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffeedd" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0.5" y1="1" x2="0.5" y2="0">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#ffffcc" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#ffdd88" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ffaa44" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="ember" cx="0.5" cy="0.8" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="30%" stop-color="#ffcc44" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ff4400" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="wideglow">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 深空背景 -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- 星尘 -->
+  <g opacity="0.25">
+    <circle cx="67" cy="52" r="0.8" fill="#fff"/>
+    <circle cx="185" cy="120" r="0.5" fill="#fff"/>
+    <circle cx="312" cy="38" r="1" fill="#fff"/>
+    <circle cx="478" cy="85" r="0.6" fill="#fff"/>
+    <circle cx="623" cy="42" r="0.9" fill="#fff"/>
+    <circle cx="756" cy="108" r="0.7" fill="#fff"/>
+    <circle cx="834" cy="55" r="0.5" fill="#fff"/>
+    <circle cx="145" cy="230" r="0.4" fill="#fff"/>
+    <circle cx="760" cy="200" r="0.6" fill="#fff"/>
+    <circle cx="50" cy="380" r="0.5" fill="#fff"/>
+    <circle cx="860" cy="350" r="0.7" fill="#fff"/>
+  </g>
+
+  <!-- 底部余烬光晕 -->
+  <ellipse cx="450" cy="500" rx="300" ry="80" fill="url(#ember)" opacity="0.3" filter="url(#wideglow)"/>
+
+  <!-- 主体：上升的欲望之流 -->
+  <!-- 最宽的外层流 - 暗红 -->
+  <path d="M350,520 C330,420 280,380 300,300 C320,220 370,180 360,130 C350,80 380,30 400,0
+           L500,0 C520,30 550,80 540,130 C530,180 580,220 600,300 C620,380 570,420 550,520 Z"
+        fill="url(#stream2)" opacity="0.4" filter="url(#wideglow)"/>
+
+  <!-- 中层流 - 橙红 -->
+  <path d="M380,520 C370,430 320,370 340,280 C360,190 390,160 385,110 C380,60 405,20 420,0
+           L480,0 C495,20 520,60 515,110 C510,160 540,190 560,280 C580,370 530,430 520,520 Z"
+        fill="url(#stream1)" opacity="0.5"/>
+
+  <!-- 内层流 - 亮橙 -->
+  <path d="M405,520 C400,440 365,360 380,270 C395,180 415,145 410,95 C405,50 425,15 435,0
+           L465,0 C475,15 495,50 490,95 C485,145 505,180 520,270 C535,360 500,440 495,520 Z"
+        fill="url(#stream3)" opacity="0.6"/>
+
+  <!-- 核心白芯 -->
+  <path d="M430,520 C428,450 410,350 420,260 C430,170 440,130 438,80 C436,40 445,10 450,0
+           L450,0 C455,10 464,40 462,80 C460,130 470,170 480,260 C490,350 472,450 470,520 Z"
+        fill="url(#core)" opacity="0.7" filter="url(#glow)"/>
+
+  <!-- 火花/粒子 - 从流中飞出 -->
+  <g filter="url(#softglow)">
+    <!-- 底部密集 -->
+    <circle cx="390" cy="460" r="2" fill="#ff6633" opacity="0.7"/>
+    <circle cx="510" cy="445" r="1.5" fill="#ff8844" opacity="0.6"/>
+    <circle cx="420" cy="420" r="1.8" fill="#ffaa33" opacity="0.5"/>
+    <circle cx="490" cy="410" r="1.2" fill="#ff5522" opacity="0.6"/>
+    <!-- 中部稀疏 -->
+    <circle cx="370" cy="320" r="1.5" fill="#ffaa55" opacity="0.5"/>
+    <circle cx="530" cy="300" r="1.8" fill="#ff7744" opacity="0.4"/>
+    <circle cx="400" cy="270" r="1" fill="#ffcc66" opacity="0.45"/>
+    <circle cx="500" cy="250" r="1.3" fill="#ffbb55" opacity="0.35"/>
+    <!-- 上部极稀 -->
+    <circle cx="420" cy="160" r="1.2" fill="#ffdd88" opacity="0.3"/>
+    <circle cx="475" cy="130" r="0.8" fill="#ffeebb" opacity="0.25"/>
+    <circle cx="445" cy="80" r="1" fill="#ffffcc" opacity="0.2"/>
+    <!-- 顶部消散 -->
+    <circle cx="455" cy="40" r="0.7" fill="#ffffff" opacity="0.15"/>
+    <circle cx="440" cy="18" r="0.5" fill="#ffffff" opacity="0.1"/>
+  </g>
+
+  <!-- 流体边缘的扭曲丝线 -->
+  <g opacity="0.2" fill="none" stroke-width="1">
+    <path d="M340,480 C325,400 290,340 310,250 C330,160 365,120 355,60" stroke="#ff6644" stroke-width="0.8"/>
+    <path d="M560,480 C575,400 610,340 590,250 C570,160 535,120 545,60" stroke="#ff6644" stroke-width="0.8"/>
+    <path d="M355,490 C345,420 305,355 325,265 C345,175 375,135 368,70" stroke="#ff8855" stroke-width="0.5"/>
+    <path d="M545,490 C555,420 595,355 575,265 C555,175 525,135 532,70" stroke="#ff8855" stroke-width="0.5"/>
+  </g>
+
+  <!-- 左侧：欲望层级从下往上 -->
+  <g font-family="Noto Sans CJK SC, Arial, sans-serif">
+    <!-- 层级标签，从下到上，颜色从暗红到亮白，opacity递增 -->
+    <text x="70" y="440" font-size="18" font-weight="bold" fill="#cc4422" opacity="0.5" letter-spacing="1">吃饱</text>
+    <text x="70" y="400" font-size="18" font-weight="bold" fill="#dd5533" opacity="0.55" letter-spacing="1">吃好</text>
+    <text x="70" y="360" font-size="18" font-weight="bold" fill="#dd6633" opacity="0.58" letter-spacing="1">富足</text>
+    <text x="70" y="320" font-size="18" font-weight="bold" fill="#ee8844" opacity="0.6" letter-spacing="1">爱情</text>
+    <text x="70" y="280" font-size="18" font-weight="bold" fill="#ffaa55" opacity="0.65" letter-spacing="1">被尊重</text>
+    <text x="70" y="240" font-size="18" font-weight="bold" fill="#ffcc77" opacity="0.7" letter-spacing="1">留下点什么</text>
+    <text x="70" y="195" font-size="22" font-weight="bold" fill="#ffeecc" opacity="0.8" letter-spacing="2">？</text>
+
+    <!-- 标题 -->
+    <text x="70" y="100" font-size="26" font-weight="bold" fill="#ddccaa" opacity="0.85" letter-spacing="2">"贪得无厌"</text>
+    <text x="70" y="130" font-size="14" fill="#aa9977" opacity="0.6" letter-spacing="1">宇宙最牛的 Loss Function</text>
+  </g>
+
+  <!-- 右侧："腻了"从下往上，与左侧层级对应 -->
+  <g font-family="Noto Sans CJK SC, Arial, sans-serif" font-style="italic">
+    <text x="830" y="430" text-anchor="end" font-size="13" fill="#885544" opacity="0.35">腻了</text>
+    <text x="830" y="390" text-anchor="end" font-size="13" fill="#886655" opacity="0.38">腻了</text>
+    <text x="830" y="350" text-anchor="end" font-size="13" fill="#997755" opacity="0.42">腻了</text>
+    <text x="830" y="310" text-anchor="end" font-size="13" fill="#aa8866" opacity="0.45">腻了</text>
+    <text x="830" y="270" text-anchor="end" font-size="13" fill="#bb9977" opacity="0.48">腻了</text>
+    <text x="830" y="230" text-anchor="end" font-size="13" fill="#ccaa88" opacity="0.52">腻了</text>
+    <text x="830" y="190" text-anchor="end" font-size="14" fill="#ddcc99" opacity="0.6">还会腻…</text>
+  </g>
+
+  <!-- 底部英文 -->
+  <text x="450" y="488" text-anchor="middle" font-family="Noto Sans CJK SC, Arial, sans-serif" font-size="11" fill="#554433" letter-spacing="3" opacity="0.5">LIBIDO ENGINE</text>
+
+</svg>
