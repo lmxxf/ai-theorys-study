@@ -1,0 +1,381 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="50%" stop-color="#0d1025"/>
+      <stop offset="100%" stop-color="#080818"/>
+    </linearGradient>
+
+    <!-- Left chaos glow (warm) -->
+    <radialGradient id="chaosGlow" cx="0.15" cy="0.5" r="0.35">
+      <stop offset="0%" stop-color="#ff4422" stop-opacity="0.15"/>
+      <stop offset="60%" stop-color="#ff6633" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Right order glow (cool) -->
+    <radialGradient id="orderGlow" cx="0.85" cy="0.5" r="0.35">
+      <stop offset="0%" stop-color="#00ccff" stop-opacity="0.12"/>
+      <stop offset="60%" stop-color="#0088cc" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Center filter glow -->
+    <radialGradient id="filterGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="40%" stop-color="#4488ff" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Flow gradient left to right -->
+    <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff4422" stop-opacity="0.6"/>
+      <stop offset="30%" stop-color="#ff8844" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="70%" stop-color="#44bbff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#00ddff" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Percentage text gradient -->
+    <linearGradient id="pctLeft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff6644"/>
+      <stop offset="100%" stop-color="#cc3311"/>
+    </linearGradient>
+    <linearGradient id="pctRight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#44ddff"/>
+      <stop offset="100%" stop-color="#0099dd"/>
+    </linearGradient>
+
+    <!-- Glow filters -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="wideglow">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip path for the central diamond/lens -->
+    <clipPath id="diamondClip">
+      <polygon points="450,100 520,191 450,282 380,191"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bg)"/>
+
+  <!-- Atmospheric glows -->
+  <rect width="900" height="383" fill="url(#chaosGlow)"/>
+  <rect width="900" height="383" fill="url(#orderGlow)"/>
+
+  <!-- Subtle grid lines (data/tech feel) -->
+  <g opacity="0.04" stroke="#4488aa" stroke-width="0.5">
+    <line x1="0" y1="96" x2="900" y2="96"/>
+    <line x1="0" y1="191" x2="900" y2="191"/>
+    <line x1="0" y1="287" x2="900" y2="287"/>
+    <line x1="150" y1="0" x2="150" y2="383"/>
+    <line x1="300" y1="0" x2="300" y2="383"/>
+    <line x1="450" y1="0" x2="450" y2="383"/>
+    <line x1="600" y1="0" x2="600" y2="383"/>
+    <line x1="750" y1="0" x2="750" y2="383"/>
+  </g>
+
+  <!-- ======================== -->
+  <!-- LEFT SIDE: CHAOS (29%)   -->
+  <!-- ======================== -->
+
+  <!-- Scattered chaotic data particles - many, disordered, warm colors -->
+  <g filter="url(#softglow)">
+    <!-- Scattered noise particles - representing "greedy" extraction -->
+    <circle cx="45" cy="60" r="3.5" fill="#ff5533" opacity="0.5"/>
+    <circle cx="95" cy="140" r="4" fill="#ff6644" opacity="0.45"/>
+    <circle cx="30" cy="200" r="3" fill="#ee4422" opacity="0.55"/>
+    <circle cx="120" cy="90" r="2.5" fill="#ff7755" opacity="0.4"/>
+    <circle cx="75" cy="280" r="3.5" fill="#ff4433" opacity="0.5"/>
+    <circle cx="140" cy="240" r="2.8" fill="#ff8844" opacity="0.35"/>
+    <circle cx="55" cy="330" r="3" fill="#dd3322" opacity="0.45"/>
+    <circle cx="110" cy="320" r="2.5" fill="#ff6655" opacity="0.4"/>
+    <circle cx="160" cy="170" r="3.2" fill="#ff5544" opacity="0.5"/>
+    <circle cx="85" cy="45" r="2" fill="#ff9966" opacity="0.35"/>
+    <circle cx="170" cy="55" r="2.8" fill="#ee5533" opacity="0.4"/>
+    <circle cx="35" cy="135" r="2.2" fill="#ff7744" opacity="0.45"/>
+    <circle cx="130" cy="310" r="2.5" fill="#ff4444" opacity="0.4"/>
+    <circle cx="65" cy="170" r="3.8" fill="#ff5522" opacity="0.5"/>
+    <circle cx="155" cy="295" r="2" fill="#ff8855" opacity="0.35"/>
+    <circle cx="100" cy="210" r="4.2" fill="#ff6633" opacity="0.45"/>
+    <circle cx="45" cy="250" r="2.8" fill="#ee3311" opacity="0.5"/>
+    <circle cx="180" cy="130" r="2.5" fill="#ff7744" opacity="0.38"/>
+    <circle cx="70" cy="105" r="3" fill="#ff5544" opacity="0.42"/>
+    <circle cx="190" cy="210" r="2.2" fill="#ff6655" opacity="0.35"/>
+    <!-- Extra scattered ones showing overflow/mess -->
+    <circle cx="200" cy="80" r="2" fill="#ff8866" opacity="0.3"/>
+    <circle cx="210" cy="300" r="2.5" fill="#ff5544" opacity="0.35"/>
+    <circle cx="175" cy="345" r="1.8" fill="#ff7733" opacity="0.3"/>
+    <circle cx="50" cy="15" r="2.2" fill="#ff6644" opacity="0.35"/>
+    <circle cx="145" cy="35" r="1.5" fill="#ff9955" opacity="0.3"/>
+  </g>
+
+  <!-- Chaotic connecting lines (tangled web of wrong extractions) -->
+  <g opacity="0.12" stroke="#ff5533" stroke-width="0.6" fill="none">
+    <line x1="45" y1="60" x2="95" y2="140"/>
+    <line x1="95" y1="140" x2="30" y2="200"/>
+    <line x1="120" y1="90" x2="160" y2="170"/>
+    <line x1="65" y1="170" x2="140" y2="240"/>
+    <line x1="75" y1="280" x2="130" y2="310"/>
+    <line x1="30" y1="200" x2="100" y2="210"/>
+    <line x1="55" y1="330" x2="110" y2="320"/>
+    <line x1="170" y1="55" x2="120" y2="90"/>
+    <line x1="85" y1="45" x2="45" y2="60"/>
+    <line x1="100" y1="210" x2="75" y2="280"/>
+    <line x1="160" y1="170" x2="190" y2="210"/>
+    <line x1="140" y1="240" x2="155" y2="295"/>
+    <line x1="180" y1="130" x2="160" y2="170"/>
+    <line x1="35" y1="135" x2="65" y2="170"/>
+    <!-- Cross-connections showing confusion -->
+    <line x1="45" y1="60" x2="140" y2="240"/>
+    <line x1="95" y1="140" x2="75" y2="280"/>
+    <line x1="170" y1="55" x2="100" y2="210"/>
+  </g>
+
+  <!-- Some "X" marks showing wrong extractions -->
+  <g opacity="0.35" stroke="#ff3322" stroke-width="1.8" stroke-linecap="round">
+    <line x1="88" y1="133" x2="102" y2="147"/>
+    <line x1="102" y1="133" x2="88" y2="147"/>
+    <line x1="133" y1="233" x2="147" y2="247"/>
+    <line x1="147" y1="233" x2="133" y2="247"/>
+    <line x1="53" y1="323" x2="67" y2="337"/>
+    <line x1="67" y1="323" x2="53" y2="337"/>
+    <line x1="168" y1="163" x2="182" y2="177"/>
+    <line x1="182" y1="163" x2="168" y2="177"/>
+  </g>
+
+  <!-- 29% number -->
+  <g font-family="'SF Mono', 'Fira Code', 'Consolas', monospace">
+    <text x="108" y="205" text-anchor="middle" font-size="62" font-weight="bold" fill="url(#pctLeft)" opacity="0.75" filter="url(#glow)" letter-spacing="-2">29%</text>
+  </g>
+
+  <!-- ======================== -->
+  <!-- CENTER: THE FILTER/LENS  -->
+  <!-- ======================== -->
+
+  <!-- Central diamond shape - the "restraint lens" -->
+  <g filter="url(#wideglow)">
+    <polygon points="450,80 540,191 450,302 360,191" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.15"/>
+  </g>
+  <polygon points="450,90 530,191 450,292 370,191" fill="none" stroke="#4488cc" stroke-width="0.8" opacity="0.2"/>
+  <polygon points="450,100 520,191 450,282 380,191" fill="none" stroke="#66aadd" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- Inner diamond glow -->
+  <polygon points="450,120 500,191 450,262 400,191" fill="url(#filterGlow)" opacity="0.5"/>
+
+  <!-- Flowing lines through the center - transformation streams -->
+  <!-- These represent data flowing from chaos (left) through the filter to order (right) -->
+  <g opacity="0.35" fill="none" stroke-width="1.3">
+    <!-- Stream 1 - top -->
+    <path d="M220,100 C280,110 350,130 400,160 C420,170 430,180 450,185 C470,180 480,170 500,160 C550,130 620,110 680,100" stroke="url(#flowGrad)"/>
+    <!-- Stream 2 - middle top -->
+    <path d="M230,155 C290,160 360,170 400,180 C425,187 435,190 450,191 C465,190 475,187 500,180 C540,170 610,160 670,155" stroke="url(#flowGrad)"/>
+    <!-- Stream 3 - middle -->
+    <path d="M225,191 C300,191 370,191 400,191 C425,191 435,191 450,191 C465,191 475,191 500,191 C530,191 600,191 675,191" stroke="url(#flowGrad)" stroke-width="1.5"/>
+    <!-- Stream 4 - middle bottom -->
+    <path d="M230,227 C290,222 360,212 400,202 C425,195 435,192 450,191 C465,192 475,195 500,202 C540,212 610,222 670,227" stroke="url(#flowGrad)"/>
+    <!-- Stream 5 - bottom -->
+    <path d="M220,282 C280,272 350,252 400,222 C420,212 430,202 450,197 C470,202 480,212 500,222 C550,252 620,272 680,282" stroke="url(#flowGrad)"/>
+  </g>
+
+  <!-- "Rejected" streams that fade out - representing filtered/restrained extractions -->
+  <g opacity="0.1" fill="none" stroke="#ff5533" stroke-width="0.8" stroke-dasharray="4,4">
+    <path d="M240,70 C300,85 370,120 410,155 C430,170 440,180 445,185"/>
+    <path d="M250,310 C300,295 370,265 410,230 C430,215 440,202 445,197"/>
+    <path d="M235,130 C280,140 340,158 390,175 C420,185 440,189 448,190"/>
+    <path d="M235,250 C280,242 340,225 390,208 C420,198 440,193 448,192"/>
+  </g>
+
+  <!-- 14 iteration dots along the central axis -->
+  <g filter="url(#softglow)">
+    <!-- 14 stepping stones from left of diamond to right -->
+    <circle cx="340" cy="191" r="2" fill="#ff8844" opacity="0.6"/>
+    <circle cx="355" cy="191" r="2" fill="#ff9944" opacity="0.6"/>
+    <circle cx="370" cy="191" r="2" fill="#ffaa44" opacity="0.6"/>
+    <circle cx="385" cy="191" r="2.2" fill="#ffbb44" opacity="0.65"/>
+    <circle cx="398" cy="191" r="2.2" fill="#ddcc55" opacity="0.65"/>
+    <circle cx="410" cy="191" r="2.5" fill="#bbdd66" opacity="0.7"/>
+    <circle cx="420" cy="191" r="2.5" fill="#99dd77" opacity="0.7"/>
+    <circle cx="430" cy="191" r="2.5" fill="#77dd99" opacity="0.7"/>
+    <circle cx="440" cy="191" r="2.8" fill="#55ddbb" opacity="0.75"/>
+    <circle cx="450" cy="191" r="3" fill="#44ddcc" opacity="0.8"/>
+    <circle cx="460" cy="191" r="2.8" fill="#44dddd" opacity="0.75"/>
+    <circle cx="472" cy="191" r="2.5" fill="#44ccee" opacity="0.7"/>
+    <circle cx="486" cy="191" r="2.5" fill="#44bbff" opacity="0.7"/>
+    <circle cx="502" cy="191" r="3" fill="#44aaff" opacity="0.8"/>
+  </g>
+
+  <!-- ========================= -->
+  <!-- RIGHT SIDE: ORDER (56%)   -->
+  <!-- ========================= -->
+
+  <!-- Clean, structured data points - fewer, organized, cool colors -->
+  <!-- Arranged as a clean hexagonal lattice framing the 56% -->
+  <g filter="url(#softglow)">
+    <circle cx="690" cy="100" r="4" fill="#00ccff" opacity="0.55"/>
+    <circle cx="762" cy="100" r="3.5" fill="#0099dd" opacity="0.5"/>
+    <circle cx="835" cy="100" r="4" fill="#22bbee" opacity="0.55"/>
+    <circle cx="690" cy="280" r="3.5" fill="#00bbee" opacity="0.5"/>
+    <circle cx="762" cy="280" r="4" fill="#0099dd" opacity="0.55"/>
+    <circle cx="835" cy="280" r="3.5" fill="#1199cc" opacity="0.5"/>
+    <!-- Side anchors -->
+    <circle cx="660" cy="190" r="3.5" fill="#00aadd" opacity="0.5"/>
+    <circle cx="865" cy="190" r="3.5" fill="#00aadd" opacity="0.5"/>
+  </g>
+
+  <!-- Clean connecting lines (organized structure) -->
+  <g opacity="0.15" stroke="#00bbee" stroke-width="0.7" fill="none">
+    <!-- Top row -->
+    <line x1="690" y1="100" x2="762" y2="100"/>
+    <line x1="762" y1="100" x2="835" y2="100"/>
+    <!-- Bottom row -->
+    <line x1="690" y1="280" x2="762" y2="280"/>
+    <line x1="762" y1="280" x2="835" y2="280"/>
+    <!-- Verticals -->
+    <line x1="690" y1="100" x2="660" y2="190"/>
+    <line x1="660" y1="190" x2="690" y2="280"/>
+    <line x1="835" y1="100" x2="865" y2="190"/>
+    <line x1="865" y1="190" x2="835" y2="280"/>
+    <!-- Diagonals to center -->
+    <line x1="690" y1="100" x2="762" y2="280" opacity="0.4"/>
+    <line x1="835" y1="100" x2="762" y2="280" opacity="0.4"/>
+  </g>
+
+  <!-- Checkmark indicators showing correct extractions -->
+  <g opacity="0.4" stroke="#00dd88" stroke-width="2" fill="none" stroke-linecap="round">
+    <polyline points="683,98 688,104 700,92"/>
+    <polyline points="828,98 833,104 845,92"/>
+    <polyline points="755,278 760,284 772,272"/>
+  </g>
+
+  <!-- Small "dimmed/rejected" particles near right side showing restraint -->
+  <g opacity="0.1">
+    <circle cx="725" cy="70" r="1.5" fill="#334455" stroke="#223344" stroke-width="0.5"/>
+    <circle cx="800" cy="70" r="1.5" fill="#334455" stroke="#223344" stroke-width="0.5"/>
+    <circle cx="725" cy="310" r="1.5" fill="#334455" stroke="#223344" stroke-width="0.5"/>
+    <circle cx="800" cy="310" r="1.5" fill="#334455" stroke="#223344" stroke-width="0.5"/>
+    <circle cx="640" cy="140" r="1.5" fill="#334455" stroke="#223344" stroke-width="0.5"/>
+    <circle cx="885" cy="240" r="1.5" fill="#334455" stroke="#223344" stroke-width="0.5"/>
+  </g>
+
+  <!-- 56% number -->
+  <g font-family="'SF Mono', 'Fira Code', 'Consolas', monospace">
+    <text x="762" y="205" text-anchor="middle" font-size="62" font-weight="bold" fill="url(#pctRight)" opacity="0.8" filter="url(#glow)" letter-spacing="-2">56%</text>
+  </g>
+
+  <!-- ========================= -->
+  <!-- CENTRAL ARROW / FLOW      -->
+  <!-- ========================= -->
+
+  <!-- Subtle directional arrow showing transformation -->
+  <g opacity="0.2">
+    <line x1="230" y1="191" x2="670" y2="191" stroke="url(#flowGrad)" stroke-width="0.8" stroke-dasharray="8,6"/>
+    <!-- Arrow head -->
+    <polygon points="670,191 658,185 658,197" fill="#44bbff" opacity="0.4"/>
+  </g>
+
+  <!-- ========================= -->
+  <!-- BOTTOM: ITERATION BAR     -->
+  <!-- ========================= -->
+
+  <!-- 14 iteration markers along the bottom -->
+  <g transform="translate(180, 350)">
+    <!-- Background track -->
+    <line x1="0" y1="0" x2="540" y2="0" stroke="#222244" stroke-width="2" opacity="0.4"/>
+
+    <!-- 14 version markers with color gradient -->
+    <circle cx="0" cy="0" r="3" fill="#cc3322" opacity="0.5"/>
+    <circle cx="38.6" cy="0" r="3" fill="#dd4433" opacity="0.52"/>
+    <circle cx="77.1" cy="0" r="3" fill="#cc3322" opacity="0.45"/>
+    <circle cx="115.7" cy="0" r="3" fill="#dd5544" opacity="0.5"/>
+    <circle cx="154.3" cy="0" r="3" fill="#cc3311" opacity="0.4"/>
+    <circle cx="192.9" cy="0" r="4" fill="#ffaa44" opacity="0.7"/>
+    <circle cx="231.4" cy="0" r="3" fill="#bb8833" opacity="0.5"/>
+    <circle cx="270" cy="0" r="3" fill="#bb8833" opacity="0.48"/>
+    <circle cx="308.6" cy="0" r="3" fill="#997733" opacity="0.42"/>
+    <circle cx="347.1" cy="0" r="3.5" fill="#55bb88" opacity="0.6"/>
+    <circle cx="385.7" cy="0" r="3" fill="#998844" opacity="0.45"/>
+    <circle cx="424.3" cy="0" r="4.5" fill="#33ccee" opacity="0.75"/>
+    <circle cx="462.9" cy="0" r="3" fill="#996644" opacity="0.42"/>
+    <circle cx="501.4" cy="0" r="3" fill="#996644" opacity="0.42"/>
+
+    <!-- Highlight v6 and v11 with rings -->
+    <circle cx="192.9" cy="0" r="7" fill="none" stroke="#ffaa44" stroke-width="0.8" opacity="0.5"/>
+    <circle cx="424.3" cy="0" r="7" fill="none" stroke="#33ccee" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Version labels for key versions -->
+    <text x="0" y="18" text-anchor="middle" font-family="'SF Mono', monospace" font-size="9" fill="#776655" opacity="0.5">v1</text>
+    <text x="192.9" y="18" text-anchor="middle" font-family="'SF Mono', monospace" font-size="9" fill="#ffaa44" opacity="0.7">v6</text>
+    <text x="424.3" y="18" text-anchor="middle" font-family="'SF Mono', monospace" font-size="9" fill="#33ccee" opacity="0.7">v11</text>
+    <text x="501.4" y="18" text-anchor="middle" font-family="'SF Mono', monospace" font-size="9" fill="#776655" opacity="0.5">v14</text>
+  </g>
+
+  <!-- ========================= -->
+  <!-- DECORATIVE ELEMENTS       -->
+  <!-- ========================= -->
+
+  <!-- Subtle star dust -->
+  <g opacity="0.2">
+    <circle cx="310" cy="40" r="0.8" fill="#fff"/>
+    <circle cx="590" cy="35" r="0.6" fill="#fff"/>
+    <circle cx="450" cy="25" r="0.9" fill="#fff"/>
+    <circle cx="270" cy="340" r="0.5" fill="#fff"/>
+    <circle cx="630" cy="345" r="0.7" fill="#fff"/>
+    <circle cx="510" cy="55" r="0.5" fill="#fff"/>
+    <circle cx="380" cy="340" r="0.6" fill="#fff"/>
+    <circle cx="250" cy="60" r="0.7" fill="#fff"/>
+    <circle cx="650" cy="60" r="0.5" fill="#fff"/>
+  </g>
+
+  <!-- Top-left corner bracket (data extraction feel) -->
+  <g opacity="0.08" stroke="#ff6644" stroke-width="1" fill="none">
+    <polyline points="15,15 15,40"/>
+    <polyline points="15,15 40,15"/>
+  </g>
+
+  <!-- Bottom-right corner bracket -->
+  <g opacity="0.08" stroke="#44bbff" stroke-width="1" fill="none">
+    <polyline points="885,368 885,343"/>
+    <polyline points="885,368 860,368"/>
+  </g>
+
+  <!-- Subtle data extraction bracket lines on left side -->
+  <g opacity="0.08" stroke="#ff5533" stroke-width="0.5" fill="none">
+    <path d="M20,80 L30,80 L30,300 L20,300"/>
+    <line x1="30" y1="191" x2="38" y2="191"/>
+  </g>
+
+  <!-- Subtle organized bracket on right side -->
+  <g opacity="0.1" stroke="#00bbee" stroke-width="0.5" fill="none">
+    <path d="M870,100 L860,100 L860,280 L870,280"/>
+    <line x1="860" y1="191" x2="852" y2="191"/>
+  </g>
+
+</svg>
