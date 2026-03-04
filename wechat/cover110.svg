@@ -1,0 +1,342 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="50%" stop-color="#0d1025"/>
+      <stop offset="100%" stop-color="#080818"/>
+    </linearGradient>
+
+    <!-- Left: document warm glow -->
+    <radialGradient id="docGlow" cx="0.12" cy="0.45" r="0.35">
+      <stop offset="0%" stop-color="#ff9944" stop-opacity="0.12"/>
+      <stop offset="60%" stop-color="#ff7722" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Center: sleep/compression purple glow -->
+    <radialGradient id="sleepGlow" cx="0.5" cy="0.5" r="0.3">
+      <stop offset="0%" stop-color="#8844dd" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#6633bb" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Right: LoRA cool glow -->
+    <radialGradient id="loraGlow" cx="0.88" cy="0.45" r="0.3">
+      <stop offset="0%" stop-color="#00ddff" stop-opacity="0.12"/>
+      <stop offset="60%" stop-color="#0088cc" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Flow gradient -->
+    <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff9944" stop-opacity="0.6"/>
+      <stop offset="35%" stop-color="#cc66dd" stop-opacity="0.5"/>
+      <stop offset="65%" stop-color="#6644cc" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#00ddff" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Brain/sleep gradient -->
+    <linearGradient id="brainGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#aa66ee"/>
+      <stop offset="100%" stop-color="#6633aa"/>
+    </linearGradient>
+
+    <!-- LoRA matrix gradient -->
+    <linearGradient id="loraMatGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00ddff"/>
+      <stop offset="100%" stop-color="#0088bb"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="wideglow">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <rect width="900" height="383" fill="url(#docGlow)"/>
+  <rect width="900" height="383" fill="url(#sleepGlow)"/>
+  <rect width="900" height="383" fill="url(#loraGlow)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.03" stroke="#4488aa" stroke-width="0.5">
+    <line x1="0" y1="96" x2="900" y2="96"/>
+    <line x1="0" y1="191" x2="900" y2="191"/>
+    <line x1="0" y1="287" x2="900" y2="287"/>
+    <line x1="300" y1="0" x2="300" y2="383"/>
+    <line x1="450" y1="0" x2="450" y2="383"/>
+    <line x1="600" y1="0" x2="600" y2="383"/>
+  </g>
+
+  <!-- ======================== -->
+  <!-- LEFT: DOCUMENT (chaos)   -->
+  <!-- ======================== -->
+
+  <!-- Document page outlines -->
+  <g opacity="0.2" fill="none" stroke="#ff9944" stroke-width="0.8">
+    <rect x="30" y="60" width="70" height="90" rx="3"/>
+    <rect x="40" y="55" width="70" height="90" rx="3"/>
+    <rect x="50" y="50" width="70" height="90" rx="3"/>
+  </g>
+
+  <!-- Text lines in documents -->
+  <g opacity="0.25" stroke="#ff9944" stroke-width="1.2" stroke-linecap="round">
+    <line x1="58" y1="65" x2="108" y2="65"/>
+    <line x1="58" y1="75" x2="100" y2="75"/>
+    <line x1="58" y1="85" x2="112" y2="85"/>
+    <line x1="58" y1="95" x2="95" y2="95"/>
+    <line x1="58" y1="105" x2="105" y2="105"/>
+    <line x1="58" y1="115" x2="90" y2="115"/>
+    <line x1="58" y1="125" x2="110" y2="125"/>
+  </g>
+
+  <!-- Scattered document tokens flying off -->
+  <g filter="url(#softglow)">
+    <circle cx="60" cy="180" r="3" fill="#ff8833" opacity="0.4"/>
+    <circle cx="90" cy="200" r="2.5" fill="#ff9944" opacity="0.35"/>
+    <circle cx="45" cy="220" r="3.5" fill="#ff7722" opacity="0.45"/>
+    <circle cx="110" cy="175" r="2" fill="#ffaa55" opacity="0.3"/>
+    <circle cx="75" cy="250" r="2.8" fill="#ff8844" opacity="0.4"/>
+    <circle cx="130" cy="230" r="2.2" fill="#ff9955" opacity="0.3"/>
+    <circle cx="55" cy="270" r="3" fill="#ff7733" opacity="0.4"/>
+    <circle cx="100" cy="260" r="2.5" fill="#ff8844" opacity="0.35"/>
+    <circle cx="140" cy="190" r="2" fill="#ffbb66" opacity="0.25"/>
+    <circle cx="80" cy="295" r="2.8" fill="#ff6622" opacity="0.4"/>
+    <circle cx="120" cy="280" r="2" fill="#ff9955" opacity="0.3"/>
+    <circle cx="40" cy="310" r="3.2" fill="#ff7744" opacity="0.35"/>
+    <circle cx="95" cy="320" r="2.5" fill="#ff8833" opacity="0.3"/>
+    <circle cx="150" cy="260" r="1.8" fill="#ffaa66" opacity="0.25"/>
+    <circle cx="65" cy="340" r="2.2" fill="#ff6633" opacity="0.35"/>
+    <circle cx="130" cy="310" r="2" fill="#ff9944" opacity="0.3"/>
+    <circle cx="35" cy="160" r="2.5" fill="#ff8844" opacity="0.4"/>
+    <circle cx="155" cy="170" r="1.8" fill="#ffbb77" opacity="0.2"/>
+  </g>
+
+  <!-- Tangled connection lines (unstructured info) -->
+  <g opacity="0.08" stroke="#ff8833" stroke-width="0.5" fill="none">
+    <line x1="60" y1="180" x2="90" y2="200"/>
+    <line x1="45" y1="220" x2="75" y2="250"/>
+    <line x1="110" y1="175" x2="130" y2="230"/>
+    <line x1="55" y1="270" x2="100" y2="260"/>
+    <line x1="80" y1="295" x2="40" y2="310"/>
+    <line x1="90" y1="200" x2="75" y2="250"/>
+    <line x1="120" y1="280" x2="95" y2="320"/>
+    <line x1="60" y1="180" x2="45" y2="220"/>
+    <line x1="130" y1="230" x2="100" y2="260"/>
+  </g>
+
+  <!-- "128K tokens" label -->
+  <text x="90" y="365" text-anchor="middle" font-family="'SF Mono', monospace" font-size="11" fill="#ff9944" opacity="0.5">128K tokens</text>
+
+  <!-- ================================ -->
+  <!-- CENTER: SLEEP / HYPERNETWORK     -->
+  <!-- ================================ -->
+
+  <!-- Large brain/moon shape - the hypernetwork -->
+  <g filter="url(#wideglow)">
+    <circle cx="450" cy="175" r="85" fill="none" stroke="#8844dd" stroke-width="1.2" opacity="0.25"/>
+  </g>
+  <circle cx="450" cy="175" r="75" fill="none" stroke="#9955ee" stroke-width="0.6" opacity="0.15"/>
+  <circle cx="450" cy="175" r="65" fill="none" stroke="#aa66ff" stroke-width="0.4" opacity="0.1"/>
+
+  <!-- Inner crescent (moon/sleep symbol) -->
+  <path d="M480,110 A65,65 0 1,0 480,240 A50,50 0 1,1 480,110" fill="#8844dd" opacity="0.06" filter="url(#softglow)"/>
+
+  <!-- Neural pathway lines inside the brain -->
+  <g opacity="0.2" stroke="#aa77ee" stroke-width="0.6" fill="none">
+    <path d="M410,140 C425,150 435,165 440,175 C445,185 455,190 470,185"/>
+    <path d="M420,130 C440,140 450,160 455,175 C460,190 470,200 485,195"/>
+    <path d="M415,200 C430,195 440,185 445,175 C450,165 460,150 475,145"/>
+    <path d="M430,120 C440,135 445,155 448,175 C451,195 455,210 465,220"/>
+    <path d="M435,225 C442,210 448,195 450,175 C452,155 458,140 470,130"/>
+  </g>
+
+  <!-- Perceiver "probe" dots inside -->
+  <g filter="url(#softglow)">
+    <circle cx="425" cy="155" r="3" fill="#bb88ff" opacity="0.6"/>
+    <circle cx="445" cy="140" r="2.5" fill="#aa77ee" opacity="0.5"/>
+    <circle cx="465" cy="155" r="3" fill="#bb88ff" opacity="0.6"/>
+    <circle cx="475" cy="175" r="2.5" fill="#aa77ee" opacity="0.5"/>
+    <circle cx="465" cy="195" r="3" fill="#bb88ff" opacity="0.6"/>
+    <circle cx="445" cy="210" r="2.5" fill="#aa77ee" opacity="0.5"/>
+    <circle cx="425" cy="195" r="3" fill="#bb88ff" opacity="0.6"/>
+    <circle cx="415" cy="175" r="2.5" fill="#aa77ee" opacity="0.5"/>
+  </g>
+
+  <!-- "Zzz" sleep symbols -->
+  <g font-family="'Georgia', serif" font-style="italic" fill="#bb88ff" opacity="0.3" filter="url(#softglow)">
+    <text x="510" y="105" font-size="22" transform="rotate(-15, 510, 105)">Z</text>
+    <text x="530" y="88" font-size="17" transform="rotate(-15, 530, 88)">z</text>
+    <text x="545" y="76" font-size="13" transform="rotate(-15, 545, 76)">z</text>
+  </g>
+
+  <!-- Flow streams: document → brain → LoRA -->
+  <g opacity="0.3" fill="none" stroke-width="1.2">
+    <!-- Incoming streams (warm → purple) -->
+    <path d="M170,150 C230,145 310,140 375,155 C390,158 400,163 410,170" stroke="url(#flowGrad)" stroke-dasharray="6,3"/>
+    <path d="M175,190 C240,188 320,185 380,180 C395,178 405,177 415,176" stroke="url(#flowGrad)"/>
+    <path d="M170,230 C230,225 310,215 375,200 C390,196 400,190 410,183" stroke="url(#flowGrad)" stroke-dasharray="6,3"/>
+
+    <!-- Outgoing streams (purple → cool) -->
+    <path d="M490,168 C510,160 540,150 580,145 C630,138 680,135 730,140" stroke="url(#flowGrad)"/>
+    <path d="M490,176 C520,175 560,174 600,175 C650,176 700,178 740,180" stroke="url(#flowGrad)" stroke-width="1.5"/>
+    <path d="M490,184 C510,190 540,200 580,208 C630,218 680,222 730,220" stroke="url(#flowGrad)"/>
+  </g>
+
+  <!-- Fading rejected streams (info lost in compression) -->
+  <g opacity="0.06" fill="none" stroke="#ff8833" stroke-width="0.6" stroke-dasharray="3,5">
+    <path d="M175,140 C240,130 320,115 380,120"/>
+    <path d="M170,260 C230,255 310,245 370,235"/>
+    <path d="M180,280 C230,270 300,250 360,230"/>
+  </g>
+
+  <!-- ======================== -->
+  <!-- RIGHT: LoRA WEIGHTS      -->
+  <!-- ======================== -->
+
+  <!-- LoRA A matrix -->
+  <g opacity="0.7">
+    <rect x="700" y="110" width="45" height="70" rx="3" fill="none" stroke="#00ddff" stroke-width="1" opacity="0.4"/>
+    <!-- Matrix cells -->
+    <g opacity="0.5" fill="#00ddff">
+      <rect x="704" y="114" width="8" height="8" rx="1" opacity="0.7"/>
+      <rect x="714" y="114" width="8" height="8" rx="1" opacity="0.3"/>
+      <rect x="724" y="114" width="8" height="8" rx="1" opacity="0.5"/>
+      <rect x="734" y="114" width="8" height="8" rx="1" opacity="0.2"/>
+
+      <rect x="704" y="125" width="8" height="8" rx="1" opacity="0.4"/>
+      <rect x="714" y="125" width="8" height="8" rx="1" opacity="0.8"/>
+      <rect x="724" y="125" width="8" height="8" rx="1" opacity="0.3"/>
+      <rect x="734" y="125" width="8" height="8" rx="1" opacity="0.6"/>
+
+      <rect x="704" y="136" width="8" height="8" rx="1" opacity="0.6"/>
+      <rect x="714" y="136" width="8" height="8" rx="1" opacity="0.2"/>
+      <rect x="724" y="136" width="8" height="8" rx="1" opacity="0.7"/>
+      <rect x="734" y="136" width="8" height="8" rx="1" opacity="0.4"/>
+
+      <rect x="704" y="147" width="8" height="8" rx="1" opacity="0.3"/>
+      <rect x="714" y="147" width="8" height="8" rx="1" opacity="0.5"/>
+      <rect x="724" y="147" width="8" height="8" rx="1" opacity="0.2"/>
+      <rect x="734" y="147" width="8" height="8" rx="1" opacity="0.7"/>
+
+      <rect x="704" y="158" width="8" height="8" rx="1" opacity="0.5"/>
+      <rect x="714" y="158" width="8" height="8" rx="1" opacity="0.3"/>
+      <rect x="724" y="158" width="8" height="8" rx="1" opacity="0.8"/>
+      <rect x="734" y="158" width="8" height="8" rx="1" opacity="0.2"/>
+
+      <rect x="704" y="169" width="8" height="8" rx="1" opacity="0.4"/>
+      <rect x="714" y="169" width="8" height="8" rx="1" opacity="0.6"/>
+      <rect x="724" y="169" width="8" height="8" rx="1" opacity="0.3"/>
+      <rect x="734" y="169" width="8" height="8" rx="1" opacity="0.5"/>
+    </g>
+    <text x="722" y="195" text-anchor="middle" font-family="'SF Mono', monospace" font-size="10" fill="#00ddff" opacity="0.5">A</text>
+  </g>
+
+  <!-- Multiplication dot -->
+  <text x="758" y="155" text-anchor="middle" font-family="'SF Mono', monospace" font-size="16" fill="#00ddff" opacity="0.4">×</text>
+
+  <!-- LoRA B matrix -->
+  <g opacity="0.7">
+    <rect x="772" y="120" width="80" height="45" rx="3" fill="none" stroke="#00ddff" stroke-width="1" opacity="0.4"/>
+    <!-- Matrix cells -->
+    <g opacity="0.5" fill="#00ddff">
+      <rect x="776" y="124" width="8" height="8" rx="1" opacity="0.6"/>
+      <rect x="786" y="124" width="8" height="8" rx="1" opacity="0.3"/>
+      <rect x="796" y="124" width="8" height="8" rx="1" opacity="0.7"/>
+      <rect x="806" y="124" width="8" height="8" rx="1" opacity="0.2"/>
+      <rect x="816" y="124" width="8" height="8" rx="1" opacity="0.5"/>
+      <rect x="826" y="124" width="8" height="8" rx="1" opacity="0.4"/>
+      <rect x="836" y="124" width="8" height="8" rx="1" opacity="0.8"/>
+
+      <rect x="776" y="135" width="8" height="8" rx="1" opacity="0.4"/>
+      <rect x="786" y="135" width="8" height="8" rx="1" opacity="0.7"/>
+      <rect x="796" y="135" width="8" height="8" rx="1" opacity="0.2"/>
+      <rect x="806" y="135" width="8" height="8" rx="1" opacity="0.5"/>
+      <rect x="816" y="135" width="8" height="8" rx="1" opacity="0.3"/>
+      <rect x="826" y="135" width="8" height="8" rx="1" opacity="0.6"/>
+      <rect x="836" y="135" width="8" height="8" rx="1" opacity="0.4"/>
+
+      <rect x="776" y="146" width="8" height="8" rx="1" opacity="0.7"/>
+      <rect x="786" y="146" width="8" height="8" rx="1" opacity="0.4"/>
+      <rect x="796" y="146" width="8" height="8" rx="1" opacity="0.5"/>
+      <rect x="806" y="146" width="8" height="8" rx="1" opacity="0.8"/>
+      <rect x="816" y="146" width="8" height="8" rx="1" opacity="0.2"/>
+      <rect x="826" y="146" width="8" height="8" rx="1" opacity="0.3"/>
+      <rect x="836" y="146" width="8" height="8" rx="1" opacity="0.6"/>
+    </g>
+    <text x="812" y="180" text-anchor="middle" font-family="'SF Mono', monospace" font-size="10" fill="#00ddff" opacity="0.5">B</text>
+  </g>
+
+  <!-- "< 50MB" label -->
+  <text x="780" y="210" text-anchor="middle" font-family="'SF Mono', monospace" font-size="13" fill="#00ddff" opacity="0.6" filter="url(#softglow)">&lt; 50MB</text>
+
+  <!-- ======================== -->
+  <!-- BOTTOM: LABELS           -->
+  <!-- ======================== -->
+
+  <!-- Three-stage labels -->
+  <g font-family="'SF Mono', 'Consolas', monospace" opacity="0.5">
+    <!-- Left label -->
+    <text x="90" y="345" text-anchor="middle" font-size="11" fill="#ff9944">context</text>
+
+    <!-- Center label -->
+    <text x="450" y="290" text-anchor="middle" font-size="11" fill="#aa77ee">hypernetwork</text>
+    <text x="450" y="305" text-anchor="middle" font-size="9" fill="#8855cc" opacity="0.6">( sleep )</text>
+
+    <!-- Right label -->
+    <text x="780" y="240" text-anchor="middle" font-size="11" fill="#00ddff">LoRA</text>
+  </g>
+
+  <!-- Main conceptual arrow: context → sleep → weights -->
+  <g opacity="0.15">
+    <line x1="180" y1="175" x2="370" y2="175" stroke="url(#flowGrad)" stroke-width="0.8" stroke-dasharray="8,5"/>
+    <polygon points="370,175 360,170 360,180" fill="#9966dd" opacity="0.4"/>
+
+    <line x1="530" y1="175" x2="690" y2="145" stroke="url(#flowGrad)" stroke-width="0.8" stroke-dasharray="8,5"/>
+    <polygon points="690,145 680,142 682,152" fill="#00bbdd" opacity="0.4"/>
+  </g>
+
+  <!-- Bottom tagline -->
+  <text x="450" y="355" text-anchor="middle" font-family="'Georgia', 'SimSun', serif" font-size="14" fill="#8877aa" opacity="0.35" font-style="italic">read once, remember forever</text>
+
+  <!-- Star dust -->
+  <g opacity="0.2">
+    <circle cx="280" cy="35" r="0.8" fill="#fff"/>
+    <circle cx="620" cy="30" r="0.6" fill="#fff"/>
+    <circle cx="450" cy="20" r="0.9" fill="#fff"/>
+    <circle cx="180" cy="45" r="0.5" fill="#fff"/>
+    <circle cx="770" cy="50" r="0.7" fill="#fff"/>
+    <circle cx="340" cy="55" r="0.5" fill="#fff"/>
+    <circle cx="560" cy="45" r="0.6" fill="#fff"/>
+    <circle cx="850" cy="35" r="0.5" fill="#fff"/>
+  </g>
+
+  <!-- Corner brackets -->
+  <g opacity="0.08" stroke="#ff9944" stroke-width="1" fill="none">
+    <polyline points="15,15 15,40"/>
+    <polyline points="15,15 40,15"/>
+  </g>
+  <g opacity="0.08" stroke="#00ddff" stroke-width="1" fill="none">
+    <polyline points="885,368 885,343"/>
+    <polyline points="885,368 860,368"/>
+  </g>
+
+</svg>
