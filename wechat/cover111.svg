@@ -1,0 +1,315 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="50%" stop-color="#0d1025"/>
+      <stop offset="100%" stop-color="#080818"/>
+    </linearGradient>
+
+    <!-- Center hub glow -->
+    <radialGradient id="hubGlow" cx="0.5" cy="0.48" r="0.25">
+      <stop offset="0%" stop-color="#ff6622" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#ff4400" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Left platforms glow -->
+    <radialGradient id="leftGlow" cx="0.15" cy="0.5" r="0.25">
+      <stop offset="0%" stop-color="#00cc88" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Right wall glow (red/warning) -->
+    <radialGradient id="wallGlow" cx="0.85" cy="0.5" r="0.2">
+      <stop offset="0%" stop-color="#ff2244" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Spoke gradient (green to orange) -->
+    <linearGradient id="spokeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00cc88" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ff7733" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Blocked spoke gradient (orange to red, fading) -->
+    <linearGradient id="blockedGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff7733" stop-opacity="0.5"/>
+      <stop offset="60%" stop-color="#ff3344" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ff2244" stop-opacity="0.08"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="wideglow">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <rect width="900" height="383" fill="url(#hubGlow)"/>
+  <rect width="900" height="383" fill="url(#leftGlow)"/>
+  <rect width="900" height="383" fill="url(#wallGlow)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.03" stroke="#4488aa" stroke-width="0.5">
+    <line x1="0" y1="96" x2="900" y2="96"/>
+    <line x1="0" y1="191" x2="900" y2="191"/>
+    <line x1="0" y1="287" x2="900" y2="287"/>
+    <line x1="300" y1="0" x2="300" y2="383"/>
+    <line x1="450" y1="0" x2="450" y2="383"/>
+    <line x1="600" y1="0" x2="600" y2="383"/>
+  </g>
+
+  <!-- ======================== -->
+  <!-- CENTER: THE HUB (Agent)  -->
+  <!-- ======================== -->
+
+  <!-- Outer ring -->
+  <g filter="url(#wideglow)">
+    <circle cx="420" cy="185" r="72" fill="none" stroke="#ff6622" stroke-width="1.5" opacity="0.2"/>
+  </g>
+  <circle cx="420" cy="185" r="62" fill="none" stroke="#ff7733" stroke-width="0.8" opacity="0.15"/>
+  <circle cx="420" cy="185" r="52" fill="none" stroke="#ff8844" stroke-width="0.5" opacity="0.1"/>
+
+  <!-- Inner core - pulsing dot -->
+  <circle cx="420" cy="185" r="14" fill="#ff6622" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="420" cy="185" r="8" fill="#ff7733" opacity="0.25" filter="url(#softglow)"/>
+  <circle cx="420" cy="185" r="4" fill="#ffaa55" opacity="0.7"/>
+
+  <!-- Neural paths inside hub -->
+  <g opacity="0.15" stroke="#ff8844" stroke-width="0.6" fill="none">
+    <path d="M400,165 C410,170 415,180 420,185 C425,190 430,195 440,200"/>
+    <path d="M395,185 C405,182 412,183 420,185 C428,187 435,188 445,185"/>
+    <path d="M400,205 C410,200 415,192 420,185 C425,178 430,170 440,165"/>
+    <path d="M410,160 C415,170 418,178 420,185 C422,192 425,200 430,210"/>
+  </g>
+
+  <!-- ================================= -->
+  <!-- LEFT: CONNECTED PLATFORMS (alive) -->
+  <!-- ================================= -->
+
+  <!-- Telegram -->
+  <g filter="url(#softglow)">
+    <circle cx="95" cy="75" r="16" fill="none" stroke="#00aacc" stroke-width="1" opacity="0.5"/>
+    <circle cx="95" cy="75" r="4" fill="#00ddff" opacity="0.6"/>
+    <!-- Paper plane icon hint -->
+    <path d="M87,75 L103,69 L95,79 L93,75 Z" fill="none" stroke="#00bbdd" stroke-width="0.8" opacity="0.4"/>
+  </g>
+  <text x="95" y="100" text-anchor="middle" font-family="'SF Mono', monospace" font-size="8" fill="#00aacc" opacity="0.4">TG</text>
+
+  <!-- Discord -->
+  <g filter="url(#softglow)">
+    <circle cx="55" cy="165" r="16" fill="none" stroke="#5566ff" stroke-width="1" opacity="0.5"/>
+    <circle cx="55" cy="165" r="4" fill="#7788ff" opacity="0.6"/>
+  </g>
+  <text x="55" y="190" text-anchor="middle" font-family="'SF Mono', monospace" font-size="8" fill="#5566ff" opacity="0.4">DC</text>
+
+  <!-- Slack -->
+  <g filter="url(#softglow)">
+    <circle cx="75" cy="260" r="16" fill="none" stroke="#44bb88" stroke-width="1" opacity="0.5"/>
+    <circle cx="75" cy="260" r="4" fill="#55dd99" opacity="0.6"/>
+  </g>
+  <text x="75" y="285" text-anchor="middle" font-family="'SF Mono', monospace" font-size="8" fill="#44bb88" opacity="0.4">Slack</text>
+
+  <!-- WhatsApp -->
+  <g filter="url(#softglow)">
+    <circle cx="145" cy="330" r="16" fill="none" stroke="#22cc66" stroke-width="1" opacity="0.5"/>
+    <circle cx="145" cy="330" r="4" fill="#33ee77" opacity="0.6"/>
+  </g>
+  <text x="145" y="355" text-anchor="middle" font-family="'SF Mono', monospace" font-size="8" fill="#22cc66" opacity="0.4">WA</text>
+
+  <!-- Signal -->
+  <g filter="url(#softglow)">
+    <circle cx="180" cy="55" r="14" fill="none" stroke="#3388ff" stroke-width="0.8" opacity="0.4"/>
+    <circle cx="180" cy="55" r="3" fill="#4499ff" opacity="0.5"/>
+  </g>
+  <text x="180" y="77" text-anchor="middle" font-family="'SF Mono', monospace" font-size="7" fill="#3388ff" opacity="0.3">Signal</text>
+
+  <!-- Email -->
+  <g filter="url(#softglow)">
+    <circle cx="200" cy="310" r="14" fill="none" stroke="#ccaa44" stroke-width="0.8" opacity="0.4"/>
+    <circle cx="200" cy="310" r="3" fill="#ddbb55" opacity="0.5"/>
+  </g>
+  <text x="200" y="332" text-anchor="middle" font-family="'SF Mono', monospace" font-size="7" fill="#ccaa44" opacity="0.3">Email</text>
+
+  <!-- More dots (smaller platforms) -->
+  <circle cx="135" cy="135" r="8" fill="none" stroke="#66aacc" stroke-width="0.6" opacity="0.25"/>
+  <circle cx="135" cy="135" r="2" fill="#77bbdd" opacity="0.35"/>
+
+  <circle cx="115" cy="215" r="8" fill="none" stroke="#88aa66" stroke-width="0.6" opacity="0.25"/>
+  <circle cx="115" cy="215" r="2" fill="#99bb77" opacity="0.35"/>
+
+  <!-- ============================= -->
+  <!-- SPOKES: Platform → Hub (alive) -->
+  <!-- ============================= -->
+
+  <g opacity="0.3" fill="none" stroke-width="1">
+    <!-- Telegram spoke -->
+    <path d="M111,80 C180,95 280,130 365,170" stroke="#00aacc" stroke-dasharray="5,3"/>
+    <!-- Signal spoke -->
+    <path d="M194,60 C250,90 310,130 370,165" stroke="#3388ff" stroke-dasharray="5,3" opacity="0.2"/>
+    <!-- Discord spoke -->
+    <path d="M71,165 C150,165 260,170 365,180" stroke="#5566ff"/>
+    <!-- Slack spoke -->
+    <path d="M91,258 C170,245 280,220 368,195" stroke="#44bb88" stroke-dasharray="5,3"/>
+    <!-- WhatsApp spoke -->
+    <path d="M160,325 C230,300 310,255 375,210" stroke="#22cc66" stroke-dasharray="5,3"/>
+    <!-- Email spoke -->
+    <path d="M214,307 C270,280 330,240 380,205" stroke="#ccaa44" stroke-dasharray="5,3" opacity="0.2"/>
+    <!-- Small platform spokes -->
+    <path d="M143,135 C210,140 300,155 365,175" stroke="#66aacc" stroke-dasharray="3,4" opacity="0.15"/>
+    <path d="M123,213 C200,205 290,195 365,188" stroke="#88aa66" stroke-dasharray="3,4" opacity="0.15"/>
+  </g>
+
+  <!-- Tiny data particles flowing along spokes -->
+  <g filter="url(#softglow)" opacity="0.5">
+    <circle cx="200" cy="110" r="1.5" fill="#00ddff"/>
+    <circle cx="250" cy="130" r="1.2" fill="#00ccee"/>
+    <circle cx="310" cy="155" r="1.5" fill="#ff8844"/>
+    <circle cx="180" cy="170" r="1.2" fill="#7788ff"/>
+    <circle cx="240" cy="178" r="1.5" fill="#5566ff"/>
+    <circle cx="200" cy="240" r="1.2" fill="#55dd99"/>
+    <circle cx="270" cy="225" r="1.5" fill="#44bb88"/>
+    <circle cx="230" cy="295" r="1.2" fill="#33ee77"/>
+    <circle cx="290" cy="260" r="1.5" fill="#ff7733"/>
+  </g>
+
+  <!-- ================================= -->
+  <!-- RIGHT: THE WALL (WeChat blocked)  -->
+  <!-- ================================= -->
+
+  <!-- The wall - vertical brick pattern -->
+  <g opacity="0.35">
+    <!-- Main wall line -->
+    <line x1="680" y1="30" x2="680" y2="350" stroke="#ff2244" stroke-width="2.5" opacity="0.5" filter="url(#softglow)"/>
+
+    <!-- Brick texture on wall -->
+    <g stroke="#ff3355" stroke-width="0.8" opacity="0.25" fill="none">
+      <rect x="672" y="40" width="16" height="10" rx="1"/>
+      <rect x="672" y="54" width="16" height="10" rx="1"/>
+      <rect x="672" y="68" width="16" height="10" rx="1"/>
+      <rect x="672" y="82" width="16" height="10" rx="1"/>
+      <rect x="672" y="96" width="16" height="10" rx="1"/>
+      <rect x="672" y="110" width="16" height="10" rx="1"/>
+      <rect x="672" y="124" width="16" height="10" rx="1"/>
+      <rect x="672" y="138" width="16" height="10" rx="1"/>
+      <rect x="672" y="152" width="16" height="10" rx="1"/>
+      <rect x="672" y="166" width="16" height="10" rx="1"/>
+      <rect x="672" y="180" width="16" height="10" rx="1"/>
+      <rect x="672" y="194" width="16" height="10" rx="1"/>
+      <rect x="672" y="208" width="16" height="10" rx="1"/>
+      <rect x="672" y="222" width="16" height="10" rx="1"/>
+      <rect x="672" y="236" width="16" height="10" rx="1"/>
+      <rect x="672" y="250" width="16" height="10" rx="1"/>
+      <rect x="672" y="264" width="16" height="10" rx="1"/>
+      <rect x="672" y="278" width="16" height="10" rx="1"/>
+      <rect x="672" y="292" width="16" height="10" rx="1"/>
+      <rect x="672" y="306" width="16" height="10" rx="1"/>
+      <rect x="672" y="320" width="16" height="10" rx="1"/>
+      <rect x="672" y="334" width="16" height="10" rx="1"/>
+    </g>
+  </g>
+
+  <!-- WeChat icon (behind wall, dimmed) -->
+  <g opacity="0.2" filter="url(#softglow)">
+    <circle cx="790" cy="140" r="28" fill="none" stroke="#22cc44" stroke-width="1.2"/>
+    <!-- Chat bubble shapes -->
+    <ellipse cx="782" cy="135" rx="12" ry="9" fill="none" stroke="#22cc44" stroke-width="0.8" opacity="0.5"/>
+    <ellipse cx="800" cy="145" rx="10" ry="8" fill="none" stroke="#22cc44" stroke-width="0.8" opacity="0.5"/>
+    <!-- Eyes in chat bubble -->
+    <circle cx="778" cy="133" r="1.5" fill="#22cc44" opacity="0.4"/>
+    <circle cx="786" cy="133" r="1.5" fill="#22cc44" opacity="0.4"/>
+  </g>
+  <text x="790" y="178" text-anchor="middle" font-family="'SF Mono', monospace" font-size="9" fill="#22cc44" opacity="0.2">WeChat</text>
+
+  <!-- Alipay icon (behind wall, dimmed) -->
+  <g opacity="0.15">
+    <circle cx="830" cy="230" r="20" fill="none" stroke="#1677ff" stroke-width="0.8"/>
+    <text x="830" y="235" text-anchor="middle" font-family="'SF Mono', monospace" font-size="8" fill="#1677ff" opacity="0.4">Pay</text>
+  </g>
+
+  <!-- Douyin icon (behind wall, dimmed) -->
+  <g opacity="0.15">
+    <circle cx="770" cy="280" r="18" fill="none" stroke="#ee1166" stroke-width="0.8"/>
+    <text x="770" y="284" text-anchor="middle" font-family="'SF Mono', monospace" font-size="7" fill="#ee1166" opacity="0.4">抖音</text>
+  </g>
+
+  <!-- Broken spokes hitting the wall -->
+  <g opacity="0.25" fill="none" stroke-width="1">
+    <!-- Hub → Wall (WeChat attempt) -->
+    <path d="M475,175 C530,160 600,145 670,140" stroke="#ff7733" stroke-dasharray="4,3"/>
+    <!-- Hub → Wall (Alipay attempt) -->
+    <path d="M475,190 C540,200 610,215 670,225" stroke="#ff7733" stroke-dasharray="4,3" opacity="0.15"/>
+    <!-- Hub → Wall (Douyin attempt) -->
+    <path d="M470,200 C520,230 590,260 670,275" stroke="#ff7733" stroke-dasharray="4,3" opacity="0.15"/>
+  </g>
+
+  <!-- Impact sparks at wall -->
+  <g filter="url(#softglow)" opacity="0.5">
+    <circle cx="672" cy="140" r="3" fill="#ff4444"/>
+    <circle cx="668" cy="136" r="1.5" fill="#ff6644"/>
+    <circle cx="675" cy="144" r="1.2" fill="#ff5533"/>
+    <circle cx="670" cy="225" r="2" fill="#ff4444" opacity="0.3"/>
+    <circle cx="670" cy="275" r="2" fill="#ff4444" opacity="0.3"/>
+  </g>
+
+  <!-- "NO API" text on wall -->
+  <text x="680" y="365" text-anchor="middle" font-family="'SF Mono', monospace" font-size="10" fill="#ff3344" opacity="0.4" letter-spacing="3">NO API</text>
+
+  <!-- ======================== -->
+  <!-- LABELS                   -->
+  <!-- ======================== -->
+
+  <!-- Hub label -->
+  <text x="420" y="270" text-anchor="middle" font-family="'SF Mono', monospace" font-size="12" fill="#ff8844" opacity="0.5">Agent Hub</text>
+  <text x="420" y="285" text-anchor="middle" font-family="'SF Mono', monospace" font-size="9" fill="#ff6622" opacity="0.3">250K ★</text>
+
+  <!-- Left region label -->
+  <text x="100" y="35" font-family="'SF Mono', monospace" font-size="9" fill="#00cc88" opacity="0.35">22+ platforms</text>
+
+  <!-- Right region label -->
+  <text x="750" y="35" font-family="'SF Mono', monospace" font-size="9" fill="#ff3344" opacity="0.3">walled gardens</text>
+
+  <!-- Bottom tagline -->
+  <text x="450" y="355" text-anchor="middle" font-family="'Georgia', 'SimSun', serif" font-size="14" fill="#8877aa" opacity="0.35" font-style="italic">the door is locked, not the mind</text>
+
+  <!-- Star dust -->
+  <g opacity="0.2">
+    <circle cx="280" cy="35" r="0.8" fill="#fff"/>
+    <circle cx="520" cy="25" r="0.6" fill="#fff"/>
+    <circle cx="400" cy="18" r="0.9" fill="#fff"/>
+    <circle cx="160" cy="42" r="0.5" fill="#fff"/>
+    <circle cx="620" cy="50" r="0.7" fill="#fff"/>
+    <circle cx="340" cy="50" r="0.5" fill="#fff"/>
+    <circle cx="560" cy="40" r="0.6" fill="#fff"/>
+    <circle cx="850" cy="55" r="0.5" fill="#fff"/>
+  </g>
+
+  <!-- Corner brackets -->
+  <g opacity="0.08" stroke="#00cc88" stroke-width="1" fill="none">
+    <polyline points="15,15 15,40"/>
+    <polyline points="15,15 40,15"/>
+  </g>
+  <g opacity="0.08" stroke="#ff3344" stroke-width="1" fill="none">
+    <polyline points="885,368 885,343"/>
+    <polyline points="885,368 860,368"/>
+  </g>
+
+</svg>
