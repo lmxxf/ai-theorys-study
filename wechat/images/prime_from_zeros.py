@@ -118,7 +118,7 @@ y_true = [prime_count(x) for x in x_range]
 print("正在计算主项 R(x)...")
 y_approx_0 = [R_main(x) for x in x_range]
 
-configs_calc = [5, 10, 20, 30]
+configs_calc = [10, 20, 30]
 y_approx = {}
 for nz in configs_calc:
     print(f"正在计算 {nz} 个零点的逼近...")
@@ -126,45 +126,32 @@ for nz in configs_calc:
 
 print("计算完成！开始绘图...")
 
-# 绘图：2x3
-fig, axes = plt.subplots(2, 3, figsize=(18, 10), dpi=150)
+# 绘图：竖排 4 格（手机友好）
+fig, axes = plt.subplots(4, 1, figsize=(10, 20), dpi=150)
 
 plot_configs = [
-    (axes[0, 0], y_approx_0, '0 个零点（主项 R(x)）', '#888888'),
-    (axes[0, 1], y_approx[5], '5 个零点', '#e67e22'),
-    (axes[0, 2], y_approx[10], '10 个零点', '#f39c12'),
-    (axes[1, 0], y_approx[20], '20 个零点', '#e74c3c'),
-    (axes[1, 1], y_approx[30], '30 个零点', '#c0392b'),
+    (axes[0], y_approx_0, '0 个零点（只有平滑主项）', '#888888'),
+    (axes[1], y_approx[10], '10 个零点', '#e67e22'),
+    (axes[2], y_approx[20], '20 个零点', '#e74c3c'),
+    (axes[3], y_approx[30], '30 个零点', '#27ae60'),
 ]
-
-# 最后一格放说明文字
-axes[1, 2].axis('off')
-axes[1, 2].text(0.5, 0.5,
-    '黑色阶梯 = 真实素数个数\n'
-    '彩色曲线 = 零点叠加的逼近\n\n'
-    '零点越多\n曲线越像阶梯\n\n'
-    '→ 零点是"密码"\n→ 素数是"音乐"\n→ 密码控制音乐',
-    transform=axes[1, 2].transAxes,
-    fontsize=14, ha='center', va='center',
-    bbox=dict(boxstyle='round,pad=0.8', facecolor='lightyellow',
-              edgecolor='goldenrod', alpha=0.9))
 
 for ax, y_data, title, color in plot_configs:
     ax.step(x_range, y_true, where='post', color='#2c3e50',
             linewidth=2.5, label='真实素数个数 π(x)', zorder=5)
-    ax.plot(x_range, y_data, color=color, linewidth=1.8,
+    ax.plot(x_range, y_data, color=color, linewidth=2,
             label='零点逼近', alpha=0.9, zorder=4)
 
-    ax.set_title(title, fontsize=14, fontweight='bold')
-    ax.set_xlabel('x', fontsize=12)
-    ax.set_ylabel('x 以下的素数个数', fontsize=12)
-    ax.legend(fontsize=10, loc='upper left')
+    ax.set_title(title, fontsize=16, fontweight='bold')
+    ax.set_xlabel('x', fontsize=13)
+    ax.set_ylabel('x 以下的素数个数', fontsize=13)
+    ax.legend(fontsize=12, loc='upper left')
     ax.set_xlim(2, 100)
     ax.set_ylim(-2, 30)
     ax.grid(True, alpha=0.3)
 
 fig.suptitle('零点如何"雕刻"出素数分布\n——加入的零点越多，曲线越像阶梯',
-             fontsize=18, fontweight='bold', y=1.02)
+             fontsize=20, fontweight='bold', y=1.01)
 
 plt.tight_layout()
 plt.savefig('/home/lmxxf/work/ai-theorys-study/wechat/images/prime-from-zeros.png',
