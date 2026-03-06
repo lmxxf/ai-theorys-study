@@ -111,7 +111,7 @@ def approx_prime_count(x, n_zeros):
     return float(result)
 
 # 计算
-x_range = np.linspace(2, 100, 2000)
+x_range = np.linspace(2, 60, 1200)
 print("正在计算真实素数个数...")
 y_true = [prime_count(x) for x in x_range]
 
@@ -146,14 +146,19 @@ for ax, y_data, title, color in plot_configs:
     ax.set_xlabel('x', fontsize=13)
     ax.set_ylabel('x 以下的素数个数', fontsize=13)
     ax.legend(fontsize=12, loc='upper left')
-    ax.set_xlim(2, 100)
-    ax.set_ylim(-2, 30)
+    ax.set_xlim(2, 60)
+    ax.set_ylim(-2, 20)
     ax.grid(True, alpha=0.3)
+    # 标注 x=46 和 x=47
+    ax.axvline(x=46, color='gray', linewidth=1, linestyle=':', alpha=0.7)
+    ax.axvline(x=47, color='gray', linewidth=1, linestyle=':', alpha=0.7)
+    ax.text(46, -1.5, '46', fontsize=9, ha='center', color='gray')
+    ax.text(47, -1.5, '47', fontsize=9, ha='center', color='#e74c3c', fontweight='bold')
 
 fig.suptitle('零点如何"雕刻"出素数分布\n——加入的零点越多，曲线越像阶梯',
              fontsize=20, fontweight='bold', y=1.01)
 
 plt.tight_layout()
-plt.savefig('/home/lmxxf/work/ai-theorys-study/wechat/images/prime-from-zeros.png',
+plt.savefig('/home/lmxxf/work/ai-theorys-study/wechat/assets/106/prime-from-zeros.png',
             bbox_inches='tight', facecolor='white')
 print("图片已保存!")
