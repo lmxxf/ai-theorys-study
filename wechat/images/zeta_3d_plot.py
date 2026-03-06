@@ -70,18 +70,21 @@ ax.plot([re_crit] * len(im_crit_fine), im_crit_fine, z_crit,
 # 已知零点
 known_zeros_im = [14.1347, 21.0220, 25.0109, 30.4249, 32.9351]
 
-# 零点标记：用竖线从谷底到曲面上方，更醒目
+# 零点标记：金色圆点在谷底，虚线往下拉到地面，强调"掉到零"
 for z_im in known_zeros_im:
     zval = complex(mpmath.zeta(complex(0.5, z_im)))
     z_val_log = np.clip(np.log(abs(zval) + 1e-30), -6, 5)
-    # 竖直虚线从谷底到上方
-    ax.plot([0.5, 0.5], [z_im, z_im], [z_val_log, 3.0],
+    # 竖直虚线从谷底拉到地面
+    ax.plot([0.5, 0.5], [z_im, z_im], [-6, z_val_log],
             color='gold', linewidth=2, linestyle='--', zorder=20)
-    # 顶部金色大圆点
-    ax.scatter([0.5], [z_im], [3.0], color='gold', s=100, zorder=25,
+    # 金色大圆点在谷底位置
+    ax.scatter([0.5], [z_im], [z_val_log], color='gold', s=120, zorder=25,
                edgecolors='black', linewidth=1.2, depthshade=False)
-    # 在圆点旁标注虚部数值
-    ax.text(0.5, z_im, 3.5, f'{z_im:.2f}i',
+    # 地板上的投影圆点（阴影效果）
+    ax.scatter([0.5], [z_im], [-6], color='gold', s=80, zorder=15,
+               edgecolors='goldenrod', linewidth=0.8, alpha=0.5, depthshade=False)
+    # 在圆点上方标注虚部数值
+    ax.text(0.5, z_im, z_val_log + 1.0, f'{z_im:.2f}',
             fontsize=9, color='black', fontweight='bold',
             ha='center', va='bottom', zorder=30)
 
@@ -103,8 +106,8 @@ ax.set_zlabel(r'$\log|\zeta(s)|$', fontsize=13, labelpad=10)
 
 ax.set_title('黎曼 ζ 函数的零点地形', fontsize=20, fontweight='bold', pad=25)
 
-# 视角
-ax.view_init(elev=30, azim=-60)
+# 视角：抬高俯视角度，让谷底凹陷更明显
+ax.view_init(elev=45, azim=-50)
 
 # 颜色条
 cbar = fig.colorbar(surf, ax=ax, shrink=0.45, aspect=15, pad=0.1)
