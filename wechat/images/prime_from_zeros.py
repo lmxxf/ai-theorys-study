@@ -1,6 +1,45 @@
 """
-用黎曼零点叠加出素数分布
-使用完整的黎曼显式公式（包含所有修正项）
+用黎曼零点叠加出素数分布——公众号 106 期配图
+====================================================
+
+最终公式（黎曼显式公式的 Möbius 反演形式）：
+
+  π(x) ≈ R(x) - Σ_ρ 2·Re(Ei(ρ·ln(x)))
+
+  其中：
+    R(x) = Σ_{n=1}^{∞} μ(n)/n · Ei(ln(x)/n)   （黎曼 R 函数，μ 是莫比乌斯函数）
+    ρ = 1/2 + it                                 （Zeta 函数非平凡零点）
+    Ei                                            （指数积分函数）
+
+踩坑记录（2026-03-06，Suzaku）：
+----------------------------------------------------
+
+v1（简化公式）：
+  用 Li(x) 做主项 + 简化的余弦修正项
+  结果：主项偏移大，曲线和阶梯之间距离远
+  原因：Li(x) 精度不如 R(x)，修正项系数是简化近似
+
+v2（riemannr 公式，第一次"修正"）：
+  改用 mpmath.riemannr(x) 做主项 + mpmath.riemannr(x^ρ) 做零点修正
+  还多减了一个 log(2) 常数项
+  结果：主项 R(x) 很准，但加 5 个零点后曲线剧烈震荡，比不加还差
+  原因：
+    1. riemannr(x^ρ) 对复数参数有分支切割（branch cut）问题，
+       内部是 Gram 级数展开，不能直接塞复数零点
+    2. log(2) 项在 R 函数形式里已被 Möbius 反演吸收，不需要单独减
+  教训：R(x) 单独算没问题 ≠ R(x^ρ) 也没问题，复数域里分支切割是杀手
+
+v3（正确公式，当前版本）：
+  主项：R(x) = Σ μ(n)/n · Ei(ln(x)/n)  手动用莫比乌斯函数展开
+  零点修正：对每个零点 ρ = 1/2+it，减去 2·Re(Ei(ρ·ln(x)))
+  关键：用 Ei(ρ·ln(x)) 而非 li(x^ρ) 或 riemannr(x^ρ)
+       ln(x) 是实数对数，ρ 是复数，Ei 在这个组合下没有分支切割问题
+  结果：正确！零点递增，曲线平稳逼近阶梯，无震荡
+
+参考：
+  - Daniel Hutama, Riemann Explicit Formula for Primes (GitHub)
+  - mpmath 文档: ei(), zetazero()
+  - Wolfram MathWorld: Riemann Prime Counting Function
 """
 
 import numpy as np
@@ -12,15 +51,13 @@ import matplotlib.pyplot as plt
 plt.rcParams['font.family'] = ['WenQuanYi Micro Hei', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
-# 计算前 200 个零点
-N_ZEROS = 200
+# 计算前 30 个零点
+N_ZEROS = 30
 zeros_im = []
 print(f"正在计算前 {N_ZEROS} 个零点...")
 for i in range(1, N_ZEROS + 1):
     z = mpmath.zetazero(i)
     zeros_im.append(float(z.imag))
-    if i % 100 == 0:
-        print(f"  已计算 {i} 个")
 print("零点计算完成！")
 
 # 素数计数函数 π(x) 的真实值
@@ -33,36 +70,44 @@ def prime_count(x):
             count += 1
     return count
 
-def riemann_R(x):
-    """黎曼 R 函数: R(x) = Σ_{n=1}^{∞} μ(n)/n * Li(x^{1/n})
-    用 mpmath 的 riemannr 直接算"""
+def R_main(x, N_terms=50):
+    """
+    黎曼 R 函数主项：R(x) = Σ_{n=1}^{N} μ(n)/n * li(x^{1/n})
+    用 Ei(log(x)/n) 计算 li(x^{1/n})
+    """
     if x <= 1:
         return 0.0
-    return float(mpmath.riemannr(x))
+    logx = mpmath.log(x)
+    # 莫比乌斯函数前 50 项
+    mu = [0, 1, -1, -1, 0, -1, 1, -1, 0, 0, 1,
+          -1, 0, -1, 1, 1, 0, -1, 0, -1, 0,
+          1, 1, -1, 0, 0, 1, 0, 0, -1, -1,
+          -1, 0, 1, 1, 1, 0, -1, 1, 1, 0,
+          -1, -1, -1, 0, 0, -1, 0, -1, 0, 0]
+    result = mpmath.mpf(0)
+    for n in range(1, min(N_terms, len(mu))):
+        if mu[n] != 0:
+            result += mpmath.mpf(mu[n]) / n * mpmath.ei(logx / n)
+    return float(result)
 
 def approx_prime_count(x, n_zeros):
     """
-    完整的黎曼显式公式:
-    π(x) ≈ R(x) - Σ_ρ R(x^ρ)
-    其中 R 是黎曼 R 函数，ρ 是非平凡零点
-    零点成对出现: ρ = 1/2 + it 和 ρ* = 1/2 - it
-    一对零点的贡献: R(x^ρ) + R(x^{ρ*}) = 2 * Re(R(x^ρ))
+    π(x) ≈ R(x) - Σ_ρ [用 Ei(ρ·log(x)) 计算的零点修正]
+
+    每个非平凡零点 ρ = 1/2 + it 的贡献：
+    用 Möbius 反演：-Σ_{n: μ(n)≠0} (μ(n)/n) * 2*Re(Ei(ρ·log(x)/n))
+    简化（只取 n=1 主项）：-2*Re(Ei((1/2+it)·log(x)))
     """
     if x <= 1:
         return 0.0
-    # 主项
-    result = riemann_R(x)
-    # 零点修正项
+    result = R_main(x)
     logx = mpmath.log(x)
     for k in range(min(n_zeros, len(zeros_im))):
         t = zeros_im[k]
-        # x^ρ = x^(1/2 + it) = sqrt(x) * x^(it) = sqrt(x) * e^(it*logx)
-        xrho = mpmath.exp((0.5 + 1j * t) * logx)
-        r_val = mpmath.riemannr(xrho)
-        # 一对共轭零点的贡献 = 2 * Re(R(x^ρ))
-        result -= 2 * float(r_val.real)
-    # 常数修正项: -log(2)
-    result -= float(mpmath.log(2))
+        rho = mpmath.mpc(0.5, t)
+        ei_val = mpmath.ei(rho * logx)
+        # 一对共轭零点的贡献
+        result -= 2 * float(ei_val.real)
     return float(result)
 
 # 计算
@@ -71,9 +116,9 @@ print("正在计算真实素数个数...")
 y_true = [prime_count(x) for x in x_range]
 
 print("正在计算主项 R(x)...")
-y_approx_0 = [riemann_R(x) for x in x_range]
+y_approx_0 = [R_main(x) for x in x_range]
 
-configs_calc = [5, 10, 20, 30, 100, 200]
+configs_calc = [5, 10, 20, 30]
 y_approx = {}
 for nz in configs_calc:
     print(f"正在计算 {nz} 个零点的逼近...")
@@ -81,28 +126,25 @@ for nz in configs_calc:
 
 print("计算完成！开始绘图...")
 
-# 绘图：2x4（上面一排小的，下面一排大的）
-fig, axes = plt.subplots(2, 4, figsize=(20, 10), dpi=150)
+# 绘图：2x3
+fig, axes = plt.subplots(2, 3, figsize=(18, 10), dpi=150)
 
-# 合并下面一排的后两格为一个大图不好做，改用 2x4
 plot_configs = [
     (axes[0, 0], y_approx_0, '0 个零点（主项 R(x)）', '#888888'),
     (axes[0, 1], y_approx[5], '5 个零点', '#e67e22'),
     (axes[0, 2], y_approx[10], '10 个零点', '#f39c12'),
-    (axes[0, 3], y_approx[20], '20 个零点', '#e74c3c'),
-    (axes[1, 0], y_approx[30], '30 个零点', '#c0392b'),
-    (axes[1, 1], y_approx[100], '100 个零点', '#8e44ad'),
-    (axes[1, 2], y_approx[200], '200 个零点', '#27ae60'),
+    (axes[1, 0], y_approx[20], '20 个零点', '#e74c3c'),
+    (axes[1, 1], y_approx[30], '30 个零点', '#c0392b'),
 ]
 
 # 最后一格放说明文字
-axes[1, 3].axis('off')
-axes[1, 3].text(0.5, 0.5,
+axes[1, 2].axis('off')
+axes[1, 2].text(0.5, 0.5,
     '黑色阶梯 = 真实素数个数\n'
     '彩色曲线 = 零点叠加的逼近\n\n'
     '零点越多\n曲线越像阶梯\n\n'
     '→ 零点是"密码"\n→ 素数是"音乐"\n→ 密码控制音乐',
-    transform=axes[1, 3].transAxes,
+    transform=axes[1, 2].transAxes,
     fontsize=14, ha='center', va='center',
     bbox=dict(boxstyle='round,pad=0.8', facecolor='lightyellow',
               edgecolor='goldenrod', alpha=0.9))
