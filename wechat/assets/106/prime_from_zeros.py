@@ -52,7 +52,7 @@ plt.rcParams['font.family'] = ['WenQuanYi Micro Hei', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
 # 计算前 30 个零点
-N_ZEROS = 30
+N_ZEROS = 100
 zeros_im = []
 print(f"正在计算前 {N_ZEROS} 个零点...")
 for i in range(1, N_ZEROS + 1):
@@ -118,7 +118,7 @@ y_true = [prime_count(x) for x in x_range]
 print("正在计算主项 R(x)...")
 y_approx_0 = [R_main(x) for x in x_range]
 
-configs_calc = [10, 20, 30]
+configs_calc = [10, 50, 100]
 y_approx = {}
 for nz in configs_calc:
     print(f"正在计算 {nz} 个零点的逼近...")
@@ -132,8 +132,8 @@ fig, axes = plt.subplots(4, 1, figsize=(10, 20), dpi=150)
 plot_configs = [
     (axes[0], y_approx_0, '0 个零点（只有平滑主项）', '#888888'),
     (axes[1], y_approx[10], '10 个零点', '#e67e22'),
-    (axes[2], y_approx[20], '20 个零点', '#e74c3c'),
-    (axes[3], y_approx[30], '30 个零点', '#27ae60'),
+    (axes[2], y_approx[50], '50 个零点', '#e74c3c'),
+    (axes[3], y_approx[100], '100 个零点', '#27ae60'),
 ]
 
 for ax, y_data, title, color in plot_configs:
