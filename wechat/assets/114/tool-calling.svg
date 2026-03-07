@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f0f23"/>
+      <stop offset="100%" stop-color="#1a1a3e"/>
+    </linearGradient>
+    <linearGradient id="user" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3a86ff"/>
+      <stop offset="100%" stop-color="#5cb8ff"/>
+    </linearGradient>
+    <linearGradient id="llm" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8338ec"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="tool" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e94560"/>
+      <stop offset="100%" stop-color="#ff6b81"/>
+    </linearGradient>
+    <linearGradient id="app" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06d6a0"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#5cb8ff"/>
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#a855f7"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#ff6b81"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2dd4bf"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#888"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="1100" fill="url(#bg)" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="50" text-anchor="middle" fill="#fff" font-size="24" font-weight="700">LLM 是怎么"自动选工具"的？</text>
+  <text x="450" y="78" text-anchor="middle" fill="#888" font-size="14">——它不是真的"自动"，是 API 协议约定好的</text>
+
+  <!-- ============ PHASE 1: 发送请求 ============ -->
+  <text x="40" y="130" fill="#5cb8ff" font-size="16" font-weight="700">❶ App 把工具菜单和用户消息一起发给 LLM</text>
+
+  <!-- App box -->
+  <rect x="40" y="150" width="360" height="230" rx="12" fill="none" stroke="#2dd4bf" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="55" y="175" fill="#2dd4bf" font-size="13" font-weight="600">App 发出的 HTTP 请求</text>
+
+  <!-- messages -->
+  <rect x="60" y="190" width="320" height="50" rx="8" fill="#1e1e3f"/>
+  <text x="75" y="210" fill="#aaa" font-size="12">"messages": [</text>
+  <text x="90" y="228" fill="#5cb8ff" font-size="12">{"role":"user", "content":"北京今天天气怎么样"}</text>
+
+  <!-- tools (menu) -->
+  <rect x="60" y="252" width="320" height="115" rx="8" fill="#1e1e3f"/>
+  <text x="75" y="272" fill="#aaa" font-size="12">"tools": [</text>
+  <text x="90" y="292" fill="#ff6b81" font-size="12">{"name":"web_search", "desc":"搜索引擎"},</text>
+  <text x="90" y="312" fill="#ff6b81" font-size="12">{"name":"memory_read", "desc":"读记忆"},</text>
+  <text x="90" y="332" fill="#ff6b81" font-size="12">{"name":"file_write", "desc":"写文件"},</text>
+  <text x="90" y="352" fill="#ff6b81" font-size="12">{"name":"schedule_task", "desc":"定时任务"}</text>
+
+  <!-- Arrow to LLM -->
+  <line x1="400" y1="270" x2="490" y2="270" stroke="#5cb8ff" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="445" y="260" text-anchor="middle" fill="#5cb8ff" font-size="11">HTTP POST</text>
+
+  <!-- LLM brain -->
+  <rect x="500" y="170" width="360" height="200" rx="12" fill="none" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="680" y="200" text-anchor="middle" fill="#a855f7" font-size="15" font-weight="700">🧠 DeepSeek LLM</text>
+
+  <text x="520" y="232" fill="#ccc" font-size="13">收到：用户问天气 + 4个可选工具</text>
+  <text x="520" y="258" fill="#ccc" font-size="13">内部推理：</text>
+  <text x="520" y="280" fill="#ffd166" font-size="13">  "天气是实时信息，我不知道"</text>
+  <text x="520" y="302" fill="#ffd166" font-size="13">  "工具菜单里有 web_search"</text>
+  <text x="520" y="324" fill="#ffd166" font-size="13">  "→ 选 web_search"</text>
+  <text x="520" y="352" fill="#888" font-size="12">（像点菜：看菜单 → 选一道）</text>
+
+  <!-- ============ PHASE 2: LLM 返回工具调用 ============ -->
+  <text x="40" y="420" fill="#a855f7" font-size="16" font-weight="700">❷ LLM 不直接回答，而是返回"我要用这个工具"</text>
+
+  <!-- LLM response -->
+  <rect x="160" y="445" width="580" height="100" rx="12" fill="#1e1e3f"/>
+  <text x="180" y="472" fill="#aaa" font-size="12">LLM 的 HTTP 响应：</text>
+  <text x="180" y="498" fill="#a855f7" font-size="13">"finish_reason": "tool_calls"</text>
+  <text x="180" y="520" fill="#a855f7" font-size="13">"tool_calls": [{"name":"web_search", "arguments":{"query":"北京今天天气"}}]</text>
+
+  <!-- Annotation -->
+  <rect x="540" y="438" width="200" height="30" rx="6" fill="#a855f720"/>
+  <text x="640" y="458" text-anchor="middle" fill="#ffd166" font-size="12">← 关键！不是 "stop"</text>
+
+  <!-- ============ PHASE 3: App 执行工具 ============ -->
+  <text x="40" y="595" fill="#e94560" font-size="16" font-weight="700">❸ App 看到 tool_calls → 执行工具 → 把结果送回 LLM</text>
+
+  <!-- Three column flow -->
+  <!-- App parses -->
+  <rect x="40" y="620" width="230" height="80" rx="10" fill="none" stroke="#2dd4bf" stroke-width="1.5"/>
+  <text x="155" y="648" text-anchor="middle" fill="#2dd4bf" font-size="13" font-weight="600">App（AgentCore）</text>
+  <text x="155" y="672" text-anchor="middle" fill="#ccc" font-size="12">解析 tool_calls</text>
+  <text x="155" y="690" text-anchor="middle" fill="#ccc" font-size="12">→ 调 web_search 函数</text>
+
+  <line x1="270" y1="660" x2="330" y2="660" stroke="#ff6b81" stroke-width="2" marker-end="url(#arrow-red)"/>
+
+  <!-- Tool executes -->
+  <rect x="335" y="620" width="230" height="80" rx="10" fill="none" stroke="#ff6b81" stroke-width="1.5"/>
+  <text x="450" y="648" text-anchor="middle" fill="#ff6b81" font-size="13" font-weight="600">🔧 web_search</text>
+  <text x="450" y="672" text-anchor="middle" fill="#ccc" font-size="12">请求 DuckDuckGo</text>
+  <text x="450" y="690" text-anchor="middle" fill="#ccc" font-size="12">返回："北京 晴 12°C"</text>
+
+  <line x1="565" y1="660" x2="625" y2="660" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Send back -->
+  <rect x="630" y="620" width="230" height="80" rx="10" fill="none" stroke="#5cb8ff" stroke-width="1.5"/>
+  <text x="745" y="648" text-anchor="middle" fill="#5cb8ff" font-size="13" font-weight="600">再次调 LLM</text>
+  <text x="745" y="672" text-anchor="middle" fill="#ccc" font-size="12">追加 role:"tool" 消息</text>
+  <text x="745" y="690" text-anchor="middle" fill="#ccc" font-size="12">content:"北京 晴 12°C"</text>
+
+  <!-- ============ PHASE 4: LLM 最终回答 ============ -->
+  <text x="40" y="755" fill="#06d6a0" font-size="16" font-weight="700">❹ LLM 拿到工具结果，组织语言回答用户</text>
+
+  <rect x="160" y="775" width="580" height="80" rx="12" fill="#1e1e3f"/>
+  <text x="180" y="800" fill="#aaa" font-size="12">LLM 的最终响应：</text>
+  <text x="180" y="825" fill="#06d6a0" font-size="13">"finish_reason": "stop"</text>
+  <text x="180" y="845" fill="#06d6a0" font-size="13">"content": "北京今天晴，气温12°C，适合出门~"</text>
+
+  <!-- ============ Summary ============ -->
+  <rect x="40" y="890" width="820" height="185" rx="14" fill="#ffffff08" stroke="#ffffff20" stroke-width="1"/>
+
+  <text x="450" y="920" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">所以"自动选工具"到底是怎么回事？</text>
+
+  <text x="60" y="955" fill="#ffd166" font-size="14">① App 把工具清单（菜单）和用户消息一起发给 LLM</text>
+  <text x="60" y="982" fill="#ffd166" font-size="14">② LLM 看菜单选菜 —— 返回 JSON 说"我要用 XXX 工具，参数是 YYY"</text>
+  <text x="60" y="1009" fill="#ffd166" font-size="14">③ App 执行工具，把结果塞回对话历史，再调一次 LLM</text>
+  <text x="60" y="1036" fill="#ffd166" font-size="14">④ LLM 拿到结果，组织语言回答用户</text>
+
+  <text x="450" y="1066" text-anchor="middle" fill="#888" font-size="13">LLM 不会"执行"任何东西。它只会"说"——说要用什么工具、传什么参数。真正动手的是 App。</text>
+</svg>
