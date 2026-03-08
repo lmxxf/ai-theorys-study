@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="860" viewBox="0 0 700 860" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif">
+
+  <!-- 背景 -->
+  <rect width="700" height="860" fill="#ffffff"/>
+
+  <!-- ===== 标题 ===== -->
+  <text x="350" y="38" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2e">OHClaw MCP Client 架构</text>
+  <text x="350" y="60" text-anchor="middle" font-size="13" fill="#666">三步握手 + 工具路由（三级分发）</text>
+  <line x1="40" y1="74" x2="660" y2="74" stroke="#e0e0e0" stroke-width="1.5"/>
+
+  <!-- ===== 上半部分：三步握手 ===== -->
+  <!-- 区块标题 -->
+  <rect x="40" y="84" width="200" height="28" rx="5" fill="#e8f0fe"/>
+  <text x="140" y="103" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a73e8">第一部分：三步握手</text>
+
+  <!-- Client 列头 -->
+  <rect x="55" y="124" width="180" height="38" rx="8" fill="#1a73e8"/>
+  <text x="145" y="139" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">OHClaw</text>
+  <text x="145" y="155" text-anchor="middle" font-size="11" fill="#cce0ff">MCP Client</text>
+
+  <!-- Server 列头 -->
+  <rect x="465" y="124" width="180" height="38" rx="8" fill="#e8711a"/>
+  <text x="555" y="139" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">高德地图</text>
+  <text x="555" y="155" text-anchor="middle" font-size="11" fill="#ffe5cc">Remote MCP Server</text>
+
+  <!-- 生命线 -->
+  <line x1="145" y1="162" x2="145" y2="430" stroke="#1a73e8" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+  <line x1="555" y1="162" x2="555" y2="430" stroke="#e8711a" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+
+  <!-- Step 1: initialize -->
+  <!-- 标签 -->
+  <rect x="55" y="178" width="60" height="22" rx="4" fill="#1a73e8"/>
+  <text x="85" y="193" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Step 1</text>
+
+  <!-- 请求箭头 Client → Server -->
+  <line x1="145" y1="215" x2="555" y2="215" stroke="#1a73e8" stroke-width="2"/>
+  <polygon points="555,210 565,215 555,220" fill="#1a73e8"/>
+  <rect x="200" y="200" width="210" height="26" rx="4" fill="#e8f0fe"/>
+  <text x="305" y="211" text-anchor="middle" font-size="11" fill="#1a73e8" font-weight="bold">initialize</text>
+  <text x="305" y="223" text-anchor="middle" font-size="10" fill="#4a7fc1">protocolVersion + clientInfo</text>
+
+  <!-- 响应箭头 Server → Client -->
+  <line x1="555" y1="252" x2="145" y2="252" stroke="#e8711a" stroke-width="2"/>
+  <polygon points="145,247 135,252 145,257" fill="#e8711a"/>
+  <rect x="195" y="237" width="210" height="26" rx="4" fill="#fff3e6"/>
+  <text x="300" y="248" text-anchor="middle" font-size="11" fill="#e8711a" font-weight="bold">200 OK</text>
+  <text x="300" y="260" text-anchor="middle" font-size="10" fill="#c26010">返回 sessionId + serverInfo</text>
+
+  <!-- Step 2: notifications/initialized -->
+  <rect x="55" y="278" width="60" height="22" rx="4" fill="#1a73e8"/>
+  <text x="85" y="293" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Step 2</text>
+
+  <line x1="145" y1="315" x2="555" y2="315" stroke="#1a73e8" stroke-width="2"/>
+  <polygon points="555,310 565,315 555,320" fill="#1a73e8"/>
+  <rect x="190" y="300" width="230" height="26" rx="4" fill="#e8f0fe"/>
+  <text x="305" y="311" text-anchor="middle" font-size="11" fill="#1a73e8" font-weight="bold">notifications/initialized</text>
+  <text x="305" y="323" text-anchor="middle" font-size="10" fill="#4a7fc1">通知服务端握手完成</text>
+
+  <!-- Step 3: tools/list -->
+  <rect x="55" y="348" width="60" height="22" rx="4" fill="#1a73e8"/>
+  <text x="85" y="363" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Step 3</text>
+
+  <line x1="145" y1="385" x2="555" y2="385" stroke="#1a73e8" stroke-width="2"/>
+  <polygon points="555,380 565,385 555,390" fill="#1a73e8"/>
+  <rect x="215" y="370" width="175" height="26" rx="4" fill="#e8f0fe"/>
+  <text x="303" y="381" text-anchor="middle" font-size="11" fill="#1a73e8" font-weight="bold">tools/list</text>
+  <text x="303" y="393" text-anchor="middle" font-size="10" fill="#4a7fc1">请求工具清单</text>
+
+  <line x1="555" y1="415" x2="145" y2="415" stroke="#e8711a" stroke-width="2"/>
+  <polygon points="145,410 135,415 145,420" fill="#e8711a"/>
+  <!-- 工具列表气泡 -->
+  <rect x="165" y="400" width="280" height="26" rx="4" fill="#fff3e6"/>
+  <text x="305" y="411" text-anchor="middle" font-size="11" fill="#e8711a" font-weight="bold">工具列表</text>
+  <text x="305" y="423" text-anchor="middle" font-size="10" fill="#c26010">maps_weather · maps_geo · maps_direction ···</text>
+
+  <!-- 握手完成标记 -->
+  <rect x="200" y="440" width="300" height="26" rx="13" fill="#e6f4ea"/>
+  <text x="350" y="458" text-anchor="middle" font-size="12" fill="#1e7e34" font-weight="bold">握手完成，工具注册到 remoteToolRouteMap</text>
+
+  <!-- 分割线 -->
+  <line x1="40" y1="484" x2="660" y2="484" stroke="#e0e0e0" stroke-width="1.5"/>
+
+  <!-- ===== 下半部分：工具路由 ===== -->
+  <rect x="40" y="494" width="200" height="28" rx="5" fill="#e8f0fe"/>
+  <text x="140" y="513" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a73e8">第二部分：工具路由（三级分发）</text>
+
+  <!-- DeepSeek 返回 tool_calls -->
+  <rect x="220" y="534" width="260" height="40" rx="8" fill="#673ab7"/>
+  <text x="350" y="550" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">DeepSeek LLM</text>
+  <text x="350" y="566" text-anchor="middle" font-size="11" fill="#e1d5f7">返回 tool_calls [ {name, arguments} ]</text>
+
+  <!-- 箭头向下 -->
+  <line x1="350" y1="574" x2="350" y2="600" stroke="#555" stroke-width="2"/>
+  <polygon points="345,598 350,608 355,598" fill="#555"/>
+
+  <!-- 判断菱形 1: isLocalTool? -->
+  <polygon points="350,610 430,640 350,670 270,640" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>
+  <text x="350" y="636" text-anchor="middle" font-size="12" fill="#c17900">isLocalTool?</text>
+  <text x="350" y="652" text-anchor="middle" font-size="10" fill="#c17900">ToolRegistry.has(name)</text>
+
+  <!-- Yes 分支：向左 -->
+  <line x1="270" y1="640" x2="130" y2="640" stroke="#2e7d32" stroke-width="2"/>
+  <polygon points="132,635 122,640 132,645" fill="#2e7d32"/>
+  <text x="205" y="633" text-anchor="middle" font-size="11" fill="#2e7d32" font-weight="bold">Yes</text>
+
+  <!-- ToolRegistry 执行框 -->
+  <rect x="40" y="618" width="160" height="44" rx="8" fill="#e6f4ea" stroke="#2e7d32" stroke-width="2"/>
+  <text x="120" y="636" text-anchor="middle" font-size="12" font-weight="bold" fill="#1b5e20">ToolRegistry</text>
+  <text x="120" y="652" text-anchor="middle" font-size="11" fill="#2e7d32">本地执行工具</text>
+
+  <!-- 结果向下 -->
+  <line x1="120" y1="662" x2="120" y2="700" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="55" y="700" width="130" height="30" rx="6" fill="#c8e6c9"/>
+  <text x="120" y="720" text-anchor="middle" font-size="11" fill="#1b5e20">返回工具结果</text>
+
+  <!-- No 分支：向下 -->
+  <line x1="350" y1="670" x2="350" y2="700" stroke="#555" stroke-width="2"/>
+  <polygon points="345,698 350,708 355,698" fill="#555"/>
+  <text x="363" y="690" font-size="11" fill="#555" font-weight="bold">No</text>
+
+  <!-- 判断菱形 2: remoteToolRouteMap.has? -->
+  <polygon points="350,710 450,745 350,780 250,745" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>
+  <text x="350" y="738" text-anchor="middle" font-size="11" fill="#c17900">remoteToolRouteMap</text>
+  <text x="350" y="754" text-anchor="middle" font-size="10" fill="#c17900">.has(name)?</text>
+
+  <!-- Yes 分支：向右 -->
+  <line x1="450" y1="745" x2="580" y2="745" stroke="#1a73e8" stroke-width="2"/>
+  <polygon points="578,740 588,745 578,750" fill="#1a73e8"/>
+  <text x="510" y="738" text-anchor="middle" font-size="11" fill="#1a73e8" font-weight="bold">Yes</text>
+
+  <!-- McpClient.callTool 框 -->
+  <rect x="500" y="720" width="160" height="50" rx="8" fill="#e8f0fe" stroke="#1a73e8" stroke-width="2"/>
+  <text x="580" y="740" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3c6e">McpClient</text>
+  <text x="580" y="754" text-anchor="middle" font-size="11" fill="#1a73e8">.callTool()</text>
+  <text x="580" y="766" text-anchor="middle" font-size="10" fill="#4a7fc1">→ MCP Server</text>
+
+  <!-- 结果向下 -->
+  <line x1="580" y1="770" x2="580" y2="808" stroke="#1a73e8" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="510" y="808" width="150" height="30" rx="6" fill="#bbdefb"/>
+  <text x="585" y="828" text-anchor="middle" font-size="11" fill="#0d47a1">返回远程结果</text>
+
+  <!-- No 分支：向下 -->
+  <line x1="350" y1="780" x2="350" y2="808" stroke="#c62828" stroke-width="2"/>
+  <polygon points="345,806 350,816 355,806" fill="#c62828"/>
+  <text x="363" y="800" font-size="11" fill="#c62828" font-weight="bold">No</text>
+
+  <!-- 错误框 -->
+  <rect x="245" y="818" width="210" height="34" rx="8" fill="#ffebee" stroke="#c62828" stroke-width="2"/>
+  <text x="350" y="832" text-anchor="middle" font-size="12" font-weight="bold" fill="#b71c1c">Error</text>
+  <text x="350" y="846" text-anchor="middle" font-size="11" fill="#c62828">unknown tool 错误</text>
+
+  <!-- 底部版权 -->
+  <text x="350" y="858" text-anchor="middle" font-size="10" fill="#bbb">OHClaw · OpenHarmony AI Agent · MCP Architecture</text>
+
+</svg>

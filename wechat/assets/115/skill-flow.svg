@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="980" viewBox="0 0 700 980" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif">
+  <!-- 背景 -->
+  <rect width="700" height="980" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="350" y="38" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2e">OHClaw Skill 斜杠命令处理流程</text>
+
+  <!-- ===== 用户输入节点 ===== -->
+  <!-- 圆角矩形：用户输入 -->
+  <rect x="250" y="60" width="200" height="52" rx="26" ry="26" fill="#2563eb" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="350" y="81" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">用户输入</text>
+  <text x="350" y="101" text-anchor="middle" font-size="12" fill="#bfdbfe">消息内容</text>
+
+  <!-- 连接箭头 -->
+  <line x1="350" y1="112" x2="350" y2="138" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 菱形判断框：是否以 / 开头 -->
+  <polygon points="350,140 460,182 350,224 240,182" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+  <text x="350" y="177" text-anchor="middle" font-size="13" fill="#334155">是否以</text>
+  <text x="350" y="196" text-anchor="middle" font-size="13" fill="#334155">"/" 开头？</text>
+
+  <!-- 左分支：否 → 普通消息 -->
+  <line x1="240" y1="182" x2="95" y2="182" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="168" y="172" text-anchor="middle" font-size="12" fill="#64748b">否</text>
+
+  <!-- 右分支：是 → 解析命令 -->
+  <line x1="460" y1="182" x2="590" y2="182" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="525" y="172" text-anchor="middle" font-size="12" fill="#64748b">是</text>
+
+  <!-- ===== 左分支：普通消息 ===== -->
+  <rect x="20" y="155" width="150" height="0" fill="none"/>
+  <!-- 普通消息节点 -->
+  <rect x="20" y="155" width="150" height="54" rx="8" ry="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="95" y="177" text-anchor="middle" font-size="13" font-weight="bold" fill="#1d4ed8">普通消息</text>
+  <text x="95" y="197" text-anchor="middle" font-size="11" fill="#3b82f6">effectiveMessage</text>
+  <text x="95" y="210" text-anchor="middle" font-size="11" fill="#3b82f6">= 原始输入</text>
+
+  <!-- ===== 右分支：解析斜杠命令 ===== -->
+  <rect x="530" y="155" width="150" height="54" rx="8" ry="8" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="605" y="177" text-anchor="middle" font-size="13" font-weight="bold" fill="#c2410c">解析斜杠命令</text>
+  <text x="605" y="197" text-anchor="middle" font-size="11" fill="#ea580c">提取 commandName</text>
+  <text x="605" y="210" text-anchor="middle" font-size="11" fill="#ea580c">+ args</text>
+
+  <!-- 右分支向下 -->
+  <line x1="605" y1="209" x2="605" y2="266" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 菱形：matchSkill() -->
+  <polygon points="605,268 695,302 605,336 515,302" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="605" y="297" text-anchor="middle" font-size="12" fill="#c2410c">matchSkill()</text>
+  <text x="605" y="315" text-anchor="middle" font-size="12" fill="#c2410c">命中？</text>
+
+  <!-- matchSkill 否 → /help 分支 -->
+  <line x1="515" y1="302" x2="440" y2="302" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="477" y="292" text-anchor="middle" font-size="12" fill="#64748b">否（/help）</text>
+
+  <!-- /help 节点 -->
+  <rect x="290" y="273" width="150" height="58" rx="8" ry="8" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="365" y="296" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">/help 命令</text>
+  <text x="365" y="313" text-anchor="middle" font-size="11" fill="#b45309">直接返回帮助文本</text>
+  <text x="365" y="328" text-anchor="middle" font-size="11" fill="#b45309">不存DB / 不调LLM</text>
+
+  <!-- /help 向下到输出 -->
+  <line x1="365" y1="331" x2="365" y2="382" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 输出节点（/help 专用） -->
+  <rect x="290" y="384" width="150" height="48" rx="24" ry="24" fill="#1a1a2e" stroke="#334155" stroke-width="1.5"/>
+  <text x="365" y="403" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">返回用户</text>
+  <text x="365" y="422" text-anchor="middle" font-size="11" fill="#94a3b8">帮助文本</text>
+
+  <!-- matchSkill 是 → 展开 prompt -->
+  <line x1="605" y1="336" x2="605" y2="385" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="620" y="365" text-anchor="middle" font-size="12" fill="#64748b">是</text>
+
+  <!-- 展开 prompt 模板 -->
+  <rect x="530" y="387" width="150" height="58" rx="8" ry="8" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="605" y="410" text-anchor="middle" font-size="13" font-weight="bold" fill="#c2410c">展开 Prompt</text>
+  <text x="605" y="428" text-anchor="middle" font-size="11" fill="#ea580c">模板 + args 替换</text>
+  <text x="605" y="443" text-anchor="middle" font-size="11" fill="#ea580c">→ effectiveMessage</text>
+
+  <!-- ===== 汇合线：三路合一 ===== -->
+  <!-- 普通消息 向下 -->
+  <line x1="95" y1="209" x2="95" y2="560" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="95" y1="560" x2="272" y2="560" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Skill 展开后 向下 -->
+  <line x1="605" y1="445" x2="605" y2="560" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="605" y1="560" x2="428" y2="560" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 汇合标签 -->
+  <text x="72" y="548" text-anchor="middle" font-size="11" fill="#64748b">effectiveMessage</text>
+  <text x="632" y="548" text-anchor="middle" font-size="11" fill="#64748b">effectiveMessage</text>
+
+  <!-- 中心汇合节点：存DB -->
+  <rect x="272" y="530" width="156" height="58" rx="8" ry="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="350" y="554" text-anchor="middle" font-size="14" font-weight="bold" fill="#15803d">存 DB</text>
+  <text x="350" y="573" text-anchor="middle" font-size="11" fill="#16a34a">保存原始输入消息</text>
+  <text x="350" y="585" text-anchor="middle" font-size="11" fill="#16a34a">（非 effectiveMessage）</text>
+
+  <!-- 存DB → 发LLM -->
+  <line x1="350" y1="588" x2="350" y2="628" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 发 LLM -->
+  <rect x="248" y="630" width="204" height="62" rx="8" ry="8" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
+  <text x="350" y="655" text-anchor="middle" font-size="14" font-weight="bold" fill="#7e22ce">发送 LLM</text>
+  <text x="350" y="673" text-anchor="middle" font-size="11" fill="#9333ea">使用 effectiveMessage</text>
+  <text x="350" y="688" text-anchor="middle" font-size="11" fill="#9333ea">+ system prompt + history</text>
+
+  <!-- 发LLM → ReAct -->
+  <line x1="350" y1="692" x2="350" y2="728" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ReAct 循环框 -->
+  <rect x="175" y="730" width="350" height="190" rx="12" ry="12" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="350" y="754" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">ReAct 循环</text>
+
+  <!-- ReAct 内部节点 -->
+  <rect x="237" y="765" width="226" height="40" rx="6" ry="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="350" y="782" text-anchor="middle" font-size="12" font-weight="bold" fill="#5b21b6">Thought — 推理</text>
+  <text x="350" y="798" text-anchor="middle" font-size="11" fill="#7c3aed">LLM 分析下一步动作</text>
+
+  <line x1="350" y1="805" x2="350" y2="820" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="237" y="822" width="226" height="40" rx="6" ry="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="350" y="839" text-anchor="middle" font-size="12" font-weight="bold" fill="#5b21b6">Action — 调用工具</text>
+  <text x="350" y="855" text-anchor="middle" font-size="11" fill="#7c3aed">执行 MCP / RAG / 搜索</text>
+
+  <line x1="350" y1="862" x2="350" y2="876" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="237" y="878" width="226" height="34" rx="6" ry="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="350" y="895" text-anchor="middle" font-size="12" font-weight="bold" fill="#5b21b6">Observation — 观察结果</text>
+  <text x="350" y="910" text-anchor="middle" font-size="11" fill="#7c3aed">结果反馈回 LLM 上下文</text>
+
+  <!-- 循环箭头 -->
+  <path d="M 175 870 Q 148 870 148 830 Q 148 790 175 790" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="130" y="833" text-anchor="middle" font-size="11" fill="#64748b">循环</text>
+
+  <!-- ReAct → 最终输出 -->
+  <line x1="350" y1="920" x2="350" y2="950" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 最终输出 -->
+  <rect x="250" y="952" width="200" height="20" rx="0" fill="none"/>
+  <text x="350" y="966" text-anchor="middle" font-size="13" fill="#64748b">Final Answer → 返回用户</text>
+
+  <!-- 图例 -->
+  <rect x="20" y="908" width="120" height="62" rx="6" ry="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="80" y="925" text-anchor="middle" font-size="11" font-weight="bold" fill="#475569">图例</text>
+  <rect x="28" y="933" width="12" height="10" rx="2" fill="#2563eb"/>
+  <text x="46" y="943" font-size="10" fill="#475569">用户输入</text>
+  <rect x="28" y="948" width="12" height="10" rx="2" fill="#f97316"/>
+  <text x="46" y="958" font-size="10" fill="#475569">Skill 处理</text>
+  <rect x="76" y="933" width="12" height="10" rx="2" fill="#16a34a"/>
+  <text x="94" y="943" font-size="10" fill="#475569">DB 存储</text>
+  <rect x="76" y="948" width="12" height="10" rx="2" fill="#9333ea"/>
+  <text x="94" y="958" font-size="10" fill="#475569">LLM 调用</text>
+
+  <!-- 箭头 marker 定义 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>

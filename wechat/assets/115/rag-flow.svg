@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 820" width="700" height="820" font-family="sans-serif">
+
+  <!-- Background -->
+  <rect width="700" height="820" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="350" y="38" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2e">OHClaw 端侧 RAG 检索流程</text>
+  <text x="350" y="60" text-anchor="middle" font-size="13" fill="#666">从建索引到查询到降级</text>
+
+  <!-- Divider line between columns -->
+  <line x1="350" y1="75" x2="350" y2="600" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- ========== LEFT COLUMN: 建索引 ========== -->
+  <text x="175" y="92" text-anchor="middle" font-size="15" font-weight="bold" fill="#1565c0">建索引（启动时）</text>
+
+  <!-- Step 1: 加载知识文件 -->
+  <rect x="50" y="105" width="240" height="72" rx="10" fill="#e3f2fd" stroke="#1565c0" stroke-width="1.5"/>
+  <text x="170" y="126" text-anchor="middle" font-size="13" font-weight="bold" fill="#1565c0">加载知识文件</text>
+  <text x="170" y="145" text-anchor="middle" font-size="12" fill="#333">rawfile/knowledge/*.txt</text>
+  <text x="170" y="163" text-anchor="middle" font-size="12" fill="#333">按 \n\n 分段切片</text>
+
+  <!-- Arrow 1L -->
+  <line x1="170" y1="177" x2="170" y2="197" stroke="#1565c0" stroke-width="2"/>
+  <polygon points="170,197 164,187 176,187" fill="#1565c0"/>
+
+  <!-- Step 2: BGE-M3 嵌入 -->
+  <rect x="50" y="200" width="240" height="72" rx="10" fill="#ede7f6" stroke="#6a1b9a" stroke-width="1.5"/>
+  <text x="170" y="221" text-anchor="middle" font-size="13" font-weight="bold" fill="#6a1b9a">调用嵌入 API</text>
+  <text x="170" y="240" text-anchor="middle" font-size="12" fill="#333">SiliconFlow BGE-M3</text>
+  <text x="170" y="258" text-anchor="middle" font-size="12" fill="#333">分批请求 → 1024 维向量</text>
+
+  <!-- Arrow 2L -->
+  <line x1="170" y1="272" x2="170" y2="292" stroke="#6a1b9a" stroke-width="2"/>
+  <polygon points="170,292 164,282 176,282" fill="#6a1b9a"/>
+
+  <!-- Step 3: SQLite 存储 -->
+  <rect x="50" y="295" width="240" height="72" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="170" y="316" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e7d32">向量持久化存储</text>
+  <text x="170" y="335" text-anchor="middle" font-size="12" fill="#333">Float32Array → Uint8Array</text>
+  <text x="170" y="353" text-anchor="middle" font-size="12" fill="#333">→ SQLite BLOB</text>
+
+  <!-- Arrow 3L -->
+  <line x1="170" y1="367" x2="170" y2="387" stroke="#2e7d32" stroke-width="2"/>
+  <polygon points="170,387 164,377 176,377" fill="#2e7d32"/>
+
+  <!-- Step 4: 启动检测 -->
+  <rect x="50" y="390" width="240" height="72" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="170" y="411" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e7d32">启动一致性检测</text>
+  <text x="170" y="430" text-anchor="middle" font-size="12" fill="#333">记录 chunk_count</text>
+  <text x="170" y="448" text-anchor="middle" font-size="12" fill="#333">数量一致 → 跳过重建</text>
+
+  <!-- Done badge left -->
+  <rect x="110" y="475" width="120" height="28" rx="14" fill="#2e7d32"/>
+  <text x="170" y="494" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">索引就绪</text>
+
+  <!-- ========== RIGHT COLUMN: 查询 ========== -->
+  <text x="525" y="92" text-anchor="middle" font-size="15" font-weight="bold" fill="#c62828">查询（用户提问时）</text>
+
+  <!-- Step 1: 用户输入 -->
+  <rect x="410" y="105" width="240" height="72" rx="10" fill="#e3f2fd" stroke="#1565c0" stroke-width="1.5"/>
+  <text x="530" y="126" text-anchor="middle" font-size="13" font-weight="bold" fill="#1565c0">用户输入问题</text>
+  <text x="530" y="145" text-anchor="middle" font-size="12" fill="#333">调 SiliconFlow API</text>
+  <text x="530" y="163" text-anchor="middle" font-size="12" fill="#333">计算 query embedding</text>
+
+  <!-- Arrow 1R -->
+  <line x1="530" y1="177" x2="530" y2="197" stroke="#1565c0" stroke-width="2"/>
+  <polygon points="530,197 524,187 536,187" fill="#1565c0"/>
+
+  <!-- Step 2: 读取向量 -->
+  <rect x="410" y="200" width="240" height="72" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="530" y="221" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e7d32">读取全部 chunk 向量</text>
+  <text x="530" y="240" text-anchor="middle" font-size="12" fill="#333">从 SQLite 批量读取</text>
+  <text x="530" y="258" text-anchor="middle" font-size="12" fill="#333">Uint8Array → Float32Array</text>
+
+  <!-- Arrow 2R -->
+  <line x1="530" y1="272" x2="530" y2="292" stroke="#2e7d32" stroke-width="2"/>
+  <polygon points="530,292 524,282 536,282" fill="#2e7d32"/>
+
+  <!-- Step 3: 相似度计算 -->
+  <rect x="410" y="295" width="240" height="72" rx="10" fill="#ede7f6" stroke="#6a1b9a" stroke-width="1.5"/>
+  <text x="530" y="316" text-anchor="middle" font-size="13" font-weight="bold" fill="#6a1b9a">余弦相似度排序</text>
+  <text x="530" y="335" text-anchor="middle" font-size="12" fill="#333">逐条计算余弦相似度</text>
+  <text x="530" y="353" text-anchor="middle" font-size="12" fill="#333">排序 → 取 Top-3 结果</text>
+
+  <!-- Arrow 3R -->
+  <line x1="530" y1="367" x2="530" y2="387" stroke="#6a1b9a" stroke-width="2"/>
+  <polygon points="530,387 524,377 536,377" fill="#6a1b9a"/>
+
+  <!-- Step 4: 注入 Prompt -->
+  <rect x="410" y="390" width="240" height="72" rx="10" fill="#ede7f6" stroke="#6a1b9a" stroke-width="1.5"/>
+  <text x="530" y="411" text-anchor="middle" font-size="13" font-weight="bold" fill="#6a1b9a">注入上下文发请求</text>
+  <text x="530" y="430" text-anchor="middle" font-size="12" fill="#333">Top-3 注入 system prompt</text>
+  <text x="530" y="448" text-anchor="middle" font-size="12" fill="#333">发送至 DeepSeek 推理</text>
+
+  <!-- Done badge right -->
+  <rect x="470" y="475" width="120" height="28" rx="14" fill="#6a1b9a"/>
+  <text x="530" y="494" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">回答生成</text>
+
+  <!-- ========== BOTTOM: 降级策略 ========== -->
+  <line x1="30" y1="520" x2="670" y2="520" stroke="#e0e0e0" stroke-width="1.5"/>
+
+  <text x="350" y="548" text-anchor="middle" font-size="15" font-weight="bold" fill="#e65100">降级策略</text>
+
+  <!-- Fallback Box 1: 主路径 -->
+  <rect x="30" y="562" width="190" height="88" rx="10" fill="#fff8e1" stroke="#f57c00" stroke-width="1.5"/>
+  <rect x="30" y="562" width="190" height="26" rx="10" fill="#f57c00"/>
+  <!-- fix top-right corners -->
+  <rect x="200" y="562" width="10" height="13" fill="#f57c00"/>
+  <rect x="30" y="575" width="10" height="13" fill="#f57c00"/>
+  <text x="125" y="580" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">主路径</text>
+  <text x="125" y="602" text-anchor="middle" font-size="12" fill="#5d4037">向量 RAG ready</text>
+  <text x="125" y="620" text-anchor="middle" font-size="12" fill="#5d4037">↓</text>
+  <text x="125" y="638" text-anchor="middle" font-size="12" fill="#5d4037">向量检索上下文注入</text>
+
+  <!-- Fallback Box 2: API 不可用 -->
+  <rect x="255" y="562" width="190" height="88" rx="10" fill="#fff8e1" stroke="#f57c00" stroke-width="1.5"/>
+  <rect x="255" y="562" width="190" height="26" rx="10" fill="#f57c00"/>
+  <rect x="425" y="562" width="10" height="13" fill="#f57c00"/>
+  <rect x="255" y="575" width="10" height="13" fill="#f57c00"/>
+  <text x="350" y="580" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">API 不可用</text>
+  <text x="350" y="602" text-anchor="middle" font-size="12" fill="#5d4037">嵌入服务失败</text>
+  <text x="350" y="620" text-anchor="middle" font-size="12" fill="#5d4037">↓</text>
+  <text x="350" y="638" text-anchor="middle" font-size="12" fill="#5d4037">关键词匹配降级</text>
+
+  <!-- Fallback Box 3: 无知识库 -->
+  <rect x="480" y="562" width="190" height="88" rx="10" fill="#fff8e1" stroke="#f57c00" stroke-width="1.5"/>
+  <rect x="480" y="562" width="190" height="26" rx="10" fill="#f57c00"/>
+  <rect x="650" y="562" width="10" height="13" fill="#f57c00"/>
+  <rect x="480" y="575" width="10" height="13" fill="#f57c00"/>
+  <text x="575" y="580" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">无知识库</text>
+  <text x="575" y="602" text-anchor="middle" font-size="12" fill="#5d4037">未配置知识文件</text>
+  <text x="575" y="620" text-anchor="middle" font-size="12" fill="#5d4037">↓</text>
+  <text x="575" y="638" text-anchor="middle" font-size="12" fill="#5d4037">不注入上下文直接推理</text>
+
+  <!-- Legend -->
+  <rect x="30" y="672" width="640" height="42" rx="8" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="48" y="686" width="14" height="14" rx="3" fill="#1565c0"/>
+  <text x="68" y="697" font-size="12" fill="#444">数据加载</text>
+  <rect x="148" y="686" width="14" height="14" rx="3" fill="#6a1b9a"/>
+  <text x="168" y="697" font-size="12" fill="#444">API 调用</text>
+  <rect x="248" y="686" width="14" height="14" rx="3" fill="#2e7d32"/>
+  <text x="268" y="697" font-size="12" fill="#444">存储读写</text>
+  <rect x="348" y="686" width="14" height="14" rx="3" fill="#f57c00"/>
+  <text x="368" y="697" font-size="12" fill="#444">降级策略</text>
+  <text x="530" y="697" font-size="11" fill="#999">OHClaw · OpenHarmony</text>
+
+  <!-- Footer -->
+  <text x="350" y="800" text-anchor="middle" font-size="11" fill="#bbb">端侧 AI · 离线优先 · 隐私保护</text>
+
+</svg>
