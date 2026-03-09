@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383" width="900" height="383">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0d1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- LLM core glow -->
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4da6ff;stop-opacity:0.4" />
+      <stop offset="60%" style="stop-color:#4da6ff;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#4da6ff;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Green path glow -->
+    <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4caf50;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#4caf50;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Orange path glow -->
+    <radialGradient id="orangeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff9800;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#ff9800;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Drop shadow -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bgGrad)" />
+
+  <!-- Subtle grid lines -->
+  <g stroke="#4da6ff" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="64" x2="900" y2="64"/>
+    <line x1="0" y1="128" x2="900" y2="128"/>
+    <line x1="0" y1="192" x2="900" y2="192"/>
+    <line x1="0" y1="256" x2="900" y2="256"/>
+    <line x1="0" y1="320" x2="900" y2="320"/>
+    <line x1="150" y1="0" x2="150" y2="383"/>
+    <line x1="300" y1="0" x2="300" y2="383"/>
+    <line x1="450" y1="0" x2="450" y2="383"/>
+    <line x1="600" y1="0" x2="600" y2="383"/>
+    <line x1="750" y1="0" x2="750" y2="383"/>
+  </g>
+
+  <!-- ============ INPUT TOKEN STREAM (left side entry) ============ -->
+  <!-- Input label -->
+  <text x="52" y="172" font-family="monospace" font-size="11" fill="#4da6ff" fill-opacity="0.6" text-anchor="middle">token</text>
+  <text x="52" y="186" font-family="monospace" font-size="11" fill="#4da6ff" fill-opacity="0.6" text-anchor="middle">stream</text>
+
+  <!-- Input tokens flowing in -->
+  <rect x="20" y="198" width="38" height="20" rx="4" fill="#4da6ff" fill-opacity="0.12" stroke="#4da6ff" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="39" y="213" font-family="monospace" font-size="10" fill="#4da6ff" fill-opacity="0.8" text-anchor="middle">...</text>
+
+  <rect x="68" y="198" width="38" height="20" rx="4" fill="#4da6ff" fill-opacity="0.15" stroke="#4da6ff" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="87" y="213" font-family="monospace" font-size="10" fill="#4da6ff" fill-opacity="0.9" text-anchor="middle">how</text>
+
+  <rect x="116" y="198" width="38" height="20" rx="4" fill="#4da6ff" fill-opacity="0.18" stroke="#4da6ff" stroke-opacity="0.6" stroke-width="1"/>
+  <text x="135" y="213" font-family="monospace" font-size="10" fill="#4da6ff" text-anchor="middle">does</text>
+
+  <!-- Arrow into LLM -->
+  <line x1="154" y1="208" x2="192" y2="208" stroke="#4da6ff" stroke-opacity="0.5" stroke-width="2"/>
+  <polygon points="192,204 200,208 192,212" fill="#4da6ff" fill-opacity="0.5"/>
+
+  <!-- ============ LLM CORE NODE ============ -->
+  <!-- Outer glow halo -->
+  <circle cx="450" cy="208" r="120" fill="url(#coreGlow)" />
+
+  <!-- Outer ring -->
+  <circle cx="450" cy="208" r="72" fill="none" stroke="#4da6ff" stroke-opacity="0.15" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- Mid ring -->
+  <circle cx="450" cy="208" r="52" fill="#0d1a2e" stroke="#4da6ff" stroke-opacity="0.3" stroke-width="1" />
+
+  <!-- Core hexagon shape -->
+  <polygon points="450,170 480,187 480,221 450,238 420,221 420,187"
+           fill="#0a1628" stroke="#4da6ff" stroke-width="2" stroke-opacity="0.8" filter="url(#glow)"/>
+
+  <!-- Inner hex detail lines -->
+  <line x1="450" y1="170" x2="450" y2="238" stroke="#4da6ff" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="420" y1="187" x2="480" y2="221" stroke="#4da6ff" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="480" y1="187" x2="420" y2="221" stroke="#4da6ff" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- Core glow dot -->
+  <circle cx="450" cy="204" r="8" fill="#4da6ff" fill-opacity="0.9" filter="url(#glow)"/>
+
+  <!-- LLM label inside hex -->
+  <text x="450" y="230" font-family="monospace" font-size="11" font-weight="bold" fill="#4da6ff" fill-opacity="0.9" text-anchor="middle">LLM</text>
+
+  <!-- "Next Token Prediction" subtitle above the core -->
+  <text x="450" y="150" font-family="monospace" font-size="11" fill="#4da6ff" fill-opacity="0.45" text-anchor="middle" letter-spacing="2">NEXT TOKEN PREDICTION</text>
+
+  <!-- ============ FORK JUNCTION POINT ============ -->
+  <!-- The output wire from LLM core, leading to fork -->
+  <line x1="510" y1="208" x2="560" y2="208" stroke="#4da6ff" stroke-opacity="0.6" stroke-width="2.5" filter="url(#subtleGlow)"/>
+
+  <!-- Fork dot -->
+  <circle cx="560" cy="208" r="6" fill="#4da6ff" filter="url(#softGlow)"/>
+
+  <!-- Fork label -->
+  <text x="560" y="258" font-family="monospace" font-size="10" fill="#4da6ff" fill-opacity="0.5" text-anchor="middle">predict</text>
+  <text x="560" y="272" font-family="monospace" font-size="10" fill="#4da6ff" fill-opacity="0.5" text-anchor="middle">next token</text>
+
+  <!-- ============ UPPER FORK PATH: stop / natural language ============ -->
+  <!-- Path line: from fork up-left to green zone -->
+  <path d="M560,208 Q590,208 610,155 Q630,110 680,110"
+        fill="none" stroke="#4caf50" stroke-width="2.5" stroke-opacity="0.7" filter="url(#subtleGlow)"/>
+
+  <!-- Green glow blob at destination -->
+  <circle cx="760" cy="110" r="55" fill="url(#greenGlow)" />
+
+  <!-- Green destination box -->
+  <rect x="690" y="75" width="168" height="70" rx="10"
+        fill="#0d1f0f" stroke="#4caf50" stroke-width="1.8" stroke-opacity="0.85" filter="url(#softGlow)"/>
+
+  <!-- Speech bubble icon (simplified) -->
+  <rect x="700" y="84" width="30" height="22" rx="5" fill="none" stroke="#4caf50" stroke-width="1.5" stroke-opacity="0.8"/>
+  <polygon points="708,106 715,106 712,113" fill="#4caf50" fill-opacity="0.8"/>
+
+  <!-- Green path labels -->
+  <text x="742" y="97" font-family="sans-serif" font-size="12" font-weight="bold" fill="#4caf50">自然语言回答</text>
+  <text x="742" y="113" font-family="monospace" font-size="11" fill="#4caf50" fill-opacity="0.9">finish_reason:</text>
+  <text x="742" y="130" font-family="monospace" font-size="12" font-weight="bold" fill="#4caf50" filter="url(#subtleGlow)">"stop"</text>
+
+  <!-- Arrow tip at green box -->
+  <polygon points="688,106 698,102 698,110" fill="#4caf50" fill-opacity="0.8"/>
+
+  <!-- ============ LOWER FORK PATH: tool_calls ============ -->
+  <!-- Path line: from fork down-right to orange zone -->
+  <path d="M560,208 Q590,208 610,262 Q630,305 680,305"
+        fill="none" stroke="#ff9800" stroke-width="2.5" stroke-opacity="0.7" filter="url(#subtleGlow)"/>
+
+  <!-- Orange glow blob -->
+  <circle cx="760" cy="305" r="55" fill="url(#orangeGlow)" />
+
+  <!-- Orange destination box -->
+  <rect x="690" y="270" width="168" height="70" rx="10"
+        fill="#1f1200" stroke="#ff9800" stroke-width="1.8" stroke-opacity="0.85" filter="url(#softGlow)"/>
+
+  <!-- Gear icon (simplified) -->
+  <circle cx="715" cy="305" r="9" fill="none" stroke="#ff9800" stroke-width="2" stroke-opacity="0.85"/>
+  <circle cx="715" cy="305" r="4" fill="none" stroke="#ff9800" stroke-width="1.5" stroke-opacity="0.85"/>
+  <!-- Gear teeth -->
+  <rect x="713" y="293" width="4" height="5" rx="1" fill="#ff9800" fill-opacity="0.8"/>
+  <rect x="713" y="312" width="4" height="5" rx="1" fill="#ff9800" fill-opacity="0.8"/>
+  <rect x="703" y="302" width="5" height="4" rx="1" fill="#ff9800" fill-opacity="0.8"/>
+  <rect x="722" y="302" width="5" height="4" rx="1" fill="#ff9800" fill-opacity="0.8"/>
+
+  <!-- Orange path labels -->
+  <text x="742" y="292" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ff9800">工具调用 JSON</text>
+  <text x="742" y="308" font-family="monospace" font-size="11" fill="#ff9800" fill-opacity="0.9">finish_reason:</text>
+  <text x="742" y="325" font-family="monospace" font-size="12" font-weight="bold" fill="#ff9800" filter="url(#subtleGlow)">"tool_calls"</text>
+
+  <!-- Arrow tip at orange box -->
+  <polygon points="688,301 698,297 698,305" fill="#ff9800" fill-opacity="0.8"/>
+
+  <!-- ============ FORK DECISION LABEL ============ -->
+  <text x="563" y="195" font-family="monospace" font-size="10" fill="#4da6ff" fill-opacity="0.6" text-anchor="middle">decode</text>
+
+  <!-- Bracket / decision visual -->
+  <path d="M575,155 L582,155 L582,260 L575,260" fill="none" stroke="#4da6ff" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- ============ MAIN TITLE at top ============ -->
+  <text x="450" y="42" font-family="sans-serif" font-size="22" font-weight="bold" fill="#ffffff" fill-opacity="0.95" text-anchor="middle" letter-spacing="1">大模型如何决定：回答 还是 调用工具？</text>
+  <line x1="160" y1="52" x2="740" y2="52" stroke="#4da6ff" stroke-opacity="0.2" stroke-width="1"/>
+
+  <!-- ============ BOTTOM ANNOTATION ============ -->
+  <line x1="160" y1="355" x2="740" y2="355" stroke="#4da6ff" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="450" y="372" font-family="monospace" font-size="10" fill="#4da6ff" fill-opacity="0.35" text-anchor="middle" letter-spacing="3">TOKEN PREDICTION · FINISH REASON · TOOL USE</text>
+
+  <!-- ============ DECORATIVE CORNER MARKS ============ -->
+  <path d="M10,10 L30,10 L30,12 L12,12 L12,30 L10,30 Z" fill="#4da6ff" fill-opacity="0.3"/>
+  <path d="M890,10 L870,10 L870,12 L888,12 L888,30 L890,30 Z" fill="#4da6ff" fill-opacity="0.3"/>
+  <path d="M10,373 L30,373 L30,371 L12,371 L12,353 L10,353 Z" fill="#4da6ff" fill-opacity="0.3"/>
+  <path d="M890,373 L870,373 L870,371 L888,371 L888,353 L890,353 Z" fill="#4da6ff" fill-opacity="0.3"/>
+
+  <!-- small connecting dots on path lines -->
+  <circle cx="610" cy="155" r="3" fill="#4caf50" fill-opacity="0.6"/>
+  <circle cx="610" cy="262" r="3" fill="#ff9800" fill-opacity="0.6"/>
+
+  <!-- "OR" label at fork -->
+  <text x="596" y="213" font-family="sans-serif" font-size="13" font-weight="bold" fill="#4da6ff" fill-opacity="0.55" text-anchor="middle">OR</text>
+</svg>
