@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383" width="900" height="383">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0d1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="ohGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a4a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d5a35;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bgGrad)" />
+
+  <!-- Subtle grid -->
+  <g stroke="#4da6ff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="64" x2="900" y2="64"/>
+    <line x1="0" y1="128" x2="900" y2="128"/>
+    <line x1="0" y1="192" x2="900" y2="192"/>
+    <line x1="0" y1="256" x2="900" y2="256"/>
+    <line x1="0" y1="320" x2="900" y2="320"/>
+    <line x1="150" y1="0" x2="150" y2="383"/>
+    <line x1="300" y1="0" x2="300" y2="383"/>
+    <line x1="450" y1="0" x2="450" y2="383"/>
+    <line x1="600" y1="0" x2="600" y2="383"/>
+    <line x1="750" y1="0" x2="750" y2="383"/>
+  </g>
+
+  <!-- ============ TITLE ============ -->
+  <text x="450" y="38" font-family="sans-serif" font-size="21" font-weight="bold" fill="#ffffff" fill-opacity="0.95" text-anchor="middle" letter-spacing="1">在 OpenHarmony 开发板上跑 Python + LangChain</text>
+  <line x1="120" y1="48" x2="780" y2="48" stroke="#4caf50" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- ============ LEFT SIDE: LAYER STACK ============ -->
+
+  <!-- Layer 4: LangChain / pydantic -->
+  <rect x="60" y="68" width="320" height="48" rx="6" fill="#1a0a2e" stroke="#a855f7" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="80" y="88" font-family="monospace" font-size="11" fill="#a855f7" fill-opacity="0.6">Layer 4</text>
+  <text x="150" y="88" font-family="sans-serif" font-size="13" font-weight="bold" fill="#a855f7">LangChain</text>
+  <text x="248" y="88" font-family="monospace" font-size="11" fill="#a855f7" fill-opacity="0.7">v0.3</text>
+  <text x="150" y="105" font-family="monospace" font-size="10" fill="#a855f7" fill-opacity="0.5">pydantic-core (Rust .so)</text>
+
+  <!-- Arrow down -->
+  <line x1="220" y1="116" x2="220" y2="130" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5"/>
+  <polygon points="216,130 220,138 224,130" fill="#ffffff" fill-opacity="0.2"/>
+
+  <!-- Layer 3: Pure Python packages -->
+  <rect x="60" y="140" width="320" height="40" rx="6" fill="#0d1a2e" stroke="#4da6ff" stroke-width="1.2" stroke-opacity="0.5"/>
+  <text x="80" y="164" font-family="monospace" font-size="11" fill="#4da6ff" fill-opacity="0.6">Layer 3</text>
+  <text x="150" y="164" font-family="sans-serif" font-size="12" fill="#4da6ff" fill-opacity="0.8">Pure Python (.py)</text>
+  <text x="310" y="164" font-family="monospace" font-size="10" fill="#4caf50" fill-opacity="0.7">no build</text>
+
+  <!-- Arrow down -->
+  <line x1="220" y1="180" x2="220" y2="194" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5"/>
+  <polygon points="216,194 220,202 224,194" fill="#ffffff" fill-opacity="0.2"/>
+
+  <!-- Layer 2: CPython -->
+  <rect x="60" y="204" width="320" height="48" rx="6" fill="#0a1628" stroke="#3b82f6" stroke-width="1.8" stroke-opacity="0.8" filter="url(#subtleGlow)"/>
+  <!-- Python logo simplified -->
+  <circle cx="85" cy="224" r="8" fill="none" stroke="#ffd43b" stroke-width="2" stroke-opacity="0.7"/>
+  <circle cx="92" cy="231" r="8" fill="none" stroke="#4da6ff" stroke-width="2" stroke-opacity="0.7"/>
+  <text x="112" y="224" font-family="sans-serif" font-size="13" font-weight="bold" fill="#3b82f6">CPython 3.11</text>
+  <text x="240" y="224" font-family="monospace" font-size="10" fill="#3b82f6" fill-opacity="0.6">50万行 C</text>
+  <text x="112" y="242" font-family="monospace" font-size="10" fill="#3b82f6" fill-opacity="0.5">libpython3.11.so + 64 modules</text>
+
+  <!-- Arrow down -->
+  <line x1="220" y1="252" x2="220" y2="266" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5"/>
+  <polygon points="216,266 220,274 224,266" fill="#ffffff" fill-opacity="0.2"/>
+
+  <!-- Layer 1: C libs -->
+  <rect x="60" y="276" width="155" height="36" rx="6" fill="#0d1a0d" stroke="#4caf50" stroke-width="1.2" stroke-opacity="0.6"/>
+  <text x="137" y="299" font-family="monospace" font-size="11" fill="#4caf50" fill-opacity="0.8" text-anchor="middle">OpenSSL + zlib</text>
+
+  <rect x="225" y="276" width="155" height="36" rx="6" fill="#0d1a0d" stroke="#4caf50" stroke-width="1.2" stroke-opacity="0.6"/>
+  <text x="302" y="299" font-family="monospace" font-size="11" fill="#4caf50" fill-opacity="0.8" text-anchor="middle">musl libc (OH)</text>
+
+  <!-- Layer 0: OH Kernel -->
+  <rect x="60" y="322" width="320" height="32" rx="6" fill="url(#ohGrad)" stroke="#4caf50" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="220" y="343" font-family="sans-serif" font-size="12" font-weight="bold" fill="#4caf50" fill-opacity="0.9" text-anchor="middle">OpenHarmony 6.0 · RK3568 · Linux 6.6</text>
+
+  <!-- ============ RIGHT SIDE: THE BUG STORY ============ -->
+
+  <!-- Static vs Dynamic switch -->
+  <rect x="460" y="68" width="400" height="105" rx="8" fill="#0d0d1a" stroke="#ff6b6b" stroke-width="1" stroke-opacity="0.4"/>
+
+  <!-- Static side (crossed out) -->
+  <rect x="480" y="82" width="170" height="36" rx="5" fill="#1a0a0a" stroke="#ff6b6b" stroke-width="1.2" stroke-opacity="0.5"/>
+  <text x="565" y="105" font-family="monospace" font-size="12" fill="#ff6b6b" fill-opacity="0.8" text-anchor="middle">static python3</text>
+  <!-- X mark -->
+  <line x1="484" y1="86" x2="646" y2="114" stroke="#ff6b6b" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="646" y1="86" x2="484" y2="114" stroke="#ff6b6b" stroke-width="2" stroke-opacity="0.5"/>
+
+  <text x="565" y="133" font-family="monospace" font-size="10" fill="#ff6b6b" fill-opacity="0.5" text-anchor="middle">dlopen() = impossible</text>
+  <text x="565" y="147" font-family="monospace" font-size="10" fill="#ff6b6b" fill-opacity="0.5" text-anchor="middle">LangChain 0.0.x only</text>
+  <text x="565" y="161" font-family="monospace" font-size="10" fill="#ff6b6b" fill-opacity="0.4" text-anchor="middle">99% stop here</text>
+
+  <!-- Arrow -->
+  <text x="670" y="102" font-family="sans-serif" font-size="22" fill="#ffd43b" fill-opacity="0.8">&#x2192;</text>
+
+  <!-- Dynamic side (highlighted) -->
+  <rect x="700" y="82" width="145" height="36" rx="5" fill="#0a1a0d" stroke="#4caf50" stroke-width="2" stroke-opacity="0.9" filter="url(#softGlow)"/>
+  <text x="772" y="105" font-family="monospace" font-size="12" fill="#4caf50" text-anchor="middle">dynamic python3</text>
+  <text x="772" y="133" font-family="monospace" font-size="10" fill="#4caf50" fill-opacity="0.7" text-anchor="middle">dlopen() = OK</text>
+  <text x="772" y="147" font-family="monospace" font-size="10" fill="#4caf50" fill-opacity="0.7" text-anchor="middle">LangChain v0.3 ✓</text>
+
+  <!-- ============ SEGFAULT STORY ============ -->
+  <rect x="460" y="188" width="400" height="152" rx="8" fill="#0d0d1a" stroke="#ff9800" stroke-width="1" stroke-opacity="0.4"/>
+
+  <!-- Terminal mockup -->
+  <!-- Title bar -->
+  <rect x="475" y="198" width="370" height="18" rx="4" fill="#1a1a2e"/>
+  <circle cx="488" cy="207" r="4" fill="#ff6b6b" fill-opacity="0.7"/>
+  <circle cx="500" cy="207" r="4" fill="#ffd43b" fill-opacity="0.7"/>
+  <circle cx="512" cy="207" r="4" fill="#4caf50" fill-opacity="0.7"/>
+  <text x="660" y="211" font-family="monospace" font-size="9" fill="#ffffff" fill-opacity="0.4" text-anchor="middle">hdc shell</text>
+
+  <!-- Terminal content -->
+  <text x="485" y="236" font-family="monospace" font-size="11" fill="#4caf50">$ import math      </text>
+  <text x="700" y="236" font-family="monospace" font-size="11" fill="#4caf50" fill-opacity="0.8">OK ✓</text>
+
+  <text x="485" y="252" font-family="monospace" font-size="11" fill="#4caf50">$ import _json      </text>
+  <text x="700" y="252" font-family="monospace" font-size="11" fill="#4caf50" fill-opacity="0.8">OK ✓</text>
+
+  <text x="485" y="268" font-family="monospace" font-size="11" fill="#ff6b6b">$ import _sha256    </text>
+  <text x="700" y="268" font-family="monospace" font-size="11" fill="#ff6b6b" filter="url(#softGlow)">Segfault ✗</text>
+
+  <text x="485" y="284" font-family="monospace" font-size="11" fill="#ff6b6b">$ import _ssl       </text>
+  <text x="700" y="284" font-family="monospace" font-size="11" fill="#ff6b6b" filter="url(#softGlow)">Segfault ✗</text>
+
+  <!-- Fix line -->
+  <line x1="475" y1="296" x2="845" y2="296" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="485" y="312" font-family="monospace" font-size="10" fill="#ffd43b" fill-opacity="0.7">fix: BLDSHARED += -L. -lpython3.11</text>
+
+  <text x="485" y="330" font-family="monospace" font-size="11" fill="#4caf50" filter="url(#subtleGlow)">$ ALL DYNAMIC IMPORTS OK! ✓</text>
+
+  <!-- ============ BOTTOM BAR ============ -->
+  <line x1="120" y1="360" x2="780" y2="360" stroke="#4caf50" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="450" y="375" font-family="monospace" font-size="9" fill="#4caf50" fill-opacity="0.3" text-anchor="middle" letter-spacing="3">CROSS-COMPILE · STATIC→DYNAMIC · SEGFAULT · ONE-LINE FIX</text>
+
+  <!-- Corner marks -->
+  <path d="M10,10 L30,10 L30,12 L12,12 L12,30 L10,30 Z" fill="#4caf50" fill-opacity="0.3"/>
+  <path d="M890,10 L870,10 L870,12 L888,12 L888,30 L890,30 Z" fill="#4caf50" fill-opacity="0.3"/>
+  <path d="M10,373 L30,373 L30,371 L12,371 L12,353 L10,353 Z" fill="#4caf50" fill-opacity="0.3"/>
+  <path d="M890,373 L870,373 L870,371 L888,371 L888,353 L890,353 Z" fill="#4caf50" fill-opacity="0.3"/>
+</svg>
