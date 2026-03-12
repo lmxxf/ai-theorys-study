@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1a"/>
+      <stop offset="50%" stop-color="#0c1420"/>
+      <stop offset="100%" stop-color="#070a10"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#1a2a44" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="boardGlow" cx="50%" cy="75%" r="30%">
+      <stop offset="0%" stop-color="#1a4433" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#centerGlow)"/>
+  <rect width="800" height="600" fill="url(#boardGlow)"/>
+
+  <!-- ========== 左侧：流水线（LangChain） ========== -->
+
+  <!-- 流水线管道 -->
+  <g transform="translate(180,300)" filter="url(#glow)" opacity="0.8">
+    <!-- 竖直管道 -->
+    <rect x="-3" y="-120" width="6" height="240" rx="3" fill="#4488ff" opacity="0.3"/>
+
+    <!-- 节点 -->
+    <circle cx="0" cy="-100" r="10" fill="none" stroke="#4488ff" stroke-width="2"/>
+    <text x="0" y="-96" fill="#4488ff" font-size="8" font-family="monospace" text-anchor="middle">P</text>
+
+    <circle cx="0" cy="-40" r="10" fill="none" stroke="#4488ff" stroke-width="2"/>
+    <text x="0" y="-36" fill="#4488ff" font-size="8" font-family="monospace" text-anchor="middle">R</text>
+
+    <circle cx="0" cy="20" r="10" fill="none" stroke="#4488ff" stroke-width="2"/>
+    <text x="0" y="24" fill="#4488ff" font-size="8" font-family="monospace" text-anchor="middle">G</text>
+
+    <circle cx="0" cy="80" r="10" fill="none" stroke="#4488ff" stroke-width="2"/>
+    <text x="0" y="84" fill="#4488ff" font-size="8" font-family="monospace" text-anchor="middle">O</text>
+
+    <!-- 箭头 -->
+    <line x1="0" y1="-88" x2="0" y2="-52" stroke="#4488ff" stroke-width="1.5" opacity="0.6"/>
+    <line x1="0" y1="-28" x2="0" y2="-8" stroke="#4488ff" stroke-width="1.5" opacity="0.6"/>
+    <line x1="0" y1="32" x2="0" y2="68" stroke="#4488ff" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- 标注 -->
+    <text x="-25" y="-96" fill="#4488ff" font-size="7" font-family="monospace" text-anchor="end" opacity="0.5">Prompt</text>
+    <text x="-25" y="-36" fill="#4488ff" font-size="7" font-family="monospace" text-anchor="end" opacity="0.5">Retrieve</text>
+    <text x="-25" y="24" fill="#4488ff" font-size="7" font-family="monospace" text-anchor="end" opacity="0.5">Generate</text>
+    <text x="-25" y="84" fill="#4488ff" font-size="7" font-family="monospace" text-anchor="end" opacity="0.5">Output</text>
+
+    <!-- 标签 -->
+    <text x="0" y="115" fill="#4488ff" font-size="11" font-family="monospace" text-anchor="middle" opacity="0.9">LangChain</text>
+    <text x="0" y="130" fill="#4488ff" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.5">流水线</text>
+  </g>
+
+  <!-- ========== 中间：连接线 + 开发板 ========== -->
+
+  <!-- 板子轮廓 -->
+  <g transform="translate(400,440)" filter="url(#softGlow)">
+    <rect x="-55" y="-22" width="110" height="44" rx="5" fill="none" stroke="#33cc77" stroke-width="1.5" opacity="0.6"/>
+    <!-- 芯片 -->
+    <rect x="-15" y="-10" width="30" height="20" rx="2" fill="#33cc77" opacity="0.15" stroke="#33cc77" stroke-width="1"/>
+    <text x="0" y="3" fill="#33cc77" font-size="6" font-family="monospace" text-anchor="middle" opacity="0.9">RK3568</text>
+    <!-- 引脚 -->
+    <line x1="-45" y1="-22" x2="-45" y2="-28" stroke="#33cc77" stroke-width="1" opacity="0.4"/>
+    <line x1="-35" y1="-22" x2="-35" y2="-28" stroke="#33cc77" stroke-width="1" opacity="0.4"/>
+    <line x1="-25" y1="-22" x2="-25" y2="-28" stroke="#33cc77" stroke-width="1" opacity="0.4"/>
+    <line x1="25" y1="-22" x2="25" y2="-28" stroke="#33cc77" stroke-width="1" opacity="0.4"/>
+    <line x1="35" y1="-22" x2="35" y2="-28" stroke="#33cc77" stroke-width="1" opacity="0.4"/>
+    <line x1="45" y1="-22" x2="45" y2="-28" stroke="#33cc77" stroke-width="1" opacity="0.4"/>
+    <text x="0" y="38" fill="#33cc77" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.6">OpenHarmony 6.0</text>
+  </g>
+
+  <!-- 连接弧线：LangChain → 板子 -->
+  <path d="M180,390 Q280,430 345,440" fill="none" stroke="#4488ff" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+  <!-- 连接弧线：AgentScope → 板子 -->
+  <path d="M620,390 Q520,430 455,440" fill="none" stroke="#cc8844" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+
+  <!-- ========== 右侧：会议室（AgentScope） ========== -->
+
+  <g transform="translate(620,280)" filter="url(#glow)" opacity="0.8">
+    <!-- 圆桌（椭圆） -->
+    <ellipse cx="0" cy="0" rx="80" ry="45" fill="none" stroke="#cc8844" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.4"/>
+
+    <!-- Agent A -->
+    <g transform="translate(0,-55)">
+      <circle cx="0" cy="0" r="14" fill="none" stroke="#cc8844" stroke-width="2"/>
+      <text x="0" y="4" fill="#cc8844" font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold">A</text>
+    </g>
+
+    <!-- Agent B -->
+    <g transform="translate(-70,30)">
+      <circle cx="0" cy="0" r="14" fill="none" stroke="#cc8844" stroke-width="2"/>
+      <text x="0" y="4" fill="#cc8844" font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold">B</text>
+    </g>
+
+    <!-- Agent C -->
+    <g transform="translate(70,30)">
+      <circle cx="0" cy="0" r="14" fill="none" stroke="#cc8844" stroke-width="2"/>
+      <text x="0" y="4" fill="#cc8844" font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold">C</text>
+    </g>
+
+    <!-- 对话连线（双向箭头） -->
+    <line x1="-8" y1="-42" x2="-58" y2="18" stroke="#cc8844" stroke-width="1" opacity="0.5"/>
+    <line x1="8" y1="-42" x2="58" y2="18" stroke="#cc8844" stroke-width="1" opacity="0.5"/>
+    <line x1="-54" y1="32" x2="54" y2="32" stroke="#cc8844" stroke-width="1" opacity="0.5"/>
+
+    <!-- 消息气泡 -->
+    <g filter="url(#glow)" opacity="0.6">
+      <rect x="18" y="-30" width="28" height="12" rx="6" fill="none" stroke="#cc8844" stroke-width="0.8"/>
+      <text x="32" y="-22" fill="#cc8844" font-size="5" font-family="monospace" text-anchor="middle">...</text>
+    </g>
+    <g filter="url(#glow)" opacity="0.5">
+      <rect x="-78" y="52" width="28" height="12" rx="6" fill="none" stroke="#cc8844" stroke-width="0.8"/>
+      <text x="-64" y="60" fill="#cc8844" font-size="5" font-family="monospace" text-anchor="middle">...</text>
+    </g>
+
+    <!-- 标签 -->
+    <text x="0" y="95" fill="#cc8844" font-size="11" font-family="monospace" text-anchor="middle" opacity="0.9">AgentScope</text>
+    <text x="0" y="110" fill="#cc8844" font-size="8" font-family="monospace" text-anchor="middle" opacity="0.5">会议室</text>
+  </g>
+
+  <!-- ========== 中间：+ 号 ========== -->
+  <g transform="translate(400,290)" filter="url(#bigGlow)" opacity="0.5">
+    <line x1="-12" y1="0" x2="12" y2="0" stroke="#f0e8d8" stroke-width="2"/>
+    <line x1="0" y1="-12" x2="0" y2="12" stroke="#f0e8d8" stroke-width="2"/>
+  </g>
+
+  <!-- ========== 底层：依赖链示意 ========== -->
+  <g transform="translate(400,510)" opacity="0.35">
+    <!-- Python 层 -->
+    <rect x="-180" y="-8" width="360" height="16" rx="3" fill="none" stroke="#668866" stroke-width="0.8"/>
+    <text x="0" y="4" fill="#668866" font-size="7" font-family="monospace" text-anchor="middle">Python 3.11  ·  pydantic-core  ·  tiktoken  ·  cryptography  ·  OpenSSL  ·  musl</text>
+  </g>
+
+  <!-- ========== 主标题 ========== -->
+  <text x="400" y="60" fill="#f0e8d8" font-size="30" text-anchor="middle" font-weight="900" letter-spacing="3" opacity="0.95">车间装好，再装会议室</text>
+  <text x="400" y="90" fill="#998877" font-size="13" text-anchor="middle" font-family="monospace" letter-spacing="1" opacity="0.7">在 OpenHarmony 开发板上跑 AgentScope 多智能体框架</text>
+
+  <!-- 左上角系列标记 -->
+  <text x="15" y="22" fill="#556655" font-size="9" font-family="monospace" opacity="0.5">No.119 | 鸿蒙 AI+</text>
+
+  <!-- 底部金句 -->
+  <text x="400" y="555" text-anchor="middle" fill="#887766" font-size="11" font-family="monospace" opacity="0.6">第一天是开荒，第二天是收割。差别在于基础设施的复利效应。</text>
+
+  <!-- 底部署名 -->
+  <text x="400" y="578" text-anchor="middle" fill="#444" font-size="10" font-family="monospace">靳岩岩的 AI 学习笔记 · No.119</text>
+
+</svg>
