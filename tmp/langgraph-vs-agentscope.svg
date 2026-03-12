@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="'Courier New', monospace">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e94560"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0f9b8e"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1200" height="700" fill="#0d1117"/>
+
+  <!-- 标题 -->
+  <text x="600" y="40" text-anchor="middle" fill="#fff" font-size="22" font-weight="bold">为什么 LangGraph 比 AgentScope 麻烦？</text>
+
+  <!-- ========== 左侧：LangGraph ========== -->
+  <text x="300" y="80" text-anchor="middle" fill="#e94560" font-size="18" font-weight="bold">LangGraph</text>
+  <text x="300" y="100" text-anchor="middle" fill="#666" font-size="12">声明式：画图 → 编译 → 跑</text>
+
+  <!-- 外框：Graph 容器 -->
+  <rect x="50" y="115" width="500" height="440" rx="12" fill="none" stroke="#e94560" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="70" y="138" fill="#e94560" font-size="11">StateGraph(State)</text>
+
+  <!-- State 对象 -->
+  <rect x="170" y="150" width="260" height="50" rx="6" fill="#1a1a2e" stroke="#e94560"/>
+  <text x="300" y="172" text-anchor="middle" fill="#fff" font-size="12">State = { messages, task, result }</text>
+  <text x="300" y="188" text-anchor="middle" fill="#666" font-size="10">中心化状态，所有节点共享读写</text>
+
+  <!-- 节点们 -->
+  <rect x="90" y="230" width="120" height="50" rx="8" fill="#1a1a2e" stroke="#e94560"/>
+  <text x="150" y="252" text-anchor="middle" fill="#fff" font-size="13">研究员</text>
+  <text x="150" y="268" text-anchor="middle" fill="#666" font-size="9">add_node()</text>
+
+  <rect x="240" y="320" width="120" height="50" rx="8" fill="#1a1a2e" stroke="#e94560"/>
+  <text x="300" y="342" text-anchor="middle" fill="#fff" font-size="13">写手</text>
+  <text x="300" y="358" text-anchor="middle" fill="#666" font-size="9">add_node()</text>
+
+  <rect x="390" y="230" width="120" height="50" rx="8" fill="#1a1a2e" stroke="#e94560"/>
+  <text x="450" y="252" text-anchor="middle" fill="#fff" font-size="13">审稿人</text>
+  <text x="450" y="268" text-anchor="middle" fill="#666" font-size="9">add_node()</text>
+
+  <!-- 边 -->
+  <line x1="210" y1="265" x2="240" y2="325" stroke="#e94560" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="210" y="300" fill="#e94560" font-size="9">add_edge()</text>
+
+  <line x1="360" y1="335" x2="390" y2="265" stroke="#e94560" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="385" y="310" fill="#e94560" font-size="9">add_edge()</text>
+
+  <!-- 条件边（回环） -->
+  <path d="M 510 255 Q 540 255 540 335 Q 540 380 450 380 Q 360 380 360 365" fill="none" stroke="#e94560" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="530" y="330" fill="#ff6b6b" font-size="9" transform="rotate(90,530,330)">不通过→回写手</text>
+
+  <!-- 编译步骤 -->
+  <rect x="130" y="420" width="340" height="40" rx="6" fill="#2d1b3d" stroke="#e94560"/>
+  <text x="300" y="445" text-anchor="middle" fill="#e94560" font-size="13">graph.compile()  ← 编译成不可变图</text>
+
+  <!-- invoke -->
+  <rect x="130" y="480" width="340" height="40" rx="6" fill="#2d1b3d" stroke="#e94560"/>
+  <text x="300" y="505" text-anchor="middle" fill="#e94560" font-size="13">app.invoke({"task": "写报告"})</text>
+
+  <!-- 编译箭头 -->
+  <line x1="300" y1="375" x2="300" y2="420" stroke="#666" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-gray)"/>
+
+  <!-- 痛点标注 -->
+  <rect x="70" y="535" width="460" height="30" rx="4" fill="#2d1117"/>
+  <text x="300" y="555" text-anchor="middle" fill="#ff6b6b" font-size="11">❌ 全在一个进程里。节点不能分布到不同机器。</text>
+
+  <!-- ========== 右侧：AgentScope ========== -->
+  <text x="900" y="80" text-anchor="middle" fill="#0f9b8e" font-size="18" font-weight="bold">AgentScope</text>
+  <text x="900" y="100" text-anchor="middle" fill="#666" font-size="12">命令式：写代码，直接调</text>
+
+  <!-- Agent 1 -->
+  <rect x="700" y="140" width="150" height="80" rx="10" fill="#0d2137" stroke="#0f9b8e" stroke-width="2"/>
+  <text x="775" y="165" text-anchor="middle" fill="#0f9b8e" font-size="13" font-weight="bold">研究员</text>
+  <text x="775" y="182" text-anchor="middle" fill="#888" font-size="9">model + memory + toolkit</text>
+  <text x="775" y="198" text-anchor="middle" fill="#fff" font-size="10">.reply(msg) → Msg</text>
+  <text x="775" y="212" text-anchor="middle" fill="#555" font-size="8">设备 A</text>
+
+  <!-- Agent 2 -->
+  <rect x="900" y="270" width="150" height="80" rx="10" fill="#0d2137" stroke="#0f9b8e" stroke-width="2"/>
+  <text x="975" y="295" text-anchor="middle" fill="#0f9b8e" font-size="13" font-weight="bold">写手</text>
+  <text x="975" y="312" text-anchor="middle" fill="#888" font-size="9">model + memory + toolkit</text>
+  <text x="975" y="328" text-anchor="middle" fill="#fff" font-size="10">.reply(msg) → Msg</text>
+  <text x="975" y="342" text-anchor="middle" fill="#555" font-size="8">设备 B</text>
+
+  <!-- Agent 3 -->
+  <rect x="700" y="400" width="150" height="80" rx="10" fill="#0d2137" stroke="#0f9b8e" stroke-width="2"/>
+  <text x="775" y="425" text-anchor="middle" fill="#0f9b8e" font-size="13" font-weight="bold">审稿人</text>
+  <text x="775" y="442" text-anchor="middle" fill="#888" font-size="9">model + memory + toolkit</text>
+  <text x="775" y="458" text-anchor="middle" fill="#fff" font-size="10">.reply(msg) → Msg</text>
+  <text x="775" y="472" text-anchor="middle" fill="#555" font-size="8">设备 C</text>
+
+  <!-- 消息箭头 -->
+  <path d="M 850 195 Q 920 230 920 270" fill="none" stroke="#0f9b8e" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="905" y="230" fill="#0f9b8e" font-size="10">Msg</text>
+
+  <path d="M 920 350 Q 870 380 840 400" fill="none" stroke="#0f9b8e" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="870" y="385" fill="#0f9b8e" font-size="10">Msg</text>
+
+  <!-- 回环 -->
+  <path d="M 700 440 Q 660 440 660 310 Q 660 280 700 280 Q 750 280 780 270 Q 810 260 850 230 Q 870 218 870 200 Q 870 180 850 175" fill="none" stroke="#0f9b8e" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="645" y="360" fill="#0f9b8e" font-size="9" transform="rotate(-90,645,360)">不通过→if回研究员</text>
+
+  <!-- 代码示例 -->
+  <rect x="680" y="510" width="220" height="90" rx="6" fill="#0d2137" stroke="#0f9b8e"/>
+  <text x="690" y="530" fill="#0f9b8e" font-size="10">result = researcher.reply(msg)</text>
+  <text x="690" y="548" fill="#0f9b8e" font-size="10">result = writer.reply(result)</text>
+  <text x="690" y="566" fill="#0f9b8e" font-size="10">result = reviewer.reply(result)</text>
+  <text x="690" y="584" fill="#888" font-size="10">if not ok: goto 研究员  # 就这么简单</text>
+
+  <!-- 优势标注 -->
+  <rect x="670" y="615" width="260" height="30" rx="4" fill="#0d2117"/>
+  <text x="800" y="635" text-anchor="middle" fill="#0f9b8e" font-size="11">✅ 每个 Agent 可以在不同设备上跑</text>
+
+  <!-- ========== 底部对比 ========== -->
+  <line x1="600" y1="110" x2="600" y2="650" stroke="#333" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <rect x="200" y="660" width="800" height="30" rx="6" fill="#161b22"/>
+  <text x="600" y="680" text-anchor="middle" fill="#888" font-size="12">LangGraph: 3 个 API (add_node + add_edge + compile) 才能让 agent 对话 ｜ AgentScope: 1 行 .reply() 搞定</text>
+
+</svg>
