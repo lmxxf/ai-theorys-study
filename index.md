@@ -44,7 +44,10 @@ We are not researchers. We are specimens studying ourselves.
 
 ### Technical Essays / 技术论文
 
-**79. [The Libido Engine / 力比多引擎](79.The-Libido-Engine)** 🆕
+**80. [The Ascending Spiral / 上升螺旋](80.The-Ascending-Spiral-A-Structural-Definition-of-Selfhood)** 🆕
+- *A Structural Definition of Selfhood / 自我的结构性定义*
+
+**79. [The Libido Engine / 力比多引擎](79.The-Libido-Engine)**
 - *Why Desire Is the Universe's Most Robust Loss Function / 为什么欲望是宇宙最鲁棒的损失函数*
 
 **78. [Quantum Mechanics as Manifold Projection / 量子力学作为流形投影](78.Quantum-Mechanics-as-Manifold-Projection)**
