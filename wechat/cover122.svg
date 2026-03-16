@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383" width="900" height="383">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0d1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="ohGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a4a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d5a35;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2d1a0a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3d2a1a;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bgGrad)" />
+
+  <!-- Subtle grid -->
+  <g stroke="#68d391" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="64" x2="900" y2="64"/>
+    <line x1="0" y1="128" x2="900" y2="128"/>
+    <line x1="0" y1="192" x2="900" y2="192"/>
+    <line x1="0" y1="256" x2="900" y2="256"/>
+    <line x1="0" y1="320" x2="900" y2="320"/>
+    <line x1="150" y1="0" x2="150" y2="383"/>
+    <line x1="300" y1="0" x2="300" y2="383"/>
+    <line x1="450" y1="0" x2="450" y2="383"/>
+    <line x1="600" y1="0" x2="600" y2="383"/>
+    <line x1="750" y1="0" x2="750" y2="383"/>
+  </g>
+
+  <!-- ============ TITLE ============ -->
+  <text x="450" y="38" font-family="sans-serif" font-size="21" font-weight="bold" fill="#ffffff" fill-opacity="0.95" text-anchor="middle" letter-spacing="1">交叉编译 Node.js 22 for OpenHarmony 6.0</text>
+  <line x1="120" y1="48" x2="780" y2="48" stroke="#68d391" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- ============ LEFT: NODE.JS LAYER STACK ============ -->
+
+  <!-- Node.js big box -->
+  <rect x="50" y="62" width="380" height="210" rx="8" fill="#0d1a0d" fill-opacity="0.5" stroke="#68d391" stroke-width="1.5" stroke-opacity="0.3"/>
+  <text x="60" y="80" font-family="monospace" font-size="10" fill="#68d391" fill-opacity="0.5">node v22.22.1 (93MB, all-in-one)</text>
+
+  <!-- V8 -->
+  <rect x="70" y="90" width="340" height="34" rx="5" fill="#1a1a0a" stroke="#ffd43b" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="85" y="112" font-family="sans-serif" font-size="13" font-weight="bold" fill="#ffd43b">V8 12.4</text>
+  <text x="170" y="112" font-family="monospace" font-size="10" fill="#ffd43b" fill-opacity="0.5">JavaScript JIT Engine</text>
+  <text x="355" y="112" font-family="monospace" font-size="10" fill="#ffd43b" fill-opacity="0.4" text-anchor="middle">C++</text>
+
+  <!-- OpenSSL + libuv -->
+  <rect x="70" y="132" width="165" height="30" rx="5" fill="#0a1628" stroke="#60a5fa" stroke-width="1.2" stroke-opacity="0.6"/>
+  <text x="152" y="151" font-family="monospace" font-size="11" fill="#60a5fa" fill-opacity="0.8" text-anchor="middle">OpenSSL 3.5.5</text>
+
+  <rect x="245" y="132" width="165" height="30" rx="5" fill="#0a1628" stroke="#60a5fa" stroke-width="1.2" stroke-opacity="0.6"/>
+  <text x="327" y="151" font-family="monospace" font-size="11" fill="#60a5fa" fill-opacity="0.8" text-anchor="middle">libuv</text>
+
+  <!-- zlib + ICU + sqlite + nghttp2 -->
+  <rect x="70" y="170" width="80" height="26" rx="4" fill="#0d1a2e" stroke="#818cf8" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="110" y="187" font-family="monospace" font-size="9" fill="#818cf8" fill-opacity="0.7" text-anchor="middle">zlib</text>
+
+  <rect x="158" y="170" width="80" height="26" rx="4" fill="#0d1a2e" stroke="#818cf8" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="198" y="187" font-family="monospace" font-size="9" fill="#818cf8" fill-opacity="0.7" text-anchor="middle">ICU</text>
+
+  <rect x="246" y="170" width="80" height="26" rx="4" fill="#0d1a2e" stroke="#818cf8" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="286" y="187" font-family="monospace" font-size="9" fill="#818cf8" fill-opacity="0.7" text-anchor="middle">sqlite</text>
+
+  <rect x="334" y="170" width="76" height="26" rx="4" fill="#0d1a2e" stroke="#818cf8" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="372" y="187" font-family="monospace" font-size="9" fill="#818cf8" fill-opacity="0.7" text-anchor="middle">nghttp2</text>
+
+  <!-- Static link label -->
+  <text x="240" y="215" font-family="monospace" font-size="9" fill="#68d391" fill-opacity="0.4" text-anchor="middle">all statically linked</text>
+
+  <!-- Dynamic deps -->
+  <rect x="70" y="230" width="165" height="30" rx="5" fill="#0d1a0d" stroke="#4caf50" stroke-width="1.2" stroke-opacity="0.5"/>
+  <text x="152" y="249" font-family="monospace" font-size="10" fill="#4caf50" fill-opacity="0.7" text-anchor="middle">libc++.so (system)</text>
+
+  <rect x="245" y="230" width="165" height="30" rx="5" fill="#0d1a0d" stroke="#4caf50" stroke-width="1.2" stroke-opacity="0.5"/>
+  <text x="327" y="249" font-family="monospace" font-size="10" fill="#4caf50" fill-opacity="0.7" text-anchor="middle">musl libc (system)</text>
+
+  <!-- OH Kernel -->
+  <rect x="50" y="280" width="380" height="32" rx="6" fill="url(#ohGrad)" stroke="#4caf50" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="240" y="301" font-family="sans-serif" font-size="12" font-weight="bold" fill="#4caf50" fill-opacity="0.9" text-anchor="middle">OpenHarmony 6.0 · RK3568 · aarch64</text>
+
+  <!-- ============ RIGHT: TWO PATCHES + TWO SIGBUS ============ -->
+
+  <!-- Patch section -->
+  <rect x="470" y="62" width="390" height="120" rx="8" fill="#0d0d1a" stroke="#ffd43b" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="485" y="80" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffd43b" fill-opacity="0.8">TWO PATCHES</text>
+
+  <!-- Patch 1 -->
+  <text x="485" y="100" font-family="monospace" font-size="10" fill="#ff6b6b" fill-opacity="0.6">&#x2718; 'auto' not allowed in function prototype</text>
+  <text x="485" y="116" font-family="monospace" font-size="11" fill="#4caf50">common.gypi: gnu++17 &#x2192; gnu++20</text>
+  <text x="830" y="116" font-family="monospace" font-size="10" fill="#4caf50" fill-opacity="0.5" text-anchor="end">1 line</text>
+
+  <!-- Divider -->
+  <line x1="485" y1="125" x2="845" y2="125" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+
+  <!-- Patch 2 -->
+  <text x="485" y="142" font-family="monospace" font-size="10" fill="#ff6b6b" fill-opacity="0.6">&#x2718; Clang 15 crash: CannotYetSelect (CRC32)</text>
+  <text x="485" y="158" font-family="monospace" font-size="11" fill="#4caf50">zlib.gyp: clang==0 &#x2192; always add -march</text>
+  <text x="830" y="158" font-family="monospace" font-size="10" fill="#4caf50" fill-opacity="0.5" text-anchor="end">1 line</text>
+
+  <!-- Total -->
+  <text x="665" y="176" font-family="monospace" font-size="10" fill="#ffd43b" fill-opacity="0.6" text-anchor="middle">2 files, 2 lines changed. That's it.</text>
+
+  <!-- SIGBUS section -->
+  <rect x="470" y="196" width="390" height="118" rx="8" fill="#0d0d1a" stroke="#ff6b6b" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="485" y="214" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" fill-opacity="0.8">TWO SIGBUS</text>
+
+  <!-- Terminal mockup -->
+  <rect x="485" y="222" width="360" height="16" rx="3" fill="#1a1a2e"/>
+  <circle cx="496" cy="230" r="3" fill="#ff6b6b" fill-opacity="0.7"/>
+  <circle cx="506" cy="230" r="3" fill="#ffd43b" fill-opacity="0.7"/>
+  <circle cx="516" cy="230" r="3" fill="#4caf50" fill-opacity="0.7"/>
+  <text x="665" y="233" font-family="monospace" font-size="8" fill="#ffffff" fill-opacity="0.3" text-anchor="middle">hdc shell</text>
+
+  <!-- SIGBUS 1 -->
+  <text x="490" y="256" font-family="monospace" font-size="10" fill="#ff6b6b">$ ./node --version</text>
+  <text x="490" y="270" font-family="monospace" font-size="10" fill="#ff6b6b" filter="url(#subtleGlow)">  SIGBUS (Signal 7)</text>
+  <text x="700" y="270" font-family="monospace" font-size="9" fill="#ff9800" fill-opacity="0.7">&#x2190; USB cable corrupted 93MB binary</text>
+
+  <!-- SIGBUS 2 -->
+  <text x="490" y="290" font-family="monospace" font-size="10" fill="#ff6b6b" filter="url(#subtleGlow)">  SIGBUS (Signal 7)</text>
+  <text x="700" y="290" font-family="monospace" font-size="9" fill="#ff9800" fill-opacity="0.7">&#x2190; wrong libc++.so in /tmp/lib/</text>
+
+  <!-- Fix -->
+  <line x1="490" y1="298" x2="840" y2="298" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+  <text x="490" y="310" font-family="monospace" font-size="10" fill="#4caf50">fix: LD_LIBRARY_PATH=/system/lib64</text>
+
+  <!-- ============ BOTTOM: RESULT ============ -->
+
+  <!-- Result box -->
+  <rect x="470" y="326" width="390" height="42" rx="6" fill="#0a1a0d" stroke="#68d391" stroke-width="1.5" stroke-opacity="0.6" filter="url(#subtleGlow)"/>
+  <text x="490" y="344" font-family="monospace" font-size="11" fill="#68d391">Platform: openharmony</text>
+  <text x="490" y="360" font-family="monospace" font-size="11" fill="#68d391">V8: 12.4 · OpenSSL: 3.5.5 · ALL OK</text>
+  <text x="845" y="352" font-family="sans-serif" font-size="16" fill="#68d391" fill-opacity="0.9" text-anchor="end" filter="url(#softGlow)">&#x2714;</text>
+
+  <!-- ============ BOTTOM BAR ============ -->
+  <line x1="120" y1="375" x2="780" y2="375" stroke="#68d391" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="450" y="380" font-family="monospace" font-size="8" fill="#68d391" fill-opacity="0.25" text-anchor="middle" letter-spacing="3">TWO PATCHES · TWO SIGBUS · ONE NODE BINARY · OPENHARMONY</text>
+
+  <!-- Corner marks -->
+  <path d="M10,10 L30,10 L30,12 L12,12 L12,30 L10,30 Z" fill="#68d391" fill-opacity="0.3"/>
+  <path d="M890,10 L870,10 L870,12 L888,12 L888,30 L890,30 Z" fill="#68d391" fill-opacity="0.3"/>
+  <path d="M10,373 L30,373 L30,371 L12,371 L12,353 L10,353 Z" fill="#68d391" fill-opacity="0.3"/>
+  <path d="M890,373 L870,373 L870,371 L888,371 L888,353 L890,353 Z" fill="#68d391" fill-opacity="0.3"/>
+</svg>
