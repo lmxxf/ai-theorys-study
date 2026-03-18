@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a18;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#141428;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="arcGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.9" />
+    </linearGradient>
+
+    <linearGradient id="arcGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:0.7" />
+    </linearGradient>
+
+    <linearGradient id="arcGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.5" />
+    </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bgGrad)" />
+
+  <!-- Subtle grid -->
+  <g stroke="#8b5cf6" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="83" x2="900" y2="83"/>
+    <line x1="0" y1="166" x2="900" y2="166"/>
+    <line x1="0" y1="250" x2="900" y2="250"/>
+    <line x1="0" y1="333" x2="900" y2="333"/>
+    <line x1="0" y1="416" x2="900" y2="416"/>
+    <line x1="150" y1="0" x2="150" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="450" y1="0" x2="450" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="750" y1="0" x2="750" y2="500"/>
+  </g>
+
+  <!-- ============ TITLE ============ -->
+  <text x="450" y="42" font-family="sans-serif" font-size="22" font-weight="bold" fill="#ffffff" fill-opacity="0.95" text-anchor="middle" letter-spacing="1">Attention Residuals</text>
+  <text x="450" y="66" font-family="sans-serif" font-size="13" fill="#a78bfa" fill-opacity="0.7" text-anchor="middle" letter-spacing="2">中国公司集体动刀 Transformer 祖传代码</text>
+  <line x1="120" y1="78" x2="780" y2="78" stroke="#8b5cf6" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- ============ LEFT SECTION: Traditional Residual ============ -->
+  <rect x="40" y="92" width="370" height="340" rx="8" fill="#0d0d1a" fill-opacity="0.5" stroke="#6b7280" stroke-width="1.2" stroke-opacity="0.3"/>
+  <text x="225" y="115" font-family="sans-serif" font-size="13" font-weight="bold" fill="#9ca3af" fill-opacity="0.8" text-anchor="middle">Traditional Residual</text>
+  <text x="225" y="132" font-family="monospace" font-size="10" fill="#6b7280" fill-opacity="0.5" text-anchor="middle">固定等权加法 · 串行链条</text>
+
+  <!-- Layer nodes - vertical chain -->
+  <!-- h0 -->
+  <rect x="185" y="150" width="80" height="32" rx="6" fill="#1a1a2e" stroke="#6b7280" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="225" y="171" font-family="monospace" font-size="13" fill="#9ca3af" text-anchor="middle">h&#x2080;</text>
+
+  <!-- Arrow h0 -> h1 -->
+  <line x1="225" y1="182" x2="225" y2="200" stroke="#6b7280" stroke-width="1.5" stroke-opacity="0.4"/>
+  <polygon points="220,197 225,207 230,197" fill="#6b7280" fill-opacity="0.4"/>
+  <text x="245" y="198" font-family="monospace" font-size="8" fill="#6b7280" fill-opacity="0.4">+</text>
+
+  <!-- h1 -->
+  <rect x="185" y="207" width="80" height="32" rx="6" fill="#1a1a2e" stroke="#6b7280" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="225" y="228" font-family="monospace" font-size="13" fill="#9ca3af" text-anchor="middle">h&#x2081;</text>
+
+  <!-- Arrow h1 -> h2 -->
+  <line x1="225" y1="239" x2="225" y2="257" stroke="#6b7280" stroke-width="1.5" stroke-opacity="0.4"/>
+  <polygon points="220,254 225,264 230,254" fill="#6b7280" fill-opacity="0.4"/>
+  <text x="245" y="255" font-family="monospace" font-size="8" fill="#6b7280" fill-opacity="0.4">+</text>
+
+  <!-- h2 -->
+  <rect x="185" y="264" width="80" height="32" rx="6" fill="#1a1a2e" stroke="#6b7280" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="225" y="285" font-family="monospace" font-size="13" fill="#9ca3af" text-anchor="middle">h&#x2082;</text>
+
+  <!-- Arrow h2 -> h3 -->
+  <line x1="225" y1="296" x2="225" y2="314" stroke="#6b7280" stroke-width="1.5" stroke-opacity="0.4"/>
+  <polygon points="220,311 225,321 230,311" fill="#6b7280" fill-opacity="0.4"/>
+  <text x="245" y="312" font-family="monospace" font-size="8" fill="#6b7280" fill-opacity="0.4">+</text>
+
+  <!-- h3 -->
+  <rect x="185" y="321" width="80" height="32" rx="6" fill="#1a1a2e" stroke="#6b7280" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="225" y="342" font-family="monospace" font-size="13" fill="#9ca3af" text-anchor="middle">h&#x2083;</text>
+
+  <!-- Arrow h3 -> hn -->
+  <line x1="225" y1="353" x2="225" y2="362" stroke="#6b7280" stroke-width="1.5" stroke-opacity="0.3"/>
+  <circle cx="225" cy="367" r="1.5" fill="#6b7280" fill-opacity="0.3"/>
+  <circle cx="225" cy="374" r="1.5" fill="#6b7280" fill-opacity="0.3"/>
+  <circle cx="225" cy="381" r="1.5" fill="#6b7280" fill-opacity="0.3"/>
+  <line x1="225" y1="385" x2="225" y2="393" stroke="#6b7280" stroke-width="1.5" stroke-opacity="0.3"/>
+  <polygon points="220,390 225,400 230,390" fill="#6b7280" fill-opacity="0.3"/>
+
+  <!-- hn -->
+  <rect x="185" y="400" width="80" height="32" rx="6" fill="#1a1a2e" stroke="#6b7280" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="225" y="421" font-family="monospace" font-size="13" fill="#9ca3af" text-anchor="middle">h&#x2099;</text>
+
+  <!-- Limitation label -->
+  <text x="130" y="290" font-family="monospace" font-size="9" fill="#ef4444" fill-opacity="0.5" text-anchor="middle" transform="rotate(-90, 130, 290)">each layer sees only previous</text>
+
+  <!-- ============ CENTER: VS / Arrow ============ -->
+  <text x="450" y="265" font-family="sans-serif" font-size="28" font-weight="bold" fill="#4b5563" fill-opacity="0.3" text-anchor="middle">vs</text>
+  <path d="M435,275 L450,290 L465,275" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.2" fill="none"/>
+
+  <!-- ============ RIGHT SECTION: AttnRes ============ -->
+  <rect x="490" y="92" width="370" height="340" rx="8" fill="#0d0d1a" fill-opacity="0.5" stroke="#8b5cf6" stroke-width="1.2" stroke-opacity="0.4"/>
+  <text x="675" y="115" font-family="sans-serif" font-size="13" font-weight="bold" fill="#a78bfa" fill-opacity="0.9" text-anchor="middle" filter="url(#subtleGlow)">Attention Residuals</text>
+  <text x="675" y="132" font-family="monospace" font-size="10" fill="#8b5cf6" fill-opacity="0.6" text-anchor="middle">attention 加权选择 · 按需直达</text>
+
+  <!-- Layer nodes -->
+  <!-- h0 -->
+  <rect x="635" y="150" width="80" height="32" rx="6" fill="#1a1028" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="675" y="171" font-family="monospace" font-size="13" fill="#06b6d4" text-anchor="middle">h&#x2080;</text>
+
+  <!-- h1 -->
+  <rect x="635" y="207" width="80" height="32" rx="6" fill="#1a1028" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="675" y="228" font-family="monospace" font-size="13" fill="#8b5cf6" text-anchor="middle">h&#x2081;</text>
+
+  <!-- h2 -->
+  <rect x="635" y="264" width="80" height="32" rx="6" fill="#1a1028" stroke="#a78bfa" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="675" y="285" font-family="monospace" font-size="13" fill="#a78bfa" text-anchor="middle">h&#x2082;</text>
+
+  <!-- h3 -->
+  <rect x="635" y="321" width="80" height="32" rx="6" fill="#1a1028" stroke="#c084fc" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="675" y="342" font-family="monospace" font-size="13" fill="#c084fc" text-anchor="middle">h&#x2083;</text>
+
+  <!-- dots -->
+  <circle cx="675" cy="367" r="1.5" fill="#8b5cf6" fill-opacity="0.4"/>
+  <circle cx="675" cy="374" r="1.5" fill="#8b5cf6" fill-opacity="0.4"/>
+  <circle cx="675" cy="381" r="1.5" fill="#8b5cf6" fill-opacity="0.4"/>
+
+  <!-- hn - the target layer -->
+  <rect x="635" y="400" width="80" height="32" rx="6" fill="#1a0a28" stroke="#ec4899" stroke-width="2" stroke-opacity="0.9" filter="url(#softGlow)"/>
+  <text x="675" y="421" font-family="monospace" font-size="13" fill="#ec4899" font-weight="bold" text-anchor="middle">h&#x2099;</text>
+
+  <!-- ============ ATTENTION ARCS from hn to previous layers ============ -->
+  <!-- Arc: hn -> h0 (thin, long, low weight) -->
+  <path d="M635,416 C540,416 525,166 635,166" stroke="url(#arcGrad3)" stroke-width="1.5" fill="none" stroke-dasharray="4,3" filter="url(#subtleGlow)"/>
+  <text x="530" y="270" font-family="monospace" font-size="9" fill="#10b981" fill-opacity="0.7" text-anchor="middle">0.05</text>
+
+  <!-- Arc: hn -> h1 (medium, medium weight) -->
+  <path d="M635,416 C565,416 555,223 635,223" stroke="url(#arcGrad2)" stroke-width="2.5" fill="none" filter="url(#subtleGlow)"/>
+  <text x="558" y="340" font-family="monospace" font-size="9" fill="#ec4899" fill-opacity="0.7" text-anchor="middle">0.20</text>
+
+  <!-- Arc: hn -> h2 (thick, high weight) -->
+  <path d="M635,413 C580,413 575,280 635,280" stroke="url(#arcGrad1)" stroke-width="4" fill="none" filter="url(#softGlow)"/>
+  <text x="576" y="352" font-family="monospace" font-size="10" fill="#06b6d4" fill-opacity="0.9" text-anchor="middle" font-weight="bold">0.45</text>
+
+  <!-- Arc: hn -> h3 (medium-thick, medium-high weight) -->
+  <path d="M635,406 C608,406 605,337 635,337" stroke="#a78bfa" stroke-width="3" fill="none" stroke-opacity="0.7" filter="url(#subtleGlow)"/>
+  <text x="598" y="398" font-family="monospace" font-size="9" fill="#a78bfa" fill-opacity="0.7" text-anchor="middle">0.30</text>
+
+  <!-- Attention label on right -->
+  <text x="740" y="200" font-family="monospace" font-size="9" fill="#06b6d4" fill-opacity="0.6">&#x03B1;&#x2080;</text>
+  <text x="740" y="260" font-family="monospace" font-size="9" fill="#8b5cf6" fill-opacity="0.6">&#x03B1;&#x2081;</text>
+  <text x="740" y="318" font-family="monospace" font-size="9" fill="#a78bfa" fill-opacity="0.6">&#x03B1;&#x2082;</text>
+  <text x="740" y="370" font-family="monospace" font-size="9" fill="#c084fc" fill-opacity="0.6">&#x03B1;&#x2083;</text>
+
+  <!-- Small arrows from hn node right side to alpha labels -->
+  <line x1="715" y1="416" x2="735" y2="197" stroke="#06b6d4" stroke-width="0.5" stroke-opacity="0.2"/>
+  <line x1="715" y1="416" x2="735" y2="257" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.2"/>
+  <line x1="715" y1="416" x2="735" y2="315" stroke="#a78bfa" stroke-width="0.5" stroke-opacity="0.2"/>
+  <line x1="715" y1="416" x2="735" y2="367" stroke="#c084fc" stroke-width="0.5" stroke-opacity="0.2"/>
+
+  <!-- Formula hint -->
+  <text x="760" y="420" font-family="monospace" font-size="8" fill="#8b5cf6" fill-opacity="0.4">&#x03A3;&#x03B1;=1</text>
+
+  <!-- ============ BOTTOM: Evolution Timeline ============ -->
+  <line x1="100" y1="455" x2="800" y2="455" stroke="#8b5cf6" stroke-opacity="0.2" stroke-width="1"/>
+
+  <!-- ByteDance HC -->
+  <circle cx="220" cy="455" r="4" fill="#f59e0b" filter="url(#subtleGlow)"/>
+  <text x="220" y="447" font-family="sans-serif" font-size="10" font-weight="bold" fill="#f59e0b" fill-opacity="0.8" text-anchor="middle">ByteDance</text>
+  <text x="220" y="472" font-family="monospace" font-size="9" fill="#f59e0b" fill-opacity="0.5" text-anchor="middle">HC</text>
+
+  <!-- Arrow -->
+  <line x1="260" y1="455" x2="390" y2="455" stroke="#8b5cf6" stroke-opacity="0.15" stroke-width="1.5"/>
+  <polygon points="385,452 395,455 385,458" fill="#8b5cf6" fill-opacity="0.2"/>
+
+  <!-- DeepSeek mHC -->
+  <circle cx="450" cy="455" r="4" fill="#06b6d4" filter="url(#subtleGlow)"/>
+  <text x="450" y="447" font-family="sans-serif" font-size="10" font-weight="bold" fill="#06b6d4" fill-opacity="0.8" text-anchor="middle">DeepSeek</text>
+  <text x="450" y="472" font-family="monospace" font-size="9" fill="#06b6d4" fill-opacity="0.5" text-anchor="middle">mHC</text>
+
+  <!-- Arrow -->
+  <line x1="490" y1="455" x2="620" y2="455" stroke="#8b5cf6" stroke-opacity="0.15" stroke-width="1.5"/>
+  <polygon points="615,452 625,455 615,458" fill="#8b5cf6" fill-opacity="0.2"/>
+
+  <!-- Kimi AttnRes -->
+  <circle cx="680" cy="455" r="5" fill="#ec4899" filter="url(#softGlow)"/>
+  <text x="680" y="447" font-family="sans-serif" font-size="10" font-weight="bold" fill="#ec4899" fill-opacity="0.9" text-anchor="middle">Kimi</text>
+  <text x="680" y="472" font-family="monospace" font-size="9" fill="#ec4899" fill-opacity="0.6" text-anchor="middle">AttnRes</text>
+
+  <!-- ============ BOTTOM BAR ============ -->
+  <line x1="120" y1="492" x2="780" y2="492" stroke="#8b5cf6" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="450" y="497" font-family="monospace" font-size="7" fill="#8b5cf6" fill-opacity="0.25" text-anchor="middle" letter-spacing="3">BYTEDANCE HC · DEEPSEEK mHC · KIMI ATTNRES · TRANSFORMER EVOLVED</text>
+
+  <!-- Corner marks -->
+  <path d="M10,10 L30,10 L30,12 L12,12 L12,30 L10,30 Z" fill="#8b5cf6" fill-opacity="0.3"/>
+  <path d="M890,10 L870,10 L870,12 L888,12 L888,30 L890,30 Z" fill="#8b5cf6" fill-opacity="0.3"/>
+  <path d="M10,490 L30,490 L30,488 L12,488 L12,470 L10,470 Z" fill="#8b5cf6" fill-opacity="0.3"/>
+  <path d="M890,490 L870,490 L870,488 L888,488 L888,470 L890,470 Z" fill="#8b5cf6" fill-opacity="0.3"/>
+</svg>
