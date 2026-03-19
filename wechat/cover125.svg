@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383" width="900" height="383">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0d1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bgGrad)" />
+
+  <!-- Subtle grid -->
+  <g stroke="#a78bfa" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="64" x2="900" y2="64"/>
+    <line x1="0" y1="128" x2="900" y2="128"/>
+    <line x1="0" y1="192" x2="900" y2="192"/>
+    <line x1="0" y1="256" x2="900" y2="256"/>
+    <line x1="0" y1="320" x2="900" y2="320"/>
+    <line x1="150" y1="0" x2="150" y2="383"/>
+    <line x1="300" y1="0" x2="300" y2="383"/>
+    <line x1="450" y1="0" x2="450" y2="383"/>
+    <line x1="600" y1="0" x2="600" y2="383"/>
+    <line x1="750" y1="0" x2="750" y2="383"/>
+  </g>
+
+  <!-- ============ TITLE ============ -->
+  <text x="450" y="36" font-family="sans-serif" font-size="20" font-weight="bold" fill="#ffffff" fill-opacity="0.95" text-anchor="middle" letter-spacing="1">ArkTS &#x2194; Python: stdin/stdout Daemon</text>
+  <line x1="120" y1="46" x2="780" y2="46" stroke="#a78bfa" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- ============ LEFT: PIPE ARCHITECTURE ============ -->
+
+  <!-- ArkTS box -->
+  <rect x="50" y="65" width="175" height="250" rx="8" fill="#0d1a2e" fill-opacity="0.6" stroke="#60a5fa" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="137" y="85" font-family="sans-serif" font-size="13" font-weight="bold" fill="#60a5fa" text-anchor="middle">ArkTS</text>
+  <text x="137" y="100" font-family="monospace" font-size="9" fill="#60a5fa" fill-opacity="0.5" text-anchor="middle">UI + Device APIs</text>
+
+  <!-- ArkTS items -->
+  <rect x="65" y="112" width="145" height="22" rx="4" fill="#1a1a2e" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="137" y="127" font-family="monospace" font-size="9" fill="#60a5fa" fill-opacity="0.7" text-anchor="middle">sendMessage(json)</text>
+
+  <rect x="65" y="140" width="145" height="22" rx="4" fill="#1a1a2e" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="137" y="155" font-family="monospace" font-size="9" fill="#60a5fa" fill-opacity="0.7" text-anchor="middle">readMessage()</text>
+
+  <!-- Device tools -->
+  <rect x="65" y="175" width="68" height="20" rx="3" fill="#0a1628" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="99" y="189" font-family="monospace" font-size="8" fill="#38bdf8" fill-opacity="0.8" text-anchor="middle">camera</text>
+
+  <rect x="140" y="175" width="72" height="20" rx="3" fill="#0a1628" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="176" y="189" font-family="monospace" font-size="8" fill="#38bdf8" fill-opacity="0.8" text-anchor="middle">bluetooth</text>
+
+  <rect x="65" y="200" width="68" height="20" rx="3" fill="#0a1628" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="99" y="214" font-family="monospace" font-size="8" fill="#38bdf8" fill-opacity="0.8" text-anchor="middle">sensor</text>
+
+  <rect x="140" y="200" width="72" height="20" rx="3" fill="#0a1628" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="176" y="214" font-family="monospace" font-size="8" fill="#38bdf8" fill-opacity="0.8" text-anchor="middle">GPS</text>
+
+  <text x="137" y="240" font-family="monospace" font-size="8" fill="#60a5fa" fill-opacity="0.4" text-anchor="middle">@ohos.* APIs</text>
+
+  <!-- OpenHarmony label -->
+  <rect x="65" y="260" width="145" height="22" rx="4" fill="#0a4a2e" stroke="#4caf50" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="137" y="275" font-family="sans-serif" font-size="9" font-weight="bold" fill="#4caf50" fill-opacity="0.8" text-anchor="middle">OpenHarmony 6.0</text>
+
+  <!-- ============ PIPE (CENTER) ============ -->
+
+  <!-- NAPI bridge -->
+  <rect x="245" y="100" width="90" height="180" rx="6" fill="#1a1a2e" stroke="#a78bfa" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="290" y="120" font-family="monospace" font-size="9" font-weight="bold" fill="#a78bfa" text-anchor="middle">C++ NAPI</text>
+  <text x="290" y="135" font-family="monospace" font-size="8" fill="#a78bfa" fill-opacity="0.5" text-anchor="middle">fork+pipe</text>
+
+  <!-- stdin pipe (ArkTS → Python) -->
+  <line x1="290" y1="155" x2="290" y2="170" stroke="#ffd43b" stroke-width="1" stroke-opacity="0.3"/>
+  <rect x="255" y="170" width="70" height="18" rx="3" fill="#2d1a0a" stroke="#ffd43b" stroke-width="1.2" stroke-opacity="0.7"/>
+  <text x="290" y="183" font-family="monospace" font-size="8" fill="#ffd43b" text-anchor="middle">stdin pipe</text>
+
+  <!-- stdout pipe (Python → ArkTS) -->
+  <line x1="290" y1="195" x2="290" y2="210" stroke="#4caf50" stroke-width="1" stroke-opacity="0.3"/>
+  <rect x="255" y="210" width="70" height="18" rx="3" fill="#0d1a0d" stroke="#4caf50" stroke-width="1.2" stroke-opacity="0.7"/>
+  <text x="290" y="223" font-family="monospace" font-size="8" fill="#4caf50" text-anchor="middle">stdout pipe</text>
+
+  <!-- Arrows ArkTS ↔ NAPI -->
+  <line x1="225" y1="130" x2="245" y2="130" stroke="#ffd43b" stroke-width="1.5" stroke-opacity="0.6"/>
+  <polygon points="243,127 249,130 243,133" fill="#ffd43b" fill-opacity="0.6"/>
+
+  <line x1="245" y1="150" x2="225" y2="150" stroke="#4caf50" stroke-width="1.5" stroke-opacity="0.6"/>
+  <polygon points="227,147 221,150 227,153" fill="#4caf50" fill-opacity="0.6"/>
+
+  <!-- Arrows NAPI ↔ Python -->
+  <line x1="335" y1="130" x2="355" y2="130" stroke="#ffd43b" stroke-width="1.5" stroke-opacity="0.6"/>
+  <polygon points="353,127 359,130 353,133" fill="#ffd43b" fill-opacity="0.6"/>
+
+  <line x1="355" y1="150" x2="335" y2="150" stroke="#4caf50" stroke-width="1.5" stroke-opacity="0.6"/>
+  <polygon points="337,147 331,150 337,153" fill="#4caf50" fill-opacity="0.6"/>
+
+  <!-- pipe labels -->
+  <text x="290" y="255" font-family="monospace" font-size="7" fill="#ffd43b" fill-opacity="0.5" text-anchor="middle">&#x2190; JSON Lines &#x2192;</text>
+  <text x="290" y="268" font-family="monospace" font-size="7" fill="#a78bfa" fill-opacity="0.4" text-anchor="middle">zero latency</text>
+
+  <!-- ============ PYTHON DAEMON (RIGHT-CENTER) ============ -->
+
+  <rect x="360" y="65" width="185" height="250" rx="8" fill="#1a0a2e" fill-opacity="0.6" stroke="#a78bfa" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="452" y="85" font-family="sans-serif" font-size="13" font-weight="bold" fill="#a78bfa" text-anchor="middle">Python Daemon</text>
+  <text x="452" y="100" font-family="monospace" font-size="9" fill="#a78bfa" fill-opacity="0.5" text-anchor="middle">agent_daemon.py</text>
+
+  <!-- daemon loop -->
+  <rect x="375" y="112" width="155" height="22" rx="4" fill="#1a1a2e" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="452" y="127" font-family="monospace" font-size="9" fill="#a78bfa" fill-opacity="0.7" text-anchor="middle">recv() &#x2192; process &#x2192; send()</text>
+
+  <!-- LangChain -->
+  <rect x="375" y="145" width="155" height="22" rx="4" fill="#1a0a2e" stroke="#c084fc" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="452" y="160" font-family="monospace" font-size="9" fill="#c084fc" fill-opacity="0.7" text-anchor="middle">LangChain Agent</text>
+
+  <!-- DeepSeek -->
+  <rect x="375" y="178" width="155" height="22" rx="4" fill="#1a0a2e" stroke="#f472b6" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="452" y="193" font-family="monospace" font-size="9" fill="#f472b6" fill-opacity="0.7" text-anchor="middle">DeepSeek API</text>
+
+  <!-- tool_call output -->
+  <rect x="375" y="215" width="155" height="30" rx="4" fill="#0d1a0d" stroke="#4caf50" stroke-width="1.2" stroke-opacity="0.5"/>
+  <text x="452" y="230" font-family="monospace" font-size="8" fill="#4caf50" fill-opacity="0.8" text-anchor="middle">tool_call: camera</text>
+  <text x="452" y="241" font-family="monospace" font-size="7" fill="#4caf50" fill-opacity="0.5" text-anchor="middle">&#x2192; ArkTS executes &#x2192; tool_result</text>
+
+  <!-- always running -->
+  <text x="452" y="270" font-family="monospace" font-size="8" fill="#a78bfa" fill-opacity="0.4" text-anchor="middle">always running (daemon)</text>
+
+  <!-- green dot -->
+  <circle cx="375" cy="85" r="4" fill="#4caf50" fill-opacity="0.8" filter="url(#softGlow)"/>
+
+  <!-- ============ RIGHT: MESSAGE FLOW ============ -->
+
+  <rect x="570" y="65" width="290" height="250" rx="8" fill="#0d0d1a" stroke="#ffd43b" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="585" y="82" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffd43b" fill-opacity="0.8">TOOL CALL FLOW</text>
+
+  <!-- Terminal mockup -->
+  <rect x="580" y="90" width="270" height="16" rx="3" fill="#1a1a2e"/>
+  <circle cx="591" cy="98" r="3" fill="#ff6b6b" fill-opacity="0.7"/>
+  <circle cx="601" cy="98" r="3" fill="#ffd43b" fill-opacity="0.7"/>
+  <circle cx="611" cy="98" r="3" fill="#4caf50" fill-opacity="0.7"/>
+
+  <!-- Flow messages -->
+  <text x="585" y="122" font-family="monospace" font-size="9" fill="#60a5fa">[You] help me take a photo</text>
+
+  <text x="585" y="142" font-family="monospace" font-size="8" fill="#ffd43b" fill-opacity="0.6">ArkTS &#x2192; Python:</text>
+  <text x="595" y="155" font-family="monospace" font-size="8" fill="#ffd43b" fill-opacity="0.8">{"type":"chat","message":"..."}</text>
+
+  <text x="585" y="175" font-family="monospace" font-size="8" fill="#4caf50" fill-opacity="0.6">Python &#x2192; ArkTS:</text>
+  <text x="595" y="188" font-family="monospace" font-size="8" fill="#4caf50" fill-opacity="0.8">{"type":"tool_call","tool":"camera"}</text>
+
+  <text x="585" y="208" font-family="monospace" font-size="8" fill="#ffd43b" fill-opacity="0.6">ArkTS executes @ohos.camera &#x2192; Python:</text>
+  <text x="595" y="221" font-family="monospace" font-size="8" fill="#ffd43b" fill-opacity="0.8">{"type":"tool_result","status":"ok"}</text>
+
+  <text x="585" y="241" font-family="monospace" font-size="8" fill="#4caf50" fill-opacity="0.6">Python &#x2192; ArkTS:</text>
+  <text x="595" y="254" font-family="monospace" font-size="8" fill="#4caf50" fill-opacity="0.8">{"type":"response","content":"Done!"}</text>
+
+  <text x="585" y="278" font-family="monospace" font-size="9" fill="#a78bfa" filter="url(#subtleGlow)">[Agent] Photo captured! &#x2714;</text>
+
+  <!-- HAP info -->
+  <rect x="580" y="290" width="270" height="18" rx="3" fill="#0a1a0d" stroke="#4caf50" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="715" y="303" font-family="monospace" font-size="8" fill="#4caf50" fill-opacity="0.6" text-anchor="middle">HAP 41MB = Python + LangChain + DeepSeek</text>
+
+  <!-- ============ BOTTOM BAR ============ -->
+  <line x1="50" y1="330" x2="850" y2="330" stroke="#a78bfa" stroke-opacity="0.15" stroke-width="1"/>
+
+  <!-- Key insight -->
+  <text x="450" y="352" font-family="sans-serif" font-size="11" fill="#a78bfa" fill-opacity="0.7" text-anchor="middle">Python AI Brain + OpenHarmony Device Body = Agent on Device</text>
+  <text x="450" y="372" font-family="monospace" font-size="8" fill="#a78bfa" fill-opacity="0.25" text-anchor="middle" letter-spacing="3">DAEMON · PIPE · JSON LINES · TOOL CALL · LANGCHAIN · DEEPSEEK</text>
+
+  <!-- Corner marks -->
+  <path d="M10,10 L30,10 L30,12 L12,12 L12,30 L10,30 Z" fill="#a78bfa" fill-opacity="0.3"/>
+  <path d="M890,10 L870,10 L870,12 L888,12 L888,30 L890,30 Z" fill="#a78bfa" fill-opacity="0.3"/>
+  <path d="M10,373 L30,373 L30,371 L12,371 L12,353 L10,353 Z" fill="#a78bfa" fill-opacity="0.3"/>
+  <path d="M890,373 L870,373 L870,371 L888,371 L888,353 L890,353 Z" fill="#a78bfa" fill-opacity="0.3"/>
+</svg>
