@@ -1,0 +1,273 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080818;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0820;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="attGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.8" />
+    </linearGradient>
+
+    <linearGradient id="grassGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.9" />
+    </linearGradient>
+
+    <linearGradient id="planeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.25" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.08" />
+    </linearGradient>
+
+    <linearGradient id="planeGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.06" />
+    </linearGradient>
+
+    <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0" />
+      <stop offset="30%" style="stop-color:#06b6d4;stop-opacity:0.6" />
+      <stop offset="70%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+    </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bgGrad)" />
+
+  <!-- Subtle grid -->
+  <g stroke="#ffffff" stroke-opacity="0.02" stroke-width="0.5">
+    <line x1="0" y1="100" x2="900" y2="100"/>
+    <line x1="0" y1="200" x2="900" y2="200"/>
+    <line x1="0" y1="300" x2="900" y2="300"/>
+    <line x1="0" y1="400" x2="900" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="450" y1="0" x2="450" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="750" y1="0" x2="750" y2="500"/>
+  </g>
+
+  <!-- ============ TITLE ============ -->
+  <text x="450" y="38" font-family="sans-serif" font-size="22" font-weight="bold" fill="#ffffff" fill-opacity="0.95" text-anchor="middle" letter-spacing="1">Grassmann Flow</text>
+  <text x="450" y="60" font-family="sans-serif" font-size="13" fill="#8b5cf6" fill-opacity="0.7" text-anchor="middle" letter-spacing="2">Differential Geometry Replaces Attention</text>
+  <line x1="120" y1="72" x2="780" y2="72" stroke="#8b5cf6" stroke-opacity="0.25" stroke-width="1"/>
+
+  <!-- ============ LEFT: Attention (dense all-to-all) ============ -->
+  <rect x="40" y="86" width="380" height="330" rx="8" fill="#0d0d1a" fill-opacity="0.5" stroke="#ef4444" stroke-width="1.2" stroke-opacity="0.25"/>
+  <text x="230" y="108" font-family="sans-serif" font-size="13" font-weight="bold" fill="#ef4444" fill-opacity="0.8" text-anchor="middle">Self-Attention</text>
+  <text x="230" y="124" font-family="monospace" font-size="10" fill="#ef4444" fill-opacity="0.4" text-anchor="middle">L x L dense matrix / dot-product similarity</text>
+
+  <!-- Sequence tokens (left side) - 6 nodes -->
+  <circle cx="105" cy="175" r="14" fill="#1a0a0a" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="105" y="179" font-family="monospace" font-size="9" fill="#ef4444" fill-opacity="0.7" text-anchor="middle">t1</text>
+
+  <circle cx="175" cy="175" r="14" fill="#1a0a0a" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="175" y="179" font-family="monospace" font-size="9" fill="#ef4444" fill-opacity="0.7" text-anchor="middle">t2</text>
+
+  <circle cx="245" cy="175" r="14" fill="#1a0a0a" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="245" y="179" font-family="monospace" font-size="9" fill="#ef4444" fill-opacity="0.7" text-anchor="middle">t3</text>
+
+  <circle cx="315" cy="175" r="14" fill="#1a0a0a" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="315" y="179" font-family="monospace" font-size="9" fill="#ef4444" fill-opacity="0.7" text-anchor="middle">t4</text>
+
+  <circle cx="355" cy="175" r="14" fill="#1a0a0a" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="355" y="179" font-family="monospace" font-size="9" fill="#ef4444" fill-opacity="0.7" text-anchor="middle">t5</text>
+
+  <!-- Dense all-to-all connections (the "everyone shakes hands" pattern) -->
+  <g stroke="#ef4444" stroke-width="0.7" stroke-opacity="0.15">
+    <!-- t1 to all -->
+    <line x1="119" y1="175" x2="161" y2="175"/>
+    <line x1="115" y1="187" x2="237" y2="187"/>
+    <line x1="115" y1="190" x2="308" y2="190"/>
+    <line x1="115" y1="163" x2="348" y2="163"/>
+    <!-- t2 to rest -->
+    <line x1="185" y1="187" x2="237" y2="187"/>
+    <line x1="185" y1="190" x2="308" y2="190"/>
+    <line x1="185" y1="163" x2="348" y2="163"/>
+    <!-- t3 to rest -->
+    <line x1="255" y1="190" x2="308" y2="190"/>
+    <line x1="255" y1="163" x2="348" y2="163"/>
+    <!-- t4 to t5 -->
+    <line x1="329" y1="175" x2="341" y2="175"/>
+  </g>
+
+  <!-- Dense matrix visualization below -->
+  <g transform="translate(130, 215)">
+    <!-- L x L grid (6x6) representing attention matrix -->
+    <text x="100" y="-8" font-family="monospace" font-size="9" fill="#ef4444" fill-opacity="0.4" text-anchor="middle">L x L attention matrix</text>
+    <!-- Row/col of cells -->
+    <g fill="#ef4444">
+      <!-- Row 0 -->
+      <rect x="0" y="0" width="30" height="20" fill-opacity="0.25" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="33" y="0" width="30" height="20" fill-opacity="0.18" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="66" y="0" width="30" height="20" fill-opacity="0.12" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="99" y="0" width="30" height="20" fill-opacity="0.08" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="132" y="0" width="30" height="20" fill-opacity="0.15" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="165" y="0" width="30" height="20" fill-opacity="0.10" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <!-- Row 1 -->
+      <rect x="0" y="23" width="30" height="20" fill-opacity="0.15" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="33" y="23" width="30" height="20" fill-opacity="0.28" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="66" y="23" width="30" height="20" fill-opacity="0.20" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="99" y="23" width="30" height="20" fill-opacity="0.10" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="132" y="23" width="30" height="20" fill-opacity="0.06" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="165" y="23" width="30" height="20" fill-opacity="0.12" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <!-- Row 2 -->
+      <rect x="0" y="46" width="30" height="20" fill-opacity="0.10" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="33" y="46" width="30" height="20" fill-opacity="0.18" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="66" y="46" width="30" height="20" fill-opacity="0.30" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="99" y="46" width="30" height="20" fill-opacity="0.22" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="132" y="46" width="30" height="20" fill-opacity="0.08" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="165" y="46" width="30" height="20" fill-opacity="0.14" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <!-- Row 3 -->
+      <rect x="0" y="69" width="30" height="20" fill-opacity="0.06" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="33" y="69" width="30" height="20" fill-opacity="0.10" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="66" y="69" width="30" height="20" fill-opacity="0.20" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="99" y="69" width="30" height="20" fill-opacity="0.28" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="132" y="69" width="30" height="20" fill-opacity="0.15" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="165" y="69" width="30" height="20" fill-opacity="0.10" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <!-- Row 4 -->
+      <rect x="0" y="92" width="30" height="20" fill-opacity="0.12" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="33" y="92" width="30" height="20" fill-opacity="0.08" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="66" y="92" width="30" height="20" fill-opacity="0.06" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="99" y="92" width="30" height="20" fill-opacity="0.15" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="132" y="92" width="30" height="20" fill-opacity="0.25" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+      <rect x="165" y="92" width="30" height="20" fill-opacity="0.18" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.2" rx="2"/>
+    </g>
+  </g>
+
+  <!-- Attention cost label -->
+  <text x="230" y="358" font-family="monospace" font-size="18" font-weight="bold" fill="#ef4444" fill-opacity="0.7" text-anchor="middle">O(L&#xB2;)</text>
+  <text x="230" y="376" font-family="monospace" font-size="10" fill="#ef4444" fill-opacity="0.4" text-anchor="middle">scalar dot-product</text>
+  <text x="230" y="392" font-family="monospace" font-size="10" fill="#f59e0b" fill-opacity="0.4" text-anchor="middle">q&#x1D40; k / &#x221A;d</text>
+  <text x="230" y="408" font-family="monospace" font-size="9" fill="#6b7280" fill-opacity="0.35" text-anchor="middle">every token talks to every token</text>
+
+  <!-- ============ CENTER: arrow / VS ============ -->
+  <text x="450" y="248" font-family="sans-serif" font-size="24" font-weight="bold" fill="#4b5563" fill-opacity="0.3" text-anchor="middle">vs</text>
+  <line x1="450" y1="140" x2="450" y2="220" stroke="#4b5563" stroke-opacity="0.1" stroke-width="1"/>
+  <line x1="450" y1="270" x2="450" y2="410" stroke="#4b5563" stroke-opacity="0.1" stroke-width="1"/>
+
+  <!-- ============ RIGHT: Grassmann Flow (local pairing + geometric planes) ============ -->
+  <rect x="480" y="86" width="380" height="330" rx="8" fill="#0d0d1a" fill-opacity="0.5" stroke="#8b5cf6" stroke-width="1.2" stroke-opacity="0.3"/>
+  <text x="670" y="108" font-family="sans-serif" font-size="13" font-weight="bold" fill="#8b5cf6" fill-opacity="0.9" text-anchor="middle">Grassmann Flow</text>
+  <text x="670" y="124" font-family="monospace" font-size="10" fill="#06b6d4" fill-opacity="0.5" text-anchor="middle">local pairing / subspace orientation</text>
+
+  <!-- Sequence tokens (right side) - same 5 nodes but with local connections -->
+  <circle cx="545" cy="175" r="14" fill="#0a0a1a" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="545" y="179" font-family="monospace" font-size="9" fill="#06b6d4" fill-opacity="0.7" text-anchor="middle">t1</text>
+
+  <circle cx="615" cy="175" r="14" fill="#0a0a1a" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="615" y="179" font-family="monospace" font-size="9" fill="#06b6d4" fill-opacity="0.7" text-anchor="middle">t2</text>
+
+  <circle cx="685" cy="175" r="14" fill="#0a0a1a" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="685" y="179" font-family="monospace" font-size="9" fill="#8b5cf6" fill-opacity="0.7" text-anchor="middle">t3</text>
+
+  <circle cx="755" cy="175" r="14" fill="#0a0a1a" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="755" y="179" font-family="monospace" font-size="9" fill="#8b5cf6" fill-opacity="0.7" text-anchor="middle">t4</text>
+
+  <circle cx="795" cy="175" r="14" fill="#0a0a1a" stroke="#a78bfa" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="795" y="179" font-family="monospace" font-size="9" fill="#a78bfa" fill-opacity="0.7" text-anchor="middle">t5</text>
+
+  <!-- LOCAL pairing connections only (adjacent pairs) -->
+  <line x1="559" y1="175" x2="601" y2="175" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="629" y1="175" x2="671" y2="175" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.4"/>
+  <line x1="699" y1="175" x2="741" y2="175" stroke="#8b5cf6" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="769" y1="175" x2="781" y2="175" stroke="#a78bfa" stroke-width="2" stroke-opacity="0.4"/>
+
+  <!-- Geometric planes (Plucker coordinate visualization) -->
+  <!-- Plane 1: between t1-t2 -->
+  <polygon points="545,195 615,195 630,240 530,240" fill="url(#planeGrad2)" stroke="#06b6d4" stroke-width="0.8" stroke-opacity="0.3"/>
+  <!-- Plane 2: between t2-t3 -->
+  <polygon points="615,198 685,198 705,250 595,250" fill="url(#planeGrad1)" stroke="#8b5cf6" stroke-width="0.8" stroke-opacity="0.3"/>
+  <!-- Plane 3: between t3-t4 -->
+  <polygon points="685,195 755,195 775,245 665,245" fill="url(#planeGrad2)" stroke="#06b6d4" stroke-width="0.8" stroke-opacity="0.25"/>
+  <!-- Plane 4: between t4-t5 -->
+  <polygon points="755,198 795,198 810,238 740,238" fill="url(#planeGrad1)" stroke="#a78bfa" stroke-width="0.8" stroke-opacity="0.25"/>
+
+  <!-- Normal vectors on planes (showing subspace orientation) -->
+  <line x1="580" y1="218" x2="570" y2="195" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.5"/>
+  <polygon points="568,199 570,192 574,198" fill="#06b6d4" fill-opacity="0.5"/>
+
+  <line x1="650" y1="224" x2="656" y2="198" stroke="#8b5cf6" stroke-width="1.2" stroke-opacity="0.5"/>
+  <polygon points="654,202 656,195 660,201" fill="#8b5cf6" fill-opacity="0.5"/>
+
+  <line x1="720" y1="220" x2="715" y2="196" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.4"/>
+  <polygon points="713,200 715,193 719,199" fill="#06b6d4" fill-opacity="0.4"/>
+
+  <!-- Dimension flow: 256 -> 32 -> 496 -> 256 -->
+  <g transform="translate(670, 275)">
+    <!-- Flow boxes -->
+    <rect x="-150" y="0" width="55" height="26" rx="4" fill="#0a0a1a" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.5"/>
+    <text x="-122" y="17" font-family="monospace" font-size="11" font-weight="bold" fill="#06b6d4" fill-opacity="0.8" text-anchor="middle">256</text>
+
+    <text x="-82" y="17" font-family="sans-serif" font-size="14" fill="#4b5563" fill-opacity="0.4" text-anchor="middle">&#x2192;</text>
+
+    <rect x="-70" y="0" width="45" height="26" rx="4" fill="#0a0a1a" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.5"/>
+    <text x="-47" y="17" font-family="monospace" font-size="11" font-weight="bold" fill="#8b5cf6" fill-opacity="0.8" text-anchor="middle">32</text>
+
+    <text x="-12" y="17" font-family="sans-serif" font-size="14" fill="#4b5563" fill-opacity="0.4" text-anchor="middle">&#x2192;</text>
+
+    <rect x="0" y="0" width="55" height="26" rx="4" fill="#0a0a1a" stroke="#a78bfa" stroke-width="1.5" stroke-opacity="0.7" filter="url(#subtleGlow)"/>
+    <text x="27" y="17" font-family="monospace" font-size="11" font-weight="bold" fill="#a78bfa" fill-opacity="0.9" text-anchor="middle">496</text>
+
+    <text x="68" y="17" font-family="sans-serif" font-size="14" fill="#4b5563" fill-opacity="0.4" text-anchor="middle">&#x2192;</text>
+
+    <rect x="80" y="0" width="55" height="26" rx="4" fill="#0a0a1a" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.5"/>
+    <text x="107" y="17" font-family="monospace" font-size="11" font-weight="bold" fill="#06b6d4" fill-opacity="0.8" text-anchor="middle">256</text>
+
+    <!-- Labels under dimension boxes -->
+    <text x="-122" y="40" font-family="monospace" font-size="7" fill="#06b6d4" fill-opacity="0.35" text-anchor="middle">input</text>
+    <text x="-47" y="40" font-family="monospace" font-size="7" fill="#8b5cf6" fill-opacity="0.35" text-anchor="middle">project</text>
+    <text x="27" y="40" font-family="monospace" font-size="7" fill="#a78bfa" fill-opacity="0.45" text-anchor="middle">Plucker</text>
+    <text x="107" y="40" font-family="monospace" font-size="7" fill="#06b6d4" fill-opacity="0.35" text-anchor="middle">output</text>
+  </g>
+
+  <!-- Grassmann key stats -->
+  <text x="670" y="348" font-family="monospace" font-size="18" font-weight="bold" fill="#8b5cf6" fill-opacity="0.7" text-anchor="middle" filter="url(#subtleGlow)">O(L)</text>
+  <text x="670" y="366" font-family="monospace" font-size="10" fill="#06b6d4" fill-opacity="0.4" text-anchor="middle">496-dim geometric features</text>
+  <text x="670" y="382" font-family="monospace" font-size="10" fill="#a78bfa" fill-opacity="0.4" text-anchor="middle">Gr(2,32) subspace orientation</text>
+  <text x="670" y="398" font-family="monospace" font-size="9" fill="#6b7280" fill-opacity="0.35" text-anchor="middle">local pairs encode global geometry</text>
+
+  <!-- ============ BOTTOM ============ -->
+  <line x1="80" y1="430" x2="820" y2="430" stroke="#8b5cf6" stroke-opacity="0.12" stroke-width="1"/>
+
+  <text x="230" y="455" font-family="monospace" font-size="11" fill="#ef4444" fill-opacity="0.5" text-anchor="middle">dense dot-product</text>
+  <text x="450" y="455" font-family="monospace" font-size="14" fill="#6b7280" fill-opacity="0.3" text-anchor="middle">&#x00BB;</text>
+  <text x="670" y="455" font-family="monospace" font-size="11" fill="#8b5cf6" fill-opacity="0.6" text-anchor="middle">sparse geometric flow</text>
+
+  <text x="230" y="475" font-family="monospace" font-size="9" fill="#ef4444" fill-opacity="0.35" text-anchor="middle">scalar similarity</text>
+  <text x="670" y="475" font-family="monospace" font-size="9" fill="#06b6d4" fill-opacity="0.4" text-anchor="middle">subspace orientation</text>
+
+  <text x="450" y="492" font-family="monospace" font-size="9" fill="#a78bfa" fill-opacity="0.35" text-anchor="middle" letter-spacing="2">DIFFERENTIAL GEOMETRY FOR SEQUENCE MODELING</text>
+
+  <!-- Corner marks -->
+  <path d="M10,10 L30,10 L30,12 L12,12 L12,30 L10,30 Z" fill="#ef4444" fill-opacity="0.25"/>
+  <path d="M890,10 L870,10 L870,12 L888,12 L888,30 L890,30 Z" fill="#8b5cf6" fill-opacity="0.25"/>
+  <path d="M10,490 L30,490 L30,488 L12,488 L12,470 L10,470 Z" fill="#06b6d4" fill-opacity="0.25"/>
+  <path d="M890,490 L870,490 L870,488 L888,488 L888,470 L890,470 Z" fill="#a78bfa" fill-opacity="0.25"/>
+</svg>
