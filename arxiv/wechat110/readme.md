@@ -33,10 +33,31 @@ docker run -d --gpus all --name d2l_exp \
 
 ```bash
 docker exec -it d2l_exp bash
-cd /workspace/doc-to-lora && pip install --no-deps -e . && pip install --no-deps peft datasets sentencepiece accelerate bitsandbytes
+
+cd /workspace/doc-to-lora && pip install --no-deps -e .
+pip install --no-deps peft datasets sentencepiece accelerate bitsandbytes
+pip install transformers==4.51.3
+pip install jaxtyping wonderwords inflect rouge-score torchmetrics
 ```
 
-### 4. 验证环境（容器内）
+### 4. 代码修改（容器内，transformers 兼容）
+
+`src/ctx_to_lora/data/processing.py` 第 989 行，去掉空的 system message（Gemma 2 不支持 system role）：
+
+```python
+# 改前
+[
+    {"role": "system", "content": ""},
+    {"role": "user", "content": ctx.strip()},
+]
+
+# 改后
+[
+    {"role": "user", "content": ctx.strip()},
+]
+```
+
+### 5. 验证环境（容器内）
 
 ```bash
 cd /workspace/doc-to-lora
@@ -48,9 +69,11 @@ from ctx_to_lora.modeling.hypernet import ModulatedPretrainedModel
 
 checkpoint_path = '/workspace/models/doc-to-lora/gemma_demo/checkpoint-80000/pytorch_model.bin'
 state_dict = torch.load(checkpoint_path, weights_only=False)
+state_dict['base_model_name_or_path'] = '/workspace/models/gemma-2-2b-it'
+
 model = ModulatedPretrainedModel.from_state_dict(state_dict, train=False, use_sequence_packing=False)
 model.reset()
-tokenizer = get_tokenizer(model.base_model.name_or_path)
+tokenizer = get_tokenizer('/workspace/models/gemma-2-2b-it')
 
 doc = open('data/sakana_wiki.txt', 'r').read()
 chat = [{'role': 'user', 'content': 'Tell me about Sakana AI.'}]
@@ -62,6 +85,8 @@ print(tokenizer.decode(outputs[0]))
 "
 ```
 
+验证通过：超网络成功把 sakana_wiki.txt 压成 LoRA，模型不带文档能正确回答关于 Sakana AI 的问题。
+
 ## 容器内路径
 
 | 内容 | 路径 |
@@ -70,7 +95,7 @@ print(tokenizer.decode(outputs[0]))
 | Gemma-2-2b-it 模型 | /workspace/models/gemma-2-2b-it/ |
 | 超网络权重（正式） | /workspace/models/doc-to-lora/gemma_2b_d2l/checkpoint-20000/ |
 | 超网络权重（demo） | /workspace/models/doc-to-lora/gemma_demo/checkpoint-80000/ |
-| 实验脚本（待写） | /workspace/ai-theorys-study/arxiv/wechat110/ |
+| 实验脚本 | /workspace/ai-theorys-study/arxiv/wechat110/ |
 
 ## 超网络关键参数（gemma_2b_d2l/args.yaml）
 
@@ -83,4 +108,6 @@ print(tokenizer.decode(outputs[0]))
 
 - **不要在 NVIDIA 官方容器里 `pip install torch`** —— GB10 需要定制编译的 torch，pip 版不支持 sm_121
 - **装 doc-to-lora 依赖必须 `--no-deps`** —— 否则会拉下来 torch 2.6 覆盖原装版本，然后 triton/flash-attn 全崩
-- poet_exp 容器就是这么被搞坏的，已删，RIP 😂
+- **必须用 transformers==4.51.3** —— 5.x 的 flash attention 接口变了，和 doc-to-lora 代码不兼容
+- **加载模型要改本地路径** —— 容器没网，`state_dict['base_model_name_or_path'] = '/workspace/models/gemma-2-2b-it'`
+- poet_exp 容器就是被 torch 降级搞坏的，已删，RIP 😂
