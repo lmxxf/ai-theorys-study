@@ -1,0 +1,1256 @@
+{
+  "document": "Hung Lou Meng, Book I, Chapters 1-8",
+  "document_tokens": 90060,
+  "total_chunks": 176,
+  "max_chunk_len": 512,
+  "n_questions": 24,
+  "chunk_counts_tested": [
+    1,
+    5,
+    20,
+    50,
+    100,
+    176
+  ],
+  "conditions": {
+    "baseline": {
+      "n_chunks": 0,
+      "rank": 0,
+      "accuracy": 0.25
+    },
+    "n1": {
+      "n_chunks": 1,
+      "rank": 16,
+      "tokens_covered": 512,
+      "pct_text": 0.6,
+      "accuracy": 0.16666666666666666
+    },
+    "n5": {
+      "n_chunks": 5,
+      "rank": 48,
+      "tokens_covered": 2560,
+      "pct_text": 2.8,
+      "accuracy": 0.08333333333333333
+    },
+    "n20": {
+      "n_chunks": 20,
+      "rank": 168,
+      "tokens_covered": 10240,
+      "pct_text": 11.4,
+      "accuracy": 0.041666666666666664
+    },
+    "n50": {
+      "n_chunks": 50,
+      "rank": 408,
+      "tokens_covered": 25600,
+      "pct_text": 28.4,
+      "accuracy": 0.0
+    },
+    "n100": {
+      "n_chunks": 100,
+      "rank": 808,
+      "tokens_covered": 51200,
+      "pct_text": 56.9,
+      "accuracy": 0.0
+    },
+    "n176": {
+      "n_chunks": 176,
+      "rank": 1416,
+      "tokens_covered": 90060,
+      "pct_text": 100.0,
+      "accuracy": 0.0
+    }
+  },
+  "detailed_results": {
+    "baseline": [
+      {
+        "chapter": 1,
+        "question": "How many blocks of stone did the Empress Nue Wo prepare at the Ta Huang Hills for repairing the heavens?",
+        "expected": "36,501 blocks",
+        "response": "This is a question that draws from a fictional concept. \n\nThe Empress Nue Wo is a figure from Chinese mythology, specifically a part of the \"Journey to the West\" story.  \n\n**There is no historical or factual basis for the number of stone blocks she prepared.** \n\nThe story is a fantastical tale, and the details are often open to interpretation. \n\nIf you're interested in learning more about Empress Nue Wo and her role in the \"Journey to the West,\" I recommend reading the story itself or researching it further.",
+        "match": true
+      },
+      {
+        "chapter": 1,
+        "question": "What is the infant name of Chen Shih-yin's daughter?",
+        "expected": "Ying Lien",
+        "response": "Chen Shih-yin's daughter's name is **\"Anya\"**.",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "How much silver did Shih-yin give Yue-ts'un for his travelling expenses to the capital?",
+        "expected": "Fifty taels of pure silver",
+        "response": "This question is based on a fictional story or a specific context that I don't have access to. \n\nTo answer your question, I need more information:\n\n* **What story or book are you referring to?**  Please provide the title or author.\n* **What is the context of this scene?**  Knowing the plot or the characters involved would help me understand the situation.\n\nOnce you provide me with this information, I can try to help you find the answer.",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What is the surname of the newly-appointed Magistrate who turns out to be Yue-ts'un?",
+        "expected": "Chia",
+        "response": "The surname of the newly-appointed Magistrate who turns out to be Yue-ts'un is **Li**.",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What was Lin Ju-hai's daughter's infant name?",
+        "expected": "Tai Yue",
+        "response": "Lin Ju-hai's daughter's infant name was **Lin Mei-yu**.",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "Where did Yue-ts'un meet Leng Tzu-hsing by chance?",
+        "expected": "At a village public house",
+        "response": "Yue-ts'un met Leng Tzu-hsing by chance **in the mountains of the south**. \n\nThis is a detail from the classic Chinese novel \"The Romance of the Three Kingdoms,\" where Yue-ts'un is a legendary figure known for his wisdom and skill in martial arts. \n\nIt's important to note that this is a fictional story, and the actual historical figures of Yue-ts'un and Leng Tzu-hsing are not definitively linked.",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "Who was the old colleague that brought Yue-ts'un the news about reinstated officers?",
+        "expected": "Chang Ju-kuei",
+        "response": "The old colleague who brought Yue-ts'un the news about reinstated officers in the novel \"The Emperor's Soul\" is **Li-hsin**. \n\nHe is a former scholar and a close friend of Yue-ts'un's, who has been exiled and is now living in hiding. Li-hsin is a source of information and support for Yue-ts'un, and he plays a crucial role in helping her navigate the political landscape and understand the situation regarding the reinstated officers.",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "What gift did Pao-yue give to Tai-yue upon their first meeting, which he then smashed?",
+        "expected": "His jade",
+        "response": "This is a reference to a famous story from Chinese literature, specifically the **\"Romance of the Three Kingdoms\"** (三国演义). \n\nIn the story, **Pao-yue** (also known as **Pao-yue** or **Paoyue**) is a young man who is a skilled swordsman. He is known for his beauty and his kindness. \n\n**Tai-yue** is a young man who is a skilled archer. He is known for his strength and his courage.\n\n**The gift Pao-yue gave Tai-yue upon their first meeting was a beautiful jade pendant.**\n\n**Tai-yue",
+        "match": true
+      },
+      {
+        "chapter": 3,
+        "question": "How many waiting maids did dowager lady Chia assign to Tai-yue?",
+        "expected": "Two",
+        "response": "This question is based on a fictional scenario and likely comes from a novel, movie, or TV show. \n\nTo answer your question, I need more context:\n\n* **What is the name of the book, movie, or TV show?**  Knowing the source will help me identify the specific details.\n* **Who is Tai-yue?**  Is he a character in a specific story?\n\nOnce you provide me with this information, I can help you find the answer.",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What nickname did people give to young Hsueeh P'an?",
+        "expected": "The Foolish and Overbearing Prince",
+        "response": "Young Hsueeh P'an was nicknamed **\"The Little Tiger\"** (小虎).",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What was the name of the kidnapped girl at the center of the manslaughter case?",
+        "expected": "Ying Lien",
+        "response": "You're likely referring to the case of **Brian Laundrie**, who was accused of killing his fiancée, Gabby Petito. \n\n**Gabby Petito** was the kidnapped girl at the center of the manslaughter case.",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "Where did Mrs. Hsueeh and her children take up their quarters in the Jung mansion?",
+        "expected": "The Pear Fragrance Court",
+        "response": "Please provide me with more context! I need to know which story or book you're referring to. \n\n\"Mrs. Hsueeh and her children\" could be characters in a fictional story, a historical account, or a real-life event. \n\nOnce you tell me the source, I can help you find the answer.",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "Whose wife, Mrs. Ch'in, led Pao-yue to rest when he felt tired during the flower-viewing banquet?",
+        "expected": "Chia Jung's wife",
+        "response": "The wife of Pao-yue who led him to rest during the flower-viewing banquet was **Mrs. Ch'in**.",
+        "match": true
+      },
+      {
+        "chapter": 5,
+        "question": "What are the four characters written on the stone tablet at the entrance of the Great Void?",
+        "expected": "The confines of the Great Void",
+        "response": "The four characters written on the stone tablet at the entrance of the Great Void in the Chinese novel \"The Legend of the Condor Heroes\" are:\n\n**\"天\" (Tiān)** - Heaven\n**\"地\" (Dì)** - Earth\n**\"人\" (Rén)** - Man\n**\"神\" (Shén)** - God\n\nThese characters represent the fundamental elements of existence and the interconnectedness of the universe.",
+        "match": true
+      },
+      {
+        "chapter": 5,
+        "question": "What is the title of the record that Pao-yue opens, containing entries about the most prominent girls of his province?",
+        "expected": "The Principal Record of the Twelve Maidens of Chin Ling",
+        "response": "The record that Pao-yue opens, containing entries about the most prominent girls of his province, is called the **\"List of Prominent Young Women\"** or **\"Records of the Prominent Daughters of the Province\"**. \n\nThis is a common title for such records in Chinese history, often used in official documents or personal collections.",
+        "match": true
+      },
+      {
+        "chapter": 6,
+        "question": "How much silver did lady Feng give to old goody Liu?",
+        "expected": "Twenty taels",
+        "response": "Unfortunately, there's no way to answer this question definitively. \n\nYou're likely referring to a story or legend, and the amount of silver Lady Feng gave to Old Goody Liu is likely a detail that varies depending on the specific version of the story. \n\nTo find out more, you'd need to:\n\n* **Identify the source:** Where did you encounter this story? A book, a website, a conversation? Knowing the source will help you find more information.\n* **Look for details:**  Does the story mention the amount of silver, or is it just a general description of the transaction?",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "What is the name of goody Liu's grandson whom she brings to the Jung mansion?",
+        "expected": "Pan Erh",
+        "response": "Goody Liu's grandson in the novel \"The Joy Luck Club\" is named **Ying-ying**.",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "Who is the waiting-maid of lady Feng that goody Liu initially mistakes for lady Feng herself?",
+        "expected": "P'ing Erh",
+        "response": "The waiting-maid of Lady Feng that Goody Liu initially mistakes for Lady Feng is **Mrs. Wang**.",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What kind of flowers does aunt Hsueeh send to the young ladies via Chou Jui's wife?",
+        "expected": "Twelve twigs of artificial flowers of piled gauze, made in the palace",
+        "response": "This question is based on a fictional scenario and likely refers to a story or a specific cultural context. \n\nTo answer your question, I need more information:\n\n* **What story or context is this from?**  Please provide the name of the book, movie, or any other source where you encountered this information.\n* **What is the setting?** Knowing the time period and cultural background can help me understand the types of flowers that might be relevant.\n\nOnce you provide more details, I can help you understand the flowers Aunt Hsueeh sends to the young ladies.",
+        "match": true
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the medicine that Pao Ch'ai takes for her ailment?",
+        "expected": "Cold fragrance pills",
+        "response": "Please provide me with more context! I need to know what story or situation you're referring to. \n\nFor example, tell me:\n\n* **Is this from a book, movie, TV show, or play?** \n* **Who is Pao Ch'ai?** \n* **What is her ailment?**\n\nOnce I have this information, I can help you figure out the name of the medicine.",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the drunken old servant in the Ning mansion who abuses his masters?",
+        "expected": "Chiao Ta",
+        "response": "You're likely thinking of **Old Man Li** from the popular Chinese drama **\"The Legend of Zhen Huan.\"** \n\nHe is indeed a drunken old servant who is known for his abusive behavior towards the Ning family, particularly towards Zhen Huan's mother, the Empress Dowager. \n\nLet me know if you have any other questions about the drama!",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What two lines are inscribed on the face of Pao-yue's jade?",
+        "expected": "If thou wilt lose me not and never forget me, Eternal life and constant luck will be with thee",
+        "response": "You're likely referring to the **\"Two Lines of Pao-yue\"** inscribed on the face of a famous jade artifact. \n\nThe two lines are:\n\n* **\"The jade is a treasure, and the jade is a treasure.\"** (玉寶珍，玉寶珍)\n* **\"The jade is a treasure, and the jade is a treasure.\"** (玉寶珍，玉寶珍)\n\nThese lines are a poetic expression of the jade's value and beauty. \n\n\nLet me know if you have any other questions about Pao-yue or jade!",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What inscription is on the face of Pao Ch'ai's golden locket?",
+        "expected": "Part not from me and cast me not away",
+        "response": "The inscription on Pao Ch'ai's golden locket is **\"My heart is yours.\"** \n\nThis is a significant detail in the novel \"The House of the Spirits\" by Isabel Allende. It reveals the deep love and devotion Pao Ch'ai feels for her husband, and it becomes a powerful symbol of their relationship throughout the story.",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What three characters did Pao-yue write and have pasted above his door?",
+        "expected": "Red, Rue, Hall",
+        "response": "Please provide the text where Pao-yue's characters are mentioned. I need the context to answer your question.",
+        "match": false
+      }
+    ],
+    "n1": [
+      {
+        "chapter": 1,
+        "question": "How many blocks of stone did the Empress Nue Wo prepare at the Ta Huang Hills for repairing the heavens?",
+        "expected": "36,501 blocks",
+        "response": "The text states that the protagonist, Xueqin, was forced to use the \"doggerel\" and \"uncouth rhymes\" of the Chinese prose in the book, but that he was unable to do so.",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "What is the infant name of Chen Shih-yin's daughter?",
+        "expected": "Ying Lien",
+        "response": "The infant name of Chen Shih-yin's daughter is not mentioned in the text.",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "How much silver did Shih-yin give Yue-ts'un for his travelling expenses to the capital?",
+        "expected": "Fifty taels of pure silver",
+        "response": "The text states that Shih-yin gave Yue-ts'un \"a helping hand\" to get him to the capital.  It does not, however, specify the amount of silver given.",
+        "match": true
+      },
+      {
+        "chapter": 2,
+        "question": "What is the surname of the newly-appointed Magistrate who turns out to be Yue-ts'un?",
+        "expected": "Chia",
+        "response": "The newly-appointed Magistrate who turns out to be Yue-ts'un is called **Huo Benqiong**.",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What was Lin Ju-hai's daughter's infant name?",
+        "expected": "Tai Yue",
+        "response": "The text states that Lin Ju-hai's daughter was named **Heng Meng**.",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "Where did Yue-ts'un meet Leng Tzu-hsing by chance?",
+        "expected": "At a village public house",
+        "response": "According to the text, Yue-ts'un met Leng Tzu-hsing by chance at the **Peking Library**.",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "Who was the old colleague that brought Yue-ts'un the news about reinstated officers?",
+        "expected": "Chang Ju-kuei",
+        "response": "The old colleague who brought Yue-ts'un the news about reinstated officers was **Heng Meng Qiao**.",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "What gift did Pao-yue give to Tai-yue upon their first meeting, which he then smashed?",
+        "expected": "His jade",
+        "response": "Pao-yue gave Tai-yue a Tzu Er Meng, or Dream of the Red Chamber, upon their first meeting.",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "How many waiting maids did dowager lady Chia assign to Tai-yue?",
+        "expected": "Two",
+        "response": "The text states that dowager lady Chia assigned **two** maids to Tai-yue.",
+        "match": true
+      },
+      {
+        "chapter": 4,
+        "question": "What nickname did people give to young Hsueeh P'an?",
+        "expected": "The Foolish and Overbearing Prince",
+        "response": "The nickname people gave to young Hsueeh P'an was \"Hsuen Meng\".",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What was the name of the kidnapped girl at the center of the manslaughter case?",
+        "expected": "Ying Lien",
+        "response": "The kidnapped girl at the center of the manslaughter case is called Hung Meng.",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "Where did Mrs. Hsueeh and her children take up their quarters in the Jung mansion?",
+        "expected": "The Pear Fragrance Court",
+        "response": "The text states that Mrs. Hsueeh and her children took up their quarters in the **\"most degent\"** part of the Chinese language.",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "Whose wife, Mrs. Ch'in, led Pao-yue to rest when he felt tired during the flower-viewing banquet?",
+        "expected": "Chia Jung's wife",
+        "response": "Mrs. Ch'in led Pao-yue to rest when he felt tired during the flower-viewing banquet.",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "What are the four characters written on the stone tablet at the entrance of the Great Void?",
+        "expected": "The confines of the Great Void",
+        "response": "The four characters written on the stone tablet at the entrance of the Great Void are:\n\n* **\"The Dream of the Red Chamber\"** \n* **\"The Dream of the Red Chamber\"** \n* **\"The Dream of the Red Chamber\"** \n* **\"The Dream of the Red Chamber\"**",
+        "match": true
+      },
+      {
+        "chapter": 5,
+        "question": "What is the title of the record that Pao-yue opens, containing entries about the most prominent girls of his province?",
+        "expected": "The Principal Record of the Twelve Maidens of Chin Ling",
+        "response": "The title of the record that Pao-yue opens is **The Dream of the Red Chamber**.",
+        "match": true
+      },
+      {
+        "chapter": 6,
+        "question": "How much silver did lady Feng give to old goody Liu?",
+        "expected": "Twenty taels",
+        "response": "The text states that Lady Feng gave old goody Liu \"a helping hand\".",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "What is the name of goody Liu's grandson whom she brings to the Jung mansion?",
+        "expected": "Pan Erh",
+        "response": "Heng Meng",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "Who is the waiting-maid of lady Feng that goody Liu initially mistakes for lady Feng herself?",
+        "expected": "P'ing Erh",
+        "response": "The waiting-maid of lady Feng that goody Liu initially mistakes for lady Feng herself is **Hsu Mengqiong**.",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What kind of flowers does aunt Hsueeh send to the young ladies via Chou Jui's wife?",
+        "expected": "Twelve twigs of artificial flowers of piled gauze, made in the palace",
+        "response": "The text states that aunt Hsueeh sends \"doggerel\" and \"uncouth rhymes\" to the young ladies via Chou Jui's wife.",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the medicine that Pao Ch'ai takes for her ailment?",
+        "expected": "Cold fragrance pills",
+        "response": "The text states that Pao Ch'ai takes \"a Chinese medicine\".",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the drunken old servant in the Ning mansion who abuses his masters?",
+        "expected": "Chiao Ta",
+        "response": "The drunken old servant in the Ning mansion who abuses his masters is called **Huo Mengqiong**.",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What two lines are inscribed on the face of Pao-yue's jade?",
+        "expected": "If thou wilt lose me not and never forget me, Eternal life and constant luck will be with thee",
+        "response": "The two lines inscribed on the face of Pao-yue's jade are:",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What inscription is on the face of Pao Ch'ai's golden locket?",
+        "expected": "Part not from me and cast me not away",
+        "response": "The inscription on the face of Pao Ch'ai's golden locket is \"Hung Er Meng.\"",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What three characters did Pao-yue write and have pasted above his door?",
+        "expected": "Red, Rue, Hall",
+        "response": "The three characters Pao-yue wrote and pasted above his door are:\n\n* **Hung Er Meng** \n* **Hung Er Meng** \n* **Hung Er Meng**",
+        "match": false
+      }
+    ],
+    "n5": [
+      {
+        "chapter": 1,
+        "question": "How many blocks of stone did the Empress Nue Wo prepare at the Ta Huang Hills for repairing the heavens?",
+        "expected": "36,501 blocks",
+        "response": "The provided text states that \"the stone blocks of the Ta Huang Hills were sufficient to make a stone to measure nine decimetres in length, and sufficient to make a stone to measure twenty decimetres in length. The blocks were sufficient to make a stone to measure twenty decimetres in length, and sufficient to make a stone to measure twenty decimetres in length. The blocks were sufficient to make a stone to measure twenty decimetres in length, and sufficient to make a stone to measure twenty decimetres in length. The blocks were sufficient to make a stone to measure twenty decimetres in length, and sufficient to make a stone to measure twenty deci",
+        "match": true
+      },
+      {
+        "chapter": 1,
+        "question": "What is the infant name of Chen Shih-yin's daughter?",
+        "expected": "Ying Lien",
+        "response": "The provided text is a-quote from the text. \nThe provided text is a-quote from the text. \nThe provided text is a-quote from the text. \nThe provided text is a-quote from the text. \nThe provided text is a-quote from the text. \nThe provided text is a-quote from the text. \nThe provided text is a-quote from the text. \nThe provided text is a-quote from the text. \nThe provided text is a-quote from the text. \nThe provided text is a-quote from the text.",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "How much silver did Shih-yin give Yue-ts'un for his travelling expenses to the capital?",
+        "expected": "Fifty taels of pure silver",
+        "response": "The provided text is a-K'ung K'ung, in the Ta'e K'ung, or, in the Ta'e K'ung, the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What is the surname of the newly-appointed Magistrate who turns out to be Yue-ts'un?",
+        "expected": "Chia",
+        "response": "The provided text states that the newly-appointed Magistrate, Yue-ts'un, is a-Yue-ts'un, and is a-Yue-ts'un.",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What was Lin Ju-hai's daughter's infant name?",
+        "expected": "Tai Yue",
+        "response": "The provided text states that the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the Taoist, the daughter of the",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "Where did Yue-ts'un meet Leng Tzu-hsing by chance?",
+        "expected": "At a village public house",
+        "response": "The provided text is a-ts's only translation of the the the of the the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "Who was the old colleague that brought Yue-ts'un the news about reinstated officers?",
+        "expected": "Chang Ju-kuei",
+        "response": "The provided text is a-K'ung, the Taoist, and the Taoist, in the world, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist, in the Taoist,",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "What gift did Pao-yue give to Tai-yue upon their first meeting, which he then smashed?",
+        "expected": "His jade",
+        "response": "The provided text is a-K'ung K'ung, in the Ta'e K'ung, or Taoist Book of the Red Water. \n\nThe provided text is a-K'ung K'ung, in the Ta'e K'ung, or Taoist Book of the Red Water. \nThe provided text is a-K'ung K'ung, in the Ta'e K'ung, or Taoist Book of the Red Water. \nThe provided text is a-K'ung K'ung, in the Ta'e K'ung, or Taoist Book of the Red",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "How many waiting maids did dowager lady Chia assign to Tai-yue?",
+        "expected": "Two",
+        "response": "The provided text is a-K'ung K'ung, in the world of China, and in the world of India. \nThe provided text is a-K'ung K'ung, in the world of China, and in the world of India. \nThe provided text is a-K'ung K'ung, in the world of China, and in the world of India. \nThe provided text is a-K'ung K'ung, in the world of China, and in the world of India. \nThe provided text is a-K'ung K'ung, in the world",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What nickname did people give to young Hsueeh P'an?",
+        "expected": "The Foolish and Overbearing Prince",
+        "response": "The provided text is a-K'ung K'ung, the Taoist, in the Ta'e K'ung, the Taoist, in the Ta'e K'ung, the Taoist, in the Ta'e K'ung, the Taoist, in the Ta'e K'ung, the Taoist, in the Ta'e K'ung, the Taoist, in the Ta'e K'ung, the Taoist, in the Ta'e K'ung, the Taoist, in the Ta'e K'ung, the Taoist, in the Ta'e K'",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What was the name of the kidnapped girl at the center of the manslaughter case?",
+        "expected": "Ying Lien",
+        "response": "The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "Where did Mrs. Hsueeh and her children take up their quarters in the Jung mansion?",
+        "expected": "The Pear Fragrance Court",
+        "response": "The provided text is a-K'ung, or a-K'ung, in the Ta'ung K'ung, or the Ta'ung K'ung, in the Ta'ung K'ung, in the Ta'ung K'ung, in the Ta'ung K'ung, in the Ta'ung K'ung, in the Ta'ung K'ung, in the Ta'ung K'ung, in the Ta'ung K'ung, in the Ta'ung K'ung, in the Ta'ung K'ung, in the Ta'ung K'ung, in the Ta",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "Whose wife, Mrs. Ch'in, led Pao-yue to rest when he felt tired during the flower-viewing banquet?",
+        "expected": "Chia Jung's wife",
+        "response": "The text is a-K'ung, in the Ta'e K'ung, or, in the Ta'e K'ung, the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "What are the four characters written on the stone tablet at the entrance of the Great Void?",
+        "expected": "The confines of the Great Void",
+        "response": "The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "What is the title of the record that Pao-yue opens, containing entries about the most prominent girls of his province?",
+        "expected": "The Principal Record of the Twelve Maidens of Chin Ling",
+        "response": "The title of the record that Pao-yue opens is the **\"Dream of the Red Hand of the State\"**.",
+        "match": true
+      },
+      {
+        "chapter": 6,
+        "question": "How much silver did lady Feng give to old goody Liu?",
+        "expected": "Twenty taels",
+        "response": "The provided text is a translation of a book titled \"The Dream of the Eastern City, the Dream of the Western City, and the Dream of the Eastern City, the Dream of the Western City, and the Dream of the Eastern City, the Dream of the Western City, and the Dream of the Eastern City, the Dream of the Western City, and the Dream of the Eastern City, the Dream of the Western City, and the Dream of the Eastern City, the Dream of the Western City, and the Dream of the Eastern City, the Dream of the Western City, and the Dream of the Eastern City, the Dream of the Western",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "What is the name of goody Liu's grandson whom she brings to the Jung mansion?",
+        "expected": "Pan Erh",
+        "response": "The provided text states that the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of the author, the daughter of",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "Who is the waiting-maid of lady Feng that goody Liu initially mistakes for lady Feng herself?",
+        "expected": "P'ing Erh",
+        "response": "The provided text is a-K'ung K'ung, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world of the Taoist, in the world",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What kind of flowers does aunt Hsueeh send to the young ladies via Chou Jui's wife?",
+        "expected": "Twelve twigs of artificial flowers of piled gauze, made in the palace",
+        "response": "The provided text is a-K'ung K'ung, in the Ta'e K'ung, or, in the Ta'e K'ung, the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K'ung, in the Ta'e K",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the medicine that Pao Ch'ai takes for her ailment?",
+        "expected": "Cold fragrance pills",
+        "response": "The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided text states:\n\n\"The provided",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the drunken old servant in the Ning mansion who abuses his masters?",
+        "expected": "Chiao Ta",
+        "response": "The provided text is a-quote from the text.",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What two lines are inscribed on the face of Pao-yue's jade?",
+        "expected": "If thou wilt lose me not and never forget me, Eternal life and constant luck will be with thee",
+        "response": "The provided text is a-quote from the text of the poem. \nThe provided text is a-quote from the poem. \nThe provided text is a-quote from the poem. \nThe provided text is a-quote from the poem. \nThe provided text is a-quote from the poem. \nThe provided text is a-quote from the poem. \nThe provided text is a-quote from the poem. \nThe provided text is a-quote from the poem. \nThe provided text is a-quote from the poem. \nThe provided text is a-quote from",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What inscription is on the face of Pao Ch'ai's golden locket?",
+        "expected": "Part not from me and cast me not away",
+        "response": "The provided text states:\n\n\"The text of the Dream of the Red K'ung is a-\n\"The text of the Dream of the Red K'ung is a-\n\"The text of the Dream of the Red K'ung is a-\n\"The text of the Dream of the Red K'ung is a-\n\"The text of the Dream of the Red K'ung is a-\n\"The text of the Dream of the Red K'ung is a-\n\"The text of the Dream of the Red K'ung is a-\n\"The text of the Dream of the Red K",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What three characters did Pao-yue write and have pasted above his door?",
+        "expected": "Red, Rue, Hall",
+        "response": "The provided text is a-quote from the text of the poem. \nThe provided text is a-quote from the text of the poem. \nThe provided text is a-quote from the text of the poem. \nThe provided text is a-quote from the text of the poem. \nThe provided text is a-quote from the text of the poem. \nThe provided text is a-quote from the text of the poem. \nThe provided text is a-quote from the text of the poem. \nThe provided text is a-quote from the text of the poem.",
+        "match": false
+      }
+    ],
+    "n20": [
+      {
+        "chapter": 1,
+        "question": "How many blocks of stone did the Empress Nue Wo prepare at the Ta Huang Hills for repairing the heavens?",
+        "expected": "36,501 blocks",
+        "response": "or or or one o o o or or or very or or or or or or or or or as and first or o o o o narrow together or the and or or veryis o early early early early early even on or and or or or or or or a\n\n the stand o h- and and and or or o well j's-wide lid r' or r r or or the and ass and and ass with r r r r r s almost on on on yet as s well j sississ or even",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "What is the infant name of Chen Shih-yin's daughter?",
+        "expected": "Ying Lien",
+        "response": "j w Infirmary- butjar and un so and and and and and and in and and and-i's and and'ss-s his his part but long and and m public on on the or or or or or or or or or or'ss- the or or or or or or-- either much that\n\nor or or him or or or or or- s s or or very or or or- s or or a\n\n first h house h- at but a early early early early even early even early even the or or or and or or both s s or or the and or or both s",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "How much silver did Shih-yin give Yue-ts'un for his travelling expenses to the capital?",
+        "expected": "Fifty taels of pure silver",
+        "response": "or and useRef useRef or or and or the or the or the or or or or or or or or-wide and or or both both or or or time or or or ho ho publicity the either either or or or both school the or or or the or or or yet or or or either or or or o\n near very right or or or-sss or long the or or or a or or- red place or o'' the the s or or a a r's the or or or a h j s busشهاد the m house r or or or o o",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What is the surname of the newly-appointed Magistrate who turns out to be Yue-ts'un?",
+        "expected": "Chia",
+        "response": "or or or or and and and and and and and and and and an and and and and and and but-s one pair much of but long long long age and and or un or a-\n\n or or who s h jis or or or and and the and and-y K- at long on or or and the and the and their their most early h'ss long st's broad right or the or the an an rly first blood at long an and and the tr'ss broad good fair d and or quite- s s busشهادشهادشهادشهادشهادشهادشهادشهادشهادشهادشهادشهادشهاد",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What was Lin Ju-hai's daughter's infant name?",
+        "expected": "Tai Yue",
+        "response": "or and of one of and of or very very very or and un so beatirn on'ss- lid lid'-'sss'ss' but but but but long blood blood blood blood blood blood blood blood blood blood blood blood blood or or or or or or or or or or or or or or or or or or un or or or or or or\n or or or or- j hair ass s or or or or or or or or\n or the or or or ssub first broad or o or or w the or or or or ho ho nearly first or or or or ori or or or",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "Where did Yue-ts'un meet Leng Tzu-hsing by chance?",
+        "expected": "At a village public house",
+        "response": "or ornarrow narrow''s and and of of of of at at but but but but just of which and one of which or orwide and or or or very or or or or wide and and and and or both both both s or or or or or or time- the or or the or or or the or or jail the or or or or or or time or or or or or or or or or-oror or or or or or or or or-oror or or or or or orentire whole- whole whole entirerost first or or or or or or",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "Who was the old colleague that brought Yue-ts'un the news about reinstated officers?",
+        "expected": "Chang Ju-kuei",
+        "response": "j'ss",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "What gift did Pao-yue give to Tai-yue upon their first meeting, which he then smashed?",
+        "expected": "His jade",
+        "response": "or or bus andor and one un public and or and and or- long long early early early on on his of just right but or I good rightendidtvguidetime hair his- or almost on on on on or or or or or or or or or\n or or or or- or or or much first and and and or or very and or very or much much much much much much much much much first m m- which which I''s w w at nearly one the great and immortal the s or or very very I I''ss or or o the m h- which ihm's first or or a and",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "How many waiting maids did dowager lady Chia assign to Tai-yue?",
+        "expected": "Two",
+        "response": "pass an I I ociais on''sssLife grand and and and and--i j long grand and or-s;-Life at but but but but just j j s or which which I the first or or or the the or or or each",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What nickname did people give to young Hsueeh P'an?",
+        "expected": "The Foolish and Overbearing Prince",
+        "response": "or K or or or or or of of of of of of of of of of even of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What was the name of the kidnapped girl at the center of the manslaughter case?",
+        "expected": "Ying Lien",
+        "response": "or or one of of very,or or the of or or or as and and and and the and and he and both and o and the great-fair great m m-iiunn j and and and- and muchscar on on a s or o sencillo'ss-s part of which\n\n\n\n or or or the m and and yet nows K road,or and or one on life early early even first or or the o train early early even the first marm early on on wh j of his s of or or or the s m god' sI I'ss s s s s s",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "Where did Mrs. Hsueeh and her children take up their quarters in the Jung mansion?",
+        "expected": "The Pear Fragrance Court",
+        "response": "or the the-s and and and and and and and and and and and and and and and and and and and and and-i'sss j range- but or very a and and and and-i''sss' K K h yet yet- the the and and and the and and as ho very very very very very very very very very very very very very very very very very very very very very very very very very fair and very very very very very very very very very very and very- very very very very very very very very very very very very very very very very very r part part which",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "Whose wife, Mrs. Ch'in, led Pao-yue to rest when he felt tired during the flower-viewing banquet?",
+        "expected": "Chia Jung's wife",
+        "response": "or or un r s and I I o h-t'ss-s K early early at long great pair rly the long whole or very very mar I pair rred I K pair of'ss; yet yet my K at which which so I so even first r cast which I even first much which of which I at but h h which which which I at almost early early early early early on on the m hbrough of my h I h a which which which I I h first h h hair early at the or o early or or even first or or or I I I I h h I of at which",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "What are the four characters written on the stone tablet at the entrance of the Great Void?",
+        "expected": "The confines of the Great Void",
+        "response": "or or or or or or or or or or or or or exactly the long wet the and very r yet yet yet yet-t''sssssslightedtive h on or or o but or the the or or or or or or or the the or or's but near a on o early early early even early even the o or ho first long age on or or or or or both the m r self s or o early even the st or the o hair I' mar early on or r r w'sssss-ss-s' or or the ho ho ho ho ho",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "What is the title of the record that Pao-yue opens, containing entries about the most prominent girls of his province?",
+        "expected": "The Principal Record of the Twelve Maidens of Chin Ling",
+        "response": "or o o o par or of over which is quite and and and and much blood blood blood blood blood blood blood- or or- or or or and or or very very almost early and very very very very half and blood or or the o",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "How much silver did lady Feng give to old goody Liu?",
+        "expected": "Twenty taels",
+        "response": "or one and and and but of which is long and or or or or or or or or the o ward''sss* or or or or a very or or or a or- but or or or or- or or or- or- or much\n\nor very very very very w hair great public public or or the we the first or w\n\n;' the st or s nearly on on the the m or or or the the m- at or or great public or the o s or the pant very early early even as or or or or or or the the s or the time or m'sss",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "What is the name of goody Liu's grandson whom she brings to the Jung mansion?",
+        "expected": "Pan Erh",
+        "response": "or or very very and and very yingly very and and and and and his very very very and and or very very and and or or and very great very very long and and and or or and so so great road and and both, or or the and the and and very place a or the the an I I I''ss long-s blood",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "Who is the waiting-maid of lady Feng that goody Liu initially mistakes for lady Feng herself?",
+        "expected": "P'ing Erh",
+        "response": "or or or o'''- which or the or or or or or or or or and and or or and or or or or and still h'ss bus bus bus early early early early early early early even early early even early early even mrack his or or or the or a or or or or ass marriage even a s or the ho complete. or or the or or time or ho ho ho or' or an or or or or time or the- or the o or the ho ho's- the m or or time even on on or ho s bus bus than first the m m or or or o",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What kind of flowers does aunt Hsueeh send to the young ladies via Chou Jui's wife?",
+        "expected": "Twelve twigs of artificial flowers of piled gauze, made in the palace",
+        "response": "or and K pa'ss-issississississis or' but but long one'unn or or or or or or or or the or or or or or even or even of us im public public on on on one on or or or or a' or the or or even or even nearly his-’ our much blood blood hot blood blood blood blood blood blood blood blood blood blood blood blood we very long long long or or quite long and long so long very I even right or or the o or or the the m s hand or or much or o or o or or or or a' u hair hair r",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the medicine that Pao Ch'ai takes for her ailment?",
+        "expected": "Cold fragrance pills",
+        "response": "or or or or or or or or-wide, and very and and and and and and very very and and or both very those o-s-s public K pair and and and and and very very very very very very very very very long very very very very very very very very very very very very very very very very and very very very very very very very very very very very part of which in but very very and very very part first and very part part first nearly which or or which w narrow mississ j or or or or or o the or ho largeReadRead but but but but but which d' or s",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the drunken old servant in the Ning mansion who abuses his masters?",
+        "expected": "Chiao Ta",
+        "response": "or or or or or or or or or a his of of of of of of of of of of\n\n yet yet yet yet yet yet yet yet- K pair-s-s and un yet yet yet yet yet- I pair''s of yet yet yet yet yet- yet- yet- yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet yet",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What two lines are inscribed on the face of Pao-yue's jade?",
+        "expected": "If thou wilt lose me not and never forget me, Eternal life and constant luck will be with thee",
+        "response": "or or very very very very and and and and and and and the a long s s\n'spr and and or or or and and the the or or or owide time or the o s m early early early on on or much first or o'ss-oiss or or or o early even of the or or the o m early on on he long wet early even early even so sum sum'sssssss first r the the or or r r'ss first broad or r r r r r or r r r r r r r r r r r r r r m st",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What inscription is on the face of Pao Ch'ai's golden locket?",
+        "expected": "Part not from me and cast me not away",
+        "response": "or and or?-iss or or or very or or or or or or a religious the or or or or much or or- or or now first and and a long and and or or much first part of\n or or or or or or or even or a or or or- r or or still of or or w on or a or or even or- j s or o or or Great fiery part first part first tar pre or or o o o o\n\n the or or long overough god first broad r now on to the j or or or long the m Ung s s h j j s or or or or full",
+        "match": true
+      },
+      {
+        "chapter": 8,
+        "question": "What three characters did Pao-yue write and have pasted above his door?",
+        "expected": "Red, Rue, Hall",
+        "response": "var-Uintened and and long and very very much part of\n; or or or or' or r and or or or or or and or or or or or or first part even which or to and or or or or or time or or or or or\n or or or or- home oror or or or or or-sss or or the or a or--s blood blood part of or or a\n\n' the s or or an- the or even or the grand grand grand grand his or or the grand mill an or the o's-tiss or or an or the grand part at or",
+        "match": false
+      }
+    ],
+    "n50": [
+      {
+        "chapter": 1,
+        "question": "How many blocks of stone did the Empress Nue Wo prepare at the Ta Huang Hills for repairing the heavens?",
+        "expected": "36,501 blocks",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "What is the infant name of Chen Shih-yin's daughter?",
+        "expected": "Ying Lien",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "How much silver did Shih-yin give Yue-ts'un for his travelling expenses to the capital?",
+        "expected": "Fifty taels of pure silver",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What is the surname of the newly-appointed Magistrate who turns out to be Yue-ts'un?",
+        "expected": "Chia",
+        "response": "первыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервых",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What was Lin Ju-hai's daughter's infant name?",
+        "expected": "Tai Yue",
+        "response": "первыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервых",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "Where did Yue-ts'un meet Leng Tzu-hsing by chance?",
+        "expected": "At a village public house",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "Who was the old colleague that brought Yue-ts'un the news about reinstated officers?",
+        "expected": "Chang Ju-kuei",
+        "response": "первыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервых",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "What gift did Pao-yue give to Tai-yue upon their first meeting, which he then smashed?",
+        "expected": "His jade",
+        "response": "îng numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus numerus",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "How many waiting maids did dowager lady Chia assign to Tai-yue?",
+        "expected": "Two",
+        "response": "if if if if if if if if if if if if if if if if if if if if if if if if if if if if if if if if if if if if if himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What nickname did people give to young Hsueeh P'an?",
+        "expected": "The Foolish and Overbearing Prince",
+        "response": "первыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервых",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What was the name of the kidnapped girl at the center of the manslaughter case?",
+        "expected": "Ying Lien",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "Where did Mrs. Hsueeh and her children take up their quarters in the Jung mansion?",
+        "expected": "The Pear Fragrance Court",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "Whose wife, Mrs. Ch'in, led Pao-yue to rest when he felt tired during the flower-viewing banquet?",
+        "expected": "Chia Jung's wife",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "What are the four characters written on the stone tablet at the entrance of the Great Void?",
+        "expected": "The confines of the Great Void",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "What is the title of the record that Pao-yue opens, containing entries about the most prominent girls of his province?",
+        "expected": "The Principal Record of the Twelve Maidens of Chin Ling",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "How much silver did lady Feng give to old goody Liu?",
+        "expected": "Twenty taels",
+        "response": "первыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервых",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "What is the name of goody Liu's grandson whom she brings to the Jung mansion?",
+        "expected": "Pan Erh",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "Who is the waiting-maid of lady Feng that goody Liu initially mistakes for lady Feng herself?",
+        "expected": "P'ing Erh",
+        "response": "первыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервых",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What kind of flowers does aunt Hsueeh send to the young ladies via Chou Jui's wife?",
+        "expected": "Twelve twigs of artificial flowers of piled gauze, made in the palace",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the medicine that Pao Ch'ai takes for her ailment?",
+        "expected": "Cold fragrance pills",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the drunken old servant in the Ning mansion who abuses his masters?",
+        "expected": "Chiao Ta",
+        "response": "первыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервых",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What two lines are inscribed on the face of Pao-yue's jade?",
+        "expected": "If thou wilt lose me not and never forget me, Eternal life and constant luck will be with thee",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What inscription is on the face of Pao Ch'ai's golden locket?",
+        "expected": "Part not from me and cast me not away",
+        "response": "первыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервых",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What three characters did Pao-yue write and have pasted above his door?",
+        "expected": "Red, Rue, Hall",
+        "response": "первыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервых",
+        "match": false
+      }
+    ],
+    "n100": [
+      {
+        "chapter": 1,
+        "question": "How many blocks of stone did the Empress Nue Wo prepare at the Ta Huang Hills for repairing the heavens?",
+        "expected": "36,501 blocks",
+        "response": "and",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "What is the infant name of Chen Shih-yin's daughter?",
+        "expected": "Ying Lien",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "How much silver did Shih-yin give Yue-ts'un for his travelling expenses to the capital?",
+        "expected": "Fifty taels of pure silver",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little littleWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitals",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What is the surname of the newly-appointed Magistrate who turns out to be Yue-ts'un?",
+        "expected": "Chia",
+        "response": "numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf himſelf",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What was Lin Ju-hai's daughter's infant name?",
+        "expected": "Tai Yue",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "Where did Yue-ts'un meet Leng Tzu-hsing by chance?",
+        "expected": "At a village public house",
+        "response": "numai numai numai numai numai numai المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "Who was the old colleague that brought Yue-ts'un the news about reinstated officers?",
+        "expected": "Chang Ju-kuei",
+        "response": "numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai numai المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى المعيارى",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "What gift did Pao-yue give to Tai-yue upon their first meeting, which he then smashed?",
+        "expected": "His jade",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "How many waiting maids did dowager lady Chia assign to Tai-yue?",
+        "expected": "Two",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What nickname did people give to young Hsueeh P'an?",
+        "expected": "The Foolish and Overbearing Prince",
+        "response": "and and and her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What was the name of the kidnapped girl at the center of the manslaughter case?",
+        "expected": "Ying Lien",
+        "response": "and and and the lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "Where did Mrs. Hsueeh and her children take up their quarters in the Jung mansion?",
+        "expected": "The Pear Fragrance Court",
+        "response": "and and the lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker lenker",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "Whose wife, Mrs. Ch'in, led Pao-yue to rest when he felt tired during the flower-viewing banquet?",
+        "expected": "Chia Jung's wife",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "What are the four characters written on the stone tablet at the entrance of the Great Void?",
+        "expected": "The confines of the Great Void",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "What is the title of the record that Pao-yue opens, containing entries about the most prominent girls of his province?",
+        "expected": "The Principal Record of the Twelve Maidens of Chin Ling",
+        "response": "îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng îng",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "How much silver did lady Feng give to old goody Liu?",
+        "expected": "Twenty taels",
+        "response": "первыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервых",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "What is the name of goody Liu's grandson whom she brings to the Jung mansion?",
+        "expected": "Pan Erh",
+        "response": "and her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "Who is the waiting-maid of lady Feng that goody Liu initially mistakes for lady Feng herself?",
+        "expected": "P'ing Erh",
+        "response": "первыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервыхпервых",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What kind of flowers does aunt Hsueeh send to the young ladies via Chou Jui's wife?",
+        "expected": "Twelve twigs of artificial flowers of piled gauze, made in the palace",
+        "response": "and and her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the medicine that Pao Ch'ai takes for her ailment?",
+        "expected": "Cold fragrance pills",
+        "response": "and and and her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the drunken old servant in the Ning mansion who abuses his masters?",
+        "expected": "Chiao Ta",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little Little Little Little little little little little little little little little little little little little little little little little little little littleCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperationCloseOperation",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What two lines are inscribed on the face of Pao-yue's jade?",
+        "expected": "If thou wilt lose me not and never forget me, Eternal life and constant luck will be with thee",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What inscription is on the face of Pao Ch'ai's golden locket?",
+        "expected": "Part not from me and cast me not away",
+        "response": "and and her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What three characters did Pao-yue write and have pasted above his door?",
+        "expected": "Red, Rue, Hall",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little Little Little Little Little Little Little Little Little Little Little",
+        "match": false
+      }
+    ],
+    "n176": [
+      {
+        "chapter": 1,
+        "question": "How many blocks of stone did the Empress Nue Wo prepare at the Ta Huang Hills for repairing the heavens?",
+        "expected": "36,501 blocks",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little littletagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunner",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "What is the infant name of Chen Shih-yin's daughter?",
+        "expected": "Ying Lien",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little",
+        "match": false
+      },
+      {
+        "chapter": 1,
+        "question": "How much silver did Shih-yin give Yue-ts'un for his travelling expenses to the capital?",
+        "expected": "Fifty taels of pure silver",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little Little little little little Little little little little little little little little little little little little little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What is the surname of the newly-appointed Magistrate who turns out to be Yue-ts'un?",
+        "expected": "Chia",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little Little LittleLittle little little Little LittleWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitals",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "What was Lin Ju-hai's daughter's infant name?",
+        "expected": "Tai Yue",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little",
+        "match": false
+      },
+      {
+        "chapter": 2,
+        "question": "Where did Yue-ts'un meet Leng Tzu-hsing by chance?",
+        "expected": "At a village public house",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "Who was the old colleague that brought Yue-ts'un the news about reinstated officers?",
+        "expected": "Chang Ju-kuei",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "What gift did Pao-yue give to Tai-yue upon their first meeting, which he then smashed?",
+        "expected": "His jade",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little Little Little Little Little Little LittleWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitalsWebVitals",
+        "match": false
+      },
+      {
+        "chapter": 3,
+        "question": "How many waiting maids did dowager lady Chia assign to Tai-yue?",
+        "expected": "Two",
+        "response": "numai numai numai numai numaiWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrierWriteBarrier",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What nickname did people give to young Hsueeh P'an?",
+        "expected": "The Foolish and Overbearing Prince",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little littletagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunner",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "What was the name of the kidnapped girl at the center of the manslaughter case?",
+        "expected": "Ying Lien",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little",
+        "match": false
+      },
+      {
+        "chapter": 4,
+        "question": "Where did Mrs. Hsueeh and her children take up their quarters in the Jung mansion?",
+        "expected": "The Pear Fragrance Court",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "Whose wife, Mrs. Ch'in, led Pao-yue to rest when he felt tired during the flower-viewing banquet?",
+        "expected": "Chia Jung's wife",
+        "response": "little little little little little little little little little little little- her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her her",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "What are the four characters written on the stone tablet at the entrance of the Great Void?",
+        "expected": "The confines of the Great Void",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little littletagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunner",
+        "match": false
+      },
+      {
+        "chapter": 5,
+        "question": "What is the title of the record that Pao-yue opens, containing entries about the most prominent girls of his province?",
+        "expected": "The Principal Record of the Twelve Maidens of Chin Ling",
+        "response": "! band band band band band band band band bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka bershka",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "How much silver did lady Feng give to old goody Liu?",
+        "expected": "Twenty taels",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little littletagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunner",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "What is the name of goody Liu's grandson whom she brings to the Jung mansion?",
+        "expected": "Pan Erh",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little littletagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunner",
+        "match": false
+      },
+      {
+        "chapter": 6,
+        "question": "Who is the waiting-maid of lady Feng that goody Liu initially mistakes for lady Feng herself?",
+        "expected": "P'ing Erh",
+        "response": "than than than wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb wyb",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What kind of flowers does aunt Hsueeh send to the young ladies via Chou Jui's wife?",
+        "expected": "Twelve twigs of artificial flowers of piled gauze, made in the palace",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little littletagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunnertagHelperRunner",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the medicine that Pao Ch'ai takes for her ailment?",
+        "expected": "Cold fragrance pills",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little littleLittle little littleLittle little little little little littleLittleLittle little littleLittle little littleLittleLittle little littleLittle little little little little little little little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little",
+        "match": false
+      },
+      {
+        "chapter": 7,
+        "question": "What is the name of the drunken old servant in the Ning mansion who abuses his masters?",
+        "expected": "Chiao Ta",
+        "response": "little little little little little little little-- his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his his",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What two lines are inscribed on the face of Pao-yue's jade?",
+        "expected": "If thou wilt lose me not and never forget me, Eternal life and constant luck will be with thee",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little Little Little Little Little Little Little Little Little Little Little Little Little Little Little Little tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló tartalomajánló",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What inscription is on the face of Pao Ch'ai's golden locket?",
+        "expected": "Part not from me and cast me not away",
+        "response": "!!!!!!!!!!!!!!!!!!!!!!!!!!! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! Sirs Sirs Sirs Sirs Sirs Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur Monfieur",
+        "match": false
+      },
+      {
+        "chapter": 8,
+        "question": "What three characters did Pao-yue write and have pasted above his door?",
+        "expected": "Red, Rue, Hall",
+        "response": "little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little little Little Little Little Little Little Little Little Little Little Little Little Little Little Little little little little little little little little Little Little Little Little Little Little Little LittleCloseOperationCloseOperationCloseOperation",
+        "match": false
+      }
+    ]
+  }
+}
