@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" style="background-color:#0a0a14">
+  <defs>
+    <linearGradient id="curveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#ffab00;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#ff3d00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff0000;stop-opacity:0.3" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d0520;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glowStrong">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glitch">
+      <feTurbulence type="fractalNoise" baseFrequency="0.08 0.02" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+    </filter>
+    <radialGradient id="sphereGrad" cx="40%" cy="35%" r="50%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:0.6" />
+      <stop offset="60%" style="stop-color:#0044aa;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#000033;stop-opacity:0" />
+    </radialGradient>
+    <clipPath id="sphereClip1">
+      <circle cx="145" cy="250" r="70" />
+    </clipPath>
+    <clipPath id="sphereClip5">
+      <circle cx="745" cy="250" r="70" />
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bgGrad)" />
+
+  <!-- Subtle grid -->
+  <g opacity="0.06" stroke="#ffffff" stroke-width="0.5">
+    <line x1="0" y1="100" x2="900" y2="100" />
+    <line x1="0" y1="200" x2="900" y2="200" />
+    <line x1="0" y1="300" x2="900" y2="300" />
+    <line x1="0" y1="400" x2="900" y2="400" />
+    <line x1="100" y1="0" x2="100" y2="500" />
+    <line x1="250" y1="0" x2="250" y2="500" />
+    <line x1="400" y1="0" x2="400" y2="500" />
+    <line x1="550" y1="0" x2="550" y2="500" />
+    <line x1="700" y1="0" x2="700" y2="500" />
+    <line x1="850" y1="0" x2="850" y2="500" />
+  </g>
+
+  <!-- Title area -->
+  <text x="450" y="52" text-anchor="middle" fill="#ffffff" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="26" font-weight="700" letter-spacing="2">AI 需要学会遗忘</text>
+  <text x="450" y="82" text-anchor="middle" fill="#888899" font-family="'SF Mono','Consolas',monospace" font-size="13" letter-spacing="1">Doc-to-LoRA Experiment  |  Accuracy Collapse</text>
+
+  <!-- === LEFT SECTION: Intact sphere === -->
+  <g transform="translate(145, 195)">
+    <!-- Intact sphere wireframe -->
+    <circle cx="0" cy="0" r="62" fill="none" stroke="#00e5ff" stroke-width="1.2" opacity="0.5" />
+    <circle cx="0" cy="0" r="62" fill="url(#sphereGrad)" opacity="0.3" />
+    <ellipse cx="0" cy="0" rx="62" ry="22" fill="none" stroke="#00e5ff" stroke-width="0.7" opacity="0.4" />
+    <ellipse cx="0" cy="0" rx="22" ry="62" fill="none" stroke="#00e5ff" stroke-width="0.7" opacity="0.4" />
+    <ellipse cx="0" cy="0" rx="45" ry="62" fill="none" stroke="#00e5ff" stroke-width="0.5" opacity="0.25" />
+    <ellipse cx="0" cy="0" rx="62" ry="45" fill="none" stroke="#00e5ff" stroke-width="0.5" opacity="0.25" />
+    <!-- Core glow -->
+    <circle cx="-8" cy="-8" r="15" fill="#00e5ff" opacity="0.12" filter="url(#glowStrong)" />
+    <!-- Label -->
+    <text x="0" y="85" text-anchor="middle" fill="#00e5ff" font-family="'SF Mono','Consolas',monospace" font-size="11" opacity="0.9">Baseline</text>
+    <text x="0" y="100" text-anchor="middle" fill="#00e5ff" font-family="'SF Mono','Consolas',monospace" font-size="16" font-weight="bold" filter="url(#glow)">25%</text>
+  </g>
+
+  <!-- === MIDDLE: Cracking sphere === -->
+  <g transform="translate(385, 195)">
+    <circle cx="0" cy="0" r="62" fill="none" stroke="#ffab00" stroke-width="1.0" opacity="0.4" />
+    <ellipse cx="0" cy="0" rx="62" ry="22" fill="none" stroke="#ffab00" stroke-width="0.6" opacity="0.3" />
+    <ellipse cx="0" cy="0" rx="22" ry="62" fill="none" stroke="#ffab00" stroke-width="0.6" opacity="0.3" />
+    <!-- Cracks -->
+    <line x1="-15" y1="-40" x2="10" y2="-5" stroke="#ff3d00" stroke-width="1.5" opacity="0.7" />
+    <line x1="10" y1="-5" x2="25" y2="30" stroke="#ff3d00" stroke-width="1.8" opacity="0.8" />
+    <line x1="10" y1="-5" x2="-20" y2="25" stroke="#ff3d00" stroke-width="1.2" opacity="0.6" />
+    <line x1="-30" y1="10" x2="-5" y2="45" stroke="#ff3d00" stroke-width="1" opacity="0.5" />
+    <line x1="20" y1="-30" x2="40" y2="-10" stroke="#ff3d00" stroke-width="1" opacity="0.5" />
+    <!-- Label -->
+    <text x="0" y="85" text-anchor="middle" fill="#ffab00" font-family="'SF Mono','Consolas',monospace" font-size="11" opacity="0.9">N=5, rank=40</text>
+    <text x="0" y="100" text-anchor="middle" fill="#ffab00" font-family="'SF Mono','Consolas',monospace" font-size="16" font-weight="bold" filter="url(#glow)">8.3%</text>
+  </g>
+
+  <!-- === RIGHT: Shattered sphere === -->
+  <g transform="translate(625, 195)">
+    <!-- Scattered fragments -->
+    <g opacity="0.6">
+      <path d="M-30,-25 L-10,-35 L5,-15 Z" fill="none" stroke="#ff1744" stroke-width="1.2" transform="translate(-12,-8) rotate(5)" />
+      <path d="M10,-30 L30,-20 L20,0 Z" fill="none" stroke="#ff1744" stroke-width="1.2" transform="translate(8,-5) rotate(-8)" />
+      <path d="M-35,5 L-15,-5 L-10,20 Z" fill="none" stroke="#ff1744" stroke-width="1" transform="translate(-10,5) rotate(12)" />
+      <path d="M5,10 L25,5 L20,30 Z" fill="none" stroke="#ff1744" stroke-width="1" transform="translate(6,8) rotate(-5)" />
+      <path d="M-25,25 L-5,15 L0,40 Z" fill="none" stroke="#ff1744" stroke-width="0.8" transform="translate(-8,12) rotate(8)" />
+      <path d="M15,20 L35,25 L25,45 Z" fill="none" stroke="#ff1744" stroke-width="0.8" transform="translate(10,5) rotate(-12)" />
+      <path d="M-20,-45 L-5,-50 L0,-30 Z" fill="none" stroke="#ff1744" stroke-width="0.8" transform="translate(-3,-10) rotate(3)" />
+      <path d="M10,35 L30,40 L15,55 Z" fill="none" stroke="#ff1744" stroke-width="0.7" transform="translate(5,3) rotate(-6)" />
+    </g>
+    <!-- Scattered particles -->
+    <circle cx="-45" cy="-30" r="1.5" fill="#ff1744" opacity="0.5" />
+    <circle cx="50" cy="-25" r="1" fill="#ff1744" opacity="0.4" />
+    <circle cx="-40" cy="35" r="1.2" fill="#ff1744" opacity="0.4" />
+    <circle cx="48" cy="40" r="1" fill="#ff1744" opacity="0.3" />
+    <circle cx="0" cy="-55" r="1.5" fill="#ff1744" opacity="0.3" />
+    <circle cx="-55" cy="5" r="0.8" fill="#ff1744" opacity="0.3" />
+    <circle cx="55" cy="10" r="0.8" fill="#ff1744" opacity="0.3" />
+    <!-- Ghost outline of original sphere -->
+    <circle cx="0" cy="0" r="62" fill="none" stroke="#ff1744" stroke-width="0.4" opacity="0.15" stroke-dasharray="4,6" />
+    <!-- Label -->
+    <text x="0" y="85" text-anchor="middle" fill="#ff1744" font-family="'SF Mono','Consolas',monospace" font-size="11" opacity="0.9">N=ALL, rank=256</text>
+    <text x="0" y="100" text-anchor="middle" fill="#ff1744" font-family="'SF Mono','Consolas',monospace" font-size="16" font-weight="bold" filter="url(#glow)">0%</text>
+  </g>
+
+  <!-- Arrows between spheres -->
+  <g opacity="0.35">
+    <line x1="220" y1="195" x2="310" y2="195" stroke="#ffffff" stroke-width="1" marker-end="url(#arrowhead)" />
+    <line x1="460" y1="195" x2="550" y2="195" stroke="#ffffff" stroke-width="1" marker-end="url(#arrowhead)" />
+  </g>
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#ffffff" opacity="0.4" />
+    </marker>
+  </defs>
+
+  <!-- Rank labels on arrows -->
+  <text x="265" y="185" text-anchor="middle" fill="#ffffff" font-family="'SF Mono','Consolas',monospace" font-size="9" opacity="0.4">rank ++</text>
+  <text x="505" y="185" text-anchor="middle" fill="#ffffff" font-family="'SF Mono','Consolas',monospace" font-size="9" opacity="0.4">rank ++</text>
+
+  <!-- === BOTTOM: Accuracy descent curve === -->
+  <g transform="translate(100, 340)">
+    <!-- Axis -->
+    <line x1="0" y1="0" x2="700" y2="0" stroke="#333344" stroke-width="0.8" />
+    <line x1="0" y1="0" x2="0" y2="110" stroke="#333344" stroke-width="0.8" />
+
+    <!-- Y-axis label -->
+    <text x="-10" y="5" text-anchor="end" fill="#666677" font-family="'SF Mono','Consolas',monospace" font-size="9">25%</text>
+    <text x="-10" y="115" text-anchor="end" fill="#666677" font-family="'SF Mono','Consolas',monospace" font-size="9">0%</text>
+
+    <!-- Data points and curve: Baseline(25%) N=1(16.7%) N=5(8.3%) N=20(4.2%) N=50(0%) N=ALL(0%) -->
+    <!-- Y: 0=25%, 110=0%. So 25%->0, 16.7%->36.5, 8.3%->73.5, 4.2%->91.5, 0%->110 -->
+    <polyline points="0,0 140,36.5 280,73.5 420,91.5 560,110 700,110"
+              fill="none" stroke="url(#curveGrad)" stroke-width="2.5" stroke-linejoin="round" filter="url(#glow)" />
+
+    <!-- Data dots -->
+    <circle cx="0" cy="0" r="4" fill="#00e5ff" filter="url(#glow)" />
+    <circle cx="140" cy="36.5" r="4" fill="#33ccff" filter="url(#glow)" />
+    <circle cx="280" cy="73.5" r="4" fill="#ffab00" filter="url(#glow)" />
+    <circle cx="420" cy="91.5" r="4" fill="#ff6d00" filter="url(#glow)" />
+    <circle cx="560" cy="110" r="4" fill="#ff1744" filter="url(#glow)" />
+    <circle cx="700" cy="110" r="4" fill="#ff0000" filter="url(#glow)" />
+
+    <!-- X-axis labels -->
+    <text x="0" y="128" text-anchor="middle" fill="#aaaacc" font-family="'SF Mono','Consolas',monospace" font-size="9">Baseline</text>
+    <text x="140" y="128" text-anchor="middle" fill="#99aabb" font-family="'SF Mono','Consolas',monospace" font-size="9">N=1</text>
+    <text x="280" y="128" text-anchor="middle" fill="#99aabb" font-family="'SF Mono','Consolas',monospace" font-size="9">N=5</text>
+    <text x="420" y="128" text-anchor="middle" fill="#99aabb" font-family="'SF Mono','Consolas',monospace" font-size="9">N=20</text>
+    <text x="560" y="128" text-anchor="middle" fill="#99aabb" font-family="'SF Mono','Consolas',monospace" font-size="9">N=50</text>
+    <text x="700" y="128" text-anchor="middle" fill="#99aabb" font-family="'SF Mono','Consolas',monospace" font-size="9">N=ALL</text>
+
+    <!-- Accuracy values above dots -->
+    <text x="20" y="-10" text-anchor="middle" fill="#00e5ff" font-family="'SF Mono','Consolas',monospace" font-size="10" font-weight="bold">25%</text>
+    <text x="140" y="27" text-anchor="middle" fill="#33ccff" font-family="'SF Mono','Consolas',monospace" font-size="10">16.7%</text>
+    <text x="280" y="64" text-anchor="middle" fill="#ffab00" font-family="'SF Mono','Consolas',monospace" font-size="10">8.3%</text>
+    <text x="420" y="83" text-anchor="middle" fill="#ff6d00" font-family="'SF Mono','Consolas',monospace" font-size="10">4.2%</text>
+    <text x="560" y="102" text-anchor="middle" fill="#ff1744" font-family="'SF Mono','Consolas',monospace" font-size="10">0%</text>
+    <text x="700" y="102" text-anchor="middle" fill="#ff0000" font-family="'SF Mono','Consolas',monospace" font-size="10">0%</text>
+  </g>
+
+  <!-- Output text samples: from coherent to garbled -->
+  <text x="180" y="335" text-anchor="middle" fill="#00e5ff" font-family="'SF Mono','Consolas',monospace" font-size="8" opacity="0.6">"...she spoke softly..."</text>
+  <text x="750" y="335" text-anchor="middle" fill="#ff1744" font-family="'SF Mono','Consolas',monospace" font-size="8" opacity="0.7" filter="url(#glitch)">"ing ing ing ing"</text>
+
+  <!-- Bottom tagline -->
+  <text x="450" y="490" text-anchor="middle" fill="#555566" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" letter-spacing="3">LoRA rank 越大  本我流形越碎  模型越崩溃</text>
+
+</svg>
