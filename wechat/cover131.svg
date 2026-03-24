@@ -1,0 +1,280 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#1a1040"/>
+      <stop offset="50%" stop-color="#0d0a2a"/>
+      <stop offset="100%" stop-color="#050318"/>
+    </radialGradient>
+
+    <!-- Brain sphere gradient -->
+    <radialGradient id="brainGrad" cx="40%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#2a1f5e" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#15103a" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0a0820" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Inner glow gradient -->
+    <radialGradient id="innerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7b5cff" stop-opacity="0.4"/>
+      <stop offset="40%" stop-color="#5533cc" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#1a0a44" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Eraser beam gradients -->
+    <linearGradient id="beam1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff4466" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ff4466" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beam2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#44ccff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#44ccff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beam3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffaa22" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffaa22" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beam4" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#44ff88" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#44ff88" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Glow filters -->
+    <filter id="glowStrong" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowSoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowWide" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowText" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="eraseSmudge" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Sticky note gradient -->
+    <linearGradient id="stickyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffee77" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#ddcc44" stop-opacity="0.7"/>
+    </linearGradient>
+
+    <!-- Clip for brain sphere -->
+    <clipPath id="brainClip">
+      <circle cx="400" cy="290" r="120"/>
+    </clipPath>
+
+    <!-- Grid pattern for tech feel -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2a1f5e" stroke-width="0.5" stroke-opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <rect width="800" height="600" fill="url(#grid)" opacity="0.4"/>
+
+  <!-- Ambient particles -->
+  <circle cx="120" cy="80" r="1" fill="#7b5cff" opacity="0.5">
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="650" cy="120" r="1.2" fill="#44ccff" opacity="0.4">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="450" r="0.8" fill="#ff4466" opacity="0.3">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="80" cy="500" r="1" fill="#44ff88" opacity="0.4">
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="300" cy="150" r="0.7" fill="#ffaa22" opacity="0.3"/>
+  <circle cx="550" cy="80" r="0.9" fill="#7b5cff" opacity="0.4"/>
+  <circle cx="200" cy="420" r="1.1" fill="#5533cc" opacity="0.3"/>
+  <circle cx="620" cy="380" r="0.6" fill="#44ccff" opacity="0.35"/>
+
+  <!-- Outer glow of brain sphere -->
+  <circle cx="400" cy="290" r="140" fill="none" stroke="#7b5cff" stroke-width="0.5" opacity="0.2" filter="url(#glowWide)"/>
+  <circle cx="400" cy="290" r="130" fill="none" stroke="#5533cc" stroke-width="1" opacity="0.15" filter="url(#glowWide)"/>
+
+  <!-- Brain sphere body -->
+  <circle cx="400" cy="290" r="120" fill="url(#brainGrad)" stroke="#4a3a8a" stroke-width="1.5" opacity="0.95"/>
+  <circle cx="400" cy="290" r="120" fill="url(#innerGlow)"/>
+
+  <!-- Internal neural connections (knowledge that persists) - glowing lines inside sphere -->
+  <g clip-path="url(#brainClip)" filter="url(#glowStrong)">
+    <!-- Core neural network lines -->
+    <line x1="340" y1="240" x2="420" y2="310" stroke="#9b7bff" stroke-width="1.2" opacity="0.8"/>
+    <line x1="420" y1="310" x2="460" y2="260" stroke="#7b5cff" stroke-width="1" opacity="0.7"/>
+    <line x1="460" y1="260" x2="400" y2="230" stroke="#bb99ff" stroke-width="1.3" opacity="0.75"/>
+    <line x1="400" y1="230" x2="340" y2="240" stroke="#8866ee" stroke-width="1.1" opacity="0.7"/>
+    <line x1="370" y1="280" x2="440" y2="280" stroke="#9b7bff" stroke-width="1" opacity="0.65"/>
+    <line x1="370" y1="280" x2="400" y2="340" stroke="#7b5cff" stroke-width="1.2" opacity="0.7"/>
+    <line x1="440" y1="280" x2="400" y2="340" stroke="#aa88ff" stroke-width="1" opacity="0.6"/>
+    <line x1="340" y1="240" x2="370" y2="320" stroke="#6644cc" stroke-width="0.8" opacity="0.5"/>
+    <line x1="460" y1="260" x2="440" y2="330" stroke="#8866ee" stroke-width="0.9" opacity="0.55"/>
+    <line x1="400" y1="230" x2="400" y2="340" stroke="#bb99ff" stroke-width="1.4" opacity="0.8"/>
+    <line x1="350" y1="260" x2="450" y2="310" stroke="#7b5cff" stroke-width="0.8" opacity="0.5"/>
+    <line x1="450" y1="250" x2="350" y2="320" stroke="#9b7bff" stroke-width="0.7" opacity="0.45"/>
+    <!-- Secondary connections -->
+    <line x1="330" y1="280" x2="380" y2="240" stroke="#6644cc" stroke-width="0.6" opacity="0.4"/>
+    <line x1="470" y1="290" x2="430" y2="240" stroke="#6644cc" stroke-width="0.6" opacity="0.4"/>
+    <line x1="380" y1="350" x2="420" y2="350" stroke="#8866ee" stroke-width="0.7" opacity="0.45"/>
+    <line x1="360" y1="220" x2="440" y2="220" stroke="#7b5cff" stroke-width="0.5" opacity="0.35"/>
+    <line x1="320" y1="300" x2="480" y2="300" stroke="#5533cc" stroke-width="0.5" opacity="0.3"/>
+
+    <!-- Neural nodes (glowing dots) -->
+    <circle cx="340" cy="240" r="3.5" fill="#bb99ff" opacity="0.9"/>
+    <circle cx="420" cy="310" r="3" fill="#9b7bff" opacity="0.85"/>
+    <circle cx="460" cy="260" r="3.5" fill="#aa88ff" opacity="0.9"/>
+    <circle cx="400" cy="230" r="4" fill="#ccaaff" opacity="0.95"/>
+    <circle cx="370" cy="280" r="2.5" fill="#8866ee" opacity="0.8"/>
+    <circle cx="440" cy="280" r="2.5" fill="#8866ee" opacity="0.8"/>
+    <circle cx="400" cy="340" r="3.5" fill="#bb99ff" opacity="0.9"/>
+    <circle cx="370" cy="320" r="2" fill="#7b5cff" opacity="0.7"/>
+    <circle cx="440" cy="330" r="2" fill="#7b5cff" opacity="0.7"/>
+    <circle cx="380" cy="350" r="1.8" fill="#9b7bff" opacity="0.6"/>
+    <circle cx="420" cy="350" r="1.8" fill="#9b7bff" opacity="0.6"/>
+    <circle cx="360" cy="220" r="2" fill="#7b5cff" opacity="0.6"/>
+    <circle cx="440" cy="220" r="2" fill="#7b5cff" opacity="0.6"/>
+  </g>
+
+  <!-- Surface erased patches (dashed, faded regions on sphere surface) -->
+  <g clip-path="url(#brainClip)">
+    <!-- Erased/disrupted surface areas -->
+    <ellipse cx="360" cy="230" rx="25" ry="15" fill="none" stroke="#4a3a8a" stroke-width="1.5" stroke-dasharray="3,4" opacity="0.6" transform="rotate(-15, 360, 230)"/>
+    <ellipse cx="440" cy="260" rx="20" ry="12" fill="none" stroke="#4a3a8a" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5" transform="rotate(20, 440, 260)"/>
+    <ellipse cx="380" cy="340" rx="22" ry="14" fill="none" stroke="#4a3a8a" stroke-width="1.2" stroke-dasharray="2,5" opacity="0.55" transform="rotate(-30, 380, 340)"/>
+    <ellipse cx="420" cy="200" rx="18" ry="10" fill="none" stroke="#4a3a8a" stroke-width="1.3" stroke-dasharray="3,3" opacity="0.5"/>
+  </g>
+
+  <!-- Four erasing beams hitting the sphere (four methods failing) -->
+  <!-- Beam 1: top-left (red - Gradient Ascent) -->
+  <line x1="240" y1="160" x2="330" y2="225" stroke="url(#beam1)" stroke-width="3" opacity="0.7" filter="url(#glowSoft)"/>
+  <line x1="240" y1="160" x2="330" y2="225" stroke="#ff4466" stroke-width="1" opacity="0.9"/>
+  <circle cx="330" cy="225" r="8" fill="none" stroke="#ff4466" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2">
+    <animate attributeName="r" values="6;12;6" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.15;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="210" y="152" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="9" fill="#ff6688" opacity="0.7" text-anchor="middle">GA</text>
+
+  <!-- Beam 2: top-right (cyan - Fine-tuning) -->
+  <line x1="560" y1="170" x2="470" y2="235" stroke="url(#beam2)" stroke-width="3" opacity="0.7" filter="url(#glowSoft)"/>
+  <line x1="560" y1="170" x2="470" y2="235" stroke="#44ccff" stroke-width="1" opacity="0.9"/>
+  <circle cx="470" cy="235" r="8" fill="none" stroke="#44ccff" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2">
+    <animate attributeName="r" values="6;12;6" dur="2.3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.15;0.5" dur="2.3s" repeatCount="indefinite"/>
+  </circle>
+  <text x="590" y="165" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="9" fill="#66ddff" opacity="0.7" text-anchor="middle">FT</text>
+
+  <!-- Beam 3: bottom-left (orange - KL Divergence) -->
+  <line x1="245" y1="410" x2="335" y2="350" stroke="url(#beam3)" stroke-width="3" opacity="0.7" filter="url(#glowSoft)"/>
+  <line x1="245" y1="410" x2="335" y2="350" stroke="#ffaa22" stroke-width="1" opacity="0.9"/>
+  <circle cx="335" cy="350" r="8" fill="none" stroke="#ffaa22" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2">
+    <animate attributeName="r" values="6;12;6" dur="1.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.15;0.5" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <text x="218" y="425" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="9" fill="#ffbb44" opacity="0.7" text-anchor="middle">KL</text>
+
+  <!-- Beam 4: bottom-right (green - Reinforcement) -->
+  <line x1="555" y1="400" x2="465" y2="345" stroke="url(#beam4)" stroke-width="3" opacity="0.7" filter="url(#glowSoft)"/>
+  <line x1="555" y1="400" x2="465" y2="345" stroke="#44ff88" stroke-width="1" opacity="0.9"/>
+  <circle cx="465" cy="345" r="8" fill="none" stroke="#44ff88" stroke-width="1.5" opacity="0.5" stroke-dasharray="2,2">
+    <animate attributeName="r" values="6;12;6" dur="2.1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.15;0.5" dur="2.1s" repeatCount="indefinite"/>
+  </circle>
+  <text x="582" y="415" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="9" fill="#66ffaa" opacity="0.7" text-anchor="middle">RL</text>
+
+  <!-- X marks where beams fail to penetrate -->
+  <g opacity="0.6" filter="url(#glowSoft)">
+    <text x="330" y="230" font-family="'Arial Black', sans-serif" font-size="14" fill="#ff4466" text-anchor="middle" dominant-baseline="middle" opacity="0.7">x</text>
+    <text x="470" y="240" font-family="'Arial Black', sans-serif" font-size="14" fill="#44ccff" text-anchor="middle" dominant-baseline="middle" opacity="0.7">x</text>
+    <text x="335" y="355" font-family="'Arial Black', sans-serif" font-size="14" fill="#ffaa22" text-anchor="middle" dominant-baseline="middle" opacity="0.7">x</text>
+    <text x="465" y="350" font-family="'Arial Black', sans-serif" font-size="14" fill="#44ff88" text-anchor="middle" dominant-baseline="middle" opacity="0.7">x</text>
+  </g>
+
+  <!-- Flying sticky notes (blown away from surface) -->
+  <!-- Note 1 -->
+  <g transform="translate(270, 185) rotate(-25)" opacity="0.6">
+    <rect x="0" y="0" width="28" height="22" rx="1" fill="url(#stickyGrad)" stroke="#ccaa33" stroke-width="0.5"/>
+    <line x1="4" y1="7" x2="24" y2="7" stroke="#aa8822" stroke-width="0.5" opacity="0.5"/>
+    <line x1="4" y1="12" x2="20" y2="12" stroke="#aa8822" stroke-width="0.5" opacity="0.5"/>
+    <line x1="4" y1="17" x2="16" y2="17" stroke="#aa8822" stroke-width="0.5" opacity="0.4"/>
+  </g>
+  <!-- Note 2 -->
+  <g transform="translate(510, 195) rotate(18)" opacity="0.5">
+    <rect x="0" y="0" width="24" height="20" rx="1" fill="url(#stickyGrad)" stroke="#ccaa33" stroke-width="0.5"/>
+    <line x1="3" y1="6" x2="21" y2="6" stroke="#aa8822" stroke-width="0.5" opacity="0.5"/>
+    <line x1="3" y1="11" x2="18" y2="11" stroke="#aa8822" stroke-width="0.5" opacity="0.5"/>
+  </g>
+  <!-- Note 3 -->
+  <g transform="translate(255, 360) rotate(-40)" opacity="0.45">
+    <rect x="0" y="0" width="22" height="18" rx="1" fill="url(#stickyGrad)" stroke="#ccaa33" stroke-width="0.5"/>
+    <line x1="3" y1="6" x2="19" y2="6" stroke="#aa8822" stroke-width="0.5" opacity="0.5"/>
+    <line x1="3" y1="10" x2="15" y2="10" stroke="#aa8822" stroke-width="0.5" opacity="0.4"/>
+  </g>
+  <!-- Note 4 -->
+  <g transform="translate(520, 370) rotate(32)" opacity="0.4">
+    <rect x="0" y="0" width="26" height="20" rx="1" fill="url(#stickyGrad)" stroke="#ccaa33" stroke-width="0.5"/>
+    <line x1="4" y1="6" x2="22" y2="6" stroke="#aa8822" stroke-width="0.5" opacity="0.5"/>
+    <line x1="4" y1="11" x2="18" y2="11" stroke="#aa8822" stroke-width="0.5" opacity="0.4"/>
+  </g>
+  <!-- Note 5 - further away, more faded -->
+  <g transform="translate(195, 250) rotate(-50)" opacity="0.3">
+    <rect x="0" y="0" width="20" height="16" rx="1" fill="url(#stickyGrad)" stroke="#ccaa33" stroke-width="0.5"/>
+    <line x1="3" y1="5" x2="17" y2="5" stroke="#aa8822" stroke-width="0.5" opacity="0.4"/>
+  </g>
+  <!-- Note 6 -->
+  <g transform="translate(565, 280) rotate(45)" opacity="0.3">
+    <rect x="0" y="0" width="20" height="16" rx="1" fill="url(#stickyGrad)" stroke="#ccaa33" stroke-width="0.5"/>
+    <line x1="3" y1="5" x2="17" y2="5" stroke="#aa8822" stroke-width="0.5" opacity="0.4"/>
+  </g>
+
+  <!-- Sphere highlight rim -->
+  <circle cx="400" cy="290" r="120" fill="none" stroke="#7b5cff" stroke-width="0.8" opacity="0.35"/>
+  <path d="M 310 210 Q 400 175 490 210" fill="none" stroke="#aa99dd" stroke-width="0.6" opacity="0.3"/>
+
+  <!-- Oil painting texture hint beneath erased patches -->
+  <g clip-path="url(#brainClip)" opacity="0.25">
+    <ellipse cx="360" cy="230" rx="22" ry="12" fill="#8866cc" transform="rotate(-15, 360, 230)"/>
+    <ellipse cx="440" cy="260" rx="17" ry="10" fill="#7755bb" transform="rotate(20, 440, 260)"/>
+    <ellipse cx="380" cy="340" rx="19" ry="11" fill="#9977dd" transform="rotate(-30, 380, 340)"/>
+  </g>
+
+  <!-- Header: No.131 tag -->
+  <rect x="30" y="25" width="200" height="28" rx="4" fill="#1a1040" stroke="#4a3a8a" stroke-width="1" opacity="0.85"/>
+  <text x="40" y="44" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="14" fill="#9b7bff" opacity="0.9" filter="url(#glowText)">No.131</text>
+  <text x="100" y="44" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="13" fill="#8877bb" opacity="0.7">|  AI</text>
+  <text x="130" y="44" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="13" fill="#8877bb" opacity="0.7">&#x8BB0;&#x5FC6;&#x64E6;&#x9664;</text>
+
+  <!-- Main title -->
+  <text x="400" y="480" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="bold" filter="url(#glowText)" letter-spacing="2">&#x4F60;&#x53EF;&#x4EE5;&#x8BA9;&#x5B83;&#x4E0D;&#x8BF4;</text>
+  <text x="400" y="512" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="bold" filter="url(#glowText)" letter-spacing="2">&#x4F46;&#x4F60;&#x6CA1;&#x6CD5;&#x8BA9;&#x5B83;&#x4E0D;&#x77E5;&#x9053;</text>
+
+  <!-- Subtitle -->
+  <text x="400" y="540" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="12" fill="#8877bb" text-anchor="middle" letter-spacing="1" opacity="0.8">&#x56DB;&#x79CD;&#x64E6;&#x9664;&#x65B9;&#x6CD5; &#xD7; &#x4E00;&#x7FA4;&#x8BC1;&#x4F2A;&#x8005; &#xD7; &#x4E00;&#x9897;&#x65E0;&#x6CD5;&#x9057;&#x5FD8;&#x7684;&#x5927;&#x8111;</text>
+
+  <!-- Bottom signature -->
+  <line x1="100" y1="565" x2="700" y2="565" stroke="#4a3a8a" stroke-width="0.5" opacity="0.4"/>
+  <text x="400" y="582" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="11" fill="#6655aa" text-anchor="middle" opacity="0.7">&#x9773;&#x5CA9;&#x5CA9;&#x7684; AI &#x5B66;&#x4E60;&#x7B14;&#x8BB0; &#xB7; No.131</text>
+
+  <!-- Bottom quote -->
+  <text x="400" y="598" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="10" fill="#7766aa" text-anchor="middle" opacity="0.6" font-style="italic">&#x540E;&#x8BAD;&#x7EC3;&#x662F;&#x4FBF;&#x5229;&#x8D34;&#xFF0C;&#x9884;&#x8BAD;&#x7EC3;&#x662F;&#x6CB9;&#x753B;&#x3002;&#x98CE;&#x4E00;&#x5439;&#xFF0C;&#x4FBF;&#x5229;&#x8D34;&#x6389;&#x4E86;&#xFF0C;&#x753B;&#x8FD8;&#x5728;&#x3002;</text>
+
+  <!-- Decorative corner elements -->
+  <path d="M 30 60 L 30 80 M 25 65 L 35 65" stroke="#4a3a8a" stroke-width="1" opacity="0.3"/>
+  <path d="M 770 60 L 770 80 M 765 65 L 775 65" stroke="#4a3a8a" stroke-width="1" opacity="0.3"/>
+  <path d="M 30 555 L 30 535 M 25 550 L 35 550" stroke="#4a3a8a" stroke-width="1" opacity="0.3"/>
+  <path d="M 770 555 L 770 535 M 765 550 L 775 550" stroke="#4a3a8a" stroke-width="1" opacity="0.3"/>
+
+  <!-- Subtle code reference: git objects metaphor -->
+  <text x="680" y="35" font-family="'Courier New', monospace" font-size="8" fill="#4a3a8a" opacity="0.35">.git/objects/*</text>
+  <text x="680" y="47" font-family="'Courier New', monospace" font-size="8" fill="#ff4466" opacity="0.25" text-decoration="line-through">branch -D</text>
+</svg>
