@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#0f1a2e"/>
+      <stop offset="50%" stop-color="#0a1020"/>
+      <stop offset="100%" stop-color="#050810"/>
+    </radialGradient>
+
+    <!-- Big model (target) gradient -->
+    <radialGradient id="bigGrad" cx="35%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#2a4080"/>
+      <stop offset="100%" stop-color="#0d1a40"/>
+    </radialGradient>
+
+    <!-- Small model (draft) gradient -->
+    <radialGradient id="smallGrad" cx="35%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#2a6050"/>
+      <stop offset="100%" stop-color="#0d2a20"/>
+    </radialGradient>
+
+    <!-- Token colors -->
+    <linearGradient id="tokenOk" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#44ff88"/>
+      <stop offset="100%" stop-color="#22cc66"/>
+    </linearGradient>
+    <linearGradient id="tokenFail" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff4466"/>
+      <stop offset="100%" stop-color="#cc2244"/>
+    </linearGradient>
+    <linearGradient id="tokenFixed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#44aaff"/>
+      <stop offset="100%" stop-color="#2288dd"/>
+    </linearGradient>
+
+    <!-- Beam gradient -->
+    <linearGradient id="verifyBeam" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7b5cff" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#5533cc" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#5533cc" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="draftBeam" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#44ff88" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#22cc66" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#22cc66" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowStrong" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowText" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowSoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a2a4a" stroke-width="0.5" stroke-opacity="0.3"/>
+    </pattern>
+
+    <!-- Checkmark -->
+    <symbol id="check" viewBox="0 0 12 12">
+      <path d="M 2 6 L 5 9 L 10 3" fill="none" stroke="#44ff88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- Cross -->
+    <symbol id="cross" viewBox="0 0 12 12">
+      <path d="M 3 3 L 9 9 M 9 3 L 3 9" fill="none" stroke="#ff4466" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <rect width="800" height="600" fill="url(#grid)" opacity="0.4"/>
+
+  <!-- Ambient particles -->
+  <circle cx="100" cy="90" r="1" fill="#44ff88" opacity="0.4">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="130" r="1.2" fill="#7b5cff" opacity="0.3">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="650" cy="480" r="0.8" fill="#44aaff" opacity="0.3">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="150" cy="450" r="1" fill="#ff4466" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ===== BIG MODEL (Target) - top area ===== -->
+  <g transform="translate(400, 165)">
+    <!-- Body -->
+    <rect x="-155" y="-55" width="310" height="110" rx="12" fill="url(#bigGrad)" stroke="#4a6aaa" stroke-width="1.5" opacity="0.9"/>
+    <rect x="-155" y="-55" width="310" height="110" rx="12" fill="none" stroke="#7b9cdd" stroke-width="0.5" opacity="0.3"/>
+
+    <!-- Inner neural network lines -->
+    <g opacity="0.5" filter="url(#glowSoft)">
+      <line x1="-110" y1="-20" x2="-60" y2="15" stroke="#5577cc" stroke-width="0.8"/>
+      <line x1="-60" y1="15" x2="-10" y2="-25" stroke="#5577cc" stroke-width="0.8"/>
+      <line x1="-10" y1="-25" x2="40" y2="10" stroke="#6688dd" stroke-width="0.8"/>
+      <line x1="40" y1="10" x2="90" y2="-15" stroke="#5577cc" stroke-width="0.8"/>
+      <line x1="90" y1="-15" x2="130" y2="20" stroke="#6688dd" stroke-width="0.8"/>
+      <line x1="-80" y1="-30" x2="-30" y2="25" stroke="#4466bb" stroke-width="0.6"/>
+      <line x1="20" y1="-30" x2="70" y2="25" stroke="#4466bb" stroke-width="0.6"/>
+      <line x1="-110" y1="20" x2="-40" y2="-15" stroke="#4466bb" stroke-width="0.6"/>
+      <line x1="60" y1="-20" x2="120" y2="15" stroke="#4466bb" stroke-width="0.6"/>
+      <!-- Nodes -->
+      <circle cx="-110" cy="-20" r="3" fill="#7799dd" opacity="0.8"/>
+      <circle cx="-60" cy="15" r="2.5" fill="#6688cc" opacity="0.7"/>
+      <circle cx="-10" cy="-25" r="3" fill="#88aaee" opacity="0.8"/>
+      <circle cx="40" cy="10" r="2.5" fill="#6688cc" opacity="0.7"/>
+      <circle cx="90" cy="-15" r="3" fill="#7799dd" opacity="0.8"/>
+      <circle cx="130" cy="20" r="2.5" fill="#6688cc" opacity="0.7"/>
+    </g>
+
+    <!-- Label -->
+    <text x="0" y="42" font-family="'Courier New', monospace" font-size="11" fill="#88aadd" text-anchor="middle" opacity="0.8">TARGET MODEL · 100B</text>
+    <!-- Eye icon (verification) -->
+    <ellipse cx="0" cy="-5" rx="22" ry="14" fill="none" stroke="#7b9cdd" stroke-width="1" opacity="0.25"/>
+    <circle cx="0" cy="-5" r="6" fill="none" stroke="#7b9cdd" stroke-width="1" opacity="0.25"/>
+  </g>
+
+  <!-- ===== SMALL MODEL (Draft) - bottom area ===== -->
+  <g transform="translate(400, 380)">
+    <!-- Body - smaller -->
+    <rect x="-105" y="-35" width="210" height="70" rx="10" fill="url(#smallGrad)" stroke="#3a8a6a" stroke-width="1.5" opacity="0.9"/>
+    <rect x="-105" y="-35" width="210" height="70" rx="10" fill="none" stroke="#55bb88" stroke-width="0.5" opacity="0.3"/>
+
+    <!-- Inner simple lines -->
+    <g opacity="0.45" filter="url(#glowSoft)">
+      <line x1="-70" y1="-10" x2="-20" y2="10" stroke="#44aa77" stroke-width="0.7"/>
+      <line x1="-20" y1="10" x2="30" y2="-10" stroke="#44aa77" stroke-width="0.7"/>
+      <line x1="30" y1="-10" x2="70" y2="10" stroke="#55bb88" stroke-width="0.7"/>
+      <circle cx="-70" cy="-10" r="2" fill="#55bb88" opacity="0.7"/>
+      <circle cx="-20" cy="10" r="2" fill="#44aa77" opacity="0.6"/>
+      <circle cx="30" cy="-10" r="2" fill="#55bb88" opacity="0.7"/>
+      <circle cx="70" cy="10" r="2" fill="#44aa77" opacity="0.6"/>
+    </g>
+
+    <!-- Label -->
+    <text x="0" y="23" font-family="'Courier New', monospace" font-size="10" fill="#66bb99" text-anchor="middle" opacity="0.8">DRAFT MODEL · 1B</text>
+  </g>
+
+  <!-- ===== TOKEN STREAM between models ===== -->
+
+  <!-- Draft beam (small → tokens) -->
+  <rect x="310" y="295" width="180" height="30" rx="4" fill="#0a1a15" stroke="#3a8a6a" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Token boxes with text -->
+  <!-- Token 1: 今 ✓ -->
+  <g transform="translate(318, 298)">
+    <rect width="32" height="24" rx="3" fill="#0d2a1a" stroke="#44ff88" stroke-width="1.2" opacity="0.9"/>
+    <text x="16" y="16" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" fill="#44ff88" text-anchor="middle" dominant-baseline="middle">&#x4ECA;</text>
+  </g>
+  <!-- Token 2: 天 ✓ -->
+  <g transform="translate(354, 298)">
+    <rect width="32" height="24" rx="3" fill="#0d2a1a" stroke="#44ff88" stroke-width="1.2" opacity="0.9"/>
+    <text x="16" y="16" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" fill="#44ff88" text-anchor="middle" dominant-baseline="middle">&#x5929;</text>
+  </g>
+  <!-- Token 3: 天 ✓ -->
+  <g transform="translate(390, 298)">
+    <rect width="32" height="24" rx="3" fill="#0d2a1a" stroke="#44ff88" stroke-width="1.2" opacity="0.9"/>
+    <text x="16" y="16" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" fill="#44ff88" text-anchor="middle" dominant-baseline="middle">&#x5929;</text>
+  </g>
+  <!-- Token 4: 气 ✓ -->
+  <g transform="translate(426, 298)">
+    <rect width="32" height="24" rx="3" fill="#0d2a1a" stroke="#44ff88" stroke-width="1.2" opacity="0.9"/>
+    <text x="16" y="16" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" fill="#44ff88" text-anchor="middle" dominant-baseline="middle">&#x6C14;</text>
+  </g>
+  <!-- Token 5: 不→很 ✗ fixed -->
+  <g transform="translate(462, 298)">
+    <rect width="32" height="24" rx="3" fill="#1a0d0d" stroke="#ff4466" stroke-width="1.2" opacity="0.9"/>
+    <text x="16" y="11" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="9" fill="#ff4466" text-anchor="middle" opacity="0.6" text-decoration="line-through">&#x4E0D;</text>
+    <text x="16" y="22" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11" fill="#44aaff" text-anchor="middle" font-weight="bold">&#x5F88;</text>
+  </g>
+
+  <!-- Check marks above accepted tokens -->
+  <use href="#check" x="326" y="284" width="12" height="12" opacity="0.8"/>
+  <use href="#check" x="362" y="284" width="12" height="12" opacity="0.8"/>
+  <use href="#check" x="398" y="284" width="12" height="12" opacity="0.8"/>
+  <use href="#check" x="434" y="284" width="12" height="12" opacity="0.8"/>
+  <use href="#cross" x="470" y="284" width="12" height="12" opacity="0.8"/>
+
+  <!-- Arrows: draft → tokens -->
+  <path d="M 400 345 L 400 330" fill="none" stroke="#44ff88" stroke-width="1.5" opacity="0.5" marker-end="none"/>
+  <text x="400" y="340" font-family="'Courier New', monospace" font-size="9" fill="#55bb88" text-anchor="middle" opacity="0.6">&#x732E;&#x7B56;</text>
+
+  <!-- Arrows: target → verify -->
+  <path d="M 400 220 L 400 282" fill="none" stroke="#7b5cff" stroke-width="1.5" opacity="0.5"/>
+  <text x="400" y="248" font-family="'Courier New', monospace" font-size="9" fill="#9b7bff" text-anchor="middle" opacity="0.6">&#x9A8C;&#x8BC1;</text>
+
+  <!-- Speed comparison on the right -->
+  <g transform="translate(590, 270)">
+    <!-- Old way: serial -->
+    <text x="0" y="0" font-family="'Courier New', monospace" font-size="9" fill="#886644" opacity="0.6">&#x4E32;&#x884C; (&#x539F;&#x59CB;):</text>
+    <g transform="translate(0, 8)">
+      <rect x="0" y="0" width="16" height="10" rx="1" fill="none" stroke="#886644" stroke-width="0.8" opacity="0.5"/>
+      <rect x="20" y="0" width="16" height="10" rx="1" fill="none" stroke="#886644" stroke-width="0.8" opacity="0.5"/>
+      <rect x="40" y="0" width="16" height="10" rx="1" fill="none" stroke="#886644" stroke-width="0.8" opacity="0.5"/>
+      <rect x="60" y="0" width="16" height="10" rx="1" fill="none" stroke="#886644" stroke-width="0.8" opacity="0.5"/>
+      <rect x="80" y="0" width="16" height="10" rx="1" fill="none" stroke="#886644" stroke-width="0.8" opacity="0.5"/>
+      <text x="50" y="8" font-family="'Courier New', monospace" font-size="7" fill="#886644" text-anchor="middle" opacity="0.4">5&#x6B21;</text>
+    </g>
+
+    <!-- New way: parallel verify -->
+    <text x="0" y="36" font-family="'Courier New', monospace" font-size="9" fill="#44ff88" opacity="0.7">&#x6295;&#x673A; (&#x52A0;&#x901F;):</text>
+    <g transform="translate(0, 44)">
+      <rect x="0" y="0" width="96" height="10" rx="1" fill="none" stroke="#44ff88" stroke-width="0.8" opacity="0.6"/>
+      <text x="48" y="8" font-family="'Courier New', monospace" font-size="7" fill="#44ff88" text-anchor="middle" opacity="0.5">1&#x6B21;</text>
+    </g>
+
+    <!-- Speed label -->
+    <text x="110" y="52" font-family="'Courier New', monospace" font-size="11" fill="#ffaa22" opacity="0.8" filter="url(#glowText)">5x</text>
+  </g>
+
+  <!-- Left side: the metaphor -->
+  <g transform="translate(100, 275)">
+    <text x="0" y="0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#8877bb" opacity="0.6">&#x5C0F;&#x5DE5;&#x5907;&#x83DC;</text>
+    <text x="0" y="14" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#8877bb" opacity="0.6">&#x5927;&#x53A8;&#x626B;&#x4E00;&#x773C;</text>
+    <line x1="0" y1="22" x2="60" y2="22" stroke="#4a3a6a" stroke-width="0.5" opacity="0.4"/>
+    <text x="0" y="36" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="9" fill="#6655aa" opacity="0.5">decode &#x2192; prefill</text>
+  </g>
+
+  <!-- The key insight: bottom right -->
+  <g transform="translate(560, 380)">
+    <rect x="0" y="0" width="200" height="60" rx="6" fill="#0a0a1a" stroke="#4a3a6a" stroke-width="0.8" opacity="0.7"/>
+    <text x="100" y="18" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#ffaa22" text-anchor="middle" opacity="0.8">80% &#x7684; token &#x662F;&#x201C;&#x5E9F;&#x8BDD;&#x201D;</text>
+    <text x="100" y="34" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#ffaa22" text-anchor="middle" opacity="0.8">&#x5C0F;&#x6A21;&#x578B;&#x5C31;&#x80FD;&#x640D;&#x5B9A;</text>
+    <text x="100" y="50" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#9b7bff" text-anchor="middle" opacity="0.7">&#x5927;&#x6A21;&#x578B;&#x53EA;&#x7BA1;&#x90A3; 20%</text>
+  </g>
+
+  <!-- Header: No.132 tag -->
+  <rect x="30" y="25" width="220" height="28" rx="4" fill="#0a1020" stroke="#2a4060" stroke-width="1" opacity="0.85"/>
+  <text x="40" y="44" font-family="'Courier New', monospace" font-size="14" fill="#44aaff" opacity="0.9" filter="url(#glowText)">No.132</text>
+  <text x="100" y="44" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" fill="#6688aa" opacity="0.7">|  &#x6295;&#x673A;&#x89E3;&#x7801;</text>
+
+  <!-- Main title -->
+  <text x="400" y="485" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="bold" filter="url(#glowText)" letter-spacing="2">&#x5C0F;&#x6A21;&#x578B;&#x731C;&#xFF0C;&#x5927;&#x6A21;&#x578B;&#x9A8C;</text>
+  <text x="400" y="515" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="bold" filter="url(#glowText)" letter-spacing="2">&#x4E00;&#x6B21;&#x641C;&#x8FD0;&#xFF0C;&#x4E94;&#x500D;&#x52A0;&#x901F;</text>
+
+  <!-- Subtitle -->
+  <text x="400" y="543" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" fill="#6688aa" text-anchor="middle" letter-spacing="1" opacity="0.8">Speculative Decoding &#xB7; &#x4F60;&#x7528;&#x7684;&#x6BCF;&#x4E2A; AI &#x53EF;&#x80FD;&#x90FD;&#x5728;&#x201C;&#x4F5C;&#x5F0A;&#x201D;</text>
+
+  <!-- Bottom signature -->
+  <line x1="100" y1="565" x2="700" y2="565" stroke="#2a4060" stroke-width="0.5" opacity="0.4"/>
+  <text x="400" y="582" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11" fill="#4a6688" text-anchor="middle" opacity="0.7">&#x9773;&#x5CA9;&#x5CA9;&#x7684; AI &#x5B66;&#x4E60;&#x7B14;&#x8BB0; &#xB7; No.132</text>
+
+  <!-- Decorative corners -->
+  <path d="M 30 60 L 30 80 M 25 65 L 35 65" stroke="#2a4060" stroke-width="1" opacity="0.3"/>
+  <path d="M 770 60 L 770 80 M 765 65 L 775 65" stroke="#2a4060" stroke-width="1" opacity="0.3"/>
+  <path d="M 30 555 L 30 535 M 25 550 L 35 550" stroke="#2a4060" stroke-width="1" opacity="0.3"/>
+  <path d="M 770 555 L 770 535 M 765 550 L 775 550" stroke="#2a4060" stroke-width="1" opacity="0.3"/>
+
+  <!-- Code hint top right -->
+  <text x="680" y="35" font-family="'Courier New', monospace" font-size="8" fill="#2a4060" opacity="0.35">p(x)/q(x) &gt; 1 → accept</text>
+</svg>
