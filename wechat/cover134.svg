@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#1a0a2e"/>
+      <stop offset="50%" stop-color="#10081f"/>
+      <stop offset="100%" stop-color="#060410"/>
+    </radialGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowStrong" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowText" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowSoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2a1a4a" stroke-width="0.5" stroke-opacity="0.25"/>
+    </pattern>
+
+    <!-- Head colors -->
+    <radialGradient id="headSyntax" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff6b6b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#cc3333" stop-opacity="0.4"/>
+    </radialGradient>
+    <radialGradient id="headSemantic" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4ecdc4" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#2a9d8f" stop-opacity="0.4"/>
+    </radialGradient>
+    <radialGradient id="headColor" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe66d" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ccaa22" stop-opacity="0.4"/>
+    </radialGradient>
+    <radialGradient id="headTranslate" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.4"/>
+    </radialGradient>
+    <radialGradient id="headIdle" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#555555" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#333333" stop-opacity="0.2"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <rect width="800" height="600" fill="url(#grid)" opacity="0.4"/>
+
+  <!-- Ambient particles -->
+  <circle cx="90" cy="100" r="1" fill="#a78bfa" opacity="0.4">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="710" cy="80" r="1.2" fill="#4ecdc4" opacity="0.3">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="680" cy="460" r="0.8" fill="#ff6b6b" opacity="0.3">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="120" cy="480" r="1" fill="#ffe66d" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ===== Central: Transformer block with heads ===== -->
+
+  <!-- Transformer body outline -->
+  <rect x="200" y="100" width="400" height="300" rx="16" fill="#0d0820" stroke="#3a2a6a" stroke-width="1.5" opacity="0.8"/>
+  <rect x="200" y="100" width="400" height="300" rx="16" fill="none" stroke="#5a4a8a" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Label -->
+  <text x="400" y="130" font-family="'Courier New', monospace" font-size="11" fill="#6a5a9a" text-anchor="middle" opacity="0.7">MULTI-HEAD ATTENTION · 96 HEADS</text>
+
+  <!-- Grid of heads: 12 columns x 5 rows = 60 visible heads -->
+  <!-- Row 1 -->
+  <g transform="translate(225, 150)">
+    <!-- Active heads (colored) -->
+    <circle cx="0" cy="0" r="10" fill="url(#headSyntax)" filter="url(#glowSoft)"/>
+    <circle cx="32" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="64" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="96" cy="0" r="10" fill="url(#headSemantic)" filter="url(#glowSoft)"/>
+    <circle cx="128" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="160" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="192" cy="0" r="10" fill="url(#headColor)" filter="url(#glowSoft)"/>
+    <circle cx="224" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="256" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="288" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="320" cy="0" r="10" fill="url(#headTranslate)" filter="url(#glowSoft)"/>
+    <circle cx="352" cy="0" r="10" fill="url(#headIdle)"/>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(225, 190)">
+    <circle cx="0" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="32" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="64" cy="0" r="10" fill="url(#headSyntax)" filter="url(#glowSoft)"/>
+    <circle cx="96" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="128" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="160" cy="0" r="10" fill="url(#headSemantic)" filter="url(#glowSoft)"/>
+    <circle cx="192" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="224" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="256" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="288" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="320" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="352" cy="0" r="10" fill="url(#headIdle)"/>
+  </g>
+
+  <!-- Row 3 -->
+  <g transform="translate(225, 230)">
+    <circle cx="0" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="32" cy="0" r="10" fill="url(#headTranslate)" filter="url(#glowSoft)"/>
+    <circle cx="64" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="96" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="128" cy="0" r="10" fill="url(#headColor)" filter="url(#glowSoft)"/>
+    <circle cx="160" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="192" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="224" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="256" cy="0" r="10" fill="url(#headSyntax)" filter="url(#glowSoft)"/>
+    <circle cx="288" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="320" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="352" cy="0" r="10" fill="url(#headIdle)"/>
+  </g>
+
+  <!-- Row 4 -->
+  <g transform="translate(225, 270)">
+    <circle cx="0" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="32" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="64" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="96" cy="0" r="10" fill="url(#headSemantic)" filter="url(#glowSoft)"/>
+    <circle cx="128" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="160" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="192" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="224" cy="0" r="10" fill="url(#headTranslate)" filter="url(#glowSoft)"/>
+    <circle cx="256" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="288" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="320" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="352" cy="0" r="10" fill="url(#headColor)" filter="url(#glowSoft)"/>
+  </g>
+
+  <!-- Row 5 -->
+  <g transform="translate(225, 310)">
+    <circle cx="0" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="32" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="64" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="96" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="128" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="160" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="192" cy="0" r="10" fill="url(#headSyntax)" filter="url(#glowSoft)"/>
+    <circle cx="224" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="256" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="288" cy="0" r="10" fill="url(#headSemantic)" filter="url(#glowSoft)"/>
+    <circle cx="320" cy="0" r="10" fill="url(#headIdle)"/>
+    <circle cx="352" cy="0" r="10" fill="url(#headIdle)"/>
+  </g>
+
+  <!-- "..." indicator -->
+  <text x="400" y="355" font-family="'Courier New', monospace" font-size="14" fill="#5a4a8a" text-anchor="middle" opacity="0.5">· · · 96 heads · · ·</text>
+
+  <!-- Knob/dial on the color head (row 1, position 7) -->
+  <g transform="translate(417, 150)">
+    <circle r="14" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.8" stroke-dasharray="3,2">
+      <animate attributeName="stroke-dashoffset" values="0;20" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Dial indicator -->
+    <line x1="0" y1="-6" x2="0" y2="-12" stroke="#ffe66d" stroke-width="2" stroke-linecap="round" opacity="0.9">
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- Legend on the right -->
+  <g transform="translate(640, 150)">
+    <circle cx="0" cy="0" r="6" fill="url(#headSyntax)"/>
+    <text x="14" y="4" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#ff6b6b" opacity="0.8">&#x8BED;&#x6CD5;</text>
+
+    <circle cx="0" cy="24" r="6" fill="url(#headSemantic)"/>
+    <text x="14" y="28" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#4ecdc4" opacity="0.8">&#x8BED;&#x4E49;</text>
+
+    <circle cx="0" cy="48" r="6" fill="url(#headColor)"/>
+    <text x="14" y="52" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#ffe66d" opacity="0.8">&#x989C;&#x8272;</text>
+
+    <circle cx="0" cy="72" r="6" fill="url(#headTranslate)"/>
+    <text x="14" y="76" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#a78bfa" opacity="0.8">&#x7FFB;&#x8BD1;</text>
+
+    <circle cx="0" cy="96" r="6" fill="url(#headIdle)"/>
+    <text x="14" y="100" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#666666" opacity="0.8">&#x6478;&#x9C7C;</text>
+  </g>
+
+  <!-- Left side annotation -->
+  <g transform="translate(60, 200)">
+    <text x="0" y="0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11" fill="#8877bb" opacity="0.7">&#x5C11;&#x6570;&#x5728;&#x5E72;&#x6D3B;</text>
+    <text x="0" y="18" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11" fill="#8877bb" opacity="0.7">&#x591A;&#x6570;&#x5728;&#x6478;&#x9C7C;</text>
+    <line x1="0" y1="26" x2="70" y2="26" stroke="#4a3a6a" stroke-width="0.5" opacity="0.4"/>
+    <text x="0" y="42" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="9" fill="#6655aa" opacity="0.5">&#x780D;&#x6389; 40%</text>
+    <text x="0" y="55" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="9" fill="#6655aa" opacity="0.5">&#x6027;&#x80FD;&#x4E0D;&#x964D;&#x53CD;&#x5347;</text>
+  </g>
+
+  <!-- Bottom right: the dial metaphor -->
+  <g transform="translate(620, 320)">
+    <rect x="0" y="0" width="140" height="50" rx="6" fill="#0a0a1a" stroke="#4a3a6a" stroke-width="0.8" opacity="0.7"/>
+    <text x="70" y="18" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#ffe66d" text-anchor="middle" opacity="0.8">&#x62E7;&#x65CB;&#x94AE; &#xD7;1 = &#x539F;&#x6837;</text>
+    <text x="70" y="34" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10" fill="#ff6b6b" text-anchor="middle" opacity="0.8">&#x62E7;&#x65CB;&#x94AE; &#xD7;-1 = &#x5173;&#x706F;</text>
+    <text x="70" y="46" font-family="'Courier New', monospace" font-size="8" fill="#6655aa" text-anchor="middle" opacity="0.6">Head Pursuit, 2025</text>
+  </g>
+
+  <!-- Header: No.134 tag -->
+  <rect x="30" y="25" width="220" height="28" rx="4" fill="#0d0820" stroke="#3a2a6a" stroke-width="1" opacity="0.85"/>
+  <text x="40" y="44" font-family="'Courier New', monospace" font-size="14" fill="#a78bfa" opacity="0.9" filter="url(#glowText)">No.134</text>
+  <text x="100" y="44" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" fill="#7766aa" opacity="0.7">|  &#x6CE8;&#x610F;&#x529B;&#x5934;</text>
+
+  <!-- Main title -->
+  <text x="400" y="460" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="bold" filter="url(#glowText)" letter-spacing="2">&#x4ECE;&#x770B;&#x56FE;&#x8BF4;&#x8BDD;&#x5230;&#x62E7;&#x65CB;&#x94AE;&#x5F00;&#x5173;&#x706F;</text>
+  <text x="400" y="492" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Arial Black', sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="bold" filter="url(#glowText)" letter-spacing="2">&#x4E03;&#x5E74;&#xFF0C;&#x4ECE;&#x7629;&#x7F16;&#x5230;&#x88AB;&#x8BC1;&#x5B9E;</text>
+
+  <!-- Subtitle -->
+  <text x="400" y="520" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" fill="#7766aa" text-anchor="middle" letter-spacing="1" opacity="0.8">Attention Head &#x529F;&#x80FD;&#x5206;&#x5316; &#xB7; &#x4ECE;&#x76F8;&#x5173;&#x6027;&#x5230;&#x56E0;&#x679C;&#x6027; &#xB7; 2019-2026</text>
+
+  <!-- Bottom signature -->
+  <line x1="100" y1="550" x2="700" y2="550" stroke="#3a2a6a" stroke-width="0.5" opacity="0.4"/>
+  <text x="400" y="570" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11" fill="#5a4a7a" text-anchor="middle" opacity="0.7">&#x9773;&#x5CA9;&#x5CA9;&#x7684; AI &#x5B66;&#x4E60;&#x7B14;&#x8BB0; &#xB7; No.134</text>
+
+  <!-- Decorative corners -->
+  <path d="M 30 60 L 30 80 M 25 65 L 35 65" stroke="#3a2a6a" stroke-width="1" opacity="0.3"/>
+  <path d="M 770 60 L 770 80 M 765 65 L 775 65" stroke="#3a2a6a" stroke-width="1" opacity="0.3"/>
+  <path d="M 30 540 L 30 520 M 25 535 L 35 535" stroke="#3a2a6a" stroke-width="1" opacity="0.3"/>
+  <path d="M 770 540 L 770 520 M 765 535 L 775 535" stroke="#3a2a6a" stroke-width="1" opacity="0.3"/>
+
+  <!-- Code hint top right -->
+  <text x="680" y="35" font-family="'Courier New', monospace" font-size="8" fill="#3a2a6a" opacity="0.35">scale=-1 → concept OFF</text>
+</svg>
