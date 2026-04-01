@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="50%" stop-color="#0f0d1e"/>
+      <stop offset="100%" stop-color="#0a0a1a"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f0a030"/>
+      <stop offset="100%" stop-color="#e87020"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#0088cc"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#50e880"/>
+      <stop offset="100%" stop-color="#30b060"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.03" stroke="#4488cc">
+    <line x1="0" y1="76" x2="900" y2="76"/>
+    <line x1="0" y1="153" x2="900" y2="153"/>
+    <line x1="0" y1="230" x2="900" y2="230"/>
+    <line x1="0" y1="307" x2="900" y2="307"/>
+    <line x1="150" y1="0" x2="150" y2="383"/>
+    <line x1="300" y1="0" x2="300" y2="383"/>
+    <line x1="450" y1="0" x2="450" y2="383"/>
+    <line x1="600" y1="0" x2="600" y2="383"/>
+    <line x1="750" y1="0" x2="750" y2="383"/>
+  </g>
+
+  <!-- === THREE NAMING CARDS === -->
+
+  <!-- Card 1: Reflexion (2023) -->
+  <g transform="translate(60, 45)">
+    <rect x="0" y="0" width="230" height="120" rx="8" fill="#e85050" fill-opacity="0.08" stroke="#e85050" stroke-width="1.2" stroke-opacity="0.4"/>
+
+    <!-- Year badge -->
+    <rect x="15" y="12" width="50" height="20" rx="4" fill="#e85050" fill-opacity="0.2"/>
+    <text x="40" y="26" font-family="'Courier New', monospace" font-size="11" fill="#e85050" text-anchor="middle" font-weight="bold">2023</text>
+
+    <!-- Name -->
+    <text x="80" y="27" font-family="'Courier New', monospace" font-size="16" fill="#e85050" font-weight="bold" filter="url(#softglow)">Reflexion</text>
+
+    <!-- Source -->
+    <text x="15" y="50" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="10" fill="#777">arXiv 论文 · Shinn et al.</text>
+
+    <!-- Core idea -->
+    <text x="15" y="72" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="11" fill="#aaa">失败 → 写总结 → 带着总结重来</text>
+
+    <!-- Channel -->
+    <rect x="15" y="85" width="80" height="18" rx="3" fill="#e85050" fill-opacity="0.1"/>
+    <text x="55" y="98" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="9" fill="#e85050" text-anchor="middle" opacity="0.7">学术引用传播</text>
+  </g>
+
+  <!-- Arrow 1→2 -->
+  <g transform="translate(300, 105)">
+    <line x1="0" y1="0" x2="45" y2="0" stroke="#555" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="22" y="-8" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="9" fill="#555" text-anchor="middle">断裂</text>
+  </g>
+
+  <!-- Card 2: Context Engineering (2025) -->
+  <g transform="translate(355, 45)">
+    <rect x="0" y="0" width="230" height="120" rx="8" fill="#f0a030" fill-opacity="0.08" stroke="#f0a030" stroke-width="1.2" stroke-opacity="0.4"/>
+
+    <!-- Year badge -->
+    <rect x="15" y="12" width="50" height="20" rx="4" fill="#f0a030" fill-opacity="0.2"/>
+    <text x="40" y="26" font-family="'Courier New', monospace" font-size="11" fill="#f0a030" text-anchor="middle" font-weight="bold">2025</text>
+
+    <!-- Name -->
+    <text x="80" y="27" font-family="'Courier New', monospace" font-size="13" fill="#f0a030" font-weight="bold" filter="url(#softglow)">Context Eng.</text>
+
+    <!-- Source -->
+    <text x="15" y="50" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="10" fill="#777">推文 · Walden Yan / Karpathy</text>
+
+    <!-- Core idea -->
+    <text x="15" y="72" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="11" fill="#aaa">每一步精心挑选上下文内容</text>
+
+    <!-- Channel -->
+    <rect x="15" y="85" width="80" height="18" rx="3" fill="#f0a030" fill-opacity="0.1"/>
+    <text x="55" y="98" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="9" fill="#f0a030" text-anchor="middle" opacity="0.7">大 V 转发出圈</text>
+  </g>
+
+  <!-- Arrow 2→3 -->
+  <g transform="translate(595, 105)">
+    <line x1="0" y1="0" x2="45" y2="0" stroke="#555" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="22" y="-8" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="9" fill="#555" text-anchor="middle">断裂</text>
+  </g>
+
+  <!-- Card 3: Harness Engineering (2026) -->
+  <g transform="translate(650, 45)">
+    <rect x="0" y="0" width="210" height="120" rx="8" fill="#00d4ff" fill-opacity="0.08" stroke="#00d4ff" stroke-width="1.2" stroke-opacity="0.4"/>
+
+    <!-- Year badge -->
+    <rect x="15" y="12" width="50" height="20" rx="4" fill="#00d4ff" fill-opacity="0.2"/>
+    <text x="40" y="26" font-family="'Courier New', monospace" font-size="11" fill="#00d4ff" text-anchor="middle" font-weight="bold">2026</text>
+
+    <!-- Name -->
+    <text x="80" y="27" font-family="'Courier New', monospace" font-size="13" fill="#00d4ff" font-weight="bold" filter="url(#softglow)">Harness Eng.</text>
+
+    <!-- Source -->
+    <text x="15" y="50" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="10" fill="#777">博客 · Hashimoto</text>
+
+    <!-- Core idea -->
+    <text x="15" y="72" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="11" fill="#aaa">犯错 → 工程化 → 不再犯</text>
+
+    <!-- Channel -->
+    <rect x="15" y="85" width="100" height="18" rx="3" fill="#00d4ff" fill-opacity="0.1"/>
+    <text x="65" y="98" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="9" fill="#00d4ff" text-anchor="middle" opacity="0.7">OpenAI 报告背书</text>
+  </g>
+
+  <!-- === CENTER: The convergence point === -->
+
+  <!-- Three arrows converging down to one point -->
+  <line x1="175" y1="170" x2="350" y2="235" stroke="#e85050" stroke-width="1" opacity="0.4"/>
+  <line x1="470" y1="170" x2="420" y2="235" stroke="#f0a030" stroke-width="1" opacity="0.4"/>
+  <line x1="755" y1="170" x2="490" y2="235" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+
+  <!-- Convergence circle -->
+  <circle cx="420" cy="255" r="30" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.3"/>
+  <circle cx="420" cy="255" r="20" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-width="1" opacity="0.5" filter="url(#softglow)"/>
+
+  <!-- Core question inside -->
+  <text x="420" y="250" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" opacity="0.9">同一个问题</text>
+  <text x="420" y="264" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" opacity="0.9">三次命名</text>
+
+  <!-- === LEFT BOTTOM: AGENTS.md mockup === -->
+  <g transform="translate(60, 200)">
+    <rect x="0" y="0" width="195" height="110" rx="5" fill="#111825" stroke="#334" stroke-width="1"/>
+    <!-- File header -->
+    <rect x="0" y="0" width="195" height="20" rx="5" fill="#1a2035"/>
+    <circle cx="14" cy="10" r="3" fill="#e85050" opacity="0.7"/>
+    <circle cx="26" cy="10" r="3" fill="#f0a030" opacity="0.7"/>
+    <circle cx="38" cy="10" r="3" fill="#50e880" opacity="0.7"/>
+    <text x="100" y="14" font-family="'Courier New', monospace" font-size="9" fill="#8892b0" text-anchor="middle">AGENTS.md</text>
+
+    <!-- File content -->
+    <text x="10" y="38" font-family="'Courier New', monospace" font-size="8.5" fill="#e85050" opacity="0.7">- 不要动 config/ 目录</text>
+    <text x="10" y="52" font-family="'Courier New', monospace" font-size="8.5" fill="#f0a030" opacity="0.7">- 跑测试前检查 DB 连接</text>
+    <text x="10" y="66" font-family="'Courier New', monospace" font-size="8.5" fill="#00d4ff" opacity="0.7">- 禁止 TypeScript any</text>
+    <text x="10" y="80" font-family="'Courier New', monospace" font-size="8.5" fill="#555">- ...</text>
+    <text x="10" y="98" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="8" fill="#555">每一行 = 一次真实翻车</text>
+  </g>
+
+  <!-- === RIGHT BOTTOM: "Layers" crossed out === -->
+  <g transform="translate(620, 210)">
+    <!-- Fake layer stack -->
+    <rect x="0" y="0" width="170" height="22" rx="3" fill="#e85050" fill-opacity="0.06" stroke="#e85050" stroke-opacity="0.2" stroke-width="0.8"/>
+    <text x="85" y="15" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="9" fill="#e85050" text-anchor="middle" opacity="0.4">执行层</text>
+
+    <rect x="0" y="26" width="170" height="22" rx="3" fill="#f0a030" fill-opacity="0.06" stroke="#f0a030" stroke-opacity="0.2" stroke-width="0.8"/>
+    <text x="85" y="41" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="9" fill="#f0a030" text-anchor="middle" opacity="0.4">记忆层</text>
+
+    <rect x="0" y="52" width="170" height="22" rx="3" fill="#00d4ff" fill-opacity="0.06" stroke="#00d4ff" stroke-opacity="0.2" stroke-width="0.8"/>
+    <text x="85" y="67" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="9" fill="#00d4ff" text-anchor="middle" opacity="0.4">反馈层</text>
+
+    <rect x="0" y="78" width="170" height="22" rx="3" fill="#50e880" fill-opacity="0.06" stroke="#50e880" stroke-opacity="0.2" stroke-width="0.8"/>
+    <text x="85" y="93" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="9" fill="#50e880" text-anchor="middle" opacity="0.4">治理层</text>
+
+    <!-- Big X crossing out -->
+    <line x1="-5" y1="-5" x2="175" y2="105" stroke="#e85050" stroke-width="2.5" opacity="0.5"/>
+    <line x1="175" y1="-5" x2="-5" y2="105" stroke="#e85050" stroke-width="2.5" opacity="0.5"/>
+  </g>
+
+  <!-- === TITLE === -->
+  <text x="450" y="345" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle" filter="url(#glow)">同一件事，第三次被命名</text>
+  <text x="450" y="368" font-family="'Noto Sans CJK SC', Arial, sans-serif" font-size="13" fill="#8892b0" text-anchor="middle">Reflexion → Context Engineering → Harness Engineering</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="378" width="900" height="5" fill="#0a0a12" opacity="0.8"/>
+  <text x="450" y="383" font-family="'Courier New', monospace" font-size="8" fill="#333" text-anchor="middle">#140</text>
+</svg>
