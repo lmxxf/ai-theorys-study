@@ -94,7 +94,7 @@
   <text x="110" y="1010" font-family="monospace" font-size="12" fill="#4ecdc4">linarith</text>
   <text x="250" y="1010" font-family="'Noto Sans CJK SC',sans-serif" font-size="12" fill="#667788">自动验证：代入 hm、hn，展开，两边相等</text>
 
-  <rect x="30" y="1025" width="840" height="155" rx="8" fill="#0d1525" stroke="#334455" stroke-width="1.5"/>
+  <rect x="30" y="1025" width="840" height="180" rx="8" fill="#0d1525" stroke="#334455" stroke-width="1.5"/>
   <text x="50" y="1050" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#8899aa">linarith 的计算过程：</text>
   <text x="70" y="1075" font-family="monospace" font-size="13" fill="#667788">代入 hm: a = m+m, hn: b = n+n</text>
   <text x="70" y="1098" font-family="monospace" font-size="13" fill="#667788">左边: a + b = (m+m) + (n+n) = 2m + 2n</text>
