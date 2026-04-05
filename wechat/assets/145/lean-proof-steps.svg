@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="100%" stop-color="#070a12"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="1400" fill="url(#bgGrad)"/>
+
+  <!-- 标题 -->
+  <text x="450" y="45" font-family="'Noto Sans CJK SC',sans-serif" font-size="20" fill="#ffd700" text-anchor="middle" filter="url(#glow)">编译器的白板：四步证明 "偶数 + 偶数 = 偶数"</text>
+
+  <!-- ====== 初始状态 ====== -->
+  <text x="30" y="95" font-family="'Noto Sans CJK SC',sans-serif" font-size="14" fill="#ffd700" font-weight="bold">初始状态</text>
+  <text x="200" y="95" font-family="monospace" font-size="12" fill="#667788">:= by ← 编译器创建白板</text>
+
+  <rect x="30" y="110" width="840" height="120" rx="8" fill="#0d1525" stroke="#334455" stroke-width="1.5"/>
+  <!-- 前提 -->
+  <text x="50" y="135" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#8899aa">前提（已知的）：</text>
+  <text x="70" y="158" font-family="monospace" font-size="13" fill="#4ecdc4">a : ℤ    b : ℤ    ha : Even a    hb : Even b</text>
+  <!-- 目标 -->
+  <text x="50" y="190" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#8899aa">目标（要证的）：</text>
+  <text x="70" y="213" font-family="monospace" font-size="14" fill="#e84393">❓ Even (a + b)</text>
+
+  <!-- 箭头 -->
+  <line x1="450" y1="235" x2="450" y2="270" stroke="#ffd700" stroke-width="1.5" opacity="0.6"/>
+  <polygon points="445,268 450,278 455,268" fill="#ffd700" opacity="0.6"/>
+
+  <!-- ====== 第一步 ====== -->
+  <text x="30" y="300" font-family="'Noto Sans CJK SC',sans-serif" font-size="14" fill="#ffd700" font-weight="bold">第一步</text>
+  <text x="110" y="300" font-family="monospace" font-size="12" fill="#4ecdc4">obtain ⟨m, hm⟩ := ha</text>
+  <text x="450" y="300" font-family="'Noto Sans CJK SC',sans-serif" font-size="12" fill="#667788">拆开 ha：偶数 → 存在 m 使得 a = m+m</text>
+
+  <rect x="30" y="315" width="840" height="145" rx="8" fill="#0d1525" stroke="#334455" stroke-width="1.5"/>
+  <text x="50" y="340" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#8899aa">前提：</text>
+  <text x="70" y="363" font-family="monospace" font-size="13" fill="#4ecdc4">a : ℤ    b : ℤ    hb : Even b</text>
+  <text x="70" y="388" font-family="monospace" font-size="13" fill="#2ecc71">m : ℤ</text>
+  <text x="200" y="388" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" fill="#2ecc71">← 新：拆出来的那个整数</text>
+  <text x="70" y="410" font-family="monospace" font-size="13" fill="#2ecc71">hm : a = m + m</text>
+  <text x="280" y="410" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" fill="#2ecc71">← 新：a 等于 m+m 的证据</text>
+  <text x="50" y="438" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#8899aa">目标：</text>
+  <text x="70" y="456" font-family="monospace" font-size="14" fill="#e84393">❓ Even (a + b)</text>
+  <text x="320" y="456" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" fill="#667788">（没变）</text>
+
+  <!-- 箭头 -->
+  <line x1="450" y1="465" x2="450" y2="500" stroke="#ffd700" stroke-width="1.5" opacity="0.6"/>
+  <polygon points="445,498 450,508 455,498" fill="#ffd700" opacity="0.6"/>
+
+  <!-- ====== 第二步 ====== -->
+  <text x="30" y="530" font-family="'Noto Sans CJK SC',sans-serif" font-size="14" fill="#ffd700" font-weight="bold">第二步</text>
+  <text x="110" y="530" font-family="monospace" font-size="12" fill="#4ecdc4">obtain ⟨n, hn⟩ := hb</text>
+  <text x="450" y="530" font-family="'Noto Sans CJK SC',sans-serif" font-size="12" fill="#667788">拆开 hb：同理</text>
+
+  <rect x="30" y="545" width="840" height="165" rx="8" fill="#0d1525" stroke="#334455" stroke-width="1.5"/>
+  <text x="50" y="570" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#8899aa">前提：</text>
+  <text x="70" y="593" font-family="monospace" font-size="13" fill="#4ecdc4">a : ℤ    b : ℤ</text>
+  <text x="70" y="616" font-family="monospace" font-size="13" fill="#4ecdc4">m : ℤ    hm : a = m + m</text>
+  <text x="70" y="639" font-family="monospace" font-size="13" fill="#2ecc71">n : ℤ</text>
+  <text x="200" y="639" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" fill="#2ecc71">← 新</text>
+  <text x="70" y="661" font-family="monospace" font-size="13" fill="#2ecc71">hn : b = n + n</text>
+  <text x="280" y="661" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" fill="#2ecc71">← 新</text>
+  <text x="50" y="688" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#8899aa">目标：</text>
+  <text x="70" y="706" font-family="monospace" font-size="14" fill="#e84393">❓ Even (a + b)</text>
+  <text x="320" y="706" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" fill="#667788">（还是没变）</text>
+
+  <!-- 箭头 -->
+  <line x1="450" y1="715" x2="450" y2="750" stroke="#ffd700" stroke-width="1.5" opacity="0.6"/>
+  <polygon points="445,748 450,758 455,748" fill="#ffd700" opacity="0.6"/>
+
+  <!-- ====== 第三步 ====== -->
+  <text x="30" y="780" font-family="'Noto Sans CJK SC',sans-serif" font-size="14" fill="#ffd700" font-weight="bold">第三步</text>
+  <text x="110" y="780" font-family="monospace" font-size="12" fill="#4ecdc4">use m + n</text>
+  <text x="300" y="780" font-family="'Noto Sans CJK SC',sans-serif" font-size="12" fill="#667788">声称 k = m+n，目标从"存在性"变成"验证等式"</text>
+
+  <rect x="30" y="795" width="840" height="145" rx="8" fill="#0d1525" stroke="#334455" stroke-width="1.5"/>
+  <text x="50" y="820" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#8899aa">前提：</text>
+  <text x="70" y="843" font-family="monospace" font-size="13" fill="#4ecdc4">m : ℤ    n : ℤ</text>
+  <text x="70" y="866" font-family="monospace" font-size="13" fill="#4ecdc4">hm : a = m + m    hn : b = n + n</text>
+  <text x="50" y="898" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#8899aa">目标：</text>
+  <text x="70" y="925" font-family="monospace" font-size="14" fill="#ff6b6b">❓ a + b = (m + n) + (m + n)</text>
+  <text x="530" y="925" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" fill="#ff6b6b">← 变了！从"存在性"变成"等式"</text>
+
+  <!-- 箭头 -->
+  <line x1="450" y1="945" x2="450" y2="980" stroke="#ffd700" stroke-width="1.5" opacity="0.6"/>
+  <polygon points="445,978 450,988 455,978" fill="#ffd700" opacity="0.6"/>
+
+  <!-- ====== 第四步 ====== -->
+  <text x="30" y="1010" font-family="'Noto Sans CJK SC',sans-serif" font-size="14" fill="#ffd700" font-weight="bold">第四步</text>
+  <text x="110" y="1010" font-family="monospace" font-size="12" fill="#4ecdc4">linarith</text>
+  <text x="250" y="1010" font-family="'Noto Sans CJK SC',sans-serif" font-size="12" fill="#667788">自动验证：代入 hm、hn，展开，两边相等</text>
+
+  <rect x="30" y="1025" width="840" height="155" rx="8" fill="#0d1525" stroke="#334455" stroke-width="1.5"/>
+  <text x="50" y="1050" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#8899aa">linarith 的计算过程：</text>
+  <text x="70" y="1075" font-family="monospace" font-size="13" fill="#667788">代入 hm: a = m+m, hn: b = n+n</text>
+  <text x="70" y="1098" font-family="monospace" font-size="13" fill="#667788">左边: a + b = (m+m) + (n+n) = 2m + 2n</text>
+  <text x="70" y="1121" font-family="monospace" font-size="13" fill="#667788">右边: (m+n) + (m+n) = 2m + 2n</text>
+  <text x="70" y="1148" font-family="monospace" font-size="16" fill="#2ecc71" filter="url(#glow)">2m + 2n = 2m + 2n  ✅</text>
+
+  <text x="50" y="1168" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#8899aa">目标：</text>
+  <text x="70" y="1186" font-family="monospace" font-size="14" fill="#2ecc71" filter="url(#glow)">✅ No goals. Goals accomplished!</text>
+
+  <!-- 底部总结 -->
+  <rect x="30" y="1220" width="840" height="60" rx="8" fill="none" stroke="#ffd700" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
+  <text x="450" y="1248" font-family="'Noto Sans CJK SC',sans-serif" font-size="15" fill="#ffd700" text-anchor="middle" opacity="0.8">每个 tactic 要么往前提里加东西，要么把目标变简单，直到目标消失</text>
+  <text x="450" y="1270" font-family="'Noto Sans CJK SC',sans-serif" font-size="13" fill="#667788" text-anchor="middle" opacity="0.6">obtain = 加前提 ｜ use = 变目标 ｜ linarith = 关闭目标</text>
+
+  <!-- 页脚 -->
+  <text x="450" y="1370" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" fill="#334455" text-anchor="middle">Lean 4 Proof State Visualization — Even a + Even b = Even (a+b)</text>
+
+</svg>

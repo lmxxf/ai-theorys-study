@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="50%" stop-color="#0d1525"/>
+      <stop offset="100%" stop-color="#070a12"/>
+    </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowStrong" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b2"/>
+      <feMerge><feMergeNode in="b1"/><feMergeNode in="b2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="0.5" fill="#1a2a40" opacity="0.3"/>
+    </pattern>
+
+    <!-- 等号光晕 -->
+    <radialGradient id="eqGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.5"/>
+      <stop offset="60%" stop-color="#ffaa00" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ff8800" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <rect width="800" height="600" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- ====== 左侧：数学世界 ====== -->
+  <text x="200" y="100" font-family="'Noto Sans CJK SC',sans-serif" font-size="14" fill="#8899aa" text-anchor="middle" opacity="0.6" letter-spacing="3">MATHEMATICS</text>
+
+  <!-- 命题 -->
+  <rect x="60" y="140" width="280" height="50" rx="6" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
+  <text x="200" y="170" font-family="'Noto Sans CJK SC',sans-serif" font-size="18" fill="#4ecdc4" text-anchor="middle" opacity="0.9" filter="url(#glow)">命题</text>
+  <text x="200" y="205" font-family="'Noto Sans CJK SC',sans-serif" font-size="12" fill="#4ecdc4" text-anchor="middle" opacity="0.5">a > 0 , b > 0  =>  a+b > 0</text>
+
+  <!-- 证明 -->
+  <rect x="60" y="240" width="280" height="50" rx="6" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
+  <text x="200" y="270" font-family="'Noto Sans CJK SC',sans-serif" font-size="18" fill="#4ecdc4" text-anchor="middle" opacity="0.9" filter="url(#glow)">证明</text>
+  <text x="200" y="305" font-family="'Noto Sans CJK SC',sans-serif" font-size="12" fill="#4ecdc4" text-anchor="middle" opacity="0.5">"两个正数之和显然为正"</text>
+
+  <!-- 验证 -->
+  <rect x="60" y="340" width="280" height="50" rx="6" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
+  <text x="200" y="370" font-family="'Noto Sans CJK SC',sans-serif" font-size="18" fill="#4ecdc4" text-anchor="middle" opacity="0.9" filter="url(#glow)">验证</text>
+  <text x="200" y="405" font-family="'Noto Sans CJK SC',sans-serif" font-size="12" fill="#4ecdc4" text-anchor="middle" opacity="0.5">数学家审稿 (人脑)</text>
+
+  <!-- ====== 中间：等号 Curry-Howard ====== -->
+  <circle cx="400" cy="265" r="55" fill="url(#eqGlow)" opacity="0.3"/>
+  <circle cx="400" cy="265" r="35" fill="url(#eqGlow)" opacity="0.4"/>
+
+  <!-- 三条等号线 -->
+  <line x1="370" y1="170" x2="430" y2="170" stroke="#ffd700" stroke-width="3" opacity="0.8" filter="url(#glow)"/>
+  <line x1="375" y1="160" x2="425" y2="160" stroke="#ffd700" stroke-width="3" opacity="0.8" filter="url(#glow)"/>
+
+  <line x1="370" y1="270" x2="430" y2="270" stroke="#ffd700" stroke-width="3" opacity="0.8" filter="url(#glow)"/>
+  <line x1="375" y1="260" x2="425" y2="260" stroke="#ffd700" stroke-width="3" opacity="0.8" filter="url(#glow)"/>
+
+  <line x1="370" y1="370" x2="430" y2="370" stroke="#ffd700" stroke-width="3" opacity="0.8" filter="url(#glow)"/>
+  <line x1="375" y1="360" x2="425" y2="360" stroke="#ffd700" stroke-width="3" opacity="0.8" filter="url(#glow)"/>
+
+  <!-- Curry-Howard 标注 -->
+  <text x="400" y="445" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" fill="#ffd700" text-anchor="middle" opacity="0.6">Curry-Howard</text>
+  <text x="400" y="462" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" fill="#ffd700" text-anchor="middle" opacity="0.6">Isomorphism</text>
+
+  <!-- ====== 右侧：编程世界 ====== -->
+  <text x="600" y="100" font-family="'Noto Sans CJK SC',sans-serif" font-size="14" fill="#8899aa" text-anchor="middle" opacity="0.6" letter-spacing="3">PROGRAMMING</text>
+
+  <!-- 类型 -->
+  <rect x="460" y="140" width="280" height="50" rx="6" fill="none" stroke="#e84393" stroke-width="1.5" opacity="0.6"/>
+  <text x="600" y="170" font-family="'Noto Sans CJK SC',sans-serif" font-size="18" fill="#e84393" text-anchor="middle" opacity="0.9" filter="url(#glow)">类型</text>
+  <text x="600" y="205" font-family="monospace" font-size="12" fill="#e84393" text-anchor="middle" opacity="0.5">(a b : R) (ha : a>0) : a+b>0</text>
+
+  <!-- 程序 -->
+  <rect x="460" y="240" width="280" height="50" rx="6" fill="none" stroke="#e84393" stroke-width="1.5" opacity="0.6"/>
+  <text x="600" y="270" font-family="'Noto Sans CJK SC',sans-serif" font-size="18" fill="#e84393" text-anchor="middle" opacity="0.9" filter="url(#glow)">程序</text>
+  <text x="600" y="305" font-family="monospace" font-size="12" fill="#e84393" text-anchor="middle" opacity="0.5">:= by linarith</text>
+
+  <!-- 类型检查 -->
+  <rect x="460" y="340" width="280" height="50" rx="6" fill="none" stroke="#e84393" stroke-width="1.5" opacity="0.6"/>
+  <text x="600" y="370" font-family="'Noto Sans CJK SC',sans-serif" font-size="18" fill="#e84393" text-anchor="middle" opacity="0.9" filter="url(#glow)">类型检查</text>
+  <text x="600" y="405" font-family="monospace" font-size="12" fill="#e84393" text-anchor="middle" opacity="0.5">lean compiler (CPU)</text>
+
+  <!-- ====== 底部标题 ====== -->
+  <text x="400" y="530" font-family="'Noto Sans CJK SC',sans-serif" font-size="20" fill="#cccccc" text-anchor="middle" letter-spacing="3" opacity="0.8">数学证明本来就是程序</text>
+  <text x="400" y="560" font-family="'Noto Sans CJK SC',sans-serif" font-size="12" fill="#667788" text-anchor="middle" letter-spacing="2" opacity="0.5">Lean 4 — Where Proofs Compile</text>
+
+  <!-- 散点装饰 -->
+  <g opacity="0.15">
+    <circle cx="50" cy="80" r="1" fill="#4ecdc4"/>
+    <circle cx="750" cy="90" r="1.2" fill="#e84393"/>
+    <circle cx="30" cy="500" r="0.8" fill="#ffd700"/>
+    <circle cx="770" cy="480" r="1" fill="#4ecdc4"/>
+    <circle cx="90" cy="550" r="0.8" fill="#e84393"/>
+    <circle cx="720" cy="540" r="1" fill="#ffd700"/>
+  </g>
+
+</svg>
