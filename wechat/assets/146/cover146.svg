@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e27" />
+      <stop offset="100%" style="stop-color:#0d1b2a" />
+    </linearGradient>
+    <linearGradient id="armGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFFF" />
+      <stop offset="100%" style="stop-color:#1E90FF" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bg)" />
+
+  <!-- Grid lines -->
+  <g stroke="#1a2a4a" stroke-width="0.5" opacity="0.4">
+    <line x1="0" y1="50" x2="900" y2="50" />
+    <line x1="0" y1="100" x2="900" y2="100" />
+    <line x1="0" y1="150" x2="900" y2="150" />
+    <line x1="0" y1="200" x2="900" y2="200" />
+    <line x1="0" y1="250" x2="900" y2="250" />
+    <line x1="0" y1="300" x2="900" y2="300" />
+    <line x1="0" y1="350" x2="900" y2="350" />
+    <line x1="0" y1="400" x2="900" y2="400" />
+    <line x1="0" y1="450" x2="900" y2="450" />
+    <line x1="100" y1="0" x2="100" y2="500" />
+    <line x1="200" y1="0" x2="200" y2="500" />
+    <line x1="300" y1="0" x2="300" y2="500" />
+    <line x1="400" y1="0" x2="400" y2="500" />
+    <line x1="500" y1="0" x2="500" y2="500" />
+    <line x1="600" y1="0" x2="600" y2="500" />
+    <line x1="700" y1="0" x2="700" y2="500" />
+    <line x1="800" y1="0" x2="800" y2="500" />
+  </g>
+
+  <!-- Circuit-style decorative traces -->
+  <g stroke="#1E90FF" stroke-width="1" fill="none" opacity="0.15">
+    <path d="M0,420 H120 L140,400 H220 L230,410 H300" />
+    <path d="M600,480 H700 L720,460 H800 L820,470 H900" />
+    <path d="M0,80 H60 L80,60 H150" />
+    <path d="M750,0 V40 L770,60 V120" />
+    <circle cx="120" cy="420" r="3" fill="#1E90FF" />
+    <circle cx="300" cy="410" r="3" fill="#1E90FF" />
+    <circle cx="150" cy="60" r="3" fill="#1E90FF" />
+    <circle cx="770" cy="120" r="3" fill="#1E90FF" />
+  </g>
+
+  <!-- Decorative dots at grid intersections -->
+  <g fill="#1E90FF" opacity="0.2">
+    <circle cx="100" cy="100" r="2" />
+    <circle cx="200" cy="200" r="2" />
+    <circle cx="300" cy="300" r="2" />
+    <circle cx="800" cy="100" r="2" />
+    <circle cx="700" cy="200" r="2" />
+    <circle cx="600" cy="400" r="2" />
+  </g>
+
+  <!-- Mechanical arm (line-art style) -->
+  <g transform="translate(620, 100)" filter="url(#glow)">
+    <!-- Base -->
+    <rect x="60" y="320" width="100" height="20" rx="4" fill="none" stroke="#00BFFF" stroke-width="2" />
+    <rect x="80" y="310" width="60" height="15" rx="3" fill="none" stroke="#00BFFF" stroke-width="2" />
+
+    <!-- Joint 1 (base rotation) -->
+    <circle cx="110" cy="310" r="8" fill="none" stroke="#1E90FF" stroke-width="2" />
+    <circle cx="110" cy="310" r="3" fill="#00BFFF" opacity="0.6" />
+
+    <!-- Arm segment 1 (lower arm) -->
+    <line x1="110" y1="302" x2="80" y2="220" stroke="#00BFFF" stroke-width="2.5" />
+    <line x1="110" y1="302" x2="90" y2="220" stroke="#1E90FF" stroke-width="1.5" stroke-dasharray="4,3" />
+
+    <!-- Joint 2 (elbow) -->
+    <circle cx="80" cy="220" r="7" fill="none" stroke="#1E90FF" stroke-width="2" />
+    <circle cx="80" cy="220" r="3" fill="#00BFFF" opacity="0.6" />
+
+    <!-- Arm segment 2 (upper arm) -->
+    <line x1="80" y1="213" x2="40" y2="140" stroke="#00BFFF" stroke-width="2.5" />
+    <line x1="80" y1="213" x2="50" y2="140" stroke="#1E90FF" stroke-width="1.5" stroke-dasharray="4,3" />
+
+    <!-- Joint 3 (wrist) -->
+    <circle cx="40" cy="140" r="6" fill="none" stroke="#1E90FF" stroke-width="2" />
+    <circle cx="40" cy="140" r="2.5" fill="#00BFFF" opacity="0.6" />
+
+    <!-- End effector / gripper -->
+    <line x1="40" y1="134" x2="25" y2="105" stroke="#00BFFF" stroke-width="2" />
+    <line x1="25" y1="105" x2="15" y2="90" stroke="#00BFFF" stroke-width="1.5" />
+    <line x1="25" y1="105" x2="35" y2="90" stroke="#00BFFF" stroke-width="1.5" />
+    <!-- Gripper fingers -->
+    <line x1="15" y1="90" x2="10" y2="78" stroke="#00BFFF" stroke-width="1.5" />
+    <line x1="35" y1="90" x2="40" y2="78" stroke="#00BFFF" stroke-width="1.5" />
+
+    <!-- Small detail lines on arm -->
+    <line x1="95" y1="260" x2="105" y2="258" stroke="#1E90FF" stroke-width="0.8" opacity="0.5" />
+    <line x1="60" y1="178" x2="70" y2="176" stroke="#1E90FF" stroke-width="0.8" opacity="0.5" />
+  </g>
+
+  <!-- Code snippet area -->
+  <g transform="translate(60, 260)">
+    <rect x="0" y="0" width="320" height="140" rx="8" fill="#0d1117" stroke="#1E90FF" stroke-width="1" opacity="0.85" />
+    <!-- Terminal header dots -->
+    <circle cx="18" cy="16" r="4" fill="#ff5f56" opacity="0.8" />
+    <circle cx="32" cy="16" r="4" fill="#ffbd2e" opacity="0.8" />
+    <circle cx="46" cy="16" r="4" fill="#27c93f" opacity="0.8" />
+    <!-- Code text -->
+    <text x="18" y="50" font-family="'Courier New', monospace" font-size="13" fill="#7ec699">$</text>
+    <text x="32" y="50" font-family="'Courier New', monospace" font-size="13" fill="#e6e6e6"> pip install mujoco</text>
+    <text x="18" y="72" font-family="'Courier New', monospace" font-size="13" fill="#7ec699">$</text>
+    <text x="32" y="72" font-family="'Courier New', monospace" font-size="13" fill="#e6e6e6"> pip install gymnasium</text>
+    <text x="18" y="98" font-family="'Courier New', monospace" font-size="12" fill="#6a737d">&#x23; Robot simulation ready</text>
+    <text x="18" y="118" font-family="'Courier New', monospace" font-size="13" fill="#f97583">import</text>
+    <text x="72" y="118" font-family="'Courier New', monospace" font-size="13" fill="#e6e6e6"> mujoco</text>
+  </g>
+
+  <!-- No.146 badge -->
+  <g transform="translate(30, 25)">
+    <rect x="0" y="0" width="90" height="32" rx="4" fill="none" stroke="#00BFFF" stroke-width="1.5" />
+    <text x="45" y="22" font-family="'Courier New', monospace" font-size="16" fill="#00BFFF" text-anchor="middle" font-weight="bold">No.146</text>
+  </g>
+
+  <!-- Main title -->
+  <text x="60" y="120" font-family="'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif" font-size="36" fill="#ffffff" font-weight="bold">
+    大模型玩不起预训练？
+  </text>
+  <text x="60" y="172" font-family="'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif" font-size="36" fill="#ffffff" font-weight="bold">
+    那来学学<tspan fill="#00BFFF">机器人开发</tspan>吧
+  </text>
+
+  <!-- Subtitle -->
+  <text x="60" y="215" font-family="'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif" font-size="16" fill="#8899bb" letter-spacing="1">
+    MuJoCo + Gymnasium  &#183;  从零搭建机器人仿真环境
+  </text>
+
+  <!-- Bottom accent line -->
+  <line x1="60" y1="460" x2="300" y2="460" stroke="url(#armGlow)" stroke-width="2" opacity="0.6" />
+  <circle cx="300" cy="460" r="3" fill="#00BFFF" opacity="0.6" />
+
+  <!-- Ambient glow behind arm -->
+  <circle cx="720" cy="280" r="150" fill="#1E90FF" opacity="0.04" filter="url(#softGlow)" />
+</svg>
