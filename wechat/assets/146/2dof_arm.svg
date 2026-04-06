@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" width="520" height="420">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="520" height="420" fill="#1a1a2e" rx="8"/>
+
+  <!-- 地面 -->
+  <line x1="40" y1="340" x2="480" y2="340" stroke="#444" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- 基座 -->
+  <rect x="80" y="330" width="50" height="20" fill="#555" rx="3"/>
+
+  <!-- 坐标轴 -->
+  <line x1="105" y1="330" x2="200" y2="330" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="205" y="335" fill="#888" font-family="Noto Sans CJK SC" font-size="14">x</text>
+  <line x1="105" y1="330" x2="105" y2="245" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="95" y="240" fill="#888" font-family="Noto Sans CJK SC" font-size="14">y</text>
+
+  <!-- θ1 夹角区域填充 -->
+  <path d="M 105 330 L 165 330 A 60 60 0 0 0 147 280 Z" fill="rgba(68,136,204,0.15)"/>
+  <!-- θ1 弧线 -->
+  <path d="M 165 330 A 60 60 0 0 0 147 280" fill="none" stroke="#4488cc" stroke-width="2.5"/>
+  <!-- θ1 标注 -->
+  <text x="162" y="305" fill="#6aabdd" font-family="Noto Sans CJK SC" font-size="18" font-weight="bold">θ1</text>
+
+  <!-- 关节1（基座关节） -->
+  <circle cx="105" cy="330" r="9" fill="#4488cc" stroke="#6aabdd" stroke-width="2"/>
+
+  <!-- 臂1：L1（从基座到关节2，角度约 40 度） -->
+  <!-- 角度 40°: cos40=0.766, sin40=0.643, L1 视觉长度 180px -->
+  <!-- 终点: 105+180*0.766=243, 330-180*0.643=214 -->
+  <line x1="105" y1="330" x2="243" y2="214" stroke="#e0e0e0" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- L1 标注（臂的中点偏左） -->
+  <text x="145" y="285" fill="#e0e0e0" font-family="Noto Sans CJK SC" font-size="17" font-weight="bold" transform="rotate(-40,145,285)">L1</text>
+
+  <!-- 关节2 -->
+  <circle cx="243" cy="214" r="9" fill="#cc4444" stroke="#ee6666" stroke-width="2"/>
+
+  <!-- L1 延长线（虚线，用于标注 θ2） -->
+  <!-- 延长 80px: 243+80*0.766=304, 214-80*0.643=163 -->
+  <line x1="243" y1="214" x2="304" y2="163" stroke="#cc4444" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- θ2 夹角区域填充 -->
+  <!-- θ2 从 L1 延长线方向（40°）到臂2方向（40°+50°=90°方向） -->
+  <!-- 弧起点（L1延长线方向 40°，半径45）: 243+45*cos40=277, 214-45*sin40=185 -->
+  <!-- 弧终点（臂2方向 90°，半径45）: 243+45*cos90=243, 214-45*sin90=169 -->
+  <path d="M 243 214 L 277 185 A 45 45 0 0 0 258 171 Z" fill="rgba(204,68,68,0.15)"/>
+  <!-- θ2 弧线 -->
+  <path d="M 277 185 A 45 45 0 0 0 258 171" fill="none" stroke="#cc4444" stroke-width="2.5"/>
+  <!-- θ2 标注 -->
+  <text x="275" y="175" fill="#ee6666" font-family="Noto Sans CJK SC" font-size="18" font-weight="bold">θ2</text>
+
+  <!-- 臂2：L2（从关节2出发，臂1方向再转 50 度，总角度 90 度） -->
+  <!-- 角度 90°: cos90=0, sin90=1, L2 视觉长度 140px -->
+  <!-- 终点: 243+140*0=243, 214-140*1=74 -->
+  <!-- 改成 80 度让图好看些: cos80=0.174, sin80=0.985 -->
+  <!-- 终点: 243+140*0.174=267, 214-140*0.985=76 -->
+  <line x1="243" y1="214" x2="267" y2="76" stroke="#e0e0e0" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- L2 标注 -->
+  <text x="240" y="150" fill="#e0e0e0" font-family="Noto Sans CJK SC" font-size="17" font-weight="bold" transform="rotate(-80,240,150)">L2</text>
+
+  <!-- 末端效应器（手） -->
+  <circle cx="267" cy="76" r="12" fill="#44cc88" stroke="#66eebb" stroke-width="2"/>
+  <text x="285" y="80" fill="#66eebb" font-family="Noto Sans CJK SC" font-size="15" font-weight="bold">(x, y)</text>
+
+  <!-- 正运动学公式 -->
+  <text x="260" y="340" fill="#aaa" font-family="Noto Sans CJK SC" font-size="14">正运动学：</text>
+  <text x="260" y="362" fill="#e0e0e0" font-family="monospace" font-size="13">x = L1·cos(θ1) + L2·cos(θ1+θ2)</text>
+  <text x="260" y="382" fill="#e0e0e0" font-family="monospace" font-size="13">y = L1·sin(θ1) + L2·sin(θ1+θ2)</text>
+
+  <!-- 图例 -->
+  <circle cx="260" cy="405" r="5" fill="#4488cc"/>
+  <text x="270" y="409" fill="#6aabdd" font-family="Noto Sans CJK SC" font-size="12">关节1</text>
+  <circle cx="330" cy="405" r="5" fill="#cc4444"/>
+  <text x="340" y="409" fill="#ee6666" font-family="Noto Sans CJK SC" font-size="12">关节2</text>
+  <circle cx="400" cy="405" r="5" fill="#44cc88"/>
+  <text x="410" y="409" fill="#66eebb" font-family="Noto Sans CJK SC" font-size="12">末端</text>
+</svg>
