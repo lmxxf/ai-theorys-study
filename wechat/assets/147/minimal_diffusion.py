@@ -161,6 +161,8 @@ scheduler = NoiseScheduler(num_timesteps=T)
 model = NoisePredictor()
 optimizer = torch.optim.AdamW(model.parameters(), lr=LR)
 
+snapshots = []  # 记录不同轮数的生成结果
+
 print(f"开始训练：{EPOCHS} 轮，batch={BATCH}，加噪 {T} 步")
 
 for epoch in range(EPOCHS):
@@ -180,11 +182,23 @@ for epoch in range(EPOCHS):
     if (epoch + 1) % 50 == 0:
         print(f"  第 {epoch+1} 轮，Loss = {loss.item():.4f}")
 
+    # 每隔一定轮数，用当前模型生成一次，记录学习过程
+    if (epoch + 1) in [1, 10, 50, 100, 200, 500]:
+        model.eval()
+        with torch.no_grad():
+            sample = torch.randn(N_GEN, 2)
+            for t_step in reversed(range(T)):
+                t_batch = torch.from_numpy(np.repeat(t_step, N_GEN)).long()
+                eps_pred = model(sample, t_batch)
+                sample = scheduler.step(eps_pred, t_batch[0], sample)
+        snapshots.append((epoch + 1, sample.numpy()))
+        model.train()
+
 print("训练完成！")
 
 
 # ============================================================
-# 第三段：推理（从纯随机数变出螺旋线）
+# 第三段：推理（最终生成）
 # ============================================================
 
 print(f"开始生成：从 {N_GEN} 个纯随机点出发，去噪 {T} 步")
@@ -203,7 +217,7 @@ print("生成完成！")
 
 
 # ============================================================
-# 画图：左边原始数据，右边生成结果
+# 画图 1：最终结果（左边原始数据，右边最终生成）
 # ============================================================
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
@@ -226,3 +240,28 @@ ax2.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig('spiral_diffusion_result.png', dpi=150, bbox_inches='tight')
 print("结果已保存到 spiral_diffusion_result.png")
+
+
+# ============================================================
+# 画图 2：学习过程（不同训练轮数的生成效果）
+# ============================================================
+
+n_snap = len(snapshots)
+fig, axes = plt.subplots(n_snap + 1, 1, figsize=(4, 4 * (n_snap + 1)))
+
+# 第一格：原始数据
+axes[0].scatter(original[:, 0], original[:, 1], s=2, alpha=0.4, c='#2a7fff')
+axes[0].set_title('Training Data', fontsize=12)
+axes[0].set_xlim(-6, 6); axes[0].set_ylim(-6, 6)
+axes[0].set_aspect('equal'); axes[0].grid(True, alpha=0.2)
+
+# 后面每格：对应轮数的生成结果
+for i, (ep, pts) in enumerate(snapshots):
+    axes[i + 1].scatter(pts[:, 0], pts[:, 1], s=2, alpha=0.4, c='#ff6644')
+    axes[i + 1].set_title(f'Epoch {ep}', fontsize=12)
+    axes[i + 1].set_xlim(-6, 6); axes[i + 1].set_ylim(-6, 6)
+    axes[i + 1].set_aspect('equal'); axes[i + 1].grid(True, alpha=0.2)
+
+plt.tight_layout()
+plt.savefig('spiral_learning_process.png', dpi=150, bbox_inches='tight')
+print("学习过程已保存到 spiral_learning_process.png")
