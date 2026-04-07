@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" style="background-color:#0a1628">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <defs>
+    <!-- 噪声点的渐变 -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#4fc3f7;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 背景微光 -->
+  <circle cx="400" cy="250" r="280" fill="url(#glow)" opacity="0.15"/>
+
+  <!-- ============ 左侧：纯噪声散点 ============ -->
+  <g opacity="0.7">
+    <circle cx="95" cy="165" r="2.5" fill="#78909c"/>
+    <circle cx="120" cy="210" r="2" fill="#78909c"/>
+    <circle cx="75" cy="240" r="2.5" fill="#78909c"/>
+    <circle cx="140" cy="185" r="2" fill="#78909c"/>
+    <circle cx="60" cy="195" r="2" fill="#78909c"/>
+    <circle cx="110" cy="260" r="2.5" fill="#78909c"/>
+    <circle cx="85" cy="290" r="2" fill="#78909c"/>
+    <circle cx="130" cy="275" r="2" fill="#78909c"/>
+    <circle cx="150" cy="230" r="2.5" fill="#78909c"/>
+    <circle cx="70" cy="310" r="2" fill="#78909c"/>
+    <circle cx="105" cy="150" r="2" fill="#78909c"/>
+    <circle cx="55" cy="270" r="2.5" fill="#78909c"/>
+    <circle cx="145" cy="155" r="2" fill="#78909c"/>
+    <circle cx="90" cy="320" r="2" fill="#78909c"/>
+    <circle cx="125" cy="300" r="2.5" fill="#78909c"/>
+    <circle cx="65" cy="180" r="2" fill="#78909c"/>
+    <circle cx="160" cy="250" r="2" fill="#78909c"/>
+    <circle cx="80" cy="145" r="2.5" fill="#78909c"/>
+    <circle cx="135" cy="310" r="2" fill="#78909c"/>
+    <circle cx="50" cy="220" r="2" fill="#78909c"/>
+  </g>
+  <text x="105" y="360" text-anchor="middle" font-size="13" fill="#607d8b">x_T</text>
+  <text x="105" y="378" text-anchor="middle" font-size="11" fill="#546e7a">纯噪声</text>
+
+  <!-- ============ 中间：箭头 + 去噪过程 ============ -->
+  <!-- 大箭头 -->
+  <line x1="195" y1="240" x2="335" y2="240" stroke="#4fc3f7" stroke-width="2.5" stroke-dasharray="8,4" opacity="0.8"/>
+  <polygon points="340,240 328,232 328,248" fill="#4fc3f7" opacity="0.8"/>
+
+  <!-- 箭头上方文字 -->
+  <text x="265" y="220" text-anchor="middle" font-size="12" fill="#4fc3f7" font-weight="bold">去噪 T 步</text>
+  <text x="265" y="205" text-anchor="middle" font-size="10" fill="#4fc3f7" opacity="0.6">预测噪声 → 减掉 → 重复</text>
+
+  <!-- ============ 中间偏右：半成型螺旋 ============ -->
+  <g transform="translate(410, 240)" opacity="0.5">
+    <path d="M 0,0 C 5,-15 20,-25 30,-20 C 45,-12 40,5 30,15 C 18,27 -5,25 -15,12 C -28,-3 -20,-30 -5,-40 C 15,-52 45,-42 55,-25 C 68,-5 58,30 35,42"
+          fill="none" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" stroke-dasharray="4,6"/>
+  </g>
+
+  <!-- ============ 右侧：清晰的螺旋线 ============ -->
+  <g transform="translate(620, 240)">
+    <path d="M 0,0 C 5,-12 15,-18 22,-15 C 32,-10 30,3 22,12 C 12,22 -5,20 -12,10 C -22,-3 -18,-25 -5,-35 C 12,-47 38,-38 50,-22 C 65,-3 55,30 35,45 C 10,62 -30,52 -45,30 C -62,5 -50,-40 -25,-58 C 5,-78 50,-65 70,-40"
+          fill="none" stroke="#4fc3f7" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- 螺旋线上的亮点 -->
+    <circle cx="0" cy="0" r="3" fill="#4fc3f7" opacity="0.9"/>
+    <circle cx="22" cy="-15" r="2.5" fill="#4fc3f7" opacity="0.7"/>
+    <circle cx="-12" cy="10" r="2.5" fill="#4fc3f7" opacity="0.7"/>
+    <circle cx="50" cy="-22" r="2.5" fill="#4fc3f7" opacity="0.7"/>
+    <circle cx="-45" cy="30" r="2.5" fill="#4fc3f7" opacity="0.7"/>
+    <circle cx="70" cy="-40" r="3" fill="#ff7043" opacity="0.9"/>
+  </g>
+  <text x="620" y="360" text-anchor="middle" font-size="13" fill="#4fc3f7">x_0</text>
+  <text x="620" y="378" text-anchor="middle" font-size="11" fill="#4fc3f7" opacity="0.7">生成的轨迹</text>
+
+  <!-- ============ 底部：核心公式 ============ -->
+  <rect x="180" y="400" width="440" height="40" rx="8" fill="#0d1f3c" stroke="#1a3a5c" stroke-width="1" opacity="0.8"/>
+  <text x="400" y="425" text-anchor="middle" font-size="14" fill="#4fc3f7" font-family="'Consolas', 'Noto Sans CJK SC', monospace" opacity="0.9">
+    训练 = 选个 t + 加噪声 + 预测噪声
+  </text>
+
+  <!-- ============ 顶部：标题 ============ -->
+  <text x="400" y="60" text-anchor="middle" font-size="28" fill="#ffffff" font-weight="bold">扩散模型到底在算什么</text>
+  <text x="400" y="95" text-anchor="middle" font-size="16" fill="#90a4ae">从加噪声到生成机器人动作</text>
+
+  <!-- 顶部小标签 -->
+  <rect x="310" y="108" width="180" height="24" rx="12" fill="none" stroke="#4fc3f7" stroke-width="1" opacity="0.5"/>
+  <text x="400" y="124" text-anchor="middle" font-size="11" fill="#4fc3f7" opacity="0.7">机器人 AI 入门 · 第二弹</text>
+</svg>
