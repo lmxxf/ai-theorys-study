@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 820" width="700" height="820" style="background-color:#ffffff">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 15px; fill: #222; font-weight: bold; }
+    .subtitle { font-size: 11px; fill: #666; }
+    .label { font-size: 11px; fill: #333; }
+    .label-bold { font-size: 11px; fill: #333; font-weight: bold; }
+    .dim { font-size: 9px; fill: #888; font-family: 'Consolas', 'Noto Sans CJK SC', monospace; }
+    .note { font-size: 9px; fill: #666; }
+    .section { font-size: 10px; fill: #555; font-weight: bold; }
+  </style>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#666"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#1565c0"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#e65100"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="350" y="28" text-anchor="middle" class="title">Diffusion Policy 架构（Push-T）</text>
+  <text x="350" y="46" text-anchor="middle" class="subtitle">左路：条件编码（看图）　　右路：去噪网络（预测噪声）</text>
+
+  <!-- ======== 左路：条件编码 ======== -->
+  <!-- 大虚线框 -->
+  <rect x="20" y="65" width="280" height="470" rx="10" fill="#f5f5f5" stroke="#1565c0" stroke-width="1.2" stroke-dasharray="6,3"/>
+  <text x="160" y="85" text-anchor="middle" class="section" fill="#1565c0">条件编码路径</text>
+
+  <!-- 96x96 照片 -->
+  <rect x="60" y="100" width="200" height="50" rx="6" fill="#e3f2fd" stroke="#42a5f5" stroke-width="1.5"/>
+  <text x="160" y="122" text-anchor="middle" class="label">96×96 俯视照片</text>
+  <text x="160" y="136" text-anchor="middle" class="dim">RGB, 3 通道</text>
+
+  <line x1="160" y1="150" x2="160" y2="175" stroke="#1565c0" stroke-width="1.2" marker-end="url(#arrow-blue)"/>
+
+  <!-- ResNet18 -->
+  <rect x="45" y="180" width="230" height="60" rx="6" fill="#bbdefb" stroke="#1565c0" stroke-width="1.5"/>
+  <text x="160" y="203" text-anchor="middle" class="label-bold">ResNet18</text>
+  <text x="160" y="218" text-anchor="middle" class="note">ImageNet 预训练权重，提取图像特征</text>
+  <text x="160" y="252" text-anchor="middle" class="dim">96×96×3 → 512 维特征向量</text>
+
+  <line x1="160" y1="240" x2="160" y2="270" stroke="#1565c0" stroke-width="1.2" marker-end="url(#arrow-blue)"/>
+
+  <!-- SpatialSoftmax -->
+  <rect x="55" y="275" width="210" height="40" rx="6" fill="#bbdefb" stroke="#1565c0" stroke-width="1.2"/>
+  <text x="160" y="299" text-anchor="middle" class="label">SpatialSoftmax（64 个关键点）</text>
+  <line x1="160" y1="315" x2="160" y2="345" stroke="#1565c0" stroke-width="1.2" marker-end="url(#arrow-blue)"/>
+  <text x="160" y="340" text-anchor="middle" class="dim">512 维 → 128 维</text>
+
+  <!-- 手指坐标 -->
+  <rect x="80" y="350" width="160" height="40" rx="6" fill="#e3f2fd" stroke="#42a5f5" stroke-width="1.5"/>
+  <text x="160" y="374" text-anchor="middle" class="label">手指坐标 (x, y)</text>
+  <line x1="160" y1="390" x2="160" y2="420" stroke="#1565c0" stroke-width="1.2"/>
+
+  <!-- Concat: 图片特征 + 手指位置 -->
+  <rect x="50" y="420" width="220" height="40" rx="6" fill="#c5cae9" stroke="#3949ab" stroke-width="1.5"/>
+  <text x="160" y="444" text-anchor="middle" class="label">Concat 拼接</text>
+  <line x1="160" y1="460" x2="160" y2="490" stroke="#1565c0" stroke-width="1.2"/>
+  <text x="160" y="480" text-anchor="middle" class="dim">128 + 2 = 130 维</text>
+
+  <!-- 条件向量输出标签 -->
+  <rect x="60" y="495" width="200" height="30" rx="6" fill="#1565c0" stroke="none"/>
+  <text x="160" y="515" text-anchor="middle" class="label" fill="#fff" font-weight="bold">条件向量 c</text>
+
+  <!-- ======== 右路：去噪网络 ======== -->
+  <!-- 大虚线框 -->
+  <rect x="400" y="65" width="280" height="470" rx="10" fill="#fff8f0" stroke="#e65100" stroke-width="1.2" stroke-dasharray="6,3"/>
+  <text x="540" y="85" text-anchor="middle" class="section" fill="#e65100">去噪路径</text>
+
+  <!-- 加噪轨迹 -->
+  <rect x="440" y="100" width="200" height="50" rx="6" fill="#fff3e0" stroke="#ff9800" stroke-width="1.5"/>
+  <text x="540" y="122" text-anchor="middle" class="label">加噪轨迹 x_t</text>
+  <text x="540" y="136" text-anchor="middle" class="dim">16步×2坐标 = 32 维</text>
+
+  <line x1="540" y1="150" x2="540" y2="175" stroke="#e65100" stroke-width="1.2" marker-end="url(#arrow-orange)"/>
+
+  <!-- 时间步 -->
+  <rect x="440" y="180" width="200" height="40" rx="6" fill="#ffe0b2" stroke="#ff9800" stroke-width="1.5"/>
+  <text x="540" y="204" text-anchor="middle" class="label">时间步 t（Sinusoidal 嵌入）</text>
+  <text x="540" y="232" text-anchor="middle" class="dim">标量 → 256 维</text>
+
+  <line x1="540" y1="220" x2="540" y2="255" stroke="#e65100" stroke-width="1.2" marker-end="url(#arrow-orange)"/>
+
+  <!-- 1D U-Net -->
+  <rect x="415" y="260" width="250" height="220" rx="8" fill="#fff3e0" stroke="#e65100" stroke-width="1.5"/>
+  <text x="540" y="285" text-anchor="middle" class="label-bold">1D U-Net</text>
+
+  <!-- U-Net 内部结构 -->
+  <!-- 编码器 -->
+  <rect x="435" y="300" width="95" height="30" rx="4" fill="#ffcc80" stroke="#f57c00" stroke-width="1"/>
+  <text x="482" y="319" text-anchor="middle" class="note">编码器 ↓</text>
+  <text x="482" y="342" text-anchor="middle" class="dim">32→256→512→1024</text>
+
+  <!-- 解码器 -->
+  <rect x="550" y="300" width="95" height="30" rx="4" fill="#ffcc80" stroke="#f57c00" stroke-width="1"/>
+  <text x="597" y="319" text-anchor="middle" class="note">解码器 ↑</text>
+  <text x="597" y="342" text-anchor="middle" class="dim">1024→512→256→32</text>
+
+  <!-- 跳跃连接 -->
+  <line x1="530" y1="315" x2="550" y2="315" stroke="#f57c00" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="540" y="360" text-anchor="middle" class="note">跳跃连接（Skip Connection）</text>
+
+  <!-- 条件注入说明 -->
+  <rect x="435" y="375" width="210" height="45" rx="4" fill="#fff8e1" stroke="#ffa000" stroke-width="1"/>
+  <text x="540" y="393" text-anchor="middle" class="note">条件向量 c 通过 FiLM 调制</text>
+  <text x="540" y="408" text-anchor="middle" class="note">注入每一层卷积块</text>
+
+  <!-- FiLM 说明 -->
+  <text x="540" y="458" text-anchor="middle" class="dim">feature = γ(c) × feature + β(c)</text>
+
+  <line x1="540" y1="480" x2="540" y2="500" stroke="#e65100" stroke-width="1.2" marker-end="url(#arrow-orange)"/>
+
+  <!-- 输出 -->
+  <rect x="440" y="495" width="200" height="30" rx="6" fill="#e65100" stroke="none"/>
+  <text x="540" y="515" text-anchor="middle" class="label" fill="#fff" font-weight="bold">预测噪声 ε_pred（32 维）</text>
+
+  <!-- ======== 条件注入箭头：左路 → 右路 ======== -->
+  <path d="M 260 510 Q 350 510 435 400" fill="none" stroke="#3949ab" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow-blue)"/>
+  <text x="350" y="490" text-anchor="middle" class="note" fill="#3949ab">条件注入</text>
+
+  <!-- ======== 底部：完整流程 ======== -->
+  <rect x="40" y="560" width="620" height="240" rx="10" fill="#fafafa" stroke="#ccc" stroke-width="1"/>
+  <text x="350" y="585" text-anchor="middle" class="section">完整流程：从拍照到输出轨迹</text>
+
+  <!-- 流程图 -->
+  <!-- 拍照 -->
+  <rect x="60" y="605" width="80" height="45" rx="5" fill="#e3f2fd" stroke="#42a5f5" stroke-width="1.2"/>
+  <text x="100" y="625" text-anchor="middle" class="note">拍照</text>
+  <text x="100" y="638" text-anchor="middle" class="dim">96×96</text>
+  <line x1="140" y1="627" x2="162" y2="627" stroke="#666" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- ResNet18 -->
+  <rect x="168" y="605" width="80" height="45" rx="5" fill="#bbdefb" stroke="#1565c0" stroke-width="1.2"/>
+  <text x="208" y="625" text-anchor="middle" class="note">ResNet18</text>
+  <text x="208" y="638" text-anchor="middle" class="dim">→ 特征</text>
+  <line x1="248" y1="627" x2="270" y2="627" stroke="#666" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- 纯噪声 -->
+  <rect x="168" y="665" width="80" height="35" rx="5" fill="#fff3e0" stroke="#ff9800" stroke-width="1.2"/>
+  <text x="208" y="687" text-anchor="middle" class="note">纯噪声 x_T</text>
+  <line x1="248" y1="682" x2="270" y2="665" stroke="#666" stroke-width="1.2"/>
+
+  <!-- 1D U-Net（循环） -->
+  <rect x="276" y="600" width="120" height="55" rx="5" fill="#fff3e0" stroke="#e65100" stroke-width="1.2"/>
+  <text x="336" y="622" text-anchor="middle" class="note">1D U-Net</text>
+  <text x="336" y="636" text-anchor="middle" class="note">去噪 T 步</text>
+  <text x="336" y="648" text-anchor="middle" class="dim">（条件 = 照片特征）</text>
+
+  <!-- 循环箭头 -->
+  <path d="M 396 615 Q 420 615 420 630 Q 420 645 396 645" fill="none" stroke="#e65100" stroke-width="1" marker-end="url(#arrow-orange)"/>
+  <text x="440" y="633" text-anchor="start" class="dim">×100 步</text>
+
+  <line x1="396" y1="627" x2="430" y2="627" stroke="none"/>
+  <line x1="336" y1="655" x2="336" y2="680" stroke="#666" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- 16步轨迹 -->
+  <rect x="276" y="685" width="120" height="40" rx="5" fill="#c8e6c9" stroke="#43a047" stroke-width="1.2"/>
+  <text x="336" y="702" text-anchor="middle" class="note">干净轨迹 x_0</text>
+  <text x="336" y="715" text-anchor="middle" class="dim">16 步 (x,y)</text>
+  <line x1="396" y1="705" x2="460" y2="705" stroke="#666" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- 执行前8步 -->
+  <rect x="466" y="685" width="90" height="40" rx="5" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="511" y="702" text-anchor="middle" class="note" font-weight="bold">执行前 8 步</text>
+  <text x="511" y="715" text-anchor="middle" class="dim">控制手指移动</text>
+  <line x1="556" y1="705" x2="575" y2="705" stroke="#666" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- 重新拍照 -->
+  <path d="M 580 705 Q 620 705 620 770 Q 620 785 350 785 Q 60 785 60 760 Q 60 740 60 660" fill="none" stroke="#999" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="350" y="775" text-anchor="middle" class="note" fill="#999">回到拍照，重新规划（滚动规划）</text>
+
+</svg>
