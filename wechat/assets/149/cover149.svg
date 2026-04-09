@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" style="background-color:#0a1628">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <defs>
+    <radialGradient id="glow-left" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff7043;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#ff7043;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow-right" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#4fc3f7;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 背景微光 -->
+  <circle cx="200" cy="270" r="180" fill="url(#glow-left)" opacity="0.3"/>
+  <circle cx="600" cy="270" r="180" fill="url(#glow-right)" opacity="0.3"/>
+
+  <!-- ============ 左侧：Push-T（已做过的） ============ -->
+  <rect x="50" y="150" width="260" height="220" rx="12" fill="#0d1f3c" stroke="#2a4a6c" stroke-width="1.2" opacity="0.8"/>
+
+  <!-- 小标签 -->
+  <rect x="60" y="160" width="80" height="20" rx="10" fill="#ff7043" opacity="0.7"/>
+  <text x="100" y="174" text-anchor="middle" font-size="10" fill="#fff">146-148期</text>
+
+  <!-- T 形积木 -->
+  <g transform="translate(150, 250)">
+    <rect x="-20" y="-6" width="40" height="12" rx="2" fill="#ff7043" opacity="0.8"/>
+    <rect x="-6" y="6" width="12" height="24" rx="2" fill="#ff7043" opacity="0.8"/>
+  </g>
+
+  <!-- 手指 -->
+  <circle cx="200" cy="240" r="5" fill="#ffffff" opacity="0.6"/>
+  <path d="M 200,240 Q 190,255 170,260" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3,2" opacity="0.4"/>
+
+  <text x="180" y="310" text-anchor="middle" font-size="14" fill="#ff7043" font-weight="bold">Push-T</text>
+  <text x="180" y="330" text-anchor="middle" font-size="11" fill="#bf5130">2D · 手指推积木</text>
+  <text x="180" y="348" text-anchor="middle" font-size="10" fill="#78909c">Diffusion Policy · 30%</text>
+
+  <!-- ============ 中间：箭头 ============ -->
+  <line x1="330" y1="265" x2="470" y2="265" stroke="#90a4ae" stroke-width="2" stroke-dasharray="8,4" opacity="0.5"/>
+  <polygon points="475,265 463,258 463,272" fill="#90a4ae" opacity="0.6"/>
+  <text x="400" y="250" text-anchor="middle" font-size="11" fill="#90a4ae">同一套框架</text>
+  <text x="400" y="235" text-anchor="middle" font-size="11" fill="#90a4ae">换个任务</text>
+
+  <!-- ============ 右侧：ALOHA（新的） ============ -->
+  <rect x="490" y="150" width="260" height="220" rx="12" fill="#0d1f3c" stroke="#4fc3f7" stroke-width="1.5" opacity="0.9"/>
+
+  <!-- 小标签 -->
+  <rect x="500" y="160" width="60" height="20" rx="10" fill="#4fc3f7" opacity="0.7"/>
+  <text x="530" y="174" text-anchor="middle" font-size="10" fill="#0a1628" font-weight="bold">本期</text>
+
+  <!-- 左机械臂（简化） -->
+  <g transform="translate(570, 230)">
+    <!-- 基座 -->
+    <rect x="-40" y="30" width="16" height="8" rx="2" fill="#78909c" opacity="0.7"/>
+    <!-- 臂段1 -->
+    <line x1="-32" y1="30" x2="-25" y2="10" stroke="#4fc3f7" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+    <!-- 臂段2 -->
+    <line x1="-25" y1="10" x2="-15" y2="-5" stroke="#4fc3f7" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+    <!-- 夹爪 -->
+    <line x1="-15" y1="-5" x2="-18" y2="-12" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="-15" y1="-5" x2="-12" y2="-12" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- 方块 -->
+  <rect x="605" y="218" width="14" height="14" rx="2" fill="#66bb6a" opacity="0.9"/>
+
+  <!-- 右机械臂 -->
+  <g transform="translate(570, 230)">
+    <!-- 基座 -->
+    <rect x="40" y="30" width="16" height="8" rx="2" fill="#78909c" opacity="0.7"/>
+    <!-- 臂段1 -->
+    <line x1="48" y1="30" x2="42" y2="10" stroke="#ff7043" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+    <!-- 臂段2 -->
+    <line x1="42" y1="10" x2="35" y2="-2" stroke="#ff7043" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+    <!-- 夹爪 -->
+    <line x1="35" y1="-2" x2="32" y2="-9" stroke="#ff7043" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="35" y1="-2" x2="38" y2="-9" stroke="#ff7043" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- 传递弧线 -->
+  <path d="M 558,220 Q 612,195 622,218" fill="none" stroke="#66bb6a" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+
+  <text x="620" y="310" text-anchor="middle" font-size="14" fill="#4fc3f7" font-weight="bold">ALOHA TransferCube</text>
+  <text x="620" y="330" text-anchor="middle" font-size="11" fill="#0e7ac0">3D · 双臂传方块</text>
+  <text x="620" y="348" text-anchor="middle" font-size="10" fill="#78909c">ACT 策略 · 67%</text>
+
+  <!-- ============ 底部 ============ -->
+  <rect x="180" y="410" width="440" height="40" rx="8" fill="#0d1f3c" stroke="#1a3a5c" stroke-width="1" opacity="0.8"/>
+  <text x="400" y="435" text-anchor="middle" font-size="14" fill="#90a4ae" font-family="'Consolas', 'Noto Sans CJK SC', monospace" opacity="0.9">
+    换数据集 + 换模型名 = 新任务
+  </text>
+
+  <!-- ============ 顶部 ============ -->
+  <text x="400" y="55" text-anchor="middle" font-size="26" fill="#ffffff" font-weight="bold">换个任务</text>
+  <text x="400" y="90" text-anchor="middle" font-size="16" fill="#90a4ae">同一套框架，从推箱子到双臂传方块</text>
+
+  <rect x="310" y="103" width="180" height="24" rx="12" fill="none" stroke="#4fc3f7" stroke-width="1" opacity="0.5"/>
+  <text x="400" y="119" text-anchor="middle" font-size="11" fill="#4fc3f7" opacity="0.7">机器人 AI 入门 · 第四弹</text>
+</svg>
