@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" style="background-color:#0a1628">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <defs>
+    <radialGradient id="glow-l" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff7043;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#ff7043;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow-r" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#4fc3f7;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 背景微光 -->
+  <circle cx="220" cy="280" r="200" fill="url(#glow-l)" opacity="0.4"/>
+  <circle cx="580" cy="280" r="200" fill="url(#glow-r)" opacity="0.4"/>
+
+  <!-- ============ 标题 ============ -->
+  <text x="400" y="52" text-anchor="middle" font-size="26" fill="#ffffff" font-weight="bold">两条学习路线</text>
+  <text x="400" y="82" text-anchor="middle" font-size="15" fill="#90a4ae">模仿学习 vs 强化学习——机器人怎么学会干活</text>
+  <rect x="290" y="93" width="220" height="24" rx="12" fill="none" stroke="#90a4ae" stroke-width="1" opacity="0.4"/>
+  <text x="400" y="109" text-anchor="middle" font-size="11" fill="#90a4ae" opacity="0.7">机器人 AI 入门 · 收官篇</text>
+
+  <!-- ============ 左侧：模仿学习 ============ -->
+  <rect x="40" y="140" width="330" height="280" rx="14" fill="#0d1f3c" stroke="#ff7043" stroke-width="1.5" opacity="0.85"/>
+
+  <!-- 标签 -->
+  <rect x="55" y="155" width="90" height="22" rx="11" fill="#ff7043" opacity="0.75"/>
+  <text x="100" y="170" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">模仿学习</text>
+
+  <!-- 老师图标：人形 -->
+  <g transform="translate(140, 220)">
+    <circle cx="0" cy="-18" r="8" fill="none" stroke="#ff7043" stroke-width="1.5" opacity="0.7"/>
+    <line x1="0" y1="-10" x2="0" y2="8" stroke="#ff7043" stroke-width="1.5" opacity="0.7"/>
+    <line x1="-10" y1="-2" x2="10" y2="-2" stroke="#ff7043" stroke-width="1.5" opacity="0.7"/>
+    <line x1="0" y1="8" x2="-8" y2="22" stroke="#ff7043" stroke-width="1.5" opacity="0.7"/>
+    <line x1="0" y1="8" x2="8" y2="22" stroke="#ff7043" stroke-width="1.5" opacity="0.7"/>
+  </g>
+
+  <!-- 箭头：老师→学生 -->
+  <path d="M 165,220 Q 195,215 220,220" fill="none" stroke="#ff7043" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+  <text x="193" y="210" text-anchor="middle" font-size="9" fill="#ff7043" opacity="0.6">示范</text>
+
+  <!-- 学生图标：机械臂简化 -->
+  <g transform="translate(245, 220)">
+    <rect x="-8" y="12" width="16" height="6" rx="2" fill="#78909c" opacity="0.6"/>
+    <line x1="0" y1="12" x2="-8" y2="-5" stroke="#ff7043" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+    <line x1="-8" y1="-5" x2="0" y2="-18" stroke="#ff7043" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="0" y1="-18" x2="-4" y2="-24" stroke="#ff7043" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+    <line x1="0" y1="-18" x2="4" y2="-24" stroke="#ff7043" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  </g>
+
+  <!-- 关键词 -->
+  <text x="205" y="275" text-anchor="middle" font-size="13" fill="#ff7043" font-weight="bold">老师做一遍，学生照着学</text>
+
+  <!-- 特性列表 -->
+  <text x="65" y="310" font-size="11" fill="#bf8070">+ 数据高效：206 局就够</text>
+  <text x="65" y="330" font-size="11" fill="#bf8070">+ 训练稳定：Loss 稳稳往下降</text>
+  <text x="65" y="350" font-size="11" fill="#bf8070">+ 不用设计奖励函数</text>
+  <text x="65" y="378" font-size="11" fill="#78909c">- 天花板 = 人类水平</text>
+  <text x="65" y="398" font-size="11" fill="#78909c">- 分布偏移：小错滚雪球</text>
+
+  <!-- ============ 中间：VS ============ -->
+  <circle cx="400" cy="275" r="28" fill="#0d1f3c" stroke="#90a4ae" stroke-width="1.5" opacity="0.7"/>
+  <text x="400" y="282" text-anchor="middle" font-size="18" fill="#ffffff" font-weight="bold" opacity="0.8">VS</text>
+
+  <!-- ============ 右侧：强化学习 ============ -->
+  <rect x="430" y="140" width="330" height="280" rx="14" fill="#0d1f3c" stroke="#4fc3f7" stroke-width="1.5" opacity="0.85"/>
+
+  <!-- 标签 -->
+  <rect x="445" y="155" width="90" height="22" rx="11" fill="#4fc3f7" opacity="0.75"/>
+  <text x="490" y="170" text-anchor="middle" font-size="11" fill="#0a1628" font-weight="bold">强化学习</text>
+
+  <!-- 试错循环图标 -->
+  <g transform="translate(595, 215)">
+    <!-- 循环箭头 -->
+    <path d="M 0,-20 A 20,20 0 1,1 -17,10" fill="none" stroke="#4fc3f7" stroke-width="2" opacity="0.7"/>
+    <polygon points="-17,10 -11,6 -14,14" fill="#4fc3f7" opacity="0.7"/>
+    <!-- 中心：奖励符号 -->
+    <text x="0" y="4" text-anchor="middle" font-size="16" fill="#4fc3f7" opacity="0.8">+1</text>
+  </g>
+
+  <!-- 智能体 -->
+  <g transform="translate(530, 215)">
+    <rect x="-12" y="-12" width="24" height="24" rx="4" fill="none" stroke="#4fc3f7" stroke-width="1.5" opacity="0.7"/>
+    <text x="0" y="4" text-anchor="middle" font-size="10" fill="#4fc3f7" opacity="0.8">AI</text>
+  </g>
+
+  <!-- 箭头：智能体→环境→奖励 -->
+  <path d="M 545,215 Q 565,200 578,200" fill="none" stroke="#4fc3f7" stroke-width="1.2" stroke-dasharray="3,2" opacity="0.5"/>
+  <text x="560" y="192" text-anchor="middle" font-size="9" fill="#4fc3f7" opacity="0.6">试错</text>
+
+  <!-- 关键词 -->
+  <text x="595" y="275" text-anchor="middle" font-size="13" fill="#4fc3f7" font-weight="bold">没有老师，自己试错拿奖励</text>
+
+  <!-- 特性列表 -->
+  <text x="455" y="310" font-size="11" fill="#7eb8d0">+ 能超越人类：AlphaGo Zero</text>
+  <text x="455" y="330" font-size="11" fill="#7eb8d0">+ 不需要示范数据</text>
+  <text x="455" y="350" font-size="11" fill="#7eb8d0">+ 能发现全新策略</text>
+  <text x="455" y="378" font-size="11" fill="#78909c">- 需要 50 万~100 万局试错</text>
+  <text x="455" y="398" font-size="11" fill="#78909c">- 奖励黑客：会钻空子</text>
+
+  <!-- ============ 底部 ============ -->
+  <rect x="130" y="440" width="540" height="40" rx="8" fill="#0d1f3c" stroke="#1a3a5c" stroke-width="1" opacity="0.8"/>
+  <text x="400" y="465" text-anchor="middle" font-size="13" fill="#90a4ae" font-family="'Consolas', 'Noto Sans CJK SC', monospace" opacity="0.9">
+    最优解：先模仿入门 → 再强化超越（= LLM 的 SFT → RLHF）
+  </text>
+</svg>
