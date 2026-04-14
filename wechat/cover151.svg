@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e27;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1040;stop-opacity:1" />
+    </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="3" />
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#bg)" />
+
+  <!-- ① 左侧：4096维纠缠态 -->
+  <g transform="translate(110, 155)">
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#666" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5" />
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="3,4" opacity="0.4" />
+    <!-- 纠缠的线条 -->
+    <path d="M-25,-20 Q0,15 25,-10 Q10,25 -20,10 Q5,-15 25,20 Q-10,-25 -25,15" fill="none" stroke="#4fc3f7" stroke-width="1.8" opacity="0.7" />
+    <path d="M-20,25 Q15,-10 -10,-25 Q25,5 -15,20 Q20,-20 -25,-5" fill="none" stroke="#ff8a65" stroke-width="1.8" opacity="0.7" />
+    <text x="0" y="72" text-anchor="middle" fill="#aaa" font-family="'Noto Sans CJK SC'" font-size="12">4096 维 · 纠缠态</text>
+  </g>
+
+  <!-- 箭头 ①→② W_enc -->
+  <g transform="translate(190, 155)">
+    <line x1="0" y1="0" x2="70" y2="0" stroke="#4fc3f7" stroke-width="2" opacity="0.6" />
+    <polygon points="75,0 65,-5 65,5" fill="#4fc3f7" opacity="0.6" />
+    <text x="37" y="-12" text-anchor="middle" fill="#4fc3f7" font-family="'Noto Sans CJK SC'" font-size="11" opacity="0.8">W_enc</text>
+  </g>
+
+  <!-- ② 中间：16384维稀疏向量 -->
+  <g transform="translate(300, 75)">
+    <!-- 暗竖条 -->
+    <g opacity="0.15">
+      <rect x="0" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="7" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="14" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="21" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="28" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="35" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="42" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="49" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="56" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="63" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="70" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="77" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="84" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="91" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="98" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="105" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="112" y="0" width="3" height="160" rx="1" fill="#555" />
+      <rect x="119" y="0" width="3" height="160" rx="1" fill="#555" />
+    </g>
+
+    <!-- JSON 结构特征（蓝色亮起） -->
+    <rect x="14" y="25" width="3" height="135" rx="1" fill="#4fc3f7" opacity="0.9" filter="url(#blur)" />
+    <rect x="14" y="25" width="3" height="135" rx="1" fill="#4fc3f7" opacity="0.9" />
+    <rect x="49" y="50" width="3" height="110" rx="1" fill="#4fc3f7" opacity="0.7" filter="url(#blur)" />
+    <rect x="49" y="50" width="3" height="110" rx="1" fill="#4fc3f7" opacity="0.7" />
+    <rect x="98" y="35" width="3" height="125" rx="1" fill="#4fc3f7" opacity="0.8" filter="url(#blur)" />
+    <rect x="98" y="35" width="3" height="125" rx="1" fill="#4fc3f7" opacity="0.8" />
+
+    <!-- 语义特征（橙色亮起） -->
+    <rect x="35" y="40" width="3" height="120" rx="1" fill="#ff8a65" opacity="0.8" filter="url(#blur)" />
+    <rect x="35" y="40" width="3" height="120" rx="1" fill="#ff8a65" opacity="0.8" />
+    <rect x="77" y="60" width="3" height="100" rx="1" fill="#ff8a65" opacity="0.6" filter="url(#blur)" />
+    <rect x="77" y="60" width="3" height="100" rx="1" fill="#ff8a65" opacity="0.6" />
+
+    <!-- 标注 -->
+    <text x="16" y="-8" text-anchor="middle" fill="#4fc3f7" font-family="monospace" font-size="9" opacity="0.8">{ "</text>
+    <text x="51" y="-8" text-anchor="middle" fill="#4fc3f7" font-family="monospace" font-size="9" opacity="0.8">[ ]</text>
+    <text x="100" y="-8" text-anchor="middle" fill="#4fc3f7" font-family="monospace" font-size="9" opacity="0.8">} :</text>
+
+    <text x="60" y="185" text-anchor="middle" fill="#aaa" font-family="'Noto Sans CJK SC'" font-size="12">16384 维 · 稀疏</text>
+  </g>
+
+  <!-- 箭头 ②→③ W_dec -->
+  <g transform="translate(440, 155)">
+    <line x1="0" y1="0" x2="70" y2="0" stroke="#ff8a65" stroke-width="2" opacity="0.6" />
+    <polygon points="75,0 65,-5 65,5" fill="#ff8a65" opacity="0.6" />
+    <text x="37" y="-12" text-anchor="middle" fill="#ff8a65" font-family="'Noto Sans CJK SC'" font-size="11" opacity="0.8">W_dec</text>
+  </g>
+
+  <!-- ③ 右侧：解耦结果 -->
+  <g transform="translate(545, 100)">
+    <!-- JSON 结构（蓝色块） -->
+    <rect x="0" y="0" width="110" height="50" rx="6" fill="none" stroke="#4fc3f7" stroke-width="1.5" opacity="0.7" />
+    <text x="55" y="20" text-anchor="middle" fill="#4fc3f7" font-family="monospace" font-size="14" opacity="0.9">{  "  :  }</text>
+    <text x="55" y="38" text-anchor="middle" fill="#4fc3f7" font-family="'Noto Sans CJK SC'" font-size="11" opacity="0.7">JSON 结构</text>
+
+    <!-- 分隔线 -->
+    <line x1="10" y1="63" x2="100" y2="63" stroke="#444" stroke-width="1" stroke-dasharray="4,4" opacity="0.5" />
+
+    <!-- 语义内容（橙色块） -->
+    <rect x="0" y="76" width="110" height="50" rx="6" fill="none" stroke="#ff8a65" stroke-width="1.5" opacity="0.7" />
+    <text x="55" y="96" text-anchor="middle" fill="#ff8a65" font-family="monospace" font-size="12" opacity="0.9">Gatsby</text>
+    <text x="55" y="114" text-anchor="middle" fill="#ff8a65" font-family="'Noto Sans CJK SC'" font-size="11" opacity="0.7">语义内容</text>
+  </g>
+
+  <!-- 标题 -->
+  <text x="400" y="345" text-anchor="middle" fill="#e0e0e0" font-family="'Noto Sans CJK SC'" font-size="24" font-weight="bold">给 Mistral-7B 做手术</text>
+  <text x="400" y="377" text-anchor="middle" fill="#999" font-family="'Noto Sans CJK SC'" font-size="15">用 SAE 拆开结构与语义的纠缠</text>
+
+  <!-- 底部流程 -->
+  <text x="400" y="415" text-anchor="middle" fill="#555" font-family="'Noto Sans CJK SC'" font-size="11">4096 纠缠 → 升维 16384 → 稀疏化 → 解耦</text>
+</svg>
