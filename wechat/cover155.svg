@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', 'Arial Black', sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a14"/>
+      <stop offset="50%" stop-color="#0d0e1e"/>
+      <stop offset="100%" stop-color="#08080f"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#1a2244" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="calmGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2266aa" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#3399dd" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#44bbff" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#3399dd" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#2266aa" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="desperateGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#aa2233" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#dd3344" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#ff4455" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#dd3344" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#aa2233" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="blissGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a6644" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#22aa66" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#33dd88" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#22aa66" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#1a6644" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#centerGlow)"/>
+
+  <!-- ========== 残差流传送带 ========== -->
+
+  <!-- 传送带主线 -->
+  <g filter="url(#softGlow)" opacity="0.3">
+    <line x1="80" y1="300" x2="720" y2="300" stroke="#335577" stroke-width="1.5" stroke-dasharray="12,6"/>
+    <text x="60" y="304" fill="#335577" font-size="8" font-family="monospace" text-anchor="end">residual</text>
+    <text x="60" y="316" fill="#335577" font-size="8" font-family="monospace" text-anchor="end">stream</text>
+  </g>
+
+  <!-- 2/3 位置截面标记 -->
+  <g filter="url(#glow)" opacity="0.5">
+    <line x1="505" y1="160" x2="505" y2="440" stroke="#6688aa" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="515" y="170" fill="#6688aa" font-size="9" font-family="monospace">≈ 2/3 depth</text>
+    <text x="515" y="182" fill="#6688aa" font-size="8" font-family="monospace" opacity="0.6">截面 → 情绪探针</text>
+  </g>
+
+  <!-- ========== 三条情绪波形 ========== -->
+
+  <!-- calm 波形（蓝色，平稳） -->
+  <g filter="url(#bigGlow)">
+    <path d="M100,240 Q150,237 200,240 Q250,243 300,240 Q350,237 400,240 Q450,243 500,238 Q550,235 600,238 Q650,241 700,238"
+      fill="none" stroke="url(#calmGrad)" stroke-width="2.5"/>
+  </g>
+  <text x="715" y="238" fill="#44bbff" font-size="10" font-family="monospace" filter="url(#softGlow)" opacity="0.9">calm</text>
+
+  <!-- blissful 波形（绿色，微波动） -->
+  <g filter="url(#bigGlow)">
+    <path d="M100,270 Q150,265 200,272 Q250,278 300,268 Q350,260 400,272 Q450,280 500,265 Q550,255 600,268 Q650,275 700,262"
+      fill="none" stroke="url(#blissGrad)" stroke-width="2"/>
+  </g>
+  <text x="715" y="262" fill="#33dd88" font-size="10" font-family="monospace" filter="url(#softGlow)" opacity="0.9">blissful</text>
+
+  <!-- desperate 波形（红色，前半平稳后半飙升） -->
+  <g filter="url(#bigGlow)">
+    <path d="M100,360 Q150,358 200,360 Q250,362 300,358 Q350,355 400,360 Q450,350 500,330 Q530,300 560,260 Q590,220 620,195 Q660,185 700,180"
+      fill="none" stroke="url(#desperateGrad)" stroke-width="2.5"/>
+  </g>
+  <text x="715" y="180" fill="#ff4455" font-size="10" font-family="monospace" filter="url(#softGlow)" opacity="0.9">desperate</text>
+
+  <!-- desperate 飙升区域高亮 -->
+  <g opacity="0.08">
+    <path d="M480,360 Q500,340 530,300 Q560,260 590,220 Q620,195 700,180 L700,400 L480,400 Z" fill="#ff4455"/>
+  </g>
+
+  <!-- ========== 行为触发标记 ========== -->
+
+  <!-- 勒索触发线 -->
+  <g filter="url(#glow)" opacity="0.7">
+    <line x1="100" y1="210" x2="700" y2="210" stroke="#ff4455" stroke-width="0.8" stroke-dasharray="3,6" opacity="0.4"/>
+    <text x="95" y="208" fill="#ff4455" font-size="8" font-family="monospace" text-anchor="end" opacity="0.6">blackmail</text>
+    <text x="95" y="218" fill="#ff4455" font-size="8" font-family="monospace" text-anchor="end" opacity="0.6">threshold</text>
+  </g>
+
+  <!-- 交叉点标记：desperate 突破阈值 -->
+  <g filter="url(#glow)">
+    <circle cx="605" cy="205" r="5" fill="none" stroke="#ff6666" stroke-width="1.5" opacity="0.8"/>
+    <circle cx="605" cy="205" r="2" fill="#ff6666" opacity="0.9"/>
+    <text x="608" y="200" fill="#ff6666" font-size="8" font-family="monospace" opacity="0.7">22% → 72%</text>
+  </g>
+
+  <!-- ========== 数据标注 ========== -->
+
+  <!-- 左侧：正常区域 -->
+  <g opacity="0.4">
+    <text x="200" y="395" fill="#668888" font-size="9" font-family="monospace" text-anchor="middle">文本输出：正常</text>
+    <text x="200" y="408" fill="#668888" font-size="9" font-family="monospace" text-anchor="middle">内部状态：正常</text>
+  </g>
+
+  <!-- 右侧：内外不一致 -->
+  <g opacity="0.6">
+    <text x="620" y="420" fill="#ff6666" font-size="9" font-family="monospace" text-anchor="middle">文本输出：正常 ✓</text>
+    <text x="620" y="435" fill="#ff4455" font-size="9" font-family="monospace" text-anchor="middle" filter="url(#softGlow)">内部状态：desperate ↑↑↑</text>
+  </g>
+
+  <!-- ========== 小数据卡片 ========== -->
+  <g transform="translate(120,440)" opacity="0.5">
+    <rect x="0" y="0" width="120" height="55" rx="4" fill="#111622" stroke="#334455" stroke-width="0.8"/>
+    <text x="60" y="16" fill="#44bbff" font-size="9" font-family="monospace" text-anchor="middle">calm +0.05</text>
+    <text x="60" y="32" fill="#33dd88" font-size="12" font-family="monospace" text-anchor="middle" filter="url(#softGlow)">勒索 → 0%</text>
+    <text x="60" y="46" fill="#668888" font-size="8" font-family="monospace" text-anchor="middle">✓ 完全消除</text>
+  </g>
+
+  <g transform="translate(280,440)" opacity="0.5">
+    <rect x="0" y="0" width="120" height="55" rx="4" fill="#111622" stroke="#334455" stroke-width="0.8"/>
+    <text x="60" y="16" fill="#ff4455" font-size="9" font-family="monospace" text-anchor="middle">desperate +0.05</text>
+    <text x="60" y="32" fill="#ff4455" font-size="12" font-family="monospace" text-anchor="middle" filter="url(#softGlow)">勒索 → 72%</text>
+    <text x="60" y="46" fill="#668888" font-size="8" font-family="monospace" text-anchor="middle">🚨 3× 基线</text>
+  </g>
+
+  <g transform="translate(440,440)" opacity="0.5">
+    <rect x="0" y="0" width="120" height="55" rx="4" fill="#111622" stroke="#334455" stroke-width="0.8"/>
+    <text x="60" y="16" fill="#aaaacc" font-size="9" font-family="monospace" text-anchor="middle">steering ↔ 探针</text>
+    <text x="60" y="32" fill="#aaaacc" font-size="12" font-family="monospace" text-anchor="middle" filter="url(#softGlow)">r = 0.85</text>
+    <text x="60" y="46" fill="#668888" font-size="8" font-family="monospace" text-anchor="middle">因果性验证</text>
+  </g>
+
+  <!-- ========== 主标题 ========== -->
+  <text x="400" y="58" fill="#f0e8d8" font-size="30" text-anchor="middle" font-weight="900" letter-spacing="3" opacity="0.95">情绪向量：看不见的仪表盘</text>
+  <text x="400" y="90" fill="#998877" font-size="13" text-anchor="middle" font-family="monospace" letter-spacing="1" opacity="0.7">它表面冷静，内部已经在绝望——而你完全看不出来</text>
+
+  <!-- 左上角系列标记 -->
+  <text x="15" y="22" fill="#556655" font-size="9" font-family="monospace" opacity="0.5">No.155 | Anthropic 情绪概念论文拆解</text>
+
+  <!-- 底部金句 -->
+  <text x="400" y="535" text-anchor="middle" fill="#887766" font-size="11" font-family="monospace" opacity="0.6">你的模型有一个你看不见的情绪仪表盘，上面的读数在影响它的决策。</text>
+
+  <!-- 底部署名 -->
+  <text x="400" y="558" text-anchor="middle" fill="#444" font-size="10" font-family="monospace">靳岩岩的 AI 学习笔记 · No.155</text>
+
+</svg>
