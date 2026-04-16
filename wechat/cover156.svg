@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06131a"/>
+      <stop offset="55%" stop-color="#0b2630"/>
+      <stop offset="100%" stop-color="#132a1d"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f2029" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#122f39" stop-opacity="0.75"/>
+    </linearGradient>
+    <linearGradient id="lineA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#37d6c7" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#37d6c7" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#37d6c7" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="lineB" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffbe55" stop-opacity="0.12"/>
+      <stop offset="50%" stop-color="#ffbe55" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#ffbe55" stop-opacity="0.12"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8ed2d0" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+    <pattern id="tinyDots" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#d8f6f4" fill-opacity="0.10"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#grid)"/>
+  <rect width="900" height="500" fill="url(#tinyDots)" opacity="0.35"/>
+
+  <circle cx="760" cy="95" r="160" fill="#39dbc9" fill-opacity="0.08" filter="url(#softGlow)"/>
+  <circle cx="138" cy="420" r="170" fill="#ffbe55" fill-opacity="0.06" filter="url(#softGlow)"/>
+
+  <g opacity="0.9">
+    <path d="M110 140 C190 95, 260 95, 340 145 S510 220, 585 185 S720 105, 805 146" fill="none" stroke="url(#lineA)" stroke-width="2.5"/>
+    <path d="M95 212 C170 240, 260 255, 335 223 S515 130, 596 180 S740 280, 816 244" fill="none" stroke="url(#lineB)" stroke-width="2.5"/>
+    <path d="M120 320 C205 280, 280 295, 350 338 S508 415, 593 365 S728 286, 790 312" fill="none" stroke="url(#lineA)" stroke-width="2"/>
+  </g>
+
+  <g stroke="#d9f8f5" stroke-opacity="0.18" fill="#d9f8f5" fill-opacity="0.92">
+    <circle cx="110" cy="140" r="4"/>
+    <circle cx="240" cy="110" r="4"/>
+    <circle cx="340" cy="145" r="5"/>
+    <circle cx="490" cy="215" r="4"/>
+    <circle cx="585" cy="185" r="6"/>
+    <circle cx="700" cy="120" r="4"/>
+    <circle cx="805" cy="146" r="5"/>
+
+    <circle cx="95" cy="212" r="4"/>
+    <circle cx="225" cy="250" r="5"/>
+    <circle cx="335" cy="223" r="4"/>
+    <circle cx="470" cy="150" r="4"/>
+    <circle cx="596" cy="180" r="6"/>
+    <circle cx="705" cy="258" r="4"/>
+    <circle cx="816" cy="244" r="5"/>
+
+    <circle cx="120" cy="320" r="4"/>
+    <circle cx="240" cy="292" r="4"/>
+    <circle cx="350" cy="338" r="5"/>
+    <circle cx="495" cy="405" r="4"/>
+    <circle cx="593" cy="365" r="6"/>
+    <circle cx="710" cy="296" r="4"/>
+    <circle cx="790" cy="312" r="5"/>
+  </g>
+
+  <g transform="translate(48 42)">
+    <rect x="0" y="0" width="500" height="416" rx="22" fill="url(#panel)" stroke="#95d8d5" stroke-opacity="0.24"/>
+    <rect x="24" y="26" width="132" height="28" rx="14" fill="#163740" stroke="#46d6c7" stroke-opacity="0.45"/>
+    <text x="42" y="46" fill="#7be8dc" font-size="16" font-family="'Noto Sans CJK SC', sans-serif" letter-spacing="1">AI AGENT SIM</text>
+
+    <text x="30" y="118" fill="#eefcf9" font-size="46" font-weight="700" font-family="'Noto Sans CJK SC', sans-serif">多AI智能体博弈</text>
+    <text x="30" y="176" fill="#eefcf9" font-size="46" font-weight="700" font-family="'Noto Sans CJK SC', sans-serif">用 MiroFish 模拟未来</text>
+
+    <line x1="32" y1="210" x2="210" y2="210" stroke="#ffbe55" stroke-width="4" stroke-linecap="round"/>
+
+    <text x="32" y="258" fill="#b8d9d7" font-size="22" font-family="'Noto Sans CJK SC', sans-serif">给一篇文档，生成几十到上千个 Agent</text>
+    <text x="32" y="294" fill="#b8d9d7" font-size="22" font-family="'Noto Sans CJK SC', sans-serif">在双平台里交互、分化、结盟、推演</text>
+
+    <g transform="translate(32 332)">
+      <rect x="0" y="0" width="132" height="44" rx="10" fill="#18373d"/>
+      <text x="20" y="29" fill="#7be8dc" font-size="20" font-family="'Noto Sans CJK SC', sans-serif">Graph</text>
+
+      <rect x="148" y="0" width="132" height="44" rx="10" fill="#19383e"/>
+      <text x="170" y="29" fill="#7be8dc" font-size="20" font-family="'Noto Sans CJK SC', sans-serif">Memory</text>
+
+      <rect x="296" y="0" width="148" height="44" rx="10" fill="#2d342b"/>
+      <text x="318" y="29" fill="#ffd27c" font-size="20" font-family="'Noto Sans CJK SC', sans-serif">Simulation</text>
+    </g>
+  </g>
+
+  <g transform="translate(585 62)">
+    <rect x="0" y="0" width="257" height="150" rx="20" fill="#10252c" stroke="#89d6cf" stroke-opacity="0.25"/>
+    <text x="24" y="38" fill="#8fe6dd" font-size="18" font-family="'Noto Sans CJK SC', sans-serif">Parallel World</text>
+    <text x="24" y="78" fill="#f1fbf9" font-size="34" font-weight="700" font-family="'Noto Sans CJK SC', sans-serif">数字沙盒</text>
+    <text x="24" y="116" fill="#b7d8d4" font-size="18" font-family="'Noto Sans CJK SC', sans-serif">让不同角色在同一事件里</text>
+    <text x="24" y="142" fill="#b7d8d4" font-size="18" font-family="'Noto Sans CJK SC', sans-serif">自己吵出结果</text>
+  </g>
+
+  <g transform="translate(598 250)">
+    <rect x="0" y="0" width="232" height="170" rx="22" fill="#11242a" stroke="#89d6cf" stroke-opacity="0.22"/>
+    <text x="26" y="34" fill="#8fe6dd" font-size="17" font-family="'Noto Sans CJK SC', sans-serif">Core Loop</text>
+
+    <g font-family="'Noto Sans CJK SC', sans-serif" font-size="19">
+      <text x="28" y="72" fill="#eefcf9">1. 上传种子文档</text>
+      <text x="28" y="102" fill="#eefcf9">2. 自动构建图谱</text>
+      <text x="28" y="132" fill="#eefcf9">3. 生成 Agent 人设</text>
+      <text x="28" y="162" fill="#eefcf9">4. 跑多轮社交模拟</text>
+    </g>
+  </g>
+</svg>
