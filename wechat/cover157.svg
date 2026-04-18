@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08101a"/>
+      <stop offset="50%" stop-color="#0c1a2e"/>
+      <stop offset="100%" stop-color="#091218"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#12222e" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0a1820" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff9f43" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#ff9f43" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ff9f43" stop-opacity="0.1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#3a7ecf" stroke-opacity="0.06" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#grid)"/>
+
+  <!-- 装饰光晕 -->
+  <circle cx="450" cy="260" r="220" fill="#1a4a7a" fill-opacity="0.06" filter="url(#glow)"/>
+  <circle cx="150" cy="120" r="120" fill="#ff9f43" fill-opacity="0.04" filter="url(#glow)"/>
+  <circle cx="780" cy="400" r="100" fill="#4ecdc4" fill-opacity="0.04" filter="url(#glow)"/>
+
+  <!-- ========== 主标题 ========== -->
+  <text x="450" y="52" fill="#f0e8d8" font-size="28" text-anchor="middle" font-weight="900" font-family="'Noto Sans CJK SC', sans-serif" letter-spacing="3" opacity="0.95">AI Agent：拆开看，就这么点东西</text>
+  <text x="450" y="82" fill="#8899aa" font-size="13" text-anchor="middle" font-family="monospace" letter-spacing="1" opacity="0.7">不是多个 AI 在群聊——是同一个 API 被不同的提示词调了很多次</text>
+
+  <!-- 左上角系列标记 -->
+  <text x="15" y="22" fill="#556666" font-size="9" font-family="monospace" opacity="0.5">No.157 | AI Agent 编排原理拆解</text>
+
+  <!-- ========== PM 大框 ========== -->
+  <rect x="60" y="105" width="780" height="310" rx="16" fill="url(#panel)" stroke="#4a90d9" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="82" y="132" fill="#4a90d9" font-size="12" font-family="monospace" opacity="0.7">PM 的 Python 代码</text>
+
+  <!-- ========== Agent 甲 ========== -->
+  <rect x="95" y="155" width="210" height="115" rx="10" fill="#0d1b28" stroke="#4ecdc4" stroke-opacity="0.4" stroke-width="1.2"/>
+  <text x="115" y="178" fill="#4ecdc4" font-size="11" font-family="monospace" filter="url(#softGlow)">开发甲的 LLM</text>
+  <line x1="115" y1="186" x2="275" y2="186" stroke="#4ecdc4" stroke-opacity="0.15" stroke-width="0.8"/>
+  <text x="115" y="205" fill="#7ab8b2" font-size="11" font-family="monospace">system: "你是开发甲..."</text>
+  <text x="115" y="224" fill="#7ab8b2" font-size="11" font-family="monospace">user:   "任务：登录接口"</text>
+  <text x="115" y="252" fill="#556666" font-size="10" font-family="monospace" font-style="italic">↑ 不知道乙和测试的存在</text>
+
+  <!-- ========== Agent 乙 ========== -->
+  <rect x="345" y="155" width="210" height="115" rx="10" fill="#0d1b28" stroke="#4ecdc4" stroke-opacity="0.4" stroke-width="1.2"/>
+  <text x="365" y="178" fill="#4ecdc4" font-size="11" font-family="monospace" filter="url(#softGlow)">开发乙的 LLM</text>
+  <line x1="365" y1="186" x2="525" y2="186" stroke="#4ecdc4" stroke-opacity="0.15" stroke-width="0.8"/>
+  <text x="365" y="205" fill="#7ab8b2" font-size="11" font-family="monospace">system: "你是开发乙..."</text>
+  <text x="365" y="224" fill="#7ab8b2" font-size="11" font-family="monospace">user:   "任务：密码找回"</text>
+  <text x="365" y="252" fill="#556666" font-size="10" font-family="monospace" font-style="italic">↑ 不知道甲和测试的存在</text>
+
+  <!-- ========== Agent 测试 ========== -->
+  <rect x="595" y="155" width="220" height="115" rx="10" fill="#0d1b28" stroke="#ff9f43" stroke-opacity="0.4" stroke-width="1.2"/>
+  <text x="615" y="178" fill="#ff9f43" font-size="11" font-family="monospace" filter="url(#softGlow)">测试的 LLM</text>
+  <line x1="615" y1="186" x2="785" y2="186" stroke="#ff9f43" stroke-opacity="0.15" stroke-width="0.8"/>
+  <text x="615" y="205" fill="#c9a06c" font-size="11" font-family="monospace">system: "你是测试..."</text>
+  <text x="615" y="224" fill="#c9a06c" font-size="11" font-family="monospace">user:   "任务+开发报告"</text>
+  <text x="615" y="252" fill="#556666" font-size="10" font-family="monospace" font-style="italic">↑ 不知道"报告"来自谁</text>
+
+  <!-- ========== 搬运箭头 ========== -->
+  <!-- 甲 → PM 搬运 → 测试 -->
+  <g filter="url(#softGlow)" opacity="0.8">
+    <path d="M200 275 L200 310 Q200 320 210 320 L680 320 Q690 320 690 310 L690 275" fill="none" stroke="url(#arrow)" stroke-width="1.8" stroke-dasharray="6,4"/>
+    <polygon points="690,278 686,288 694,288" fill="#ff9f43" opacity="0.7"/>
+  </g>
+
+  <!-- 乙 → PM 搬运 → 测试 -->
+  <g filter="url(#softGlow)" opacity="0.6">
+    <path d="M450 275 L450 340 Q450 350 460 350 L680 350 Q690 350 690 340 L690 278" fill="none" stroke="url(#arrow)" stroke-width="1.5" stroke-dasharray="6,4"/>
+  </g>
+
+  <!-- 搬运标注 -->
+  <rect x="360" y="298" width="180" height="26" rx="6" fill="#1a1a2e" stroke="#ff9f43" stroke-opacity="0.3" stroke-width="0.8"/>
+  <text x="450" y="316" fill="#ff9f43" font-size="11" text-anchor="middle" font-family="monospace" opacity="0.9">f"开发报告：{report}"</text>
+
+  <!-- ========== 底部三个关键词 ========== -->
+  <g transform="translate(95 380)">
+    <rect x="0" y="0" width="160" height="28" rx="6" fill="#111d28" stroke="#4a90d9" stroke-opacity="0.3"/>
+    <text x="80" y="19" fill="#4a90d9" font-size="13" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif">独立上下文</text>
+  </g>
+  <g transform="translate(290 380)">
+    <rect x="0" y="0" width="160" height="28" rx="6" fill="#111d28" stroke="#ff9f43" stroke-opacity="0.3"/>
+    <text x="80" y="19" fill="#ff9f43" font-size="13" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif">字符串拼接</text>
+  </g>
+  <g transform="translate(485 380)">
+    <rect x="0" y="0" width="160" height="28" rx="6" fill="#111d28" stroke="#4ecdc4" stroke-opacity="0.3"/>
+    <text x="80" y="19" fill="#4ecdc4" font-size="13" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif">没有群聊</text>
+  </g>
+
+  <!-- 底部金句 -->
+  <text x="450" y="450" text-anchor="middle" fill="#887766" font-size="12" font-family="'Noto Sans CJK SC', sans-serif" opacity="0.6">每个 Agent 都以为自己在跟用户一对一聊天，不知道外面还有别人。</text>
+
+  <!-- 底部署名 -->
+  <text x="450" y="478" text-anchor="middle" fill="#444" font-size="10" font-family="monospace">靳岩岩的 AI 学习笔记 · No.157</text>
+</svg>
