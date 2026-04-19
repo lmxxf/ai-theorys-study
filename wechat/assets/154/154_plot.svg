@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2196F3" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2196F3" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F44336" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#F44336" stop-opacity="0.03"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <!-- 背景 -->
+  <rect width="900" height="400" fill="#fafafa" rx="8"/>
+
+  <!-- ========== 左图：指数分布 ========== -->
+  <g transform="translate(30, 20)">
+    <!-- 标题 -->
+    <text x="200" y="24" text-anchor="middle" font-size="17" font-weight="bold" fill="#1565C0">训练早期：指数分布</text>
+
+    <!-- 坐标轴 -->
+    <line x1="50" y1="270" x2="380" y2="270" stroke="#aaa" stroke-width="1.2"/>
+    <line x1="50" y1="270" x2="50" y2="40" stroke="#aaa" stroke-width="1.2"/>
+
+    <!-- 轴标签 -->
+    <text x="215" y="296" text-anchor="middle" font-size="13" fill="#666">特征值</text>
+
+    <!-- 填充区域 exp(-x/0.6) 更陡，右边真正贴底 -->
+    <path d="M 50,48
+             L 75,95
+             L 100,145
+             L 125,190
+             L 150,225
+             L 175,248
+             L 200,258
+             L 230,264
+             L 260,267
+             L 300,269
+             L 380,270
+             L 380,270
+             L 50,270 Z"
+          fill="url(#blueGrad)"/>
+
+    <!-- 曲线 exp 陡降：前半段猛跌，后半段贴x轴 -->
+    <path d="M 50,48
+             L 58,62 L 66,78 L 75,95
+             L 83,112 L 92,130 L 100,145
+             L 108,160 L 117,176 L 125,190
+             L 133,202 L 142,214 L 150,225
+             L 158,234 L 167,242 L 175,248
+             L 183,253 L 192,256 L 200,258
+             L 210,261 L 220,263 L 230,264
+             L 245,266 L 260,267
+             L 280,268 L 300,269
+             L 330,269 L 360,270 L 380,270"
+          fill="none" stroke="#2196F3" stroke-width="2.8" stroke-linecap="round"/>
+
+    <!-- 右边贴底标注 -->
+    <path d="M 270,267 Q 300,250 325,245" fill="none" stroke="#2196F3" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="328" y="242" font-size="11" fill="#1565C0" font-weight="bold">断崖!</text>
+
+    <!-- 公式 用拆分写法 -->
+    <text x="230" y="85" font-size="18" fill="#1565C0" font-style="italic">~ exp(</text>
+    <text x="316" y="85" font-size="18" fill="#1565C0" font-style="italic">)</text>
+    <text x="292" y="75" font-size="13" fill="#1565C0" font-style="italic">-x</text>
+
+    <!-- 说明文字 -->
+    <text x="210" y="118" font-size="12" fill="#888">衰减快 → 短程关联</text>
+    <text x="210" y="136" font-size="12" fill="#888">远处的神经元互不相干</text>
+
+    <!-- 涟漪示意 -->
+    <circle cx="110" cy="240" r="6" fill="none" stroke="#2196F3" stroke-width="1.2" opacity="0.7"/>
+    <circle cx="110" cy="240" r="14" fill="none" stroke="#2196F3" stroke-width="0.9" opacity="0.4"/>
+    <circle cx="110" cy="240" r="22" fill="none" stroke="#2196F3" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="110" cy="240" r="2.5" fill="#2196F3" opacity="0.8"/>
+  </g>
+
+  <!-- ========== 中间箭头 ========== -->
+  <g transform="translate(443, 160)">
+    <text x="0" y="0" text-anchor="middle" font-size="14" font-weight="bold" fill="#E65100">相变</text>
+    <text x="0" y="30" text-anchor="middle" font-size="28" fill="#E65100">→</text>
+  </g>
+
+  <!-- ========== 右图：幂律分布 ========== -->
+  <g transform="translate(480, 20)">
+    <!-- 标题 -->
+    <text x="200" y="24" text-anchor="middle" font-size="17" font-weight="bold" fill="#C62828">训练后期：幂律分布</text>
+
+    <!-- 坐标轴 -->
+    <line x1="50" y1="270" x2="380" y2="270" stroke="#aaa" stroke-width="1.2"/>
+    <line x1="50" y1="270" x2="50" y2="40" stroke="#aaa" stroke-width="1.2"/>
+
+    <!-- 轴标签 -->
+    <text x="215" y="296" text-anchor="middle" font-size="13" fill="#666">特征值</text>
+
+    <!-- 填充区域：幂律 长尾 -->
+    <path d="M 65,48
+             L 80,100
+             L 100,148
+             L 125,188
+             L 155,215
+             L 190,233
+             L 230,246
+             L 270,254
+             L 310,259
+             L 350,262
+             L 380,264
+             L 380,270
+             L 65,270 Z"
+          fill="url(#redGrad)"/>
+
+    <!-- 曲线：幂律 -->
+    <path d="M 65,48
+             L 70,62 L 75,78 L 80,100
+             L 86,116 L 92,132 L 100,148
+             L 108,162 L 116,175 L 125,188
+             L 135,199 L 145,208 L 155,215
+             L 168,224 L 180,229 L 190,233
+             L 205,239 L 220,243 L 230,246
+             L 248,250 L 270,254
+             L 290,257 L 310,259
+             L 330,261 L 350,262
+             L 370,263 L 380,264"
+          fill="none" stroke="#F44336" stroke-width="2.8" stroke-linecap="round"/>
+
+    <!-- 公式 -->
+    <text x="240" y="85" font-size="18" fill="#C62828" font-style="italic">~ x</text>
+    <text x="268" y="72" font-size="14" fill="#C62828" font-style="italic">-a</text>
+
+    <!-- 说明文字 -->
+    <text x="210" y="118" font-size="12" fill="#888">衰减慢 → 长程关联</text>
+    <text x="210" y="136" font-size="12" fill="#888">远处的神经元开始协同</text>
+
+    <!-- 长尾标注 -->
+    <path d="M 310,259 Q 330,240 355,232" fill="none" stroke="#F44336" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="358" y="229" font-size="11" fill="#C62828" font-weight="bold">长尾!</text>
+
+    <!-- 全局连接示意 -->
+    <circle cx="100" cy="242" r="3" fill="#F44336" opacity="0.7"/>
+    <circle cx="130" cy="237" r="3" fill="#F44336" opacity="0.7"/>
+    <circle cx="115" cy="255" r="3" fill="#F44336" opacity="0.7"/>
+    <line x1="100" y1="242" x2="130" y2="237" stroke="#F44336" stroke-width="1" opacity="0.5"/>
+    <line x1="100" y1="242" x2="115" y2="255" stroke="#F44336" stroke-width="1" opacity="0.5"/>
+    <line x1="130" y1="237" x2="115" y2="255" stroke="#F44336" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <!-- 底部对比 -->
+  <g transform="translate(450, 340)">
+    <text x="0" y="0" text-anchor="middle" font-size="13" fill="#1565C0">指数：影响像涟漪，传几米就没了</text>
+    <text x="0" y="24" text-anchor="middle" font-size="13" fill="#C62828">幂律：影响像地震波，几千公里外还能感觉到</text>
+  </g>
+</svg>
