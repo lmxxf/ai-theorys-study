@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <!-- 背景：深色科技感 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#1a1040"/>
+    </linearGradient>
+    <linearGradient id="greenGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00e676" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00e676" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="orangeGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff9100" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ff9100" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- GPU 示意：8 个方块代表 8 张 GPU -->
+  <g transform="translate(50, 180)">
+    <!-- 传统 MoE：三步串行 -->
+    <text x="350" y="-20" text-anchor="middle" font-size="14" fill="#888" font-weight="bold">传统 MoE：三步串行，GPU 反复等待</text>
+
+    <!-- Dispatch -->
+    <rect x="0" y="0" width="200" height="40" rx="4" fill="#333" stroke="#555" stroke-width="1"/>
+    <text x="100" y="25" text-anchor="middle" font-size="13" fill="#ef5350">Dispatch 通信</text>
+
+    <!-- 等待间隙 -->
+    <rect x="210" y="0" width="40" height="40" rx="4" fill="#1a1a1a" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="230" y="25" text-anchor="middle" font-size="10" fill="#555">等</text>
+
+    <!-- Compute -->
+    <rect x="260" y="0" width="200" height="40" rx="4" fill="#333" stroke="#555" stroke-width="1"/>
+    <text x="360" y="25" text-anchor="middle" font-size="13" fill="#66bb6a">Expert 计算</text>
+
+    <!-- 等待间隙 -->
+    <rect x="470" y="0" width="40" height="40" rx="4" fill="#1a1a1a" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="490" y="25" text-anchor="middle" font-size="10" fill="#555">等</text>
+
+    <!-- Combine -->
+    <rect x="520" y="0" width="200" height="40" rx="4" fill="#333" stroke="#555" stroke-width="1"/>
+    <text x="620" y="25" text-anchor="middle" font-size="13" fill="#42a5f5">Combine 通信</text>
+
+    <!-- 箭头 -->
+    <text x="205" y="25" text-anchor="middle" font-size="16" fill="#555">→</text>
+    <text x="465" y="25" text-anchor="middle" font-size="16" fill="#555">→</text>
+  </g>
+
+  <!-- Mega MoE：融合 -->
+  <g transform="translate(50, 300)">
+    <text x="350" y="-20" text-anchor="middle" font-size="14" fill="#00e676" font-weight="bold">Mega MoE：单 kernel 融合，GPU 全程工作</text>
+
+    <!-- 融合大条 -->
+    <rect x="0" y="0" width="720" height="40" rx="4" fill="#1b5e20" stroke="#00e676" stroke-width="2"/>
+
+    <!-- 内部交织色块 -->
+    <rect x="4" y="4" width="150" height="32" rx="2" fill="#ef5350" opacity="0.3"/>
+    <rect x="80" y="4" width="200" height="32" rx="2" fill="#66bb6a" opacity="0.3"/>
+    <rect x="200" y="4" width="150" height="32" rx="2" fill="#42a5f5" opacity="0.3"/>
+    <rect x="300" y="4" width="200" height="32" rx="2" fill="#ef5350" opacity="0.3"/>
+    <rect x="400" y="4" width="180" height="32" rx="2" fill="#66bb6a" opacity="0.3"/>
+    <rect x="530" y="4" width="186" height="32" rx="2" fill="#42a5f5" opacity="0.3"/>
+
+    <text x="360" y="25" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">Dispatch + Compute + Combine 交织执行</text>
+  </g>
+
+  <!-- 精度进化路线 -->
+  <g transform="translate(50, 400)">
+    <text x="0" y="0" font-size="13" fill="#888">精度演进：</text>
+
+    <rect x="120" y="-16" width="80" height="26" rx="13" fill="none" stroke="#666" stroke-width="1"/>
+    <text x="160" y="2" text-anchor="middle" font-size="13" fill="#888">FP16</text>
+
+    <text x="210" y="2" text-anchor="middle" font-size="14" fill="#555">→</text>
+
+    <rect x="230" y="-16" width="80" height="26" rx="13" fill="none" stroke="#ff9100" stroke-width="1.5"/>
+    <text x="270" y="2" text-anchor="middle" font-size="13" fill="#ff9100" font-weight="bold">FP8</text>
+
+    <text x="320" y="2" text-anchor="middle" font-size="14" fill="#555">→</text>
+
+    <rect x="340" y="-16" width="80" height="26" rx="13" fill="none" stroke="#00e676" stroke-width="2"/>
+    <text x="380" y="2" text-anchor="middle" font-size="13" fill="#00e676" font-weight="bold">FP4</text>
+
+    <text x="450" y="2" font-size="12" fill="#555">每一步减半，推理效率翻倍</text>
+  </g>
+
+  <!-- 标题 -->
+  <text x="450" y="60" text-anchor="middle" font-size="30" fill="#fff" font-weight="bold">DeepSeek 新技术</text>
+  <text x="450" y="100" text-anchor="middle" font-size="20" fill="#00e676">Mega MoE + FP4 Indexer</text>
+  <text x="450" y="125" text-anchor="middle" font-size="14" fill="#888">V4 发布前的两记重拳</text>
+
+  <!-- 底部期数 -->
+  <text x="450" y="470" text-anchor="middle" font-size="12" fill="#555">靳岩岩的 AI 学习笔记 · 第 158 期</text>
+</svg>
