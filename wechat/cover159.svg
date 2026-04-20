@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383" width="900" height="383">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0d1529;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0a1a;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Chaos glow -->
+    <radialGradient id="chaosGlow" cx="70%" cy="50%" r="40%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#ff2200;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Order glow -->
+    <radialGradient id="orderGlow" cx="25%" cy="50%" r="35%">
+      <stop offset="0%" style="stop-color:#00ccff;stop-opacity:0.25" />
+      <stop offset="50%" style="stop-color:#0066ff;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Sand glow -->
+    <radialGradient id="sandGlow" cx="50%" cy="85%" r="30%">
+      <stop offset="0%" style="stop-color:#ffaa33;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Lyapunov divider gradient -->
+    <linearGradient id="dividerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffcc;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff4466;stop-opacity:0.8" />
+    </linearGradient>
+
+    <!-- Text glow filter -->
+    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Soft glow -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Particle glow -->
+    <filter id="particleGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <rect width="900" height="383" fill="url(#chaosGlow)"/>
+  <rect width="900" height="383" fill="url(#orderGlow)"/>
+  <rect width="900" height="383" fill="url(#sandGlow)"/>
+
+  <!-- Grid lines (subtle) -->
+  <g opacity="0.06" stroke="#4488ff" stroke-width="0.5">
+    <line x1="0" y1="60" x2="900" y2="60"/>
+    <line x1="0" y1="120" x2="900" y2="120"/>
+    <line x1="0" y1="180" x2="900" y2="180"/>
+    <line x1="0" y1="240" x2="900" y2="240"/>
+    <line x1="0" y1="300" x2="900" y2="300"/>
+    <line x1="150" y1="0" x2="150" y2="383"/>
+    <line x1="300" y1="0" x2="300" y2="383"/>
+    <line x1="450" y1="0" x2="450" y2="383"/>
+    <line x1="600" y1="0" x2="600" y2="383"/>
+    <line x1="750" y1="0" x2="750" y2="383"/>
+  </g>
+
+  <!-- === LEFT SIDE: Order / Predictable === -->
+
+  <!-- Ordered trajectories (stable system) -->
+  <g opacity="0.5">
+    <!-- Smooth sine-like curves converging -->
+    <path d="M30,220 Q80,180 130,200 Q180,220 230,190 Q280,160 330,180 Q380,200 420,185"
+          fill="none" stroke="#00bbff" stroke-width="1.2" opacity="0.6"/>
+    <path d="M30,240 Q80,200 130,220 Q180,240 230,210 Q280,180 330,200 Q380,220 420,195"
+          fill="none" stroke="#00ccff" stroke-width="1" opacity="0.5"/>
+    <path d="M30,260 Q80,220 130,240 Q180,260 230,230 Q280,200 330,220 Q380,240 420,205"
+          fill="none" stroke="#00ddff" stroke-width="0.8" opacity="0.4"/>
+    <path d="M30,200 Q80,160 130,180 Q180,200 230,170 Q280,140 330,160 Q380,180 420,175"
+          fill="none" stroke="#0099ff" stroke-width="1" opacity="0.5"/>
+    <path d="M30,280 Q80,240 130,260 Q180,280 230,250 Q280,220 330,240 Q380,260 420,215"
+          fill="none" stroke="#00eeff" stroke-width="0.6" opacity="0.3"/>
+  </g>
+
+  <!-- === CENTRAL DIVIDER: Lyapunov boundary === -->
+
+  <!-- The critical boundary line -->
+  <line x1="450" y1="30" x2="450" y2="353" stroke="url(#dividerGrad)" stroke-width="2" opacity="0.7" filter="url(#softGlow)"/>
+
+  <!-- Lambda = 0 label -->
+  <text x="450" y="28" font-family="'Courier New', monospace" font-size="11" fill="#00ffcc" text-anchor="middle" opacity="0.8">λ = 0</text>
+
+  <!-- Left side label -->
+  <text x="350" y="355" font-family="'Courier New', monospace" font-size="9" fill="#00bbff" text-anchor="middle" opacity="0.5">λ &lt; 0  PREDICTABLE</text>
+
+  <!-- Right side label -->
+  <text x="560" y="355" font-family="'Courier New', monospace" font-size="9" fill="#ff4466" text-anchor="middle" opacity="0.5">λ &gt; 0  CHAOTIC</text>
+
+  <!-- === RIGHT SIDE: Chaos / Butterfly effect === -->
+
+  <!-- Diverging chaotic trajectories -->
+  <g opacity="0.6">
+    <path d="M480,190 Q510,170 540,200 Q570,250 600,180 Q630,120 660,220 Q690,300 720,160 Q750,100 780,250 Q810,320 840,140 Q860,80 880,200"
+          fill="none" stroke="#ff4466" stroke-width="1.2" opacity="0.7"/>
+    <path d="M480,195 Q510,180 545,215 Q575,240 610,160 Q640,100 665,240 Q695,310 725,140 Q752,80 775,270 Q805,340 835,120 Q858,60 880,220"
+          fill="none" stroke="#ff6644" stroke-width="1" opacity="0.6"/>
+    <path d="M480,192 Q512,175 538,208 Q568,260 598,170 Q632,110 658,230 Q688,290 718,150 Q748,90 778,260 Q808,330 838,130 Q862,70 880,210"
+          fill="none" stroke="#ff5555" stroke-width="0.8" opacity="0.5"/>
+    <path d="M480,188 Q508,165 542,195 Q572,245 605,185 Q635,130 662,215 Q692,305 722,165 Q755,105 782,245 Q812,315 842,145 Q865,85 880,195"
+          fill="none" stroke="#ff3377" stroke-width="0.7" opacity="0.4"/>
+  </g>
+
+  <!-- === SAND PILE at bottom center === -->
+
+  <!-- Sand pile shape -->
+  <path d="M350,340 Q370,310 400,295 Q430,280 450,265 Q470,280 500,295 Q530,310 550,340 Z"
+        fill="#cc8833" opacity="0.15"/>
+  <path d="M360,340 Q380,315 410,300 Q435,288 450,275 Q465,288 490,300 Q520,315 540,340 Z"
+        fill="#ddaa44" opacity="0.1"/>
+
+  <!-- Falling sand grains -->
+  <g>
+    <circle cx="450" cy="120" r="2" fill="#ffcc66" opacity="0.8" filter="url(#particleGlow)"/>
+    <circle cx="448" cy="145" r="1.8" fill="#ffbb55" opacity="0.7" filter="url(#particleGlow)"/>
+    <circle cx="451" cy="170" r="1.5" fill="#ffaa44" opacity="0.6" filter="url(#particleGlow)"/>
+    <circle cx="449" cy="195" r="1.8" fill="#ffcc66" opacity="0.7" filter="url(#particleGlow)"/>
+    <circle cx="450" cy="220" r="2" fill="#ffbb55" opacity="0.8" filter="url(#particleGlow)"/>
+    <circle cx="452" cy="245" r="1.5" fill="#ffaa44" opacity="0.6" filter="url(#particleGlow)"/>
+  </g>
+
+  <!-- Avalanche particles scattering from pile -->
+  <g opacity="0.7">
+    <circle cx="430" cy="290" r="1.5" fill="#ffcc66" filter="url(#particleGlow)"/>
+    <circle cx="415" cy="305" r="1.2" fill="#ffbb55" filter="url(#particleGlow)"/>
+    <circle cx="405" cy="318" r="1" fill="#ffaa44" filter="url(#particleGlow)"/>
+    <circle cx="395" cy="328" r="1.3" fill="#ff9933" filter="url(#particleGlow)"/>
+    <circle cx="380" cy="335" r="1" fill="#ff8822" opacity="0.6" filter="url(#particleGlow)"/>
+
+    <circle cx="470" cy="290" r="1.5" fill="#ffcc66" filter="url(#particleGlow)"/>
+    <circle cx="485" cy="300" r="1.2" fill="#ffbb55" filter="url(#particleGlow)"/>
+    <circle cx="498" cy="312" r="1" fill="#ffaa44" filter="url(#particleGlow)"/>
+    <circle cx="510" cy="322" r="1.3" fill="#ff9933" filter="url(#particleGlow)"/>
+    <circle cx="520" cy="332" r="1" fill="#ff8822" opacity="0.6" filter="url(#particleGlow)"/>
+
+    <!-- More scatter -->
+    <circle cx="440" cy="285" r="1" fill="#ffdd77" filter="url(#particleGlow)"/>
+    <circle cx="460" cy="283" r="1.1" fill="#ffdd77" filter="url(#particleGlow)"/>
+    <circle cx="425" cy="298" r="0.8" fill="#ffcc66" filter="url(#particleGlow)"/>
+    <circle cx="475" cy="295" r="0.9" fill="#ffcc66" filter="url(#particleGlow)"/>
+  </g>
+
+  <!-- === BUTTERFLY (subtle, top right) === -->
+  <g transform="translate(780, 80) scale(0.8)" opacity="0.5">
+    <!-- Left wing -->
+    <path d="M0,0 Q-25,-30 -15,-50 Q-5,-55 0,-35 Q-5,-20 0,0"
+          fill="none" stroke="#ff6688" stroke-width="1.2"/>
+    <path d="M0,0 Q-30,-15 -25,-35 Q-15,-45 0,-30"
+          fill="#ff4466" opacity="0.15"/>
+    <!-- Right wing -->
+    <path d="M0,0 Q25,-30 15,-50 Q5,-55 0,-35 Q5,-20 0,0"
+          fill="none" stroke="#ff6688" stroke-width="1.2"/>
+    <path d="M0,0 Q30,-15 25,-35 Q15,-45 0,-30"
+          fill="#ff4466" opacity="0.15"/>
+    <!-- Body -->
+    <line x1="0" y1="5" x2="0" y2="-35" stroke="#ff8899" stroke-width="1"/>
+    <!-- Antennae -->
+    <path d="M0,-35 Q-5,-45 -8,-48" fill="none" stroke="#ff8899" stroke-width="0.5"/>
+    <path d="M0,-35 Q5,-45 8,-48" fill="none" stroke="#ff8899" stroke-width="0.5"/>
+  </g>
+
+  <!-- === AI MANIFOLD (low-dimensional surface in high-dimensional space) === -->
+  <!-- Represented as a curved mesh/surface on the left -->
+  <g transform="translate(120, 150)" opacity="0.35">
+    <!-- Curved grid lines suggesting a 2D manifold -->
+    <path d="M0,0 Q30,-15 60,-5 Q90,10 120,0" fill="none" stroke="#00ffaa" stroke-width="0.8"/>
+    <path d="M-5,20 Q25,5 55,15 Q85,30 115,20" fill="none" stroke="#00ffaa" stroke-width="0.8"/>
+    <path d="M-10,40 Q20,25 50,35 Q80,50 110,40" fill="none" stroke="#00ffaa" stroke-width="0.8"/>
+    <path d="M-15,60 Q15,45 45,55 Q75,70 105,60" fill="none" stroke="#00ffaa" stroke-width="0.8"/>
+
+    <!-- Cross lines -->
+    <path d="M0,0 Q-5,20 -10,40 Q-15,60 -15,60" fill="none" stroke="#00ffaa" stroke-width="0.6"/>
+    <path d="M30,-10 Q28,10 25,30 Q20,50 15,55" fill="none" stroke="#00ffaa" stroke-width="0.6"/>
+    <path d="M60,-5 Q58,15 55,35 Q50,55 45,55" fill="none" stroke="#00ffaa" stroke-width="0.6"/>
+    <path d="M90,5 Q88,25 85,45 Q80,65 75,65" fill="none" stroke="#00ffaa" stroke-width="0.6"/>
+    <path d="M120,0 Q115,20 110,40 Q105,60 105,60" fill="none" stroke="#00ffaa" stroke-width="0.6"/>
+
+    <!-- Data points on manifold -->
+    <circle cx="30" cy="8" r="2" fill="#00ffcc" opacity="0.8"/>
+    <circle cx="60" cy="15" r="2" fill="#00ffcc" opacity="0.7"/>
+    <circle cx="85" cy="35" r="2" fill="#00ffcc" opacity="0.8"/>
+    <circle cx="45" cy="40" r="2" fill="#00ffcc" opacity="0.6"/>
+    <circle cx="15" cy="25" r="2" fill="#00ffcc" opacity="0.7"/>
+    <circle cx="70" cy="50" r="2" fill="#00ffcc" opacity="0.6"/>
+
+    <!-- Scattered points off manifold (noise) -->
+    <circle cx="50" cy="-15" r="1" fill="#00ffcc" opacity="0.2"/>
+    <circle cx="100" cy="80" r="1" fill="#00ffcc" opacity="0.2"/>
+    <circle cx="-20" cy="35" r="1" fill="#00ffcc" opacity="0.2"/>
+  </g>
+
+  <!-- === POWER LAW CURVE (small, bottom left) === -->
+  <g transform="translate(60, 260)" opacity="0.4">
+    <path d="M0,0 Q5,40 15,55 Q30,70 60,75 Q90,78 120,80"
+          fill="none" stroke="#ffaa33" stroke-width="1"/>
+    <text x="125" y="83" font-family="'Courier New', monospace" font-size="8" fill="#ffaa33" opacity="0.7">P(s)~s^(-τ)</text>
+  </g>
+
+  <!-- === Floating particles (dust/noise) === -->
+  <g opacity="0.3">
+    <circle cx="100" cy="50" r="1" fill="#4488ff"/>
+    <circle cx="250" cy="80" r="0.8" fill="#4488ff"/>
+    <circle cx="180" cy="130" r="1.2" fill="#00ccff"/>
+    <circle cx="700" cy="60" r="1" fill="#ff6666"/>
+    <circle cx="650" cy="130" r="0.8" fill="#ff4444"/>
+    <circle cx="820" cy="150" r="1.1" fill="#ff5555"/>
+    <circle cx="760" cy="200" r="0.7" fill="#ff7777"/>
+    <circle cx="550" cy="100" r="0.9" fill="#ff8888"/>
+    <circle cx="340" cy="70" r="0.8" fill="#88aaff"/>
+    <circle cx="580" cy="250" r="1" fill="#ff6655"/>
+    <circle cx="300" cy="300" r="0.7" fill="#6699ff"/>
+    <circle cx="680" cy="280" r="0.9" fill="#ff5544"/>
+    <circle cx="160" cy="310" r="0.8" fill="#4488ff"/>
+    <circle cx="800" cy="300" r="1" fill="#ff4466"/>
+  </g>
+
+  <!-- === TITLE TEXT === -->
+
+  <!-- Main title background bar -->
+  <rect x="0" y="25" width="900" height="80" fill="#000000" opacity="0.5"/>
+  <rect x="0" y="25" width="4" height="80" fill="#00ccff"/>
+
+  <!-- Main title -->
+  <text x="28" y="62" font-family="'Noto Sans CJK SC', 'Noto Sans SC', sans-serif" font-weight="900" font-size="30" fill="#ffffff" filter="url(#textGlow)">
+    混沌系统与AI
+  </text>
+
+  <!-- Subtitle -->
+  <text x="28" y="92" font-family="'Noto Sans CJK SC', 'Noto Sans SC', sans-serif" font-weight="400" font-size="16" fill="#aaccee">
+    从沙堆模型到Lyapunov指数——AI能预测什么、不能预测什么
+  </text>
+
+  <!-- Issue number -->
+  <rect x="810" y="35" width="70" height="28" rx="4" fill="#00ccff" opacity="0.2" stroke="#00ccff" stroke-width="1"/>
+  <text x="845" y="55" font-family="'Courier New', monospace" font-size="14" fill="#00ccff" text-anchor="middle" font-weight="bold">#159</text>
+
+  <!-- Decorative line under title -->
+  <line x1="28" y1="105" x2="400" y2="105" stroke="#00ccff" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- === FORMULA decorations === -->
+  <text x="680" y="340" font-family="'Courier New', monospace" font-size="10" fill="#ff6677" opacity="0.4">
+    dx/dt = σ(y-x)
+  </text>
+  <text x="680" y="355" font-family="'Courier New', monospace" font-size="10" fill="#ff6677" opacity="0.35">
+    dy/dt = x(ρ-z)-y
+  </text>
+  <text x="680" y="370" font-family="'Courier New', monospace" font-size="10" fill="#ff6677" opacity="0.3">
+    dz/dt = xy-βz
+  </text>
+
+  <!-- Lorenz equations label -->
+  <text x="810" y="340" font-family="'Courier New', monospace" font-size="8" fill="#ff4466" opacity="0.3">← Lorenz</text>
+
+</svg>
