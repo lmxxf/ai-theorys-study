@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="480" viewBox="0 0 680 480">
+  <defs>
+    <style>
+      text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="480" fill="#fafafa"/>
+
+  <!-- 标题 -->
+  <text x="340" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">tanh vs ReLU：压缩阶段消失了</text>
+
+  <!-- ===== 左图：tanh ===== -->
+  <text x="195" y="58" text-anchor="middle" font-size="15" font-weight="bold" fill="#FF6B00">tanh：先胖后瘦 ✓</text>
+
+  <!-- 坐标轴 -->
+  <line x1="60" y1="390" x2="320" y2="390" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="60" y1="390" x2="60" y2="70" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="190" y="430" text-anchor="middle" font-size="12" fill="#666">I(X;Z)</text>
+  <text x="28" y="230" text-anchor="middle" font-size="12" fill="#666" transform="rotate(-90,28,230)">I(Y;Z)</text>
+
+  <!-- tanh 轨迹：先右上，再左 -->
+  <path d="M 90,350 C 120,330 160,220 240,140 C 255,125 250,122 220,118 C 195,115 170,113 150,112"
+        fill="none" stroke="#FF6B00" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="90" cy="350" r="5" fill="#FF6B00"/>
+  <circle cx="150" cy="112" r="5" fill="#FF6B00"/>
+
+  <!-- Phase 标注 -->
+  <text x="155" y="280" font-size="12" fill="#FF6B00" font-weight="bold">Phase 1 →</text>
+  <text x="215" y="100" font-size="12" fill="#FF6B00" font-weight="bold">← Phase 2</text>
+
+  <!-- 分隔线 -->
+  <line x1="340" y1="50" x2="340" y2="440" stroke="#ddd" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ===== 右图：ReLU ===== -->
+  <text x="505" y="58" text-anchor="middle" font-size="15" font-weight="bold" fill="#2196F3">ReLU：只胖不瘦 ✗</text>
+
+  <!-- 坐标轴 -->
+  <line x1="370" y1="390" x2="630" y2="390" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="370" y1="390" x2="370" y2="70" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="500" y="430" text-anchor="middle" font-size="12" fill="#666">I(X;Z)</text>
+  <text x="338" y="230" text-anchor="middle" font-size="12" fill="#666" transform="rotate(-90,338,230)">I(Y;Z)</text>
+
+  <!-- ReLU 轨迹：一直向右上，不回头 -->
+  <path d="M 400,350 C 430,330 470,240 530,160 C 555,125 575,115 600,110"
+        fill="none" stroke="#2196F3" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="400" cy="350" r="5" fill="#2196F3"/>
+  <circle cx="600" cy="110" r="5" fill="#2196F3"/>
+
+  <!-- 标注 -->
+  <text x="470" y="280" font-size="12" fill="#2196F3" font-weight="bold">一直 Phase 1 →</text>
+  <text x="470" y="300" font-size="12" fill="#999">I(X;Z) 不下降</text>
+  <text x="470" y="320" font-size="12" fill="#999">没有压缩阶段</text>
+
+  <!-- 底部说明 -->
+  <text x="340" y="465" text-anchor="middle" font-size="13" fill="#999">Saxe et al. 2018：换掉 tanh，"先胖后瘦"就消失了——是压缩还是饱和？</text>
+
+</svg>

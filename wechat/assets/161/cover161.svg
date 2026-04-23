@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+  <defs>
+    <style>
+      text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#1a1040"/>
+    </linearGradient>
+    <linearGradient id="curve1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4FC3F7"/>
+      <stop offset="50%" stop-color="#FF7043"/>
+      <stop offset="100%" stop-color="#FF7043"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#4FC3F7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#4FC3F7" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <filter id="glowFilter">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- 星点装饰 -->
+  <circle cx="120" cy="80" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="300" cy="45" r="1" fill="#fff" opacity="0.3"/>
+  <circle cx="520" cy="90" r="1.5" fill="#fff" opacity="0.5"/>
+  <circle cx="700" cy="60" r="1" fill="#fff" opacity="0.3"/>
+  <circle cx="800" cy="120" r="1.5" fill="#fff" opacity="0.4"/>
+  <circle cx="150" cy="400" r="1" fill="#fff" opacity="0.2"/>
+  <circle cx="750" cy="380" r="1" fill="#fff" opacity="0.3"/>
+  <circle cx="400" cy="430" r="1.5" fill="#fff" opacity="0.2"/>
+  <circle cx="600" cy="450" r="1" fill="#fff" opacity="0.25"/>
+  <circle cx="50" cy="250" r="1" fill="#fff" opacity="0.3"/>
+  <circle cx="850" cy="280" r="1.5" fill="#fff" opacity="0.35"/>
+
+  <!-- 信息平面轨迹（先胖后瘦）- 发光效果 -->
+  <path d="M 130,380 C 200,350 320,260 480,200 C 520,185 540,180 560,178 C 540,175 500,172 440,170 C 390,168 350,167 320,166"
+        fill="none" stroke="#4FC3F7" stroke-width="6" opacity="0.3" filter="url(#blur)"/>
+  <!-- 主轨迹 -->
+  <path d="M 130,380 C 200,350 320,260 480,200 C 520,185 540,180 560,178 C 540,175 500,172 440,170 C 390,168 350,167 320,166"
+        fill="none" stroke="url(#curve1)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- 起点 -->
+  <circle cx="130" cy="380" r="5" fill="#4FC3F7" filter="url(#glowFilter)"/>
+  <!-- 拐点 -->
+  <circle cx="560" cy="178" r="5" fill="#FF7043" filter="url(#glowFilter)"/>
+  <!-- 终点 -->
+  <circle cx="320" cy="166" r="5" fill="#FF7043" filter="url(#glowFilter)"/>
+
+  <!-- Phase 标注 -->
+  <text x="280" y="310" font-size="14" fill="#4FC3F7" opacity="0.7">Phase 1  拟合</text>
+  <text x="460" y="155" font-size="14" fill="#FF7043" opacity="0.7">Phase 2  压缩</text>
+
+  <!-- 箭头示意 -->
+  <path d="M 300,295 L 370,265" stroke="#4FC3F7" stroke-width="1" opacity="0.5" marker-end="none"/>
+  <path d="M 490,158 L 420,162" stroke="#FF7043" stroke-width="1" opacity="0.5"/>
+
+  <!-- 漏斗/瓶颈意象 -->
+  <path d="M 680,140 L 720,200 L 680,260" stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.15"/>
+  <path d="M 780,140 L 740,200 L 780,260" stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.15"/>
+  <text x="730" y="205" text-anchor="middle" font-size="11" fill="#ffffff" opacity="0.25">瓶颈</text>
+
+  <!-- 公式 -->
+  <text x="650" y="340" text-anchor="middle" font-size="16" fill="#ffffff" opacity="0.35" font-style="italic">min I(X;Z) − β·I(Y;Z)</text>
+
+  <!-- 时间线 -->
+  <line x1="100" y1="450" x2="800" y2="450" stroke="#ffffff" stroke-width="0.5" opacity="0.15"/>
+  <text x="130" y="470" font-size="11" fill="#ffffff" opacity="0.3">Shannon 1948</text>
+  <text x="330" y="470" font-size="11" fill="#ffffff" opacity="0.3">Tishby 1999</text>
+  <text x="550" y="470" font-size="11" fill="#ffffff" opacity="0.3">争议 2017</text>
+  <text x="720" y="470" font-size="11" fill="#ffffff" opacity="0.3">Princeton 2026</text>
+  <circle cx="150" cy="450" r="3" fill="#4FC3F7" opacity="0.4"/>
+  <circle cx="370" cy="450" r="3" fill="#4FC3F7" opacity="0.4"/>
+  <circle cx="580" cy="450" r="3" fill="#FF7043" opacity="0.4"/>
+  <circle cx="760" cy="450" r="3" fill="#4FC3F7" opacity="0.4"/>
+
+  <!-- 主标题 -->
+  <text x="450" y="75" text-anchor="middle" font-size="36" font-weight="bold" fill="#ffffff" filter="url(#glowFilter)">学习即遗忘</text>
+
+  <!-- 副标题 -->
+  <text x="450" y="115" text-anchor="middle" font-size="18" fill="#aabbcc">从香农到普林斯顿——78 年，同一个物理定律</text>
+
+</svg>

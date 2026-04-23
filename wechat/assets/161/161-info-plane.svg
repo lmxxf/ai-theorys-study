@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="480" viewBox="0 0 680 480">
+  <defs>
+    <style>
+      text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="480" fill="#fafafa"/>
+
+  <!-- 坐标轴 -->
+  <line x1="80" y1="400" x2="640" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="80" y1="400" x2="80" y2="40" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 轴标签 -->
+  <text x="360" y="445" text-anchor="middle" font-size="16" fill="#333">I(X;Z)  复杂度（记了多少）</text>
+  <text x="30" y="220" text-anchor="middle" font-size="16" fill="#333" transform="rotate(-90,30,220)">I(Y;Z)  表达力（猜得多准）</text>
+
+  <!-- 标题 -->
+  <text x="360" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">信息平面：训练轨迹"先胖后瘦"</text>
+
+  <!-- 深层轨迹（Layer 5，压缩最彻底） -->
+  <path d="M 120,360 C 160,340 200,200 320,140 C 350,128 340,125 280,120 C 240,117 200,115 180,113"
+        fill="none" stroke="#2196F3" stroke-width="3" stroke-linecap="round"/>
+  <!-- 起点 -->
+  <circle cx="120" cy="360" r="5" fill="#2196F3"/>
+  <!-- 终点箭头 -->
+  <circle cx="180" cy="113" r="5" fill="#2196F3"/>
+  <text x="155" y="105" font-size="13" fill="#2196F3" font-weight="bold">深层</text>
+
+  <!-- 中间层轨迹（Layer 3） -->
+  <path d="M 130,365 C 180,340 260,210 400,150 C 430,140 420,138 370,133 C 330,130 300,128 280,126"
+        fill="none" stroke="#9C27B0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="130" cy="365" r="5" fill="#9C27B0"/>
+  <circle cx="280" cy="126" r="5" fill="#9C27B0"/>
+  <text x="255" y="118" font-size="13" fill="#9C27B0" font-weight="bold">中间层</text>
+
+  <!-- 浅层轨迹（Layer 1，保留最多输入信息） -->
+  <path d="M 140,370 C 200,345 340,230 500,165 C 530,155 520,153 480,148 C 450,145 420,143 400,141"
+        fill="none" stroke="#F44336" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="140" cy="370" r="5" fill="#F44336"/>
+  <circle cx="400" cy="141" r="5" fill="#F44336"/>
+  <text x="375" y="133" font-size="13" fill="#F44336" font-weight="bold">浅层</text>
+
+  <!-- Phase 标注 -->
+  <!-- Phase 1 区域 -->
+  <text x="280" y="290" font-size="15" fill="#666" font-weight="bold">Phase 1</text>
+  <text x="280" y="310" font-size="13" fill="#888">拟合：什么都往里装</text>
+  <path d="M 270,300 L 230,330" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="200" y="348" font-size="12" fill="#aaa">→ 右上</text>
+
+  <!-- Phase 2 区域 -->
+  <text x="380" y="80" font-size="15" fill="#666" font-weight="bold">Phase 2</text>
+  <text x="380" y="100" font-size="13" fill="#888">压缩：扔掉废话</text>
+  <path d="M 440,105 L 470,135" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="475" y="148" font-size="12" fill="#aaa">← 左</text>
+
+  <!-- 拐点标注 -->
+  <text x="490" y="180" font-size="12" fill="#999">拐点：开始遗忘</text>
+  <line x1="500" y1="183" x2="500" y2="162" stroke="#ccc" stroke-width="1" stroke-dasharray="3,2"/>
+
+</svg>
