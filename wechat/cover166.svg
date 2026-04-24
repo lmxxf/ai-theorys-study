@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628" />
+      <stop offset="50%" style="stop-color:#0d2137" />
+      <stop offset="100%" style="stop-color:#0a1a2e" />
+    </linearGradient>
+    <linearGradient id="codeGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e90ff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#1e90ff;stop-opacity:0.02" />
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e90ff;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#1e90ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#1e90ff;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient id="bracketGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a9bff" />
+      <stop offset="100%" style="stop-color:#1565c0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bgGrad)" />
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.06">
+    <line x1="0" y1="50" x2="900" y2="50" stroke="#4a9eff" stroke-width="0.5" />
+    <line x1="0" y1="100" x2="900" y2="100" stroke="#4a9eff" stroke-width="0.5" />
+    <line x1="0" y1="150" x2="900" y2="150" stroke="#4a9eff" stroke-width="0.5" />
+    <line x1="0" y1="200" x2="900" y2="200" stroke="#4a9eff" stroke-width="0.5" />
+    <line x1="0" y1="250" x2="900" y2="250" stroke="#4a9eff" stroke-width="0.5" />
+    <line x1="0" y1="300" x2="900" y2="300" stroke="#4a9eff" stroke-width="0.5" />
+    <line x1="0" y1="350" x2="900" y2="350" stroke="#4a9eff" stroke-width="0.5" />
+    <line x1="0" y1="400" x2="900" y2="400" stroke="#4a9eff" stroke-width="0.5" />
+    <line x1="0" y1="450" x2="900" y2="450" stroke="#4a9eff" stroke-width="0.5" />
+  </g>
+
+  <!-- Left side: config.json code block -->
+  <g transform="translate(40, 60)">
+    <!-- Code panel background -->
+    <rect x="0" y="0" width="320" height="380" rx="8" ry="8" fill="#0c1a2d" stroke="#1a3a5c" stroke-width="1" opacity="0.85" />
+    <!-- Title bar -->
+    <rect x="0" y="0" width="320" height="30" rx="8" ry="8" fill="#132840" />
+    <rect x="0" y="15" width="320" height="15" fill="#132840" />
+    <!-- Dots -->
+    <circle cx="18" cy="15" r="5" fill="#ff5f56" opacity="0.8" />
+    <circle cx="36" cy="15" r="5" fill="#ffbd2e" opacity="0.8" />
+    <circle cx="54" cy="15" r="5" fill="#27c93f" opacity="0.8" />
+    <text x="160" y="19" text-anchor="middle" fill="#5a8ab5" font-family="monospace" font-size="11">config.json</text>
+
+    <!-- JSON content -->
+    <g font-family="'Courier New', monospace" font-size="13" fill="#7eb8da">
+      <text x="16" y="55" fill="#c8c8c8">{</text>
+      <text x="28" y="75"><tspan fill="#9cdcfe">"model_type"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#ce9178">"deepseek_v4"</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="28" y="95"><tspan fill="#9cdcfe">"num_layers"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">80</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="28" y="115"><tspan fill="#9cdcfe">"attention"</tspan><tspan fill="#c8c8c8">: {</tspan></text>
+      <text x="44" y="135"><tspan fill="#9cdcfe">"pattern"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#ce9178">"CSA-HCA"</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="44" y="155"><tspan fill="#9cdcfe">"csa_layers"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">[0,1,2]</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="44" y="175"><tspan fill="#9cdcfe">"hca_layers"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">[3..79]</tspan></text>
+      <text x="28" y="195"><tspan fill="#c8c8c8">},</tspan></text>
+      <text x="28" y="215"><tspan fill="#9cdcfe">"compress_ratios"</tspan><tspan fill="#c8c8c8">:</tspan></text>
+      <text x="44" y="235"><tspan fill="#b5cea8">[1, 2, 4, 8, 16, 32]</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="28" y="255"><tspan fill="#9cdcfe">"moe"</tspan><tspan fill="#c8c8c8">: {</tspan></text>
+      <text x="44" y="275"><tspan fill="#9cdcfe">"num_experts"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">256</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="44" y="295"><tspan fill="#9cdcfe">"top_k"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">8</tspan></text>
+      <text x="28" y="315"><tspan fill="#c8c8c8">}</tspan></text>
+      <text x="16" y="335" fill="#c8c8c8">}</text>
+    </g>
+
+    <!-- Glow effect on the panel -->
+    <rect x="0" y="0" width="320" height="380" rx="8" ry="8" fill="url(#codeGlow)" />
+  </g>
+
+  <!-- Right side: Layer structure visualization -->
+  <g transform="translate(580, 70)">
+    <!-- CSA/HCA layer blocks -->
+    <text x="130" y="0" text-anchor="middle" fill="#5a8ab5" font-family="'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="500">Layer Architecture</text>
+
+    <!-- Layer 0-2: CSA -->
+    <rect x="30" y="18" width="200" height="28" rx="4" fill="#1a3f6f" stroke="#2a6cb8" stroke-width="1" />
+    <text x="130" y="37" text-anchor="middle" fill="#6ab7ff" font-family="monospace" font-size="12" font-weight="bold">CSA  Layer 0</text>
+
+    <rect x="30" y="52" width="200" height="28" rx="4" fill="#1a3f6f" stroke="#2a6cb8" stroke-width="1" />
+    <text x="130" y="71" text-anchor="middle" fill="#6ab7ff" font-family="monospace" font-size="12" font-weight="bold">CSA  Layer 1</text>
+
+    <rect x="30" y="86" width="200" height="28" rx="4" fill="#1a3f6f" stroke="#2a6cb8" stroke-width="1" />
+    <text x="130" y="105" text-anchor="middle" fill="#6ab7ff" font-family="monospace" font-size="12" font-weight="bold">CSA  Layer 2</text>
+
+    <!-- Divider -->
+    <line x1="30" y1="124" x2="230" y2="124" stroke="#2a5a8a" stroke-width="1" stroke-dasharray="4,3" />
+
+    <!-- Layer 3+: HCA -->
+    <rect x="30" y="134" width="200" height="28" rx="4" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
+    <text x="130" y="153" text-anchor="middle" fill="#4ae68a" font-family="monospace" font-size="12" font-weight="bold">HCA  Layer 3</text>
+
+    <rect x="30" y="168" width="200" height="28" rx="4" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
+    <text x="130" y="187" text-anchor="middle" fill="#4ae68a" font-family="monospace" font-size="12" font-weight="bold">HCA  Layer 4</text>
+
+    <rect x="30" y="202" width="200" height="28" rx="4" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
+    <text x="130" y="221" text-anchor="middle" fill="#4ae68a" font-family="monospace" font-size="12" font-weight="bold">HCA  Layer 5</text>
+
+    <!-- Dots indicating more layers -->
+    <text x="130" y="248" text-anchor="middle" fill="#4a7a6a" font-family="monospace" font-size="16" letter-spacing="6">...</text>
+
+    <rect x="30" y="260" width="200" height="28" rx="4" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
+    <text x="130" y="279" text-anchor="middle" fill="#4ae68a" font-family="monospace" font-size="12" font-weight="bold">HCA  Layer 79</text>
+
+    <!-- Arrow from config to model -->
+    <g transform="translate(-200, 160)">
+      <line x1="0" y1="0" x2="60" y2="0" stroke="#3a7abf" stroke-width="1.5" opacity="0.5" />
+      <polygon points="60,-5 70,0 60,5" fill="#3a7abf" opacity="0.5" />
+    </g>
+  </g>
+
+  <!-- Center arrow: config.json -> model.py -->
+  <g transform="translate(390, 230)">
+    <line x1="0" y1="0" x2="140" y2="0" stroke="url(#accentLine)" stroke-width="2" />
+    <polygon points="140,-6 155,0 140,6" fill="#1e90ff" opacity="0.7" />
+    <text x="70" y="-12" text-anchor="middle" fill="#4a9eff" font-family="monospace" font-size="11" opacity="0.7">parse</text>
+  </g>
+
+  <!-- Decorative corner brackets -->
+  <g stroke="#1e5a8a" stroke-width="2" fill="none" opacity="0.3">
+    <path d="M20,20 L20,50 M20,20 L50,20" />
+    <path d="M880,20 L880,50 M880,20 L850,20" />
+    <path d="M20,480 L20,450 M20,480 L50,480" />
+    <path d="M880,480 L880,450 M880,480 L850,480" />
+  </g>
+
+  <!-- Title area at bottom -->
+  <g>
+    <!-- Accent line -->
+    <line x1="100" y1="400" x2="800" y2="400" stroke="url(#accentLine)" stroke-width="1" />
+
+    <!-- Main title -->
+    <text x="450" y="440" text-anchor="middle" fill="#e8f0ff" font-family="'Noto Sans CJK SC', sans-serif" font-size="28" font-weight="700" letter-spacing="1">
+      DeepSeek V4 技术报告精读
+    </text>
+
+    <!-- Subtitle -->
+    <text x="450" y="472" text-anchor="middle" fill="#5a9ecf" font-family="'Noto Sans CJK SC', monospace" font-size="16" font-weight="400" letter-spacing="2">
+      从 config.json 到 model.py  |  58 页全解析
+    </text>
+  </g>
+
+  <!-- Page count badge -->
+  <g transform="translate(810, 55)">
+    <rect x="-30" y="-16" width="60" height="28" rx="14" fill="#1a3f6f" stroke="#2a6cb8" stroke-width="1" />
+    <text x="0" y="3" text-anchor="middle" fill="#6ab7ff" font-family="'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="600">58p</text>
+  </g>
+</svg>
