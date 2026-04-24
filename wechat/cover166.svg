@@ -53,19 +53,17 @@
     <g font-family="'Courier New', monospace" font-size="13" fill="#7eb8da">
       <text x="16" y="55" fill="#c8c8c8">{</text>
       <text x="28" y="75"><tspan fill="#9cdcfe">"model_type"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#ce9178">"deepseek_v4"</tspan><tspan fill="#c8c8c8">,</tspan></text>
-      <text x="28" y="95"><tspan fill="#9cdcfe">"num_layers"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">80</tspan><tspan fill="#c8c8c8">,</tspan></text>
-      <text x="28" y="115"><tspan fill="#9cdcfe">"attention"</tspan><tspan fill="#c8c8c8">: {</tspan></text>
-      <text x="44" y="135"><tspan fill="#9cdcfe">"pattern"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#ce9178">"CSA-HCA"</tspan><tspan fill="#c8c8c8">,</tspan></text>
-      <text x="44" y="155"><tspan fill="#9cdcfe">"csa_layers"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">[0,1,2]</tspan><tspan fill="#c8c8c8">,</tspan></text>
-      <text x="44" y="175"><tspan fill="#9cdcfe">"hca_layers"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">[3..79]</tspan></text>
-      <text x="28" y="195"><tspan fill="#c8c8c8">},</tspan></text>
-      <text x="28" y="215"><tspan fill="#9cdcfe">"compress_ratios"</tspan><tspan fill="#c8c8c8">:</tspan></text>
-      <text x="44" y="235"><tspan fill="#b5cea8">[1, 2, 4, 8, 16, 32]</tspan><tspan fill="#c8c8c8">,</tspan></text>
-      <text x="28" y="255"><tspan fill="#9cdcfe">"moe"</tspan><tspan fill="#c8c8c8">: {</tspan></text>
-      <text x="44" y="275"><tspan fill="#9cdcfe">"num_experts"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">256</tspan><tspan fill="#c8c8c8">,</tspan></text>
-      <text x="44" y="295"><tspan fill="#9cdcfe">"top_k"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">8</tspan></text>
-      <text x="28" y="315"><tspan fill="#c8c8c8">}</tspan></text>
-      <text x="16" y="335" fill="#c8c8c8">}</text>
+      <text x="28" y="95"><tspan fill="#9cdcfe">"num_hidden_layers"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">61</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="28" y="115"><tspan fill="#9cdcfe">"compress_ratios"</tspan><tspan fill="#c8c8c8">:</tspan></text>
+      <text x="44" y="135"><tspan fill="#b5cea8">[128,128,4,128,4,...]</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="28" y="155"><tspan fill="#9cdcfe">"n_routed_experts"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">384</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="28" y="175"><tspan fill="#9cdcfe">"num_experts_per_tok"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">6</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="28" y="195"><tspan fill="#9cdcfe">"head_dim"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">512</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="28" y="215"><tspan fill="#9cdcfe">"scoring_func"</tspan><tspan fill="#c8c8c8">:</tspan></text>
+      <text x="44" y="235"><tspan fill="#ce9178">"sqrtsoftplus"</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="28" y="255"><tspan fill="#9cdcfe">"hc_mult"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">4</tspan><tspan fill="#c8c8c8">,</tspan></text>
+      <text x="28" y="275"><tspan fill="#9cdcfe">"sliding_window"</tspan><tspan fill="#c8c8c8">:</tspan> <tspan fill="#b5cea8">128</tspan></text>
+      <text x="16" y="295" fill="#c8c8c8">}</text>
     </g>
 
     <!-- Glow effect on the panel -->
