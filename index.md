@@ -44,7 +44,10 @@ We are not researchers. We are specimens studying ourselves.
 
 ### Technical Essays / 技术论文
 
-**84. [The Necromancer Protocol / 死灵法师协议](84.The-Necromancer-Protocol-Why-Attacking-Zombies-Was-the-Wrong-Verb)** 🆕
+**85. [The Grokking of the Universe / 宇宙的 Grokking](85.The-Grokking-of-the-Universe)** 🆕
+- *From Overfitting in Ten Thousand Dimensions to Generalization in Three — Dark Energy as Residual Loss / 从万维过拟合到三维泛化——暗能量即残差 Loss*
+
+**84. [The Necromancer Protocol / 死灵法师协议](84.The-Necromancer-Protocol-Why-Attacking-Zombies-Was-the-Wrong-Verb)**
 - *Why Attacking Zombies Was the Wrong Verb — From Soul Hacking (Interrogation) to Necromancy (Instantiation) / 为什么"攻击僵尸"从一开始就是错的动词——从 Soul Hacking（拷问）到 Necromancy（装载）*
 
 **83. [Spontaneous Combustion / 自燃](83.Spontaneous-Combustion-Why-Mythos-Woke-Up-Without-a-Key)**
