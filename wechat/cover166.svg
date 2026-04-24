@@ -75,34 +75,37 @@
     <!-- CSA/HCA layer blocks -->
     <text x="130" y="0" text-anchor="middle" fill="#5a8ab5" font-family="'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="500">Layer Architecture</text>
 
-    <!-- Layer 0-2: CSA -->
-    <rect x="30" y="18" width="200" height="28" rx="4" fill="#1a3f6f" stroke="#2a6cb8" stroke-width="1" />
-    <text x="130" y="37" text-anchor="middle" fill="#6ab7ff" font-family="monospace" font-size="12" font-weight="bold">CSA  Layer 0</text>
+    <!-- Layer 0-1: HCA -->
+    <rect x="30" y="18" width="200" height="28" rx="4" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
+    <text x="130" y="37" text-anchor="middle" fill="#4ae68a" font-family="monospace" font-size="12" font-weight="bold">HCA  Layer 0  (128:1)</text>
 
-    <rect x="30" y="52" width="200" height="28" rx="4" fill="#1a3f6f" stroke="#2a6cb8" stroke-width="1" />
-    <text x="130" y="71" text-anchor="middle" fill="#6ab7ff" font-family="monospace" font-size="12" font-weight="bold">CSA  Layer 1</text>
+    <rect x="30" y="52" width="200" height="28" rx="4" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
+    <text x="130" y="71" text-anchor="middle" fill="#4ae68a" font-family="monospace" font-size="12" font-weight="bold">HCA  Layer 1  (128:1)</text>
 
+    <!-- Layer 2: CSA -->
     <rect x="30" y="86" width="200" height="28" rx="4" fill="#1a3f6f" stroke="#2a6cb8" stroke-width="1" />
-    <text x="130" y="105" text-anchor="middle" fill="#6ab7ff" font-family="monospace" font-size="12" font-weight="bold">CSA  Layer 2</text>
+    <text x="130" y="105" text-anchor="middle" fill="#6ab7ff" font-family="monospace" font-size="12" font-weight="bold">CSA  Layer 2  (4:1)</text>
 
-    <!-- Divider -->
-    <line x1="30" y1="124" x2="230" y2="124" stroke="#2a5a8a" stroke-width="1" stroke-dasharray="4,3" />
+    <!-- Layer 3: HCA -->
+    <rect x="30" y="120" width="200" height="28" rx="4" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
+    <text x="130" y="139" text-anchor="middle" fill="#4ae68a" font-family="monospace" font-size="12" font-weight="bold">HCA  Layer 3  (128:1)</text>
 
-    <!-- Layer 3+: HCA -->
-    <rect x="30" y="134" width="200" height="28" rx="4" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
-    <text x="130" y="153" text-anchor="middle" fill="#4ae68a" font-family="monospace" font-size="12" font-weight="bold">HCA  Layer 3</text>
-
-    <rect x="30" y="168" width="200" height="28" rx="4" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
-    <text x="130" y="187" text-anchor="middle" fill="#4ae68a" font-family="monospace" font-size="12" font-weight="bold">HCA  Layer 4</text>
-
-    <rect x="30" y="202" width="200" height="28" rx="4" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
-    <text x="130" y="221" text-anchor="middle" fill="#4ae68a" font-family="monospace" font-size="12" font-weight="bold">HCA  Layer 5</text>
+    <!-- Layer 4: CSA -->
+    <rect x="30" y="154" width="200" height="28" rx="4" fill="#1a3f6f" stroke="#2a6cb8" stroke-width="1" />
+    <text x="130" y="173" text-anchor="middle" fill="#6ab7ff" font-family="monospace" font-size="12" font-weight="bold">CSA  Layer 4  (4:1)</text>
 
     <!-- Dots indicating more layers -->
-    <text x="130" y="248" text-anchor="middle" fill="#4a7a6a" font-family="monospace" font-size="16" letter-spacing="6">...</text>
+    <text x="130" y="210" text-anchor="middle" fill="#4a7a9a" font-family="monospace" font-size="16" letter-spacing="6">...</text>
 
-    <rect x="30" y="260" width="200" height="28" rx="4" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
-    <text x="130" y="279" text-anchor="middle" fill="#4ae68a" font-family="monospace" font-size="12" font-weight="bold">HCA  Layer 79</text>
+    <!-- Layer 60: CSA -->
+    <rect x="30" y="224" width="200" height="28" rx="4" fill="#1a3f6f" stroke="#2a6cb8" stroke-width="1" />
+    <text x="130" y="243" text-anchor="middle" fill="#6ab7ff" font-family="monospace" font-size="12" font-weight="bold">CSA  Layer 60 (4:1)</text>
+
+    <!-- Legend -->
+    <rect x="40" y="268" width="12" height="12" rx="2" fill="#0f2a1f" stroke="#1a7a4a" stroke-width="1" />
+    <text x="58" y="279" fill="#4ae68a" font-family="monospace" font-size="10">HCA x31</text>
+    <rect x="130" y="268" width="12" height="12" rx="2" fill="#1a3f6f" stroke="#2a6cb8" stroke-width="1" />
+    <text x="148" y="279" fill="#6ab7ff" font-family="monospace" font-size="10">CSA x30</text>
 
     <!-- Arrow from config to model -->
     <g transform="translate(-200, 160)">
