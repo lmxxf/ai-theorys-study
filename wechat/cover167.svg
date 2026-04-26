@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', 'Arial Black', sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="50%" stop-color="#0d1225"/>
+      <stop offset="100%" stop-color="#080a12"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#1a2244" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="sgdColor" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#cc6644"/>
+      <stop offset="100%" stop-color="#cc6644"/>
+    </linearGradient>
+    <linearGradient id="adamColor" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4488cc"/>
+      <stop offset="100%" stop-color="#4488cc"/>
+    </linearGradient>
+    <linearGradient id="muonColor" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#44cc88"/>
+      <stop offset="100%" stop-color="#44cc88"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#centerGlow)"/>
+
+  <!-- ========== Loss 地形等高线（背景） ========== -->
+  <g opacity="0.12" stroke="#4466aa" fill="none" stroke-width="0.8">
+    <ellipse cx="400" cy="340" rx="300" ry="180"/>
+    <ellipse cx="400" cy="340" rx="250" ry="150"/>
+    <ellipse cx="400" cy="340" rx="200" ry="120"/>
+    <ellipse cx="400" cy="340" rx="150" ry="90"/>
+    <ellipse cx="400" cy="340" rx="100" ry="60"/>
+    <ellipse cx="400" cy="340" rx="50" ry="30"/>
+  </g>
+  <!-- Loss 最低点 -->
+  <circle cx="400" cy="340" r="4" fill="#4466aa" opacity="0.3"/>
+
+  <!-- ========== SGD 路径（左侧，锯齿形，橙色） ========== -->
+  <g filter="url(#glow)">
+    <path d="M140,180 L165,220 L150,250 L175,275 L158,305 L180,330 L170,345 L185,355 L178,362 L190,368"
+      fill="none" stroke="#cc6644" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- 起点 -->
+    <circle cx="140" cy="180" r="4" fill="#cc6644"/>
+    <!-- 终点箭头 -->
+    <circle cx="190" cy="368" r="3" fill="#cc6644" opacity="0.8"/>
+  </g>
+  <!-- SGD 标签 -->
+  <text x="120" y="170" fill="#cc6644" font-size="16" font-weight="bold" font-family="monospace" filter="url(#glow)">SGD</text>
+  <text x="120" y="188" fill="#cc6644" font-size="9" font-family="monospace" opacity="0.6">w = w - lr * grad</text>
+
+  <!-- ========== AdamW 路径（中间，平滑曲线，蓝色） ========== -->
+  <g filter="url(#glow)">
+    <path d="M350,170 Q365,220 370,260 Q378,300 385,325 Q390,340 395,350 Q398,358 400,362"
+      fill="none" stroke="#4488cc" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- 起点 -->
+    <circle cx="350" cy="170" r="4" fill="#4488cc"/>
+    <!-- 终点 -->
+    <circle cx="400" cy="362" r="3" fill="#4488cc" opacity="0.8"/>
+  </g>
+  <!-- AdamW 标签 -->
+  <text x="330" y="160" fill="#4488cc" font-size="16" font-weight="bold" font-family="monospace" filter="url(#glow)">AdamW</text>
+  <text x="315" y="178" fill="#4488cc" font-size="9" font-family="monospace" opacity="0.6">逐参数自适应</text>
+
+  <!-- ========== Muon 路径（右侧，均匀扇形展开，绿色） ========== -->
+  <g filter="url(#glow)">
+    <!-- 主路径 -->
+    <path d="M580,175 Q575,220 565,260 Q555,295 540,320 Q525,340 510,352 Q500,358 495,362"
+      fill="none" stroke="#44cc88" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- 起点 -->
+    <circle cx="580" cy="175" r="4" fill="#44cc88"/>
+    <!-- 终点 -->
+    <circle cx="495" cy="362" r="3" fill="#44cc88" opacity="0.8"/>
+    <!-- 正交化示意：路径中间的均匀展开箭头 -->
+    <g transform="translate(555,275)" opacity="0.5">
+      <line x1="0" y1="0" x2="20" y2="-8" stroke="#44cc88" stroke-width="1.2"/>
+      <line x1="0" y1="0" x2="22" y2="3" stroke="#44cc88" stroke-width="1.2"/>
+      <line x1="0" y1="0" x2="18" y2="14" stroke="#44cc88" stroke-width="1.2"/>
+      <line x1="0" y1="0" x2="10" y2="22" stroke="#44cc88" stroke-width="1.2"/>
+    </g>
+  </g>
+  <!-- Muon 标签 -->
+  <text x="575" y="165" fill="#44cc88" font-size="16" font-weight="bold" font-family="monospace" filter="url(#glow)">Muon</text>
+  <text x="575" y="183" fill="#44cc88" font-size="9" font-family="monospace" opacity="0.6">矩阵级正交化</text>
+
+  <!-- ========== SVD 示意（右下角，小图） ========== -->
+  <g transform="translate(640,460)" opacity="0.5">
+    <text x="0" y="0" fill="#888" font-size="10" font-family="monospace">M = U</text>
+    <text x="42" y="0" fill="#cc6644" font-size="10" font-family="monospace" text-decoration="line-through">S</text>
+    <text x="52" y="0" fill="#888" font-size="10" font-family="monospace">V</text>
+    <text x="60" y="-4" fill="#888" font-size="7" font-family="monospace">T</text>
+    <text x="0" y="16" fill="#44cc88" font-size="9" font-family="monospace">M' = U V</text>
+    <text x="52" y="12" fill="#44cc88" font-size="6" font-family="monospace">T</text>
+    <text x="0" y="32" fill="#666" font-size="8" font-family="monospace">扔掉强度，只留方向</text>
+  </g>
+
+  <!-- ========== 底部演化时间线 ========== -->
+  <g opacity="0.4">
+    <line x1="100" y1="520" x2="700" y2="520" stroke="#555" stroke-width="1"/>
+    <!-- 时间节点 -->
+    <circle cx="150" cy="520" r="3" fill="#cc6644"/>
+    <text x="150" y="540" fill="#cc6644" font-size="9" font-family="monospace" text-anchor="middle">1951</text>
+    <text x="150" y="552" fill="#888" font-size="8" font-family="monospace" text-anchor="middle">SGD</text>
+
+    <circle cx="300" cy="520" r="3" fill="#997744"/>
+    <text x="300" y="540" fill="#997744" font-size="9" font-family="monospace" text-anchor="middle">1964</text>
+    <text x="300" y="552" fill="#888" font-size="8" font-family="monospace" text-anchor="middle">Momentum</text>
+
+    <circle cx="450" cy="520" r="3" fill="#4488cc"/>
+    <text x="450" y="540" fill="#4488cc" font-size="9" font-family="monospace" text-anchor="middle">2014</text>
+    <text x="450" y="552" fill="#888" font-size="8" font-family="monospace" text-anchor="middle">Adam</text>
+
+    <circle cx="570" cy="520" r="3" fill="#4488cc"/>
+    <text x="570" y="540" fill="#4488cc" font-size="9" font-family="monospace" text-anchor="middle">2017</text>
+    <text x="570" y="552" fill="#888" font-size="8" font-family="monospace" text-anchor="middle">AdamW</text>
+
+    <circle cx="670" cy="520" r="3" fill="#44cc88"/>
+    <text x="670" y="540" fill="#44cc88" font-size="9" font-family="monospace" text-anchor="middle">2024</text>
+    <text x="670" y="552" fill="#888" font-size="8" font-family="monospace" text-anchor="middle">Muon</text>
+  </g>
+
+  <!-- ========== 主标题 ========== -->
+  <text x="400" y="55" fill="#f0e8d8" font-size="30" text-anchor="middle" font-weight="900" letter-spacing="3" opacity="0.95">从散装数字到矩阵几何</text>
+  <text x="400" y="88" fill="#998877" font-size="13" text-anchor="middle" font-family="monospace" letter-spacing="1" opacity="0.7">优化器七十年：SGD、AdamW 到 DeepSeek V4 的 Muon</text>
+
+  <!-- 左上角系列标记 -->
+  <text x="15" y="22" fill="#556655" font-size="9" font-family="monospace" opacity="0.5">No.167 | 优化器</text>
+
+  <!-- 底部金句 -->
+  <text x="400" y="488" text-anchor="middle" fill="#887766" font-size="11" font-family="monospace" opacity="0.6">相信梯度的方向，拒绝梯度的偏科。</text>
+
+  <!-- 底部署名 -->
+  <text x="400" y="580" text-anchor="middle" fill="#444" font-size="10" font-family="monospace">靳岩岩的 AI 学习笔记 · No.167</text>
+
+</svg>
