@@ -17,13 +17,15 @@
     </marker>
   </defs>
 
+  <rect x="0" y="0" width="800" height="1710" fill="#ffffff"/>
+
   <!-- Title -->
   <text x="400" y="35" text-anchor="middle" class="title">DeepSeek V4-Pro 前向传播全流程</text>
 
   <!-- Step 1: Input + Tokenize -->
   <rect x="150" y="55" width="500" height="48" fill="#fff" stroke="#444" stroke-width="1.5" rx="6"/>
   <text x="400" y="75" text-anchor="middle" class="label-bold">1. 输入 + Tokenize</text>
-  <text x="400" y="93" text-anchor="middle" class="dim">"中国的首都是" → [9412, 1756, 38901, 12044, 2564]</text>
+  <text x="400" y="93" text-anchor="middle" class="dim">"中国的首都是" → [9412, 1756, 38901, 12044, 2564]（演示）</text>
   <line x1="400" y1="103" x2="400" y2="123" class="arrow"/>
 
   <!-- Step 2: Embedding -->
@@ -45,8 +47,8 @@
 
   <!-- 4a: hc_pre -->
   <rect x="120" y="305" width="560" height="40" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5" rx="6"/>
-  <text x="400" y="322" text-anchor="middle" class="label-bold">hc_pre: 4 份 → 1 份 (双随机矩阵 W)</text>
-  <text x="400" y="338" text-anchor="middle" class="dim">h_hc [1,5,4,7168] → h [1,5,7168]</text>
+  <text x="400" y="322" text-anchor="middle" class="label-bold">hc_pre: 4 份 → 1 份 (pre 权重)</text>
+  <text x="400" y="338" text-anchor="middle" class="dim">生成 pre/post/comb；h_hc [1,5,4,7168] → h [1,5,7168]</text>
   <line x1="400" y1="345" x2="400" y2="362" class="arrow"/>
 
   <!-- 4b: RMSNorm -->
@@ -67,8 +69,8 @@
 
   <!-- KV projection -->
   <rect x="120" y="505" width="560" height="40" fill="#BBDEFB" stroke="#1565C0" rx="4"/>
-  <text x="400" y="522" text-anchor="middle" class="label-bold">KV 低秩投影</text>
-  <text x="400" y="538" text-anchor="middle" class="dim">7168 → 512 (448 nope + 64 rope) | 所有头共享</text>
+  <text x="400" y="522" text-anchor="middle" class="label-bold">KV 投影</text>
+  <text x="400" y="538" text-anchor="middle" class="dim">7168 → 512 (448 nope + 64 rope) | 1 份 KV 被 128 个 Q 头共享</text>
   <line x1="400" y1="545" x2="400" y2="558" class="arrow"/>
 
   <!-- RoPE -->
@@ -92,27 +94,27 @@
   <rect x="120" y="705" width="560" height="52" fill="#BBDEFB" stroke="#1565C0" rx="4"/>
   <text x="400" y="722" text-anchor="middle" class="label-bold">O 分组低秩投影</text>
   <text x="400" y="737" text-anchor="middle" class="dim">128 头 → 16 组 (8头/组) → 每组 1024 → 合并 → 7168</text>
-  <text x="400" y="751" text-anchor="middle" class="dim">+ 残差连接</text>
+  <text x="400" y="751" text-anchor="middle" class="dim">输出 attn_out [1,5,7168]，交给 hc_post 混合</text>
 
-  <!-- Residual annotation for attention -->
+  <!-- mHC annotation for attention -->
   <line x1="725" y1="407" x2="725" y2="772" stroke="#1565C0" stroke-width="1.5" stroke-dasharray="5,3"/>
   <line x1="725" y1="407" x2="715" y2="407" stroke="#1565C0" stroke-width="1.5"/>
   <line x1="725" y1="772" x2="715" y2="772" stroke="#1565C0" stroke-width="1.5"/>
-  <text x="740" y="580" class="dim" transform="rotate(90,740,580)">残差连接</text>
+  <text x="740" y="570" class="dim" transform="rotate(90,740,570)">mHC post/comb</text>
 
   <!-- End attention box: bottom is 407+365=772 -->
   <line x1="400" y1="772" x2="400" y2="789" class="arrow"/>
 
   <!-- 4d: hc_post -->
   <rect x="120" y="789" width="560" height="40" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5" rx="6"/>
-  <text x="400" y="806" text-anchor="middle" class="label-bold">hc_post: 1 份 → 4 份 (双随机矩阵 W)</text>
-  <text x="400" y="822" text-anchor="middle" class="dim">h [1,5,7168] → h_hc [1,5,4,7168]</text>
+  <text x="400" y="806" text-anchor="middle" class="label-bold">hc_post: 1 份 → 4 份 (post + comb)</text>
+  <text x="400" y="822" text-anchor="middle" class="dim">post×F(x) + comb×residual → h_hc [1,5,4,7168]</text>
   <line x1="400" y1="829" x2="400" y2="846" class="arrow"/>
 
   <!-- 4e: hc_pre again -->
   <rect x="120" y="846" width="560" height="40" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5" rx="6"/>
-  <text x="400" y="863" text-anchor="middle" class="label-bold">hc_pre: 4 份 → 1 份 (双随机矩阵 W)</text>
-  <text x="400" y="879" text-anchor="middle" class="dim">h_hc [1,5,4,7168] → h [1,5,7168]</text>
+  <text x="400" y="863" text-anchor="middle" class="label-bold">hc_pre: 4 份 → 1 份 (pre 权重)</text>
+  <text x="400" y="879" text-anchor="middle" class="dim">再次生成 pre/post/comb，送入 MoE</text>
   <line x1="400" y1="886" x2="400" y2="903" class="arrow"/>
 
   <!-- 4f: RMSNorm -->
@@ -128,12 +130,12 @@
   <rect x="120" y="980" width="560" height="60" fill="#C8E6C9" stroke="#2E7D32" rx="4"/>
   <text x="400" y="998" text-anchor="middle" class="label-bold">Router 路由</text>
   <text x="400" y="1013" text-anchor="middle" class="dim">前 3 层: Hash 路由 (确定性)</text>
-  <text x="400" y="1028" text-anchor="middle" class="dim">后 58 层: SqrtSoftplus 门控 → Top-6 专家</text>
+  <text x="400" y="1028" text-anchor="middle" class="dim">后 58 层: sqrtsoftplus → Top-6 → 归一化 × 2.5</text>
   <line x1="400" y1="1040" x2="400" y2="1057" class="arrow"/>
 
   <!-- 6 Experts -->
   <rect x="120" y="1057" width="370" height="55" fill="#C8E6C9" stroke="#2E7D32" rx="4"/>
-  <text x="305" y="1075" text-anchor="middle" class="label-bold">6 个激活专家 (共 256 个)</text>
+  <text x="305" y="1075" text-anchor="middle" class="label-bold">6 个激活专家 (共 384 个)</text>
   <text x="305" y="1091" text-anchor="middle" class="dim">SwiGLU: 7168 → 3072 → 7168</text>
   <text x="305" y="1105" text-anchor="middle" class="dim">SiLU(xW_g) ⊙ (xW_u) . W_d</text>
 
@@ -151,21 +153,21 @@
   <!-- Merge -->
   <rect x="200" y="1133" width="400" height="40" fill="#C8E6C9" stroke="#2E7D32" rx="4"/>
   <text x="400" y="1150" text-anchor="middle" class="label-bold">加权合并</text>
-  <text x="400" y="1165" text-anchor="middle" class="dim">sum(gate_i x expert_i) + shared_expert | + 残差连接</text>
+  <text x="400" y="1165" text-anchor="middle" class="dim">sum((top6_i × 2.5) × expert_i) + shared_expert</text>
 
-  <!-- Residual annotation for MoE -->
+  <!-- mHC annotation for MoE -->
   <line x1="725" y1="948" x2="725" y2="1188" stroke="#2E7D32" stroke-width="1.5" stroke-dasharray="5,3"/>
   <line x1="725" y1="948" x2="715" y2="948" stroke="#2E7D32" stroke-width="1.5"/>
   <line x1="725" y1="1188" x2="715" y2="1188" stroke="#2E7D32" stroke-width="1.5"/>
-  <text x="740" y="1068" class="dim" transform="rotate(90,740,1068)">残差连接</text>
+  <text x="740" y="1058" class="dim" transform="rotate(90,740,1058)">mHC post/comb</text>
 
   <!-- End MoE box: bottom is 948+240=1188 -->
   <line x1="400" y1="1188" x2="400" y2="1205" class="arrow"/>
 
   <!-- 4h: hc_post again -->
   <rect x="120" y="1205" width="560" height="40" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5" rx="6"/>
-  <text x="400" y="1222" text-anchor="middle" class="label-bold">hc_post: 1 份 → 4 份 (双随机矩阵 W)</text>
-  <text x="400" y="1238" text-anchor="middle" class="dim">h [1,5,7168] → h_hc [1,5,4,7168]</text>
+  <text x="400" y="1222" text-anchor="middle" class="label-bold">hc_post: 1 份 → 4 份 (post + comb)</text>
+  <text x="400" y="1238" text-anchor="middle" class="dim">post×F(x) + comb×residual → h_hc [1,5,4,7168]</text>
 
   <!-- Loop back annotation -->
   <rect x="240" y="1265" width="320" height="28" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="4,3" rx="4"/>
@@ -177,7 +179,7 @@
   <!-- Step 5: hc_head -->
   <rect x="120" y="1339" width="560" height="48" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5" rx="6"/>
   <text x="400" y="1359" text-anchor="middle" class="label-bold">5. hc_head: 4 份 → 1 份 (Sigmoid 门控)</text>
-  <text x="400" y="1377" text-anchor="middle" class="dim">h_hc [1,5,4,7168] → sigma(gate) . sum(w_i . h_i) → h [1,5,7168]</text>
+  <text x="400" y="1377" text-anchor="middle" class="dim">h_hc [1,5,4,7168] → sigmoid 门控加权求和 → h [1,5,7168]</text>
   <line x1="400" y1="1387" x2="400" y2="1412" class="arrow"/>
 
   <!-- Step 6: RMSNorm + lm_head -->
@@ -189,13 +191,13 @@
   <!-- Step 7: Softmax + Sample -->
   <rect x="150" y="1485" width="500" height="48" fill="#fff" stroke="#444" stroke-width="1.5" rx="6"/>
   <text x="400" y="1505" text-anchor="middle" class="label-bold">7. Softmax → 采样</text>
-  <text x="400" y="1523" text-anchor="middle" class="dim">logits → P(token) → 采样 → "北京"</text>
+  <text x="400" y="1523" text-anchor="middle" class="dim">logits → P(token) → 采样 → "北京"（示意）</text>
 
   <!-- Legend -->
   <rect x="100" y="1580" width="600" height="100" fill="#FAFAFA" stroke="#ccc" rx="6"/>
   <text x="400" y="1605" text-anchor="middle" class="label-bold">图例</text>
   <rect x="130" y="1618" width="50" height="16" fill="#FFF3E0" stroke="#E65100" rx="3"/>
-  <text x="190" y="1631" class="small">mHC 操作 (多头副本)</text>
+  <text x="190" y="1631" class="small">mHC 操作 (4 份 hidden state)</text>
   <rect x="130" y="1642" width="50" height="16" fill="#E3F2FD" stroke="#1565C0" rx="3"/>
   <text x="190" y="1655" class="small">注意力模块</text>
   <rect x="420" y="1618" width="50" height="16" fill="#E8F5E9" stroke="#2E7D32" rx="3"/>

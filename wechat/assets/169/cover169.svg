@@ -1,26 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" style="background:#0a0e27">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" style="background:#07111f">
   <defs>
-    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1a237e" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#0d47a1" stop-opacity="0.3"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="58%" stop-color="#0b1b2d"/>
+      <stop offset="100%" stop-color="#111827"/>
     </linearGradient>
-    <filter id="blur1">
-      <feGaussianBlur stdDeviation="2"/>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#123a5a"/>
+      <stop offset="100%" stop-color="#0b253c"/>
+    </linearGradient>
+    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffb74d"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="3"/>
     </filter>
-    <filter id="blur2">
-      <feGaussianBlur stdDeviation="4"/>
-    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#65d7ff"/>
+    </marker>
+    <marker id="arrowHot" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ffb74d"/>
+    </marker>
   </defs>
 
-  <!-- Background gradient overlay -->
-  <rect width="900" height="500" fill="url(#glow)"/>
+  <rect width="900" height="500" fill="url(#bg)"/>
 
-  <!-- Subtle grid lines -->
-  <g opacity="0.06" stroke="#4fc3f7" stroke-width="0.5">
-    <line x1="0" y1="100" x2="900" y2="100"/>
-    <line x1="0" y1="200" x2="900" y2="200"/>
-    <line x1="0" y1="300" x2="900" y2="300"/>
-    <line x1="0" y1="400" x2="900" y2="400"/>
+  <g opacity="0.08" stroke="#9adcf7" stroke-width="0.6">
+    <line x1="0" y1="125" x2="900" y2="125"/>
+    <line x1="0" y1="250" x2="900" y2="250"/>
+    <line x1="0" y1="375" x2="900" y2="375"/>
     <line x1="150" y1="0" x2="150" y2="500"/>
     <line x1="300" y1="0" x2="300" y2="500"/>
     <line x1="450" y1="0" x2="450" y2="500"/>
@@ -28,77 +37,75 @@
     <line x1="750" y1="0" x2="750" y2="500"/>
   </g>
 
-  <!-- Data flow path (curved line through the image) -->
-  <path d="M 80,250 C 200,180 300,320 450,250 S 700,180 820,250"
-        stroke="#4fc3f7" stroke-width="2.5" fill="none" opacity="0.4" filter="url(#blur1)"/>
-  <path d="M 80,250 C 200,180 300,320 450,250 S 700,180 820,250"
-        stroke="#4fc3f7" stroke-width="1.2" fill="none" opacity="0.7"/>
+  <text x="450" y="62" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="34" fill="#f8fafc" font-weight="700">一个 token 的旅程</text>
+  <text x="450" y="98" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="17" fill="#9bd8ff">DeepSeek V4-Pro 前向传播总复习</text>
 
-  <!-- Token nodes along the path -->
-  <!-- "中国" -->
-  <circle cx="130" cy="230" r="28" fill="#1565c0" opacity="0.7" filter="url(#blur2)"/>
-  <circle cx="130" cy="230" r="22" fill="#0a0e27" stroke="#4fc3f7" stroke-width="1.5"/>
-  <text x="130" y="235" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="14" fill="#e3f2fd" font-weight="bold">中国</text>
+  <!-- Input block -->
+  <rect x="48" y="148" width="180" height="190" rx="8" fill="#0b1628" stroke="#2dd4bf" stroke-width="1.2"/>
+  <text x="138" y="176" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="16" fill="#ccfbf1" font-weight="700">输入假设</text>
+  <text x="138" y="202" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="13" fill="#94a3b8">"中国的首都是"</text>
+  <g font-family="'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="700">
+    <rect x="70" y="222" width="52" height="30" rx="5" fill="#123d55" stroke="#65d7ff"/>
+    <text x="96" y="243" text-anchor="middle" fill="#e0f2fe">中国</text>
+    <rect x="130" y="222" width="34" height="30" rx="5" fill="#123d55" stroke="#65d7ff"/>
+    <text x="147" y="243" text-anchor="middle" fill="#e0f2fe">的</text>
+    <rect x="172" y="222" width="34" height="30" rx="5" fill="#123d55" stroke="#65d7ff"/>
+    <text x="189" y="243" text-anchor="middle" fill="#e0f2fe">首</text>
+    <rect x="91" y="262" width="34" height="30" rx="5" fill="#123d55" stroke="#65d7ff"/>
+    <text x="108" y="283" text-anchor="middle" fill="#e0f2fe">都</text>
+    <rect x="133" y="262" width="34" height="30" rx="5" fill="#123d55" stroke="#65d7ff"/>
+    <text x="150" y="283" text-anchor="middle" fill="#e0f2fe">是</text>
+  </g>
+  <text x="138" y="317" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="12" fill="#64748b">token ID / 切法为演示</text>
 
-  <!-- "的" -->
-  <circle cx="260" cy="280" r="22" fill="#1565c0" opacity="0.6" filter="url(#blur2)"/>
-  <circle cx="260" cy="280" r="17" fill="#0a0e27" stroke="#4fc3f7" stroke-width="1.5"/>
-  <text x="260" y="285" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="14" fill="#e3f2fd" font-weight="bold">的</text>
+  <!-- Main arrows -->
+  <path d="M 228 244 L 292 244" stroke="#65d7ff" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+  <path d="M 620 244 L 686 244" stroke="#ffb74d" stroke-width="2.4" fill="none" marker-end="url(#arrowHot)"/>
 
-  <!-- "首" -->
-  <circle cx="380" cy="255" r="22" fill="#1565c0" opacity="0.6" filter="url(#blur2)"/>
-  <circle cx="380" cy="255" r="17" fill="#0a0e27" stroke="#4fc3f7" stroke-width="1.5"/>
-  <text x="380" y="260" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="14" fill="#e3f2fd" font-weight="bold">首</text>
+  <!-- Transformer core -->
+  <rect x="292" y="128" width="328" height="232" rx="10" fill="url(#core)" stroke="#65d7ff" stroke-width="1.4"/>
+  <rect x="302" y="138" width="308" height="212" rx="8" fill="#07111f" opacity="0.42"/>
+  <text x="456" y="165" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="18" fill="#e0f2fe" font-weight="700">61 层 Transformer 核心栈</text>
+  <text x="456" y="188" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="12" fill="#7dd3fc">h_hc [1,5,4,7168] → h [1,5,7168]</text>
 
-  <!-- "都" -->
-  <circle cx="510" cy="240" r="22" fill="#1565c0" opacity="0.6" filter="url(#blur2)"/>
-  <circle cx="510" cy="240" r="17" fill="#0a0e27" stroke="#4fc3f7" stroke-width="1.5"/>
-  <text x="510" y="245" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="14" fill="#e3f2fd" font-weight="bold">都</text>
+  <g font-family="'Noto Sans CJK SC', sans-serif">
+    <rect x="322" y="212" width="125" height="48" rx="6" fill="#0f2d43" stroke="#38bdf8"/>
+    <text x="384" y="233" text-anchor="middle" font-size="13" fill="#e0f2fe" font-weight="700">mHC</text>
+    <text x="384" y="251" text-anchor="middle" font-size="11" fill="#93c5fd">pre / post / comb</text>
 
-  <!-- "是" -->
-  <circle cx="630" cy="225" r="22" fill="#1565c0" opacity="0.6" filter="url(#blur2)"/>
-  <circle cx="630" cy="225" r="17" fill="#0a0e27" stroke="#4fc3f7" stroke-width="1.5"/>
-  <text x="630" y="230" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="14" fill="#e3f2fd" font-weight="bold">是</text>
+    <rect x="466" y="212" width="125" height="48" rx="6" fill="#0f2d43" stroke="#38bdf8"/>
+    <text x="528" y="233" text-anchor="middle" font-size="13" fill="#e0f2fe" font-weight="700">MLA 注意力</text>
+    <text x="528" y="251" text-anchor="middle" font-size="11" fill="#93c5fd">Q 128头 × KV 1份</text>
 
-  <!-- Arrow to output -->
-  <line x1="660" y1="225" x2="720" y2="240" stroke="#ff9800" stroke-width="2" opacity="0.8"/>
-  <polygon points="720,240 710,234 712,243" fill="#ff9800" opacity="0.8"/>
+    <rect x="322" y="278" width="125" height="48" rx="6" fill="#112f32" stroke="#2dd4bf"/>
+    <text x="384" y="299" text-anchor="middle" font-size="13" fill="#ccfbf1" font-weight="700">MoE FFN</text>
+    <text x="384" y="317" text-anchor="middle" font-size="11" fill="#99f6e4">top-6 × 2.5 + shared</text>
 
-  <!-- "北京" output node (highlighted) -->
-  <circle cx="770" cy="250" r="35" fill="#ff9800" opacity="0.25" filter="url(#blur2)"/>
-  <circle cx="770" cy="250" r="28" fill="#0a0e27" stroke="#ff9800" stroke-width="2"/>
-  <text x="770" y="255" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="16" fill="#ffcc80" font-weight="bold">北京</text>
-
-  <!-- Dimension annotations (scattered) -->
-  <text x="130" y="270" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="9" fill="#4fc3f7" opacity="0.5">7168d</text>
-  <text x="450" y="310" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="9" fill="#4fc3f7" opacity="0.4">×61 layers</text>
-  <text x="700" y="280" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="9" fill="#ff9800" opacity="0.5">softmax</text>
-
-  <!-- Tiny scattered dots (representing dimensions) -->
-  <g opacity="0.15" fill="#4fc3f7">
-    <circle cx="95" cy="180" r="1.5"/>
-    <circle cx="180" cy="320" r="1"/>
-    <circle cx="320" cy="190" r="1.2"/>
-    <circle cx="420" cy="340" r="1"/>
-    <circle cx="550" cy="185" r="1.5"/>
-    <circle cx="680" cy="310" r="1"/>
-    <circle cx="830" cy="200" r="1.2"/>
-    <circle cx="160" cy="350" r="1"/>
-    <circle cx="480" cy="170" r="1.5"/>
-    <circle cx="600" cy="340" r="1"/>
-    <circle cx="750" cy="180" r="1.2"/>
-    <circle cx="350" cy="350" r="1"/>
+    <rect x="466" y="278" width="125" height="48" rx="6" fill="#16213a" stroke="#818cf8"/>
+    <text x="528" y="299" text-anchor="middle" font-size="13" fill="#e0e7ff" font-weight="700">lm_head</text>
+    <text x="528" y="317" text-anchor="middle" font-size="11" fill="#c7d2fe">7168 → 129280</text>
   </g>
 
-  <!-- Title -->
-  <text x="450" y="75" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="36" fill="#ffffff" font-weight="bold">一个 token 的旅程</text>
+  <!-- Long-context side modules -->
+  <g opacity="0.76" font-family="'Noto Sans CJK SC', sans-serif">
+    <rect x="315" y="376" width="285" height="54" rx="8" fill="#111827" stroke="#475569" stroke-width="1"/>
+    <text x="458" y="398" text-anchor="middle" font-size="13" fill="#cbd5e1" font-weight="700">短输入：长上下文模块基本退居旁路</text>
+    <text x="458" y="418" text-anchor="middle" font-size="11" fill="#94a3b8">CSA / HCA / Compressor / Indexer 等到长上下文才真正亮起来</text>
+  </g>
+  <path d="M 456 360 L 456 376" stroke="#64748b" stroke-width="1.4" stroke-dasharray="4 4"/>
 
-  <!-- Subtitle -->
-  <text x="450" y="115" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="18" fill="#90caf9">DeepSeek V4 预测"中国的首都是"的全流程</text>
+  <!-- Output block -->
+  <rect x="686" y="158" width="166" height="170" rx="10" fill="#17120c" stroke="#ffb74d" stroke-width="1.3"/>
+  <text x="769" y="188" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="16" fill="#fed7aa" font-weight="700">下一个 token</text>
+  <circle cx="769" cy="246" r="42" fill="#f97316" opacity="0.18" filter="url(#softGlow)"/>
+  <circle cx="769" cy="246" r="34" fill="#0b1628" stroke="#ffb74d" stroke-width="2"/>
+  <text x="769" y="254" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="22" fill="#fed7aa" font-weight="700">北京</text>
+  <text x="769" y="304" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="12" fill="#fbbf24">softmax → 采样</text>
 
-  <!-- Bottom info -->
-  <text x="450" y="440" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="13" fill="#546e7a">Tokenize → Embedding → 61层 Transformer（mHC + MLA + MoE）→ lm_head → softmax → 采样</text>
+  <!-- Small labels -->
+  <text x="260" y="230" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#7dd3fc">Embedding</text>
+  <text x="654" y="230" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#fbbf24">logits</text>
 
-  <!-- Issue number -->
-  <text x="450" y="470" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="12" fill="#37474f">No.169 | 靳岩岩的 AI 学习笔记</text>
+  <text x="450" y="464" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="13" fill="#64748b">Tokenize → Embedding → mHC + MLA + MoE → lm_head → softmax</text>
+  <text x="450" y="486" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#475569">No.169 | 靳岩岩的 AI 学习笔记</text>
 </svg>
