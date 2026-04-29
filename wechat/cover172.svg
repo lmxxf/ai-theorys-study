@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2a1a"/>
+      <stop offset="100%" style="stop-color:#2a3a2a"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a7a3a"/>
+      <stop offset="100%" style="stop-color:#2a5a1a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 草原地平线 -->
+  <ellipse cx="400" cy="520" rx="500" ry="120" fill="url(#grass)" opacity="0.3"/>
+
+  <!-- 主标题 -->
+  <text x="400" y="72" fill="#ffffff" font-size="40" text-anchor="middle" font-weight="bold">寻访传说中的 Xanadu</text>
+  <text x="400" y="110" fill="#c8a86e" font-size="20" text-anchor="middle">In Xanadu did Kubla Khan / A stately pleasure-dome decree</text>
+
+  <!-- 路线示意图 -->
+
+  <!-- 北京 -->
+  <circle cx="200" cy="420" r="8" fill="#e8c85a"/>
+  <text x="200" y="450" fill="#e8c85a" font-size="14" text-anchor="middle" font-weight="bold">北京</text>
+
+  <!-- 赤城 -->
+  <circle cx="260" cy="340" r="5" fill="#aaa"/>
+  <text x="260" y="330" fill="#aaa" font-size="11" text-anchor="middle">赤城</text>
+
+  <!-- 沽源 -->
+  <circle cx="340" cy="280" r="5" fill="#aaa"/>
+  <text x="340" y="270" fill="#aaa" font-size="11" text-anchor="middle">沽源</text>
+
+  <!-- 正蓝旗 / 元上都 -->
+  <circle cx="440" cy="240" r="10" fill="#e85a5a"/>
+  <text x="490" y="238" fill="#e85a5a" font-size="15" text-anchor="start" font-weight="bold">元上都</text>
+  <text x="490" y="252" fill="#e85a5a" font-size="11" text-anchor="start">正蓝旗</text>
+
+  <!-- 锡林浩特 -->
+  <circle cx="440" cy="150" r="6" fill="#5aace8"/>
+  <text x="440" y="138" fill="#5aace8" font-size="12" text-anchor="middle">锡林浩特</text>
+
+  <!-- 多伦 -->
+  <circle cx="530" cy="320" r="5" fill="#aaa"/>
+  <text x="530" y="310" fill="#aaa" font-size="11" text-anchor="middle">多伦</text>
+
+  <!-- 古北口 -->
+  <circle cx="380" cy="400" r="5" fill="#aaa"/>
+  <text x="380" y="420" fill="#aaa" font-size="11" text-anchor="middle">古北口</text>
+
+  <!-- 去程路线（辇路方向）实线 -->
+  <path d="M208,415 Q240,370 255,340" stroke="#e8c85a" stroke-width="2.5" fill="none"/>
+  <path d="M265,338 Q300,300 335,282" stroke="#e8c85a" stroke-width="2.5" fill="none"/>
+  <path d="M345,278 Q390,255 432,242" stroke="#e8c85a" stroke-width="2.5" fill="none"/>
+
+  <!-- 去程箭头 -->
+  <polygon points="430,240 436,246 432,238" fill="#e8c85a"/>
+
+  <!-- 北上锡林浩特 虚线 -->
+  <path d="M440,230 L440,158" stroke="#5aace8" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+  <polygon points="436,160 440,152 444,160" fill="#5aace8"/>
+
+  <!-- 南返正蓝旗 虚线 -->
+  <path d="M444,158 Q448,195 444,230" stroke="#5aace8" stroke-width="1.5" fill="none" stroke-dasharray="6,4" opacity="0.5"/>
+
+  <!-- 回程路线（古北口方向）实线 -->
+  <path d="M448,248 Q490,280 525,318" stroke="#6abe6a" stroke-width="2.5" fill="none"/>
+  <path d="M528,325 Q460,370 385,398" stroke="#6abe6a" stroke-width="2.5" fill="none"/>
+  <path d="M375,402 Q290,415 208,422" stroke="#6abe6a" stroke-width="2.5" fill="none"/>
+
+  <!-- 回程箭头 -->
+  <polygon points="210,421 216,427 212,419" fill="#6abe6a"/>
+
+  <!-- 图例 -->
+  <line x1="60" y1="510" x2="90" y2="510" stroke="#e8c85a" stroke-width="2.5"/>
+  <text x="95" y="514" fill="#e8c85a" font-size="11">去程（辇路方向）</text>
+
+  <line x1="230" y1="510" x2="260" y2="510" stroke="#6abe6a" stroke-width="2.5"/>
+  <text x="265" y="514" fill="#6abe6a" font-size="11">回程（古北口方向）</text>
+
+  <line x1="420" y1="510" x2="450" y2="510" stroke="#5aace8" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="455" y="514" fill="#5aace8" font-size="11">北上锡林浩特</text>
+
+  <!-- 底部落款 -->
+  <text x="400" y="560" fill="#555" font-size="12" text-anchor="middle">靳岩岩的 AI 学习笔记  No.172</text>
+</svg>
