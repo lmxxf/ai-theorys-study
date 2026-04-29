@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" style="background-color:#ffffff">
+  <defs>
+    <marker id="arrowBlack" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#222222" />
+    </marker>
+  </defs>
+
+  <!-- 顶部标题 -->
+  <text x="260" y="30" font-family="'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="bold" fill="#111111" text-anchor="middle">RMSNorm: 把向量投影到球面上</text>
+
+  <!-- 圆心 (250, 205), 半径 140 -->
+
+  <!-- 球面圆 -->
+  <circle cx="250" cy="205" r="140" fill="none" stroke="#333333" stroke-width="1.5" />
+
+  <!-- 原点十字 -->
+  <line x1="244" y1="205" x2="256" y2="205" stroke="#444444" stroke-width="1.5" />
+  <line x1="250" y1="199" x2="250" y2="211" stroke="#444444" stroke-width="1.5" />
+
+  <!-- 半径标注: 从圆心向右到圆边 -->
+  <line x1="255" y1="205" x2="388" y2="205" stroke="#888888" stroke-width="0.7" stroke-dasharray="3,2" />
+  <text x="325" y="198" font-family="'Noto Sans CJK SC', serif" font-size="13" fill="#555555" text-anchor="middle" font-style="italic">r = &#8730;d</text>
+
+  <!-- 向量1: 右上, 短 (math angle 30deg, length 55) -->
+  <line x1="250" y1="205" x2="298" y2="178" stroke="#222222" stroke-width="2" marker-end="url(#arrowBlack)" />
+  <line x1="298" y1="178" x2="371" y2="135" stroke="#aaaaaa" stroke-width="1" stroke-dasharray="5,3" />
+  <circle cx="371" cy="135" r="5" fill="#2563EB" />
+
+  <!-- 向量2: 左上, 中等 (math angle 145deg, length 90) -->
+  <line x1="250" y1="205" x2="176" y2="153" stroke="#222222" stroke-width="2" marker-end="url(#arrowBlack)" />
+  <line x1="176" y1="153" x2="135" y2="125" stroke="#aaaaaa" stroke-width="1" stroke-dasharray="5,3" />
+  <circle cx="135" cy="125" r="5" fill="#2563EB" />
+
+  <!-- 向量3: 右下, 较长 (math angle -20deg, length 115) -->
+  <line x1="250" y1="205" x2="358" y2="244" stroke="#222222" stroke-width="2" marker-end="url(#arrowBlack)" />
+  <line x1="358" y1="244" x2="382" y2="253" stroke="#aaaaaa" stroke-width="1" stroke-dasharray="5,3" />
+  <circle cx="382" cy="253" r="5" fill="#2563EB" />
+
+  <!-- 向量4: 左下, 很短 (math angle -150deg, length 45) -->
+  <line x1="250" y1="205" x2="211" y2="228" stroke="#222222" stroke-width="2" marker-end="url(#arrowBlack)" />
+  <line x1="211" y1="228" x2="129" y2="275" stroke="#aaaaaa" stroke-width="1" stroke-dasharray="5,3" />
+  <circle cx="129" cy="275" r="5" fill="#2563EB" />
+
+  <!-- 图例 (右上角) -->
+  <line x1="438" y1="58" x2="470" y2="58" stroke="#222222" stroke-width="2" marker-end="url(#arrowBlack)" />
+  <text x="478" y="62" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#444444">原始向量</text>
+
+  <line x1="438" y1="78" x2="470" y2="78" stroke="#aaaaaa" stroke-width="1" stroke-dasharray="5,3" />
+  <text x="478" y="82" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#444444">投影过程</text>
+
+  <circle cx="454" cy="98" r="5" fill="#2563EB" />
+  <text x="478" y="102" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#444444">归一化后</text>
+
+  <!-- 底部说明 -->
+  <text x="130" y="385" font-family="'Noto Sans CJK SC', sans-serif" font-size="13" fill="#333333" text-anchor="middle" font-weight="500">归一化前: 方向+长度都不同</text>
+  <text x="260" y="385" font-family="'Noto Sans CJK SC', sans-serif" font-size="18" fill="#999999" text-anchor="middle">&#x2192;</text>
+  <text x="400" y="385" font-family="'Noto Sans CJK SC', sans-serif" font-size="13" fill="#2563EB" text-anchor="middle" font-weight="500">归一化后: 只剩方向不同</text>
+
+</svg>

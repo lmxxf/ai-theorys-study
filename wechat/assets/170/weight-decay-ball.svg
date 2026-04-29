@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 380" width="650" height="380" style="background-color:#ffffff">
+  <defs>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#e74c3c" />
+    </marker>
+  </defs>
+
+  <!-- Left diagram: Weight Decay (L2) -->
+  <g transform="translate(170, 155)">
+    <!-- Circle with light blue fill, dashed border -->
+    <circle cx="0" cy="0" r="100" fill="#e8f4fd" stroke="#3498db" stroke-width="2" stroke-dasharray="8,4" />
+
+    <!-- Center crosshair -->
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="#555" stroke-width="1.5" />
+    <line x1="0" y1="-8" x2="0" y2="8" stroke="#555" stroke-width="1.5" />
+
+    <!-- Weight points and arrows pointing toward center -->
+    <!-- Point 1: upper-right area -->
+    <circle cx="55" cy="-40" r="5" fill="#2c3e50" />
+    <line x1="50" y1="-36" x2="20" y2="-15" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrowhead)" />
+
+    <!-- Point 2: lower-left area -->
+    <circle cx="-35" cy="60" r="5" fill="#2c3e50" />
+    <line x1="-31" y1="55" x2="-12" y2="22" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrowhead)" />
+
+    <!-- Point 3: left area -->
+    <circle cx="-65" cy="-20" r="5" fill="#2c3e50" />
+    <line x1="-59" y1="-18" x2="-25" y2="-7" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrowhead)" />
+
+    <!-- Point 4: lower-right area -->
+    <circle cx="30" cy="70" r="5" fill="#2c3e50" />
+    <line x1="26" y1="64" x2="11" y2="26" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  </g>
+
+  <!-- Left title -->
+  <text x="170" y="32" text-anchor="middle" font-family="'Noto Sans CJK SC', 'Noto Sans SC', sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">Weight Decay (L2)</text>
+
+  <!-- Left bottom label -->
+  <text x="170" y="290" text-anchor="middle" font-family="'Noto Sans CJK SC', 'Noto Sans SC', sans-serif" font-size="14" fill="#555">球内（软约束）</text>
+
+  <!-- Right diagram: nGPT -->
+  <g transform="translate(480, 155)">
+    <!-- Circle with no fill, solid blue border -->
+    <circle cx="0" cy="0" r="100" fill="none" stroke="#3498db" stroke-width="2.5" />
+
+    <!-- Points on the circumference -->
+    <!-- Point 1: top-right, angle ~30deg -->
+    <circle cx="87" cy="-50" r="5" fill="#2c3e50" />
+
+    <!-- Point 2: left, angle ~160deg -->
+    <circle cx="-94" cy="-34" r="5" fill="#2c3e50" />
+
+    <!-- Point 3: bottom, angle ~250deg -->
+    <circle cx="-34" cy="94" r="5" fill="#2c3e50" />
+
+    <!-- Point 4: right-bottom, angle ~330deg -->
+    <circle cx="50" cy="87" r="5" fill="#2c3e50" />
+
+    <!-- ||W|| = 1 annotation -->
+    <text x="115" y="-10" font-family="'Noto Sans CJK SC', 'Noto Sans SC', sans-serif" font-size="13" fill="#3498db" font-style="italic">||W|| = 1</text>
+  </g>
+
+  <!-- Right title -->
+  <text x="480" y="32" text-anchor="middle" font-family="'Noto Sans CJK SC', 'Noto Sans SC', sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">nGPT</text>
+
+  <!-- Right bottom label -->
+  <text x="480" y="290" text-anchor="middle" font-family="'Noto Sans CJK SC', 'Noto Sans SC', sans-serif" font-size="14" fill="#555">球面（硬约束）</text>
+
+  <!-- Divider line -->
+  <line x1="325" y1="50" x2="325" y2="270" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4" />
+
+  <!-- Bottom summary -->
+  <text x="325" y="335" text-anchor="middle" font-family="'Noto Sans CJK SC', 'Noto Sans SC', sans-serif" font-size="15" fill="#2c3e50">nGPT：几何约束替代了正则化</text>
+
+  <!-- Red arrow legend for left diagram -->
+  <line x1="80" y1="310" x2="100" y2="310" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <text x="107" y="314" font-family="'Noto Sans CJK SC', 'Noto Sans SC', sans-serif" font-size="11" fill="#999">decay 拉力</text>
+</svg>

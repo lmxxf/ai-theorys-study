@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" width="700" height="350" style="background:#fff">
+  <defs>
+    <style>
+      text { font-family: 'Noto Sans CJK SC', 'Noto Sans SC', sans-serif; }
+    </style>
+    <!-- Gradient for the funnel body -->
+    <linearGradient id="funnelGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e8edf2"/>
+      <stop offset="40%" stop-color="#d0d8e4"/>
+      <stop offset="50%" stop-color="#b8c4d4"/>
+      <stop offset="60%" stop-color="#d0d8e4"/>
+      <stop offset="100%" stop-color="#e8edf2"/>
+    </linearGradient>
+    <!-- Arrow marker for curved annotation arrows -->
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2c5aa0"/>
+    </marker>
+  </defs>
+
+  <!-- === Funnel / Hourglass shape === -->
+  <!-- Left cone: wide to narrow -->
+  <path d="M 60,50 L 300,120 L 300,195 L 60,265 Z" fill="url(#funnelGrad)" stroke="#7a8a9e" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Right cone: narrow to wide -->
+  <path d="M 300,120 L 620,40 L 620,275 L 300,195 Z" fill="url(#funnelGrad)" stroke="#7a8a9e" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Bottleneck highlight -->
+  <line x1="300" y1="118" x2="300" y2="197" stroke="#4a6fa5" stroke-width="2.5"/>
+
+  <!-- === Left side: information lines (useful + noise) entering === -->
+  <!-- Useful information lines (solid, dark blue) -->
+  <line x1="30" y1="80" x2="298" y2="138" stroke="#2c5aa0" stroke-width="1.8" opacity="0.9"/>
+  <line x1="30" y1="110" x2="298" y2="148" stroke="#2c5aa0" stroke-width="1.8" opacity="0.9"/>
+  <line x1="30" y1="155" x2="298" y2="157" stroke="#2c5aa0" stroke-width="1.8" opacity="0.9"/>
+  <line x1="30" y1="200" x2="298" y2="167" stroke="#2c5aa0" stroke-width="1.8" opacity="0.9"/>
+  <line x1="30" y1="235" x2="298" y2="177" stroke="#2c5aa0" stroke-width="1.8" opacity="0.9"/>
+
+  <!-- Noise lines (dashed, gray) - they stop before the bottleneck -->
+  <line x1="30" y1="95" x2="210" y2="138" stroke="#b0b0b0" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.7"/>
+  <line x1="30" y1="130" x2="190" y2="150" stroke="#b0b0b0" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.7"/>
+  <line x1="30" y1="172" x2="200" y2="162" stroke="#b0b0b0" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.7"/>
+  <line x1="30" y1="218" x2="195" y2="180" stroke="#b0b0b0" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.7"/>
+  <line x1="30" y1="252" x2="185" y2="195" stroke="#b0b0b0" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.7"/>
+
+  <!-- Noise fade-out markers (small X marks where noise lines end) -->
+  <g stroke="#b0b0b0" stroke-width="1" opacity="0.5">
+    <line x1="207" y1="135" x2="213" y2="141"/><line x1="213" y1="135" x2="207" y2="141"/>
+    <line x1="187" y1="147" x2="193" y2="153"/><line x1="193" y1="147" x2="187" y2="153"/>
+    <line x1="197" y1="159" x2="203" y2="165"/><line x1="203" y1="159" x2="197" y2="165"/>
+    <line x1="192" y1="177" x2="198" y2="183"/><line x1="198" y1="177" x2="192" y2="183"/>
+    <line x1="182" y1="192" x2="188" y2="198"/><line x1="188" y1="192" x2="182" y2="198"/>
+  </g>
+
+  <!-- === Right side: useful lines expand into multi-head === -->
+  <!-- Line 1 splits -->
+  <line x1="302" y1="138" x2="650" y2="55" stroke="#2c5aa0" stroke-width="1.4" opacity="0.85"/>
+  <line x1="302" y1="138" x2="650" y2="75" stroke="#2c5aa0" stroke-width="1.4" opacity="0.85"/>
+  <!-- Line 2 splits -->
+  <line x1="302" y1="148" x2="650" y2="100" stroke="#2c5aa0" stroke-width="1.4" opacity="0.85"/>
+  <line x1="302" y1="148" x2="650" y2="120" stroke="#2c5aa0" stroke-width="1.4" opacity="0.85"/>
+  <!-- Line 3 splits -->
+  <line x1="302" y1="157" x2="650" y2="143" stroke="#2c5aa0" stroke-width="1.4" opacity="0.85"/>
+  <line x1="302" y1="157" x2="650" y2="163" stroke="#2c5aa0" stroke-width="1.4" opacity="0.85"/>
+  <!-- Line 4 splits -->
+  <line x1="302" y1="167" x2="650" y2="185" stroke="#2c5aa0" stroke-width="1.4" opacity="0.85"/>
+  <line x1="302" y1="167" x2="650" y2="205" stroke="#2c5aa0" stroke-width="1.4" opacity="0.85"/>
+  <!-- Line 5 splits -->
+  <line x1="302" y1="177" x2="650" y2="228" stroke="#2c5aa0" stroke-width="1.4" opacity="0.85"/>
+  <line x1="302" y1="177" x2="650" y2="248" stroke="#2c5aa0" stroke-width="1.4" opacity="0.85"/>
+  <line x1="302" y1="177" x2="650" y2="268" stroke="#2c5aa0" stroke-width="1.4" opacity="0.85"/>
+
+  <!-- === Arrowheads on the right side === -->
+  <g fill="#2c5aa0" stroke="none">
+    <polygon points="650,55 643,51 643,59"/>
+    <polygon points="650,75 643,71 643,79"/>
+    <polygon points="650,100 643,96 643,104"/>
+    <polygon points="650,120 643,116 643,124"/>
+    <polygon points="650,143 643,139 643,147"/>
+    <polygon points="650,163 643,159 643,167"/>
+    <polygon points="650,185 643,181 643,189"/>
+    <polygon points="650,205 643,201 643,209"/>
+    <polygon points="650,228 643,224 643,232"/>
+    <polygon points="650,248 643,244 643,252"/>
+    <polygon points="650,268 643,264 643,272"/>
+  </g>
+
+  <!-- === Dimension labels === -->
+  <!-- Left: 7168 dim -->
+  <text x="45" y="38" font-size="13" font-weight="bold" fill="#333" text-anchor="middle">7168 维</text>
+  <text x="45" y="52" font-size="10" fill="#666" text-anchor="middle">(hidden state)</text>
+
+  <!-- Center: 1536 dim bottleneck -->
+  <text x="300" y="108" font-size="13" font-weight="bold" fill="#4a6fa5" text-anchor="middle">1536 维</text>
+
+  <!-- Right: 65536 dim -->
+  <text x="655" y="30" font-size="13" font-weight="bold" fill="#333" text-anchor="middle">65536 维</text>
+  <text x="655" y="44" font-size="10" fill="#666" text-anchor="middle">(128 头 x 512 维)</text>
+
+  <!-- === Operation labels === -->
+  <!-- W_q_down below bottleneck left -->
+  <text x="200" y="240" font-size="12" fill="#2c5aa0" text-anchor="middle" font-weight="bold">W_q_down</text>
+  <text x="200" y="255" font-size="10" fill="#666" text-anchor="middle">(压缩)</text>
+  <!-- Curved arrow pointing to bottleneck -->
+  <path d="M 200,228 Q 240,215 290,200" fill="none" stroke="#2c5aa0" stroke-width="1" marker-end="url(#arrowBlue)"/>
+
+  <!-- RMSNorm above bottleneck -->
+  <text x="300" y="96" font-size="11" fill="#d35400" text-anchor="middle" font-weight="bold">RMSNorm</text>
+
+  <!-- W_q_up on the right -->
+  <text x="430" y="240" font-size="12" fill="#2c5aa0" text-anchor="middle" font-weight="bold">W_q_up</text>
+  <text x="430" y="255" font-size="10" fill="#666" text-anchor="middle">(展开)</text>
+  <!-- Curved arrow from bottleneck -->
+  <path d="M 310,200 Q 350,215 420,228" fill="none" stroke="#2c5aa0" stroke-width="1" marker-end="url(#arrowBlue)"/>
+
+  <!-- Grassmann manifold annotation at bottleneck -->
+  <text x="300" y="215" font-size="9" fill="#888" text-anchor="middle">Grassmann 流形上的一点</text>
+
+  <!-- === Legend (top-right) === -->
+  <line x1="520" y1="300" x2="550" y2="300" stroke="#2c5aa0" stroke-width="1.8"/>
+  <text x="555" y="304" font-size="9" fill="#555">有用信息</text>
+  <line x1="600" y1="300" x2="630" y2="300" stroke="#b0b0b0" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <text x="635" y="304" font-size="9" fill="#999">噪声</text>
+
+  <!-- === Bottom caption === -->
+  <text x="350" y="335" font-size="11" fill="#444" text-anchor="middle" font-style="italic">瓶颈不是为了省参数 -- 是为了丢噪声，只保留核心查询意图</text>
+</svg>

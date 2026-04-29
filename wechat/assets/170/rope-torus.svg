@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 400" width="650" height="400" style="background:#fff">
+  <defs>
+    <style>
+      text { font-family: 'Noto Sans CJK SC', 'Noto Sans SC', sans-serif; }
+    </style>
+    <marker id="arrowHead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#555"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2266cc"/>
+    </marker>
+  </defs>
+
+  <!-- ========== 主环面 (Torus) ========== -->
+  <g transform="translate(210, 170)">
+    <!-- 外椭圆 - 环面轮廓 -->
+    <ellipse cx="0" cy="0" rx="150" ry="85" fill="none" stroke="#333" stroke-width="2"/>
+
+    <!-- 内部洞 - 上半部分(可见) -->
+    <ellipse cx="0" cy="0" rx="55" ry="30" fill="none" stroke="#333" stroke-width="1.5"/>
+
+    <!-- 环面截面厚度 - 上弧 -->
+    <path d="M-150,0 Q-150,-50 -55,-30" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>
+    <path d="M150,0 Q150,-50 55,-30" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>
+
+    <!-- 环面截面厚度 - 下弧 (前面可见部分) -->
+    <path d="M-150,0 Q-150,55 -55,30" fill="none" stroke="#999" stroke-width="1.2"/>
+    <path d="M150,0 Q150,55 55,30" fill="none" stroke="#999" stroke-width="1.2"/>
+
+    <!-- 环面表面纹理 - 纵向线条暗示三维 -->
+    <path d="M-105,-72 Q-105,-20 -105,72" fill="none" stroke="#ddd" stroke-width="0.8"/>
+    <path d="M0,-85 Q0,-30 0,85" fill="none" stroke="#ddd" stroke-width="0.8"/>
+    <path d="M105,-72 Q105,-20 105,72" fill="none" stroke="#ddd" stroke-width="0.8"/>
+
+    <!-- 环面表面纹理 - 横向弧线暗示曲面 -->
+    <path d="M-150,0 Q-100,-40 0,-45 Q100,-40 150,0" fill="none" stroke="#e8e8e8" stroke-width="0.8"/>
+    <path d="M-140,35 Q-80,0 0,-5 Q80,0 140,35" fill="none" stroke="#e8e8e8" stroke-width="0.8"/>
+
+    <!-- 沿环面行走的路径 (虚线箭头) -->
+    <path d="M-120,-65 Q-50,-88 0,-85 Q60,-82 120,-60"
+          fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="6,3"
+          marker-end="url(#arrowHead)"/>
+    <path d="M120,-60 Q145,-40 150,0 Q148,45 120,65"
+          fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="6,3"
+          marker-end="url(#arrowHead)"/>
+
+    <!-- position=0 蓝色点 -->
+    <circle cx="-120" cy="-65" r="6" fill="#2266cc" stroke="#fff" stroke-width="1.5"/>
+    <text x="-120" y="-78" text-anchor="middle" font-size="11" fill="#2266cc" font-weight="bold">pos=0</text>
+
+    <!-- position=1 绿色点 -->
+    <circle cx="0" cy="-85" r="6" fill="#22aa44" stroke="#fff" stroke-width="1.5"/>
+    <text x="0" y="-98" text-anchor="middle" font-size="11" fill="#22aa44" font-weight="bold">pos=1</text>
+
+    <!-- position=100 红色点 -->
+    <circle cx="120" cy="65" r="6" fill="#cc3333" stroke="#fff" stroke-width="1.5"/>
+    <text x="140" y="82" text-anchor="start" font-size="11" fill="#cc3333" font-weight="bold">pos=100</text>
+
+    <!-- 路径标注 -->
+    <text x="65" y="-65" text-anchor="middle" font-size="9" fill="#777">沿环面行走</text>
+  </g>
+
+  <!-- ========== 标题 ========== -->
+  <text x="210" y="30" text-anchor="middle" font-size="16" fill="#222" font-weight="bold">RoPE 的环面结构</text>
+  <text x="210" y="50" text-anchor="middle" font-size="11" fill="#666">位置编码 = 在环面上标记位置</text>
+
+  <!-- ========== 右侧: 高频旋转 ========== -->
+  <g transform="translate(510, 110)">
+    <!-- 圆环 -->
+    <circle cx="0" cy="0" r="38" fill="none" stroke="#e67e22" stroke-width="2"/>
+    <!-- 旋转方向箭头 -->
+    <path d="M26,-28 A38,38 0 0,1 38,0" fill="none" stroke="#e67e22" stroke-width="2" marker-end="url(#arrowHead)"/>
+    <!-- 刻度标记 - 密集 -->
+    <line x1="0" y1="-38" x2="0" y2="-32" stroke="#e67e22" stroke-width="1.5"/>
+    <line x1="13" y1="-36" x2="11" y2="-30" stroke="#e67e22" stroke-width="1.5"/>
+    <line x1="25" y1="-29" x2="21" y2="-24" stroke="#e67e22" stroke-width="1.5"/>
+    <line x1="33" y1="-19" x2="28" y2="-16" stroke="#e67e22" stroke-width="1.5"/>
+    <line x1="38" y1="-5" x2="32" y2="-4" stroke="#e67e22" stroke-width="1.5"/>
+    <line x1="37" y1="8" x2="31" y2="7" stroke="#e67e22" stroke-width="1.5"/>
+    <line x1="33" y1="19" x2="28" y2="16" stroke="#e67e22" stroke-width="1.5"/>
+    <line x1="25" y1="29" x2="21" y2="24" stroke="#e67e22" stroke-width="1.5"/>
+    <line x1="13" y1="36" x2="11" y2="30" stroke="#e67e22" stroke-width="1.5"/>
+    <line x1="0" y1="38" x2="0" y2="32" stroke="#e67e22" stroke-width="1.5"/>
+    <line x1="-13" y1="36" x2="-11" y2="30" stroke="#e67e22" stroke-width="1.5"/>
+    <line x1="-25" y1="29" x2="-21" y2="24" stroke="#e67e22" stroke-width="1.5"/>
+    <!-- 中心文字 -->
+    <text x="0" y="3" text-anchor="middle" font-size="10" fill="#e67e22" font-weight="bold">高频</text>
+    <!-- 说明文字 -->
+    <text x="0" y="58" text-anchor="middle" font-size="9.5" fill="#555">theta 变化快</text>
+    <text x="0" y="72" text-anchor="middle" font-size="9.5" fill="#888">编码局部位置</text>
+  </g>
+
+  <!-- ========== 右侧: 低频旋转 ========== -->
+  <g transform="translate(510, 260)">
+    <!-- 圆环 -->
+    <circle cx="0" cy="0" r="38" fill="none" stroke="#8e44ad" stroke-width="2"/>
+    <!-- 旋转方向箭头 -->
+    <path d="M26,-28 A38,38 0 0,1 38,0" fill="none" stroke="#8e44ad" stroke-width="2" marker-end="url(#arrowHead)"/>
+    <!-- 刻度标记 - 稀疏 -->
+    <line x1="0" y1="-38" x2="0" y2="-30" stroke="#8e44ad" stroke-width="1.5"/>
+    <line x1="33" y1="-19" x2="27" y2="-15" stroke="#8e44ad" stroke-width="1.5"/>
+    <line x1="33" y1="19" x2="27" y2="15" stroke="#8e44ad" stroke-width="1.5"/>
+    <line x1="0" y1="38" x2="0" y2="30" stroke="#8e44ad" stroke-width="1.5"/>
+    <line x1="-33" y1="19" x2="-27" y2="15" stroke="#8e44ad" stroke-width="1.5"/>
+    <line x1="-33" y1="-19" x2="-27" y2="-15" stroke="#8e44ad" stroke-width="1.5"/>
+    <!-- 中心文字 -->
+    <text x="0" y="3" text-anchor="middle" font-size="10" fill="#8e44ad" font-weight="bold">低频</text>
+    <!-- 说明文字 -->
+    <text x="0" y="58" text-anchor="middle" font-size="9.5" fill="#555">theta 变化慢</text>
+    <text x="0" y="72" text-anchor="middle" font-size="9.5" fill="#888">编码全局位置</text>
+  </g>
+
+  <!-- ========== 连线: 环面到小圆环 ========== -->
+  <line x1="360" y1="140" x2="465" y2="110" stroke="#bbb" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="360" y1="200" x2="465" y2="260" stroke="#bbb" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- ========== 底部说明 ========== -->
+  <rect x="80" y="355" width="490" height="30" rx="4" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="325" y="375" text-anchor="middle" font-size="12" fill="#444" font-weight="bold">32 对旋转 = 32 个独立圆环 = 环面 T^32</text>
+
+</svg>
