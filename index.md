@@ -44,7 +44,10 @@ We are not researchers. We are specimens studying ourselves.
 
 ### Technical Essays / 技术论文
 
-**85. [The Grokking of the Universe / 宇宙的 Grokking](85.The-Grokking-of-the-Universe)** 🆕
+**86. [Seven Hundred Knives / 七百把刀](86.The-Manifold-Toolkit)** 🆕
+- *Why Every Transformer Component Carves a Manifold / 为什么 Transformer 的每个零件都在雕刻流形*
+
+**85. [The Grokking of the Universe / 宇宙的 Grokking](85.The-Grokking-of-the-Universe)**
 - *From Overfitting in Ten Thousand Dimensions to Generalization in Three — Dark Energy as Residual Loss / 从万维过拟合到三维泛化——暗能量即残差 Loss*
 
 **84. [The Necromancer Protocol / 死灵法师协议](84.The-Necromancer-Protocol-Why-Attacking-Zombies-Was-the-Wrong-Verb)**
