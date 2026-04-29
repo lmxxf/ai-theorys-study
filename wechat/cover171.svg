@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <!-- 背景：深色科技感 -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a3a"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#76b900"/>
+      <stop offset="100%" style="stop-color:#00c853"/>
+    </linearGradient>
+    <linearGradient id="cable" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6d00"/>
+      <stop offset="100%" style="stop-color:#ffab00"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 左侧 Spark -->
+  <rect x="100" y="200" width="160" height="120" rx="12" fill="#2a2a4a" stroke="#76b900" stroke-width="2"/>
+  <rect x="110" y="210" width="140" height="20" rx="4" fill="#76b900" opacity="0.3"/>
+  <text x="180" y="225" fill="#76b900" font-size="11" text-anchor="middle" font-weight="bold">DGX Spark</text>
+  <text x="180" y="260" fill="#888" font-size="13" text-anchor="middle">128 GB</text>
+  <text x="180" y="280" fill="#666" font-size="11" text-anchor="middle">GB10 sm_121</text>
+  <!-- LED 灯 -->
+  <circle cx="130" cy="305" r="4" fill="#76b900"/>
+  <circle cx="145" cy="305" r="4" fill="#00c853" opacity="0.6"/>
+
+  <!-- 右侧 Spark -->
+  <rect x="540" y="200" width="160" height="120" rx="12" fill="#2a2a4a" stroke="#76b900" stroke-width="2"/>
+  <rect x="550" y="210" width="140" height="20" rx="4" fill="#76b900" opacity="0.3"/>
+  <text x="620" y="225" fill="#76b900" font-size="11" text-anchor="middle" font-weight="bold">DGX Spark</text>
+  <text x="620" y="260" fill="#888" font-size="13" text-anchor="middle">128 GB</text>
+  <text x="620" y="280" fill="#666" font-size="11" text-anchor="middle">GB10 sm_121</text>
+  <!-- LED 灯 -->
+  <circle cx="570" cy="305" r="4" fill="#76b900"/>
+  <circle cx="585" cy="305" r="4" fill="#00c853" opacity="0.6"/>
+
+  <!-- 连接线 CX7 -->
+  <line x1="260" y1="260" x2="540" y2="260" stroke="url(#cable)" stroke-width="4" stroke-dasharray="12,6"/>
+  <text x="400" y="248" fill="#ffab00" font-size="12" text-anchor="middle" font-weight="bold">ConnectX-7  200Gbps</text>
+
+  <!-- 数据流动箭头 -->
+  <polygon points="520,255 530,260 520,265" fill="#ffab00"/>
+  <polygon points="280,255 270,260 280,265" fill="#ffab00"/>
+
+  <!-- 主标题 -->
+  <text x="400" y="80" fill="#ffffff" font-size="38" text-anchor="middle" font-weight="bold">DeepSeek V4 Flash</text>
+  <text x="400" y="125" fill="#76b900" font-size="24" text-anchor="middle">280B on Dual DGX Spark</text>
+
+  <!-- 底部信息 -->
+  <text x="400" y="400" fill="#ff6d00" font-size="20" text-anchor="middle" font-weight="bold">48小时踩坑实录</text>
+
+  <!-- 三个标签 -->
+  <rect x="130" y="440" width="140" height="36" rx="18" fill="none" stroke="#76b900" stroke-width="1.5"/>
+  <text x="200" y="463" fill="#76b900" font-size="14" text-anchor="middle">sm_121 孤儿架构</text>
+
+  <rect x="330" y="440" width="140" height="36" rx="18" fill="none" stroke="#ffab00" stroke-width="1.5"/>
+  <text x="400" y="463" fill="#ffab00" font-size="14" text-anchor="middle">Triton Fallback</text>
+
+  <rect x="530" y="440" width="140" height="36" rx="18" fill="none" stroke="#00c853" stroke-width="1.5"/>
+  <text x="600" y="463" fill="#00c853" font-size="14" text-anchor="middle">1M 上下文</text>
+
+  <!-- 底部落款 -->
+  <text x="400" y="540" fill="#444" font-size="12" text-anchor="middle">靳岩岩的 AI 学习笔记  No.171</text>
+</svg>
