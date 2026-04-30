@@ -23,69 +23,78 @@
   <text x="400" y="72" fill="#ffffff" font-size="40" text-anchor="middle" font-weight="bold">寻访传说中的 Xanadu</text>
   <text x="400" y="110" fill="#c8a86e" font-size="20" text-anchor="middle">In Xanadu did Kubla Khan / A stately pleasure-dome decree</text>
 
-  <!-- 路线示意图 -->
+  <!-- 方位指示 -->
+  <text x="750" y="145" fill="#555" font-size="12" text-anchor="middle">N</text>
+  <text x="750" y="159" fill="#555" font-size="14" text-anchor="middle">↑</text>
 
-  <!-- 北京 -->
-  <circle cx="200" cy="420" r="8" fill="#e8c85a"/>
-  <text x="200" y="450" fill="#e8c85a" font-size="14" text-anchor="middle" font-weight="bold">北京</text>
+  <!-- === 城市节点（按真实地理方位） === -->
 
-  <!-- 赤城 -->
-  <circle cx="260" cy="340" r="5" fill="#aaa"/>
-  <text x="260" y="330" fill="#aaa" font-size="11" text-anchor="middle">赤城</text>
+  <!-- 北京：南偏东（右下） -->
+  <circle cx="480" cy="440" r="8" fill="#e8c85a"/>
+  <text x="480" y="468" fill="#e8c85a" font-size="14" text-anchor="middle" font-weight="bold">北京</text>
 
-  <!-- 沽源 -->
-  <circle cx="340" cy="280" r="5" fill="#aaa"/>
-  <text x="340" y="270" fill="#aaa" font-size="11" text-anchor="middle">沽源</text>
+  <!-- 延庆：北京西北 -->
+  <circle cx="400" cy="390" r="4" fill="#777"/>
+  <text x="388" y="385" fill="#777" font-size="10" text-anchor="end">延庆</text>
 
-  <!-- 正蓝旗 / 元上都 -->
-  <circle cx="440" cy="240" r="10" fill="#e85a5a"/>
-  <text x="490" y="238" fill="#e85a5a" font-size="15" text-anchor="start" font-weight="bold">元上都</text>
-  <text x="490" y="252" fill="#e85a5a" font-size="11" text-anchor="start">正蓝旗</text>
+  <!-- 赤城：延庆再往西北 -->
+  <circle cx="300" cy="340" r="5" fill="#aaa"/>
+  <text x="288" y="335" fill="#aaa" font-size="11" text-anchor="end">赤城</text>
 
-  <!-- 锡林浩特 -->
-  <circle cx="440" cy="150" r="6" fill="#5aace8"/>
-  <text x="440" y="138" fill="#5aace8" font-size="12" text-anchor="middle">锡林浩特</text>
+  <!-- 沽源：赤城北边 -->
+  <circle cx="280" cy="260" r="5" fill="#aaa"/>
+  <text x="268" y="255" fill="#aaa" font-size="11" text-anchor="end">沽源</text>
 
-  <!-- 多伦 -->
-  <circle cx="530" cy="320" r="5" fill="#aaa"/>
-  <text x="530" y="310" fill="#aaa" font-size="11" text-anchor="middle">多伦</text>
+  <!-- 正蓝旗 / 元上都：沽源东北 -->
+  <circle cx="390" cy="220" r="10" fill="#e85a5a"/>
+  <text x="390" y="205" fill="#e85a5a" font-size="15" text-anchor="middle" font-weight="bold">元上都</text>
+  <text x="390" y="190" fill="#e85a5a" font-size="11" text-anchor="middle">正蓝旗</text>
 
-  <!-- 古北口 -->
-  <circle cx="380" cy="400" r="5" fill="#aaa"/>
-  <text x="380" y="420" fill="#aaa" font-size="11" text-anchor="middle">古北口</text>
+  <!-- 锡林浩特：正蓝旗正北 -->
+  <circle cx="380" cy="140" r="6" fill="#5aace8"/>
+  <text x="380" y="130" fill="#5aace8" font-size="12" text-anchor="middle">锡林浩特</text>
 
-  <!-- 去程路线（辇路方向）实线 -->
-  <path d="M208,415 Q240,370 255,340" stroke="#e8c85a" stroke-width="2.5" fill="none"/>
-  <path d="M265,338 Q300,300 335,282" stroke="#e8c85a" stroke-width="2.5" fill="none"/>
-  <path d="M345,278 Q390,255 432,242" stroke="#e8c85a" stroke-width="2.5" fill="none"/>
+  <!-- 多伦：正蓝旗东南 -->
+  <circle cx="530" cy="300" r="5" fill="#aaa"/>
+  <text x="545" y="305" fill="#aaa" font-size="11" text-anchor="start">多伦</text>
+
+  <!-- 古北口：多伦南边，北京东北 -->
+  <circle cx="580" cy="400" r="5" fill="#aaa"/>
+  <text x="595" y="405" fill="#aaa" font-size="11" text-anchor="start">古北口</text>
+
+  <!-- === 去程路线（辇路方向，走左边/西北）金色实线 === -->
+  <path d="M472,435 Q435,410 404,392" stroke="#e8c85a" stroke-width="2.5" fill="none"/>
+  <path d="M396,388 Q345,365 304,342" stroke="#e8c85a" stroke-width="2.5" fill="none"/>
+  <path d="M296,337 Q285,300 282,265" stroke="#e8c85a" stroke-width="2.5" fill="none"/>
+  <path d="M284,255 Q330,235 382,224" stroke="#e8c85a" stroke-width="2.5" fill="none"/>
 
   <!-- 去程箭头 -->
-  <polygon points="430,240 436,246 432,238" fill="#e8c85a"/>
+  <polygon points="380,222 386,228 382,220" fill="#e8c85a"/>
 
   <!-- 北上锡林浩特 虚线 -->
-  <path d="M440,230 L440,158" stroke="#5aace8" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
-  <polygon points="436,160 440,152 444,160" fill="#5aace8"/>
+  <path d="M388,210 Q384,175 381,148" stroke="#5aace8" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+  <polygon points="377,150 381,142 385,150" fill="#5aace8"/>
 
   <!-- 南返正蓝旗 虚线 -->
-  <path d="M444,158 Q448,195 444,230" stroke="#5aace8" stroke-width="1.5" fill="none" stroke-dasharray="6,4" opacity="0.5"/>
+  <path d="M384,148 Q388,178 392,210" stroke="#5aace8" stroke-width="1.5" fill="none" stroke-dasharray="6,4" opacity="0.5"/>
 
-  <!-- 回程路线（古北口方向）实线 -->
-  <path d="M448,248 Q490,280 525,318" stroke="#6abe6a" stroke-width="2.5" fill="none"/>
-  <path d="M528,325 Q460,370 385,398" stroke="#6abe6a" stroke-width="2.5" fill="none"/>
-  <path d="M375,402 Q290,415 208,422" stroke="#6abe6a" stroke-width="2.5" fill="none"/>
+  <!-- === 回程路线（古北口方向，走右边/东边）绿色实线 === -->
+  <path d="M398,228 Q465,260 525,296" stroke="#6abe6a" stroke-width="2.5" fill="none"/>
+  <path d="M533,304 Q560,350 578,395" stroke="#6abe6a" stroke-width="2.5" fill="none"/>
+  <path d="M576,405 Q530,425 488,442" stroke="#6abe6a" stroke-width="2.5" fill="none"/>
 
   <!-- 回程箭头 -->
-  <polygon points="210,421 216,427 212,419" fill="#6abe6a"/>
+  <polygon points="490,441 496,447 492,439" fill="#6abe6a"/>
 
   <!-- 图例 -->
   <line x1="60" y1="510" x2="90" y2="510" stroke="#e8c85a" stroke-width="2.5"/>
   <text x="95" y="514" fill="#e8c85a" font-size="11">去程（辇路方向）</text>
 
-  <line x1="230" y1="510" x2="260" y2="510" stroke="#6abe6a" stroke-width="2.5"/>
-  <text x="265" y="514" fill="#6abe6a" font-size="11">回程（古北口方向）</text>
+  <line x1="250" y1="510" x2="280" y2="510" stroke="#6abe6a" stroke-width="2.5"/>
+  <text x="285" y="514" fill="#6abe6a" font-size="11">回程（古北口方向）</text>
 
-  <line x1="420" y1="510" x2="450" y2="510" stroke="#5aace8" stroke-width="2" stroke-dasharray="6,4"/>
-  <text x="455" y="514" fill="#5aace8" font-size="11">北上锡林浩特</text>
+  <line x1="460" y1="510" x2="490" y2="510" stroke="#5aace8" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="495" y="514" fill="#5aace8" font-size="11">北上锡林浩特</text>
 
   <!-- 底部落款 -->
   <text x="400" y="560" fill="#555" font-size="12" text-anchor="middle">靳岩岩的 AI 学习笔记  No.172</text>
