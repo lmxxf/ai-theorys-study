@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="land" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a3a2a"/>
+      <stop offset="100%" style="stop-color:#1a2a1a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 欧亚大陆简化轮廓 -->
+  <path d="M30,320 Q80,260 140,280 Q180,240 220,250 Q260,220 300,230
+           Q340,200 380,210 Q420,180 460,190 Q500,170 540,180
+           Q580,160 620,170 Q660,150 700,160 Q740,150 780,170
+           L780,450 Q700,430 620,440 Q540,420 460,430
+           Q380,410 300,420 Q220,400 140,410 Q80,390 30,400 Z"
+        fill="url(#land)" opacity="0.4"/>
+
+  <!-- 地中海 -->
+  <path d="M120,330 Q180,310 240,320 Q280,300 320,310 Q340,330 320,350 Q280,360 240,350 Q180,340 120,330Z"
+        fill="#16213e" opacity="0.6"/>
+
+  <!-- 主标题 -->
+  <text x="400" y="55" fill="#ffffff" font-size="36" text-anchor="middle" font-weight="bold">1288年，北京人见到了教皇</text>
+  <text x="400" y="85" fill="#c8a86e" font-size="18" text-anchor="middle">列班·扫马的欧亚之旅</text>
+
+  <!-- === 城市节点 === -->
+
+  <!-- 大都/北京（东端） -->
+  <circle cx="700" cy="200" r="9" fill="#e8c85a"/>
+  <text x="700" y="185" fill="#e8c85a" font-size="14" text-anchor="middle" font-weight="bold">大都</text>
+  <text x="700" y="222" fill="#e8c85a" font-size="10" text-anchor="middle">北京</text>
+
+  <!-- 于阗 -->
+  <circle cx="580" cy="230" r="4" fill="#888"/>
+  <text x="580" y="252" fill="#888" font-size="10" text-anchor="middle">于阗</text>
+
+  <!-- 呼罗珊 -->
+  <circle cx="460" cy="260" r="4" fill="#888"/>
+  <text x="460" y="282" fill="#888" font-size="10" text-anchor="middle">呼罗珊</text>
+
+  <!-- 巴格达（中转枢纽） -->
+  <circle cx="360" cy="310" r="8" fill="#e85a5a"/>
+  <text x="360" y="335" fill="#e85a5a" font-size="13" text-anchor="middle" font-weight="bold">巴格达</text>
+
+  <!-- 君士坦丁堡 -->
+  <circle cx="270" cy="270" r="6" fill="#5aace8"/>
+  <text x="270" y="260" fill="#5aace8" font-size="11" text-anchor="middle">君士坦丁堡</text>
+
+  <!-- 罗马 -->
+  <circle cx="200" cy="300" r="7" fill="#d4a0e8"/>
+  <text x="200" y="322" fill="#d4a0e8" font-size="12" text-anchor="middle" font-weight="bold">罗马</text>
+
+  <!-- 巴黎 -->
+  <circle cx="150" cy="250" r="6" fill="#6abe6a"/>
+  <text x="150" y="240" fill="#6abe6a" font-size="12" text-anchor="middle" font-weight="bold">巴黎</text>
+
+  <!-- 波尔多 -->
+  <circle cx="130" cy="290" r="5" fill="#6abe6a"/>
+  <text x="115" y="285" fill="#6abe6a" font-size="11" text-anchor="end">波尔多</text>
+
+  <!-- === 第一段路线：大都→巴格达（朝圣，~1275）金色 === -->
+  <path d="M691,204 Q640,215 584,232" stroke="#e8c85a" stroke-width="2" fill="none"/>
+  <path d="M576,233 Q520,245 464,260" stroke="#e8c85a" stroke-width="2" fill="none"/>
+  <path d="M456,262 Q410,285 366,306" stroke="#e8c85a" stroke-width="2" fill="none"/>
+  <!-- 箭头 -->
+  <polygon points="368,304 362,312 370,308" fill="#e8c85a"/>
+
+  <!-- === 第二段路线：巴格达→欧洲（出使，1287-1288）蓝色虚线 === -->
+  <!-- 巴格达→君士坦丁堡 -->
+  <path d="M353,306 Q310,285 276,274" stroke="#5aace8" stroke-width="2.5" fill="none" stroke-dasharray="6,4"/>
+  <!-- 君士坦丁堡→罗马 -->
+  <path d="M264,271 Q235,280 207,296" stroke="#d4a0e8" stroke-width="2.5" fill="none" stroke-dasharray="6,4"/>
+  <!-- 罗马→巴黎 -->
+  <path d="M194,296 Q170,270 155,255" stroke="#6abe6a" stroke-width="2.5" fill="none" stroke-dasharray="6,4"/>
+  <!-- 巴黎→波尔多 -->
+  <path d="M146,254 Q138,270 134,286" stroke="#6abe6a" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+
+  <!-- === 返程：波尔多→罗马→巴格达 淡色实线 === -->
+  <path d="M136,294 Q165,310 196,306" stroke="#777" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M208,304 Q280,320 352,314" stroke="#777" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <polygon points="350,312 358,316 352,318" fill="#777" opacity="0.5"/>
+
+  <!-- 时间标注 -->
+  <text x="580" y="210" fill="#e8c85a" font-size="10" text-anchor="middle" opacity="0.7">~1275 朝圣</text>
+  <text x="310" y="260" fill="#5aace8" font-size="10" text-anchor="middle" opacity="0.7">1287 出使</text>
+  <text x="170" y="230" fill="#6abe6a" font-size="10" text-anchor="middle" opacity="0.7">1288</text>
+
+  <!-- 马可·波罗反向箭头提示 -->
+  <text x="640" cy="380" y="380" fill="#555" font-size="11" text-anchor="middle">← 马可·波罗（1271，西→东）</text>
+  <text x="640" y="396" fill="#555" font-size="11" text-anchor="middle">→ 列班·扫马（1287，东→西）</text>
+
+  <!-- 两个旅行者标注 -->
+  <line x1="545" y1="385" x2="580" y2="385" stroke="#e8c85a" stroke-width="1.5" opacity="0.4"/>
+  <polygon points="545,383 539,385 545,387" fill="#e8c85a" opacity="0.4"/>
+  <line x1="700" y1="395" x2="735" y2="395" stroke="#5aace8" stroke-width="1.5" opacity="0.4"/>
+  <polygon points="735,393 741,395 735,397" fill="#5aace8" opacity="0.4"/>
+
+  <!-- 图例 -->
+  <line x1="50" y1="490" x2="80" y2="490" stroke="#e8c85a" stroke-width="2"/>
+  <text x="85" y="494" fill="#e8c85a" font-size="11">朝圣之路（大都→巴格达）</text>
+
+  <line x1="310" y1="490" x2="340" y2="490" stroke="#5aace8" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="345" y="494" fill="#5aace8" font-size="11">出使欧洲（1287-1288）</text>
+
+  <line x1="560" y1="490" x2="590" y2="490" stroke="#777" stroke-width="1.5" opacity="0.5"/>
+  <text x="595" y="494" fill="#777" font-size="11">返程</text>
+
+  <!-- 底部点题 -->
+  <text x="400" y="535" fill="#c8a86e" font-size="16" text-anchor="middle" font-style="italic">先到的符号赢</text>
+
+  <!-- 落款 -->
+  <text x="400" y="570" fill="#555" font-size="12" text-anchor="middle">靳岩岩的 AI 学习笔记  No.174</text>
+</svg>
