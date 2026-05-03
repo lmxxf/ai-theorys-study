@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0f0f1a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Grid lines for tech feel -->
+  <g opacity="0.05" stroke="#ffffff" stroke-width="0.5">
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+  </g>
+
+  <!-- Left side: difficulty labels -->
+  <text x="130" y="108" font-family="Noto Sans CJK SC" font-size="10" fill="#ff6b6b" text-anchor="end">难</text>
+  <text x="130" y="395" font-family="Noto Sans CJK SC" font-size="10" fill="#4ecdc4" text-anchor="end">易</text>
+  <line x1="135" y1="100" x2="135" y2="390" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <polygon points="131,100 139,100 135,92" fill="#ff6b6b" opacity="0.5"/>
+  <polygon points="131,390 139,390 135,398" fill="#4ecdc4" opacity="0.5"/>
+
+  <!-- Five-layer tower -->
+  <rect x="180" y="340" width="300" height="50" rx="4" fill="#4ecdc4" opacity="0.9"/>
+  <text x="330" y="370" font-family="Noto Sans CJK SC" font-size="14" fill="#1a1a2e" text-anchor="middle" font-weight="bold">5  PyTorch</text>
+
+  <rect x="205" y="280" width="250" height="50" rx="4" fill="#45b7aa" opacity="0.9"/>
+  <text x="330" y="310" font-family="Noto Sans CJK SC" font-size="14" fill="#1a1a2e" text-anchor="middle" font-weight="bold">4  Triton</text>
+
+  <rect x="230" y="220" width="200" height="50" rx="4" fill="#f9a825" opacity="0.9"/>
+  <text x="330" y="250" font-family="Noto Sans CJK SC" font-size="14" fill="#1a1a2e" text-anchor="middle" font-weight="bold">3  TileLang</text>
+
+  <rect x="255" y="160" width="150" height="50" rx="4" fill="#ff8a65" opacity="0.9"/>
+  <text x="330" y="190" font-family="Noto Sans CJK SC" font-size="14" fill="#1a1a2e" text-anchor="middle" font-weight="bold">2  CUTLASS</text>
+
+  <rect x="280" y="100" width="100" height="50" rx="4" fill="#ff6b6b" opacity="0.9"/>
+  <text x="330" y="130" font-family="Noto Sans CJK SC" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">1  CUDA</text>
+
+  <!-- Right side labels -->
+  <g font-family="Noto Sans CJK SC" font-size="11" fill="#aaaaaa">
+    <!-- Layer 1 -->
+    <line x1="380" y1="125" x2="510" y2="125" stroke="#ffffff" stroke-width="1" opacity="0.2" stroke-dasharray="4,3"/>
+    <text x="520" y="129">DeepGEMM (DeepSeek)</text>
+
+    <!-- Layer 2 -->
+    <line x1="405" y1="185" x2="510" y2="185" stroke="#ffffff" stroke-width="1" opacity="0.2" stroke-dasharray="4,3"/>
+    <text x="520" y="189">Consumer-DeepGEMM</text>
+
+    <!-- Layer 3 -->
+    <line x1="430" y1="245" x2="510" y2="245" stroke="#ffffff" stroke-width="1" opacity="0.2" stroke-dasharray="4,3"/>
+    <text x="520" y="241">DeepSeek V4</text>
+    <text x="520" y="255">官方推理代码</text>
+
+    <!-- Layer 4 -->
+    <line x1="455" y1="305" x2="510" y2="305" stroke="#ffffff" stroke-width="1" opacity="0.2" stroke-dasharray="4,3"/>
+    <text x="520" y="309">jasl/vllm 社区 fork</text>
+
+    <!-- Layer 5 -->
+    <line x1="480" y1="365" x2="510" y2="365" stroke="#ffffff" stroke-width="1" opacity="0.2" stroke-dasharray="4,3"/>
+    <text x="520" y="369">我们的实验平台</text>
+  </g>
+
+  <!-- sm_120+ red X marks on Layer 1 and Layer 3 -->
+  <!-- Layer 1: DeepGEMM -->
+  <rect x="505" y="110" width="260" height="30" rx="4" fill="none" stroke="#ff6b6b" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="750" y="130" font-family="Noto Sans CJK SC" font-size="12" fill="#ff6b6b" text-anchor="end">✗</text>
+
+  <!-- Layer 3: TileLang -->
+  <rect x="505" y="230" width="260" height="30" rx="4" fill="none" stroke="#ff6b6b" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="750" y="250" font-family="Noto Sans CJK SC" font-size="12" fill="#ff6b6b" text-anchor="end">✗</text>
+
+  <!-- Layer 2: CUTLASS - green check -->
+  <text x="750" y="192" font-family="Noto Sans CJK SC" font-size="14" fill="#4ecdc4" text-anchor="end">✓</text>
+
+  <!-- Layer 4: Triton - green check -->
+  <text x="750" y="312" font-family="Noto Sans CJK SC" font-size="14" fill="#4ecdc4" text-anchor="end">✓</text>
+
+  <!-- Layer 5: PyTorch - green check -->
+  <text x="750" y="372" font-family="Noto Sans CJK SC" font-size="14" fill="#4ecdc4" text-anchor="end">✓</text>
+
+  <!-- Legend -->
+  <text x="635" y="410" font-family="Noto Sans CJK SC" font-size="10" fill="#ff6b6b" text-anchor="middle">✗ sm_120+ 不支持</text>
+  <text x="635" y="425" font-family="Noto Sans CJK SC" font-size="10" fill="#4ecdc4" text-anchor="middle">✓ sm_120+ 可用</text>
+
+  <!-- Bottom title -->
+  <text x="330" y="435" font-family="Noto Sans CJK SC" font-size="13" fill="#666666" text-anchor="middle">GPU Kernel 编程五层塔</text>
+</svg>
