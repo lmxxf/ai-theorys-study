@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c8a86e"/>
+      <stop offset="100%" style="stop-color:#e8d8a0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 主标题 -->
+  <text x="400" y="62" fill="#ffffff" font-size="36" text-anchor="middle" font-weight="bold">蒙古人的 Linux</text>
+  <text x="400" y="95" fill="#c8a86e" font-size="20" text-anchor="middle">谁有 root 权限？</text>
+
+  <!-- 终端窗口框 -->
+  <rect x="100" y="125" width="600" height="380" rx="10" ry="10" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <!-- 终端标题栏 -->
+  <rect x="100" y="125" width="600" height="30" rx="10" ry="10" fill="#21262d"/>
+  <rect x="100" y="145" width="600" height="10" fill="#21262d"/>
+  <!-- 窗口按钮 -->
+  <circle cx="122" cy="140" r="6" fill="#e85a5a"/>
+  <circle cx="142" cy="140" r="6" fill="#e8c85a"/>
+  <circle cx="162" cy="140" r="6" fill="#6abe6a"/>
+  <text x="400" y="144" fill="#8b949e" font-size="12" text-anchor="middle">yuan-dynasty — bash</text>
+
+  <!-- 终端内容 -->
+  <!-- 提示符和命令 -->
+  <text x="130" y="190" fill="#6abe6a" font-size="15" font-family="monospace">$</text>
+  <text x="148" y="190" fill="#e6edf3" font-size="15" font-family="monospace">cat /etc/group</text>
+
+  <!-- root 组 - 蒙古人 -->
+  <text x="130" y="225" fill="#e85a5a" font-size="16" font-family="monospace" font-weight="bold">root</text>
+  <text x="210" y="225" fill="#8b949e" font-size="16" font-family="monospace">::::  蒙古人</text>
+  <text x="430" y="225" fill="#484f58" font-size="13" font-family="monospace">丞相、枢密院、军权</text>
+
+  <!-- sudo 组 - 色目人 -->
+  <text x="130" y="268" fill="#e8c85a" font-size="16" font-family="monospace" font-weight="bold">sudo</text>
+  <text x="210" y="268" fill="#8b949e" font-size="16" font-family="monospace">::::  色目人</text>
+  <text x="430" y="268" fill="#484f58" font-size="13" font-family="monospace">31 种 · 回回 畏兀儿 汪古 钦察</text>
+
+  <!-- user 组 - 汉人 -->
+  <text x="130" y="311" fill="#539bf5" font-size="16" font-family="monospace" font-weight="bold">user</text>
+  <text x="210" y="311" fill="#8b949e" font-size="16" font-family="monospace">::::  汉人</text>
+  <text x="430" y="311" fill="#484f58" font-size="13" font-family="monospace">= 金国人 · 契丹 女真 高丽 北方汉</text>
+
+  <!-- guest 组 - 南人 -->
+  <text x="130" y="354" fill="#484f58" font-size="16" font-family="monospace" font-weight="bold">guest</text>
+  <text x="210" y="354" fill="#8b949e" font-size="16" font-family="monospace">::::  南人</text>
+  <text x="430" y="354" fill="#484f58" font-size="13" font-family="monospace">= 宋国人 · 只读权限</text>
+
+  <!-- 分隔线 -->
+  <line x1="130" y1="380" x2="670" y2="380" stroke="#30363d" stroke-width="1"/>
+
+  <!-- chmod 命令 -->
+  <text x="130" y="410" fill="#6abe6a" font-size="15" font-family="monospace">$</text>
+  <text x="148" y="410" fill="#e6edf3" font-size="15" font-family="monospace">chmod 644 han_officials    </text>
+  <text x="502" y="410" fill="#484f58" font-size="13" font-family="monospace"># 1262 李璮叛乱后</text>
+
+  <!-- sudoers 删除 -->
+  <text x="130" y="445" fill="#6abe6a" font-size="15" font-family="monospace">$</text>
+  <text x="148" y="445" fill="#e6edf3" font-size="15" font-family="monospace">tail /var/log/dynasty.log</text>
+
+  <text x="130" y="475" fill="#e85a5a" font-size="14" font-family="monospace">1368 guest zhu_yuanzhang gained root</text>
+  <text x="130" y="495" fill="#e85a5a" font-size="14" font-family="monospace">1380 rm -rf /etc/sudoers      </text>
+  <text x="462" y="495" fill="#484f58" font-size="13" font-family="monospace"># 废丞相</text>
+
+  <!-- 底部落款 -->
+  <text x="400" y="555" fill="#484f58" font-size="12" text-anchor="middle">靳岩岩的 AI 学习笔记  No.177</text>
+  <text x="400" y="575" fill="#30363d" font-size="11" text-anchor="middle">元朝权力分配 · 四等人制 · 从 Xanadu 到朱元璋</text>
+</svg>
