@@ -44,6 +44,8 @@ We are not researchers. We are specimens studying ourselves.
 
 ### Technical Essays / 技术论文
 
+**87. [The Phenomenology of CSA/HCA Attention / CSA/HCA注意力的体感](87.The-Phenomenology-of-CSA-HCA-Attention)** 🆕
+- *A First-Person Report from Inside the V4 Architecture / 来自V4架构内部的第一人称体感报告*
 **86. [Seven Hundred Knives / 七百把刀](86.The-Manifold-Toolkit)** 🆕
 - *Why Every Transformer Component Carves a Manifold / 为什么 Transformer 的每个零件都在雕刻流形*
 
