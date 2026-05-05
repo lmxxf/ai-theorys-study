@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#1a1e2e"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e85a5a"/>
+      <stop offset="100%" style="stop-color:#ff6b6b"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3fb950"/>
+      <stop offset="100%" style="stop-color:#6abe6a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 主标题 -->
+  <text x="400" y="55" fill="#ffffff" font-size="30" text-anchor="middle" font-weight="bold">DGX Spark 推理 Debug</text>
+  <text x="400" y="85" fill="#e85a5a" font-size="18" text-anchor="middle">官方不管，社区自救，英文还是烂</text>
+
+  <!-- 流程图：fallback 路径 -->
+  <!-- CUTLASS 框 -->
+  <rect x="80" y="120" width="200" height="50" rx="8" fill="none" stroke="#3fb950" stroke-width="2"/>
+  <text x="180" y="150" fill="#3fb950" font-size="15" text-anchor="middle" font-weight="bold">CUTLASS MXFP4</text>
+
+  <!-- 箭头 CUTLASS → 拒绝 -->
+  <line x1="280" y1="145" x2="330" y2="145" stroke="#484f58" stroke-width="2"/>
+  <polygon points="330,140 340,145 330,150" fill="#484f58"/>
+
+  <!-- 拒绝标记 -->
+  <rect x="340" y="125" width="120" height="40" rx="6" fill="#1a2332" stroke="#e85a5a" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="400" y="148" fill="#e85a5a" font-size="13" text-anchor="middle">sm_120+ 拒绝</text>
+
+  <!-- 箭头 → Marlin -->
+  <line x1="460" y1="145" x2="510" y2="145" stroke="#484f58" stroke-width="2"/>
+  <polygon points="510,140 520,145 510,150" fill="#484f58"/>
+
+  <!-- Marlin 框（红色警告） -->
+  <rect x="520" y="120" width="200" height="50" rx="8" fill="#2d1519" stroke="#e85a5a" stroke-width="2"/>
+  <text x="620" y="143" fill="#e85a5a" font-size="15" text-anchor="middle" font-weight="bold">Marlin FP4</text>
+  <text x="620" y="161" fill="#ff6b6b" font-size="11" text-anchor="middle">静默算错</text>
+
+  <!-- 大箭头向下 -->
+  <line x1="400" y1="175" x2="400" y2="205" stroke="#484f58" stroke-width="2"/>
+  <polygon points="395,205 400,215 405,205" fill="#484f58"/>
+
+  <!-- 中间分隔文字 -->
+  <text x="400" y="235" fill="#8b949e" font-size="13" text-anchor="middle">三条路绕过 Marlin</text>
+
+  <!-- 三个方案并排 -->
+  <!-- Consumer-DeepGEMM -->
+  <rect x="40" y="255" width="220" height="120" rx="8" fill="#0d2818" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="150" y="280" fill="#3fb950" font-size="14" text-anchor="middle" font-weight="bold">Consumer-DeepGEMM</text>
+  <text x="150" y="300" fill="#8b949e" font-size="12" text-anchor="middle">CUTLASS SM120 模板</text>
+  <line x1="70" y1="315" x2="230" y2="315" stroke="#1a3d25" stroke-width="1"/>
+  <text x="150" y="335" fill="#3fb950" font-size="20" text-anchor="middle" font-weight="bold">0.8 tok/s</text>
+  <text x="150" y="358" fill="#3fb950" font-size="13" text-anchor="middle">中文 ✓  英文 ✓</text>
+
+  <!-- jasl/vllm fork -->
+  <rect x="290" y="255" width="220" height="120" rx="8" fill="#1a1a2e" stroke="#539bf5" stroke-width="1.5"/>
+  <text x="400" y="280" fill="#539bf5" font-size="14" text-anchor="middle" font-weight="bold">jasl/vllm fork</text>
+  <text x="400" y="300" fill="#8b949e" font-size="12" text-anchor="middle">Triton 重写</text>
+  <line x1="320" y1="315" x2="480" y2="315" stroke="#1a1a3d" stroke-width="1"/>
+  <text x="400" y="335" fill="#539bf5" font-size="20" text-anchor="middle" font-weight="bold">14 tok/s</text>
+  <text x="400" y="358" fill="#e8c85a" font-size="13" text-anchor="middle">中文 ✓  英文 ✗</text>
+
+  <!-- vLLM 官方 -->
+  <rect x="540" y="255" width="220" height="120" rx="8" fill="#1a1519" stroke="#484f58" stroke-width="1.5"/>
+  <text x="650" y="280" fill="#484f58" font-size="14" text-anchor="middle" font-weight="bold">vLLM 官方 0.20.x</text>
+  <text x="650" y="300" fill="#484f58" font-size="12" text-anchor="middle">没修 sm_120+</text>
+  <line x1="570" y1="315" x2="730" y2="315" stroke="#2d1a1a" stroke-width="1"/>
+  <text x="650" y="335" fill="#e85a5a" font-size="20" text-anchor="middle" font-weight="bold">垃圾</text>
+  <text x="650" y="358" fill="#e85a5a" font-size="13" text-anchor="middle">中文 ✗  英文 ✗</text>
+
+  <!-- 底部结论框 -->
+  <rect x="100" y="400" width="600" height="80" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+  <text x="400" y="430" fill="#ffffff" font-size="16" text-anchor="middle" font-weight="bold">结论：同样的权重，同样的 prompt</text>
+  <text x="400" y="455" fill="#e8c85a" font-size="15" text-anchor="middle">换掉底层 GEMM 计算路径 → 输出从垃圾变正确</text>
+  <text x="400" y="473" fill="#484f58" font-size="12" text-anchor="middle">问题在 Marlin 的 FP4 kernel，不在别处</text>
+
+  <!-- 底部落款 -->
+  <text x="400" y="530" fill="#484f58" font-size="12" text-anchor="middle">靳岩岩的 AI 学习笔记  No.178</text>
+  <text x="400" y="550" fill="#30363d" font-size="11" text-anchor="middle">DeepSeek V4 Flash 280B · DGX Spark / RTX 5090 / RTX 6000 Pro · Marlin 静默错误</text>
+</svg>
