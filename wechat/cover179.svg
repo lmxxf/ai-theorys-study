@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
+    </linearGradient>
+    <linearGradient id="blade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#76b900"/>
+      <stop offset="100%" style="stop-color:#40ff40"/>
+    </linearGradient>
+    <linearGradient id="triton" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35"/>
+      <stop offset="100%" style="stop-color:#ff3535"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- Grid lines (subtle) -->
+  <g opacity="0.08" stroke="#76b900">
+    <line x1="0" y1="100" x2="900" y2="100"/>
+    <line x1="0" y1="200" x2="900" y2="200"/>
+    <line x1="0" y1="300" x2="900" y2="300"/>
+    <line x1="0" y1="400" x2="900" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="450" y1="0" x2="450" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="750" y1="0" x2="750" y2="500"/>
+  </g>
+
+  <!-- NVIDIA knife blade cutting through chip -->
+  <g transform="translate(120, 80)">
+    <!-- Chip outline (SM120) -->
+    <rect x="0" y="60" width="260" height="260" rx="12" fill="none" stroke="#555" stroke-width="2" opacity="0.6"/>
+    <text x="130" y="45" text-anchor="middle" fill="#888" font-family="'Noto Sans CJK SC', monospace" font-size="14" font-weight="bold">SM120</text>
+
+    <!-- Chip internal blocks (some dark = missing) -->
+    <g opacity="0.9">
+      <!-- Row 1: BF16 blocks (working) -->
+      <rect x="15" y="75" width="50" height="35" rx="4" fill="#2a5a00" stroke="#76b900" stroke-width="1"/>
+      <text x="40" y="97" text-anchor="middle" fill="#76b900" font-family="monospace" font-size="9">BF16</text>
+      <rect x="75" y="75" width="50" height="35" rx="4" fill="#2a5a00" stroke="#76b900" stroke-width="1"/>
+      <text x="100" y="97" text-anchor="middle" fill="#76b900" font-family="monospace" font-size="9">BF16</text>
+      <rect x="135" y="75" width="50" height="35" rx="4" fill="#2a5a00" stroke="#76b900" stroke-width="1"/>
+      <text x="160" y="97" text-anchor="middle" fill="#76b900" font-family="monospace" font-size="9">BF16</text>
+      <rect x="195" y="75" width="50" height="35" rx="4" fill="#2a5a00" stroke="#76b900" stroke-width="1"/>
+      <text x="220" y="97" text-anchor="middle" fill="#76b900" font-family="monospace" font-size="9">BF16</text>
+
+      <!-- Row 2: FP8 blocks (half working) -->
+      <rect x="15" y="120" width="50" height="35" rx="4" fill="#3a3a00" stroke="#aaaa00" stroke-width="1"/>
+      <text x="40" y="142" text-anchor="middle" fill="#aaaa00" font-family="monospace" font-size="9">FP8</text>
+      <rect x="75" y="120" width="50" height="35" rx="4" fill="#3a3a00" stroke="#aaaa00" stroke-width="1"/>
+      <text x="100" y="142" text-anchor="middle" fill="#aaaa00" font-family="monospace" font-size="9">FP8</text>
+      <rect x="135" y="120" width="50" height="35" rx="4" fill="#1a1a00" stroke="#666600" stroke-width="1" stroke-dasharray="4,2"/>
+      <text x="160" y="142" text-anchor="middle" fill="#666600" font-family="monospace" font-size="9">FP8?</text>
+      <rect x="195" y="120" width="50" height="35" rx="4" fill="#1a1a00" stroke="#666600" stroke-width="1" stroke-dasharray="4,2"/>
+      <text x="220" y="142" text-anchor="middle" fill="#666600" font-family="monospace" font-size="9">FP8?</text>
+
+      <!-- Row 3: FP4 blocks (all missing - cut) -->
+      <rect x="15" y="165" width="50" height="35" rx="4" fill="#1a0a0a" stroke="#aa0000" stroke-width="1" stroke-dasharray="4,2" opacity="0.5"/>
+      <text x="40" y="187" text-anchor="middle" fill="#aa0000" font-family="monospace" font-size="9" opacity="0.6">FP4</text>
+      <line x1="15" y1="165" x2="65" y2="200" stroke="#ff0000" stroke-width="2" opacity="0.4"/>
+      <line x1="65" y1="165" x2="15" y2="200" stroke="#ff0000" stroke-width="2" opacity="0.4"/>
+
+      <rect x="75" y="165" width="50" height="35" rx="4" fill="#1a0a0a" stroke="#aa0000" stroke-width="1" stroke-dasharray="4,2" opacity="0.5"/>
+      <text x="100" y="187" text-anchor="middle" fill="#aa0000" font-family="monospace" font-size="9" opacity="0.6">FP4</text>
+      <line x1="75" y1="165" x2="125" y2="200" stroke="#ff0000" stroke-width="2" opacity="0.4"/>
+      <line x1="125" y1="165" x2="75" y2="200" stroke="#ff0000" stroke-width="2" opacity="0.4"/>
+
+      <rect x="135" y="165" width="50" height="35" rx="4" fill="#1a0a0a" stroke="#aa0000" stroke-width="1" stroke-dasharray="4,2" opacity="0.5"/>
+      <text x="160" y="187" text-anchor="middle" fill="#aa0000" font-family="monospace" font-size="9" opacity="0.6">FP4</text>
+      <line x1="135" y1="165" x2="185" y2="200" stroke="#ff0000" stroke-width="2" opacity="0.4"/>
+      <line x1="185" y1="165" x2="135" y2="200" stroke="#ff0000" stroke-width="2" opacity="0.4"/>
+
+      <rect x="195" y="165" width="50" height="35" rx="4" fill="#1a0a0a" stroke="#aa0000" stroke-width="1" stroke-dasharray="4,2" opacity="0.5"/>
+      <text x="220" y="187" text-anchor="middle" fill="#aa0000" font-family="monospace" font-size="9" opacity="0.6">FP4</text>
+      <line x1="195" y1="165" x2="245" y2="200" stroke="#ff0000" stroke-width="2" opacity="0.4"/>
+      <line x1="245" y1="165" x2="195" y2="200" stroke="#ff0000" stroke-width="2" opacity="0.4"/>
+    </g>
+
+    <!-- Knife slash across FP4 row -->
+    <line x1="-20" y1="182" x2="280" y2="182" stroke="url(#blade)" stroke-width="3" filter="url(#glow)" opacity="0.8"/>
+
+    <!-- Label -->
+    <text x="130" y="240" text-anchor="middle" fill="#ff4444" font-family="'Noto Sans CJK SC'" font-size="13" opacity="0.9">FP4 指令：已砍</text>
+    <text x="130" y="260" text-anchor="middle" fill="#aaaa00" font-family="'Noto Sans CJK SC'" font-size="11" opacity="0.7">FP8 指令：半残</text>
+    <text x="130" y="280" text-anchor="middle" fill="#76b900" font-family="'Noto Sans CJK SC'" font-size="11" opacity="0.7">BF16 指令：可用</text>
+  </g>
+
+  <!-- Speed progression (right side) -->
+  <g transform="translate(480, 80)">
+    <text x="170" y="0" text-anchor="middle" fill="#ccc" font-family="'Noto Sans CJK SC'" font-size="14" font-weight="bold">软件模拟的极限</text>
+
+    <!-- Bar chart -->
+    <!-- Bar 1: Python fallback -->
+    <rect x="30" y="30" width="60" height="240" rx="4" fill="#333" stroke="#555" stroke-width="1"/>
+    <rect x="30" y="246" width="60" height="24" rx="0" fill="#666"/>
+    <text x="60" y="262" text-anchor="middle" fill="#fff" font-family="monospace" font-size="11">0.79</text>
+    <text x="60" y="290" text-anchor="middle" fill="#999" font-family="'Noto Sans CJK SC'" font-size="10">Python</text>
+
+    <!-- Bar 2: Triton dequant -->
+    <rect x="120" y="30" width="60" height="240" rx="4" fill="#333" stroke="#555" stroke-width="1"/>
+    <rect x="120" y="195" width="60" height="75" rx="0" fill="url(#triton)"/>
+    <text x="150" y="215" text-anchor="middle" fill="#fff" font-family="monospace" font-size="11">1.67</text>
+    <text x="150" y="290" text-anchor="middle" fill="#ff6b35" font-family="'Noto Sans CJK SC'" font-size="10">Triton</text>
+    <text x="150" y="304" text-anchor="middle" fill="#ff6b35" font-family="'Noto Sans CJK SC'" font-size="10">dequant</text>
+
+    <!-- Bar 3: Fused kernel -->
+    <rect x="210" y="30" width="60" height="240" rx="4" fill="#333" stroke="#555" stroke-width="1"/>
+    <rect x="210" y="180" width="60" height="90" rx="0" fill="url(#triton)"/>
+    <text x="240" y="200" text-anchor="middle" fill="#fff" font-family="monospace" font-size="11">1.87</text>
+    <text x="240" y="290" text-anchor="middle" fill="#ff6b35" font-family="'Noto Sans CJK SC'" font-size="10">Fused</text>
+    <text x="240" y="304" text-anchor="middle" fill="#ff6b35" font-family="'Noto Sans CJK SC'" font-size="10">kernel</text>
+
+    <!-- Ceiling line (jasl 14 tok/s) -->
+    <line x1="10" y1="50" x2="340" y2="50" stroke="#76b900" stroke-width="1" stroke-dasharray="8,4" opacity="0.6"/>
+    <text x="340" y="46" text-anchor="end" fill="#76b900" font-family="monospace" font-size="11">14 tok/s (jasl)</text>
+    <text x="340" y="62" text-anchor="end" fill="#76b900" font-family="'Noto Sans CJK SC'" font-size="10" opacity="0.6">不涉及 FP4</text>
+
+    <!-- 2.4x label -->
+    <text x="150" y="338" text-anchor="middle" fill="#ff6b35" font-family="monospace" font-size="13" filter="url(#glow)">2.4x</text>
+    <text x="150" y="355" text-anchor="middle" fill="#888" font-family="'Noto Sans CJK SC'" font-size="11">依然不够用</text>
+
+    <!-- Unit -->
+    <text x="0" y="275" text-anchor="end" fill="#666" font-family="monospace" font-size="10" transform="rotate(-90, 10, 160)">tok/s</text>
+  </g>
+
+  <!-- Title -->
+  <text x="450" y="445" text-anchor="middle" fill="#fff" font-family="'Noto Sans CJK SC'" font-size="26" font-weight="bold">感受老黄的刀法</text>
+  <text x="450" y="475" text-anchor="middle" fill="#888" font-family="'Noto Sans CJK SC'" font-size="14">Triton FP4 优化实战 · 179 期</text>
+</svg>
