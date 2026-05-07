@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 700" style="background-color:#ffffff" font-family="'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <marker id="arr-dark" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#555" stroke-width="1.2"/>
+    </marker>
+    <marker id="arr-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#e74c3c" stroke-width="1.2"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#2980b9" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <!-- ========== Panel 1: Adam (uneven) ========== -->
+  <text x="200" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#e74c3c">Adam: 各奇异方向分配不均</text>
+
+  <!-- Origin -->
+  <circle cx="80" cy="180" r="3" fill="#666"/>
+  <text x="70" y="198" text-anchor="middle" font-size="10" fill="#999">W</text>
+
+  <!-- Gradient arrows - uneven lengths (Adam favors largest singular direction) -->
+  <line x1="80" y1="180" x2="310" y2="100" stroke="#e74c3c" stroke-width="3" marker-end="url(#arr-red)"/>
+  <text x="320" y="96" font-size="10" fill="#e74c3c">sigma1 方向</text>
+  <text x="320" y="110" font-size="9" fill="#e74c3c">（吃掉大部分预算）</text>
+
+  <line x1="80" y1="180" x2="155" y2="110" stroke="#e74c3c" stroke-width="1.8" marker-end="url(#arr-red)" opacity="0.5"/>
+  <text x="162" y="105" font-size="10" fill="#e74c3c" opacity="0.5">sigma2</text>
+
+  <line x1="80" y1="180" x2="105" y2="148" stroke="#e74c3c" stroke-width="1" marker-end="url(#arr-red)" opacity="0.3"/>
+  <text x="112" y="143" font-size="10" fill="#e74c3c" opacity="0.3">sigma3</text>
+
+  <!-- Label -->
+  <text x="200" y="240" text-anchor="middle" font-size="11" fill="#888">梯度方向保留奇异值大小 → 大方向独占更新</text>
+
+  <!-- ========== Divider ========== -->
+  <line x1="40" y1="270" x2="360" y2="270" stroke="#eee" stroke-width="1"/>
+  <text x="200" y="295" text-anchor="middle" font-size="14" font-weight="bold" fill="#bbb">vs</text>
+
+  <!-- ========== Panel 2: Muon (uniform) ========== -->
+  <text x="200" y="335" text-anchor="middle" font-size="14" font-weight="bold" fill="#2980b9">Muon: 各奇异方向均匀分配</text>
+
+  <!-- Origin -->
+  <circle cx="80" cy="480" r="3" fill="#666"/>
+  <text x="70" y="498" text-anchor="middle" font-size="10" fill="#999">W</text>
+
+  <!-- Gradient arrows - equal lengths (Muon normalizes all singular directions) -->
+  <line x1="80" y1="480" x2="230" y2="400" stroke="#2980b9" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+  <text x="240" y="396" font-size="10" fill="#2980b9">sigma1 方向</text>
+
+  <line x1="80" y1="480" x2="230" y2="450" stroke="#2980b9" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+  <text x="240" y="447" font-size="10" fill="#2980b9">sigma2 方向</text>
+
+  <line x1="80" y1="480" x2="230" y2="500" stroke="#2980b9" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+  <text x="240" y="497" font-size="10" fill="#2980b9">sigma3 方向</text>
+
+  <!-- Equal length annotation -->
+  <line x1="225" y1="390" x2="225" y2="510" stroke="#2980b9" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="235" y="530" font-size="9" fill="#2980b9">等长</text>
+
+  <!-- Label -->
+  <text x="200" y="560" text-anchor="middle" font-size="11" fill="#888">丢掉 Sigma，只保留 U*V^T → 每个方向公平分配</text>
+
+  <!-- ========== Bottom summary ========== -->
+  <rect x="40" y="595" width="320" height="80" rx="10" fill="#f5f8fc" stroke="#2980b9" stroke-width="1"/>
+  <text x="200" y="620" text-anchor="middle" font-size="12" fill="#555">极分解: M = U * Sigma * V^T</text>
+  <text x="200" y="642" text-anchor="middle" font-size="12" fill="#555">Adam 用 M（带 Sigma）</text>
+  <text x="200" y="662" text-anchor="middle" font-size="12" font-weight="bold" fill="#2980b9">Muon 用 U*V^T（丢掉 Sigma）</text>
+</svg>

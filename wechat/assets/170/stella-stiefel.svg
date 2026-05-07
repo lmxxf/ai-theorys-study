@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" style="background-color:#ffffff" font-family="'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#333" stroke-width="1.2"/>
+    </marker>
+    <marker id="arr-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#e74c3c" stroke-width="1.2"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#2980b9" stroke-width="1.2"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#27ae60" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">LoRA 秩塌缩 vs StelLA Stiefel 约束</text>
+
+  <!-- Left: LoRA collapse -->
+  <text x="175" y="62" text-anchor="middle" font-size="14" font-weight="bold" fill="#e74c3c">LoRA：训练后秩塌缩</text>
+
+  <!-- Left origin -->
+  <circle cx="175" cy="200" r="3" fill="#666"/>
+
+  <!-- Left: initial vectors (faded) -->
+  <line x1="175" y1="200" x2="175" y2="110" stroke="#ccc" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="175" y1="200" x2="255" y2="130" stroke="#ccc" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="175" y1="200" x2="95" y2="130" stroke="#ccc" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <text x="170" y="100" text-anchor="middle" font-size="10" fill="#aaa">b1</text>
+  <text x="262" y="125" text-anchor="start" font-size="10" fill="#aaa">b2</text>
+  <text x="82" y="125" text-anchor="end" font-size="10" fill="#aaa">b3</text>
+  <text x="175" y="85" text-anchor="middle" font-size="11" fill="#aaa">初始：3 个独立方向</text>
+
+  <!-- Left: collapsed vectors (solid, nearly same direction) -->
+  <line x1="175" y1="200" x2="190" y2="115" stroke="#e74c3c" stroke-width="2.5" marker-end="url(#arr-red)"/>
+  <line x1="175" y1="200" x2="195" y2="118" stroke="#e74c3c" stroke-width="2.5" marker-end="url(#arr-red)"/>
+  <line x1="175" y1="200" x2="185" y2="112" stroke="#e74c3c" stroke-width="2.5" marker-end="url(#arr-red)"/>
+
+  <text x="215" y="105" text-anchor="start" font-size="11" fill="#e74c3c">训练后：</text>
+  <text x="215" y="120" text-anchor="start" font-size="11" fill="#e74c3c">3 个方向塌缩成 1 个</text>
+
+  <!-- Left: rank label -->
+  <rect x="105" y="260" width="140" height="50" rx="8" fill="#fdf2f2" stroke="#e74c3c" stroke-width="1.2"/>
+  <text x="175" y="282" text-anchor="middle" font-size="12" fill="#e74c3c">有效秩: r=3 → 1</text>
+  <text x="175" y="300" text-anchor="middle" font-size="11" fill="#999">信息瓶颈变窄</text>
+
+  <!-- Divider -->
+  <line x1="360" y1="55" x2="360" y2="340" stroke="#ddd" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="360" y="195" text-anchor="middle" font-size="16" fill="#999">vs</text>
+
+  <!-- Right: StelLA Stiefel -->
+  <text x="545" y="62" text-anchor="middle" font-size="14" font-weight="bold" fill="#27ae60">StelLA：Stiefel 流形约束</text>
+
+  <!-- Right origin -->
+  <circle cx="545" cy="200" r="3" fill="#666"/>
+
+  <!-- Right: orthogonal vectors -->
+  <line x1="545" y1="200" x2="545" y2="110" stroke="#2980b9" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+  <line x1="545" y1="200" x2="635" y2="200" stroke="#27ae60" stroke-width="2.5" marker-end="url(#arr-green)"/>
+  <line x1="545" y1="200" x2="608" y2="137" stroke="#8e44ad" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <text x="535" y="105" text-anchor="end" font-size="11" fill="#2980b9">b1</text>
+  <text x="642" y="197" text-anchor="start" font-size="11" fill="#27ae60">b2</text>
+  <text x="616" y="132" text-anchor="start" font-size="11" fill="#8e44ad">b3</text>
+
+  <!-- Right angle markers -->
+  <path d="M545,188 L557,188 L557,200" fill="none" stroke="#666" stroke-width="1"/>
+  <path d="M555,190 L562,183 L569,190" fill="none" stroke="#666" stroke-width="1"/>
+
+  <!-- Right: constraint label -->
+  <text x="545" y="85" text-anchor="middle" font-size="11" fill="#666">列向量强制正交 → 不会塌缩</text>
+
+  <!-- Right: rank label -->
+  <rect x="475" y="260" width="140" height="50" rx="8" fill="#f0faf0" stroke="#27ae60" stroke-width="1.2"/>
+  <text x="545" y="282" text-anchor="middle" font-size="12" fill="#27ae60">有效秩: r=3 → 3</text>
+  <text x="545" y="300" text-anchor="middle" font-size="11" fill="#999">信息瓶颈撑满</text>
+
+  <!-- Bottom summary -->
+  <text x="360" y="355" text-anchor="middle" font-size="13" fill="#555">Stiefel 流形 = 所有列正交矩阵的集合 → 几何约束替代祈祷</text>
+</svg>
