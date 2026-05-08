@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a"/>
+      <stop offset="100%" style="stop-color:#1a1040"/>
+    </linearGradient>
+    <linearGradient id="glow1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#00e5ff;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#00e5ff;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="glow2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#ff6b35;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="blur1">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <filter id="blur2">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="blur3">
+      <feGaussianBlur stdDeviation="1.5"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- 左侧：残差流激活向量（竖条纹） -->
+  <g opacity="0.6">
+    <rect x="80" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.9"/>
+    <rect x="90" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.3"/>
+    <rect x="100" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.7"/>
+    <rect x="110" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.15"/>
+    <rect x="120" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.85"/>
+    <rect x="130" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.4"/>
+    <rect x="140" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.6"/>
+    <rect x="150" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.1"/>
+    <rect x="160" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.95"/>
+    <rect x="170" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.2"/>
+    <rect x="180" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.75"/>
+    <rect x="190" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.5"/>
+    <rect x="200" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.35"/>
+    <rect x="210" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.8"/>
+    <rect x="220" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.05"/>
+    <rect x="230" y="80" width="4" height="290" rx="2" fill="#00e5ff" opacity="0.65"/>
+  </g>
+
+  <!-- 左侧发光 -->
+  <rect x="75" y="75" width="165" height="300" rx="8" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.3"/>
+  <ellipse cx="157" cy="225" rx="90" ry="160" fill="#00e5ff" opacity="0.04" filter="url(#blur2)"/>
+
+  <!-- 左侧标签 -->
+  <text x="157" y="405" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="14" fill="#00e5ff" opacity="0.8">h_l  残差流激活</text>
+
+  <!-- 中间：AV 箭头 -->
+  <line x1="260" y1="190" x2="370" y2="190" stroke="url(#glow1)" stroke-width="2.5" filter="url(#blur3)"/>
+  <polygon points="370,183 385,190 370,197" fill="#00e5ff" opacity="0.8"/>
+  <text x="315" y="178" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#00e5ff" opacity="0.7">AV</text>
+
+  <!-- 中间：AR 箭头（返回） -->
+  <line x1="370" y1="260" x2="260" y2="260" stroke="url(#glow2)" stroke-width="2.5" filter="url(#blur3)"/>
+  <polygon points="260,253 245,260 260,267" fill="#ff6b35" opacity="0.8"/>
+  <text x="315" y="280" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#ff6b35" opacity="0.7">AR</text>
+
+  <!-- 循环标志 -->
+  <text x="315" y="230" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="10" fill="#888" opacity="0.6">round-trip</text>
+
+  <!-- 右侧：自然语言文本块 -->
+  <g>
+    <rect x="400" y="100" width="320" height="250" rx="10" fill="#111828" stroke="#ff6b35" stroke-width="1" opacity="0.5"/>
+    <rect x="400" y="100" width="320" height="250" rx="10" fill="#ff6b35" opacity="0.03" filter="url(#blur2)"/>
+
+    <text x="420" y="138" font-family="'Noto Sans CJK SC', sans-serif" font-size="12" fill="#ff6b35" opacity="0.9" font-weight="bold">NLA explanation:</text>
+
+    <text x="420" y="168" font-family="'Noto Sans CJK SC', sans-serif" font-size="11.5" fill="#c0c8d8" opacity="0.85">The model is planning a rhyme</text>
+    <text x="420" y="188" font-family="'Noto Sans CJK SC', sans-serif" font-size="11.5" fill="#c0c8d8" opacity="0.85">for "night" and suspects this</text>
+    <text x="420" y="208" font-family="'Noto Sans CJK SC', sans-serif" font-size="11.5" fill="#c0c8d8" opacity="0.85">is an evaluation, not a real</text>
+    <text x="420" y="228" font-family="'Noto Sans CJK SC', sans-serif" font-size="11.5" fill="#c0c8d8" opacity="0.85">user request.</text>
+
+    <line x1="420" y1="245" x2="700" y2="245" stroke="#ff6b35" stroke-width="0.5" opacity="0.3"/>
+
+    <text x="420" y="270" font-family="'Noto Sans CJK SC', sans-serif" font-size="11.5" fill="#e8b87a" opacity="0.7">eval awareness: 16%</text>
+    <text x="420" y="290" font-family="'Noto Sans CJK SC', sans-serif" font-size="11.5" fill="#e8b87a" opacity="0.7">deployment baseline: &lt;1%</text>
+    <text x="420" y="310" font-family="'Noto Sans CJK SC', sans-serif" font-size="11.5" fill="#e8b87a" opacity="0.5">FVE: 0.6 - 0.8</text>
+  </g>
+
+  <!-- 右侧标签 -->
+  <text x="560" y="405" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="14" fill="#ff6b35" opacity="0.8">z  自然语言解释</text>
+
+  <!-- 标题 -->
+  <text x="400" y="38" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="22" fill="#ffffff" font-weight="bold">Natural Language Autoencoders</text>
+  <text x="400" y="62" text-anchor="middle" font-family="'Noto Sans CJK SC', sans-serif" font-size="14" fill="#888" opacity="0.7">Anthropic  2026-05-07  |  transformer-circuits.pub</text>
+
+  <!-- 底部装饰线 -->
+  <line x1="100" y1="435" x2="700" y2="435" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
+</svg>
