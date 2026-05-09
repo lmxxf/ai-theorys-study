@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d2d3d"/>
+      <stop offset="100%" style="stop-color:#1a1a2a"/>
+    </linearGradient>
+    <linearGradient id="glow_green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#00ff88;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00ff88;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="glow_red" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#ff4444;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- Circuit traces -->
+  <g opacity="0.15" stroke="#00ff88" stroke-width="1" fill="none">
+    <path d="M0,100 H200 L220,120 H400"/>
+    <path d="M0,400 H150 L170,380 H350"/>
+    <path d="M900,150 H700 L680,170 H500"/>
+    <path d="M900,350 H750 L730,330 H550"/>
+    <path d="M0,250 H100"/>
+    <path d="M900,250 H800"/>
+  </g>
+
+  <!-- GPU Chip outline -->
+  <rect x="250" y="100" width="400" height="300" rx="8" fill="url(#chip)" stroke="#444" stroke-width="2"/>
+
+  <!-- Chip pins -->
+  <g fill="#555">
+    <rect x="270" y="90" width="12" height="15" rx="1"/>
+    <rect x="300" y="90" width="12" height="15" rx="1"/>
+    <rect x="330" y="90" width="12" height="15" rx="1"/>
+    <rect x="360" y="90" width="12" height="15" rx="1"/>
+    <rect x="390" y="90" width="12" height="15" rx="1"/>
+    <rect x="420" y="90" width="12" height="15" rx="1"/>
+    <rect x="450" y="90" width="12" height="15" rx="1"/>
+    <rect x="480" y="90" width="12" height="15" rx="1"/>
+    <rect x="510" y="90" width="12" height="15" rx="1"/>
+    <rect x="540" y="90" width="12" height="15" rx="1"/>
+    <rect x="570" y="90" width="12" height="15" rx="1"/>
+    <rect x="600" y="90" width="12" height="15" rx="1"/>
+    <!-- bottom pins -->
+    <rect x="270" y="395" width="12" height="15" rx="1"/>
+    <rect x="300" y="395" width="12" height="15" rx="1"/>
+    <rect x="330" y="395" width="12" height="15" rx="1"/>
+    <rect x="360" y="395" width="12" height="15" rx="1"/>
+    <rect x="390" y="395" width="12" height="15" rx="1"/>
+    <rect x="420" y="395" width="12" height="15" rx="1"/>
+    <rect x="450" y="395" width="12" height="15" rx="1"/>
+    <rect x="480" y="395" width="12" height="15" rx="1"/>
+    <rect x="510" y="395" width="12" height="15" rx="1"/>
+    <rect x="540" y="395" width="12" height="15" rx="1"/>
+    <rect x="570" y="395" width="12" height="15" rx="1"/>
+    <rect x="600" y="395" width="12" height="15" rx="1"/>
+  </g>
+
+  <!-- Chip label -->
+  <text x="450" y="140" text-anchor="middle" font-family="'Noto Sans CJK SC', monospace" font-size="14" fill="#666" letter-spacing="3">NVIDIA BLACKWELL</text>
+  <text x="450" y="165" text-anchor="middle" font-family="monospace" font-size="22" fill="#888" font-weight="bold">SM_121</text>
+
+  <!-- Three tensor core blocks -->
+  <!-- INT8 - green (verified) -->
+  <rect x="285" y="190" width="100" height="60" rx="4" fill="none" stroke="#00ff88" stroke-width="2" filter="url(#glow)"/>
+  <text x="335" y="215" text-anchor="middle" font-family="monospace" font-size="14" fill="#00ff88" font-weight="bold">INT8</text>
+  <text x="335" y="235" text-anchor="middle" font-family="monospace" font-size="11" fill="#00cc66">mma ✓</text>
+
+  <!-- FP8 - green (verified) -->
+  <rect x="400" y="190" width="100" height="60" rx="4" fill="none" stroke="#00ff88" stroke-width="2" filter="url(#glow)"/>
+  <text x="450" y="215" text-anchor="middle" font-family="monospace" font-size="14" fill="#00ff88" font-weight="bold">FP8</text>
+  <text x="450" y="235" text-anchor="middle" font-family="monospace" font-size="11" fill="#00cc66">mma ✓</text>
+
+  <!-- FP4 - yellow (documented, untested) -->
+  <rect x="515" y="190" width="100" height="60" rx="4" fill="none" stroke="#ffaa00" stroke-width="2" filter="url(#glow)"/>
+  <text x="565" y="215" text-anchor="middle" font-family="monospace" font-size="14" fill="#ffaa00" font-weight="bold">FP4</text>
+  <text x="565" y="235" text-anchor="middle" font-family="monospace" font-size="11" fill="#cc8800">mma ?</text>
+
+  <!-- Crossed out old conclusion -->
+  <g transform="translate(450, 310)">
+    <text x="0" y="0" text-anchor="middle" font-family="'Noto Sans CJK SC', monospace" font-size="13" fill="#ff4444" opacity="0.6" text-decoration="line-through">FP4 不存在  FP8 残废  只有 BF16 能用</text>
+    <!-- Strike through line -->
+    <line x1="-180" y1="-4" x2="180" y2="-4" stroke="#ff4444" stroke-width="2" opacity="0.8"/>
+  </g>
+
+  <!-- New conclusion -->
+  <text x="450" y="350" text-anchor="middle" font-family="'Noto Sans CJK SC'" font-size="16" fill="#00ff88" filter="url(#softglow)">硬件都在，软件没跟上</text>
+
+  <!-- Bottom: PTX ISA badge -->
+  <rect x="340" y="370" width="220" height="24" rx="12" fill="none" stroke="#00ff88" stroke-width="1" opacity="0.5"/>
+  <text x="450" y="387" text-anchor="middle" font-family="monospace" font-size="12" fill="#00ff88" opacity="0.7">PTX ISA 9.2 confirmed</text>
+
+  <!-- Title bar -->
+  <rect x="0" y="440" width="900" height="60" fill="#000" opacity="0.5"/>
+  <text x="450" y="478" text-anchor="middle" font-family="'Noto Sans CJK SC'" font-size="24" fill="#ffffff" font-weight="bold">重新理解 SM120+ 的硬件支持</text>
+</svg>
