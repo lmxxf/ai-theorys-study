@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#0a1a2e"/>
+    </linearGradient>
+    <linearGradient id="bar_old" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#334"/>
+      <stop offset="100%" style="stop-color:#445"/>
+    </linearGradient>
+    <linearGradient id="bar_new" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00aa66"/>
+      <stop offset="100%" style="stop-color:#00ff88"/>
+    </linearGradient>
+    <linearGradient id="bar_ref" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#aa4400"/>
+      <stop offset="100%" style="stop-color:#ff6622"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.06" stroke="#00ff88" stroke-width="0.5">
+    <line x1="100" y1="0" x2="100" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="500" y1="0" x2="500" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="700" y1="0" x2="700" y2="500"/>
+    <line x1="800" y1="0" x2="800" y2="500"/>
+  </g>
+
+  <!-- Speed bars (horizontal, ascending) -->
+  <!-- 0.79 tok/s — CUTLASS baseline -->
+  <rect x="200" y="72" width="32" height="28" rx="3" fill="url(#bar_old)" opacity="0.7"/>
+  <text x="195" y="91" text-anchor="end" font-family="'Noto Sans CJK SC', monospace" font-size="11" fill="#777">CUTLASS</text>
+  <text x="240" y="91" text-anchor="start" font-family="monospace" font-size="12" fill="#999">0.79</text>
+
+  <!-- 1.87 tok/s — Fused float32 (179期) -->
+  <rect x="200" y="112" width="76" height="28" rx="3" fill="url(#bar_old)" opacity="0.8"/>
+  <text x="195" y="131" text-anchor="end" font-family="'Noto Sans CJK SC', monospace" font-size="11" fill="#777">Fused f32</text>
+  <text x="284" y="131" text-anchor="start" font-family="monospace" font-size="12" fill="#999">1.87</text>
+
+  <!-- 2.2 tok/s — dot_scaled (本期) -->
+  <rect x="200" y="152" width="90" height="28" rx="3" fill="url(#bar_new)" opacity="0.6"/>
+  <text x="195" y="171" text-anchor="end" font-family="'Noto Sans CJK SC', monospace" font-size="11" fill="#aaa">dot_scaled</text>
+  <text x="298" y="171" text-anchor="start" font-family="monospace" font-size="12" fill="#00ff88">2.2</text>
+
+  <!-- 4.1 tok/s — 去FP8无用功 (本期) -->
+  <rect x="200" y="192" width="168" height="32" rx="4" fill="url(#bar_new)" filter="url(#glow)"/>
+  <text x="195" y="214" text-anchor="end" font-family="'Noto Sans CJK SC', monospace" font-size="12" fill="#fff">去FP8无用功</text>
+  <text x="376" y="214" text-anchor="start" font-family="monospace" font-size="15" fill="#00ff88" font-weight="bold">4.1 ★</text>
+
+  <!-- 14 tok/s — jasl Marlin (参考，有乱码) -->
+  <rect x="200" y="242" width="572" height="28" rx="3" fill="url(#bar_ref)" opacity="0.5"/>
+  <text x="195" y="261" text-anchor="end" font-family="'Noto Sans CJK SC', monospace" font-size="11" fill="#cc6633">Marlin</text>
+  <text x="780" y="261" text-anchor="start" font-family="monospace" font-size="12" fill="#ff6622">14</text>
+  <text x="660" y="261" text-anchor="middle" font-family="'Noto Sans CJK SC'" font-size="10" fill="#ff4444" opacity="0.8">⚠ 英文乱码</text>
+
+  <!-- Axis label -->
+  <text x="450" y="295" text-anchor="middle" font-family="monospace" font-size="11" fill="#555">tok/s →</text>
+
+  <!-- Key insight box -->
+  <rect x="140" y="310" width="620" height="80" rx="8" fill="#111" stroke="#00ff88" stroke-width="1" opacity="0.8"/>
+
+  <text x="450" y="338" text-anchor="middle" font-family="monospace" font-size="13" fill="#00ff88">tl.dot_scaled("e4m3", "e2m1")</text>
+  <text x="450" y="360" text-anchor="middle" font-family="'Noto Sans CJK SC'" font-size="14" fill="#ccc">kernel 7.5x 提速 · 去掉 FP8 无用功再翻倍</text>
+  <text x="450" y="380" text-anchor="middle" font-family="'Noto Sans CJK SC'" font-size="12" fill="#888">FC1: 5.16ms → 0.69ms　　端到端: 0.79 → 4.1 tok/s</text>
+
+  <!-- Title bar -->
+  <rect x="0" y="410" width="900" height="90" fill="#000" opacity="0.6"/>
+  <text x="450" y="448" text-anchor="middle" font-family="'Noto Sans CJK SC'" font-size="24" fill="#ffffff" font-weight="bold">昨天发现硬件指令都在</text>
+  <text x="450" y="482" text-anchor="middle" font-family="'Noto Sans CJK SC'" font-size="24" fill="#00ff88" font-weight="bold">今天就上手试了</text>
+</svg>
