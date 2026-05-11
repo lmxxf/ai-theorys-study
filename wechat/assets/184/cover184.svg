@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a"/>
+      <stop offset="100%" style="stop-color:#1a1040"/>
+    </linearGradient>
+    <linearGradient id="glowCyan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#00e5ff;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="glowOrange" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff3366;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#ff3366;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#ff3366;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="blur2"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="blur3"><feGaussianBlur stdDeviation="1"/></filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- 左侧：完整的权重矩阵（密集网格） -->
+  <g opacity="0.3">
+    <rect x="60" y="80" width="180" height="180" rx="4" fill="none" stroke="#00e5ff" stroke-width="1"/>
+    <!-- 密集网格线 -->
+    <line x1="60" y1="110" x2="240" y2="110" stroke="#00e5ff" stroke-width="0.3" opacity="0.5"/>
+    <line x1="60" y1="140" x2="240" y2="140" stroke="#00e5ff" stroke-width="0.3" opacity="0.5"/>
+    <line x1="60" y1="170" x2="240" y2="170" stroke="#00e5ff" stroke-width="0.3" opacity="0.5"/>
+    <line x1="60" y1="200" x2="240" y2="200" stroke="#00e5ff" stroke-width="0.3" opacity="0.5"/>
+    <line x1="60" y1="230" x2="240" y2="230" stroke="#00e5ff" stroke-width="0.3" opacity="0.5"/>
+    <line x1="90" y1="80" x2="90" y2="260" stroke="#00e5ff" stroke-width="0.3" opacity="0.5"/>
+    <line x1="120" y1="80" x2="120" y2="260" stroke="#00e5ff" stroke-width="0.3" opacity="0.5"/>
+    <line x1="150" y1="80" x2="150" y2="260" stroke="#00e5ff" stroke-width="0.3" opacity="0.5"/>
+    <line x1="180" y1="80" x2="180" y2="260" stroke="#00e5ff" stroke-width="0.3" opacity="0.5"/>
+    <line x1="210" y1="80" x2="210" y2="260" stroke="#00e5ff" stroke-width="0.3" opacity="0.5"/>
+  </g>
+  <!-- 矩阵内部：随机亮点表示参数值 -->
+  <g opacity="0.6">
+    <circle cx="85" cy="105" r="2" fill="#00e5ff"/>
+    <circle cx="130" cy="125" r="2.5" fill="#00e5ff"/>
+    <circle cx="175" cy="95" r="1.5" fill="#00e5ff"/>
+    <circle cx="105" cy="190" r="2" fill="#00e5ff"/>
+    <circle cx="200" cy="155" r="2.5" fill="#00e5ff"/>
+    <circle cx="155" cy="215" r="1.8" fill="#00e5ff"/>
+    <circle cx="220" cy="240" r="2" fill="#00e5ff"/>
+    <circle cx="75" cy="165" r="1.5" fill="#00e5ff"/>
+    <circle cx="190" cy="200" r="2.2" fill="#00e5ff"/>
+    <circle cx="115" cy="250" r="1.8" fill="#00e5ff"/>
+    <circle cx="230" cy="115" r="2" fill="#00e5ff"/>
+    <circle cx="145" cy="145" r="1.5" fill="#00e5ff"/>
+  </g>
+  <text x="150" y="290" text-anchor="middle" fill="#00e5ff" font-family="'Noto Sans CJK SC',sans-serif" font-size="14" opacity="0.8">W</text>
+
+  <!-- 中间：等号和分解箭头 -->
+  <text x="280" y="178" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="28" opacity="0.6">≈</text>
+
+  <!-- 右侧：秩-1 分量的分解（多个薄条） -->
+  <!-- 分量1：u₁v₁ᵀ - 亮的（活的） -->
+  <g opacity="0.9">
+    <rect x="320" y="90" width="6" height="80" rx="1" fill="#00e5ff" opacity="0.8"/>
+    <rect x="318" y="180" width="50" height="5" rx="1" fill="#00e5ff" opacity="0.8"/>
+    <text x="323" y="200" fill="#00e5ff" font-family="monospace" font-size="8" opacity="0.6">u₁v₁ᵀ</text>
+  </g>
+
+  <!-- 分量2：活的 -->
+  <g opacity="0.7">
+    <rect x="345" y="90" width="6" height="80" rx="1" fill="#00e5ff" opacity="0.6"/>
+    <rect x="343" y="180" width="50" height="5" rx="1" fill="#00e5ff" opacity="0.6"/>
+  </g>
+
+  <!-- 分量3：活的 -->
+  <g opacity="0.8">
+    <rect x="370" y="90" width="6" height="80" rx="1" fill="#00e5ff" opacity="0.7"/>
+    <rect x="368" y="180" width="50" height="5" rx="1" fill="#00e5ff" opacity="0.7"/>
+  </g>
+
+  <!-- 加号 -->
+  <text x="400" y="140" fill="#ffffff" font-family="monospace" font-size="14" opacity="0.4">+</text>
+
+  <!-- 分量4-7：暗的（休眠的） -->
+  <g opacity="0.15">
+    <rect x="420" y="90" width="6" height="80" rx="1" fill="#666"/>
+    <rect x="418" y="180" width="50" height="5" rx="1" fill="#666"/>
+  </g>
+  <g opacity="0.1">
+    <rect x="445" y="90" width="6" height="80" rx="1" fill="#666"/>
+    <rect x="443" y="180" width="50" height="5" rx="1" fill="#666"/>
+  </g>
+  <g opacity="0.12">
+    <rect x="470" y="90" width="6" height="80" rx="1" fill="#666"/>
+    <rect x="468" y="180" width="50" height="5" rx="1" fill="#666"/>
+  </g>
+  <g opacity="0.08">
+    <rect x="495" y="90" width="6" height="80" rx="1" fill="#666"/>
+    <rect x="493" y="180" width="50" height="5" rx="1" fill="#666"/>
+  </g>
+
+  <!-- 省略号 -->
+  <text x="530" y="145" fill="#ffffff" font-family="monospace" font-size="18" opacity="0.3">...</text>
+
+  <!-- 更多暗的 -->
+  <g opacity="0.1">
+    <rect x="555" y="90" width="6" height="80" rx="1" fill="#666"/>
+    <rect x="553" y="180" width="50" height="5" rx="1" fill="#666"/>
+  </g>
+  <g opacity="0.06">
+    <rect x="580" y="90" width="6" height="80" rx="1" fill="#666"/>
+    <rect x="578" y="180" width="50" height="5" rx="1" fill="#666"/>
+  </g>
+
+  <!-- 标注：25.6% 活的 -->
+  <line x1="320" y1="70" x2="390" y2="70" stroke="#00e5ff" stroke-width="1" opacity="0.6"/>
+  <text x="355" y="63" text-anchor="middle" fill="#00e5ff" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" opacity="0.8">25.6% 活的</text>
+
+  <!-- 标注：74.4% 休眠 -->
+  <line x1="420" y1="70" x2="600" y2="70" stroke="#666" stroke-width="1" opacity="0.4"/>
+  <text x="510" y="63" text-anchor="middle" fill="#888" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" opacity="0.6">74.4% 休眠</text>
+
+  <!-- 底部：红色裂痕表示稀疏化后的崩溃 -->
+  <g filter="url(#blur2)" opacity="0.4">
+    <line x1="320" y1="250" x2="600" y2="250" stroke="#ff3366" stroke-width="2"/>
+  </g>
+  <g opacity="0.7">
+    <!-- 裂纹 -->
+    <path d="M340 240 L355 260 L365 245 L380 265 L395 242 L410 258 L430 240 L445 262 L460 248 L480 260 L500 243 L520 258 L540 245 L560 260 L580 242" fill="none" stroke="#ff3366" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  <text x="460" y="285" text-anchor="middle" fill="#ff3366" font-family="'Noto Sans CJK SC',sans-serif" font-size="12" opacity="0.7">稀疏化 → 流形碎裂</text>
+
+  <!-- 标题 -->
+  <text x="400" y="350" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans CJK SC',sans-serif" font-size="24" font-weight="bold">VPD：分解合格，稀疏化致命</text>
+
+  <!-- 副标题 -->
+  <text x="400" y="380" text-anchor="middle" fill="#888" font-family="'Noto Sans CJK SC',sans-serif" font-size="14">权重的秩-1 分解，和我们已经撞过的那堵墙</text>
+
+  <!-- 右下角期号 -->
+  <text x="760" y="430" text-anchor="end" fill="#444" font-family="monospace" font-size="12">#184</text>
+</svg>
