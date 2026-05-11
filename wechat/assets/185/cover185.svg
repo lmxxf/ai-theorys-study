@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#0a1a2e"/>
+    </linearGradient>
+    <linearGradient id="bar_old" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#334"/>
+      <stop offset="100%" style="stop-color:#445"/>
+    </linearGradient>
+    <linearGradient id="bar_cdg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0066aa"/>
+      <stop offset="100%" style="stop-color:#0099dd"/>
+    </linearGradient>
+    <linearGradient id="bar_win" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00aa66"/>
+      <stop offset="100%" style="stop-color:#00ff88"/>
+    </linearGradient>
+    <linearGradient id="bar_ref" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#aa4400"/>
+      <stop offset="100%" style="stop-color:#ff6622"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.04" stroke="#00ff88" stroke-width="0.5">
+    <line x1="180" y1="50" x2="180" y2="310"/>
+    <line x1="320" y1="50" x2="320" y2="310"/>
+    <line x1="460" y1="50" x2="460" y2="310"/>
+    <line x1="600" y1="50" x2="600" y2="310"/>
+    <line x1="740" y1="50" x2="740" y2="310"/>
+  </g>
+
+  <!-- Layer diagram: 43 thin vertical bars representing decoder layers -->
+  <!-- Layers 0-41: Marlin (orange-ish) -->
+  <g opacity="0.15">
+    <rect x="60" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="74" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="88" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="102" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="116" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="130" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="144" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="158" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="172" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="186" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="200" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="214" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="228" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="242" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="256" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="270" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="284" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="298" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="312" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="326" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="340" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="354" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="368" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="382" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="396" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="410" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="424" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="438" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="452" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="466" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="480" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="494" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="508" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="522" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="536" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="550" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="564" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="578" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="592" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="606" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="620" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+    <rect x="634" y="340" width="8" height="40" rx="1" fill="#ff6622"/>
+  </g>
+  <!-- Layer 42: CDG (green, highlighted) -->
+  <rect x="648" y="336" width="12" height="48" rx="2" fill="#00ff88" filter="url(#glow)" opacity="0.9"/>
+
+  <!-- Layer labels -->
+  <text x="350" y="400" text-anchor="middle" font-family="'Noto Sans CJK SC', monospace" font-size="11" fill="#ff8844" opacity="0.6">Layer 0 - 41  Marlin</text>
+  <text x="654" y="400" text-anchor="middle" font-family="monospace" font-size="11" fill="#00ff88">42</text>
+  <text x="700" y="400" text-anchor="start" font-family="'Noto Sans CJK SC'" font-size="11" fill="#00ff88" opacity="0.8">CDG</text>
+
+  <!-- Speed bars -->
+  <!-- 0.79 tok/s -->
+  <rect x="180" y="62" width="28" height="24" rx="3" fill="url(#bar_old)" opacity="0.6"/>
+  <text x="175" y="79" text-anchor="end" font-family="monospace" font-size="10" fill="#666">0.79</text>
+  <text x="215" y="79" text-anchor="start" font-family="'Noto Sans CJK SC'" font-size="10" fill="#666">CUTLASS</text>
+
+  <!-- 1.87 tok/s -->
+  <rect x="180" y="94" width="66" height="24" rx="3" fill="url(#bar_old)" opacity="0.7"/>
+  <text x="175" y="111" text-anchor="end" font-family="monospace" font-size="10" fill="#777">1.87</text>
+  <text x="253" y="111" text-anchor="start" font-family="'Noto Sans CJK SC'" font-size="10" fill="#777">Fused f32</text>
+
+  <!-- 4.1 tok/s -->
+  <rect x="180" y="126" width="145" height="26" rx="3" fill="url(#bar_cdg)" opacity="0.8"/>
+  <text x="175" y="144" text-anchor="end" font-family="monospace" font-size="11" fill="#0099dd">4.1</text>
+  <text x="332" y="144" text-anchor="start" font-family="'Noto Sans CJK SC'" font-size="11" fill="#0099dd">dot_scaled</text>
+
+  <!-- 12 tok/s — mixed backend (THIS ARTICLE) -->
+  <rect x="180" y="162" width="424" height="32" rx="4" fill="url(#bar_win)" filter="url(#glow)"/>
+  <text x="175" y="184" text-anchor="end" font-family="monospace" font-size="14" fill="#00ff88" font-weight="bold">12</text>
+  <text x="612" y="184" text-anchor="start" font-family="'Noto Sans CJK SC'" font-size="13" fill="#00ff88" font-weight="bold">混合后端</text>
+
+  <!-- 14 tok/s — jasl Marlin (reference, broken English) -->
+  <rect x="180" y="204" width="496" height="26" rx="3" fill="url(#bar_ref)" opacity="0.4"/>
+  <text x="175" y="222" text-anchor="end" font-family="monospace" font-size="11" fill="#cc6633">14</text>
+  <text x="684" y="222" text-anchor="start" font-family="'Noto Sans CJK SC'" font-size="11" fill="#ff6622">Marlin</text>
+  <text x="580" y="222" text-anchor="middle" font-family="'Noto Sans CJK SC'" font-size="10" fill="#ff4444" opacity="0.7">英文乱码</text>
+
+  <!-- Axis -->
+  <text x="450" y="255" text-anchor="middle" font-family="monospace" font-size="10" fill="#444">tok/s</text>
+
+  <!-- Checkmarks -->
+  <text x="740" y="144" font-family="monospace" font-size="12" fill="#0099dd">EN/CN</text>
+  <text x="740" y="184" font-family="monospace" font-size="14" fill="#00ff88" font-weight="bold">EN/CN</text>
+  <text x="740" y="222" font-family="monospace" font-size="12" fill="#ff4444">CN only</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="320" x2="860" y2="320" stroke="#333" stroke-width="0.5"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="430" width="900" height="70" fill="#000" opacity="0.6"/>
+  <text x="450" y="460" text-anchor="middle" font-family="'Noto Sans CJK SC'" font-size="22" fill="#ffffff" font-weight="bold">42 层 Marlin + 1 层 CDG</text>
+  <text x="450" y="488" text-anchor="middle" font-family="'Noto Sans CJK SC'" font-size="18" fill="#00ff88">按层二分，绕过误差累积</text>
+</svg>
