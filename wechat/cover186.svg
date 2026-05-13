@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#0a1a2e"/>
+    </linearGradient>
+    <linearGradient id="fast" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00cc88"/>
+      <stop offset="100%" style="stop-color:#00ffaa"/>
+    </linearGradient>
+    <linearGradient id="slow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6644"/>
+      <stop offset="100%" style="stop-color:#ff4422"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <g opacity="0.06" stroke="#00cc88">
+    <line x1="0" y1="100" x2="900" y2="100"/>
+    <line x1="0" y1="200" x2="900" y2="200"/>
+    <line x1="0" y1="300" x2="900" y2="300"/>
+    <line x1="150" y1="0" x2="150" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="450" y1="0" x2="450" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="750" y1="0" x2="750" y2="500"/>
+  </g>
+
+  <!-- Left: Old kernel (3 steps, 3 memory round-trips) -->
+  <g transform="translate(80, 60)">
+    <text x="150" y="0" text-anchor="middle" fill="#ff6644" font-family="'Noto Sans CJK SC'" font-size="15" font-weight="bold">手动 FP4 解包（旧）</text>
+
+    <!-- Step 1: unpack -->
+    <rect x="30" y="25" width="240" height="45" rx="6" fill="#2a1510" stroke="#ff6644" stroke-width="1.5"/>
+    <text x="150" y="53" text-anchor="middle" fill="#ff8866" font-family="monospace" font-size="12">int8 → FP4_TABLE → f32</text>
+
+    <!-- Arrow down (memory write) -->
+    <line x1="150" y1="70" x2="150" y2="95" stroke="#ff4422" stroke-width="1.5"/>
+    <text x="200" y="87" fill="#994433" font-family="'Noto Sans CJK SC'" font-size="10">写回显存</text>
+
+    <!-- Step 2: scale -->
+    <rect x="30" y="95" width="240" height="45" rx="6" fill="#2a1510" stroke="#ff6644" stroke-width="1.5"/>
+    <text x="150" y="123" text-anchor="middle" fill="#ff8866" font-family="monospace" font-size="12">f32 × scale → f32</text>
+
+    <!-- Arrow down -->
+    <line x1="150" y1="140" x2="150" y2="165" stroke="#ff4422" stroke-width="1.5"/>
+    <text x="200" y="157" fill="#994433" font-family="'Noto Sans CJK SC'" font-size="10">写回显存</text>
+
+    <!-- Step 3: matmul -->
+    <rect x="30" y="165" width="240" height="45" rx="6" fill="#2a1510" stroke="#ff6644" stroke-width="1.5"/>
+    <text x="150" y="193" text-anchor="middle" fill="#ff8866" font-family="monospace" font-size="12">tl.dot(f32, f32)</text>
+
+    <!-- Arrow down -->
+    <line x1="150" y1="210" x2="150" y2="235" stroke="#ff4422" stroke-width="1.5"/>
+    <text x="200" y="227" fill="#994433" font-family="'Noto Sans CJK SC'" font-size="10">写回显存</text>
+
+    <!-- 3x label -->
+    <text x="150" y="260" text-anchor="middle" fill="#ff4422" font-family="'Noto Sans CJK SC'" font-size="13" font-weight="bold">显存读写 3 次</text>
+    <text x="150" y="285" text-anchor="middle" fill="#884433" font-family="monospace" font-size="20">50 行代码</text>
+  </g>
+
+  <!-- Center: Arrow -->
+  <g transform="translate(405, 160)">
+    <polygon points="0,30 60,0 60,15 120,15 120,45 60,45 60,60" fill="#00cc88" opacity="0.3"/>
+    <text x="60" y="80" text-anchor="middle" fill="#00cc88" font-family="'Noto Sans CJK SC'" font-size="16" font-weight="bold" filter="url(#glow)">6-7x</text>
+  </g>
+
+  <!-- Right: New kernel (1 step) -->
+  <g transform="translate(560, 60)">
+    <text x="140" y="0" text-anchor="middle" fill="#00cc88" font-family="'Noto Sans CJK SC'" font-size="15" font-weight="bold">dot_scaled（新）</text>
+
+    <!-- Single fused box -->
+    <rect x="15" y="25" width="250" height="185" rx="10" fill="#0a2a1a" stroke="#00cc88" stroke-width="2"/>
+
+    <!-- Internal flow (all in registers) -->
+    <text x="140" y="58" text-anchor="middle" fill="#00ddaa" font-family="monospace" font-size="11">FP4 解包</text>
+    <text x="140" y="80" text-anchor="middle" fill="#00aa88" font-family="'Noto Sans CJK SC'" font-size="10">↓ 寄存器</text>
+    <text x="140" y="105" text-anchor="middle" fill="#00ddaa" font-family="monospace" font-size="11">× block scale</text>
+    <text x="140" y="127" text-anchor="middle" fill="#00aa88" font-family="'Noto Sans CJK SC'" font-size="10">↓ 寄存器</text>
+    <text x="140" y="152" text-anchor="middle" fill="#00ddaa" font-family="monospace" font-size="11">bf16 matmul</text>
+    <text x="140" y="174" text-anchor="middle" fill="#00aa88" font-family="'Noto Sans CJK SC'" font-size="10">↓ 寄存器</text>
+    <text x="140" y="199" text-anchor="middle" fill="#00ddaa" font-family="monospace" font-size="11">结果写出</text>
+
+    <!-- 1x label -->
+    <text x="140" y="240" text-anchor="middle" fill="#00cc88" font-family="'Noto Sans CJK SC'" font-size="13" font-weight="bold">显存读写 1 次</text>
+    <text x="140" y="265" text-anchor="middle" fill="#006644" font-family="monospace" font-size="20">1 行代码</text>
+  </g>
+
+  <!-- Performance bar at bottom -->
+  <g transform="translate(80, 350)">
+    <text x="0" y="15" fill="#888" font-family="'Noto Sans CJK SC'" font-size="12">Prefill 971 tok:</text>
+    <rect x="160" y="0" width="340" height="24" rx="4" fill="#2a1510" opacity="0.8"/>
+    <rect x="160" y="0" width="210" height="24" rx="4" fill="url(#fast)" opacity="0.8"/>
+    <text x="175" y="16" fill="#fff" font-family="monospace" font-size="11">9.0s</text>
+    <text x="510" y="16" fill="#ff6644" font-family="monospace" font-size="11">14.6s</text>
+    <text x="560" y="16" fill="#00cc88" font-family="monospace" font-size="12" font-weight="bold">1.62x</text>
+  </g>
+
+  <g transform="translate(80, 385)">
+    <text x="0" y="15" fill="#888" font-family="'Noto Sans CJK SC'" font-size="12">生成速度:</text>
+    <rect x="160" y="0" width="340" height="24" rx="4" fill="#2a1510" opacity="0.8"/>
+    <rect x="160" y="0" width="272" height="24" rx="4" fill="url(#fast)" opacity="0.8"/>
+    <text x="175" y="16" fill="#fff" font-family="monospace" font-size="11">4.11 tok/s</text>
+    <text x="442" y="16" fill="#ff6644" font-family="monospace" font-size="11">~3.3 tok/s</text>
+    <text x="560" y="16" fill="#00cc88" font-family="monospace" font-size="12" font-weight="bold">1.25x</text>
+  </g>
+
+  <!-- Title -->
+  <text x="450" y="455" text-anchor="middle" fill="#fff" font-family="'Noto Sans CJK SC'" font-size="24" font-weight="bold">dot_scaled 一行换掉手动 FP4 解包</text>
+  <text x="450" y="480" text-anchor="middle" fill="#888" font-family="'Noto Sans CJK SC'" font-size="13">DeepSeek V4 激活值提取优化 · 186 期</text>
+</svg>

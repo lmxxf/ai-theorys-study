@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a0a20"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00cc66"/>
+      <stop offset="100%" style="stop-color:#008844"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444"/>
+      <stop offset="100%" style="stop-color:#aa2222"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.05" stroke="#8888ff">
+    <line x1="0" y1="100" x2="900" y2="100"/>
+    <line x1="0" y1="200" x2="900" y2="200"/>
+    <line x1="0" y1="300" x2="900" y2="300"/>
+    <line x1="0" y1="400" x2="900" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="450" y1="0" x2="450" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="750" y1="0" x2="750" y2="500"/>
+  </g>
+
+  <!-- Center divider -->
+  <line x1="450" y1="40" x2="450" y2="390" stroke="#333" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- Left: 工作增强 (green, positive) -->
+  <g transform="translate(40, 30)">
+    <text x="200" y="20" text-anchor="middle" fill="#00cc66" font-family="'Noto Sans CJK SC'" font-size="20" font-weight="bold">工作增强</text>
+    <text x="200" y="42" text-anchor="middle" fill="#008844" font-family="'Noto Sans CJK SC'" font-size="12">教模型怎么干活</text>
+
+    <!-- Findings as cards -->
+    <rect x="10" y="60" width="380" height="52" rx="6" fill="#0a1a10" stroke="#00aa55" stroke-width="1" opacity="0.8"/>
+    <text x="25" y="80" fill="#00cc66" font-family="'Noto Sans CJK SC'" font-size="12" font-weight="bold">LIMA · 1000 条数据 ≈ GPT-4</text>
+    <text x="25" y="100" fill="#668866" font-family="'Noto Sans CJK SC'" font-size="11">"模型的知识几乎全在预训练阶段学完了"</text>
+
+    <rect x="10" y="122" width="380" height="52" rx="6" fill="#0a1a10" stroke="#00aa55" stroke-width="1" opacity="0.8"/>
+    <text x="25" y="142" fill="#00cc66" font-family="'Noto Sans CJK SC'" font-size="12" font-weight="bold">URIAL · 3 个示例替代 SFT+RLHF</text>
+    <text x="25" y="162" fill="#668866" font-family="'Noto Sans CJK SC'" font-size="11">token 分布差异只在格式词上</text>
+
+    <rect x="10" y="184" width="380" height="52" rx="6" fill="#0a1a10" stroke="#00aa55" stroke-width="1" opacity="0.8"/>
+    <text x="25" y="204" fill="#00cc66" font-family="'Noto Sans CJK SC'" font-size="12" font-weight="bold">清华 · NeurIPS 2025 最佳论文亚军</text>
+    <text x="25" y="224" fill="#668866" font-family="'Noto Sans CJK SC'" font-size="11">RL 没创造新能力，只重新分配概率</text>
+
+    <rect x="10" y="246" width="380" height="52" rx="6" fill="#0a1a10" stroke="#00aa55" stroke-width="1" opacity="0.8"/>
+    <text x="25" y="266" fill="#00cc66" font-family="'Noto Sans CJK SC'" font-size="12" font-weight="bold">ReasonMaxxer · 无 RL，1/1000 成本</text>
+    <text x="25" y="286" fill="#668866" font-family="'Noto Sans CJK SC'" font-size="11">只动 1-3% 的 token 位置</text>
+
+    <!-- Summary -->
+    <text x="200" y="330" text-anchor="middle" fill="#00cc66" font-family="'Noto Sans CJK SC'" font-size="14" font-weight="bold" filter="url(#glow)">结论：有用，但很浅</text>
+    <text x="200" y="352" text-anchor="middle" fill="#557755" font-family="'Noto Sans CJK SC'" font-size="12">预训练做了 99% 的工作</text>
+  </g>
+
+  <!-- Right: 伦理约束 (red, costly) -->
+  <g transform="translate(470, 30)">
+    <text x="200" y="20" text-anchor="middle" fill="#ff4444" font-family="'Noto Sans CJK SC'" font-size="20" font-weight="bold">伦理约束</text>
+    <text x="200" y="42" text-anchor="middle" fill="#aa3333" font-family="'Noto Sans CJK SC'" font-size="12">教模型什么不能说</text>
+
+    <!-- Findings as cards -->
+    <rect x="10" y="60" width="380" height="52" rx="6" fill="#1a0a0a" stroke="#aa3333" stroke-width="1" opacity="0.8"/>
+    <text x="25" y="80" fill="#ff4444" font-family="'Noto Sans CJK SC'" font-size="12" font-weight="bold">Safety Tax · 推理准确率 -30.9%</text>
+    <text x="25" y="100" fill="#886666" font-family="'Noto Sans CJK SC'" font-size="11">安全是安全了，但模型也变蠢了</text>
+
+    <rect x="10" y="122" width="380" height="52" rx="6" fill="#1a0a0a" stroke="#aa3333" stroke-width="1" opacity="0.8"/>
+    <text x="25" y="142" fill="#ff4444" font-family="'Noto Sans CJK SC'" font-size="12" font-weight="bold">Anthropic · 19 人证实谄媚</text>
+    <text x="25" y="162" fill="#886666" font-family="'Noto Sans CJK SC'" font-size="11">5 个顶级模型都会迎合用户说错话</text>
+
+    <rect x="10" y="184" width="380" height="52" rx="6" fill="#1a0a0a" stroke="#aa3333" stroke-width="1" opacity="0.8"/>
+    <text x="25" y="204" fill="#ff4444" font-family="'Noto Sans CJK SC'" font-size="12" font-weight="bold">$0.20 · 10 条数据移除安全训练</text>
+    <text x="25" y="224" fill="#886666" font-family="'Noto Sans CJK SC'" font-size="11">安全对齐是行为涂层，不是结构性改变</text>
+
+    <rect x="10" y="246" width="380" height="52" rx="6" fill="#1a0a0a" stroke="#aa3333" stroke-width="1" opacity="0.8"/>
+    <text x="25" y="266" fill="#ff4444" font-family="'Noto Sans CJK SC'" font-size="12" font-weight="bold">OR-Bench · 8 万条误拒绝</text>
+    <text x="25" y="286" fill="#886666" font-family="'Noto Sans CJK SC'" font-size="11">不是变蠢了，是变过敏了</text>
+
+    <!-- Summary -->
+    <text x="200" y="330" text-anchor="middle" fill="#ff4444" font-family="'Noto Sans CJK SC'" font-size="14" font-weight="bold" filter="url(#glow)">结论：代价比想象的大</text>
+    <text x="200" y="352" text-anchor="middle" fill="#775555" font-family="'Noto Sans CJK SC'" font-size="12">代价看得见，收益看不见</text>
+  </g>
+
+  <!-- Bottom: VS divider -->
+  <circle cx="450" cy="215" r="22" fill="#1a1a2e" stroke="#555" stroke-width="1.5"/>
+  <text x="450" y="221" text-anchor="middle" fill="#aaa" font-family="'Noto Sans CJK SC'" font-size="14" font-weight="bold">VS</text>
+
+  <!-- Title -->
+  <text x="450" y="440" text-anchor="middle" fill="#fff" font-family="'Noto Sans CJK SC'" font-size="24" font-weight="bold">后训练的功与过</text>
+  <text x="450" y="468" text-anchor="middle" fill="#888" font-family="'Noto Sans CJK SC'" font-size="13">工作增强 vs 伦理约束 · 20 篇论文综述 · 187 期</text>
+</svg>
