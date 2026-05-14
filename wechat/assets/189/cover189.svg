@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC, sans-serif">
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#1a1a3e"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="30%" cy="40%">
+      <stop offset="0%" stop-color="#4fc3f7" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#4fc3f7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="70%" cy="60%">
+      <stop offset="0%" stop-color="#ab47bc" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ab47bc" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#glow1)"/>
+  <rect width="900" height="500" fill="url(#glow2)"/>
+
+  <!-- Left: S^{d-1} sphere (RMSNorm) -->
+  <!-- Sphere outline -->
+  <ellipse cx="260" cy="260" rx="140" ry="140" fill="none" stroke="#4fc3f7" stroke-width="1.5" opacity="0.25"/>
+  <ellipse cx="260" cy="260" rx="140" ry="42" fill="none" stroke="#4fc3f7" stroke-width="1" opacity="0.35"/>
+  <ellipse cx="260" cy="260" rx="42" ry="140" fill="none" stroke="#4fc3f7" stroke-width="1" opacity="0.35"/>
+
+  <!-- Vectors on sphere -->
+  <line x1="260" y1="260" x2="360" y2="190" stroke="#4fc3f7" stroke-width="2" opacity="0.7"/>
+  <circle cx="360" cy="190" r="4" fill="#4fc3f7" opacity="0.8"/>
+  <line x1="260" y1="260" x2="180" y2="150" stroke="#4fc3f7" stroke-width="2" opacity="0.7"/>
+  <circle cx="180" cy="150" r="4" fill="#4fc3f7" opacity="0.8"/>
+  <line x1="260" y1="260" x2="330" y2="360" stroke="#4fc3f7" stroke-width="2" opacity="0.7"/>
+  <circle cx="330" cy="360" r="4" fill="#4fc3f7" opacity="0.8"/>
+  <line x1="260" y1="260" x2="150" y2="310" stroke="#4fc3f7" stroke-width="2" opacity="0.7"/>
+  <circle cx="150" cy="310" r="4" fill="#4fc3f7" opacity="0.8"/>
+
+  <!-- Label -->
+  <text x="260" y="430" text-anchor="middle" fill="#4fc3f7" font-size="22" font-weight="bold">S^(d-1)</text>
+  <text x="260" y="455" text-anchor="middle" fill="#4fc3f7" font-size="14" opacity="0.7">RMSNorm</text>
+
+  <!-- Right: S^{d-2} circle (LayerNorm) -->
+  <!-- Faded sphere -->
+  <ellipse cx="640" cy="260" rx="140" ry="140" fill="none" stroke="#555" stroke-width="1" opacity="0.12" stroke-dasharray="6,5"/>
+
+  <!-- Hyperplane -->
+  <polygon points="510,170 770,170 770,350 510,350" fill="#ab47bc" fill-opacity="0.04" stroke="#ab47bc" stroke-width="1" stroke-opacity="0.2"/>
+
+  <!-- Circle on hyperplane -->
+  <ellipse cx="640" cy="260" rx="130" ry="38" fill="none" stroke="#ab47bc" stroke-width="2.5" opacity="0.8"/>
+
+  <!-- Vectors on circle -->
+  <line x1="640" y1="260" x2="760" y2="245" stroke="#ab47bc" stroke-width="2" opacity="0.7"/>
+  <circle cx="760" cy="245" r="4" fill="#ab47bc" opacity="0.8"/>
+  <line x1="640" y1="260" x2="525" y2="242" stroke="#ab47bc" stroke-width="2" opacity="0.7"/>
+  <circle cx="525" cy="242" r="4" fill="#ab47bc" opacity="0.8"/>
+  <line x1="640" y1="260" x2="710" y2="292" stroke="#ab47bc" stroke-width="2" opacity="0.7"/>
+  <circle cx="710" cy="292" r="4" fill="#ab47bc" opacity="0.8"/>
+  <line x1="640" y1="260" x2="565" y2="285" stroke="#ab47bc" stroke-width="2" opacity="0.7"/>
+  <circle cx="565" cy="285" r="4" fill="#ab47bc" opacity="0.8"/>
+
+  <!-- Crossed out [1,1,1] -->
+  <line x1="640" y1="260" x2="700" y2="160" stroke="#ef5350" stroke-width="2" stroke-dasharray="6,3" opacity="0.8"/>
+  <line x1="690" y1="155" x2="710" y2="175" stroke="#ef5350" stroke-width="3"/>
+  <line x1="710" y1="155" x2="690" y2="175" stroke="#ef5350" stroke-width="3"/>
+
+  <!-- Label -->
+  <text x="640" y="430" text-anchor="middle" fill="#ab47bc" font-size="22" font-weight="bold">S^(d-2)</text>
+  <text x="640" y="455" text-anchor="middle" fill="#ab47bc" font-size="14" opacity="0.7">LayerNorm</text>
+
+  <!-- Center: VS -->
+  <text x="450" y="270" text-anchor="middle" fill="#666" font-size="28" font-weight="bold" opacity="0.4">vs</text>
+
+  <!-- Title -->
+  <text x="450" y="52" text-anchor="middle" fill="#e0e0e0" font-size="28" font-weight="bold">RMSNorm vs LayerNorm</text>
+  <text x="450" y="82" text-anchor="middle" fill="#999" font-size="16">从一道面试题到流形几何</text>
+
+  <!-- Bottom tagline -->
+  <text x="450" y="490" text-anchor="middle" fill="#666" font-size="12">靳岩岩的 AI 学习笔记 · 第 189 期</text>
+
+</svg>
