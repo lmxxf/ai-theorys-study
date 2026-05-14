@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" font-family="Noto Sans CJK SC, sans-serif">
+
+  <defs>
+    <marker id="axArr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="none" stroke="#888" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="420" fill="#1a1a2e"/>
+
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" fill="#e0e0e0" font-size="16" font-weight="bold">RMSNorm vs Dynamic Tanh (DyT) 的输入-输出曲线</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="230" x2="620" y2="230" stroke="#888" stroke-width="1.5" marker-end="url(#axArr)"/>
+  <text x="635" y="235" fill="#888" font-size="12">x</text>
+  <line x1="350" y1="390" x2="350" y2="50" stroke="#888" stroke-width="1.5" marker-end="url(#axArr)"/>
+  <text x="358" y="48" fill="#888" font-size="12">y</text>
+
+  <!-- Grid lines -->
+  <line x1="80" y1="130" x2="620" y2="130" stroke="#444" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="80" y1="330" x2="620" y2="330" stroke="#444" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="170" y1="50" x2="170" y2="390" stroke="#444" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="530" y1="50" x2="530" y2="390" stroke="#444" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+  <!-- Axis labels -->
+  <text x="168" y="245" text-anchor="middle" fill="#666" font-size="10">-3</text>
+  <text x="230" y="245" text-anchor="middle" fill="#666" font-size="10">-2</text>
+  <text x="290" y="245" text-anchor="middle" fill="#666" font-size="10">-1</text>
+  <text x="410" y="245" text-anchor="middle" fill="#666" font-size="10">1</text>
+  <text x="470" y="245" text-anchor="middle" fill="#666" font-size="10">2</text>
+  <text x="530" y="245" text-anchor="middle" fill="#666" font-size="10">3</text>
+  <text x="340" y="135" text-anchor="end" fill="#666" font-size="10">1</text>
+  <text x="340" y="335" text-anchor="end" fill="#666" font-size="10">-1</text>
+  <text x="356" y="243" fill="#666" font-size="10">0</text>
+
+  <!-- RMSNorm curve: y = x / RMS, linear -->
+  <line x1="110" y1="326" x2="590" y2="134" stroke="#4fc3f7" stroke-width="2.5" opacity="0.9"/>
+
+  <!-- DyT curve: y = tanh(0.8 * x), S-shaped -->
+  <polyline fill="none" stroke="#ab47bc" stroke-width="2.5" opacity="0.9"
+    points="
+      110,330
+      122,330
+      134,329
+      146,329
+      158,329
+      170,328
+      182,328
+      194,327
+      206,326
+      218,324
+      230,322
+      242,319
+      254,316
+      266,311
+      278,304
+      290,296
+      302,286
+      314,275
+      326,261
+      338,246
+      350,230
+      362,214
+      374,199
+      386,185
+      398,174
+      410,164
+      422,156
+      434,149
+      446,144
+      458,141
+      470,138
+      482,136
+      494,134
+      506,133
+      518,132
+      530,132
+      542,131
+      554,131
+      566,131
+      578,130
+      590,130
+    "/>
+
+  <!-- RMSNorm label: top-left area, away from curves -->
+  <text x="95" y="75" fill="#4fc3f7" font-size="13" font-weight="bold">RMSNorm：y = x / RMS</text>
+  <text x="95" y="93" fill="#4fc3f7" font-size="11">线性，不封顶，值多大就输出多大</text>
+
+  <!-- DyT label: bottom-right area -->
+  <text x="430" y="365" fill="#ab47bc" font-size="13" font-weight="bold">DyT：y = tanh(α·x)</text>
+  <text x="430" y="383" fill="#ab47bc" font-size="11">S 形，中间放过，两头压到 ±1</text>
+
+
+  <!-- Annotation arrows pointing to tail divergence -->
+  <!-- Right tail -->
+  <text x="600" y="90" fill="#ef5350" font-size="11">↑ RMSNorm 继续涨</text>
+  <text x="600" y="106" fill="#ef5350" font-size="11">→ DyT 压平在 1</text>
+
+</svg>
