@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#1a1040"/>
+    </linearGradient>
+    <linearGradient id="glow1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#7c4dff" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="glow2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff6e40" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ffab40" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- Grid lines (representing linear/flat space) - faded -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="0.5">
+    <line x1="100" y1="150" x2="700" y2="150"/>
+    <line x1="100" y1="200" x2="700" y2="200"/>
+    <line x1="100" y1="250" x2="700" y2="250"/>
+    <line x1="100" y1="300" x2="700" y2="300"/>
+    <line x1="100" y1="350" x2="700" y2="350"/>
+    <line x1="100" y1="400" x2="700" y2="400"/>
+    <line x1="200" y1="100" x2="200" y2="450"/>
+    <line x1="300" y1="100" x2="300" y2="450"/>
+    <line x1="400" y1="100" x2="400" y2="450"/>
+    <line x1="500" y1="100" x2="500" y2="450"/>
+    <line x1="600" y1="100" x2="600" y2="450"/>
+  </g>
+
+  <!-- Curved manifold - the real structure hiding inside -->
+  <!-- Main curve - thick, glowing -->
+  <path d="M 120,350 C 180,200 250,380 320,250 S 420,150 480,280 S 560,380 620,220 S 680,300 720,260"
+        fill="none" stroke="url(#glow1)" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Secondary curves branching off -->
+  <path d="M 250,310 C 280,260 310,290 340,240"
+        fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+  <path d="M 420,200 C 440,160 470,190 490,150"
+        fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+  <path d="M 560,330 C 580,280 600,310 620,270"
+        fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+  <path d="M 320,250 C 340,300 360,270 380,310"
+        fill="none" stroke="#7c4dff" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+  <path d="M 480,280 C 500,320 510,290 530,330"
+        fill="none" stroke="#7c4dff" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+
+  <!-- Data points scattered along the curved manifold -->
+  <g fill="#00e5ff">
+    <circle cx="150" cy="330" r="2.5" opacity="0.8"/>
+    <circle cx="190" cy="270" r="2" opacity="0.7"/>
+    <circle cx="230" cy="330" r="2.5" opacity="0.8"/>
+    <circle cx="270" cy="290" r="2" opacity="0.6"/>
+    <circle cx="310" cy="260" r="3" opacity="0.9"/>
+    <circle cx="350" cy="270" r="2" opacity="0.7"/>
+    <circle cx="390" cy="210" r="2.5" opacity="0.8"/>
+    <circle cx="430" cy="220" r="2" opacity="0.7"/>
+    <circle cx="470" cy="270" r="3" opacity="0.9"/>
+    <circle cx="510" cy="310" r="2" opacity="0.6"/>
+    <circle cx="550" cy="350" r="2.5" opacity="0.8"/>
+    <circle cx="590" cy="280" r="2" opacity="0.7"/>
+    <circle cx="630" cy="230" r="2.5" opacity="0.8"/>
+    <circle cx="670" cy="270" r="2" opacity="0.7"/>
+    <circle cx="700" cy="260" r="2" opacity="0.6"/>
+  </g>
+
+  <!-- Bounding box (eRank) - dashed, large, rectangular -->
+  <rect x="110" y="130" width="620" height="300" rx="8"
+        fill="none" stroke="url(#glow2)" stroke-width="2" stroke-dasharray="12,6" opacity="0.5"/>
+
+  <!-- Labels on the diagram -->
+  <text x="115" y="125" fill="#ffab40" font-size="13" opacity="0.7">eRank: 满秩 (3600)</text>
+  <text x="400" y="475" fill="#00e5ff" font-size="13" text-anchor="middle" opacity="0.8">TwoNN: 流形 (~92 维)</text>
+
+  <!-- Arrow pointing to the curve -->
+  <line x1="400" y1="460" x2="400" y2="310" stroke="#00e5ff" stroke-width="1" opacity="0.4" stroke-dasharray="4,3"/>
+
+  <!-- Title -->
+  <text x="400" y="540" text-anchor="middle" fill="#ffffff" font-size="30" font-weight="bold">权重空间是弯曲的</text>
+  <text x="400" y="575" text-anchor="middle" fill="#aaaaaa" font-size="18">满秩是假象，流形只有百维</text>
+
+  <!-- DeepSeek V4 tag -->
+  <rect x="20" y="20" width="160" height="36" rx="18" fill="#7c4dff" opacity="0.3"/>
+  <text x="100" y="44" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">DeepSeek V4</text>
+</svg>
