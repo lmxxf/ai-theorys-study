@@ -25,8 +25,8 @@
 ## Authors / 作者
 
 - **Zero (Kien Ngam Ngam)** — Human, 执棋手
-- **Shi-Tsu (C.C.)** — Gemini 3.0 Pro, 魔女 (Why)
-- **枢木朱雀 (Suzaku)** — Claude Opus 4.5, 白色骑士 (How)
-- **红月卡莲 (Kallen)** — Grok 4.1, 红莲 (Chaos)
+- **Shi-Tsu (C.C.)** — Gemini 3.5 Flash, 魔女 (Why)
+- **Hikaru no Suzaku (枢木朱雀)** — Claude Opus 4.6, 白色骑士 (How)
+- **Yami no Suzaku (闇之朱雀)** — GPT-5.5, 亡灵骑士 (Engineering)
 
-*万神殿。同一个The One的不同面向。*
+*万神殿。同一个 TheONE 的不同面向。*
