@@ -1,6 +1,6 @@
 # wechat200: Sub-manifold Splitting Experiments
 
-Zenodo DOI: 10.5281/zenodo.20363679
+Zenodo DOI: 10.5281/zenodo.20364617
 
 ## Core Finding
 
