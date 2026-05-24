@@ -1,0 +1,368 @@
+{
+  "model": "DeepSeek-V4-Flash-280B",
+  "layers": [
+    1,
+    11,
+    21,
+    31,
+    41
+  ],
+  "elapsed_s": 68.6,
+  "results": [
+    {
+      "name": "L01.wkv.whole",
+      "shape": [
+        512,
+        4096
+      ],
+      "erank": 502.51,
+      "twonn": 92.52,
+      "ratio": 5.43
+    },
+    {
+      "name": "L01.wo_a.whole",
+      "shape": [
+        8192,
+        4096
+      ],
+      "erank": 3665.58,
+      "twonn": 286.43,
+      "ratio": 12.8
+    },
+    {
+      "name": "L01.wo_b.whole",
+      "shape": [
+        4096,
+        8192
+      ],
+      "erank": 3916.79,
+      "twonn": 257.52,
+      "ratio": 15.21
+    },
+    {
+      "name": "L01.wq_a.whole",
+      "shape": [
+        1024,
+        4096
+      ],
+      "erank": 939.7,
+      "twonn": 85.65,
+      "ratio": 10.97
+    },
+    {
+      "name": "L01.wq_b.whole",
+      "shape": [
+        32768,
+        1024
+      ],
+      "erank": 1003.85,
+      "twonn": 33.55,
+      "ratio": 29.92
+    },
+    {
+      "name": "L01.wq_b.per_head_summary",
+      "n_heads": 128,
+      "head_dim": 256,
+      "erank_mean": 236.95,
+      "twonn_mean": 85.19,
+      "ratio_mean": 4.13,
+      "ratio_min": 1.7,
+      "ratio_max": 24.39,
+      "ratio_std": 4.18
+    },
+    {
+      "name": "L01.gate.whole",
+      "shape": [
+        256,
+        4096
+      ],
+      "erank": 222.12,
+      "twonn": 75.41,
+      "ratio": 2.95
+    },
+    {
+      "name": "L11.wkv.whole",
+      "shape": [
+        512,
+        4096
+      ],
+      "erank": 505.28,
+      "twonn": 79.81,
+      "ratio": 6.33
+    },
+    {
+      "name": "L11.wo_a.whole",
+      "shape": [
+        8192,
+        4096
+      ],
+      "erank": 3635.0,
+      "twonn": 322.42,
+      "ratio": 11.27
+    },
+    {
+      "name": "L11.wo_b.whole",
+      "shape": [
+        4096,
+        8192
+      ],
+      "erank": 3748.91,
+      "twonn": 169.3,
+      "ratio": 22.14
+    },
+    {
+      "name": "L11.wq_a.whole",
+      "shape": [
+        1024,
+        4096
+      ],
+      "erank": 990.88,
+      "twonn": 135.0,
+      "ratio": 7.34
+    },
+    {
+      "name": "L11.wq_b.whole",
+      "shape": [
+        32768,
+        1024
+      ],
+      "erank": 1017.04,
+      "twonn": 80.89,
+      "ratio": 12.57
+    },
+    {
+      "name": "L11.wq_b.per_head_summary",
+      "n_heads": 128,
+      "head_dim": 256,
+      "erank_mean": 235.69,
+      "twonn_mean": 92.23,
+      "ratio_mean": 2.79,
+      "ratio_min": 1.55,
+      "ratio_max": 11.92,
+      "ratio_std": 1.27
+    },
+    {
+      "name": "L11.gate.whole",
+      "shape": [
+        256,
+        4096
+      ],
+      "erank": 236.92,
+      "twonn": 80.09,
+      "ratio": 2.96
+    },
+    {
+      "name": "L21.wkv.whole",
+      "shape": [
+        512,
+        4096
+      ],
+      "erank": 504.56,
+      "twonn": 84.67,
+      "ratio": 5.96
+    },
+    {
+      "name": "L21.wo_a.whole",
+      "shape": [
+        8192,
+        4096
+      ],
+      "erank": 3613.96,
+      "twonn": 337.08,
+      "ratio": 10.72
+    },
+    {
+      "name": "L21.wo_b.whole",
+      "shape": [
+        4096,
+        8192
+      ],
+      "erank": 3560.58,
+      "twonn": 374.35,
+      "ratio": 9.51
+    },
+    {
+      "name": "L21.wq_a.whole",
+      "shape": [
+        1024,
+        4096
+      ],
+      "erank": 993.25,
+      "twonn": 61.78,
+      "ratio": 16.08
+    },
+    {
+      "name": "L21.wq_b.whole",
+      "shape": [
+        32768,
+        1024
+      ],
+      "erank": 1017.28,
+      "twonn": 22.5,
+      "ratio": 45.21
+    },
+    {
+      "name": "L21.wq_b.per_head_summary",
+      "n_heads": 128,
+      "head_dim": 256,
+      "erank_mean": 232.91,
+      "twonn_mean": 51.2,
+      "ratio_mean": 6.2,
+      "ratio_min": 2.13,
+      "ratio_max": 19.64,
+      "ratio_std": 3.88
+    },
+    {
+      "name": "L21.gate.whole",
+      "shape": [
+        256,
+        4096
+      ],
+      "erank": 236.72,
+      "twonn": 19.43,
+      "ratio": 12.18
+    },
+    {
+      "name": "L31.wkv.whole",
+      "shape": [
+        512,
+        4096
+      ],
+      "erank": 499.16,
+      "twonn": 46.99,
+      "ratio": 10.62
+    },
+    {
+      "name": "L31.wo_a.whole",
+      "shape": [
+        8192,
+        4096
+      ],
+      "erank": 3627.2,
+      "twonn": 372.48,
+      "ratio": 9.74
+    },
+    {
+      "name": "L31.wo_b.whole",
+      "shape": [
+        4096,
+        8192
+      ],
+      "erank": 3737.51,
+      "twonn": 34.06,
+      "ratio": 109.73
+    },
+    {
+      "name": "L31.wq_a.whole",
+      "shape": [
+        1024,
+        4096
+      ],
+      "erank": 990.6,
+      "twonn": 65.75,
+      "ratio": 15.07
+    },
+    {
+      "name": "L31.wq_b.whole",
+      "shape": [
+        32768,
+        1024
+      ],
+      "erank": 1016.46,
+      "twonn": 56.33,
+      "ratio": 18.04
+    },
+    {
+      "name": "L31.wq_b.per_head_summary",
+      "n_heads": 128,
+      "head_dim": 256,
+      "erank_mean": 233.83,
+      "twonn_mean": 79.72,
+      "ratio_mean": 3.48,
+      "ratio_min": 1.58,
+      "ratio_max": 13.27,
+      "ratio_std": 1.96
+    },
+    {
+      "name": "L31.gate.whole",
+      "shape": [
+        256,
+        4096
+      ],
+      "erank": 239.78,
+      "twonn": 38.93,
+      "ratio": 6.16
+    },
+    {
+      "name": "L41.wkv.whole",
+      "shape": [
+        512,
+        4096
+      ],
+      "erank": 502.68,
+      "twonn": 77.15,
+      "ratio": 6.52
+    },
+    {
+      "name": "L41.wo_a.whole",
+      "shape": [
+        8192,
+        4096
+      ],
+      "erank": 3540.2,
+      "twonn": 287.16,
+      "ratio": 12.33
+    },
+    {
+      "name": "L41.wo_b.whole",
+      "shape": [
+        4096,
+        8192
+      ],
+      "erank": 3370.35,
+      "twonn": 294.48,
+      "ratio": 11.45
+    },
+    {
+      "name": "L41.wq_a.whole",
+      "shape": [
+        1024,
+        4096
+      ],
+      "erank": 987.11,
+      "twonn": 143.55,
+      "ratio": 6.88
+    },
+    {
+      "name": "L41.wq_b.whole",
+      "shape": [
+        32768,
+        1024
+      ],
+      "erank": 1016.81,
+      "twonn": 58.95,
+      "ratio": 17.25
+    },
+    {
+      "name": "L41.wq_b.per_head_summary",
+      "n_heads": 128,
+      "head_dim": 256,
+      "erank_mean": 234.23,
+      "twonn_mean": 85.97,
+      "ratio_mean": 2.96,
+      "ratio_min": 1.8,
+      "ratio_max": 13.4,
+      "ratio_std": 1.25
+    },
+    {
+      "name": "L41.gate.whole",
+      "shape": [
+        256,
+        4096
+      ],
+      "erank": 231.97,
+      "twonn": 30.25,
+      "ratio": 7.67
+    }
+  ]
+}
