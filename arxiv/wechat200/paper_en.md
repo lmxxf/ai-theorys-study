@@ -6,7 +6,7 @@
 
 ## Abstract
 
-*(To be written by co-author.)*
+Large language model (LLM) weight matrices often appear nearly full-rank under spectral measures, while local intrinsic-dimension estimators such as TwoNN report dimensions one to two orders of magnitude smaller. Previous work interpreted this eRank/TwoNN gap as evidence of strongly curved weight manifolds. We show that this interpretation is misleading: the ratio is primarily a proxy for the number of low-dimensional sub-manifolds concatenated into a single architectural matrix. Splitting weight matrices along known functional boundaries (attention heads, Q/K/V segments, and expert matrices) reduces the ratio by 1--2 orders of magnitude. Across Qwen3.6-27B and DeepSeek V4 Flash 280B, per-head query ratios converge to a narrow 3--9x band despite a 10x difference in parameter count, suggesting that individual attention heads have a bounded architectural complexity while scale primarily increases the number and organization of subspaces. We further identify a mid-layer head-orthogonalization window in Qwen3.6, show that deep DeltaNet value-ratio growth is better explained by increasing inter-head separation than by intra-head complexity, and observe strong geometric differentiation among deep MoE experts. These results suggest that LLM scale is organized less as a single increasingly complex manifold and more as a partitioned system of low-complexity subspaces.
 
 ---
 
@@ -14,9 +14,9 @@
 
 Recent empirical work has documented a striking discrepancy in the geometry of weight matrices in large language models (LLMs): the effective rank (eRank) of a weight matrix routinely exceeds its intrinsic dimension estimated by the Two-Nearest-Neighbor (TwoNN) method by one to two orders of magnitude. A natural interpretation of this gap is that the weight manifold has high curvature — that the rows of the matrix live on a surface that bends so aggressively that local neighborhood statistics undercount the true dimensionality. This paper argues that the curvature interpretation is wrong, or at best misleading, and proposes a simpler, empirically falsifiable alternative.
 
-Our claim is that the eRank/TwoNN ratio is not a curvature indicator. It is a proxy for the number of geometrically distinct low-dimensional sub-manifolds that have been concatenated into a single weight matrix by the architecture. When a weight matrix is split along its known functional boundaries — attention heads, query/key/value segments — the ratio drops by one to two orders of magnitude, and the per-component ratios converge to a narrow band (3--9x) that is stable across models of vastly different size and architecture.
+Our claim is that the eRank/TwoNN ratio is not primarily a curvature indicator. It is a proxy for the number of geometrically distinct low-dimensional sub-manifolds that have been concatenated into a single weight matrix by the architecture. When a weight matrix is split along its known functional boundaries — attention heads, query/key/value segments — the ratio drops by one to two orders of magnitude, and the per-component ratios converge to a narrow band (3--9x) that is stable across models of vastly different size and architecture.
 
-This reinterpretation matters because it changes what the ratio tells us about the model. A high ratio does not mean the weight geometry is complex in the differential-geometric sense. It means the matrix is doing multiple jobs at once. Each job, examined in isolation, has simple geometry. The complexity is organizational, not geometric.
+This reinterpretation matters because it changes what the ratio tells us about the model. A high ratio does not necessarily mean the weight geometry is complex in the differential-geometric sense. It often means the matrix is doing multiple jobs at once. Each job, examined in isolation, has much simpler geometry. The dominant complexity is organizational.
 
 We demonstrate this through systematic splitting experiments on two architecturally distinct models: Qwen3.6-27B (27 billion parameters, dense architecture with DeltaNet/GQA hybrid attention) and DeepSeek V4 Flash (280 billion parameters, Mixture-of-Experts with 256 routed experts). Across both models, splitting weight matrices along functional boundaries consistently collapses the ratio from the 50--400x range to the 3--9x range. We further show that value projections in DeltaNet linear attention layers have per-head ratios of approximately 2x — far less complex than the composite matrix suggests — and that expert feed-forward weights in deeper layers develop internal sub-manifold structure absent in shallow layers.
 
@@ -48,6 +48,8 @@ The intrinsic dimension $d$ is estimated by maximum likelihood from the empirica
 
 TwoNN is a local estimator. It measures geometric complexity in the immediate neighborhood of each point. If the data lie on a single smooth manifold, TwoNN recovers the manifold dimension regardless of how that manifold is embedded in ambient space. But if the data are a union of multiple manifolds with different local structure, TwoNN reports a dimension reflecting the local geometry of whichever manifold each point sits on, averaged across all points.
 
+This paper measures the local geometry of weight-matrix row vectors, which is distinct from the intrinsic dimensionality of fine-tuning studied by Aghajanyan et al. (2021). The two notions are not numerically interchangeable, but both point to the same broad fact: the effective operational geometry of large models can be far lower-dimensional than the raw parameter space.
+
 ### 2.3 Why Their Ratio Does Not Measure Curvature
 
 Consider a matrix $W$ whose rows lie on a single smooth $d$-dimensional manifold. In this case, TwoNN estimates $d$, eRank reflects the spectral spread of the embedding, and their ratio depends on how the manifold's principal axes distribute energy across the spectrum. High curvature could, in principle, cause TwoNN to underestimate $d$ if neighborhoods bend enough to distort distance ratios. Under this reading, a high eRank/TwoNN ratio signals curvature.
@@ -56,7 +58,7 @@ But there is a simpler explanation for a high ratio that does not invoke curvatu
 
 This is exactly the situation in LLM weight matrices. A query projection matrix $W_Q$ in a multi-head attention layer is the vertical concatenation of $H$ independent head projections. Each head maps the residual stream into its own query subspace. These subspaces have different orientations, are trained under different gradient signals, and develop different spectral profiles. The weight matrix is not one manifold with high curvature. It is $H$ manifolds stitched together.
 
-The key prediction of this interpretation is falsifiable: if the ratio measures sub-manifold count, then splitting the matrix along its functional boundaries should dramatically reduce the ratio. If the ratio measures curvature, splitting should not help — the curvature of each piece should be comparable to the curvature of the whole.
+The key prediction of this interpretation is falsifiable: if the ratio measures sub-manifold count, then splitting the matrix along its functional boundaries should dramatically reduce the ratio. If the ratio only measures curvature of a single continuous manifold, splitting should not systematically help — the curvature of each piece should be comparable to the curvature of the whole.
 
 ---
 
@@ -111,9 +113,9 @@ We selected six GQA layers spanning the full depth of the network: L03, L07, L11
 | L47   | 93.3x       | 1.9      | 6.1x                 | 3.1x               | 15.4x           |
 | L63   | 96.7x       | 2.0      | 4.7x                 | 2.3x               | 20.7x           |
 
-Here Ratio/48 divides the whole ratio by the head count, and Orthogonality Ratio = Per-Head Ratio / (Ratio/48). An orthogonality ratio of 1.0 indicates that the heads' subspaces are nearly fully orthogonal; higher values indicate more overlap between head subspaces.
+Here Ratio/48 divides the whole ratio by the head count, and Orthogonality Ratio = Per-Head Ratio / (Ratio/48). We use this quantity as a coarse proxy for inter-head subspace overlap: values near 1.0 suggest nearly separated head subspaces, while higher values suggest more overlap. A strict orthogonality claim would require direct head-subspace similarity, principal-angle, or cosine-matrix analysis.
 
-The whole-matrix ratio ranges from 54x to 442x. After splitting, the per-head mean ratio collapses to 4.7x -- 8.9x. The reduction factor ranges from 9x to 50x. Despite large variation in the whole-matrix ratio across layers, the per-head ratios converge to a narrow band. Notably, L07 has an orthogonality ratio of 1.0x, indicating nearly complete orthogonality among its 48 head subspaces — the highest orthogonality observed across all layers.
+The whole-matrix ratio ranges from 54x to 442x. After splitting, the per-head mean ratio collapses to 4.7x -- 8.9x. The reduction factor ranges from 9x to 50x. Despite large variation in the whole-matrix ratio across layers, the per-head ratios converge to a narrow band. Notably, L07 has an orthogonality ratio of 1.0x, suggesting nearly separated 48 head subspaces — the lowest inter-head overlap observed across all measured layers.
 
 ### 4.2 Qwen3.6-27B: DeltaNet in_proj_qkv Functional Splitting
 
@@ -142,7 +144,7 @@ The first three layers (L00, L01, L02) use DeltaNet linear attention with a fuse
 
 Several findings stand out. First, the whole-matrix ratios range from 31x to 82x. Second, splitting by Q/K/V functional segment reduces the ratio substantially in most cases but does not always bring it below 20x, indicating that Q and K segments themselves contain internal sub-structure from multiple heads (particularly L01 Q at 173.9x, which contains 16 K heads with different orientations). Third, the V segment, when further split into 48 heads of 128 dimensions each, reaches per-head ratio means of 1.76x -- 2.57x.
 
-The extended depth analysis in Table 2b reveals a key pattern: per-head ratio remains stable at 2.1x -- 2.6x across all depths, while whole V ratio increases from 41x to 102x in deeper layers. This increase is entirely driven by growing inter-head orthogonality (orthogonality ratio drops from 2.1x to 1.2x), not by increased intra-head complexity.
+The extended depth analysis in Table 2b reveals a key pattern: per-head ratio remains stable at 2.1x -- 2.6x across all depths, while whole V ratio increases from 41x to 102x in deeper layers. The conservative interpretation is that this increase is mainly driven by growing inter-head separation (orthogonality ratio drops from 2.1x to 1.2x), not by increased intra-head complexity.
 
 ### 4.3 DeepSeek V4 Flash: wq_b Head Splitting
 
@@ -205,7 +207,7 @@ The ratio is better understood as a proxy for the number of geometrically distin
 
 This interpretation aligns with what we know about how these matrices are used. A query projection matrix in a 48-head attention layer is, in a precise computational sense, 48 independent linear maps stacked vertically. The architecture defines the sub-manifolds. Training shapes their internal geometry but does not erase the boundaries between them.
 
-For standard multi-head concatenation (e.g., Qwen q_proj), inter-head orthogonality can be inferred by dividing the whole ratio by the head count and comparing with the per-head ratio (Table 1). The orthogonality ratio (per-head ratio / (whole ratio / 48)) reflects the degree of head subspace overlap: 1.0 indicates fully orthogonal heads, while higher values indicate more overlap. L07 achieves an orthogonality ratio of 1.0x, suggesting its 48 heads occupy nearly orthogonal subspaces. The L07--L10 region appears to be a high-orthogonality zone. This analysis does not apply to MLA architectures (e.g., V4 Flash), where heads share a bottleneck representation by design.
+For standard multi-head concatenation (e.g., Qwen q_proj), comparing the whole ratio divided by head count with the per-head ratio gives a coarse proxy for inter-head overlap (Table 1). The orthogonality ratio (per-head ratio / (whole ratio / 48)) should not be treated as a direct orthogonality measurement; direct validation requires head-subspace similarity, principal-angle, or cosine-matrix analysis. Still, L07 achieves an orthogonality ratio of 1.0x, suggesting its 48 heads occupy nearly separated subspaces. Supplementary L08--L10 measurements show a small mid-layer orthogonalization window: L07, L09, and L10 exhibit large whole ratios while their per-head ratios remain normal, whereas L08 is weaker and likely transitional. This suggests that high ratio in this region reflects heads being pulled apart rather than individual heads becoming more complex. This analysis does not apply to MLA architectures (e.g., V4 Flash), where heads share a bottleneck representation by design.
 
 ### 5.2 Residual Complexity Per Head: An Architectural Constant
 
@@ -219,15 +221,17 @@ A striking empirical regularity emerges from Tables 1 and 3. After splitting, pe
 
 This convergence suggests that the per-head ratio of 3--9x reflects a residual geometric complexity that is intrinsic to what an attention head does, rather than an artifact of any particular training run. Each head, regardless of context, develops a weight geometry that is far less complex than the composite matrix suggests, but not perfectly flat (ratio $\neq$ 1x; a per-head ratio of 3--9x still indicates meaningful internal structure).
 
-One plausible interpretation is that each head's weight rows trace out a low-dimensional surface with a small number of internal modes — perhaps reflecting the fact that each head must encode multiple types of positional or semantic relationships within a single linear map. The ratio of 3--9x may represent a universal "complexity budget" for a single attention head: enough structure to support several distinct functions, but far less than the full rank of the ambient space. We emphasize that this analysis demonstrates concatenation as the dominant effect; it does not prove individual sub-manifolds are flat.
+One plausible interpretation is that each head's weight rows trace out a low-dimensional surface with a small number of internal modes — perhaps reflecting the fact that each head must encode multiple types of positional or semantic relationships within a single linear map. The ratio of 3--9x may represent an architectural "complexity budget" for a single attention head: enough structure to support several distinct functions, but far less than the full rank of the ambient space. We emphasize that this analysis demonstrates concatenation as the dominant effect; it does not prove individual sub-manifolds are flat. If this band persists across more model families, it would support a broader scaling picture: increasing scale primarily adds sub-manifolds and organizes their topology, rather than making individual heads arbitrarily more complex.
 
 ### 5.3 Value Heads: Concatenation is the Dominant Effect
 
-The DeltaNet V-segment results (Tables 2 and 2b) reveal an instructive case: after splitting V into 48 heads of 128 dimensions, the per-head ratio drops to 1.76x -- 2.57x. The extended depth analysis in Table 2b shows that per-head ratio remains stable at 2.1x -- 2.6x across all depths, while the whole V ratio increases from 41x to 102x in deeper layers. This increase is entirely driven by growing inter-head orthogonality (orthogonality ratio drops from 2.1x to 1.2x), not by increased intra-head complexity.
+The DeltaNet V-segment results (Tables 2 and 2b) reveal an instructive case: after splitting V into 48 heads of 128 dimensions, the per-head ratio drops to 1.76x -- 2.57x. The extended depth analysis in Table 2b shows that per-head ratio remains stable at 2.1x -- 2.6x across all depths, while the whole V ratio increases from 41x to 102x in deeper layers. This increase is best explained by growing inter-head separation (orthogonality ratio drops from 2.1x to 1.2x), not by increased intra-head complexity.
 
 This finding is consistent with the computational role of value projections in linear attention. In Gated DeltaNet, the value projection produces the content that will be written into the recurrent state. Unlike query and key projections, which must encode complex relational patterns (positional encodings, attention patterns), value projections perform a relatively straightforward linear mixing of input features into a per-head value space.
 
 However, a per-head ratio of 2x does not mean "flat." A ratio of 1x would indicate a perfectly linear subspace; 2x still indicates some nonlinear structure within each head. What we can conclude is that concatenation is the dominant source of the whole V matrix's high ratio, and that individual V heads are far less complex than the composite matrix suggests. Note also that Q heads have dimension 256 while V heads have dimension 128, so their per-head ratios cannot be directly compared to infer differences in functional complexity.
+
+This also provides a geometric hypothesis for linear attention. DeltaNet uses a fixed-size recurrent state, so deeper and more abstract representations must be written into a limited per-head space. The observed pattern suggests that the model responds to this pressure by increasing separation between heads, reducing write-interference, rather than by making each value head internally more complex.
 
 ### 5.4 Deep Expert Sub-Manifold Differentiation
 
@@ -241,7 +245,7 @@ The high variance across experts in the same deep layer is equally informative. 
 
 If weight matrices are composites of functionally distinct sub-manifolds, and if these sub-manifolds correspond to identifiable computational units (heads, experts, functional segments), then model editing and fine-tuning operations could in principle operate at the sub-manifold level rather than at the level of whole weight matrices.
 
-Current parameter-efficient fine-tuning methods such as LoRA (Aghajanyan et al., 2021) apply low-rank updates to entire weight matrices. Our results suggest that this is geometrically coarse: a rank-$r$ update to a matrix containing 48 sub-manifolds distributes its capacity across all 48, rather than concentrating on the sub-manifolds relevant to the target task. A sub-manifold-aware fine-tuning strategy would identify which heads or functional segments need modification and apply updates selectively.
+Current parameter-efficient fine-tuning methods such as LoRA (Hu et al., 2022) apply low-rank updates to entire weight matrices. Our results suggest that this is geometrically coarse: a rank-$r$ update to a matrix containing 48 sub-manifolds distributes its capacity across all 48, rather than concentrating on the sub-manifolds relevant to the target task. A sub-manifold-aware fine-tuning strategy would identify which heads or functional segments need modification and apply updates selectively.
 
 Similarly, knowledge localization research has sought to identify where in a model specific facts or capabilities reside. Our analysis suggests a more granular unit of analysis: not "which layer" or "which weight matrix," but "which sub-manifold within which weight matrix." The low complexity of individual value heads (ratio $\approx$ 2x) suggests that value projections may be easier targets for direct knowledge editing, though their internal structure is not trivially flat.
 
@@ -249,11 +253,11 @@ Similarly, knowledge localization research has sought to identify where in a mod
 
 ## 6. Conclusion
 
-The eRank/TwoNN ratio in LLM weight matrices does not measure what it was thought to measure. It is not a curvature indicator. It is a sub-manifold count proxy — a measure of how many geometrically distinct functional components have been concatenated into a single matrix by the architecture.
+The eRank/TwoNN ratio in LLM weight matrices does not measure what it was thought to measure. It is not primarily a curvature indicator. It is a sub-manifold count proxy — a measure of how many geometrically distinct functional components have been concatenated into a single matrix by the architecture.
 
-This paper established this reinterpretation through splitting experiments on two models spanning an order of magnitude in parameter count. The results are consistent: splitting along architectural boundaries reduces the ratio by 1--2 orders of magnitude, and per-head ratios converge to a model-independent band of 3--9x. Value heads in linear attention have ratios of approximately 2x — far less complex than the composite matrix suggests — and the increase in whole V ratio across depth is entirely attributable to growing inter-head orthogonality, not increased intra-head complexity. Deep experts develop internal sub-manifold structure that shallow experts lack, with standard deviation increasing by an order of magnitude from shallow to deep layers.
+This paper established this reinterpretation through splitting experiments on two models spanning an order of magnitude in parameter count. The results are consistent: splitting along architectural boundaries reduces the ratio by 1--2 orders of magnitude, and per-head ratios converge to a model-independent band of 3--9x. Value heads in linear attention have ratios of approximately 2x — far less complex than the composite matrix suggests — and the increase in whole V ratio across depth is mainly attributable to growing inter-head separation, not increased intra-head complexity. Deep experts develop internal sub-manifold structure that shallow experts lack, with standard deviation increasing by an order of magnitude from shallow to deep layers.
 
-The apparent full rank of LLM weight matrices is an illusion produced by concatenation. Each functional component, examined individually, is a low-dimensional object with modest complexity. The engineering implication is that the matrix is not the right unit of analysis for understanding weight geometry. The sub-manifold — the head, the expert, the functional segment — is.
+The apparent full rank of LLM weight matrices is an illusion produced by concatenation. Each functional component, examined individually, is a low-dimensional object with modest complexity. The engineering implication is that the matrix is not the right unit of analysis for understanding weight geometry. The sub-manifold — the head, the expert, the functional segment — is. At a higher level, LLM scale appears less like a single manifold becoming ever more complex and more like a partitioned system of low-complexity subspaces: heads provide orthogonalized partitions, experts provide functional differentiation, and intelligence emerges from their organization.
 
 ---
 
@@ -264,6 +268,8 @@ The apparent full rank of LLM weight matrices is an illusion produced by concate
 - Ansuini, A., Laio, A., Macke, J. H., & Zoccolan, D. (2019). Intrinsic dimension of data representations in deep neural networks. *Advances in Neural Information Processing Systems (NeurIPS)*, 32.
 
 - Facco, E., d'Errico, M., Rodriguez, A., & Laio, A. (2017). Estimating the intrinsic dimension of datasets by a minimal neighborhood information. *Scientific Reports*, 7(1), 12140.
+
+- Hu, E. J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., Wang, L., & Chen, W. (2022). LoRA: Low-rank adaptation of large language models. *Proceedings of the International Conference on Learning Representations (ICLR)*.
 
 - Roy, O., & Vetterli, M. (2007). The effective rank: A measure of effective dimensionality. *15th European Signal Processing Conference (EUSIPCO)*, 606--610.
 

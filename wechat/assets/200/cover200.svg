@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e27"/>
+      <stop offset="100%" style="stop-color:#1a1040"/>
+    </linearGradient>
+    <linearGradient id="glow1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#4fc3f7;stop-opacity:0.1"/>
+    </linearGradient>
+    <linearGradient id="glow2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff8a65;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#ff8a65;stop-opacity:0.1"/>
+    </linearGradient>
+    <linearGradient id="glow3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#aed581;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#aed581;stop-opacity:0.1"/>
+    </linearGradient>
+    <linearGradient id="glow4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ce93d8;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#ce93d8;stop-opacity:0.1"/>
+    </linearGradient>
+    <linearGradient id="glow5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffd54f;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#ffd54f;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Faint grid lines suggesting "compartments" -->
+  <g opacity="0.06" stroke="#ffffff" stroke-width="0.5">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/>
+    <line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+
+  <!-- LEFT: "Cabinet" - a big bounding box with drawers inside -->
+  <!-- Outer cabinet frame -->
+  <rect x="60" y="80" width="280" height="340" rx="6" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+
+  <!-- Drawer dividers -->
+  <line x1="60" y1="148" x2="340" y2="148" stroke="#ffffff" stroke-width="1" opacity="0.15"/>
+  <line x1="60" y1="216" x2="340" y2="216" stroke="#ffffff" stroke-width="1" opacity="0.15"/>
+  <line x1="60" y1="284" x2="340" y2="284" stroke="#ffffff" stroke-width="1" opacity="0.15"/>
+  <line x1="60" y1="352" x2="340" y2="352" stroke="#ffffff" stroke-width="1" opacity="0.15"/>
+  <line x1="200" y1="80" x2="200" y2="420" stroke="#ffffff" stroke-width="1" opacity="0.15"/>
+
+  <!-- Drawer contents: small colored line clusters in each cell, each tilted differently -->
+  <!-- Drawer 1: blue cluster, tilted 20deg -->
+  <g transform="translate(130, 114) rotate(20)">
+    <line x1="-30" y1="0" x2="30" y2="0" stroke="#4fc3f7" stroke-width="2.5" opacity="0.7"/>
+    <line x1="-25" y1="-5" x2="25" y2="-5" stroke="#4fc3f7" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-28" y1="5" x2="28" y2="5" stroke="#4fc3f7" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-20" y1="-10" x2="20" y2="-10" stroke="#4fc3f7" stroke-width="1" opacity="0.3"/>
+    <line x1="-22" y1="10" x2="22" y2="10" stroke="#4fc3f7" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- Drawer 2: orange cluster, tilted -35deg -->
+  <g transform="translate(270, 114) rotate(-35)">
+    <line x1="-30" y1="0" x2="30" y2="0" stroke="#ff8a65" stroke-width="2.5" opacity="0.7"/>
+    <line x1="-25" y1="-5" x2="25" y2="-5" stroke="#ff8a65" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-28" y1="5" x2="28" y2="5" stroke="#ff8a65" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-20" y1="-10" x2="20" y2="-10" stroke="#ff8a65" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- Drawer 3: green cluster, tilted 55deg -->
+  <g transform="translate(130, 182) rotate(55)">
+    <line x1="-25" y1="0" x2="25" y2="0" stroke="#aed581" stroke-width="2.5" opacity="0.7"/>
+    <line x1="-20" y1="-5" x2="20" y2="-5" stroke="#aed581" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-22" y1="5" x2="22" y2="5" stroke="#aed581" stroke-width="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- Drawer 4: purple cluster, tilted -10deg -->
+  <g transform="translate(270, 182) rotate(-10)">
+    <line x1="-30" y1="0" x2="30" y2="0" stroke="#ce93d8" stroke-width="2.5" opacity="0.7"/>
+    <line x1="-25" y1="-5" x2="25" y2="-5" stroke="#ce93d8" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-28" y1="5" x2="28" y2="5" stroke="#ce93d8" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-20" y1="10" x2="20" y2="10" stroke="#ce93d8" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- Drawer 5: yellow cluster, tilted 80deg -->
+  <g transform="translate(130, 250) rotate(80)">
+    <line x1="-25" y1="0" x2="25" y2="0" stroke="#ffd54f" stroke-width="2.5" opacity="0.7"/>
+    <line x1="-20" y1="-4" x2="20" y2="-4" stroke="#ffd54f" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-22" y1="4" x2="22" y2="4" stroke="#ffd54f" stroke-width="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- Drawer 6: cyan cluster, tilted -60deg -->
+  <g transform="translate(270, 250) rotate(-60)">
+    <line x1="-28" y1="0" x2="28" y2="0" stroke="#4dd0e1" stroke-width="2.5" opacity="0.7"/>
+    <line x1="-23" y1="-5" x2="23" y2="-5" stroke="#4dd0e1" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-25" y1="5" x2="25" y2="5" stroke="#4dd0e1" stroke-width="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- Drawer 7: red cluster, tilted 40deg -->
+  <g transform="translate(130, 318) rotate(40)">
+    <line x1="-25" y1="0" x2="25" y2="0" stroke="#ef9a9a" stroke-width="2.5" opacity="0.7"/>
+    <line x1="-20" y1="-5" x2="20" y2="-5" stroke="#ef9a9a" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-22" y1="5" x2="22" y2="5" stroke="#ef9a9a" stroke-width="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- Drawer 8: light blue cluster, tilted -75deg -->
+  <g transform="translate(270, 318) rotate(-75)">
+    <line x1="-25" y1="0" x2="25" y2="0" stroke="#81d4fa" stroke-width="2.5" opacity="0.7"/>
+    <line x1="-20" y1="-5" x2="20" y2="-5" stroke="#81d4fa" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-22" y1="5" x2="22" y2="5" stroke="#81d4fa" stroke-width="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- Drawer 9, 10: bottom row -->
+  <g transform="translate(130, 386) rotate(15)">
+    <line x1="-25" y1="0" x2="25" y2="0" stroke="#a5d6a7" stroke-width="2.5" opacity="0.7"/>
+    <line x1="-20" y1="-4" x2="20" y2="-4" stroke="#a5d6a7" stroke-width="1.5" opacity="0.5"/>
+  </g>
+  <g transform="translate(270, 386) rotate(-45)">
+    <line x1="-25" y1="0" x2="25" y2="0" stroke="#ffcc80" stroke-width="2.5" opacity="0.7"/>
+    <line x1="-20" y1="-4" x2="20" y2="-4" stroke="#ffcc80" stroke-width="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- Arrow from cabinet to right side -->
+  <g opacity="0.4">
+    <line x1="370" y1="250" x2="430" y2="250" stroke="#ffffff" stroke-width="1.5"/>
+    <polygon points="430,245 440,250 430,255" fill="#ffffff"/>
+  </g>
+
+  <!-- RIGHT: Individual drawer pulled out, showing simple internal structure -->
+  <!-- One enlarged "drawer" -->
+  <rect x="460" y="160" width="280" height="180" rx="8" fill="none" stroke="#4fc3f7" stroke-width="2" opacity="0.6"/>
+
+  <!-- Inside: a simple, nearly flat cluster of lines — per-head structure -->
+  <g transform="translate(600, 250) rotate(12)">
+    <line x1="-100" y1="0" x2="100" y2="0" stroke="#4fc3f7" stroke-width="3" opacity="0.8"/>
+    <line x1="-90" y1="-8" x2="90" y2="-8" stroke="#4fc3f7" stroke-width="2" opacity="0.5"/>
+    <line x1="-95" y1="8" x2="95" y2="8" stroke="#4fc3f7" stroke-width="2" opacity="0.5"/>
+    <line x1="-80" y1="-16" x2="80" y2="-16" stroke="#4fc3f7" stroke-width="1.5" opacity="0.35"/>
+    <line x1="-85" y1="16" x2="85" y2="16" stroke="#4fc3f7" stroke-width="1.5" opacity="0.35"/>
+    <line x1="-70" y1="-24" x2="70" y2="-24" stroke="#4fc3f7" stroke-width="1" opacity="0.2"/>
+    <line x1="-75" y1="24" x2="75" y2="24" stroke="#4fc3f7" stroke-width="1" opacity="0.2"/>
+  </g>
+
+  <!-- Labels -->
+  <!-- Left label -->
+  <text x="200" y="455" text-anchor="middle" fill="#ffffff" opacity="0.5" font-family="Noto Sans CJK SC" font-size="13">
+    48 heads in one matrix: ratio 120x
+  </text>
+
+  <!-- Right label -->
+  <text x="600" y="375" text-anchor="middle" fill="#4fc3f7" opacity="0.6" font-family="Noto Sans CJK SC" font-size="13">
+    single head: ratio 5x
+  </text>
+
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" fill="#ffffff" opacity="0.9" font-family="Noto Sans CJK SC" font-size="22" font-weight="bold">
+    满秩是假象
+  </text>
+  <text x="400" y="62" text-anchor="middle" fill="#ffffff" opacity="0.5" font-family="Noto Sans CJK SC" font-size="14">
+    48 个抽屉撑开了一个柜子
+  </text>
+
+  <!-- #200 badge -->
+  <rect x="710" y="10" width="70" height="28" rx="14" fill="#4fc3f7" opacity="0.15"/>
+  <text x="745" y="29" text-anchor="middle" fill="#4fc3f7" opacity="0.7" font-family="Noto Sans CJK SC" font-size="13" font-weight="bold">
+    #200
+  </text>
+</svg>
