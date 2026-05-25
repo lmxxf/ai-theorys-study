@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e27"/>
+      <stop offset="100%" style="stop-color:#1a1040"/>
+    </linearGradient>
+    <linearGradient id="center-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="agent-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22d3ee"/>
+      <stop offset="100%" style="stop-color:#0891b2"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="soft-glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- 背景网格 -->
+  <g opacity="0.06" stroke="#8b5cf6" stroke-width="0.5">
+    <line x1="0" y1="100" x2="900" y2="100"/>
+    <line x1="0" y1="200" x2="900" y2="200"/>
+    <line x1="0" y1="300" x2="900" y2="300"/>
+    <line x1="0" y1="400" x2="900" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="450" y1="0" x2="450" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="750" y1="0" x2="750" y2="500"/>
+  </g>
+
+  <!-- 星型拓扑连线（从中心到各 agent） -->
+  <g stroke="#6366f1" stroke-width="1.5" opacity="0.5" stroke-dasharray="6,4">
+    <line x1="450" y1="230" x2="180" y2="100"/>
+    <line x1="450" y1="230" x2="350" y2="80"/>
+    <line x1="450" y1="230" x2="550" y2="80"/>
+    <line x1="450" y1="230" x2="720" y2="100"/>
+    <line x1="450" y1="230" x2="130" y2="230"/>
+    <line x1="450" y1="230" x2="770" y2="230"/>
+    <line x1="450" y1="230" x2="180" y2="360"/>
+    <line x1="450" y1="230" x2="350" y2="380"/>
+    <line x1="450" y1="230" x2="550" y2="380"/>
+    <line x1="450" y1="230" x2="720" y2="360"/>
+  </g>
+
+  <!-- 连线上的流动光点 -->
+  <g fill="#a78bfa" opacity="0.8">
+    <circle r="3" filter="url(#glow)">
+      <animateMotion dur="2s" repeatCount="indefinite" path="M450,230 L180,100"/>
+    </circle>
+    <circle r="3" filter="url(#glow)">
+      <animateMotion dur="2.3s" repeatCount="indefinite" path="M450,230 L550,80"/>
+    </circle>
+    <circle r="3" filter="url(#glow)">
+      <animateMotion dur="1.8s" repeatCount="indefinite" path="M450,230 L720,100"/>
+    </circle>
+    <circle r="3" filter="url(#glow)">
+      <animateMotion dur="2.5s" repeatCount="indefinite" path="M450,230 L770,230"/>
+    </circle>
+    <circle r="3" filter="url(#glow)">
+      <animateMotion dur="2.1s" repeatCount="indefinite" path="M450,230 L550,380"/>
+    </circle>
+    <circle r="3" filter="url(#glow)">
+      <animateMotion dur="1.9s" repeatCount="indefinite" path="M450,230 L180,360"/>
+    </circle>
+  </g>
+
+  <!-- 中心调度节点 -->
+  <circle cx="450" cy="230" r="42" fill="url(#center-glow)" opacity="0.15" filter="url(#soft-glow)"/>
+  <circle cx="450" cy="230" r="28" fill="none" stroke="url(#center-glow)" stroke-width="2.5" filter="url(#glow)"/>
+  <text x="450" y="225" text-anchor="middle" fill="#c4b5fd" font-family="'Noto Sans CJK SC',sans-serif" font-size="11" font-weight="bold">调度器</text>
+  <text x="450" y="241" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="9">fork/join</text>
+
+  <!-- Agent 节点 -->
+  <g filter="url(#glow)">
+    <!-- 上排 -->
+    <circle cx="180" cy="100" r="16" fill="none" stroke="url(#agent-fill)" stroke-width="2"/>
+    <text x="180" y="104" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="10">A1</text>
+
+    <circle cx="350" cy="80" r="16" fill="none" stroke="url(#agent-fill)" stroke-width="2"/>
+    <text x="350" y="84" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="10">A2</text>
+
+    <circle cx="550" cy="80" r="16" fill="none" stroke="url(#agent-fill)" stroke-width="2"/>
+    <text x="550" y="84" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="10">A3</text>
+
+    <circle cx="720" cy="100" r="16" fill="none" stroke="url(#agent-fill)" stroke-width="2"/>
+    <text x="720" y="104" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="10">A4</text>
+
+    <!-- 中排 -->
+    <circle cx="130" cy="230" r="16" fill="none" stroke="url(#agent-fill)" stroke-width="2"/>
+    <text x="130" y="234" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="10">A5</text>
+
+    <circle cx="770" cy="230" r="16" fill="none" stroke="url(#agent-fill)" stroke-width="2"/>
+    <text x="770" y="234" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="10">A6</text>
+
+    <!-- 下排 -->
+    <circle cx="180" cy="360" r="16" fill="none" stroke="url(#agent-fill)" stroke-width="2"/>
+    <text x="180" y="364" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="10">A7</text>
+
+    <circle cx="350" cy="380" r="16" fill="none" stroke="url(#agent-fill)" stroke-width="2"/>
+    <text x="350" y="384" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="10">A8</text>
+
+    <circle cx="550" cy="380" r="16" fill="none" stroke="url(#agent-fill)" stroke-width="2"/>
+    <text x="550" y="384" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="10">A9</text>
+
+    <circle cx="720" cy="360" r="16" fill="none" stroke="url(#agent-fill)" stroke-width="2"/>
+    <text x="720" y="364" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="10">A10</text>
+  </g>
+
+  <!-- 标题 -->
+  <text x="450" y="458" text-anchor="middle" fill="#f0eaff" font-family="'Noto Sans CJK SC',sans-serif" font-size="26" font-weight="bold">27B 小模型跑 Agent 集群</text>
+  <text x="450" y="486" text-anchor="middle" fill="#8b8ba0" font-family="'Noto Sans CJK SC',sans-serif" font-size="14">星型拓扑 · 双策略拆解 · Qwen3.6-27B</text>
+
+  <!-- 右下角期号 -->
+  <text x="870" y="490" text-anchor="end" fill="#4a4a6a" font-family="monospace" font-size="11">#201</text>
+</svg>
