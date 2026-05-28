@@ -1,0 +1,298 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383" width="900" height="383">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04080f"/>
+      <stop offset="40%" stop-color="#06101e"/>
+      <stop offset="70%" stop-color="#081020"/>
+      <stop offset="100%" stop-color="#040a14"/>
+    </linearGradient>
+
+    <!-- Axis colors -->
+    <linearGradient id="axisX" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#f472b6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="axisY" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="axisZ" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#a78bfa" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Subspace plane fills -->
+    <linearGradient id="plane1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="plane2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="plane3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.03"/>
+    </linearGradient>
+
+    <!-- Glow filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="dotGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.03" stroke="#38bdf8" stroke-width="0.5">
+    <line x1="0" y1="96" x2="900" y2="96"/>
+    <line x1="0" y1="192" x2="900" y2="192"/>
+    <line x1="0" y1="288" x2="900" y2="288"/>
+    <line x1="225" y1="0" x2="225" y2="383"/>
+    <line x1="450" y1="0" x2="450" y2="383"/>
+    <line x1="675" y1="0" x2="675" y2="383"/>
+  </g>
+
+  <!-- ====== LEFT: 3D orthogonal subspace visualization ====== -->
+  <g transform="translate(245, 250)">
+    <!-- Central glow -->
+    <circle cx="0" cy="0" r="100" fill="#38bdf8" opacity="0.02" filter="url(#softGlow)"/>
+
+    <!-- Three orthogonal planes (isometric-ish projection) -->
+    <!-- Plane 1: XY (pink, horizontal-ish) -->
+    <polygon points="-120,20 0,-30 120,20 0,70" fill="url(#plane1)" stroke="#f472b6" stroke-width="0.8" opacity="0.6"/>
+
+    <!-- Plane 2: XZ (blue, vertical left) -->
+    <polygon points="-120,20 0,-30 0,-130 -120,-80" fill="url(#plane2)" stroke="#38bdf8" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Plane 3: YZ (purple, vertical right) -->
+    <polygon points="120,20 0,-30 0,-130 120,-80" fill="url(#plane3)" stroke="#a78bfa" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Axes -->
+    <line x1="0" y1="0" x2="140" y2="25" stroke="url(#axisX)" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-140" y2="25" stroke="#f472b6" stroke-width="1.5" opacity="0.3"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="url(#axisY)" stroke-width="2"/>
+    <line x1="0" y1="0" x2="0" y2="40" stroke="#38bdf8" stroke-width="1" opacity="0.2"/>
+    <line x1="0" y1="0" x2="-130" y2="-20" stroke="url(#axisZ)" stroke-width="2"/>
+
+    <!-- Origin point -->
+    <circle cx="0" cy="0" r="3" fill="#e2e8f0" filter="url(#dotGlow)"/>
+
+    <!-- Data points clustered on each plane -->
+    <!-- Pink plane (XY) cluster -->
+    <g filter="url(#dotGlow)">
+      <circle cx="40" cy="5" r="2.5" fill="#f472b6" opacity="0.9"/>
+      <circle cx="65" cy="15" r="2" fill="#f472b6" opacity="0.8"/>
+      <circle cx="30" cy="20" r="2.2" fill="#f472b6" opacity="0.85"/>
+      <circle cx="55" cy="30" r="1.8" fill="#f472b6" opacity="0.7"/>
+      <circle cx="80" cy="25" r="2" fill="#f472b6" opacity="0.75"/>
+      <circle cx="20" cy="35" r="1.5" fill="#f472b6" opacity="0.65"/>
+      <circle cx="50" cy="42" r="2.3" fill="#f472b6" opacity="0.8"/>
+      <circle cx="-25" cy="15" r="1.8" fill="#f472b6" opacity="0.6"/>
+      <circle cx="-45" cy="30" r="2" fill="#f472b6" opacity="0.55"/>
+      <circle cx="-15" cy="40" r="1.5" fill="#f472b6" opacity="0.5"/>
+    </g>
+
+    <!-- Blue plane (XZ) cluster -->
+    <g filter="url(#dotGlow)">
+      <circle cx="-35" cy="-30" r="2.5" fill="#38bdf8" opacity="0.9"/>
+      <circle cx="-55" cy="-45" r="2" fill="#38bdf8" opacity="0.8"/>
+      <circle cx="-25" cy="-55" r="2.2" fill="#38bdf8" opacity="0.85"/>
+      <circle cx="-70" cy="-60" r="1.8" fill="#38bdf8" opacity="0.7"/>
+      <circle cx="-45" cy="-75" r="2" fill="#38bdf8" opacity="0.75"/>
+      <circle cx="-60" cy="-25" r="1.5" fill="#38bdf8" opacity="0.65"/>
+      <circle cx="-80" cy="-45" r="2.3" fill="#38bdf8" opacity="0.7"/>
+      <circle cx="-40" cy="-90" r="1.8" fill="#38bdf8" opacity="0.6"/>
+      <circle cx="-90" cy="-55" r="1.5" fill="#38bdf8" opacity="0.5"/>
+    </g>
+
+    <!-- Purple plane (YZ) cluster -->
+    <g filter="url(#dotGlow)">
+      <circle cx="35" cy="-40" r="2.5" fill="#a78bfa" opacity="0.9"/>
+      <circle cx="55" cy="-55" r="2" fill="#a78bfa" opacity="0.8"/>
+      <circle cx="25" cy="-65" r="2.2" fill="#a78bfa" opacity="0.85"/>
+      <circle cx="70" cy="-50" r="1.8" fill="#a78bfa" opacity="0.7"/>
+      <circle cx="45" cy="-80" r="2" fill="#a78bfa" opacity="0.75"/>
+      <circle cx="60" cy="-35" r="1.5" fill="#a78bfa" opacity="0.65"/>
+      <circle cx="80" cy="-65" r="2.3" fill="#a78bfa" opacity="0.7"/>
+      <circle cx="40" cy="-95" r="1.8" fill="#a78bfa" opacity="0.6"/>
+      <circle cx="90" cy="-45" r="1.5" fill="#a78bfa" opacity="0.5"/>
+    </g>
+
+    <!-- Right-angle markers at origin -->
+    <g opacity="0.4" stroke-width="1" fill="none">
+      <polyline points="12,2 12,-8 2,-8" stroke="#e2e8f0"/>
+      <polyline points="-12,-2 -8,-10 2,-8" stroke="#e2e8f0"/>
+    </g>
+
+    <!-- Subspace labels -->
+    <text x="105" y="42" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#f472b6" opacity="0.7" font-weight="600">子空间 A</text>
+    <text x="-115" y="-95" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#38bdf8" opacity="0.7" font-weight="600">子空间 B</text>
+    <text x="72" y="-88" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#a78bfa" opacity="0.7" font-weight="600">子空间 C</text>
+
+    <!-- "⊥" orthogonal symbols -->
+    <text x="8" y="-12" font-family="'Noto Sans CJK SC', sans-serif" font-size="16" fill="#e2e8f0" opacity="0.5" font-weight="700">⊥</text>
+  </g>
+
+  <!-- ====== RIGHT: Layer-wise topology bar visualization ====== -->
+  <g transform="translate(520, 75)">
+    <!-- Section label -->
+    <text x="0" y="0" font-family="'Noto Sans CJK SC', sans-serif" font-size="11" fill="#64748b" opacity="0.6">层间拓扑演化</text>
+
+    <!-- Layer bars - representing topology activity across layers -->
+    <!-- Early layers: lots of short-lived holes (chaotic) -->
+    <g transform="translate(0, 15)">
+      <rect x="0" y="0" width="18" height="230" rx="2" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="2" y="5" width="14" height="12" rx="1" fill="#f472b6" opacity="0.7"/>
+      <rect x="2" y="20" width="14" height="8" rx="1" fill="#f472b6" opacity="0.6"/>
+      <rect x="2" y="31" width="14" height="15" rx="1" fill="#38bdf8" opacity="0.5"/>
+      <rect x="2" y="49" width="14" height="6" rx="1" fill="#a78bfa" opacity="0.6"/>
+      <rect x="2" y="58" width="14" height="10" rx="1" fill="#f472b6" opacity="0.5"/>
+      <rect x="2" y="71" width="14" height="7" rx="1" fill="#38bdf8" opacity="0.4"/>
+      <text x="9" y="248" font-family="'Noto Sans CJK SC', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle" opacity="0.5">早</text>
+    </g>
+
+    <!-- Early-mid layers -->
+    <g transform="translate(24, 15)">
+      <rect x="0" y="0" width="18" height="230" rx="2" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="2" y="8" width="14" height="20" rx="1" fill="#f472b6" opacity="0.5"/>
+      <rect x="2" y="32" width="14" height="25" rx="1" fill="#38bdf8" opacity="0.6"/>
+      <rect x="2" y="60" width="14" height="18" rx="1" fill="#a78bfa" opacity="0.5"/>
+      <rect x="2" y="82" width="14" height="10" rx="1" fill="#f472b6" opacity="0.35"/>
+    </g>
+
+    <!-- Mid layers: long-lived holes appear (stable) -->
+    <g transform="translate(48, 15)">
+      <rect x="0" y="0" width="18" height="230" rx="2" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="2" y="10" width="14" height="140" rx="1" fill="#38bdf8" opacity="0.55"/>
+      <rect x="2" y="30" width="14" height="100" rx="1" fill="#a78bfa" opacity="0.35"/>
+      <rect x="2" y="155" width="14" height="8" rx="1" fill="#f472b6" opacity="0.25"/>
+    </g>
+
+    <g transform="translate(72, 15)">
+      <rect x="0" y="0" width="18" height="230" rx="2" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="2" y="5" width="14" height="165" rx="1" fill="#38bdf8" opacity="0.6"/>
+      <rect x="2" y="25" width="14" height="120" rx="1" fill="#a78bfa" opacity="0.4"/>
+      <text x="9" y="248" font-family="'Noto Sans CJK SC', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle" opacity="0.5">中</text>
+    </g>
+
+    <g transform="translate(96, 15)">
+      <rect x="0" y="0" width="18" height="230" rx="2" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="2" y="8" width="14" height="155" rx="1" fill="#38bdf8" opacity="0.55"/>
+      <rect x="2" y="20" width="14" height="130" rx="1" fill="#a78bfa" opacity="0.35"/>
+    </g>
+
+    <!-- Mid-late layers: specialization -->
+    <g transform="translate(120, 15)">
+      <rect x="0" y="0" width="18" height="230" rx="2" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="2" y="10" width="14" height="130" rx="1" fill="#38bdf8" opacity="0.5"/>
+      <rect x="2" y="35" width="14" height="90" rx="1" fill="#a78bfa" opacity="0.3"/>
+    </g>
+
+    <g transform="translate(144, 15)">
+      <rect x="0" y="0" width="18" height="230" rx="2" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="2" y="15" width="14" height="110" rx="1" fill="#38bdf8" opacity="0.45"/>
+      <rect x="2" y="45" width="14" height="70" rx="1" fill="#a78bfa" opacity="0.25"/>
+      <text x="9" y="248" font-family="'Noto Sans CJK SC', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle" opacity="0.5">深</text>
+    </g>
+
+    <!-- Late layers: short-lived holes burst again -->
+    <g transform="translate(168, 15)">
+      <rect x="0" y="0" width="18" height="230" rx="2" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="2" y="20" width="14" height="60" rx="1" fill="#38bdf8" opacity="0.35"/>
+      <rect x="2" y="90" width="14" height="15" rx="1" fill="#f472b6" opacity="0.5"/>
+      <rect x="2" y="110" width="14" height="20" rx="1" fill="#a78bfa" opacity="0.5"/>
+      <rect x="2" y="135" width="14" height="10" rx="1" fill="#f472b6" opacity="0.6"/>
+      <rect x="2" y="150" width="14" height="25" rx="1" fill="#38bdf8" opacity="0.4"/>
+      <rect x="2" y="180" width="14" height="12" rx="1" fill="#a78bfa" opacity="0.55"/>
+    </g>
+
+    <g transform="translate(192, 15)">
+      <rect x="0" y="0" width="18" height="230" rx="2" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+      <rect x="2" y="5" width="14" height="10" rx="1" fill="#f472b6" opacity="0.7"/>
+      <rect x="2" y="18" width="14" height="14" rx="1" fill="#a78bfa" opacity="0.65"/>
+      <rect x="2" y="36" width="14" height="8" rx="1" fill="#38bdf8" opacity="0.5"/>
+      <rect x="2" y="48" width="14" height="18" rx="1" fill="#f472b6" opacity="0.6"/>
+      <rect x="2" y="70" width="14" height="12" rx="1" fill="#a78bfa" opacity="0.55"/>
+      <rect x="2" y="86" width="14" height="20" rx="1" fill="#38bdf8" opacity="0.45"/>
+      <rect x="2" y="110" width="14" height="8" rx="1" fill="#f472b6" opacity="0.7"/>
+      <rect x="2" y="122" width="14" height="15" rx="1" fill="#a78bfa" opacity="0.5"/>
+      <rect x="2" y="142" width="14" height="10" rx="1" fill="#38bdf8" opacity="0.6"/>
+      <rect x="2" y="158" width="14" height="20" rx="1" fill="#f472b6" opacity="0.55"/>
+      <rect x="2" y="182" width="14" height="12" rx="1" fill="#a78bfa" opacity="0.65"/>
+      <text x="9" y="248" font-family="'Noto Sans CJK SC', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle" opacity="0.5">末</text>
+    </g>
+
+    <!-- Annotations -->
+    <g opacity="0.45">
+      <text x="230" y="45" font-family="'Noto Sans CJK SC', sans-serif" font-size="9" fill="#38bdf8">← 长命空洞</text>
+      <text x="230" y="62" font-family="'Noto Sans CJK SC', sans-serif" font-size="9" fill="#38bdf8">   （稳定结构）</text>
+      <line x1="215" y1="40" x2="110" y2="65" stroke="#38bdf8" stroke-width="0.5" stroke-dasharray="3,3"/>
+    </g>
+    <g opacity="0.45">
+      <text x="230" y="170" font-family="'Noto Sans CJK SC', sans-serif" font-size="9" fill="#f472b6">← 末层爆发</text>
+      <text x="230" y="187" font-family="'Noto Sans CJK SC', sans-serif" font-size="9" fill="#f472b6">   （输出坍缩）</text>
+      <line x1="215" y1="165" x2="210" y2="145" stroke="#f472b6" stroke-width="0.5" stroke-dasharray="3,3"/>
+    </g>
+  </g>
+
+  <!-- ====== TITLE ====== -->
+  <g>
+    <!-- Badge -->
+    <rect x="40" y="20" width="145" height="30" rx="15" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" opacity="0.7"/>
+    <text x="112" y="41" font-family="'Noto Sans CJK SC', sans-serif" font-size="14" fill="#38bdf8" text-anchor="middle" font-weight="600">Transformer</text>
+
+    <!-- Main title -->
+    <text x="45" y="82" font-family="'Noto Sans CJK SC', sans-serif" font-size="32" fill="#f1f5f9" font-weight="800" filter="url(#textGlow)">正交的子空间</text>
+
+    <!-- Subtitle -->
+    <text x="47" y="118" font-family="'Noto Sans CJK SC', sans-serif" font-size="14" fill="#94a3b8" opacity="0.7">从我们的实验到三篇论文</text>
+  </g>
+
+  <!-- ====== BOTTOM: formula strip ====== -->
+  <g transform="translate(45, 340)">
+    <text x="0" y="0" font-family="'Noto Sans CJK SC', monospace" font-size="13" fill="#475569" opacity="0.4">P₁P₂ = 0 · 正交 = 零串扰 · 分格 = 稳定编码</text>
+  </g>
+
+  <!-- Corner decorations -->
+  <g opacity="0.1" stroke="#38bdf8" stroke-width="1">
+    <line x1="15" y1="15" x2="50" y2="15"/>
+    <line x1="15" y1="15" x2="15" y2="50"/>
+    <line x1="885" y1="15" x2="850" y2="15"/>
+    <line x1="885" y1="15" x2="885" y2="50"/>
+    <line x1="15" y1="368" x2="50" y2="368"/>
+    <line x1="15" y1="368" x2="15" y2="333"/>
+    <line x1="885" y1="368" x2="850" y2="368"/>
+    <line x1="885" y1="368" x2="885" y2="333"/>
+  </g>
+</svg>
