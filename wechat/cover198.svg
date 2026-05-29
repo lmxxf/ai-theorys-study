@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#1a0a2e"/>
+    </linearGradient>
+    <linearGradient id="sigFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="powerLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- 背景网格暗纹 -->
+  <g opacity="0.06" stroke="#8b5cf6" stroke-width="0.5">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="100" y1="0" x2="100" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="700" y1="0" x2="700" y2="600"/>
+  </g>
+
+  <!-- ===== 图表区 ===== -->
+  <!-- 坐标系：原点 (130,400)，X 向右算力，Y 向上收益 -->
+
+  <!-- 天花板辉光 -->
+  <rect x="130" y="118" width="560" height="6" fill="#ef4444" opacity="0.15" filter="url(#softGlow)"/>
+
+  <!-- 天花板线（渐近线 A）-->
+  <line x1="130" y1="120" x2="700" y2="120" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="8,5" opacity="0.8"/>
+  <text x="690" y="110" text-anchor="end" font-family="'WenQuanYi Micro Hei',sans-serif" font-size="15" fill="#f87171" opacity="0.9">天花板 A（推不过去）</text>
+
+  <!-- Y 轴 -->
+  <line x1="130" y1="80" x2="130" y2="400" stroke="#64748b" stroke-width="1.5"/>
+  <!-- X 轴 -->
+  <line x1="130" y1="400" x2="710" y2="400" stroke="#64748b" stroke-width="1.5"/>
+  <text x="120" y="95" text-anchor="end" font-family="'WenQuanYi Micro Hei',sans-serif" font-size="13" fill="#94a3b8">收益</text>
+  <text x="710" y="420" text-anchor="end" font-family="'WenQuanYi Micro Hei',sans-serif" font-size="13" fill="#94a3b8">算力 →</text>
+
+  <!-- 预训练 power law 对照线（缓慢但不封顶，向上穿出顶部）-->
+  <path d="M130,395 C260,330 400,250 560,165 S700,75 720,55"
+        fill="none" stroke="url(#powerLine)" stroke-width="2" opacity="0.55" stroke-dasharray="2,4"/>
+  <text x="600" y="150" font-family="'WenQuanYi Micro Hei',sans-serif" font-size="13" fill="#94a3b8" opacity="0.75">预训练 · power law</text>
+
+  <!-- sigmoid 曲线填充 -->
+  <path d="M130,388 C230,385 290,360 360,250 C420,160 470,130 560,124 C620,121 670,120 700,120 L700,400 L130,400 Z"
+        fill="url(#sigFill)"/>
+  <!-- sigmoid 主曲线 -->
+  <path d="M130,388 C230,385 290,360 360,250 C420,160 470,130 560,124 C620,121 670,120 700,120"
+        fill="none" stroke="#a78bfa" stroke-width="3.5" filter="url(#glow)"/>
+  <text x="300" y="300" font-family="'WenQuanYi Micro Hei',sans-serif" font-size="15" fill="#c4b5fd" font-weight="bold">RL 后训练 · sigmoid</text>
+
+  <!-- 曲线尾部的节点：撞墙 -->
+  <circle cx="700" cy="120" r="5" fill="#e0d4ff" filter="url(#glow)"/>
+  <circle cx="620" cy="121" r="3" fill="#c4b5fd" opacity="0.8"/>
+
+  <!-- 算力箭头：越来越长越来越密，但收益已平 -->
+  <g stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow)" opacity="0.85">
+    <line x1="560" y1="450" x2="600" y2="450"/>
+    <line x1="560" y1="470" x2="640" y2="470"/>
+    <line x1="560" y1="490" x2="700" y2="490"/>
+  </g>
+  <text x="555" y="455" text-anchor="end" font-family="'WenQuanYi Micro Hei',sans-serif" font-size="12" fill="#fbbf24" opacity="0.9">2×算力</text>
+  <text x="555" y="475" text-anchor="end" font-family="'WenQuanYi Micro Hei',sans-serif" font-size="12" fill="#fb923c" opacity="0.9">5×算力</text>
+  <text x="555" y="495" text-anchor="end" font-family="'WenQuanYi Micro Hei',sans-serif" font-size="12" fill="#f97316" opacity="0.9">10×算力</text>
+
+  <!-- 收益不动的虚线指向天花板节点 -->
+  <line x1="640" y1="470" x2="690" y2="128" stroke="#f59e0b" stroke-width="0.8" opacity="0.25" stroke-dasharray="3,3"/>
+  <line x1="700" y1="490" x2="700" y2="128" stroke="#f59e0b" stroke-width="0.8" opacity="0.25" stroke-dasharray="3,3"/>
+
+  <!-- 标题 -->
+  <text x="400" y="535" text-anchor="middle" font-family="'WenQuanYi Micro Hei',sans-serif" font-size="27" fill="#f0eaff" font-weight="bold">RL 后训练撞天花板</text>
+  <text x="400" y="568" text-anchor="middle" font-family="'WenQuanYi Micro Hei',sans-serif" font-size="15" fill="#8b8ba0">花 10 倍算力 · 换不到 2 倍提升 · sigmoid 不是 power law</text>
+
+</svg>
