@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="55%" stop-color="#161033"/>
+      <stop offset="100%" stop-color="#0d0820"/>
+    </linearGradient>
+    <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#f59e0b" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="scr1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#065f46" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="scr2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="scr3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#831843" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="scr4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fb923c" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7c2d12" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4c1d95" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#4c1d95" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="7"/></filter>
+    <filter id="crumble"><feGaussianBlur stdDeviation="2.2"/></filter>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <g fill="#a5b4fc" opacity="0.5">
+    <circle cx="90" cy="80" r="1.2"/><circle cx="710" cy="110" r="1"/>
+    <circle cx="640" cy="60" r="1.4"/><circle cx="160" cy="150" r="1"/>
+    <circle cx="740" cy="220" r="1.1"/><circle cx="70" cy="260" r="1.3"/>
+    <circle cx="400" cy="50" r="1"/><circle cx="520" cy="90" r="1.1"/>
+    <circle cx="270" cy="70" r="0.9"/><circle cx="690" cy="300" r="1"/>
+  </g>
+
+  <circle cx="400" cy="265" r="135" fill="url(#hubGlow)"/>
+
+  <g stroke-width="1.8" fill="none" opacity="0.75" filter="url(#glow)">
+    <line x1="400" y1="265" x2="205" y2="190" stroke="#34d399"/>
+    <line x1="400" y1="265" x2="595" y2="190" stroke="#60a5fa"/>
+    <line x1="400" y1="265" x2="205" y2="345" stroke="#f472b6"/>
+    <line x1="400" y1="265" x2="595" y2="345" stroke="#fb923c"/>
+  </g>
+
+  <g filter="url(#glow)">
+    <rect x="120" y="135" width="150" height="100" rx="8" fill="url(#scr1)" stroke="#6ee7b7" stroke-width="1.5"/>
+    <g stroke="#022c22" stroke-width="0.8" opacity="0.4">
+      <line x1="120" y1="168" x2="270" y2="168"/><line x1="120" y1="201" x2="270" y2="201"/>
+      <line x1="170" y1="135" x2="170" y2="235"/><line x1="220" y1="135" x2="220" y2="235"/>
+    </g>
+    <text x="130" y="153" font-family="'Noto Sans CJK SC'" font-size="13" fill="#022c22" font-weight="bold">Agent 1</text>
+  </g>
+  <g filter="url(#glow)">
+    <rect x="530" y="135" width="150" height="100" rx="8" fill="url(#scr2)" stroke="#93c5fd" stroke-width="1.5"/>
+    <g stroke="#0c1b4d" stroke-width="0.8" opacity="0.4">
+      <line x1="530" y1="168" x2="680" y2="168"/><line x1="530" y1="201" x2="680" y2="201"/>
+      <line x1="580" y1="135" x2="580" y2="235"/><line x1="630" y1="135" x2="630" y2="235"/>
+    </g>
+    <text x="540" y="153" font-family="'Noto Sans CJK SC'" font-size="13" fill="#0c1b4d" font-weight="bold">Agent 2</text>
+  </g>
+  <g filter="url(#glow)">
+    <rect x="120" y="295" width="150" height="100" rx="8" fill="url(#scr3)" stroke="#f9a8d4" stroke-width="1.5"/>
+    <g stroke="#500724" stroke-width="0.8" opacity="0.4">
+      <line x1="120" y1="328" x2="270" y2="328"/><line x1="120" y1="361" x2="270" y2="361"/>
+      <line x1="170" y1="295" x2="170" y2="395"/><line x1="220" y1="295" x2="220" y2="395"/>
+    </g>
+    <text x="130" y="313" font-family="'Noto Sans CJK SC'" font-size="13" fill="#500724" font-weight="bold">Agent 3</text>
+  </g>
+  <g filter="url(#glow)">
+    <rect x="530" y="295" width="150" height="100" rx="8" fill="url(#scr4)" stroke="#fdba74" stroke-width="1.5"/>
+    <g stroke="#431407" stroke-width="0.8" opacity="0.4">
+      <line x1="530" y1="328" x2="680" y2="328"/><line x1="530" y1="361" x2="680" y2="361"/>
+      <line x1="580" y1="295" x2="580" y2="395"/><line x1="630" y1="295" x2="630" y2="395"/>
+    </g>
+    <text x="540" y="313" font-family="'Noto Sans CJK SC'" font-size="13" fill="#431407" font-weight="bold">Agent 4</text>
+  </g>
+
+  <circle cx="400" cy="265" r="20" fill="#fde68a" filter="url(#glow)"/>
+  <circle cx="400" cy="265" r="20" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.8"/>
+  <text x="400" y="270" font-family="'Noto Sans CJK SC'" font-size="12" fill="#78350f" font-weight="bold" text-anchor="middle">hub</text>
+
+  <rect x="0" y="430" width="800" height="80" fill="url(#ground)"/>
+  <g filter="url(#crumble)" opacity="0.55">
+    <rect x="150" y="448" width="36" height="26" rx="3" fill="#5b21b6"/>
+    <rect x="205" y="455" width="30" height="22" rx="3" fill="#4c1d95"/>
+    <rect x="300" y="445" width="40" height="28" rx="3" fill="#6d28d9"/>
+    <rect x="360" y="460" width="26" height="20" rx="3" fill="#4c1d95"/>
+    <rect x="470" y="450" width="34" height="24" rx="3" fill="#5b21b6"/>
+    <rect x="540" y="462" width="28" height="20" rx="3" fill="#4c1d95"/>
+    <rect x="610" y="447" width="38" height="26" rx="3" fill="#6d28d9"/>
+  </g>
+  <g fill="#7c3aed" opacity="0.4" filter="url(#crumble)">
+    <rect x="230" y="492" width="14" height="11" rx="2"/>
+    <rect x="390" y="500" width="12" height="9" rx="2"/>
+    <rect x="500" y="495" width="16" height="12" rx="2"/>
+    <rect x="320" y="515" width="10" height="8" rx="2"/>
+    <rect x="580" y="512" width="12" height="9" rx="2"/>
+  </g>
+
+  <text x="400" y="535" font-family="'Noto Sans CJK SC'" font-size="40" fill="#ffffff" font-weight="bold" text-anchor="middle" filter="url(#glow)">四人共享的梦境</text>
+  <text x="400" y="572" font-family="'Noto Sans CJK SC'" font-size="19" fill="#c4b5fd" text-anchor="middle" letter-spacing="2">英伟达 γ-World ·  一个没有大地的世界</text>
+</svg>
