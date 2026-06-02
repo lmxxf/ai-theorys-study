@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <!-- 背景 -->
+  <rect width="900" height="500" fill="#0d1117"/>
+
+  <!-- ===== 左半：独显 = 两个池子 ===== -->
+  <rect x="0" y="0" width="450" height="500" fill="#10161f"/>
+
+  <!-- 左上角标签 -->
+  <rect x="24" y="22" width="220" height="52" rx="6" fill="#000000aa"/>
+  <text x="36" y="45" font-size="17" fill="#3ad14f" font-weight="bold">独显：两个池子</text>
+  <text x="36" y="65" font-size="12" fill="#9aa4b0">RAM 和 VRAM 各管各的</text>
+
+  <!-- 池子1：CPU RAM -->
+  <rect x="50" y="110" width="160" height="240" rx="10" fill="#161b22" stroke="#3ad14f" stroke-width="2"/>
+  <text x="130" y="135" font-size="13" fill="#7ee787" text-anchor="middle" font-weight="bold">CPU 内存</text>
+  <text x="130" y="152" font-size="11" fill="#8b949e" text-anchor="middle" class="mono">64GB RAM</text>
+  <!-- 原件（页缓存）装在里面 -->
+  <rect x="68" y="200" width="124" height="130" rx="6" fill="#1f5c3a"/>
+  <text x="130" y="255" font-size="13" fill="#d6f5dd" text-anchor="middle">原件</text>
+  <text x="130" y="278" font-size="11" fill="#a8d5b5" text-anchor="middle">(mmap页缓存)</text>
+  <text x="130" y="300" font-size="12" fill="#d6f5dd" text-anchor="middle" class="mono">68GB</text>
+
+  <!-- 箭头 -->
+  <text x="232" y="235" font-size="22" fill="#3ad14f" text-anchor="middle">→</text>
+
+  <!-- 池子2：GPU VRAM -->
+  <rect x="250" y="110" width="150" height="240" rx="10" fill="#161b22" stroke="#3ad14f" stroke-width="2"/>
+  <text x="325" y="135" font-size="13" fill="#7ee787" text-anchor="middle" font-weight="bold">GPU 显存</text>
+  <text x="325" y="152" font-size="11" fill="#8b949e" text-anchor="middle" class="mono">24GB VRAM</text>
+  <rect x="265" y="200" width="120" height="130" rx="6" fill="#1f5c3a"/>
+  <text x="325" y="258" font-size="13" fill="#d6f5dd" text-anchor="middle">复印件</text>
+  <text x="325" y="280" font-size="11" fill="#a8d5b5" text-anchor="middle">(GPU权重)</text>
+  <text x="325" y="302" font-size="12" fill="#d6f5dd" text-anchor="middle" class="mono">68GB</text>
+
+  <!-- 左侧结论 -->
+  <rect x="60" y="375" width="330" height="44" rx="8" fill="#13351f"/>
+  <text x="225" y="403" font-size="16" fill="#7ee787" text-anchor="middle" font-weight="bold">各放各的，互不挤占 ✓</text>
+
+  <!-- ===== 中间分界 ===== -->
+  <line x1="450" y1="0" x2="450" y2="440" stroke="#ff8c00" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <!-- ===== 右半：统一内存 = 一个池子 ===== -->
+  <rect x="450" y="0" width="450" height="500" fill="#0d1117"/>
+
+  <!-- 右上角标签 -->
+  <rect x="656" y="22" width="222" height="52" rx="6" fill="#000000aa"/>
+  <text x="668" y="45" font-size="17" fill="#ff5f56" font-weight="bold">统一内存：一个池子</text>
+  <text x="668" y="65" font-size="12" fill="#9aa4b0">两份挤同一块内存</text>
+
+  <!-- 一个池子，框是红的，装不下 -->
+  <rect x="500" y="110" width="350" height="240" rx="10" fill="#161b22" stroke="#ff5f56" stroke-width="2.5"/>
+  <text x="675" y="135" font-size="13" fill="#ff9b94" text-anchor="middle" font-weight="bold">统一内存池 · 128GB</text>
+  <text x="675" y="152" font-size="11" fill="#8b949e" text-anchor="middle">就这一块，两份都得挤进来</text>
+
+  <!-- 原件 68GB -->
+  <rect x="514" y="172" width="150" height="160" rx="6" fill="#7a2820"/>
+  <text x="589" y="245" font-size="13" fill="#ffd6d2" text-anchor="middle">原件 68GB</text>
+  <text x="589" y="266" font-size="10.5" fill="#e8a8a0" text-anchor="middle">页缓存赖着不走</text>
+
+  <!-- 复印件 68GB，故意捅出右框外，表达放不下 -->
+  <rect x="686" y="172" width="150" height="160" rx="6" fill="#a83227" stroke="#ffb86b" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="761" y="245" font-size="13" fill="#ffd6d2" text-anchor="middle">复印件 68GB</text>
+  <text x="761" y="266" font-size="10.5" fill="#e8a8a0" text-anchor="middle">GPU 又要一份</text>
+  <!-- 溢出标记 -->
+  <text x="820" y="200" font-size="20" fill="#ffb86b" text-anchor="middle">⚠</text>
+
+  <!-- 68+68=136 > 128 公式 -->
+  <text x="675" y="378" font-size="20" fill="#ff8c00" text-anchor="middle" font-weight="bold" class="mono">68 + 68 = 136GB</text>
+  <text x="675" y="408" font-size="17" fill="#ff5f56" text-anchor="middle" font-weight="bold">＞ 128GB　爆了 ✕</text>
+
+  <!-- ===== 主标题（底部横幅） ===== -->
+  <rect x="0" y="440" width="900" height="60" fill="#ff8c00"/>
+  <text x="450" y="478" font-size="26" fill="#0d1117" text-anchor="middle" font-weight="bold">128GB 明明够，为什么加载 68GB 模型还 OOM？</text>
+</svg>
