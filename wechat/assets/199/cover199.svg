@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070b18"/>
+      <stop offset="52%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1f1027"/>
+    </linearGradient>
+
+    <radialGradient id="valleyGlow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#ecfeff" stop-opacity="0.95"/>
+      <stop offset="24%" stop-color="#22d3ee" stop-opacity="0.55"/>
+      <stop offset="58%" stop-color="#6366f1" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="entropyFill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.26"/>
+      <stop offset="48%" stop-color="#22d3ee" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0.22"/>
+    </linearGradient>
+
+    <linearGradient id="layerRail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+
+    <filter id="lineGlow">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#fb923c"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <g opacity="0.08" stroke="#cbd5e1" stroke-width="0.6">
+    <line x1="80" y1="92" x2="80" y2="438"/>
+    <line x1="180" y1="92" x2="180" y2="438"/>
+    <line x1="280" y1="92" x2="280" y2="438"/>
+    <line x1="380" y1="92" x2="380" y2="438"/>
+    <line x1="480" y1="92" x2="480" y2="438"/>
+    <line x1="580" y1="92" x2="580" y2="438"/>
+    <line x1="680" y1="92" x2="680" y2="438"/>
+    <line x1="60" y1="150" x2="720" y2="150"/>
+    <line x1="60" y1="235" x2="720" y2="235"/>
+    <line x1="60" y1="320" x2="720" y2="320"/>
+    <line x1="60" y1="405" x2="720" y2="405"/>
+  </g>
+
+  <!-- layer depth rail -->
+  <line x1="90" y1="302" x2="710" y2="302" stroke="url(#layerRail)" stroke-width="3" opacity="0.55"/>
+  <g opacity="0.55" stroke="#e2e8f0" stroke-width="1">
+    <line x1="110" y1="292" x2="110" y2="312"/>
+    <line x1="220" y1="294" x2="220" y2="310"/>
+    <line x1="330" y1="294" x2="330" y2="310"/>
+    <line x1="440" y1="292" x2="440" y2="312"/>
+    <line x1="550" y1="294" x2="550" y2="310"/>
+    <line x1="660" y1="294" x2="660" y2="310"/>
+  </g>
+
+  <!-- entropy valley -->
+  <path d="M90,146 C170,152 226,176 282,218 C326,252 357,278 400,282 C443,278 474,252 518,218 C574,176 630,152 710,146 L710,404 C624,380 560,356 504,332 C456,312 424,304 400,304 C376,304 344,312 296,332 C240,356 176,380 90,404 Z"
+        fill="url(#entropyFill)" opacity="0.95"/>
+  <path d="M90,146 C170,152 226,176 282,218 C326,252 357,278 400,282 C443,278 474,252 518,218 C574,176 630,152 710,146"
+        fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.62"/>
+  <path d="M90,404 C176,380 240,356 296,332 C344,312 376,304 400,304 C424,304 456,312 504,332 C560,356 624,380 710,404"
+        fill="none" stroke="#fb923c" stroke-width="2" opacity="0.5"/>
+
+  <!-- compression core -->
+  <ellipse cx="400" cy="300" rx="116" ry="92" fill="url(#valleyGlow)" filter="url(#softGlow)" opacity="0.88"/>
+  <g filter="url(#lineGlow)">
+    <path d="M184,178 C270,194 340,254 385,297 C340,340 270,386 184,410"
+          fill="none" stroke="#67e8f9" stroke-width="1.4" opacity="0.65"/>
+    <path d="M616,178 C530,194 460,254 415,297 C460,340 530,386 616,410"
+          fill="none" stroke="#fdba74" stroke-width="1.4" opacity="0.62"/>
+    <path d="M180,244 C258,248 334,276 390,300 C334,324 258,352 180,356"
+          fill="none" stroke="#93c5fd" stroke-width="1" opacity="0.45"/>
+    <path d="M620,244 C542,248 466,276 410,300 C466,324 542,352 620,356"
+          fill="none" stroke="#fbbf24" stroke-width="1" opacity="0.42"/>
+  </g>
+
+  <!-- low-rank singular directions -->
+  <g transform="translate(400 300)" filter="url(#lineGlow)">
+    <ellipse cx="0" cy="0" rx="72" ry="18" fill="none" stroke="#f8fafc" stroke-width="1.3" opacity="0.8"/>
+    <ellipse cx="0" cy="0" rx="64" ry="15" fill="none" stroke="#22d3ee" stroke-width="1.1" opacity="0.62" transform="rotate(62)"/>
+    <ellipse cx="0" cy="0" rx="58" ry="12" fill="none" stroke="#a78bfa" stroke-width="0.9" opacity="0.45" transform="rotate(124)"/>
+    <circle cx="0" cy="0" r="9" fill="#ffffff" opacity="0.92"/>
+    <circle cx="0" cy="0" r="21" fill="none" stroke="#ecfeff" stroke-width="1" opacity="0.55"/>
+  </g>
+
+  <!-- scattered high entropy tokens on the left -->
+  <g opacity="0.82">
+    <circle cx="124" cy="192" r="3" fill="#38bdf8"/>
+    <circle cx="162" cy="250" r="2.3" fill="#93c5fd"/>
+    <circle cx="118" cy="332" r="2.8" fill="#22d3ee"/>
+    <circle cx="206" cy="220" r="2.6" fill="#818cf8"/>
+    <circle cx="236" cy="368" r="2.1" fill="#67e8f9"/>
+    <circle cx="272" cy="184" r="2.5" fill="#c4b5fd"/>
+    <line x1="124" y1="192" x2="162" y2="250" stroke="#38bdf8" stroke-width="0.7" opacity="0.35"/>
+    <line x1="162" y1="250" x2="206" y2="220" stroke="#93c5fd" stroke-width="0.7" opacity="0.3"/>
+    <line x1="118" y1="332" x2="236" y2="368" stroke="#22d3ee" stroke-width="0.7" opacity="0.28"/>
+    <line x1="206" y1="220" x2="272" y2="184" stroke="#818cf8" stroke-width="0.7" opacity="0.28"/>
+  </g>
+
+  <!-- next-token output on the right -->
+  <g transform="translate(536 275)">
+    <g fill="#fb923c" opacity="0.74">
+      <rect x="0" y="-18" width="34" height="34" rx="5"/>
+      <rect x="43" y="-18" width="34" height="34" rx="5" opacity="0.78"/>
+      <rect x="86" y="-18" width="34" height="34" rx="5" opacity="0.56"/>
+      <rect x="129" y="-18" width="34" height="34" rx="5" opacity="0.38"/>
+    </g>
+    <g font-family="monospace" font-size="12" fill="#1f1027" font-weight="700" text-anchor="middle">
+      <text x="17" y="4">t+1</text>
+      <text x="60" y="4">t+2</text>
+      <text x="103" y="4">t+3</text>
+      <text x="146" y="4">...</text>
+    </g>
+    <line x1="-36" y1="0" x2="-9" y2="0" stroke="#fb923c" stroke-width="1.7" marker-end="url(#arrow)" opacity="0.85"/>
+  </g>
+
+  <!-- labels -->
+  <text x="150" y="118" text-anchor="middle" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" font-size="14" fill="#7dd3fc" opacity="0.8">浅层混合</text>
+  <text x="400" y="118" text-anchor="middle" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" font-size="14" fill="#ecfeff" opacity="0.95">中间层压缩谷</text>
+  <text x="640" y="118" text-anchor="middle" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" font-size="14" fill="#fdba74" opacity="0.85">深层精炼</text>
+
+  <text x="400" y="342" text-anchor="middle" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" font-size="18" fill="#f8fafc" font-weight="700">语义核</text>
+  <text x="400" y="366" text-anchor="middle" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" font-size="12" fill="#bae6fd" opacity="0.8">low entropy · low rank</text>
+
+  <!-- title area -->
+  <text x="400" y="494" text-anchor="middle" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" font-size="31" fill="#f8fafc" font-weight="800">为什么大模型的想法</text>
+  <text x="400" y="536" text-anchor="middle" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" font-size="31" fill="#f8fafc" font-weight="800">集中在中间层</text>
+  <text x="400" y="568" text-anchor="middle" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" font-size="15" fill="#94a3b8">Mix → Compress → Refine · 中间层是信息漏斗最窄处</text>
+
+  <rect x="706" y="20" width="58" height="28" rx="14" fill="#22d3ee" opacity="0.14"/>
+  <text x="735" y="39" text-anchor="middle" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" font-size="13" fill="#67e8f9" font-weight="700">#199</text>
+</svg>
