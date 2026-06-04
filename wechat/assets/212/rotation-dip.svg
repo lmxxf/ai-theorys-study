@@ -50,8 +50,8 @@
 
     <!-- ③ 新朝向：指向左上（对着泛化），绿，发光 -->
     <line x1="0" y1="0" x2="-92" y2="-110" stroke="url(#newBlade)" stroke-width="11" stroke-linecap="round" filter="url(#glow)"/>
-    <text x="-104" y="-118" fill="#5fe8bc" font-size="14.5" text-anchor="end">对着「举一反三」</text>
-    <text x="-104" y="-98" fill="#3fae8c" font-size="12.5" text-anchor="end">RL 把刀转回来</text>
+    <text x="-104" y="-118" fill="#5fe8bc" font-size="14.5" text-anchor="end">能举一反三的新落点</text>
+    <text x="-104" y="-98" fill="#3fae8c" font-size="12.5" text-anchor="end">RL 又把刀转了一次</text>
 
     <!-- 旋转方向箭头（沿弧，从旧到新）-->
     <path d="M 116,8 A 116,116 0 0,1 -42,-108" fill="none" stroke="#e0b070" stroke-width="2" marker-end="url(#ar)" opacity="0.75"/>
