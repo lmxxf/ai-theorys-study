@@ -29,8 +29,8 @@
   <rect width="760" height="560" fill="url(#bg)"/>
 
   <!-- 标题 -->
-  <text x="380" y="44" text-anchor="middle" fill="#e8edf5" font-size="25" font-weight="bold">SFT→RL：力度没变，方向在转</text>
-  <text x="380" y="70" text-anchor="middle" fill="#7c8aa5" font-size="14.5">能力不是被调大调小，是整套被转了个朝向</text>
+  <text x="380" y="44" text-anchor="middle" fill="#e8edf5" font-size="25" font-weight="bold">SFT→RL：力度基本没变，方向在转</text>
+  <text x="380" y="70" text-anchor="middle" fill="#7c8aa5" font-size="14.5">主要不是调大调小，而是能力方向在旋转</text>
 
   <!-- ===== 上半部：刻刀旋转（圆心居中，三把刀拉开角度）===== -->
   <!-- 圆心放在画面中线，刀向四周散开，避免重叠 -->
@@ -84,6 +84,6 @@
 
     <!-- 终点 -->
     <circle cx="670" cy="24" r="5.5" fill="#46e0b0"/>
-    <text x="664" y="16" fill="#5fe8bc" font-size="12.5" text-anchor="end">转到位 → 反超起点</text>
+    <text x="664" y="16" fill="#5fe8bc" font-size="12.5" text-anchor="end">转到位 → 慢慢回升</text>
   </g>
 </svg>

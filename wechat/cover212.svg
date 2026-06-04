@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="48%" stop-color="#101827"/>
+      <stop offset="100%" stop-color="#15101f"/>
+    </linearGradient>
+    <radialGradient id="oldBasin" cx="48%" cy="45%" r="58%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.50"/>
+      <stop offset="45%" stop-color="#b45309" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="newBasin" cx="50%" cy="45%" r="58%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.48"/>
+      <stop offset="45%" stop-color="#0f766e" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="48%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#34d399"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- subtle manifold grid -->
+  <g opacity="0.12" stroke="#94a3b8" stroke-width="0.8" fill="none">
+    <path d="M-30 162 C120 105 215 195 350 150 C500 100 620 125 930 85"/>
+    <path d="M-30 230 C130 178 245 258 390 210 C540 160 680 230 930 174"/>
+    <path d="M-30 304 C125 258 255 326 410 292 C590 253 705 320 930 276"/>
+    <path d="M-30 380 C145 342 270 407 425 370 C575 334 700 400 930 354"/>
+    <path d="M90 40 C130 130 122 270 82 460"/>
+    <path d="M238 20 C276 128 270 290 230 480"/>
+    <path d="M390 10 C420 130 422 292 382 490"/>
+    <path d="M545 20 C578 130 575 305 532 485"/>
+    <path d="M704 30 C738 142 730 300 686 475"/>
+    <path d="M842 42 C882 150 870 295 828 455"/>
+  </g>
+
+  <!-- basins -->
+  <ellipse cx="265" cy="238" rx="165" ry="104" fill="url(#oldBasin)" filter="url(#blur)"/>
+  <ellipse cx="645" cy="224" rx="176" ry="112" fill="url(#newBasin)" filter="url(#blur)"/>
+
+  <!-- old narrow trench -->
+  <g transform="translate(264 238)">
+    <ellipse cx="0" cy="0" rx="112" ry="48" fill="#1f1308" stroke="#f59e0b" stroke-width="2.4"/>
+    <ellipse cx="0" cy="0" rx="70" ry="25" fill="#351a08" stroke="#fbbf24" stroke-width="1.4" opacity="0.95"/>
+    <path d="M-82 3 C-45 -26 42 -28 85 0 C38 18 -36 20 -82 3 Z" fill="#f59e0b" opacity="0.18"/>
+    <text x="0" y="-70" fill="#fbbf24" font-size="20" text-anchor="middle" font-weight="bold">SFT</text>
+    <text x="0" y="7" fill="#fed7aa" font-size="17" text-anchor="middle" font-weight="bold">标准答案坑</text>
+    <text x="0" y="31" fill="#d6a665" font-size="12.5" text-anchor="middle">概率云被压窄</text>
+  </g>
+
+  <!-- transition dip -->
+  <g transform="translate(450 276)">
+    <circle cx="0" cy="0" r="54" fill="#2a1710" stroke="#f97316" stroke-width="2" stroke-dasharray="7 6" opacity="0.92"/>
+    <text x="0" y="-6" fill="#fdba74" font-size="28" text-anchor="middle" font-weight="bold">dip</text>
+    <text x="0" y="20" fill="#f5a160" font-size="12.5" text-anchor="middle">两头不靠</text>
+  </g>
+
+  <!-- new reward basin -->
+  <g transform="translate(646 224)">
+    <ellipse cx="0" cy="0" rx="126" ry="58" fill="#06281f" stroke="#34d399" stroke-width="2.5"/>
+    <ellipse cx="0" cy="0" rx="78" ry="31" fill="#064e3b" stroke="#6ee7b7" stroke-width="1.4"/>
+    <path d="M-95 0 C-45 -37 40 -35 96 2 C34 27 -42 28 -95 0 Z" fill="#34d399" opacity="0.18"/>
+    <text x="0" y="-80" fill="#6ee7b7" font-size="20" text-anchor="middle" font-weight="bold">RL</text>
+    <text x="0" y="7" fill="#d1fae5" font-size="17" text-anchor="middle" font-weight="bold">奖励盆地</text>
+    <text x="0" y="32" fill="#81cdb4" font-size="12.5" text-anchor="middle">重新聚起来</text>
+  </g>
+
+  <!-- transition path -->
+  <path d="M350 232 C398 188 441 192 470 255 C500 323 560 288 617 235"
+        fill="none" stroke="url(#path)" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#glow)"/>
+  <path d="M350 232 C398 188 441 192 470 255 C500 323 560 288 617 235"
+        fill="none" stroke="#ffffff" stroke-width="1.1" stroke-linecap="round" opacity="0.38"/>
+
+  <!-- probability particles -->
+  <g filter="url(#glow)">
+    <circle cx="210" cy="236" r="5" fill="#fbbf24"/>
+    <circle cx="246" cy="221" r="4.5" fill="#f59e0b"/>
+    <circle cx="288" cy="246" r="4.5" fill="#fbbf24"/>
+    <circle cx="330" cy="226" r="4" fill="#fed7aa"/>
+    <circle cx="424" cy="254" r="4.3" fill="#fb923c"/>
+    <circle cx="450" cy="285" r="5.5" fill="#f97316"/>
+    <circle cx="488" cy="272" r="4" fill="#fdba74"/>
+    <circle cx="592" cy="235" r="4.5" fill="#6ee7b7"/>
+    <circle cx="633" cy="211" r="5" fill="#34d399"/>
+    <circle cx="676" cy="231" r="4.6" fill="#99f6e4"/>
+    <circle cx="714" cy="211" r="4.2" fill="#34d399"/>
+  </g>
+
+  <!-- small equation strip -->
+  <g transform="translate(88 374)">
+    <rect x="0" y="0" width="724" height="46" rx="8" fill="#030712" opacity="0.72" stroke="#263244"/>
+    <text x="28" y="29" fill="#fbbf24" font-size="16" font-weight="bold">SFT：</text>
+    <text x="78" y="29" fill="#cbd5e1" font-size="15">外部确定性</text>
+    <text x="216" y="29" fill="#64748b" font-size="18">→</text>
+    <text x="252" y="29" fill="#fb923c" font-size="16" font-weight="bold">dip：</text>
+    <text x="300" y="29" fill="#cbd5e1" font-size="15">真空期</text>
+    <text x="416" y="29" fill="#64748b" font-size="18">→</text>
+    <text x="452" y="29" fill="#6ee7b7" font-size="16" font-weight="bold">RL：</text>
+    <text x="492" y="29" fill="#cbd5e1" font-size="15">内部确定性</text>
+  </g>
+
+  <!-- title -->
+  <rect x="0" y="430" width="900" height="70" fill="#f59e0b"/>
+  <text x="450" y="462" font-size="30" fill="#111827" text-anchor="middle" font-weight="bold">不是变笨，是在转向</text>
+  <text x="450" y="489" font-size="15" fill="#3a2405" text-anchor="middle">SFT 把概率盆地压窄，RL 先打散，再重新聚起来</text>
+</svg>
