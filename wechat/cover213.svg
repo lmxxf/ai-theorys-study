@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="52%" stop-color="#101827"/>
+      <stop offset="100%" stop-color="#17111f"/>
+    </linearGradient>
+    <linearGradient id="terrain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a2f"/>
+      <stop offset="52%" stop-color="#0f2a27"/>
+      <stop offset="100%" stop-color="#06131a"/>
+    </linearGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="45%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="45%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#67e8f9"/>
+    </linearGradient>
+    <radialGradient id="mountainGlow" cx="50%" cy="34%" r="45%">
+      <stop offset="0%" stop-color="#fef3c7" stop-opacity="0.32"/>
+      <stop offset="50%" stop-color="#22d3ee" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#67e8f9"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <ellipse cx="462" cy="168" rx="360" ry="154" fill="url(#mountainGlow)" filter="url(#soft)"/>
+
+  <!-- high-dimensional manifold mesh -->
+  <g opacity="0.13" stroke="#94a3b8" stroke-width="0.8" fill="none">
+    <path d="M-20 150 C120 95 235 182 365 128 C515 68 650 118 930 82"/>
+    <path d="M-20 210 C115 160 250 244 392 196 C560 140 690 210 930 166"/>
+    <path d="M-20 270 C125 218 275 292 420 258 C575 224 705 292 930 248"/>
+    <path d="M-20 340 C145 296 298 365 450 326 C605 288 725 350 930 315"/>
+    <path d="M70 42 C108 145 106 260 68 400"/>
+    <path d="M220 24 C252 138 250 272 210 415"/>
+    <path d="M372 18 C404 138 404 286 360 425"/>
+    <path d="M528 20 C562 136 558 294 512 425"/>
+    <path d="M690 30 C728 150 720 292 678 410"/>
+    <path d="M828 48 C864 155 852 282 810 398"/>
+  </g>
+
+  <!-- immutable pretrained mountains -->
+  <g transform="translate(0 0)">
+    <path d="M72 365 C170 260 225 300 305 190 C374 95 420 165 465 106 C520 35 594 148 655 88 C735 16 802 190 886 118 L886 406 L72 406 Z"
+          fill="url(#terrain)" stroke="#155e75" stroke-width="2"/>
+    <path d="M302 193 C374 96 421 165 465 106 C521 36 594 148 656 88 C703 38 747 96 787 156"
+          fill="none" stroke="#d9f99d" stroke-width="2.2" opacity="0.58" filter="url(#glow)"/>
+    <text x="455" y="92" fill="#fef3c7" font-size="17" text-anchor="middle" font-weight="bold">预训练地形 M</text>
+    <text x="455" y="116" fill="#a7f3d0" font-size="12.5" text-anchor="middle">山已经在这里，不是后训练造出来的</text>
+  </g>
+
+  <!-- post-training edits on the terrain -->
+  <g transform="translate(135 248)">
+    <ellipse cx="0" cy="0" rx="76" ry="34" fill="#2a1707" stroke="#f59e0b" stroke-width="2"/>
+    <ellipse cx="0" cy="0" rx="42" ry="16" fill="#5b2b08" stroke="#fbbf24" stroke-width="1.2"/>
+    <text x="0" y="-46" fill="#fbbf24" font-size="17" text-anchor="middle" font-weight="bold">SFT</text>
+    <text x="0" y="7" fill="#fed7aa" font-size="13" text-anchor="middle" font-weight="bold">夯坑</text>
+  </g>
+
+  <g transform="translate(328 277)">
+    <path d="M-76 20 C-32 -16 34 -22 78 -6" fill="none" stroke="url(#pathGrad)" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#glow)"/>
+    <circle cx="-72" cy="20" r="6" fill="#fbbf24"/>
+    <circle cx="78" cy="-6" r="6" fill="#67e8f9"/>
+    <text x="0" y="-44" fill="#67e8f9" font-size="17" text-anchor="middle" font-weight="bold">RL</text>
+    <text x="0" y="38" fill="#bae6fd" font-size="13" text-anchor="middle" font-weight="bold">奖励绳子</text>
+  </g>
+
+  <g transform="translate(524 250)">
+    <rect x="-68" y="-25" width="136" height="50" rx="8" fill="#111827" stroke="#fb7185" stroke-width="2"/>
+    <path d="M-48 -4 H-8" stroke="#fb7185" stroke-width="4" stroke-linecap="round"/>
+    <path d="M14 -4 H48" stroke="#fb7185" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-22 -13 L0 -4 L-22 5 Z" fill="#fb7185"/>
+    <path d="M22 -13 L44 -4 L22 5 Z" fill="#fb7185"/>
+    <text x="-22" y="-40" fill="#fb7185" font-size="17" text-anchor="middle" font-weight="bold">DPO</text>
+    <text x="0" y="18" fill="#ffe4e6" font-size="13" text-anchor="middle" font-weight="bold">改路标</text>
+  </g>
+
+  <g transform="translate(707 264)">
+    <path d="M-46 -24 C-12 -55 34 -42 52 -6 C25 28 -28 30 -54 2 Z" fill="#082f49" stroke="#38bdf8" stroke-width="2"/>
+    <path d="M-70 54 C-32 18 22 30 66 -8" fill="none" stroke="#38bdf8" stroke-width="3.8" stroke-linecap="round" opacity="0.85"/>
+    <path d="M-70 54 C-32 18 22 30 66 -8" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.34"/>
+    <text x="0" y="-58" fill="#7dd3fc" font-size="17" text-anchor="middle" font-weight="bold">蒸馏</text>
+    <text x="0" y="70" fill="#bae6fd" font-size="13" text-anchor="middle" font-weight="bold">照着别人的路描</text>
+  </g>
+
+  <!-- tool labels strip -->
+  <g transform="translate(88 351)">
+    <rect x="0" y="0" width="724" height="48" rx="8" fill="#030712" opacity="0.76" stroke="#263244"/>
+    <text x="28" y="30" fill="#fbbf24" font-size="15" font-weight="bold">SFT</text>
+    <text x="68" y="30" fill="#cbd5e1" font-size="14">夯默认答案坑</text>
+    <text x="202" y="30" fill="#64748b" font-size="18">/</text>
+    <text x="230" y="30" fill="#67e8f9" font-size="15" font-weight="bold">RL</text>
+    <text x="266" y="30" fill="#cbd5e1" font-size="14">按奖励重走</text>
+    <text x="392" y="30" fill="#64748b" font-size="18">/</text>
+    <text x="420" y="30" fill="#fb7185" font-size="15" font-weight="bold">DPO</text>
+    <text x="466" y="30" fill="#cbd5e1" font-size="14">离线改偏好</text>
+    <text x="586" y="30" fill="#64748b" font-size="18">/</text>
+    <text x="616" y="30" fill="#7dd3fc" font-size="15" font-weight="bold">Distill</text>
+    <text x="676" y="30" fill="#cbd5e1" font-size="14">抄路</text>
+  </g>
+
+  <!-- no new mountain stamp -->
+  <g transform="translate(720 92)" opacity="0.95">
+    <rect x="-78" y="-22" width="156" height="44" rx="8" fill="#1f2937" stroke="#f59e0b" stroke-width="1.4"/>
+    <text x="0" y="6" fill="#fef3c7" font-size="15" text-anchor="middle" font-weight="bold">谁也造不出新山</text>
+  </g>
+
+  <!-- bottom title -->
+  <rect x="0" y="430" width="900" height="70" fill="url(#soil)"/>
+  <text x="450" y="462" font-size="30" fill="#111827" text-anchor="middle" font-weight="bold">后训练到底动了哪根筋？</text>
+  <text x="450" y="489" font-size="15" fill="#1f2937" text-anchor="middle">SFT、RL、DPO、蒸馏：不是造山，是在同一片地形上动土</text>
+</svg>
