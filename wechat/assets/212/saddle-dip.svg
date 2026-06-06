@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#121e36"/>
+    </linearGradient>
+    <linearGradient id="terrain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#5a6478"/>
+      <stop offset="42%" style="stop-color:#e08a5a"/>
+      <stop offset="62%" style="stop-color:#e08a5a"/>
+      <stop offset="100%" style="stop-color:#46e0b0"/>
+    </linearGradient>
+    <linearGradient id="fillTer" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2740" stop-opacity="0.9"/>
+      <stop offset="100%" style="stop-color:#0a1628" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="ar2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#e0b070"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="520" fill="url(#bg2)"/>
+
+  <!-- 标题 -->
+  <text x="380" y="42" text-anchor="middle" fill="#e8edf5" font-size="25" font-weight="bold">爬出答案坑：翻过鞍点，掉进 dip，再上新高地</text>
+  <text x="380" y="68" text-anchor="middle" fill="#7c8aa5" font-size="14.5">纵轴想成"损失高低"——越低越好走，模型像小球往低处滚</text>
+
+  <!-- ===== 地形剖面 =====
+       横轴 = 训练推进方向；纵轴越高 = 损失/越糟
+       左：又深又陡的答案坑（SFT 焊死）
+       中：鞍点豁口（两山之间，要先爬上去）
+       中右：dip 真空（平坦发散，找不到方向）
+       右：新的泛化高地（其实是更低的好谷）
+  -->
+  <g transform="translate(0,90)">
+    <!-- 地形填充 -->
+    <path d="M 70,150
+             C 110,150 120,250 175,250
+             C 230,250 230,70 300,70
+             C 350,70 360,150 410,152
+             C 470,154 470,150 540,150
+             C 610,150 620,210 690,210
+             L 690,360 L 70,360 Z"
+          fill="url(#fillTer)"/>
+    <!-- 地形线 -->
+    <path d="M 70,150
+             C 110,150 120,250 175,250
+             C 230,250 230,70 300,70
+             C 350,70 360,150 410,152
+             C 470,154 470,150 540,150
+             C 610,150 620,210 690,210"
+          fill="none" stroke="url(#terrain)" stroke-width="4.5" stroke-linecap="round" filter="url(#glow2)"/>
+
+    <!-- ① 答案坑底（最低洼、最陡）-->
+    <circle cx="175" cy="250" r="6" fill="#9aa6be"/>
+    <text x="175" y="285" text-anchor="middle" fill="#aab4c8" font-size="14">SFT 的「答案坑」</text>
+    <text x="175" y="305" text-anchor="middle" fill="#6f7c92" font-size="12">又深又陡，焊得很死</text>
+
+    <!-- ② 鞍点 / 豁口（山脊顶）-->
+    <circle cx="300" cy="70" r="6.5" fill="#e08a5a" filter="url(#glow2)"/>
+    <text x="300" y="40" text-anchor="middle" fill="#e0a070" font-size="15" font-weight="bold">鞍点（豁口）</text>
+    <text x="300" y="56" text-anchor="middle" fill="#cf9468" font-size="11.5">两山之间的垭口，得先爬上来</text>
+
+    <!-- ③ dip 平台（平坦发散）-->
+    <rect x="412" y="142" width="126" height="20" fill="#e08a5a" opacity="0.12"/>
+    <text x="475" y="190" text-anchor="middle" fill="#e0a070" font-size="14" font-weight="bold">dip 区</text>
+    <text x="475" y="210" text-anchor="middle" fill="#cf9468" font-size="11.5">地形又平又散</text>
+    <text x="475" y="227" text-anchor="middle" fill="#cf9468" font-size="11.5">找不到下坡方向 → 输出变野</text>
+
+    <!-- ④ 新高地（更低的好谷）-->
+    <circle cx="690" cy="210" r="6.5" fill="#46e0b0" filter="url(#glow2)"/>
+    <text x="688" y="240" text-anchor="end" fill="#5fe8bc" font-size="14">能举一反三的新谷</text>
+    <text x="688" y="259" text-anchor="end" fill="#3fae8c" font-size="12">比原来更低，但要翻过去才到</text>
+
+    <!-- 小球：起点在答案坑 -->
+    <circle cx="175" cy="240" r="9" fill="#e8edf5" filter="url(#glow2)"/>
+
+    <!-- 行进箭头：坑 → 爬上鞍点 → 过 dip → 落新谷 -->
+    <path d="M 190,238 C 235,238 245,95 292,80" fill="none" stroke="#e0b070"
+          stroke-width="2.2" stroke-dasharray="5 5" marker-end="url(#ar2)" opacity="0.8"/>
+    <path d="M 312,82 C 360,150 470,150 540,150" fill="none" stroke="#e0b070"
+          stroke-width="2.2" stroke-dasharray="5 5" marker-end="url(#ar2)" opacity="0.8"/>
+    <path d="M 552,152 C 615,165 625,200 678,206" fill="none" stroke="#e0b070"
+          stroke-width="2.2" stroke-dasharray="5 5" marker-end="url(#ar2)" opacity="0.8"/>
+  </g>
+
+  <!-- 底部一句话 -->
+  <text x="380" y="498" text-anchor="middle" fill="#7c8aa5" font-size="13.5">
+    先爬坡（指标掉）→ 卡在豁口（dip）→ 翻过去落进更低的新谷（指标回升甚至反超）
+  </text>
+</svg>
