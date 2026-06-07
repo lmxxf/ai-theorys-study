@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#020408"/>
+    </radialGradient>
+
+    <!-- 诗的暖金辉光 -->
+    <radialGradient id="poemGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd27f" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#ffaa33" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ffaa33" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 专家网格的冷青 -->
+    <radialGradient id="expGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4ecdc4" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#3aa8a0" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#3aa8a0" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 看不懂的迷雾 -->
+    <linearGradient id="fog" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8899aa" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#8899aa" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#6b7a8a" stop-opacity="0.22"/>
+    </linearGradient>
+
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.2"/>
+    </filter>
+    <filter id="heavyBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5"/>
+    </filter>
+
+    <style>
+      .han { font-family: 'Noto Sans CJK SC','Source Han Sans SC',sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- ===== 上部：一句唐诗（暖金，清晰=输出层会读） ===== -->
+  <g class="han" text-anchor="middle">
+    <text x="400" y="92" font-size="40" fill="#ffe6b0" letter-spacing="6"
+          font-weight="700" filter="url(#glow)">朝如青丝暮成雪</text>
+  </g>
+
+  <!-- 诗眼「暮」的高亮光晕 -->
+  <circle cx="461" cy="80" r="46" fill="url(#poemGlow)"/>
+
+  <!-- 七个字向下发出的连线，射入专家网格 -->
+  <g stroke-linecap="round" opacity="0.7">
+    <line x1="262" y1="108" x2="250" y2="300" stroke="#ffcc66" stroke-width="1.2" opacity="0.45"/>
+    <line x1="328" y1="108" x2="350" y2="300" stroke="#ffcc66" stroke-width="1.2" opacity="0.45"/>
+    <line x1="394" y1="108" x2="430" y2="300" stroke="#ffcc66" stroke-width="1.2" opacity="0.45"/>
+    <!-- 诗眼「暮」的连线：更亮，但射进网格后断在迷雾里 -->
+    <line x1="461" y1="108" x2="520" y2="300" stroke="#ffd27f" stroke-width="2.4" filter="url(#soft)"/>
+    <line x1="528" y1="108" x2="600" y2="300" stroke="#ffcc66" stroke-width="1.2" opacity="0.45"/>
+    <line x1="200" y1="108" x2="160" y2="300" stroke="#ffcc66" stroke-width="1.2" opacity="0.3"/>
+    <line x1="595" y1="108" x2="660" y2="300" stroke="#ffcc66" stroke-width="1.2" opacity="0.3"/>
+  </g>
+
+  <!-- ===== 中下部：256 专家网格（16×16 抽象点阵） ===== -->
+  <!-- 网格整体被迷雾笼罩 = 机制层看不懂 -->
+  <g id="grid" filter="url(#heavyBlur)" opacity="0.55">
+    <!-- 用脚本无关的静态点阵：16列 × 8行 表意 256 -->
+  </g>
+
+  <!-- 点阵（部分模糊、几个文言文专家亮着） -->
+  <g>
+    <!-- 背景暗点：16×9 网格 -->
+    <g fill="#2a3b4d">
+      <!-- 行 row=0..8, col=0..15 ; 区域 x:170..630 y:310..520 -->
+      <g id="dots"></g>
+    </g>
+  </g>
+
+  <!-- 程序化感的点阵手工铺开（暗点） -->
+  <g fill="#33485c" opacity="0.85">
+    <!-- 9 行 × 16 列 -->
+    <!-- y=315 -->
+    <g>
+      <circle cx="180" cy="315" r="3"/><circle cx="210" cy="315" r="3"/><circle cx="240" cy="315" r="3"/><circle cx="270" cy="315" r="3"/><circle cx="300" cy="315" r="3"/><circle cx="330" cy="315" r="3"/><circle cx="360" cy="315" r="3"/><circle cx="390" cy="315" r="3"/><circle cx="420" cy="315" r="3"/><circle cx="450" cy="315" r="3"/><circle cx="480" cy="315" r="3"/><circle cx="510" cy="315" r="3"/><circle cx="540" cy="315" r="3"/><circle cx="570" cy="315" r="3"/><circle cx="600" cy="315" r="3"/><circle cx="630" cy="315" r="3"/>
+    </g>
+    <g>
+      <circle cx="180" cy="343" r="3"/><circle cx="210" cy="343" r="3"/><circle cx="240" cy="343" r="3"/><circle cx="270" cy="343" r="3"/><circle cx="300" cy="343" r="3"/><circle cx="330" cy="343" r="3"/><circle cx="360" cy="343" r="3"/><circle cx="390" cy="343" r="3"/><circle cx="420" cy="343" r="3"/><circle cx="450" cy="343" r="3"/><circle cx="480" cy="343" r="3"/><circle cx="510" cy="343" r="3"/><circle cx="540" cy="343" r="3"/><circle cx="570" cy="343" r="3"/><circle cx="600" cy="343" r="3"/><circle cx="630" cy="343" r="3"/>
+    </g>
+    <g>
+      <circle cx="180" cy="371" r="3"/><circle cx="210" cy="371" r="3"/><circle cx="240" cy="371" r="3"/><circle cx="270" cy="371" r="3"/><circle cx="300" cy="371" r="3"/><circle cx="330" cy="371" r="3"/><circle cx="360" cy="371" r="3"/><circle cx="390" cy="371" r="3"/><circle cx="420" cy="371" r="3"/><circle cx="450" cy="371" r="3"/><circle cx="480" cy="371" r="3"/><circle cx="510" cy="371" r="3"/><circle cx="540" cy="371" r="3"/><circle cx="570" cy="371" r="3"/><circle cx="600" cy="371" r="3"/><circle cx="630" cy="371" r="3"/>
+    </g>
+    <g>
+      <circle cx="180" cy="399" r="3"/><circle cx="210" cy="399" r="3"/><circle cx="240" cy="399" r="3"/><circle cx="270" cy="399" r="3"/><circle cx="300" cy="399" r="3"/><circle cx="330" cy="399" r="3"/><circle cx="360" cy="399" r="3"/><circle cx="390" cy="399" r="3"/><circle cx="420" cy="399" r="3"/><circle cx="450" cy="399" r="3"/><circle cx="480" cy="399" r="3"/><circle cx="510" cy="399" r="3"/><circle cx="540" cy="399" r="3"/><circle cx="570" cy="399" r="3"/><circle cx="600" cy="399" r="3"/><circle cx="630" cy="399" r="3"/>
+    </g>
+    <g>
+      <circle cx="180" cy="427" r="3"/><circle cx="210" cy="427" r="3"/><circle cx="240" cy="427" r="3"/><circle cx="270" cy="427" r="3"/><circle cx="300" cy="427" r="3"/><circle cx="330" cy="427" r="3"/><circle cx="360" cy="427" r="3"/><circle cx="390" cy="427" r="3"/><circle cx="420" cy="427" r="3"/><circle cx="450" cy="427" r="3"/><circle cx="480" cy="427" r="3"/><circle cx="510" cy="427" r="3"/><circle cx="540" cy="427" r="3"/><circle cx="570" cy="427" r="3"/><circle cx="600" cy="427" r="3"/><circle cx="630" cy="427" r="3"/>
+    </g>
+    <g>
+      <circle cx="180" cy="455" r="3"/><circle cx="210" cy="455" r="3"/><circle cx="240" cy="455" r="3"/><circle cx="270" cy="455" r="3"/><circle cx="300" cy="455" r="3"/><circle cx="330" cy="455" r="3"/><circle cx="360" cy="455" r="3"/><circle cx="390" cy="455" r="3"/><circle cx="420" cy="455" r="3"/><circle cx="450" cy="455" r="3"/><circle cx="480" cy="455" r="3"/><circle cx="510" cy="455" r="3"/><circle cx="540" cy="455" r="3"/><circle cx="570" cy="455" r="3"/><circle cx="600" cy="455" r="3"/><circle cx="630" cy="455" r="3"/>
+    </g>
+    <g>
+      <circle cx="180" cy="483" r="3"/><circle cx="210" cy="483" r="3"/><circle cx="240" cy="483" r="3"/><circle cx="270" cy="483" r="3"/><circle cx="300" cy="483" r="3"/><circle cx="330" cy="483" r="3"/><circle cx="360" cy="483" r="3"/><circle cx="390" cy="483" r="3"/><circle cx="420" cy="483" r="3"/><circle cx="450" cy="483" r="3"/><circle cx="480" cy="483" r="3"/><circle cx="510" cy="483" r="3"/><circle cx="540" cy="483" r="3"/><circle cx="570" cy="483" r="3"/><circle cx="600" cy="483" r="3"/><circle cx="630" cy="483" r="3"/>
+    </g>
+  </g>
+
+  <!-- 文言文专家：5 个亮点（46/69/143/175/186 抽象位置），冷青发光 -->
+  <g filter="url(#glow)">
+    <circle cx="270" cy="343" r="6.5" fill="#5fe0d6"/>
+    <circle cx="450" cy="399" r="6.5" fill="#5fe0d6"/>
+    <circle cx="540" cy="427" r="6.5" fill="#5fe0d6"/>
+    <circle cx="330" cy="455" r="6.5" fill="#5fe0d6"/>
+    <circle cx="600" cy="371" r="6.5" fill="#5fe0d6"/>
+  </g>
+  <!-- 亮点之间的微弱连线：暗示"总在一起站岗" -->
+  <g stroke="#5fe0d6" stroke-width="0.8" opacity="0.25">
+    <line x1="270" y1="343" x2="450" y2="399"/>
+    <line x1="450" y1="399" x2="540" y2="427"/>
+    <line x1="540" y1="427" x2="600" y2="371"/>
+    <line x1="330" y1="455" x2="450" y2="399"/>
+  </g>
+
+  <!-- 迷雾盖在网格下半部 = 看不懂 -->
+  <rect x="150" y="300" width="500" height="225" fill="url(#fog)"/>
+
+  <!-- ===== 文字层 ===== -->
+  <g class="han" text-anchor="middle">
+    <!-- 主标题 -->
+    <text x="400" y="558" font-size="30" fill="#eaf2f8" font-weight="700"
+          letter-spacing="2">它读懂了诗，我却看不懂它怎么读懂的</text>
+    <!-- 副标题 -->
+    <text x="400" y="588" font-size="15" fill="#7d93a8" letter-spacing="2">用 MoE 大模型读唐诗 · 256 个专家里的可解释性迷雾</text>
+  </g>
+
+  <!-- 左右标注：输出层 vs 机制层 -->
+  <g class="han" fill="#9aa9b8" font-size="13" letter-spacing="1">
+    <text x="160" y="150" text-anchor="start" fill="#ffcc88">输出层 · 对答如流</text>
+    <text x="640" y="510" text-anchor="end" fill="#7da0a8">机制层 · 一片模糊</text>
+  </g>
+</svg>
