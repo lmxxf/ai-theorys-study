@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111d"/>
+      <stop offset="50%" stop-color="#0b1624"/>
+      <stop offset="100%" stop-color="#12151b"/>
+    </linearGradient>
+    <linearGradient id="rail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="52%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- background circuit field -->
+  <g opacity="0.13" stroke="#94a3b8" stroke-width="0.9" fill="none">
+    <path d="M-20 90 H160 Q190 90 190 120 V180 Q190 210 220 210 H390"/>
+    <path d="M-20 292 H128 Q158 292 158 260 V232 Q158 210 188 210 H350"/>
+    <path d="M515 135 H650 Q675 135 675 160 V205 Q675 232 705 232 H930"/>
+    <path d="M518 290 H645 Q675 290 675 264 V232 Q675 210 705 210 H930"/>
+    <path d="M84 44 V420"/>
+    <path d="M812 44 V420"/>
+  </g>
+
+  <ellipse cx="450" cy="218" rx="290" ry="130" fill="#0e7490" opacity="0.15" filter="url(#softGlow)"/>
+  <ellipse cx="670" cy="222" rx="180" ry="110" fill="#f59e0b" opacity="0.10" filter="url(#softGlow)"/>
+
+  <!-- left: official code and shards -->
+  <g transform="translate(46 74)">
+    <rect x="0" y="0" width="230" height="252" rx="13" fill="#071827" stroke="#334155" stroke-width="1.5"/>
+    <text x="115" y="32" fill="#e2e8f0" font-size="18" text-anchor="middle" font-weight="bold">官方推理代码</text>
+    <text x="115" y="55" fill="#94a3b8" font-size="12" text-anchor="middle" class="mono">inference/</text>
+
+    <g transform="translate(24 82)">
+      <rect x="0" y="0" width="182" height="42" rx="7" fill="#0f172a" stroke="#64748b"/>
+      <text x="18" y="27" fill="#cbd5e1" font-size="14" class="mono">model.py</text>
+      <text x="166" y="27" fill="#34d399" font-size="13" text-anchor="end">只读</text>
+
+      <rect x="0" y="54" width="182" height="42" rx="7" fill="#1e1b12" stroke="#f59e0b"/>
+      <text x="18" y="81" fill="#fde68a" font-size="14" class="mono">kernel.py</text>
+      <text x="166" y="81" fill="#fbbf24" font-size="13" text-anchor="end">TileLang</text>
+
+      <rect x="0" y="108" width="182" height="42" rx="7" fill="#0f172a" stroke="#64748b"/>
+      <text x="18" y="135" fill="#cbd5e1" font-size="14" class="mono">generate.py</text>
+      <text x="166" y="135" fill="#94a3b8" font-size="13" text-anchor="end">NCCL</text>
+    </g>
+
+    <g transform="translate(24 197)">
+      <rect x="0" y="0" width="182" height="34" rx="7" fill="#10231b" stroke="#34d399"/>
+      <text x="91" y="22" fill="#bbf7d0" font-size="13" text-anchor="middle">HF 46 shards 流式读</text>
+    </g>
+  </g>
+
+  <!-- center adapter -->
+  <g transform="translate(335 78)" filter="url(#glow)">
+    <rect x="0" y="0" width="230" height="248" rx="16" fill="#07131f" stroke="#22d3ee" stroke-width="2.3"/>
+    <text x="115" y="34" fill="#cffafe" font-size="20" text-anchor="middle" font-weight="bold">适配层</text>
+    <text x="115" y="59" fill="#67e8f9" font-size="13" text-anchor="middle" class="mono">kernel_sm121.py</text>
+
+    <g transform="translate(31 86)">
+      <rect x="0" y="0" width="168" height="34" rx="7" fill="#082f49" stroke="#22d3ee"/>
+      <text x="84" y="22" fill="#e0f2fe" font-size="13" text-anchor="middle" class="mono">fp4_gemm</text>
+      <rect x="0" y="44" width="168" height="34" rx="7" fill="#082f49" stroke="#22d3ee"/>
+      <text x="84" y="66" fill="#e0f2fe" font-size="13" text-anchor="middle" class="mono">fp8_gemm</text>
+      <rect x="0" y="88" width="168" height="34" rx="7" fill="#082f49" stroke="#22d3ee"/>
+      <text x="84" y="110" fill="#e0f2fe" font-size="13" text-anchor="middle" class="mono">sparse_attn</text>
+    </g>
+
+    <text x="115" y="224" fill="#fde68a" font-size="14" text-anchor="middle" font-weight="bold">模型逻辑不动</text>
+  </g>
+
+  <!-- right: dual spark nodes -->
+  <g transform="translate(632 70)">
+    <rect x="0" y="0" width="220" height="262" rx="14" fill="#071827" stroke="#334155" stroke-width="1.5"/>
+    <text x="110" y="33" fill="#e2e8f0" font-size="18" text-anchor="middle" font-weight="bold">两台 DGX Spark</text>
+    <text x="110" y="55" fill="#94a3b8" font-size="12" text-anchor="middle">TP=2 · 最小可行解</text>
+
+    <g transform="translate(28 88)">
+      <rect x="0" y="0" width="164" height="62" rx="9" fill="#10161f" stroke="#34d399" stroke-width="1.7"/>
+      <rect x="12" y="13" width="42" height="36" rx="5" fill="#13251d" stroke="#34d399"/>
+      <text x="72" y="27" fill="#bbf7d0" font-size="13" class="mono">rank 0</text>
+      <text x="72" y="47" fill="#86efac" font-size="12">128 本地专家/层</text>
+
+      <rect x="0" y="101" width="164" height="62" rx="9" fill="#10161f" stroke="#34d399" stroke-width="1.7"/>
+      <rect x="12" y="114" width="42" height="36" rx="5" fill="#13251d" stroke="#34d399"/>
+      <text x="72" y="128" fill="#bbf7d0" font-size="13" class="mono">rank 1</text>
+      <text x="72" y="148" fill="#86efac" font-size="12">128 本地专家/层</text>
+
+      <path d="M82 67 V96" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+      <text x="110" y="87" fill="#fde68a" font-size="12" class="mono">CX7 200G</text>
+    </g>
+  </g>
+
+  <!-- flow arrows -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M276 184 C306 184 311 184 334 184" stroke="#fbbf24" stroke-width="3" marker-end="url(#arrowGold)" filter="url(#glow)"/>
+    <path d="M565 184 C594 184 604 184 631 184" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrowCyan)" filter="url(#glow)"/>
+  </g>
+
+  <!-- bottom formula strip -->
+  <g transform="translate(62 354)">
+    <rect x="0" y="0" width="776" height="50" rx="10" fill="#030712" opacity="0.82" stroke="#263244"/>
+    <text x="38" y="31" fill="#fbbf24" font-size="15" font-weight="bold">148~158GB</text>
+    <text x="142" y="31" fill="#64748b" font-size="18">/</text>
+    <text x="170" y="31" fill="#67e8f9" font-size="15" font-weight="bold">128GB 单台装不下</text>
+    <text x="330" y="31" fill="#64748b" font-size="18">/</text>
+    <text x="358" y="31" fill="#34d399" font-size="15" font-weight="bold">双机勉强能实验</text>
+    <text x="516" y="31" fill="#64748b" font-size="18">/</text>
+    <text x="544" y="31" fill="#cbd5e1" font-size="15" font-weight="bold">代码交给 AI，边界自己守</text>
+  </g>
+
+  <!-- title -->
+  <rect x="0" y="430" width="900" height="70" fill="url(#rail)"/>
+  <text x="450" y="462" fill="#06111f" font-size="29" text-anchor="middle" font-weight="bold">两台 Spark 跑通 DeepSeek V4 Flash</text>
+  <text x="450" y="489" fill="#102033" font-size="15" text-anchor="middle">把官方推理代码翻译到消费级 Blackwell · 216 期</text>
+</svg>
