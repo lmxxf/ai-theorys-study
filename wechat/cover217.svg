@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="48%" stop-color="#101724"/>
+      <stop offset="100%" stop-color="#17121d"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="46%" stop-color="#a7f3d0"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="clawGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="hermesGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#34d399"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- faint context graph -->
+  <g opacity="0.14" fill="none" stroke="#94a3b8" stroke-width="1">
+    <path d="M42 96 H190 Q220 96 220 126 V175 Q220 205 250 205 H360"/>
+    <path d="M40 294 H190 Q220 294 220 262 V222 Q220 195 250 195 H360"/>
+    <path d="M540 196 H650 Q680 196 680 165 V118 Q680 88 712 88 H858"/>
+    <path d="M540 226 H650 Q680 226 680 262 V310 Q680 340 712 340 H858"/>
+    <path d="M450 46 V402"/>
+    <path d="M84 52 V406"/>
+    <path d="M816 52 V406"/>
+  </g>
+
+  <ellipse cx="270" cy="205" rx="210" ry="135" fill="#0284c7" opacity="0.13" filter="url(#soft)"/>
+  <ellipse cx="638" cy="205" rx="225" ry="140" fill="#f59e0b" opacity="0.11" filter="url(#soft)"/>
+  <ellipse cx="462" cy="214" rx="145" ry="100" fill="#22c55e" opacity="0.10" filter="url(#soft)"/>
+
+  <!-- center: same model -->
+  <g transform="translate(334 62)" filter="url(#glow)">
+    <rect x="0" y="0" width="232" height="238" rx="18" fill="#07131f" stroke="#a7f3d0" stroke-width="2.2"/>
+    <text x="116" y="36" fill="#e2e8f0" font-size="20" text-anchor="middle" font-weight="bold">同一个模型</text>
+    <text x="116" y="60" fill="#94a3b8" font-size="13" text-anchor="middle" class="mono">weights unchanged</text>
+
+    <g transform="translate(40 76)">
+      <rect x="0" y="0" width="152" height="40" rx="9" fill="#0f172a" stroke="#64748b"/>
+      <text x="76" y="26" fill="#cbd5e1" font-size="14" text-anchor="middle" class="mono">GPT / Claude</text>
+
+      <rect x="0" y="54" width="152" height="40" rx="9" fill="#0f172a" stroke="#64748b"/>
+      <text x="76" y="80" fill="#cbd5e1" font-size="14" text-anchor="middle" class="mono">Qwen / DeepSeek</text>
+    </g>
+
+    <rect x="34" y="188" width="164" height="32" rx="8" fill="#10231b" stroke="#34d399" stroke-width="1.2"/>
+    <text x="116" y="209" fill="#bbf7d0" font-size="14" text-anchor="middle" font-weight="bold">权重不变，context 变了</text>
+  </g>
+
+  <!-- left: OpenClaw -->
+  <g transform="translate(46 68)">
+    <rect x="0" y="0" width="238" height="250" rx="16" fill="#061827" stroke="url(#clawGlow)" stroke-width="2"/>
+    <text x="119" y="34" fill="#e0f2fe" font-size="21" text-anchor="middle" font-weight="bold">OpenClaw</text>
+    <text x="119" y="57" fill="#7dd3fc" font-size="13" text-anchor="middle">连接的广度</text>
+
+    <g transform="translate(34 82)">
+      <rect x="0" y="0" width="170" height="30" rx="7" fill="#082f49" stroke="#38bdf8"/>
+      <text x="85" y="20" fill="#e0f2fe" font-size="12" text-anchor="middle">多渠道 Gateway</text>
+
+      <g transform="translate(4 48)">
+        <rect x="0" y="0" width="74" height="27" rx="6" fill="#0f172a" stroke="#64748b"/>
+        <text x="37" y="18" fill="#cbd5e1" font-size="11" text-anchor="middle">Telegram</text>
+        <rect x="88" y="0" width="74" height="27" rx="6" fill="#0f172a" stroke="#64748b"/>
+        <text x="125" y="18" fill="#cbd5e1" font-size="11" text-anchor="middle">Slack</text>
+        <rect x="0" y="38" width="74" height="27" rx="6" fill="#0f172a" stroke="#64748b"/>
+        <text x="37" y="56" fill="#cbd5e1" font-size="11" text-anchor="middle">WeChat</text>
+        <rect x="88" y="38" width="74" height="27" rx="6" fill="#0f172a" stroke="#64748b"/>
+        <text x="125" y="56" fill="#cbd5e1" font-size="11" text-anchor="middle">WhatsApp</text>
+      </g>
+
+      <rect x="14" y="119" width="142" height="38" rx="7" fill="#102331" stroke="#38bdf8"/>
+      <text x="85" y="135" fill="#bae6fd" font-size="11" text-anchor="middle" class="mono">memory-core</text>
+      <text x="85" y="151" fill="#bae6fd" font-size="11" text-anchor="middle">dreaming</text>
+    </g>
+  </g>
+
+  <!-- right: Hermes -->
+  <g transform="translate(616 68)">
+    <rect x="0" y="0" width="238" height="250" rx="16" fill="#19130b" stroke="url(#hermesGlow)" stroke-width="2"/>
+    <text x="119" y="34" fill="#fef3c7" font-size="21" text-anchor="middle" font-weight="bold">Hermes Agent</text>
+    <text x="119" y="57" fill="#fde68a" font-size="13" text-anchor="middle">陪伴的深度</text>
+
+    <g transform="translate(30 66)">
+      <circle cx="89" cy="60" r="54" fill="#111827" stroke="#fbbf24" stroke-width="1.4"/>
+      <path d="M89 6 A54 54 0 0 1 142 51" fill="none" stroke="#fbbf24" stroke-width="3" marker-end="url(#arrowGold)"/>
+      <path d="M142 69 A54 54 0 0 1 91 114" fill="none" stroke="#34d399" stroke-width="3" marker-end="url(#arrowGreen)"/>
+      <path d="M72 112 A54 54 0 0 1 36 60" fill="none" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+      <rect x="54" y="14" width="70" height="28" rx="7" fill="#1e293b" stroke="#fbbf24"/>
+      <text x="89" y="33" fill="#fde68a" font-size="12" text-anchor="middle" class="mono">memory</text>
+      <rect x="18" y="78" width="70" height="28" rx="7" fill="#1e293b" stroke="#38bdf8"/>
+      <text x="53" y="97" fill="#bae6fd" font-size="12" text-anchor="middle" class="mono">skill</text>
+      <rect x="98" y="78" width="78" height="28" rx="7" fill="#1e293b" stroke="#34d399"/>
+      <text x="137" y="97" fill="#bbf7d0" font-size="12" text-anchor="middle" class="mono">curator</text>
+    </g>
+
+    <rect x="43" y="207" width="152" height="28" rx="8" fill="#251b0d" stroke="#fbbf24" stroke-width="1.2"/>
+    <text x="119" y="226" fill="#fef9c3" font-size="13" text-anchor="middle">经验写回技能库</text>
+  </g>
+
+  <!-- connectors from model -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M334 173 C314 173 305 173 285 173" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrowBlue)" filter="url(#glow)"/>
+    <path d="M566 173 C586 173 596 173 615 173" stroke="#fbbf24" stroke-width="3" marker-end="url(#arrowGold)" filter="url(#glow)"/>
+  </g>
+
+  <!-- bottom contrast strip -->
+  <g transform="translate(58 342)">
+    <rect x="0" y="0" width="784" height="56" rx="12" fill="#030712" opacity="0.84" stroke="#263244"/>
+    <text x="44" y="34" fill="#7dd3fc" font-size="15" font-weight="bold">同一套权重</text>
+    <text x="150" y="34" fill="#64748b" font-size="18">/</text>
+    <text x="180" y="34" fill="#cbd5e1" font-size="15" font-weight="bold">不同 prompt 工厂</text>
+    <text x="340" y="34" fill="#64748b" font-size="18">/</text>
+    <text x="370" y="34" fill="#fde68a" font-size="15" font-weight="bold">不同经验组织方式</text>
+    <text x="558" y="34" fill="#64748b" font-size="18">/</text>
+    <text x="588" y="34" fill="#bbf7d0" font-size="15" font-weight="bold">不同 Agent 性能</text>
+  </g>
+
+  <!-- title -->
+  <rect x="0" y="430" width="900" height="70" fill="url(#titleBand)"/>
+  <text x="450" y="462" fill="#07111f" font-size="29" text-anchor="middle" font-weight="bold">同一个模型，为什么换框架就变了？</text>
+  <text x="450" y="489" fill="#102033" font-size="15" text-anchor="middle">OpenClaw vs Hermes：答案藏在 context 的组织方式里 · 217 期</text>
+</svg>
