@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06111f"/>
+      <stop offset="48%" stop-color="#0b1523"/>
+      <stop offset="100%" stop-color="#17111a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="46%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="taxGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="55%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="textCore" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#082f49"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="visionCore" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b2105"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <radialGradient id="cyanGlow" cx="38%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.34"/>
+      <stop offset="70%" stop-color="#0e7490" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="goldGlow" cx="62%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.30"/>
+      <stop offset="70%" stop-color="#f97316" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <ellipse cx="300" cy="205" rx="260" ry="150" fill="url(#cyanGlow)" filter="url(#soft)"/>
+  <ellipse cx="640" cy="205" rx="265" ry="150" fill="url(#goldGlow)" filter="url(#soft)"/>
+
+  <!-- background token field -->
+  <g opacity="0.12" stroke="#94a3b8" stroke-width="0.9" fill="none">
+    <path d="M-20 86 H122 Q150 86 150 116 V172 Q150 202 180 202 H344"/>
+    <path d="M-20 298 H122 Q150 298 150 268 V224 Q150 196 180 196 H344"/>
+    <path d="M558 196 H708 Q738 196 738 166 V96 Q738 66 770 66 H930"/>
+    <path d="M558 226 H708 Q738 226 738 260 V330 Q738 360 770 360 H930"/>
+    <path d="M450 42 V404"/>
+    <path d="M80 50 V410"/>
+    <path d="M820 50 V410"/>
+  </g>
+
+  <!-- left: text-only flagship -->
+  <g transform="translate(52 68)">
+    <rect x="0" y="0" width="236" height="260" rx="16" fill="url(#textCore)" stroke="#22d3ee" stroke-width="2"/>
+    <text x="118" y="36" fill="#e0f2fe" font-size="21" text-anchor="middle" font-weight="bold">文本旗舰</text>
+    <text x="118" y="60" fill="#67e8f9" font-size="13" text-anchor="middle">DeepSeek / GLM</text>
+
+    <g transform="translate(34 85)" filter="url(#glow)">
+      <path d="M84 0 L148 38 L148 112 L84 150 L20 112 L20 38 Z" fill="#071827" stroke="#67e8f9" stroke-width="1.7"/>
+      <path d="M46 56 C58 34 110 34 122 56" fill="none" stroke="#e0f2fe" stroke-width="3" stroke-linecap="round"/>
+      <path d="M46 92 C58 114 110 114 122 92" fill="none" stroke="#e0f2fe" stroke-width="3" stroke-linecap="round"/>
+      <path d="M66 48 V102 M102 48 V102" stroke="#38bdf8" stroke-width="2" opacity="0.9"/>
+      <rect x="61" y="64" width="46" height="20" rx="5" fill="#0f172a" stroke="#fbbf24"/>
+      <text x="84" y="79" fill="#fde68a" font-size="11" text-anchor="middle" class="mono">code</text>
+    </g>
+
+    <g transform="translate(28 207)">
+      <rect x="0" y="0" width="180" height="34" rx="8" fill="#082f49" stroke="#38bdf8"/>
+      <text x="90" y="22" fill="#bae6fd" font-size="13" text-anchor="middle" font-weight="bold">推理 · 编程 · Agent</text>
+    </g>
+  </g>
+
+  <!-- right: native multimodal path -->
+  <g transform="translate(612 68)">
+    <rect x="0" y="0" width="236" height="260" rx="16" fill="url(#visionCore)" stroke="#fbbf24" stroke-width="2"/>
+    <text x="118" y="36" fill="#fef3c7" font-size="21" text-anchor="middle" font-weight="bold">原生多模态</text>
+    <text x="118" y="60" fill="#fde68a" font-size="13" text-anchor="middle">Gemini route</text>
+
+    <g transform="translate(39 84)" filter="url(#glow)">
+      <ellipse cx="79" cy="68" rx="78" ry="46" fill="#111827" stroke="#fbbf24" stroke-width="2"/>
+      <circle cx="79" cy="68" r="23" fill="#fef3c7" opacity="0.88"/>
+      <circle cx="79" cy="68" r="10" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+      <path d="M16 18 L142 118" stroke="#22d3ee" stroke-width="1.7" opacity="0.62"/>
+      <path d="M142 18 L16 118" stroke="#22d3ee" stroke-width="1.7" opacity="0.62"/>
+      <g fill="#fbbf24" opacity="0.9">
+        <rect x="6" y="8" width="18" height="18" rx="3"/>
+        <rect x="132" y="8" width="18" height="18" rx="3"/>
+        <rect x="6" y="110" width="18" height="18" rx="3"/>
+        <rect x="132" y="110" width="18" height="18" rx="3"/>
+      </g>
+    </g>
+
+    <g transform="translate(28 207)">
+      <rect x="0" y="0" width="180" height="34" rx="8" fill="#2a1d0a" stroke="#fbbf24"/>
+      <text x="90" y="22" fill="#fef3c7" font-size="13" text-anchor="middle" font-weight="bold">图像 · 音频 · 视频</text>
+    </g>
+  </g>
+
+  <!-- center: tax barrier -->
+  <g transform="translate(336 62)" filter="url(#glow)">
+    <rect x="0" y="0" width="228" height="272" rx="18" fill="#070b14" stroke="url(#taxGrad)" stroke-width="2.3"/>
+    <text x="114" y="39" fill="#fef3c7" font-size="24" text-anchor="middle" font-weight="bold">多模态税</text>
+    <text x="114" y="64" fill="#fbbf24" font-size="13" text-anchor="middle" class="mono">shared weights, shared bill</text>
+
+    <g transform="translate(31 90)">
+      <rect x="0" y="0" width="166" height="42" rx="9" fill="#1f1117" stroke="#fb7185" stroke-width="1.5"/>
+      <text x="83" y="26" fill="#fecdd3" font-size="15" text-anchor="middle" font-weight="bold">遗忘税</text>
+
+      <rect x="0" y="58" width="166" height="42" rx="9" fill="#21190b" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="83" y="84" fill="#fde68a" font-size="15" text-anchor="middle" font-weight="bold">梯度冲突</text>
+
+      <rect x="0" y="116" width="166" height="42" rx="9" fill="#082f49" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="83" y="142" fill="#cffafe" font-size="15" text-anchor="middle" font-weight="bold">容量税</text>
+    </g>
+
+    <text x="114" y="265" fill="#cbd5e1" font-size="12" text-anchor="middle">眼睛不贵，接上才贵</text>
+  </g>
+
+  <!-- arrows and token streams -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M288 190 C312 190 320 190 336 190" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrowCyan)" filter="url(#glow)"/>
+    <path d="M564 190 C588 190 596 190 612 190" stroke="#fbbf24" stroke-width="3" marker-end="url(#arrowGold)" filter="url(#glow)"/>
+    <path d="M304 246 C340 294 400 312 452 310 C512 306 560 288 596 246" stroke="#64748b" stroke-width="1.4" opacity="0.55"/>
+  </g>
+
+  <g transform="translate(75 348)">
+    <rect x="0" y="0" width="750" height="50" rx="10" fill="#030712" opacity="0.82" stroke="#263244"/>
+    <text x="34" y="31" fill="#67e8f9" font-size="15" font-weight="bold">纯文本不是落后</text>
+    <text x="180" y="31" fill="#64748b" font-size="18">/</text>
+    <text x="210" y="31" fill="#fde68a" font-size="15" font-weight="bold">原生多模态不是免费</text>
+    <text x="392" y="31" fill="#64748b" font-size="18">/</text>
+    <text x="422" y="31" fill="#bbf7d0" font-size="15" font-weight="bold">这是同一笔预算下的站位选择</text>
+  </g>
+
+  <!-- bottom title -->
+  <rect x="0" y="430" width="900" height="70" fill="url(#titleBand)"/>
+  <text x="450" y="462" fill="#06111f" font-size="30" text-anchor="middle" font-weight="bold">为什么 DeepSeek、GLM 不是原生多模态？</text>
+  <text x="450" y="489" fill="#102033" font-size="15" text-anchor="middle">多模态不是能力清单上的勾选项，而是一张税单 · 218 期</text>
+</svg>
