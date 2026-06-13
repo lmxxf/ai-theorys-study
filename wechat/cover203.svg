@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06121d"/>
+      <stop offset="48%" stop-color="#0a1720"/>
+      <stop offset="100%" stop-color="#121521"/>
+    </linearGradient>
+    <linearGradient id="visionGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e7490"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <linearGradient id="llmGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#172554"/>
+    </linearGradient>
+    <linearGradient id="bridgeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="52%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="chipGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#18243a"/>
+      <stop offset="100%" stop-color="#050914"/>
+    </linearGradient>
+    <radialGradient id="cyanGlow" cx="28%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.32"/>
+      <stop offset="75%" stop-color="#0e7490" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blueGlow" cx="72%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.30"/>
+      <stop offset="75%" stop-color="#1d4ed8" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <ellipse cx="260" cy="220" rx="250" ry="155" fill="url(#cyanGlow)" filter="url(#soft)"/>
+  <ellipse cx="660" cy="220" rx="250" ry="155" fill="url(#blueGlow)" filter="url(#soft)"/>
+
+  <!-- circuit background -->
+  <g opacity="0.13" stroke="#9ec7d8" stroke-width="1" fill="none">
+    <path d="M0 88 H150 Q176 88 176 114 V170 Q176 196 202 196 H900"/>
+    <path d="M0 324 H142 Q170 324 170 292 V250 Q170 222 198 222 H900"/>
+    <path d="M78 0 V128 Q78 156 106 156 H256"/>
+    <path d="M822 0 V128 Q822 156 794 156 H642"/>
+    <path d="M92 500 V392 Q92 364 120 364 H310"/>
+    <path d="M808 500 V392 Q808 364 780 364 H590"/>
+    <path d="M450 0 V500"/>
+  </g>
+  <g opacity="0.20" fill="#94a3b8">
+    <circle cx="176" cy="88" r="3"/>
+    <circle cx="170" cy="324" r="3"/>
+    <circle cx="450" cy="88" r="2"/>
+    <circle cx="450" cy="324" r="2"/>
+    <circle cx="724" cy="196" r="3"/>
+    <circle cx="724" cy="222" r="3"/>
+  </g>
+
+  <!-- title -->
+  <text x="450" y="48" fill="#f8fbff" font-size="31" text-anchor="middle" font-weight="bold">端侧多模态：两个文件，一只眼睛一张嘴</text>
+  <text x="450" y="76" fill="#91b6c7" font-size="14" text-anchor="middle" class="mono">Qwen3-VL on RK3588 · RKNN + RKLLM</text>
+
+  <!-- left vision module -->
+  <g transform="translate(58 122)" filter="url(#glow)">
+    <rect x="0" y="0" width="252" height="218" rx="14" fill="#06131b" stroke="#22d3ee" stroke-width="2"/>
+    <rect x="20" y="24" width="212" height="48" rx="9" fill="url(#visionGrad)" stroke="#67e8f9" stroke-width="1.2"/>
+    <text x="126" y="55" fill="#e0faff" font-size="20" text-anchor="middle" font-weight="bold">视觉编码器</text>
+    <text x="126" y="94" fill="#67e8f9" font-size="13" text-anchor="middle" class="mono">qwen3-vl_vision.rknn</text>
+
+    <!-- eye -->
+    <g transform="translate(44 112)">
+      <ellipse cx="82" cy="34" rx="78" ry="42" fill="#0b1f2a" stroke="#22d3ee" stroke-width="2"/>
+      <circle cx="82" cy="34" r="23" fill="#d9fbff" opacity="0.92"/>
+      <circle cx="82" cy="34" r="10" fill="#06131b" stroke="#0891b2" stroke-width="2"/>
+      <path d="M14 10 L150 58 M150 10 L14 58" stroke="#67e8f9" stroke-width="1.3" opacity="0.55"/>
+      <g fill="#22d3ee" opacity="0.72">
+        <rect x="5" y="0" width="16" height="16" rx="3"/>
+        <rect x="144" y="0" width="16" height="16" rx="3"/>
+        <rect x="5" y="52" width="16" height="16" rx="3"/>
+        <rect x="144" y="52" width="16" height="16" rx="3"/>
+      </g>
+    </g>
+
+    <text x="126" y="198" fill="#b8eef8" font-size="13" text-anchor="middle">448×448 → 196 visual tokens</text>
+  </g>
+
+  <!-- center projector -->
+  <g transform="translate(356 145)" filter="url(#glow)">
+    <rect x="0" y="0" width="188" height="172" rx="13" fill="#0b1119" stroke="#fbbf24" stroke-width="2"/>
+    <text x="94" y="32" fill="#fef3c7" font-size="20" text-anchor="middle" font-weight="bold">Merger</text>
+    <text x="94" y="55" fill="#fbbf24" font-size="12" text-anchor="middle" class="mono">Projector</text>
+
+    <g transform="translate(28 78)" stroke="#fbbf24" fill="none" stroke-width="1.4">
+      <rect x="0" y="0" width="22" height="22" rx="3" fill="#1f2937"/>
+      <rect x="30" y="0" width="22" height="22" rx="3" fill="#1f2937"/>
+      <rect x="0" y="30" width="22" height="22" rx="3" fill="#1f2937"/>
+      <rect x="30" y="30" width="22" height="22" rx="3" fill="#1f2937"/>
+      <path d="M70 26 H106" stroke="#fbbf24" marker-end="url(#arrow)"/>
+      <rect x="114" y="15" width="26" height="26" rx="4" fill="#33240a"/>
+    </g>
+
+    <text x="94" y="153" fill="#fde68a" font-size="13" text-anchor="middle">1024 维 → 2048 维</text>
+  </g>
+
+  <!-- right LLM module -->
+  <g transform="translate(590 122)" filter="url(#glow)">
+    <rect x="0" y="0" width="252" height="218" rx="14" fill="#07101f" stroke="#60a5fa" stroke-width="2"/>
+    <rect x="20" y="24" width="212" height="48" rx="9" fill="url(#llmGrad)" stroke="#93c5fd" stroke-width="1.2"/>
+    <text x="126" y="55" fill="#eff6ff" font-size="20" text-anchor="middle" font-weight="bold">语言模型</text>
+    <text x="126" y="94" fill="#93c5fd" font-size="13" text-anchor="middle" class="mono">qwen3-vl-2b.rkllm</text>
+
+    <!-- mouth / token generator -->
+    <g transform="translate(43 116)">
+      <path d="M18 28 C46 2 120 2 148 28 C124 62 44 62 18 28Z" fill="#101827" stroke="#60a5fa" stroke-width="2"/>
+      <path d="M38 31 H128" stroke="#bfdbfe" stroke-width="2.4" stroke-linecap="round"/>
+      <g class="mono" font-size="11" fill="#dbeafe">
+        <rect x="28" y="54" width="34" height="20" rx="4" fill="#172554" stroke="#60a5fa"/>
+        <text x="45" y="68" text-anchor="middle">tok</text>
+        <rect x="70" y="54" width="34" height="20" rx="4" fill="#172554" stroke="#60a5fa"/>
+        <text x="87" y="68" text-anchor="middle">tok</text>
+        <rect x="112" y="54" width="34" height="20" rx="4" fill="#172554" stroke="#60a5fa"/>
+        <text x="129" y="68" text-anchor="middle">tok</text>
+      </g>
+    </g>
+
+    <text x="126" y="198" fill="#cfe5ff" font-size="13" text-anchor="middle">W8A8 · KV cache · token loop</text>
+  </g>
+
+  <!-- data flow arrows -->
+  <g fill="none" stroke-linecap="round" filter="url(#glow)">
+    <path d="M310 228 C334 228 336 228 356 228" stroke="#22d3ee" stroke-width="4" marker-end="url(#arrow)"/>
+    <path d="M544 228 C568 228 570 228 590 228" stroke="#fbbf24" stroke-width="4" marker-end="url(#arrow)"/>
+  </g>
+  <text x="333" y="212" fill="#67e8f9" font-size="12" text-anchor="middle" class="mono">features</text>
+  <text x="567" y="212" fill="#fbbf24" font-size="12" text-anchor="middle" class="mono">visual tokens</text>
+
+  <!-- RK3588 chip -->
+  <g transform="translate(320 354)">
+    <rect x="0" y="0" width="260" height="64" rx="10" fill="url(#chipGrad)" stroke="url(#bridgeGrad)" stroke-width="2" filter="url(#glow)"/>
+    <g stroke="#4b7288" stroke-width="2">
+      <line x1="-34" y1="13" x2="0" y2="13"/>
+      <line x1="-34" y1="32" x2="0" y2="32"/>
+      <line x1="-34" y1="51" x2="0" y2="51"/>
+      <line x1="260" y1="13" x2="294" y2="13"/>
+      <line x1="260" y1="32" x2="294" y2="32"/>
+      <line x1="260" y1="51" x2="294" y2="51"/>
+    </g>
+    <text x="130" y="28" fill="#f8fafc" font-size="19" text-anchor="middle" font-weight="bold">RK3588 NPU</text>
+    <text x="130" y="49" fill="#9cc3d6" font-size="12" text-anchor="middle" class="mono">two runtimes, one answer</text>
+  </g>
+
+  <!-- bottom band -->
+  <g transform="translate(54 438)">
+    <rect x="0" y="0" width="792" height="42" rx="8" fill="#030712" opacity="0.82" stroke="#243547"/>
+    <text x="396" y="27" fill="#f8fbff" font-size="19" text-anchor="middle" font-weight="bold">服务端看见一个模型，端侧看见两套物理规则</text>
+  </g>
+
+  <text x="866" y="486" text-anchor="end" fill="#516f80" font-size="12" class="mono">#203</text>
+</svg>
