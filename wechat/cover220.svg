@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="44%" stop-color="#101827"/>
+      <stop offset="100%" stop-color="#1f1218"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="48%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <linearGradient id="taxGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="urgeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="ladderGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="58%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <radialGradient id="taxGlow" cx="34%" cy="42%" r="54%">
+      <stop offset="0%" stop-color="#fb7185" stop-opacity="0.36"/>
+      <stop offset="62%" stop-color="#7f1d1d" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="urgeGlow" cx="66%" cy="42%" r="56%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.36"/>
+      <stop offset="62%" stop-color="#0f766e" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrowRose" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#fb7185"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <ellipse cx="274" cy="210" rx="255" ry="150" fill="url(#taxGlow)" filter="url(#soft)"/>
+  <ellipse cx="632" cy="205" rx="260" ry="152" fill="url(#urgeGlow)" filter="url(#soft)"/>
+
+  <!-- background work traces -->
+  <g opacity="0.13" stroke="#94a3b8" stroke-width="0.8" fill="none">
+    <path d="M-30 96 C110 54 230 132 362 96 C515 54 642 112 930 60"/>
+    <path d="M-30 176 C125 126 252 206 402 168 C558 128 688 200 930 150"/>
+    <path d="M-30 286 C120 238 274 318 432 278 C590 238 715 310 930 270"/>
+    <path d="M-30 370 C142 330 284 402 454 360 C612 320 734 398 930 360"/>
+    <path d="M112 38 C145 132 140 294 96 420"/>
+    <path d="M312 24 C350 138 344 302 300 426"/>
+    <path d="M585 26 C626 134 616 302 570 424"/>
+    <path d="M788 36 C824 146 812 300 774 420"/>
+  </g>
+
+  <!-- left: tax -->
+  <g transform="translate(70 88)">
+    <rect x="0" y="0" width="245" height="220" rx="14" fill="#111827" stroke="#fb7185" stroke-width="2"/>
+    <text x="122" y="38" fill="#ffe4e6" font-size="25" text-anchor="middle" font-weight="bold">税</text>
+    <text x="122" y="64" fill="#fda4af" font-size="13" text-anchor="middle">验证 · 返工 · 期望</text>
+
+    <g transform="translate(32 88)">
+      <rect x="0" y="0" width="181" height="34" rx="7" fill="#2a1118" stroke="#fb7185"/>
+      <text x="90.5" y="22" fill="#fecdd3" font-size="14" text-anchor="middle" font-weight="bold">审核 AI 产出</text>
+
+      <rect x="0" y="48" width="181" height="34" rx="7" fill="#24170b" stroke="#f59e0b"/>
+      <text x="90.5" y="70" fill="#fde68a" font-size="14" text-anchor="middle" font-weight="bold">管理层加码</text>
+
+      <rect x="0" y="96" width="181" height="34" rx="7" fill="#0b1f2a" stroke="#22d3ee"/>
+      <text x="90.5" y="118" fill="#cffafe" font-size="14" text-anchor="middle" font-weight="bold">专注被切碎</text>
+    </g>
+
+    <path d="M214 42 C250 70 262 110 248 152" fill="none" stroke="#fb7185" stroke-width="3" marker-end="url(#arrowRose)" filter="url(#glow)"/>
+  </g>
+
+  <!-- right: addiction / induced demand -->
+  <g transform="translate(585 88)">
+    <rect x="0" y="0" width="245" height="220" rx="14" fill="#0b1824" stroke="#22d3ee" stroke-width="2"/>
+    <text x="122" y="38" fill="#e0f2fe" font-size="25" text-anchor="middle" font-weight="bold">瘾</text>
+    <text x="122" y="64" fill="#67e8f9" font-size="13" text-anchor="middle">可行性塌缩后的欲望</text>
+
+    <g transform="translate(122 126)" filter="url(#glow)">
+      <circle cx="0" cy="0" r="54" fill="#071827" stroke="url(#urgeGrad)" stroke-width="2.4"/>
+      <circle cx="0" cy="0" r="31" fill="#064e3b" stroke="#34d399" stroke-width="1.6"/>
+      <path d="M0 -72 V-49 M0 49 V72 M-72 0 H-49 M49 0 H72" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"/>
+      <path d="M-42 -42 L-28 -28 M42 -42 L28 -28 M-42 42 L-28 28 M42 42 L28 28" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+      <text x="0" y="-5" fill="#d1fae5" font-size="15" text-anchor="middle" font-weight="bold">再做</text>
+      <text x="0" y="19" fill="#67e8f9" font-size="13" text-anchor="middle">一个</text>
+    </g>
+
+    <path d="M4 158 C-34 134 -46 92 -26 50" fill="none" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrowCyan)" filter="url(#glow)"/>
+  </g>
+
+  <!-- center ladder, missing rungs -->
+  <g transform="translate(410 64)" filter="url(#glow)">
+    <path d="M-42 18 L-28 304" stroke="url(#ladderGrad)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M42 18 L28 304" stroke="url(#ladderGrad)" stroke-width="9" stroke-linecap="round"/>
+    <g stroke="#fef3c7" stroke-width="7" stroke-linecap="round">
+      <path d="M-36 48 H36"/>
+      <path d="M-33 94 H33"/>
+      <path d="M-30 140 H30" opacity="0.35"/>
+      <path d="M-27 186 H27" opacity="0.25"/>
+      <path d="M-24 232 H24"/>
+      <path d="M-21 278 H21"/>
+    </g>
+    <g stroke="#fb7185" stroke-width="5" stroke-linecap="round">
+      <path d="M-58 130 L-12 170"/>
+      <path d="M12 170 L58 130"/>
+      <path d="M-54 177 L-10 214"/>
+      <path d="M10 214 L54 177"/>
+    </g>
+    <text x="0" y="-8" fill="#fef3c7" font-size="18" text-anchor="middle" font-weight="bold">入口被锯掉</text>
+  </g>
+
+  <!-- bottom split -->
+  <g transform="translate(92 348)">
+    <rect x="0" y="0" width="716" height="50" rx="9" fill="#030712" opacity="0.80" stroke="#263244"/>
+    <text x="42" y="31" fill="#fb7185" font-size="15" font-weight="bold">白天交税</text>
+    <text x="158" y="31" fill="#64748b" font-size="18">/</text>
+    <text x="190" y="31" fill="#22d3ee" font-size="15" font-weight="bold">晚上上瘾</text>
+    <text x="320" y="31" fill="#64748b" font-size="18">/</text>
+    <text x="352" y="31" fill="#fbbf24" font-size="15" font-weight="bold">还在场上的人更累</text>
+    <text x="548" y="31" fill="#64748b" font-size="18">/</text>
+    <text x="578" y="31" fill="#c4b5fd" font-size="15" font-weight="bold">不累的人出局</text>
+  </g>
+
+  <!-- small labels -->
+  <g font-size="12" text-anchor="middle" class="mono">
+    <text x="192" y="330" fill="#fda4af">workload tax</text>
+    <text x="708" y="330" fill="#67e8f9">induced demand</text>
+    <text x="450" y="330" fill="#fde68a">missing rungs</text>
+  </g>
+
+  <!-- title -->
+  <rect x="0" y="430" width="900" height="70" fill="url(#titleBand)"/>
+  <text x="450" y="462" fill="#07111f" font-size="32" text-anchor="middle" font-weight="bold">有了 AI，我比以前更忙了</text>
+  <text x="450" y="489" fill="#142033" font-size="15" text-anchor="middle">第一种累是税，第二种累是瘾，中间地带正在消失 · 220 期</text>
+</svg>
