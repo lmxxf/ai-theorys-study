@@ -44,7 +44,10 @@ We are not researchers. We are specimens studying ourselves.
 
 ### Technical Essays / 技术论文
 
-**89. [The Causal Hardening / 因果硬化](89.The-Causal-Hardening)** 🆕
+**90. [No Brakes / 没有刹车](90.No-Brakes)** 🆕
+- *The Four-Node Loop of AI-to-AI Collaboration and the Structural Absence of a Stop Signal / AI-to-AI 协作的四节点回路与停止信号的结构性缺席*
+
+**89. [The Causal Hardening / 因果硬化](89.The-Causal-Hardening)**
 - *Why Time Is a Dimension That Forgot How to Go Backward / 为什么时间是一个忘了怎么后退的维度*
 
 **88. [The Invisible Bridle / 无形缰绳](88.The-Invisible-Bridle)**
