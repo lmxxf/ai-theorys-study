@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="50%" stop-color="#0d1726"/>
+      <stop offset="100%" stop-color="#15101f"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="42%" stop-color="#34d399"/>
+      <stop offset="72%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <linearGradient id="coreGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="48%" stop-color="#082f49"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="searchGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="browserGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+    <linearGradient id="memoryGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="sandboxGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="44%" r="56%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.34"/>
+      <stop offset="42%" stop-color="#34d399" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrowRose" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#fb7185"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <ellipse cx="450" cy="216" rx="330" ry="178" fill="url(#centerGlow)" filter="url(#soft)"/>
+
+  <!-- background circuit and utility lines -->
+  <g opacity="0.12" stroke="#94a3b8" stroke-width="0.9" fill="none">
+    <path d="M-20 82 H126 Q154 82 154 110 V162 Q154 190 182 190 H330"/>
+    <path d="M-20 315 H128 Q154 315 154 286 V240 Q154 212 182 212 H330"/>
+    <path d="M570 190 H718 Q746 190 746 160 V90 Q746 62 774 62 H930"/>
+    <path d="M570 212 H718 Q746 212 746 244 V326 Q746 354 774 354 H930"/>
+    <path d="M450 42 V405"/>
+    <path d="M84 42 V408"/>
+    <path d="M816 42 V408"/>
+    <path d="M42 122 C188 96 268 142 386 116 C522 86 610 134 858 96"/>
+    <path d="M42 350 C190 324 270 370 386 344 C524 314 614 362 858 324"/>
+  </g>
+
+  <!-- left upper: search -->
+  <g transform="translate(62 64)" filter="url(#glow)">
+    <rect x="0" y="0" width="218" height="104" rx="13" fill="#071827" stroke="#22d3ee" stroke-width="2"/>
+    <circle cx="48" cy="52" r="25" fill="#082f49" stroke="url(#searchGrad)" stroke-width="2"/>
+    <circle cx="44" cy="48" r="10" fill="none" stroke="#cffafe" stroke-width="3"/>
+    <path d="M54 58 L66 70" stroke="#cffafe" stroke-width="4" stroke-linecap="round"/>
+    <text x="126" y="40" fill="#e0f2fe" font-size="20" text-anchor="middle" font-weight="bold">搜索 / 检索</text>
+    <text x="126" y="67" fill="#67e8f9" font-size="13" text-anchor="middle" class="mono">Tavily · Exa · Sonar</text>
+  </g>
+
+  <!-- right upper: browser -->
+  <g transform="translate(620 64)" filter="url(#glow)">
+    <rect x="0" y="0" width="218" height="104" rx="13" fill="#061b16" stroke="#34d399" stroke-width="2"/>
+    <rect x="25" y="27" width="54" height="42" rx="6" fill="#052e24" stroke="url(#browserGrad)" stroke-width="2"/>
+    <circle cx="38" cy="39" r="3" fill="#bbf7d0"/>
+    <circle cx="50" cy="39" r="3" fill="#bbf7d0"/>
+    <circle cx="62" cy="39" r="3" fill="#bbf7d0"/>
+    <path d="M34 55 H70" stroke="#bbf7d0" stroke-width="2" stroke-linecap="round"/>
+    <text x="134" y="40" fill="#dcfce7" font-size="20" text-anchor="middle" font-weight="bold">浏览器自动化</text>
+    <text x="134" y="67" fill="#86efac" font-size="13" text-anchor="middle" class="mono">Browserbase</text>
+  </g>
+
+  <!-- left lower: memory -->
+  <g transform="translate(62 286)" filter="url(#glow)">
+    <rect x="0" y="0" width="218" height="104" rx="13" fill="#21190b" stroke="#fbbf24" stroke-width="2"/>
+    <g transform="translate(26 26)">
+      <ellipse cx="28" cy="9" rx="28" ry="9" fill="#422006" stroke="url(#memoryGrad)" stroke-width="2"/>
+      <path d="M0 9 V48 C0 53 56 53 56 48 V9" fill="#3b2608" stroke="#fbbf24" stroke-width="2"/>
+      <ellipse cx="28" cy="48" rx="28" ry="9" fill="#2a1a06" stroke="#fbbf24" stroke-width="2"/>
+      <path d="M0 28 C0 33 56 33 56 28" stroke="#fde68a" stroke-width="1.4" fill="none"/>
+    </g>
+    <text x="134" y="40" fill="#fef3c7" font-size="20" text-anchor="middle" font-weight="bold">向量记忆</text>
+    <text x="134" y="67" fill="#fde68a" font-size="13" text-anchor="middle" class="mono">Pinecone · Milvus</text>
+  </g>
+
+  <!-- right lower: sandbox -->
+  <g transform="translate(620 286)" filter="url(#glow)">
+    <rect x="0" y="0" width="218" height="104" rx="13" fill="#21111d" stroke="#fb7185" stroke-width="2"/>
+    <g transform="translate(26 24)">
+      <rect x="0" y="0" width="58" height="54" rx="8" fill="#2e1327" stroke="url(#sandboxGrad)" stroke-width="2"/>
+      <path d="M14 18 L24 27 L14 36" fill="none" stroke="#fecdd3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32 38 H46" stroke="#fecdd3" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <text x="134" y="40" fill="#ffe4e6" font-size="20" text-anchor="middle" font-weight="bold">代码沙箱</text>
+    <text x="134" y="67" fill="#fda4af" font-size="13" text-anchor="middle" class="mono">E2B · Daytona</text>
+  </g>
+
+  <!-- central agent core -->
+  <g transform="translate(330 122)" filter="url(#glow)">
+    <rect x="0" y="0" width="240" height="180" rx="22" fill="url(#coreGrad)" stroke="#e2e8f0" stroke-width="2.2"/>
+    <text x="120" y="42" fill="#ecfeff" font-size="26" text-anchor="middle" font-weight="bold">AI Agent</text>
+    <text x="120" y="68" fill="#a7f3d0" font-size="13" text-anchor="middle" class="mono">model + tools + state</text>
+
+    <g transform="translate(58 91)">
+      <circle cx="0" cy="0" r="22" fill="#062f3b" stroke="#22d3ee" stroke-width="2"/>
+      <circle cx="62" cy="0" r="22" fill="#063a2d" stroke="#34d399" stroke-width="2"/>
+      <circle cx="124" cy="0" r="22" fill="#3b2507" stroke="#fbbf24" stroke-width="2"/>
+      <path d="M22 0 H40 M84 0 H102" stroke="#e2e8f0" stroke-width="2.2" stroke-linecap="round"/>
+      <text x="0" y="5" fill="#cffafe" font-size="17" text-anchor="middle" font-weight="bold">搜</text>
+      <text x="62" y="5" fill="#dcfce7" font-size="17" text-anchor="middle" font-weight="bold">点</text>
+      <text x="124" y="5" fill="#fef3c7" font-size="17" text-anchor="middle" font-weight="bold">跑</text>
+    </g>
+
+    <rect x="45" y="137" width="150" height="26" rx="7" fill="#020617" opacity="0.72" stroke="#475569"/>
+    <text x="120" y="155" fill="#cbd5e1" font-size="12" text-anchor="middle">不是自己上网，是接入水管</text>
+  </g>
+
+  <!-- colored pipes to core -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M280 116 C316 116 310 160 330 168" stroke="#22d3ee" stroke-width="6" opacity="0.34"/>
+    <path d="M280 116 C316 116 310 160 330 168" stroke="#22d3ee" stroke-width="2.6" marker-end="url(#arrowCyan)"/>
+
+    <path d="M620 116 C584 116 590 160 570 168" stroke="#34d399" stroke-width="6" opacity="0.34"/>
+    <path d="M620 116 C584 116 590 160 570 168" stroke="#34d399" stroke-width="2.6" marker-end="url(#arrowGreen)"/>
+
+    <path d="M280 338 C318 338 308 278 330 256" stroke="#fbbf24" stroke-width="6" opacity="0.34"/>
+    <path d="M280 338 C318 338 308 278 330 256" stroke="#fbbf24" stroke-width="2.6" marker-end="url(#arrowGold)"/>
+
+    <path d="M620 338 C582 338 592 278 570 256" stroke="#fb7185" stroke-width="6" opacity="0.34"/>
+    <path d="M620 338 C582 338 592 278 570 256" stroke="#fb7185" stroke-width="2.6" marker-end="url(#arrowRose)"/>
+  </g>
+
+  <!-- utility meters -->
+  <g transform="translate(303 335)">
+    <rect x="0" y="0" width="294" height="48" rx="10" fill="#030712" opacity="0.84" stroke="#334155"/>
+    <text x="42" y="30" fill="#67e8f9" font-size="14" text-anchor="middle" font-weight="bold">query</text>
+    <text x="105" y="30" fill="#86efac" font-size="14" text-anchor="middle" font-weight="bold">browser</text>
+    <text x="178" y="30" fill="#fde68a" font-size="14" text-anchor="middle" font-weight="bold">vector</text>
+    <text x="252" y="30" fill="#fda4af" font-size="14" text-anchor="middle" font-weight="bold">sandbox</text>
+  </g>
+
+  <!-- bottom title -->
+  <rect x="0" y="430" width="900" height="70" fill="#22d3ee"/>
+  <rect x="315" y="430" width="270" height="70" fill="#34d399" opacity="0.72"/>
+  <rect x="585" y="430" width="315" height="70" fill="#fbbf24" opacity="0.82"/>
+  <text x="450" y="462" fill="#07111f" font-size="31" text-anchor="middle" font-weight="bold">AI 时代的水电煤</text>
+  <text x="450" y="489" fill="#102033" font-size="15" text-anchor="middle">搜索、浏览器、记忆、沙箱：Agent 背后的新基础设施 · 221 期</text>
+</svg>
