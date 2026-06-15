@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1430" font-family="'Noto Sans CJK SC', sans-serif">
+  <rect width="1100" height="1430" fill="white"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+    <style>
+      .title { font-size: 22px; font-weight: bold; fill: #222; }
+      .sub { font-size: 13px; fill: #666; }
+      .label { font-size: 13px; fill: #333; }
+      .small { font-size: 11px; fill: #888; }
+      .vec { font-size: 11px; fill: #444; font-style: italic; }
+      .role { font-size: 14px; font-weight: bold; }
+      .img-box { fill: #fff3e0; stroke: #e65100; stroke-width: 2; }
+      .txt-box { fill: #e3f2fd; stroke: #1565c0; stroke-width: 2; }
+      .llm-box { fill: #f3e5f5; stroke: #6a1b9a; stroke-width: 2; }
+      .proj-box { fill: #e8f5e9; stroke: #2e7d32; stroke-width: 1.5; }
+      .input { fill: #fafafa; stroke: #999; stroke-width: 1.5; }
+      .arrow { stroke: #555; stroke-width: 1.8; fill: none; }
+      .dashed { stroke-dasharray: 4 3; }
+    </style>
+  </defs>
+
+  <text x="550" y="25" text-anchor="middle" class="sub">橙=视觉编码器，蓝=文本编码器，紫=LLM，绿=投影层</text>
+
+  <!-- ====== 1. ViT ====== -->
+  <g transform="translate(40, 50)">
+    <text x="0" y="0" class="role" fill="#222">① ViT (2020, Google)</text>
+    <text x="0" y="20" class="sub">通用视觉骨干 · 纯视觉，跟语言无关</text>
+
+    <rect x="0" y="40" width="60" height="50" class="input" rx="4"/>
+    <text x="30" y="70" text-anchor="middle" class="label">图片</text>
+    <line x1="60" y1="65" x2="90" y2="65" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="90" y="35" width="120" height="60" class="img-box" rx="4"/>
+    <text x="150" y="60" text-anchor="middle" class="label">ViT</text>
+    <text x="150" y="78" text-anchor="middle" class="small">Transformer</text>
+
+    <line x1="210" y1="65" x2="240" y2="65" class="arrow" marker-end="url(#arrow)"/>
+    <text x="290" y="60" text-anchor="middle" class="vec">类别 logits</text>
+    <text x="290" y="78" text-anchor="middle" class="small">（图像分类）</text>
+  </g>
+
+  <line x1="40" y1="160" x2="1060" y2="160" stroke="#ddd" stroke-width="1"/>
+
+  <!-- ====== 2. CLIP ====== -->
+  <g transform="translate(40, 180)">
+    <text x="0" y="0" class="role" fill="#222">② CLIP (2021, OpenAI)</text>
+    <text x="0" y="20" class="sub">视觉编码器 + 文本编码器 · 两条赛道并列跑，终点比夹角</text>
+
+    <!-- 图片支路 -->
+    <rect x="0" y="40" width="60" height="50" class="input" rx="4"/>
+    <text x="30" y="70" text-anchor="middle" class="label">图片</text>
+    <line x1="60" y1="65" x2="90" y2="65" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="90" y="35" width="120" height="60" class="img-box" rx="4"/>
+    <text x="150" y="60" text-anchor="middle" class="label">ViT 视觉编码器</text>
+    <text x="150" y="78" text-anchor="middle" class="small">(24层)</text>
+
+    <!-- ViT 内部 patch 向量 -->
+    <line x1="210" y1="65" x2="240" y2="65" class="arrow" marker-end="url(#arrow)"/>
+    <g transform="translate(240, 50)">
+      <circle cx="6" cy="15" r="4" fill="#e65100"/>
+      <circle cx="18" cy="15" r="4" fill="#e65100"/>
+      <circle cx="30" cy="15" r="4" fill="#e65100"/>
+      <text x="42" y="19" class="small">…</text>
+      <text x="0" y="-2" class="vec">576 × 1024 维 (patch token)</text>
+      <text x="0" y="35" class="small">↑ LLaVA 取这里当眼睛</text>
+    </g>
+
+    <!-- 投影到 768 -->
+    <line x1="245" y1="100" x2="245" y2="125" class="arrow dashed" marker-end="url(#arrow)"/>
+    <rect x="195" y="125" width="100" height="30" class="proj-box" rx="4"/>
+    <text x="245" y="145" text-anchor="middle" class="small">取 CLS + 投影</text>
+    <line x1="295" y1="140" x2="340" y2="140" class="arrow" marker-end="url(#arrow)"/>
+    <circle cx="365" cy="140" r="7" fill="#e65100"/>
+    <text x="385" y="144" class="vec">[768]</text>
+
+    <!-- 文本支路 -->
+    <rect x="0" y="180" width="60" height="50" class="input" rx="4"/>
+    <text x="30" y="210" text-anchor="middle" class="label">文字</text>
+    <line x1="60" y1="205" x2="90" y2="205" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="90" y="175" width="120" height="60" class="txt-box" rx="4"/>
+    <text x="150" y="200" text-anchor="middle" class="label">文本编码器</text>
+    <text x="150" y="218" text-anchor="middle" class="small">(~63M 参数)</text>
+
+    <line x1="210" y1="205" x2="340" y2="205" class="arrow" marker-end="url(#arrow)"/>
+    <circle cx="365" cy="205" r="7" fill="#1565c0"/>
+    <text x="385" y="209" class="vec">[768]</text>
+
+    <!-- 比夹角 -->
+    <path d="M 372 140 Q 440 172 372 205" class="arrow dashed" fill="none"/>
+    <text x="500" y="175" class="role" fill="#c62828">⟨ cos 夹角 ⟩</text>
+    <text x="500" y="195" class="small">对比 loss · 只判断"像不像"</text>
+
+    <!-- 用法说明 -->
+    <text x="650" y="60" class="small" fill="#555">📍 自用：零样本分类、图文检索</text>
+    <text x="650" y="80" class="small" fill="#555">📍 当零件被 LLaVA 用：</text>
+    <text x="650" y="98" class="small" fill="#555">    取 ViT 中间层 576×1024 patch 序列</text>
+    <text x="650" y="116" class="small" fill="#555">    扔掉 768 维投影 + 整个文本侧</text>
+  </g>
+
+  <line x1="40" y1="450" x2="1060" y2="450" stroke="#ddd" stroke-width="1"/>
+
+  <!-- ====== 3. SigLIP ====== -->
+  <g transform="translate(40, 470)">
+    <text x="0" y="0" class="role" fill="#222">③ SigLIP (2023, Google)</text>
+    <text x="0" y="20" class="sub">CLIP 升级版 · 把 softmax 换成 sigmoid，训练更省</text>
+
+    <rect x="0" y="40" width="60" height="50" class="input" rx="4"/>
+    <text x="30" y="70" text-anchor="middle" class="label">图片</text>
+    <line x1="60" y1="65" x2="90" y2="65" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="90" y="35" width="120" height="60" class="img-box" rx="4"/>
+    <text x="150" y="60" text-anchor="middle" class="label">ViT 视觉编码器</text>
+    <text x="150" y="78" text-anchor="middle" class="small">无 CLS, 用 MAP 池化</text>
+
+    <line x1="210" y1="65" x2="240" y2="65" class="arrow" marker-end="url(#arrow)"/>
+    <g transform="translate(240, 50)">
+      <circle cx="6" cy="15" r="4" fill="#e65100"/>
+      <circle cx="18" cy="15" r="4" fill="#e65100"/>
+      <circle cx="30" cy="15" r="4" fill="#e65100"/>
+      <text x="42" y="19" class="small">…</text>
+      <text x="0" y="-2" class="vec">N × hidden patch 序列</text>
+      <text x="0" y="35" class="small">↑ Qwen3-VL 取这里当眼睛</text>
+    </g>
+
+    <rect x="0" y="120" width="60" height="50" class="input" rx="4"/>
+    <text x="30" y="150" text-anchor="middle" class="label">文字</text>
+    <line x1="60" y1="145" x2="90" y2="145" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="90" y="115" width="120" height="60" class="txt-box" rx="4"/>
+    <text x="150" y="145" text-anchor="middle" class="label">文本编码器</text>
+
+    <path d="M 215 100 Q 280 122 215 145" class="arrow dashed" fill="none"/>
+    <text x="320" y="125" class="role" fill="#c62828">⟨ sigmoid loss ⟩</text>
+    <text x="320" y="143" class="small">每对独立判断，不抢概率</text>
+
+    <text x="650" y="60" class="small" fill="#555">📍 同 CLIP，但训练效率更高</text>
+    <text x="650" y="80" class="small" fill="#555">📍 203 期 Qwen3-VL 用的就是它</text>
+  </g>
+
+  <line x1="40" y1="680" x2="1060" y2="680" stroke="#ddd" stroke-width="1"/>
+
+  <!-- ====== 4. DINOv2 ====== -->
+  <g transform="translate(40, 700)">
+    <text x="0" y="0" class="role" fill="#222">④ DINOv2 (2023, Meta)</text>
+    <text x="0" y="20" class="sub">自监督视觉编码器 · 完全没有文本侧</text>
+
+    <rect x="0" y="40" width="60" height="50" class="input" rx="4"/>
+    <text x="30" y="70" text-anchor="middle" class="label">图片</text>
+    <line x1="60" y1="65" x2="90" y2="65" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="90" y="35" width="120" height="60" class="img-box" rx="4"/>
+    <text x="150" y="60" text-anchor="middle" class="label">ViT</text>
+    <text x="150" y="78" text-anchor="middle" class="small">自监督训练</text>
+
+    <line x1="210" y1="65" x2="240" y2="65" class="arrow" marker-end="url(#arrow)"/>
+    <g transform="translate(240, 50)">
+      <circle cx="6" cy="15" r="4" fill="#e65100"/>
+      <circle cx="18" cy="15" r="4" fill="#e65100"/>
+      <circle cx="30" cy="15" r="4" fill="#e65100"/>
+      <text x="42" y="19" class="small">…</text>
+      <text x="0" y="-2" class="vec">图像表征</text>
+    </g>
+
+    <text x="650" y="60" class="small" fill="#555">📍 自用：图像表征学习</text>
+    <text x="650" y="80" class="small" fill="#555">📍 本文当"独立裁判"算 MS 指标</text>
+    <text x="650" y="100" class="small" fill="#555">    （跟 CLIP 训练目标不同，没串味）</text>
+  </g>
+
+  <line x1="40" y1="840" x2="1060" y2="840" stroke="#ddd" stroke-width="1"/>
+
+  <!-- ====== 5. Vicuna ====== -->
+  <g transform="translate(40, 860)">
+    <text x="0" y="0" class="role" fill="#222">⑤ Vicuna (2023, LMSYS)</text>
+    <text x="0" y="20" class="sub">基于 LLaMA 微调的开源 LLM · 纯语言模型</text>
+
+    <rect x="0" y="40" width="60" height="50" class="input" rx="4"/>
+    <text x="30" y="70" text-anchor="middle" class="label">文字</text>
+    <line x1="60" y1="65" x2="90" y2="65" class="arrow" marker-end="url(#arrow)"/>
+
+    <rect x="90" y="35" width="140" height="60" class="llm-box" rx="4"/>
+    <text x="160" y="60" text-anchor="middle" class="label">Vicuna (LLM)</text>
+    <text x="160" y="78" text-anchor="middle" class="small">自回归生成</text>
+
+    <line x1="230" y1="65" x2="260" y2="65" class="arrow" marker-end="url(#arrow)"/>
+    <text x="320" y="60" text-anchor="middle" class="vec">文字 token 流</text>
+    <text x="320" y="78" text-anchor="middle" class="small">（聊天、推理、写作）</text>
+
+    <text x="650" y="60" class="small" fill="#555">📍 自用：直接当 LLM 聊天</text>
+    <text x="650" y="80" class="small" fill="#555">📍 当零件：被 LLaVA 拿去当"嘴"</text>
+  </g>
+
+  <line x1="40" y1="980" x2="1060" y2="980" stroke="#ddd" stroke-width="1"/>
+
+  <!-- ====== 6. LLaVA ====== -->
+  <g transform="translate(40, 1000)">
+    <text x="0" y="0" class="role" fill="#222">⑥ LLaVA-1.5 (2023, UW-Madison + 微软)</text>
+    <text x="0" y="20" class="sub">真正的多模态大模型 · 能"看图说话" · 上面三个零件的拼装</text>
+
+    <!-- 图片输入 -->
+    <rect x="0" y="60" width="60" height="50" class="input" rx="4"/>
+    <text x="30" y="90" text-anchor="middle" class="label">图片</text>
+    <line x1="60" y1="85" x2="90" y2="85" class="arrow" marker-end="url(#arrow)"/>
+
+    <!-- CLIP 视觉部分（只取 ViT 中间层，不取 768 投影） -->
+    <rect x="90" y="55" width="140" height="60" class="img-box" rx="4"/>
+    <text x="160" y="80" text-anchor="middle" class="label">CLIP 视觉编码器</text>
+    <text x="160" y="98" text-anchor="middle" class="small">（取 ViT 中间层）</text>
+
+    <line x1="230" y1="85" x2="260" y2="85" class="arrow" marker-end="url(#arrow)"/>
+    <g transform="translate(260, 70)">
+      <circle cx="6" cy="15" r="4" fill="#e65100"/>
+      <circle cx="18" cy="15" r="4" fill="#e65100"/>
+      <circle cx="30" cy="15" r="4" fill="#e65100"/>
+      <text x="42" y="19" class="small">…</text>
+      <text x="0" y="-2" class="vec">576 × 1024</text>
+    </g>
+
+    <line x1="320" y1="85" x2="350" y2="85" class="arrow" marker-end="url(#arrow)"/>
+
+    <!-- 投影层 -->
+    <rect x="350" y="65" width="90" height="40" class="proj-box" rx="4"/>
+    <text x="395" y="90" text-anchor="middle" class="label">投影层</text>
+
+    <line x1="440" y1="85" x2="470" y2="85" class="arrow" marker-end="url(#arrow)"/>
+    <g transform="translate(470, 70)">
+      <circle cx="6" cy="15" r="4" fill="#2e7d32"/>
+      <circle cx="18" cy="15" r="4" fill="#2e7d32"/>
+      <circle cx="30" cy="15" r="4" fill="#2e7d32"/>
+      <text x="42" y="19" class="small">…</text>
+      <text x="0" y="-2" class="vec">576 × 4096 (LLM 维度)</text>
+    </g>
+
+    <!-- 文字输入 -->
+    <rect x="0" y="160" width="60" height="50" class="input" rx="4"/>
+    <text x="30" y="190" text-anchor="middle" class="label">文字</text>
+
+    <!-- 拼接 -->
+    <path d="M 60 185 Q 400 185 590 130" class="arrow" marker-end="url(#arrow)" fill="none"/>
+    <text x="380" y="180" class="small">拼接到文字 token 前面</text>
+
+    <line x1="600" y1="85" x2="620" y2="85" class="arrow" marker-end="url(#arrow)"/>
+
+    <!-- Vicuna -->
+    <rect x="620" y="55" width="140" height="60" class="llm-box" rx="4"/>
+    <text x="690" y="80" text-anchor="middle" class="label">Vicuna (LLM)</text>
+    <text x="690" y="98" text-anchor="middle" class="small">自回归生成</text>
+
+    <line x1="760" y1="85" x2="790" y2="85" class="arrow" marker-end="url(#arrow)"/>
+    <text x="850" y="80" text-anchor="middle" class="vec">"图里有只橘猫…"</text>
+    <text x="850" y="98" text-anchor="middle" class="small">（回答文字）</text>
+
+    <!-- 标注：CLIP 文本侧没用上 -->
+    <text x="0" y="250" class="small" fill="#c62828">⚠ 注意：CLIP 的文本编码器完全没用上 —— LLaVA 只取 CLIP 的视觉那半边，文本侧扔掉，换 Vicuna 当嘴</text>
+  </g>
+</svg>
