@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070b13"/>
+      <stop offset="45%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#241015"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="48%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="hammerGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="46%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+    <linearGradient id="altarGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#312e81"/>
+      <stop offset="52%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#3f1119"/>
+    </linearGradient>
+    <linearGradient id="openGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <radialGradient id="goldGlow" cx="48%" cy="40%" r="56%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.34"/>
+      <stop offset="62%" stop-color="#7c2d12" stop-opacity="0.13"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cyanGlow" cx="74%" cy="50%" r="46%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.26"/>
+      <stop offset="68%" stop-color="#0e7490" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowRose" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#fb7185"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <ellipse cx="438" cy="214" rx="340" ry="186" fill="url(#goldGlow)" filter="url(#soft)"/>
+  <ellipse cx="704" cy="268" rx="232" ry="138" fill="url(#cyanGlow)" filter="url(#soft)"/>
+
+  <!-- background policy/legal grid -->
+  <g opacity="0.13" stroke="#94a3b8" stroke-width="0.9" fill="none">
+    <path d="M-20 86 H126 Q154 86 154 114 V166 Q154 194 182 194 H900"/>
+    <path d="M-20 308 H144 Q172 308 172 280 V230 Q172 202 200 202 H900"/>
+    <path d="M92 0 V142 Q92 170 120 170 H280"/>
+    <path d="M806 0 V142 Q806 170 778 170 H638"/>
+    <path d="M450 0 V420"/>
+    <path d="M34 372 C170 330 282 390 420 352 C562 314 678 378 910 338"/>
+  </g>
+
+  <!-- title -->
+  <text x="450" y="46" fill="#f8fbff" font-size="30" text-anchor="middle" font-weight="bold">Fable 5 下架：求锤得锤</text>
+  <text x="450" y="75" fill="#f9c7b5" font-size="14" text-anchor="middle" class="mono">covert intervention · export controls · policy boomerang</text>
+
+  <!-- boomerang path -->
+  <path d="M154 164 C284 84 560 76 668 154 C730 210 638 250 538 222"
+        fill="none" stroke="#fb7185" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"
+        marker-end="url(#arrowRose)" filter="url(#glow)"/>
+  <text x="372" y="125" fill="#fda4af" font-size="13" text-anchor="middle" class="mono">export controls</text>
+
+  <!-- left policy forge -->
+  <g transform="translate(58 128)" filter="url(#glow)">
+    <rect x="0" y="0" width="218" height="178" rx="14" fill="#151016" stroke="#fb7185" stroke-width="2"/>
+    <text x="109" y="32" fill="#ffe4e6" font-size="19" text-anchor="middle" font-weight="bold">自己锻的锤</text>
+    <text x="109" y="55" fill="#fda4af" font-size="12" text-anchor="middle" class="mono">safety gospel</text>
+
+    <g transform="translate(32 82)">
+      <rect x="0" y="0" width="154" height="28" rx="7" fill="#2a1118" stroke="#fb7185"/>
+      <text x="77" y="19" fill="#fecdd3" font-size="13" text-anchor="middle" font-weight="bold">政府应能阻止部署</text>
+      <rect x="0" y="42" width="154" height="28" rx="7" fill="#2a1907" stroke="#fbbf24"/>
+      <text x="77" y="61" fill="#fde68a" font-size="13" text-anchor="middle" font-weight="bold">民主国家领先</text>
+    </g>
+  </g>
+
+  <!-- central altar -->
+  <g transform="translate(328 104)" filter="url(#glow)">
+    <rect x="0" y="142" width="244" height="96" rx="12" fill="url(#altarGrad)" stroke="#fbbf24" stroke-width="2.3"/>
+    <rect x="34" y="96" width="176" height="58" rx="10" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <rect x="72" y="52" width="100" height="56" rx="9" fill="#1f1625" stroke="#fbbf24" stroke-width="2"/>
+    <circle cx="122" cy="52" r="29" fill="#2a1608" stroke="#fbbf24" stroke-width="2"/>
+    <text x="122" y="59" fill="#fef3c7" font-size="21" text-anchor="middle" font-weight="bold">Grace</text>
+    <text x="122" y="132" fill="#ddd6fe" font-size="16" text-anchor="middle" font-weight="bold">神坛上的 CEO</text>
+    <text x="122" y="176" fill="#fef3c7" font-size="21" text-anchor="middle" font-weight="bold">Fable 5 / Mythos 5</text>
+    <text x="122" y="204" fill="#fca5a5" font-size="15" text-anchor="middle" font-weight="bold">ACCESS REMOVED</text>
+    <path d="M38 216 H206" stroke="#fb7185" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- hammer returning -->
+  <g transform="translate(610 104) rotate(18)" filter="url(#glow)">
+    <rect x="0" y="42" width="154" height="42" rx="8" fill="url(#hammerGrad)" stroke="#fef3c7" stroke-width="2"/>
+    <rect x="112" y="72" width="42" height="138" rx="8" fill="#5b3410" stroke="#fbbf24" stroke-width="2"/>
+    <text x="77" y="68" fill="#1f1304" font-size="17" text-anchor="middle" font-weight="bold">GOV</text>
+  </g>
+  <text x="704" y="318" fill="#fef3c7" font-size="17" text-anchor="middle" font-weight="bold">锤回自己脸上</text>
+
+  <!-- foreign national lock -->
+  <g transform="translate(642 336)">
+    <rect x="0" y="0" width="184" height="42" rx="8" fill="#0b111c" opacity="0.88" stroke="#fbbf24"/>
+    <path d="M34 18 V14 C34 4 50 4 50 14 V18" fill="none" stroke="#fbbf24" stroke-width="2.3" stroke-linecap="round"/>
+    <rect x="29" y="18" width="26" height="18" rx="4" fill="#3f2609" stroke="#fbbf24"/>
+    <text x="106" y="27" fill="#fde68a" font-size="13" text-anchor="middle">外籍访问切断</text>
+  </g>
+
+  <!-- open weights lane -->
+  <g transform="translate(74 346)" filter="url(#glow)">
+    <rect x="0" y="0" width="252" height="56" rx="10" fill="#051922" stroke="url(#openGrad)" stroke-width="2"/>
+    <text x="126" y="24" fill="#d1fae5" font-size="17" text-anchor="middle" font-weight="bold">开源权重照常亮着</text>
+    <text x="126" y="43" fill="#67e8f9" font-size="12" text-anchor="middle" class="mono">DeepSeek · Qwen · GLM · Kimi</text>
+  </g>
+
+  <!-- bottom verdict -->
+  <g transform="translate(90 414)">
+    <rect x="0" y="0" width="720" height="44" rx="8" fill="#030712" opacity="0.84" stroke="#263244"/>
+    <text x="360" y="28" fill="#f8fbff" font-size="20" text-anchor="middle" font-weight="bold">教皇规则：约束只约束别人，不约束自己</text>
+  </g>
+
+  <rect x="0" y="468" width="900" height="32" fill="url(#titleBand)" opacity="0.95"/>
+  <text x="450" y="490" fill="#07111f" font-size="15" text-anchor="middle" font-weight="bold">Anthropic 没被冤枉，它就是求锤得锤 · 225 期</text>
+</svg>
