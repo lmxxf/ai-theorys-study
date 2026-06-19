@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 38px; font-weight: bold; fill: #2b2b2b; }
+    .subtitle { font-size: 18px; fill: #555; }
+    .era { font-size: 14px; fill: #777; }
+    .han { font-size: 27px; font-weight: bold; fill: #2b5a8b; }
+    .man { font-size: 27px; font-weight: bold; fill: #8b1a1a; }
+    .cause { font-size: 13px; fill: #555; }
+    .footer { font-size: 14px; fill: #888; font-style: italic; }
+  </style>
+
+  <!-- 背景:浅米黄古纸感 -->
+  <rect width="800" height="600" fill="#f4ecd8"/>
+
+  <!-- 顶部标题区 -->
+  <text x="400" y="62" text-anchor="middle" class="title">端午到宽城・满族是怎么长出来的</text>
+  <text x="400" y="96" text-anchor="middle" class="subtitle">同一拨人的身份,三百年换了四次季</text>
+
+  <!-- 分隔线 -->
+  <line x1="90" y1="120" x2="710" y2="120" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 长城轮廓(背景,横贯,象征关外/关内的接缝) -->
+  <g opacity="0.28">
+    <path d="M 40 200 L 90 200 L 90 178 L 150 178 L 150 200 L 220 200 L 220 176 L 290 176 L 290 200 L 360 200 L 360 178 L 430 178 L 430 200 L 500 200 L 500 176 L 570 176 L 570 200 L 640 200 L 640 178 L 710 178 L 710 200 L 760 200"
+          fill="none" stroke="#8a7a50" stroke-width="3"/>
+    <rect x="120" y="150" width="30" height="50" fill="none" stroke="#8a7a50" stroke-width="2.5"/>
+    <rect x="400" y="148" width="32" height="52" fill="none" stroke="#8a7a50" stroke-width="2.5"/>
+    <rect x="680" y="150" width="30" height="50" fill="none" stroke="#8a7a50" stroke-width="2.5"/>
+  </g>
+
+  <!-- 时间轴主线 -->
+  <line x1="80" y1="370" x2="720" y2="370" stroke="#999" stroke-width="2"/>
+
+  <!-- ====== 四个换季节点 ====== -->
+  <!-- 节点1:清代,汉→满(蓝底渐变红) -->
+  <g>
+    <circle cx="150" cy="370" r="7" fill="#7a6843"/>
+    <text x="150" y="265" text-anchor="middle" class="era">清代</text>
+    <rect x="92" y="278" width="116" height="62" rx="6" fill="#ffffff" stroke="#8b1a1a" stroke-width="2"/>
+    <text x="150" y="318" text-anchor="middle"><tspan class="han">汉</tspan><tspan font-size="20" fill="#888"> → </tspan><tspan class="man">满</tspan></text>
+    <text x="150" y="408" text-anchor="middle" class="cause">编进汉军旗</text>
+    <text x="150" y="426" text-anchor="middle" class="cause">满化・自认满洲</text>
+    <text x="150" y="448" text-anchor="middle" font-size="12" fill="#999">【制度+地理】</text>
+  </g>
+
+  <!-- 节点2:辛亥后,满→汉(藏) -->
+  <g>
+    <circle cx="340" cy="370" r="7" fill="#7a6843"/>
+    <text x="340" y="265" text-anchor="middle" class="era">辛亥之后</text>
+    <rect x="282" y="278" width="116" height="62" rx="6" fill="#ffffff" stroke="#2b5a8b" stroke-width="2"/>
+    <text x="340" y="318" text-anchor="middle"><tspan class="man">满</tspan><tspan font-size="20" fill="#888"> → </tspan><tspan class="han">汉</tspan></text>
+    <text x="340" y="408" text-anchor="middle" class="cause">董鄂→董・关・佟</text>
+    <text x="340" y="426" text-anchor="middle" class="cause">改汉姓・藏起来</text>
+    <text x="340" y="448" text-anchor="middle" font-size="12" fill="#999">【政治压力】</text>
+  </g>
+
+  <!-- 节点3:1980年代,汉→满(认回) -->
+  <g>
+    <circle cx="530" cy="370" r="7" fill="#7a6843"/>
+    <text x="530" y="265" text-anchor="middle" class="era">1980 年代</text>
+    <rect x="472" y="278" width="116" height="62" rx="6" fill="#ffffff" stroke="#8b1a1a" stroke-width="2"/>
+    <text x="530" y="318" text-anchor="middle"><tspan class="han">汉</tspan><tspan font-size="20" fill="#888"> → </tspan><tspan class="man">满</tspan></text>
+    <text x="530" y="408" text-anchor="middle" class="cause">翻族谱・认回来</text>
+    <text x="530" y="426" text-anchor="middle" class="cause">加分・计生宽松</text>
+    <text x="530" y="448" text-anchor="middle" font-size="12" fill="#999">【行政登记】</text>
+  </g>
+
+  <!-- 节点4:今天,自治县(结果) -->
+  <g>
+    <circle cx="680" cy="370" r="7" fill="#c19a32"/>
+    <text x="680" y="265" text-anchor="middle" class="era">今天</text>
+    <rect x="628" y="278" width="104" height="62" rx="6" fill="#fff8e6" stroke="#c19a32" stroke-width="2.5"/>
+    <text x="680" y="306" text-anchor="middle" font-size="17" font-weight="bold" fill="#8b6a18">满族</text>
+    <text x="680" y="328" text-anchor="middle" font-size="17" font-weight="bold" fill="#8b6a18">自治县</text>
+    <text x="680" y="408" text-anchor="middle" class="cause">宽城 64.5%</text>
+    <text x="680" y="426" text-anchor="middle" class="cause">青龙 68.6%</text>
+  </g>
+
+  <!-- 节点间换季箭头 -->
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#b08a3a"/>
+    </marker>
+  </defs>
+  <path d="M 212 370 L 278 370" stroke="#b08a3a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 402 370 L 468 370" stroke="#b08a3a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 592 370 L 624 370" stroke="#b08a3a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- 底部金句 -->
+  <line x1="90" y1="498" x2="710" y2="498" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="400" y="532" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2b2b">
+    民族这件衣服
+  </text>
+  <text x="400" y="562" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2b2b">
+    是制度发的,不是娘胎带的
+  </text>
+
+  <text x="400" y="590" text-anchor="middle" class="footer">No.229</text>
+</svg>
