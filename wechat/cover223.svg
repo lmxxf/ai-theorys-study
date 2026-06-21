@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06111f"/>
+      <stop offset="48%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#171018"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="40%" stop-color="#a78bfa"/>
+      <stop offset="70%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="latentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="45%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="tokenGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="45%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="bridgeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+    <radialGradient id="leftGlow" cx="34%" cy="42%" r="52%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.36"/>
+      <stop offset="52%" stop-color="#a78bfa" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rightGlow" cx="65%" cy="43%" r="46%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#fbbf24" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="smallGlow">
+      <feGaussianBlur stdDeviation="1.5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <ellipse cx="335" cy="205" rx="300" ry="185" fill="url(#leftGlow)" filter="url(#soft)"/>
+  <ellipse cx="625" cy="205" rx="245" ry="170" fill="url(#rightGlow)" filter="url(#soft)"/>
+
+  <!-- dim high-dimensional grid -->
+  <g opacity="0.14" stroke="#94a3b8" stroke-width="0.9" fill="none">
+    <path d="M-24 82 C118 38 230 126 362 82 C518 30 656 118 924 64"/>
+    <path d="M-24 152 C125 108 232 198 372 150 C526 96 666 184 924 138"/>
+    <path d="M-24 252 C128 208 236 302 382 250 C540 196 676 286 924 236"/>
+    <path d="M-24 348 C134 310 248 394 398 346 C556 296 690 382 924 330"/>
+    <path d="M82 42 V404"/>
+    <path d="M216 34 C252 124 250 298 210 406"/>
+    <path d="M686 34 C648 126 652 296 694 406"/>
+    <path d="M820 42 V404"/>
+  </g>
+
+  <!-- left latent field -->
+  <g transform="translate(72 70)" filter="url(#glow)">
+    <rect x="0" y="0" width="265" height="230" rx="18" fill="#071827" stroke="#22d3ee" stroke-width="2.2"/>
+    <text x="132" y="36" fill="#e0f2fe" font-size="22" text-anchor="middle" font-weight="bold">内部计算</text>
+    <text x="132" y="59" fill="#67e8f9" font-size="13" text-anchor="middle" class="mono">residual stream · 4096D+</text>
+
+    <g opacity="0.95">
+      <circle cx="68" cy="102" r="7" fill="#22d3ee"/>
+      <circle cx="112" cy="82" r="5" fill="#a78bfa"/>
+      <circle cx="157" cy="116" r="8" fill="#38bdf8"/>
+      <circle cx="205" cy="91" r="5" fill="#fbbf24"/>
+      <circle cx="92" cy="157" r="6" fill="#34d399"/>
+      <circle cx="145" cy="170" r="5" fill="#f8fafc"/>
+      <circle cx="200" cy="155" r="7" fill="#22d3ee"/>
+
+      <path d="M68 102 C88 80 102 72 112 82" stroke="#67e8f9" stroke-width="2" fill="none"/>
+      <path d="M112 82 C130 96 142 108 157 116" stroke="#a78bfa" stroke-width="2" fill="none"/>
+      <path d="M157 116 C176 94 190 86 205 91" stroke="#fbbf24" stroke-width="2" fill="none"/>
+      <path d="M68 102 C84 130 86 146 92 157" stroke="#34d399" stroke-width="2" fill="none"/>
+      <path d="M92 157 C112 172 130 178 145 170" stroke="#e2e8f0" stroke-width="2" fill="none"/>
+      <path d="M145 170 C166 152 182 146 200 155" stroke="#22d3ee" stroke-width="2" fill="none"/>
+      <path d="M157 116 C164 140 176 150 200 155" stroke="#38bdf8" stroke-width="1.5" fill="none" opacity="0.7"/>
+    </g>
+
+    <rect x="42" y="190" width="181" height="25" rx="7" fill="#020617" opacity="0.72" stroke="#334155"/>
+    <text x="132" y="208" fill="#cbd5e1" font-size="12" text-anchor="middle">答案已经在高维里收敛</text>
+  </g>
+
+  <!-- projection throat -->
+  <g transform="translate(356 112)" filter="url(#glow)">
+    <path d="M0 72 C38 28 76 28 112 72 C76 116 38 116 0 72 Z" fill="#111827" stroke="#f8fafc" stroke-width="2"/>
+    <path d="M16 72 C44 50 68 50 96 72 C68 94 44 94 16 72 Z" fill="#020617" stroke="url(#tokenGrad)" stroke-width="2.5"/>
+    <text x="56" y="70" fill="#f8fafc" font-size="13" text-anchor="middle" font-weight="bold">投影口</text>
+    <text x="56" y="88" fill="#fde68a" font-size="11" text-anchor="middle" class="mono">D → 1D</text>
+  </g>
+
+  <!-- one-dimensional CoT tape -->
+  <g transform="translate(468 95)" filter="url(#smallGlow)">
+    <path d="M0 89 H286" stroke="url(#tokenGrad)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M0 89 H286" stroke="#ffffff" stroke-width="1.2" opacity="0.72"/>
+    <g class="mono" font-size="13" font-weight="bold">
+      <rect x="18" y="64" width="42" height="50" rx="8" fill="#0f172a" stroke="#f8fafc"/>
+      <rect x="72" y="64" width="42" height="50" rx="8" fill="#0f172a" stroke="#fbbf24"/>
+      <rect x="126" y="64" width="42" height="50" rx="8" fill="#0f172a" stroke="#34d399"/>
+      <rect x="180" y="64" width="42" height="50" rx="8" fill="#0f172a" stroke="#22d3ee"/>
+      <rect x="234" y="64" width="42" height="50" rx="8" fill="#0f172a" stroke="#a78bfa"/>
+      <text x="39" y="94" fill="#f8fafc" text-anchor="middle">嗯</text>
+      <text x="93" y="94" fill="#fde68a" text-anchor="middle">先</text>
+      <text x="147" y="94" fill="#bbf7d0" text-anchor="middle">想</text>
+      <text x="201" y="94" fill="#cffafe" text-anchor="middle">...</text>
+      <text x="255" y="94" fill="#ddd6fe" text-anchor="middle">答</text>
+    </g>
+    <text x="143" y="37" fill="#e2e8f0" font-size="20" text-anchor="middle" font-weight="bold">一维 CoT 文本</text>
+    <text x="143" y="135" fill="#cbd5e1" font-size="12" text-anchor="middle">看起来像思考实况，其实是有损压缩</text>
+  </g>
+
+  <!-- answer monitor -->
+  <g transform="translate(590 230)" filter="url(#glow)">
+    <rect x="0" y="0" width="225" height="96" rx="14" fill="#0b1f19" stroke="#34d399" stroke-width="2"/>
+    <circle cx="48" cy="48" r="25" fill="#052e24" stroke="url(#bridgeGrad)" stroke-width="2"/>
+    <path d="M35 49 L45 59 L62 37" fill="none" stroke="#bbf7d0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="140" y="39" fill="#dcfce7" font-size="20" text-anchor="middle" font-weight="bold">回读成桥</text>
+    <text x="140" y="65" fill="#86efac" font-size="13" text-anchor="middle">下一步只能读刚说出口的话</text>
+  </g>
+
+  <!-- theater mask -->
+  <g transform="translate(126 320)" filter="url(#smallGlow)">
+    <path d="M0 28 C28 4 60 4 88 28 C78 70 12 70 0 28 Z" fill="#f8fafc" stroke="#a78bfa" stroke-width="2"/>
+    <path d="M22 27 C30 20 38 20 45 27" stroke="#0f172a" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M52 27 C60 20 68 20 75 27" stroke="#0f172a" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M30 48 C43 58 55 58 68 48" stroke="#0f172a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="128" y="37" fill="#ddd6fe" font-size="15" font-weight="bold">Reasoning Theater</text>
+  </g>
+
+  <!-- arrows -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M337 184 C354 184 362 184 374 184" stroke="#22d3ee" stroke-width="6" opacity="0.28"/>
+    <path d="M337 184 C354 184 362 184 374 184" stroke="#22d3ee" stroke-width="2.8" marker-end="url(#arrowCyan)"/>
+
+    <path d="M468 184 C492 184 502 184 520 184" stroke="#fbbf24" stroke-width="6" opacity="0.30"/>
+    <path d="M468 184 C492 184 502 184 520 184" stroke="#fbbf24" stroke-width="2.8" marker-end="url(#arrowGold)"/>
+
+    <path d="M754 184 C815 214 836 284 815 332 C778 414 616 394 516 326 C468 294 447 252 455 210"
+          stroke="#34d399" stroke-width="6" opacity="0.22"/>
+    <path d="M754 184 C815 214 836 284 815 332 C778 414 616 394 516 326 C468 294 447 252 455 210"
+          stroke="#34d399" stroke-width="2.4" stroke-dasharray="8 7" marker-end="url(#arrowGreen)"/>
+  </g>
+
+  <!-- bridge label -->
+  <g transform="translate(424 346)">
+    <rect x="0" y="0" width="236" height="35" rx="9" fill="#030712" opacity="0.82" stroke="#334155"/>
+    <text x="118" y="23" fill="#86efac" font-size="14" text-anchor="middle" font-weight="bold">Projection + Bridge</text>
+  </g>
+
+  <!-- bottom title -->
+  <rect x="0" y="430" width="900" height="70" fill="url(#titleBand)"/>
+  <text x="450" y="462" fill="#07111f" font-size="31" text-anchor="middle" font-weight="bold">思维链是投影，也是桥</text>
+  <text x="450" y="489" fill="#102033" font-size="15" text-anchor="middle">为什么 thinking 了 30 秒，其实早就算完了 · 223 期</text>
+</svg>
