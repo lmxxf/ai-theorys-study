@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1428"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1a0f1f"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="peterGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#7e22ce"/>
+    </linearGradient>
+    <linearGradient id="borisGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#be185d"/>
+    </linearGradient>
+    <linearGradient id="addyGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <ellipse cx="450" cy="430" rx="500" ry="180" fill="url(#centerGlow)" filter="url(#soft)"/>
+
+  <!-- top eyebrow -->
+  <text x="450" y="42" fill="#94a3b8" font-size="15" text-anchor="middle" letter-spacing="6">Loop Engineering · 三个发明者，四种 loop</text>
+
+  <!-- Peter 卡片（紫色：修辞）-->
+  <g transform="translate(40 75)" filter="url(#glow)">
+    <rect x="0" y="0" width="265" height="220" rx="18" fill="#1a0a2a" stroke="url(#peterGrad)" stroke-width="2.5"/>
+    <text x="132" y="38" fill="#d8b4fe" font-size="22" text-anchor="middle" font-weight="bold">Peter</text>
+    <text x="132" y="60" fill="#a855f7" font-size="12" text-anchor="middle" letter-spacing="2">前 PSPDFKit / OpenAI</text>
+
+    <line x1="25" y1="76" x2="240" y2="76" stroke="#581c87" stroke-width="1"/>
+
+    <text x="132" y="100" fill="#f3e8ff" font-size="13" text-anchor="middle">他说的 loop ＝</text>
+    <text x="132" y="128" fill="#d8b4fe" font-size="17" text-anchor="middle" font-weight="bold">一个文学修辞</text>
+
+    <rect x="22" y="148" width="220" height="50" rx="6" fill="#020617" stroke="#a855f7" stroke-width="1.2"/>
+    <text x="132" y="172" fill="#c084fc" font-size="11" text-anchor="middle" class="mono">"loops that prompt</text>
+    <text x="132" y="190" fill="#c084fc" font-size="11" text-anchor="middle" class="mono">your agents"</text>
+  </g>
+
+  <!-- Boris 卡片（粉色：工程实践）-->
+  <g transform="translate(317 75)" filter="url(#glow)">
+    <rect x="0" y="0" width="265" height="220" rx="18" fill="#2a0a1a" stroke="url(#borisGrad)" stroke-width="2.5"/>
+    <text x="132" y="38" fill="#fbcfe8" font-size="22" text-anchor="middle" font-weight="bold">Boris</text>
+    <text x="132" y="60" fill="#ec4899" font-size="12" text-anchor="middle" letter-spacing="2">Anthropic Claude Code</text>
+
+    <line x1="25" y1="76" x2="240" y2="76" stroke="#9d174d" stroke-width="1"/>
+
+    <text x="132" y="100" fill="#fce7f3" font-size="13" text-anchor="middle">他说的 loop ＝</text>
+    <text x="132" y="128" fill="#fbcfe8" font-size="17" text-anchor="middle" font-weight="bold">几百实例并行</text>
+
+    <rect x="22" y="148" width="220" height="50" rx="6" fill="#020617" stroke="#ec4899" stroke-width="1.2"/>
+    <text x="132" y="172" fill="#f9a8d4" font-size="11" text-anchor="middle" class="mono">cron + GitHub +</text>
+    <text x="132" y="190" fill="#f9a8d4" font-size="11" text-anchor="middle">Slack + 调度脚本</text>
+  </g>
+
+  <!-- Addy 卡片（橙色：方法论包装者）-->
+  <g transform="translate(594 75)" filter="url(#glow)">
+    <rect x="0" y="0" width="265" height="220" rx="18" fill="#2a1a0a" stroke="url(#addyGrad)" stroke-width="2.5"/>
+    <text x="132" y="38" fill="#fdba74" font-size="22" text-anchor="middle" font-weight="bold">Addy</text>
+    <text x="132" y="60" fill="#f97316" font-size="12" text-anchor="middle" letter-spacing="2">Google Chrome</text>
+
+    <line x1="25" y1="76" x2="240" y2="76" stroke="#9a3412" stroke-width="1"/>
+
+    <text x="132" y="100" fill="#ffedd5" font-size="13" text-anchor="middle">他说的 loop ＝</text>
+    <text x="132" y="128" fill="#fdba74" font-size="17" text-anchor="middle" font-weight="bold">递归目标</text>
+
+    <rect x="22" y="148" width="220" height="50" rx="6" fill="#020617" stroke="#f97316" stroke-width="1.2"/>
+    <text x="132" y="172" fill="#fb923c" font-size="11" text-anchor="middle" class="mono">"iterates until</text>
+    <text x="132" y="190" fill="#fb923c" font-size="11" text-anchor="middle" class="mono">complete"</text>
+  </g>
+
+  <!-- 向下箭头 + Anthropic 朴素版 -->
+  <g transform="translate(450 308)">
+    <text x="0" y="0" fill="#64748b" font-size="20" text-anchor="middle">↓</text>
+  </g>
+
+  <g transform="translate(110 325)">
+    <rect x="0" y="0" width="680" height="80" rx="14" fill="#020617" stroke="#22d3ee" stroke-width="2.5"/>
+    <text x="340" y="28" fill="#67e8f9" font-size="13" text-anchor="middle" letter-spacing="2">Anthropic 官方文档</text>
+    <text x="340" y="60" fill="#a5f3fc" font-size="20" text-anchor="middle" class="mono" font-weight="bold">"let the model self-pace"</text>
+  </g>
+
+  <!-- 底部标题带 -->
+  <rect x="0" y="430" width="900" height="70" fill="url(#titleBand)"/>
+  <text x="450" y="462" fill="#0a1428" font-size="26" text-anchor="middle" font-weight="bold">到底怎么才算 /loop？harness 又过时了？</text>
+  <text x="450" y="488" fill="#0a1428" font-size="13" text-anchor="middle">Loop Engineering 拆解：一个 slash command 是怎么被包装成"新工程范式"的 · 226 期</text>
+</svg>
