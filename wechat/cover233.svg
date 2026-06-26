@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08111f"/>
+      <stop offset="45%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#2a1212"/>
+    </linearGradient>
+    <radialGradient id="aquaGlow" cx="33%" cy="42%" r="42%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amberGlow" cx="74%" cy="35%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fishGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#67e8f9"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <marker id="arrowAqua" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#67e8f9"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#aquaGlow)"/>
+  <rect width="900" height="500" fill="url(#amberGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.13">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900 M0 400 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="48" text-anchor="middle" fill="#cbd5e1" font-size="16" letter-spacing="5">SAKANA FUGU · LEARNED ORCHESTRATION</text>
+
+  <!-- fish swarm -->
+  <g transform="translate(95 92)" filter="url(#glow)">
+    <path d="M110 110 C165 60, 245 65, 300 118 C244 165, 165 168, 110 110Z" fill="none" stroke="#67e8f9" stroke-width="2" opacity="0.45"/>
+    <path d="M95 206 C170 150, 282 155, 354 210 C278 268, 166 263, 95 206Z" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.3"/>
+    <path d="M132 306 C215 250, 332 252, 405 308 C320 360, 210 357, 132 306Z" fill="none" stroke="#34d399" stroke-width="2" opacity="0.28"/>
+
+    <g fill="url(#fishGrad)" opacity="0.86">
+      <path d="M63 93 q16 -11 35 0 q-19 12 -35 0 l-13 9 v-18Z"/>
+      <path d="M134 58 q16 -11 35 0 q-19 12 -35 0 l-13 9 v-18Z"/>
+      <path d="M222 77 q16 -11 35 0 q-19 12 -35 0 l-13 9 v-18Z"/>
+      <path d="M291 124 q16 -11 35 0 q-19 12 -35 0 l-13 9 v-18Z"/>
+      <path d="M190 156 q16 -11 35 0 q-19 12 -35 0 l-13 9 v-18Z"/>
+      <path d="M98 206 q16 -11 35 0 q-19 12 -35 0 l-13 9 v-18Z"/>
+      <path d="M210 228 q16 -11 35 0 q-19 12 -35 0 l-13 9 v-18Z"/>
+      <path d="M329 208 q16 -11 35 0 q-19 12 -35 0 l-13 9 v-18Z"/>
+      <path d="M263 303 q16 -11 35 0 q-19 12 -35 0 l-13 9 v-18Z"/>
+      <path d="M374 316 q16 -11 35 0 q-19 12 -35 0 l-13 9 v-18Z"/>
+    </g>
+  </g>
+
+  <!-- black-box orchestrator -->
+  <g transform="translate(355 100)" filter="url(#shadow)">
+    <rect x="0" y="0" width="220" height="240" rx="8" fill="#05070d" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="18" y="18" width="184" height="36" rx="5" fill="#111827" stroke="#334155"/>
+    <text x="110" y="42" text-anchor="middle" fill="#fbbf24" font-size="21" font-weight="bold">FUGU ULTRA</text>
+    <text x="110" y="75" text-anchor="middle" fill="#94a3b8" font-size="13" class="mono">ONE API ENDPOINT</text>
+
+    <g class="mono" font-size="13">
+      <text x="30" y="110" fill="#67e8f9">route()</text>
+      <text x="30" y="138" fill="#fbbf24">thinker()</text>
+      <text x="30" y="166" fill="#34d399">worker()</text>
+      <text x="30" y="194" fill="#f87171">verify()</text>
+    </g>
+    <g fill="none" stroke="#475569" stroke-width="1.5">
+      <path d="M122 106 h54"/>
+      <path d="M122 134 h54"/>
+      <path d="M122 162 h54"/>
+      <path d="M122 190 h54"/>
+    </g>
+    <text x="110" y="224" text-anchor="middle" fill="#cbd5e1" font-size="13">看起来像一个模型</text>
+  </g>
+
+  <!-- input arrows -->
+  <path d="M310 205 C330 190, 340 180, 354 176" fill="none" stroke="#67e8f9" stroke-width="2.5" marker-end="url(#arrowAqua)"/>
+  <path d="M585 183 C622 142, 664 122, 704 112" fill="none" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+  <path d="M584 250 C640 282, 686 304, 736 316" fill="none" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrowAmber)" opacity="0.9"/>
+
+  <!-- benchmark badge -->
+  <g transform="translate(635 72)" filter="url(#shadow)">
+    <rect x="0" y="0" width="205" height="118" rx="8" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
+    <text x="102" y="34" text-anchor="middle" fill="#86efac" font-size="21" font-weight="bold">BENCHMARK</text>
+    <text x="28" y="65" fill="#cbd5e1" font-size="13" class="mono">GPQA</text>
+    <text x="177" y="65" text-anchor="end" fill="#86efac" font-size="15" class="mono" font-weight="bold">95.5%</text>
+    <text x="28" y="91" fill="#cbd5e1" font-size="13" class="mono">LCB v6</text>
+    <text x="177" y="91" text-anchor="end" fill="#86efac" font-size="15" class="mono" font-weight="bold">93.2%</text>
+  </g>
+
+  <!-- latency badge -->
+  <g transform="translate(635 252)" filter="url(#shadow)">
+    <rect x="0" y="0" width="205" height="112" rx="8" fill="#1c0f0f" stroke="#ef4444" stroke-width="2"/>
+    <text x="102" y="34" text-anchor="middle" fill="#fca5a5" font-size="21" font-weight="bold">REALITY</text>
+    <text x="102" y="68" text-anchor="middle" fill="#fee2e2" font-size="33" class="mono" font-weight="bold">30 min</text>
+    <text x="102" y="94" text-anchor="middle" fill="#cbd5e1" font-size="13">复杂任务端到端</text>
+  </g>
+
+  <!-- bottom title band -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.86"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="430" text-anchor="middle" fill="#f8fafc" font-size="34" font-weight="bold">鱼群很美，黑箱很慢</text>
+  <text x="450" y="463" text-anchor="middle" fill="#cbd5e1" font-size="19">Sakana Fugu：从 AI 学会睡觉到 AI 学会开会</text>
+  <text x="450" y="488" text-anchor="middle" fill="#94a3b8" font-size="13" class="mono">No.233 · benchmark is not end-to-end cost</text>
+</svg>
