@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 22px; font-weight: bold; fill: #222; }
+    .label { font-size: 14px; fill: #222; }
+    .small { font-size: 12px; fill: #555; }
+    .mono { font-family: 'Courier New', monospace; font-size: 12px; fill: #1a3a6a; }
+    .box { fill: #f4f7fb; stroke: #2b5d99; stroke-width: 1.5; }
+    .qbox { fill: #fff3e0; stroke: #b8741a; stroke-width: 1.5; }
+    .kvbox { fill: #e8f4ec; stroke: #2c7a4f; stroke-width: 1.5; }
+    .opbox { fill: #f0e8f7; stroke: #6a3a8a; stroke-width: 1.5; }
+    .topkbox { fill: #fbeaea; stroke: #a92b2b; stroke-width: 2; }
+    .arrow { stroke: #444; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+    .dim { font-size: 11px; fill: #777; font-style: italic; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="32" class="title" text-anchor="middle">Indexer：CSA 层的 top-1024 选择器</text>
+  <text x="450" y="52" class="small" text-anchor="middle">输入：S=17832 个 query, 压缩 KV 长度 T=S/4≈4458</text>
+
+  <!-- Q 输入 -->
+  <rect x="40" y="90" width="180" height="70" rx="6" class="qbox"/>
+  <text x="130" y="115" class="label" text-anchor="middle">Q（每位置）</text>
+  <text x="130" y="135" class="mono" text-anchor="middle">[1, S, 64, head_dim]</text>
+  <text x="130" y="152" class="dim" text-anchor="middle">wq_b 投影 + RoPE</text>
+
+  <!-- KV 输入 -->
+  <rect x="40" y="210" width="180" height="70" rx="6" class="kvbox"/>
+  <text x="130" y="235" class="label" text-anchor="middle">KV 压缩缓存</text>
+  <text x="130" y="255" class="mono" text-anchor="middle">[1, T, head_dim]</text>
+  <text x="130" y="272" class="dim" text-anchor="middle">Compressor 4:1 压缩</text>
+
+  <!-- weights -->
+  <rect x="40" y="330" width="180" height="60" rx="6" class="qbox"/>
+  <text x="130" y="355" class="label" text-anchor="middle">weights</text>
+  <text x="130" y="375" class="mono" text-anchor="middle">[1, S, 64]</text>
+
+  <!-- einsum -->
+  <rect x="290" y="115" width="200" height="80" rx="6" class="opbox"/>
+  <text x="390" y="140" class="label" text-anchor="middle">einsum bshd,btd→bsht</text>
+  <text x="390" y="160" class="mono" text-anchor="middle">score [1, S, 64, T]</text>
+  <text x="390" y="180" class="small" text-anchor="middle" fill="#a92b2b">单层 20.3 GB ← O(S²)</text>
+
+  <!-- relu + weight sum heads -->
+  <rect x="290" y="240" width="200" height="60" rx="6" class="opbox"/>
+  <text x="390" y="265" class="label" text-anchor="middle">relu × weights, sum head</text>
+  <text x="390" y="285" class="mono" text-anchor="middle">[1, S, T]</text>
+
+  <!-- all_reduce -->
+  <rect x="290" y="335" width="200" height="50" rx="6" class="opbox"/>
+  <text x="390" y="355" class="label" text-anchor="middle">all_reduce（TP=2）</text>
+  <text x="390" y="373" class="dim" text-anchor="middle">两台机各 32 头之和</text>
+
+  <!-- mask -->
+  <rect x="290" y="420" width="200" height="50" rx="6" class="opbox"/>
+  <text x="390" y="440" class="label" text-anchor="middle">causal mask</text>
+  <text x="390" y="458" class="dim" text-anchor="middle">未来位置填 −∞</text>
+
+  <!-- topk -->
+  <rect x="600" y="280" width="250" height="100" rx="8" class="topkbox"/>
+  <text x="725" y="310" class="label" text-anchor="middle" font-weight="bold">topk(1024, dim=−1)</text>
+  <text x="725" y="335" class="mono" text-anchor="middle">→ topk_idxs [1, S, 1024]</text>
+  <text x="725" y="358" class="small" text-anchor="middle">交给 sparse_attn 做真注意力</text>
+  <text x="725" y="373" class="small" text-anchor="middle" fill="#a92b2b">（下一期讲）</text>
+
+  <!-- arrows -->
+  <path d="M 220 130 L 285 145" class="arrow"/>
+  <path d="M 220 245 L 285 170" class="arrow"/>
+  <path d="M 390 200 L 390 235" class="arrow"/>
+  <path d="M 220 360 L 285 280" class="arrow"/>
+  <path d="M 390 305 L 390 330" class="arrow"/>
+  <path d="M 390 390 L 390 415" class="arrow"/>
+  <path d="M 490 445 C 600 445 600 360 595 360" class="arrow"/>
+
+  <!-- 分块标注 -->
+  <rect x="40" y="475" width="810" height="45" rx="6" fill="#fffdf0" stroke="#b8a82b" stroke-width="1.2"/>
+  <text x="450" y="495" class="label" text-anchor="middle">PyTorch 实现把 Q 维分 256 块循环，单块中间张量从 20.3 GB 降到约 290 MB</text>
+  <text x="450" y="512" class="dim" text-anchor="middle">原版 TileLang fused kernel 流式处理同一份 einsum，根本不实例化整张表</text>
+</svg>

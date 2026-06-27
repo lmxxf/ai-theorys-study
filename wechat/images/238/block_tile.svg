@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 20px; font-weight: bold; fill: #222; }
+    .label { font-size: 14px; fill: #222; }
+    .small { font-size: 12px; fill: #444; }
+    .tag { font-size: 11px; fill: #fff; font-weight: bold; }
+    .gridA { fill: #fff; stroke: #888; }
+    .gridB { fill: #fff; stroke: #888; }
+    .gridC { fill: #fff; stroke: #888; }
+    .tileA { fill: #e8efff; stroke: #2c4ea0; stroke-width: 2; }
+    .tileB { fill: #fff4d6; stroke: #b8860b; stroke-width: 2; }
+    .tileC { fill: #e3f2e3; stroke: #2e7d32; stroke-width: 2; }
+    .k-strip { fill: rgba(44,78,160,0.15); stroke: #2c4ea0; stroke-dasharray: 3 3; }
+    .k-stripB { fill: rgba(184,134,11,0.15); stroke: #b8860b; stroke-dasharray: 3 3; }
+  </style>
+
+  <text x="430" y="34" class="title" text-anchor="middle">每个 program 算 C 的一个 tile：沿 K 流水累加</text>
+
+  <!-- A matrix -->
+  <text x="140" y="78" class="label" text-anchor="middle" font-weight="bold">A [M, K]  · fp8</text>
+  <rect x="40" y="92" width="200" height="220" class="gridA"/>
+  <!-- highlight a row band: BLOCK_M -->
+  <rect x="40" y="148" width="200" height="36" fill="#e8efff" stroke="#2c4ea0" stroke-width="2"/>
+  <text x="245" y="170" class="small">BLOCK_M = 16</text>
+  <!-- highlight K stripe inside band -->
+  <rect x="100" y="148" width="48" height="36" class="tileA"/>
+  <text x="124" y="172" class="tag" text-anchor="middle" fill="#2c4ea0" font-weight="bold">片</text>
+  <text x="124" y="200" class="small" text-anchor="middle">BLOCK_K=128</text>
+
+  <text x="140" y="338" class="small" text-anchor="middle">M 维 (token)</text>
+  <text x="20" y="208" class="small" text-anchor="middle" transform="rotate(-90 20 208)">K 维 (hidden)</text>
+
+  <!-- B matrix -->
+  <text x="430" y="78" class="label" text-anchor="middle" font-weight="bold">Bᵀ [K, N]  · fp8 / fp4</text>
+  <rect x="320" y="92" width="220" height="220" class="gridB"/>
+  <!-- highlight column BLOCK_N -->
+  <rect x="370" y="92" width="56" height="220" fill="#fff4d6" stroke="#b8860b" stroke-width="2"/>
+  <text x="430" y="338" class="small" text-anchor="middle">BLOCK_N = 32</text>
+  <!-- highlight K stripe inside column -->
+  <rect x="370" y="148" width="56" height="36" class="tileB"/>
+  <text x="398" y="172" class="tag" text-anchor="middle" fill="#b8860b" font-weight="bold">片</text>
+
+  <text x="558" y="208" class="small" text-anchor="middle" transform="rotate(-90 558 208)">N 维 (输出通道)</text>
+
+  <!-- C matrix -->
+  <text x="720" y="78" class="label" text-anchor="middle" font-weight="bold">C [M, N]  · bf16</text>
+  <rect x="620" y="92" width="200" height="220" class="gridC"/>
+  <rect x="660" y="148" width="56" height="36" class="tileC"/>
+  <text x="688" y="172" class="tag" text-anchor="middle" fill="#2e7d32" font-weight="bold">tile</text>
+  <text x="688" y="200" class="small" text-anchor="middle">BLOCK_M × BLOCK_N</text>
+  <text x="688" y="218" class="small" text-anchor="middle">= 16 × 32</text>
+
+  <text x="720" y="338" class="small" text-anchor="middle">一个 program 负责</text>
+
+  <!-- Bottom: K loop -->
+  <text x="430" y="392" class="label" text-anchor="middle" font-weight="bold">K 维循环：每次推进 BLOCK_K=128，scale 也按 128 一组</text>
+
+  <line x1="100" y1="430" x2="760" y2="430" stroke="#888" stroke-width="1.5"/>
+  <!-- K segments -->
+  <g>
+    <rect x="100" y="420" width="80" height="20" class="tileA"/>
+    <text x="140" y="435" class="small" text-anchor="middle">k=0..127</text>
+    <text x="140" y="458" class="small" text-anchor="middle">a_s[0] · b_s[0]</text>
+
+    <rect x="184" y="420" width="80" height="20" class="tileA"/>
+    <text x="224" y="435" class="small" text-anchor="middle">k=128..255</text>
+    <text x="224" y="458" class="small" text-anchor="middle">a_s[1] · b_s[1]</text>
+
+    <rect x="268" y="420" width="80" height="20" class="tileA"/>
+    <text x="308" y="435" class="small" text-anchor="middle">k=256..383</text>
+    <text x="308" y="458" class="small" text-anchor="middle">a_s[2] · b_s[2]</text>
+
+    <text x="392" y="435" class="small" text-anchor="middle">…</text>
+
+    <rect x="416" y="420" width="80" height="20" class="tileA"/>
+    <text x="456" y="435" class="small" text-anchor="middle">k=K-128..K-1</text>
+    <text x="456" y="458" class="small" text-anchor="middle">a_s[-1] · b_s[-1]</text>
+  </g>
+
+  <text x="430" y="492" class="small" text-anchor="middle" fill="#555">每段算完 acc += tl.dot(a, bᵀ) · a_s · b_s，全部累加到同一个 [16, 32] 的 acc 上</text>
+</svg>

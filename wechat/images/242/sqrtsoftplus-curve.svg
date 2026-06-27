@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 20px; font-weight: bold; fill: #1f2933; }
+    .axis { stroke: #486581; stroke-width: 1.5; }
+    .grid { stroke: #d9e2ec; stroke-width: 0.5; stroke-dasharray: 2,2; }
+    .label { font-size: 13px; fill: #1f2933; }
+    .small { font-size: 11px; fill: #486581; }
+    .curve1 { fill: none; stroke: #d64545; stroke-width: 2.5; }
+    .curve2 { fill: none; stroke: #2680c2; stroke-width: 2.5; }
+    .curve3 { fill: none; stroke: #0b6045; stroke-width: 3; }
+    .legend { font-size: 13px; }
+  </style>
+
+  <text x="360" y="32" text-anchor="middle" class="title">三种打分函数对比</text>
+  <text x="360" y="52" text-anchor="middle" class="small">输入 x ∈ [-3, 3]，输出 score</text>
+
+  <!-- 坐标系 -->
+  <!-- 原点 (360, 350), x: 60~660 (每 100 像素 = 1), y: 60~350 (每 60 像素 = 1) -->
+  <!-- grid -->
+  <line x1="60" y1="350" x2="660" y2="350" class="axis"/>
+  <line x1="360" y1="60" x2="360" y2="380" class="axis"/>
+
+  <!-- x ticks -->
+  <line x1="160" y1="346" x2="160" y2="354" class="axis"/>
+  <line x1="260" y1="346" x2="260" y2="354" class="axis"/>
+  <line x1="460" y1="346" x2="460" y2="354" class="axis"/>
+  <line x1="560" y1="346" x2="560" y2="354" class="axis"/>
+  <line x1="660" y1="346" x2="660" y2="354" class="axis"/>
+  <text x="160" y="368" text-anchor="middle" class="small">-2</text>
+  <text x="260" y="368" text-anchor="middle" class="small">-1</text>
+  <text x="360" y="368" text-anchor="middle" class="small">0</text>
+  <text x="460" y="368" text-anchor="middle" class="small">1</text>
+  <text x="560" y="368" text-anchor="middle" class="small">2</text>
+  <text x="660" y="368" text-anchor="middle" class="small">3</text>
+  <text x="680" y="354" class="label">x</text>
+
+  <!-- y ticks -->
+  <line x1="356" y1="290" x2="364" y2="290" class="axis"/>
+  <line x1="356" y1="230" x2="364" y2="230" class="axis"/>
+  <line x1="356" y1="170" x2="364" y2="170" class="axis"/>
+  <line x1="356" y1="110" x2="364" y2="110" class="axis"/>
+  <text x="352" y="294" text-anchor="end" class="small">1</text>
+  <text x="352" y="234" text-anchor="end" class="small">2</text>
+  <text x="352" y="174" text-anchor="end" class="small">3</text>
+  <text x="352" y="114" text-anchor="end" class="small">4</text>
+  <text x="356" y="76" text-anchor="end" class="label">score</text>
+
+  <!-- ReLU: y = max(0, x), 在 0 之后是直线 -->
+  <!-- 0~3 区间：每 0.1 -->
+  <polyline class="curve1" points="
+    60,350 160,350 260,350 360,350
+    460,290 560,230 660,170
+  "/>
+
+  <!-- softplus: y = log(1+e^x) -->
+  <!-- 关键点: -3:0.049 -2:0.127 -1:0.313 0:0.693 1:1.313 2:2.127 3:3.049 -->
+  <!-- 映射: x=-3→60, y=350-60*0.049=347.1; x=-2→160, y=350-60*0.127=342.4; x=-1→260, y=350-60*0.313=331.2; x=0→360, y=350-60*0.693=308.4; x=1→460, y=350-60*1.313=271.2; x=2→560, y=350-60*2.127=222.4; x=3→660, y=350-60*3.049=167.1 -->
+  <polyline class="curve2" points="60,347.1 160,342.4 260,331.2 360,308.4 460,271.2 560,222.4 660,167.1"/>
+
+  <!-- sqrtsoftplus: sqrt(softplus(x)) -->
+  <!-- -3: sqrt(0.049)=0.221, -2: sqrt(0.127)=0.357, -1: sqrt(0.313)=0.560, 0: sqrt(0.693)=0.832, 1: sqrt(1.313)=1.146, 2: sqrt(2.127)=1.459, 3: sqrt(3.049)=1.746 -->
+  <!-- y 坐标: x=-3→60, y=350-60*0.221=336.7; x=-2→160, y=350-60*0.357=328.6; x=-1→260, y=350-60*0.560=316.4; x=0→360, y=350-60*0.832=300.1; x=1→460, y=350-60*1.146=281.2; x=2→560, y=350-60*1.459=262.5; x=3→660, y=350-60*1.746=245.2 -->
+  <polyline class="curve3" points="60,336.7 160,328.6 260,316.4 360,300.1 460,281.2 560,262.5 660,245.2"/>
+
+  <!-- 图例 -->
+  <rect x="80" y="395" width="600" height="75" rx="6" fill="#f0f4f8" stroke="#bcccdc" stroke-width="1"/>
+
+  <line x1="100" y1="412" x2="130" y2="412" class="curve1"/>
+  <text x="140" y="416" class="legend" style="fill:#d64545">ReLU(x)：负数直接归零，专家"门被焊死"</text>
+
+  <line x1="100" y1="434" x2="130" y2="434" class="curve2"/>
+  <text x="140" y="438" class="legend" style="fill:#2680c2">softplus(x) = log(1+e^x)：负数也有小正值，光滑版 ReLU</text>
+
+  <line x1="100" y1="456" x2="130" y2="456" class="curve3"/>
+  <text x="140" y="460" class="legend" style="fill:#0b6045;font-weight:bold">sqrt(softplus(x))：V4 的选择——高分被 sqrt 压平，低分仍有小正值</text>
+</svg>

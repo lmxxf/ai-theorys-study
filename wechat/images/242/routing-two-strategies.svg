@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 560">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 22px; font-weight: bold; fill: #1f2933; }
+    .subtitle { font-size: 14px; fill: #486581; }
+    .label { font-size: 14px; fill: #1f2933; }
+    .small { font-size: 12px; fill: #486581; }
+    .code { font-family: 'DejaVu Sans Mono', monospace; font-size: 12px; fill: #102a43; }
+    .badge { font-size: 13px; font-weight: bold; fill: white; }
+  </style>
+
+  <text x="440" y="34" text-anchor="middle" class="title">V4 Flash MoE 路由——两套规则</text>
+  <text x="440" y="56" text-anchor="middle" class="subtitle">同一个 MoE 层，前 3 层和后 58 层用完全不同的方式选专家</text>
+
+  <!-- token 输入框 -->
+  <rect x="370" y="80" width="140" height="44" rx="8" fill="#bcccdc" stroke="#486581" stroke-width="1.5"/>
+  <text x="440" y="100" text-anchor="middle" class="label">一个 token</text>
+  <text x="440" y="116" text-anchor="middle" class="small">hidden state [7168]</text>
+
+  <!-- 分叉箭头 -->
+  <line x1="440" y1="124" x2="220" y2="170" stroke="#627d98" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="440" y1="124" x2="660" y2="170" stroke="#627d98" stroke-width="2" marker-end="url(#arr)"/>
+
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 9 3, 0 6" fill="#627d98"/>
+    </marker>
+  </defs>
+
+  <!-- 左侧：前 3 层 hash -->
+  <rect x="40" y="170" width="360" height="350" rx="12" fill="#fff4e6" stroke="#f0b429" stroke-width="2"/>
+  <rect x="40" y="170" width="360" height="36" rx="12" fill="#f0b429"/>
+  <text x="220" y="194" text-anchor="middle" class="badge">前 3 层：hash routing</text>
+
+  <text x="60" y="232" class="label">规则：</text>
+  <rect x="60" y="244" width="320" height="36" rx="4" fill="#fffaf0" stroke="#de911d" stroke-width="1"/>
+  <text x="70" y="266" class="code">expert_id = hash(token_id) % num_experts</text>
+
+  <text x="60" y="306" class="label">特点</text>
+  <text x="78" y="328" class="small">- 完全没有打分，纯硬路由</text>
+  <text x="78" y="348" class="small">- 同一个 token 不管出现在哪、上下文是啥</text>
+  <text x="92" y="366" class="small">激活的 6 个专家都一样</text>
+  <text x="78" y="388" class="small">- 不依赖 hidden state，纯查表</text>
+
+  <text x="60" y="420" class="label">为什么这么糙？</text>
+  <text x="78" y="442" class="small">前几层语义还没分化（刚从 embedding 出来）</text>
+  <text x="78" y="460" class="small">打分噪声大，让模型选还浪费算力</text>
+  <text x="78" y="478" class="small">硬哈希分散就够 = 按学号分宿舍</text>
+
+  <text x="220" y="506" text-anchor="middle" class="small" style="font-weight:bold;fill:#cb6e17">省算力 + 强制负载均衡</text>
+
+  <!-- 右侧：后 58 层 sqrtsoftplus -->
+  <rect x="480" y="170" width="360" height="350" rx="12" fill="#e6f6f0" stroke="#0e9f6e" stroke-width="2"/>
+  <rect x="480" y="170" width="360" height="36" rx="12" fill="#0e9f6e"/>
+  <text x="660" y="194" text-anchor="middle" class="badge">后 58 层：score-based routing</text>
+
+  <text x="500" y="232" class="label">规则（伪代码）：</text>
+  <rect x="500" y="244" width="320" height="100" rx="4" fill="#f0fdf4" stroke="#0b815a" stroke-width="1"/>
+  <text x="510" y="262" class="code">scores = x @ W_gate  # [256]</text>
+  <text x="510" y="280" class="code">scores = sqrt(softplus(scores))</text>
+  <text x="510" y="298" class="code">topk_score, topk_idx = scores.topk(6)</text>
+  <text x="510" y="316" class="code">w = topk_score / sum(topk_score)</text>
+  <text x="510" y="334" class="code">w = w * routed_scaling_factor  # 2.5</text>
+
+  <text x="500" y="370" class="label">特点</text>
+  <text x="518" y="392" class="small">- 投影到 num_experts 维 → sqrtsoftplus</text>
+  <text x="518" y="410" class="small">- 选 top-6，权重归一化后整体放大</text>
+  <text x="518" y="428" class="small">- 上下文敏感，同一个词不同句子走不同专家</text>
+
+  <text x="500" y="458" class="label">类比</text>
+  <text x="518" y="480" class="small">按特长分小组——每个 token 选 6 个最相关的</text>
+
+  <text x="660" y="506" text-anchor="middle" class="small" style="font-weight:bold;fill:#0b6045">语义敏感 + 专项化分化</text>
+</svg>

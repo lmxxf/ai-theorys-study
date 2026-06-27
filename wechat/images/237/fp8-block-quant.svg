@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 22px; font-weight: bold; fill: #222; }
+    .label { font-size: 14px; fill: #333; }
+    .small { font-size: 12px; fill: #555; }
+    .tag   { font-size: 13px; font-weight: bold; }
+    .raw { fill: #e9f3e6; stroke: #3a8d3a; stroke-width: 1.2; }
+    .fp8 { fill: #cfe8ff; stroke: #4a90d9; stroke-width: 1.2; }
+    .scl { fill: #ffd58a; stroke: #d9831f; stroke-width: 1.4; }
+  </style>
+
+  <text x="440" y="34" text-anchor="middle" class="title">act_quant：FP8 E4M3 块量化（block_size = 128）</text>
+
+  <!-- raw row -->
+  <g transform="translate(40,90)">
+    <text x="0" y="-12" class="label">输入：一行 fp16/fp32，128 个数</text>
+    <rect x="0" y="0" width="540" height="50" class="raw"/>
+    <g class="small" fill="#1f5e1f">
+      <text x="20"  y="32">x₁</text>
+      <text x="55"  y="32">x₂</text>
+      <text x="90"  y="32">x₃</text>
+      <text x="135" y="32">...</text>
+      <text x="180" y="32">x₆₄</text>
+      <text x="240" y="32">...</text>
+      <text x="290" y="32">x₁₂₇</text>
+      <text x="340" y="32">x₁₂₈</text>
+    </g>
+    <line x1="0"   y1="50" x2="540" y2="50" stroke="#3a8d3a"/>
+    <text x="270" y="74" text-anchor="middle" class="small">求 amax = max(|x₁|, ..., |x₁₂₈|)</text>
+  </g>
+
+  <!-- arrow -->
+  <line x1="320" y1="170" x2="320" y2="200" stroke="#666" stroke-width="1.5" marker-end="url(#a1)"/>
+  <defs>
+    <marker id="a1" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- output row + scale -->
+  <g transform="translate(40,220)">
+    <text x="0" y="-10" class="label">输出</text>
+    <rect x="0" y="0" width="400" height="50" class="fp8"/>
+    <g class="small" fill="#1a4d80">
+      <text x="20"  y="32">q₁</text>
+      <text x="55"  y="32">q₂</text>
+      <text x="90"  y="32">q₃</text>
+      <text x="135" y="32">...</text>
+      <text x="240" y="32">q₁₂₇</text>
+      <text x="290" y="32">q₁₂₈</text>
+    </g>
+    <text x="200" y="80" text-anchor="middle" class="small">128 个 fp8 E4M3（每个 1 字节，值域 ±448）</text>
+
+    <!-- scale slot -->
+    <rect x="450" y="0" width="100" height="50" class="scl"/>
+    <text x="500" y="32" text-anchor="middle" class="tag" fill="#7a4a00">scale</text>
+    <text x="500" y="80" text-anchor="middle" class="small">1 个 fp32 (4 字节)</text>
+    <text x="500" y="96" text-anchor="middle" class="small">= amax / 448</text>
+  </g>
+
+  <!-- ratio note -->
+  <g transform="translate(620,110)">
+    <text x="0" y="0" class="label">压缩账：</text>
+    <text x="0" y="24" class="small">原 128 × 2B (fp16) = 256B</text>
+    <text x="0" y="44" class="small">→ 128 × 1B + 4B = 132B</text>
+    <text x="0" y="68" class="tag" fill="#7a1f1f">省 ≈ 1.94×</text>
+    <text x="0" y="100" class="small">代价：每 128 个数共用</text>
+    <text x="0" y="116" class="small">一个 scale，块内损失一些</text>
+    <text x="0" y="132" class="small">异常值精度。</text>
+  </g>
+</svg>

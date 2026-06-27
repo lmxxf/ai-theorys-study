@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620">
+  <style>
+    text, tspan { font-family: 'WenQuanYi Micro Hei', sans-serif; }
+    .title { font-size: 22px; font-weight: bold; fill: #1a1a1a; }
+    .label { font-size: 14px; fill: #1a1a1a; }
+    .small { font-size: 12px; fill: #444; }
+    .tag { font-size: 13px; fill: #fff; font-weight: bold; }
+    .arrow { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .dim { font-size: 12px; fill: #666; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="490" y="32" text-anchor="middle" class="title">sparse_attn 一次 chunk 内的五步</text>
+
+  <!-- 输入：q chunk -->
+  <rect x="40" y="80" width="160" height="70" rx="6" fill="#4a90e2" stroke="#2c5f8d" stroke-width="2"/>
+  <text x="120" y="108" text-anchor="middle" class="tag">q_chunk</text>
+  <text x="120" y="128" text-anchor="middle" class="tag" font-size="11">[b, chunk, h, d]</text>
+  <text x="120" y="165" text-anchor="middle" class="small">这一段 query 的每个头</text>
+
+  <!-- 输入：kv 全表 -->
+  <rect x="40" y="220" width="160" height="70" rx="6" fill="#6aa84f" stroke="#3c6628" stroke-width="2"/>
+  <text x="120" y="248" text-anchor="middle" class="tag">kv</text>
+  <text x="120" y="268" text-anchor="middle" class="tag" font-size="11">[b, T, d]</text>
+  <text x="120" y="305" text-anchor="middle" class="small">压缩后的 KV 总表（T = S/4）</text>
+
+  <!-- 输入：topk_idxs -->
+  <rect x="40" y="360" width="160" height="70" rx="6" fill="#e69138" stroke="#985611" stroke-width="2"/>
+  <text x="120" y="388" text-anchor="middle" class="tag">topk_idxs</text>
+  <text x="120" y="408" text-anchor="middle" class="tag" font-size="11">[b, chunk, topk]</text>
+  <text x="120" y="445" text-anchor="middle" class="small">Indexer 选好的位置</text>
+
+  <!-- 输入：attn_sink -->
+  <rect x="40" y="500" width="160" height="60" rx="6" fill="#a64d79" stroke="#5c2b44" stroke-width="2"/>
+  <text x="120" y="525" text-anchor="middle" class="tag">attn_sink</text>
+  <text x="120" y="545" text-anchor="middle" class="tag" font-size="11">[h]（每头一标量）</text>
+
+  <!-- Step 1: gather -->
+  <rect x="290" y="220" width="170" height="70" rx="6" fill="#fff" stroke="#3c6628" stroke-width="2"/>
+  <text x="375" y="248" text-anchor="middle" class="label" font-weight="bold">1) gather</text>
+  <text x="375" y="270" text-anchor="middle" class="small">按 idx 抓 kv</text>
+  <text x="375" y="285" text-anchor="middle" class="dim">[b, chunk, topk, d]</text>
+
+  <!-- Step 2: scores -->
+  <rect x="510" y="120" width="170" height="70" rx="6" fill="#fff" stroke="#2c5f8d" stroke-width="2"/>
+  <text x="595" y="148" text-anchor="middle" class="label" font-weight="bold">2) Q · K · scale</text>
+  <text x="595" y="170" text-anchor="middle" class="small">每头每位置一个分数</text>
+  <text x="595" y="185" text-anchor="middle" class="dim">scores [b, chunk, h, topk]</text>
+
+  <!-- Step 3: mask + sink concat -->
+  <rect x="510" y="240" width="170" height="70" rx="6" fill="#fff" stroke="#985611" stroke-width="2"/>
+  <text x="595" y="265" text-anchor="middle" class="label" font-weight="bold">3) mask + 拼 sink</text>
+  <text x="595" y="285" text-anchor="middle" class="small">-1 填 -inf, 末尾加一列</text>
+  <text x="595" y="303" text-anchor="middle" class="dim">[b, chunk, h, topk+1]</text>
+
+  <!-- Step 4: softmax -->
+  <rect x="510" y="360" width="170" height="70" rx="6" fill="#fff" stroke="#5c2b44" stroke-width="2"/>
+  <text x="595" y="388" text-anchor="middle" class="label" font-weight="bold">4) softmax</text>
+  <text x="595" y="408" text-anchor="middle" class="small">在 topk+1 个口子上归一</text>
+  <text x="595" y="423" text-anchor="middle" class="dim">weights</text>
+
+  <!-- Step 5: 取前 topk + 加权求和 -->
+  <rect x="510" y="475" width="170" height="80" rx="6" fill="#fff" stroke="#444" stroke-width="2"/>
+  <text x="595" y="500" text-anchor="middle" class="label" font-weight="bold">5) 取前 topk · V</text>
+  <text x="595" y="520" text-anchor="middle" class="small">sink 那列吃掉的概率</text>
+  <text x="595" y="535" text-anchor="middle" class="small">不算到输出里</text>
+  <text x="595" y="552" text-anchor="middle" class="dim">o_chunk [b, chunk, h, d]</text>
+
+  <!-- Output 写回 o -->
+  <rect x="780" y="240" width="160" height="80" rx="6" fill="#4a90e2" stroke="#2c5f8d" stroke-width="2"/>
+  <text x="860" y="270" text-anchor="middle" class="tag">o[:, s:e]</text>
+  <text x="860" y="292" text-anchor="middle" class="tag" font-size="11">就地写回</text>
+  <text x="860" y="335" text-anchor="middle" class="small">下一个 chunk 复用</text>
+  <text x="860" y="352" text-anchor="middle" class="small">同一个 o 张量</text>
+
+  <!-- 箭头 -->
+  <path class="arrow" d="M 200 250 L 290 250"/>
+  <path class="arrow" d="M 200 395 L 280 295"/>
+  <path class="arrow" d="M 200 115 L 510 155"/>
+  <path class="arrow" d="M 460 250 L 510 175"/>
+  <path class="arrow" d="M 595 195 L 595 240"/>
+  <path class="arrow" d="M 200 530 L 510 295"/>
+  <path class="arrow" d="M 595 310 L 595 360"/>
+  <path class="arrow" d="M 595 430 L 595 475"/>
+  <path class="arrow" d="M 680 515 Q 740 515 740 280 L 780 280"/>
+
+  <!-- 底部 note -->
+  <rect x="40" y="585" width="900" height="22" rx="3" fill="#f4f4f4" stroke="none"/>
+  <text x="490" y="601" text-anchor="middle" class="small">关键：每次只算一个 chunk 的中间张量，o = torch.empty_like(q) 复用，整个 prompt 不再被一次性铺平</text>
+</svg>

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 20px; font-weight: bold; fill: #222; }
+    .label { font-size: 14px; fill: #222; }
+    .small { font-size: 12px; fill: #444; }
+    .tag { font-size: 12px; fill: #fff; font-weight: bold; }
+    .box-bad { fill: #fbe3e3; stroke: #c0392b; stroke-width: 1.5; }
+    .box-good { fill: #e3f2e3; stroke: #2e7d32; stroke-width: 1.5; }
+    .box-mid { fill: #e8efff; stroke: #2c4ea0; stroke-width: 1.5; }
+    .arrow { stroke: #444; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+    .arrow-red { stroke: #c0392b; stroke-width: 1.5; fill: none; marker-end: url(#arr-red); }
+    .arrow-green { stroke: #2e7d32; stroke-width: 1.8; fill: none; marker-end: url(#arr-green); }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#444"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#c0392b"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2e7d32"/>
+    </marker>
+  </defs>
+
+  <text x="440" y="34" class="title" text-anchor="middle">两条路线：先 dequant 整张矩阵 vs 边读边乘 scale</text>
+
+  <!-- Top: naive path -->
+  <text x="40" y="76" class="label" font-weight="bold" fill="#c0392b">路线一（naive）：先 dequant 整张张量，再做矩阵乘</text>
+
+  <rect x="40" y="92" width="130" height="60" class="box-bad" rx="6"/>
+  <text x="105" y="118" class="label" text-anchor="middle">A_fp8</text>
+  <text x="105" y="138" class="small" text-anchor="middle">[M, K] · 1 byte</text>
+
+  <rect x="40" y="160" width="130" height="40" class="box-bad" rx="6"/>
+  <text x="105" y="184" class="small" text-anchor="middle">a_scale [M, K/128]</text>
+
+  <path d="M 175 130 L 230 130" class="arrow-red"/>
+  <text x="200" y="120" class="small" text-anchor="middle">× scale</text>
+
+  <rect x="235" y="92" width="170" height="108" class="box-bad" rx="6"/>
+  <text x="320" y="125" class="label" text-anchor="middle">A_bf16 中间张量</text>
+  <text x="320" y="147" class="small" text-anchor="middle">[M, K] · 2 byte</text>
+  <text x="320" y="170" class="small" text-anchor="middle" fill="#c0392b">显存翻倍 / HBM 来回搬</text>
+  <text x="320" y="188" class="small" text-anchor="middle" fill="#c0392b">访存撑满，算力闲死</text>
+
+  <path d="M 410 146 L 460 146" class="arrow-red"/>
+
+  <rect x="465" y="92" width="180" height="108" class="box-mid" rx="6"/>
+  <text x="555" y="130" class="label" text-anchor="middle">torch.mm(A_bf16, Bᵀ)</text>
+  <text x="555" y="155" class="small" text-anchor="middle">bf16 × bf16 → fp32</text>
+  <text x="555" y="180" class="small" text-anchor="middle">PyTorch 兜底路径</text>
+
+  <path d="M 650 146 L 700 146" class="arrow-red"/>
+
+  <rect x="705" y="108" width="135" height="76" class="box-mid" rx="6"/>
+  <text x="772" y="142" class="label" text-anchor="middle">C [M, N]</text>
+  <text x="772" y="166" class="small" text-anchor="middle">bf16</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="240" x2="840" y2="240" stroke="#aaa" stroke-dasharray="4 4"/>
+
+  <!-- Bottom: fused path -->
+  <text x="40" y="278" class="label" font-weight="bold" fill="#2e7d32">路线二（fused）：scale 不展开成张量，融进 dot 的累加里</text>
+
+  <rect x="40" y="296" width="130" height="60" class="box-good" rx="6"/>
+  <text x="105" y="322" class="label" text-anchor="middle">A_fp8 (片) </text>
+  <text x="105" y="340" class="small" text-anchor="middle">BLOCK_M × BLOCK_K</text>
+
+  <rect x="40" y="362" width="130" height="40" class="box-good" rx="6"/>
+  <text x="105" y="386" class="small" text-anchor="middle">a_scale (1 个标量/行)</text>
+
+  <path d="M 175 336 L 240 336" class="arrow-green"/>
+  <text x="208" y="325" class="small" text-anchor="middle">片上 SRAM</text>
+
+  <rect x="245" y="296" width="200" height="138" class="box-good" rx="6"/>
+  <text x="345" y="326" class="label" text-anchor="middle" font-weight="bold">Triton kernel 内</text>
+  <text x="345" y="354" class="small" text-anchor="middle">acc += tl.dot(a, bᵀ)</text>
+  <text x="345" y="374" class="small" text-anchor="middle">          · a_s · b_s</text>
+  <text x="345" y="402" class="small" text-anchor="middle" fill="#2e7d32">FP8 mma 直接吃 fp8 byte</text>
+  <text x="345" y="420" class="small" text-anchor="middle" fill="#2e7d32">scale 只在 acc 上乘一次</text>
+
+  <path d="M 450 365 L 500 365" class="arrow-green"/>
+
+  <rect x="505" y="320" width="180" height="90" class="box-mid" rx="6"/>
+  <text x="595" y="350" class="label" text-anchor="middle">无中间张量</text>
+  <text x="595" y="375" class="small" text-anchor="middle">A_bf16 从未出现过</text>
+  <text x="595" y="395" class="small" text-anchor="middle">HBM 流量 ≈ A_fp8 本身</text>
+
+  <path d="M 690 365 L 740 365" class="arrow-green"/>
+
+  <rect x="745" y="334" width="95" height="62" class="box-mid" rx="6"/>
+  <text x="792" y="368" class="label" text-anchor="middle">C [M, N]</text>
+  <text x="792" y="388" class="small" text-anchor="middle">bf16</text>
+
+  <text x="440" y="478" class="small" text-anchor="middle" fill="#555">
+    fp8_gemm 走的就是路线二：fp8 元素留在原位，scale 在 dot 累加之后乘一次
+  </text>
+  <text x="440" y="498" class="small" text-anchor="middle" fill="#555">
+    fp4_gemm 更进一步——scale 直接由 tl.dot_scaled 这个新 API 在内部消化
+  </text>
+</svg>
