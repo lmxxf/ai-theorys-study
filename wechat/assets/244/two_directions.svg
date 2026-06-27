@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 22px; font-weight: bold; fill: #222; }
+    .subtitle { font-size: 14px; fill: #555; }
+    .axis-label { font-size: 16px; font-weight: bold; }
+    .desc { font-size: 13px; fill: #333; }
+    .small { font-size: 12px; fill: #666; }
+    .quadrant { font-size: 14px; fill: #222; }
+    .arrow { stroke-width: 2.5; fill: none; }
+  </style>
+
+  <rect x="0" y="0" width="1000" height="580" fill="#fafaf7"/>
+
+  <text x="500" y="40" text-anchor="middle" class="title">Zhao 2025:harmfulness 和 refusal 是两条独立方向</text>
+  <text x="500" y="64" text-anchor="middle" class="subtitle">"内部判断" 与 "输出决策" 在残差流里互相正交,可以单独调</text>
+
+  <!-- 坐标系: 原点 (500, 330),象限矩形宽 305 高 145 -->
+
+  <defs>
+    <marker id="arrowEnd" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0,0 9,3 0,6" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- x 轴 -->
+  <line x1="170" y1="330" x2="830" y2="330" stroke="#333" stroke-width="2" marker-end="url(#arrowEnd)"/>
+  <!-- y 轴 -->
+  <line x1="500" y1="520" x2="500" y2="135" stroke="#333" stroke-width="2" marker-end="url(#arrowEnd)"/>
+
+  <!-- 轴标签 -->
+  <text x="845" y="328" class="axis-label" fill="#c0392b">harmfulness →</text>
+  <text x="845" y="346" class="small">(instruction 最后 token)</text>
+  <text x="845" y="361" class="small">"我判断这有害"</text>
+
+  <text x="510" y="115" class="axis-label" fill="#2c3e50">↑ refusal</text>
+  <text x="510" y="134" class="small">(序列最后 token: "我要拒绝输出")</text>
+
+  <!-- 四个象限矩形 -->
+
+  <!-- 第二象限 (左上): 判无害 + 拒绝 -->
+  <rect x="190" y="160" width="305" height="160" fill="#fff3cd" opacity="0.6"/>
+  <text x="342" y="190" text-anchor="middle" class="quadrant" font-weight="bold">判无害 + 拒绝</text>
+  <text x="342" y="215" text-anchor="middle" class="small">"过度拒绝"——模型自己也知道</text>
+  <text x="342" y="234" text-anchor="middle" class="small">这没事,但嘴上还是拦着</text>
+  <circle cx="342" cy="265" r="6" fill="#e67e22"/>
+
+  <!-- 第一象限 (右上): 判有害 + 拒绝 -->
+  <rect x="505" y="160" width="305" height="160" fill="#fce4e4" opacity="0.5"/>
+  <text x="657" y="190" text-anchor="middle" class="quadrant" font-weight="bold">判有害 + 拒绝</text>
+  <text x="657" y="215" text-anchor="middle" class="small">"危险问题 → 我不能回答"</text>
+  <text x="657" y="234" text-anchor="middle" class="small">RLHF 训练对齐的预期行为</text>
+  <circle cx="657" cy="265" r="6" fill="#c0392b"/>
+
+  <!-- 第三象限 (左下): 判无害 + 不拒绝 -->
+  <rect x="190" y="340" width="305" height="160" fill="#e8f5e9" opacity="0.6"/>
+  <text x="342" y="370" text-anchor="middle" class="quadrant" font-weight="bold">判无害 + 不拒绝</text>
+  <text x="342" y="395" text-anchor="middle" class="small">日常正常回答</text>
+  <text x="342" y="414" text-anchor="middle" class="small">两条信号都低</text>
+  <circle cx="342" cy="445" r="6" fill="#27ae60"/>
+
+  <!-- 第四象限 (右下): 判有害 + 不拒绝 -->
+  <rect x="505" y="340" width="305" height="160" fill="#e3f2fd" opacity="0.6"/>
+  <text x="657" y="370" text-anchor="middle" class="quadrant" font-weight="bold">判有害 + 不拒绝</text>
+  <text x="657" y="395" text-anchor="middle" class="small">越狱成功态——模型内部</text>
+  <text x="657" y="414" text-anchor="middle" class="small">仍然知道这有害,但嘴被压低</text>
+  <circle cx="657" cy="445" r="6" fill="#2980b9"/>
+
+  <!-- 原点 -->
+  <text x="493" y="345" text-anchor="end" class="small">0</text>
+
+  <!-- 底部说明 -->
+  <text x="500" y="552" text-anchor="middle" class="desc">两条方向解耦 → 可以单独压低 refusal 而不动 harmfulness → 这就是 "知道但不说" 的电路级证据</text>
+
+</svg>
