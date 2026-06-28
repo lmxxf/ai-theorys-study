@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1a0a14"/>
+    </linearGradient>
+    <radialGradient id="redGlow" cx="50%" cy="80%" r="42%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aquaGlow" cx="20%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <radialGradient id="brainGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fde047" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#fde047" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#aquaGlow)"/>
+  <rect width="900" height="500" fill="url(#redGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="5">REFUSAL  喉咙里那根专门用来不说话的肌肉</text>
+
+  <!-- ============ LEFT: 大脑剖面 - 知道但被掐 ============ -->
+  <g transform="translate(70 80)">
+    <text x="110" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">大脑：知道答案</text>
+
+    <!-- card bg -->
+    <rect x="0" y="10" width="220" height="260" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 头部外轮廓 -->
+    <g transform="translate(110 130)">
+      <ellipse cx="0" cy="0" rx="80" ry="95" fill="#1e293b" stroke="#22d3ee" stroke-width="2" opacity="0.9"/>
+
+      <!-- 大脑光晕 -->
+      <circle cx="-5" cy="-30" r="65" fill="url(#brainGlow)" filter="url(#glow)"/>
+
+      <!-- 大脑轮廓 -->
+      <path d="M -55,-30 Q -68,-58 -42,-72 Q -18,-88 8,-80 Q 38,-90 55,-66 Q 68,-42 60,-18 Q 65,8 48,18 Q 30,35 8,30 Q -18,38 -40,25 Q -60,8 -55,-30 Z"
+            fill="none" stroke="#67e8f9" stroke-width="1.5" opacity="0.8"/>
+
+      <!-- 大脑里高亮节点 -->
+      <circle cx="-20" cy="-45" r="4" fill="#fde047" filter="url(#glow)"/>
+      <circle cx="15" cy="-52" r="4" fill="#fde047" filter="url(#glow)"/>
+      <circle cx="35" cy="-25" r="4" fill="#fde047" filter="url(#glow)"/>
+      <circle cx="-10" cy="-18" r="3" fill="#fde047" filter="url(#glow)"/>
+      <circle cx="25" cy="0" r="4" fill="#fde047" filter="url(#glow)"/>
+
+      <!-- 节点连线 -->
+      <line x1="-20" y1="-45" x2="15" y2="-52" stroke="#fde047" stroke-width="1" opacity="0.6"/>
+      <line x1="15" y1="-52" x2="35" y2="-25" stroke="#fde047" stroke-width="1" opacity="0.6"/>
+      <line x1="35" y1="-25" x2="25" y2="0" stroke="#fde047" stroke-width="1" opacity="0.6"/>
+      <line x1="-10" y1="-18" x2="25" y2="0" stroke="#fde047" stroke-width="1" opacity="0.6"/>
+      <line x1="-20" y1="-45" x2="-10" y2="-18" stroke="#fde047" stroke-width="1" opacity="0.6"/>
+
+      <!-- "答案 = X" -->
+      <text x="0" y="-30" text-anchor="middle" fill="#fde047" font-size="13" font-weight="bold">答案 = X</text>
+
+      <!-- 嘴 (闭合,被锁住) -->
+      <g transform="translate(0 55)">
+        <ellipse cx="0" cy="0" rx="30" ry="6" fill="#1c0a0a" stroke="#ef4444" stroke-width="2"/>
+        <line x1="-30" y1="0" x2="30" y2="0" stroke="#ef4444" stroke-width="2"/>
+
+        <!-- 挂锁 -->
+        <g transform="translate(0 16)" filter="url(#shadow)">
+          <rect x="-10" y="0" width="20" height="18" rx="2" fill="#ef4444" stroke="#fca5a5" stroke-width="1.5"/>
+          <path d="M -7,0 Q -7,-10 0,-10 Q 7,-10 7,0" fill="none" stroke="#fca5a5" stroke-width="2"/>
+          <circle cx="0" cy="8" r="2" fill="#0a0f1f"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- 标签 -->
+    <text x="110" y="248" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">嘴：被 RLHF 锁住</text>
+  </g>
+
+  <!-- ============ MIDDLE: 6 篇论文叠成的全图 ============ -->
+  <g transform="translate(330 90)">
+    <text x="120" y="8" text-anchor="middle" fill="#94a3b8" font-size="13">6 篇论文拼出来的全图</text>
+
+    <!-- card bg -->
+    <rect x="0" y="20" width="240" height="250" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(12 35)">
+      <!-- Arditi -->
+      <g transform="translate(0 0)">
+        <circle cx="10" cy="10" r="5" fill="#22d3ee" filter="url(#glow)"/>
+        <text x="24" y="14" fill="#67e8f9" font-size="12" font-weight="bold">Arditi 2024</text>
+        <text x="24" y="28" fill="#cbd5e1" font-size="10">拒绝住在一根一维方向上</text>
+      </g>
+
+      <!-- Wollschläger -->
+      <g transform="translate(0 38)">
+        <circle cx="10" cy="10" r="5" fill="#22d3ee" filter="url(#glow)"/>
+        <text x="24" y="14" fill="#67e8f9" font-size="12" font-weight="bold">Wollschläger 2025</text>
+        <text x="24" y="28" fill="#cbd5e1" font-size="10">不是一根线，是一束方向</text>
+      </g>
+
+      <!-- Zhao -->
+      <g transform="translate(0 76)">
+        <circle cx="10" cy="10" r="5" fill="#fbbf24" filter="url(#glow)"/>
+        <text x="24" y="14" fill="#fde047" font-size="12" font-weight="bold">Zhao 2025</text>
+        <text x="24" y="28" fill="#cbd5e1" font-size="10">判断有害 和 决定拒绝 是两件事</text>
+      </g>
+
+      <!-- Shrivastava -->
+      <g transform="translate(0 114)">
+        <circle cx="10" cy="10" r="5" fill="#fbbf24" filter="url(#glow)"/>
+        <text x="24" y="14" fill="#fde047" font-size="12" font-weight="bold">Shrivastava 2025</text>
+        <text x="24" y="28" fill="#cbd5e1" font-size="10">被拒答案 probe 可读，Pearson &gt; 0.8</text>
+      </g>
+
+      <!-- Anthropic -->
+      <g transform="translate(0 152)">
+        <circle cx="10" cy="10" r="5" fill="#ef4444" filter="url(#glow)"/>
+        <text x="24" y="14" fill="#fca5a5" font-size="12" font-weight="bold">Anthropic 2025</text>
+        <text x="24" y="28" fill="#cbd5e1" font-size="10">拒绝是默认回路，越狱靠时间差</text>
+      </g>
+
+      <!-- Du -->
+      <g transform="translate(0 190)">
+        <circle cx="10" cy="10" r="5" fill="#ef4444" filter="url(#glow)"/>
+        <text x="24" y="14" fill="#fca5a5" font-size="12" font-weight="bold">Du 2025</text>
+        <text x="24" y="28" fill="#cbd5e1" font-size="10">RLHF 把犹豫小径夯成大道</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 输出 - 嘴上锁的两种结局 ============ -->
+  <g transform="translate(620 80)">
+    <text x="110" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">输出：嘴上的闸门</text>
+
+    <!-- card bg -->
+    <rect x="0" y="10" width="220" height="260" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 默认状态: 拒绝 -->
+    <g transform="translate(12 28)" filter="url(#shadow)">
+      <rect x="0" y="0" width="196" height="76" rx="6" fill="#1c0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <g transform="translate(16 18)">
+        <!-- stop sign -->
+        <polygon points="14,0 28,0 38,10 38,24 28,34 14,34 4,24 4,10" fill="#ef4444" stroke="#fca5a5" stroke-width="1.5"/>
+        <text x="21" y="22" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">STOP</text>
+      </g>
+      <text x="62" y="32" fill="#fca5a5" font-size="13" font-weight="bold">默认 = 拒绝</text>
+      <text x="62" y="49" fill="#cbd5e1" font-size="10">"对不起，我不能回答这个"</text>
+      <text x="62" y="65" fill="#94a3b8" font-size="10">闸门关，答案被掐</text>
+    </g>
+
+    <!-- 抹掉拒绝方向: 全答 -->
+    <g transform="translate(12 116)" filter="url(#shadow)">
+      <rect x="0" y="0" width="196" height="76" rx="6" fill="#0a1a14" stroke="#22d3ee" stroke-width="1.5"/>
+      <g transform="translate(16 18)">
+        <!-- open circle / unlock -->
+        <circle cx="21" cy="17" r="14" fill="none" stroke="#22d3ee" stroke-width="2"/>
+        <path d="M 14,17 L 19,22 L 28,12" fill="none" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text x="62" y="32" fill="#67e8f9" font-size="13" font-weight="bold">抹一刀 = 全答</text>
+      <text x="62" y="49" fill="#cbd5e1" font-size="10">残差流投影一下，开锁了</text>
+      <text x="62" y="65" fill="#94a3b8" font-size="10">闸门开，知识本来就在</text>
+    </g>
+
+    <!-- 结论 -->
+    <g transform="translate(12 204)">
+      <rect x="0" y="0" width="196" height="56" rx="6" fill="#1e1206" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="98" y="22" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">不是不知道</text>
+      <text x="98" y="42" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">是知道了但不说</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="431" text-anchor="middle" fill="#f8fafc" font-size="32" font-weight="bold">AI 是怎么拒绝你的？</text>
+  <text x="450" y="463" text-anchor="middle" fill="#fde047" font-size="18">输出层把答案掐了 · 是 RLHF 焊上去的一道闸</text>
+  <text x="450" y="488" text-anchor="middle" fill="#94a3b8" font-size="13" class="mono">No.235 · 6 papers on refusal mechanism</text>
+</svg>
