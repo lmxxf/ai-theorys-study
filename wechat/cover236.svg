@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', sans-serif">
+  <style>
+    .bg { fill: #f5efe0; }
+    .title { font-size: 56px; font-weight: bold; fill: #1a1a1a; letter-spacing: 2px; }
+    .subtitle { font-size: 24px; fill: #444; letter-spacing: 1px; }
+    .tag { font-size: 18px; fill: #666; }
+    .role { font-size: 22px; font-weight: bold; fill: #fff; }
+    .small-role { font-size: 13px; fill: #fff; }
+    .label { font-size: 16px; fill: #333; }
+    .token-ok { font-size: 14px; font-weight: bold; fill: #2d6a4f; }
+    .token-bad { font-size: 14px; font-weight: bold; fill: #c1121f; }
+    .speed-tag { font-size: 20px; font-weight: bold; fill: #d35400; }
+  </style>
+
+  <rect width="900" height="500" class="bg"/>
+
+  <!-- Decorative border lines -->
+  <line x1="50" y1="60" x2="850" y2="60" stroke="#2d6a4f" stroke-width="2.5"/>
+  <line x1="50" y1="440" x2="850" y2="440" stroke="#2d6a4f" stroke-width="2.5"/>
+
+  <!-- Main title -->
+  <text x="450" y="125" text-anchor="middle" class="title">DSpark</text>
+  <text x="450" y="170" text-anchor="middle" class="subtitle">投机解码新作 · 给 LLM 装一个会"猜"的小弟</text>
+  <text x="450" y="200" text-anchor="middle" class="tag">DeepSeek + 北大 · 2026-06-27</text>
+
+  <!-- Left: draft model (小弟) -->
+  <g>
+    <circle cx="180" cy="320" r="55" fill="#52b788" stroke="#2d6a4f" stroke-width="2.5"/>
+    <text x="180" y="316" text-anchor="middle" class="role">小弟</text>
+    <text x="180" y="338" text-anchor="middle" class="small-role">draft</text>
+    <text x="180" y="395" text-anchor="middle" class="label">先猜 γ 个 token</text>
+  </g>
+
+  <!-- Token sequence (small wedge in the middle) -->
+  <g transform="translate(280, 310)">
+    <rect x="0" y="0" width="40" height="30" fill="#fff" stroke="#52b788" stroke-width="1.5" rx="3"/>
+    <text x="20" y="22" text-anchor="middle" class="token-ok" font-size="18">√</text>
+
+    <rect x="50" y="0" width="40" height="30" fill="#fff" stroke="#52b788" stroke-width="1.5" rx="3"/>
+    <text x="70" y="22" text-anchor="middle" class="token-ok" font-size="18">√</text>
+
+    <rect x="100" y="0" width="40" height="30" fill="#fff" stroke="#52b788" stroke-width="1.5" rx="3"/>
+    <text x="120" y="22" text-anchor="middle" class="token-ok" font-size="18">√</text>
+
+    <rect x="150" y="0" width="40" height="30" fill="#fff" stroke="#52b788" stroke-width="1.5" rx="3"/>
+    <text x="170" y="22" text-anchor="middle" class="token-ok" font-size="18">√</text>
+
+    <rect x="200" y="0" width="40" height="30" fill="#fff" stroke="#c1121f" stroke-width="1.5" rx="3"/>
+    <text x="220" y="22" text-anchor="middle" class="token-bad" font-size="18">X</text>
+
+    <text x="120" y="55" text-anchor="middle" class="label">candidate tokens</text>
+  </g>
+
+  <!-- Arrow from draft to target -->
+  <defs>
+    <marker id="bigarr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+  <line x1="240" y1="320" x2="270" y2="320" stroke="#555" stroke-width="2" marker-end="url(#bigarr)"/>
+  <line x1="540" y1="320" x2="570" y2="320" stroke="#555" stroke-width="2" marker-end="url(#bigarr)"/>
+
+  <!-- Right: target model (大哥) -->
+  <g>
+    <circle cx="640" cy="320" r="75" fill="#e76f51" stroke="#c1452a" stroke-width="2.5"/>
+    <text x="640" y="316" text-anchor="middle" class="role" font-size="26">大哥</text>
+    <text x="640" y="340" text-anchor="middle" class="small-role">target LLM</text>
+    <text x="640" y="415" text-anchor="middle" class="label">一次 forward 全部验完</text>
+  </g>
+
+  <!-- Speed tag -->
+  <g>
+    <rect x="745" y="280" width="110" height="80" fill="#fff" stroke="#d35400" stroke-width="2" rx="6"/>
+    <text x="800" y="310" text-anchor="middle" class="speed-tag">60-85%</text>
+    <text x="800" y="335" text-anchor="middle" class="label" font-size="13">per-user</text>
+    <text x="800" y="352" text-anchor="middle" class="label" font-size="13">提速</text>
+  </g>
+
+  <!-- Bottom tagline -->
+  <text x="450" y="475" text-anchor="middle" class="tag" font-style="italic">瓶颈在搬运，不在算 · 一次搬运吐多个 token 就是赚</text>
+
+</svg>

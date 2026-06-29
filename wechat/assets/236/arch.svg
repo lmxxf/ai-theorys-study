@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="'Noto Sans CJK SC', sans-serif">
+  <style>
+    .title { font-size: 18px; font-weight: bold; fill: #222; }
+    .label { font-size: 13px; fill: #333; }
+    .small { font-size: 11px; fill: #555; }
+    .tiny { font-size: 10px; fill: #777; }
+    .box-anchor { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    .box-mask { fill: #e9ecef; stroke: #adb5bd; stroke-width: 1.2; stroke-dasharray: 3 2; }
+    .box-parallel { fill: #c7e9c0; stroke: #41ab5d; stroke-width: 1.5; }
+    .box-seq { fill: #fdd0a2; stroke: #e6550d; stroke-width: 1.5; }
+    .box-out { fill: #d0e1f9; stroke: #2171b5; stroke-width: 1.5; }
+    .box-logit { fill: #f7f7f7; stroke: #888; stroke-width: 1; }
+    .arrow { stroke: #444; stroke-width: 1.4; fill: none; marker-end: url(#arr); }
+    .arrow-seq { stroke: #e6550d; stroke-width: 1.6; fill: none; marker-end: url(#arr-orange); stroke-dasharray: 4 2; }
+    .arrow-add { stroke: #555; stroke-width: 1.2; fill: none; marker-end: url(#arr); }
+    .note { font-size: 11px; fill: #666; font-style: italic; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+    <marker id="arr-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e6550d"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="30" text-anchor="middle" class="title">DSpark 半自回归小弟的两段式架构</text>
+
+  <!-- Input layer -->
+  <text x="60" y="80" class="label">输入</text>
+  <g>
+    <rect x="120" y="65" width="80" height="40" class="box-anchor" rx="4"/>
+    <text x="160" y="83" text-anchor="middle" class="label">anchor</text>
+    <text x="160" y="98" text-anchor="middle" class="small">D（大哥给的种子）</text>
+
+    <rect x="240" y="65" width="70" height="40" class="box-mask" rx="4"/>
+    <text x="275" y="90" text-anchor="middle" class="label">mask</text>
+
+    <rect x="330" y="65" width="70" height="40" class="box-mask" rx="4"/>
+    <text x="365" y="90" text-anchor="middle" class="label">mask</text>
+
+    <rect x="420" y="65" width="70" height="40" class="box-mask" rx="4"/>
+    <text x="455" y="90" text-anchor="middle" class="label">mask</text>
+
+    <text x="525" y="90" class="small">… 共 γ 个位置</text>
+  </g>
+
+  <!-- Parallel block -->
+  <g>
+    <rect x="120" y="145" width="500" height="70" class="box-parallel" rx="6"/>
+    <text x="370" y="172" text-anchor="middle" class="title" font-size="16">Parallel Block（并行重型 backbone）</text>
+    <text x="370" y="195" text-anchor="middle" class="small">5 层 transformer · 一次 forward · 所有位置并行（互不看彼此）</text>
+  </g>
+  <line x1="160" y1="105" x2="160" y2="145" class="arrow"/>
+  <line x1="275" y1="105" x2="275" y2="145" class="arrow"/>
+  <line x1="365" y1="105" x2="365" y2="145" class="arrow"/>
+  <line x1="455" y1="105" x2="455" y2="145" class="arrow"/>
+
+  <!-- Base logits row -->
+  <g>
+    <rect x="125" y="245" width="70" height="34" class="box-logit" rx="3"/>
+    <text x="160" y="266" text-anchor="middle" class="label">U_1</text>
+    <rect x="240" y="245" width="70" height="34" class="box-logit" rx="3"/>
+    <text x="275" y="266" text-anchor="middle" class="label">U_2</text>
+    <rect x="330" y="245" width="70" height="34" class="box-logit" rx="3"/>
+    <text x="365" y="266" text-anchor="middle" class="label">U_3</text>
+    <rect x="420" y="245" width="70" height="34" class="box-logit" rx="3"/>
+    <text x="455" y="266" text-anchor="middle" class="label">U_γ</text>
+    <text x="525" y="268" class="small">…  base logits（独立预测）</text>
+  </g>
+  <line x1="160" y1="215" x2="160" y2="245" class="arrow"/>
+  <line x1="275" y1="215" x2="275" y2="245" class="arrow"/>
+  <line x1="365" y1="215" x2="365" y2="245" class="arrow"/>
+  <line x1="455" y1="215" x2="455" y2="245" class="arrow"/>
+
+  <!-- Sequential block -->
+  <g>
+    <rect x="120" y="320" width="500" height="80" class="box-seq" rx="6"/>
+    <text x="370" y="348" text-anchor="middle" class="title" font-size="16">Sequential Block · Markov head（轻型串行修正）</text>
+    <text x="370" y="370" text-anchor="middle" class="small">B(x_{k-1}) = W1[x_{k-1}] · W2 ， 低秩 rank=256，整层只是查表 + 一次线性投影</text>
+    <text x="370" y="388" text-anchor="middle" class="small">位置 k 的最终 logits = U_k + B(x_{k-1})</text>
+  </g>
+
+  <!-- Output token row + sequential arrows -->
+  <g>
+    <rect x="125" y="440" width="70" height="40" class="box-out" rx="4"/>
+    <text x="160" y="458" text-anchor="middle" class="label">x_1</text>
+    <text x="160" y="473" text-anchor="middle" class="small">采样</text>
+
+    <rect x="240" y="440" width="70" height="40" class="box-out" rx="4"/>
+    <text x="275" y="458" text-anchor="middle" class="label">x_2</text>
+    <text x="275" y="473" text-anchor="middle" class="small">采样</text>
+
+    <rect x="330" y="440" width="70" height="40" class="box-out" rx="4"/>
+    <text x="365" y="458" text-anchor="middle" class="label">x_3</text>
+    <text x="365" y="473" text-anchor="middle" class="small">采样</text>
+
+    <rect x="420" y="440" width="70" height="40" class="box-out" rx="4"/>
+    <text x="455" y="458" text-anchor="middle" class="label">x_γ</text>
+    <text x="455" y="473" text-anchor="middle" class="small">采样</text>
+
+    <text x="525" y="465" class="small">→ 送给大哥（target）验证</text>
+  </g>
+
+  <!-- Vertical arrows from sequential block down to outputs -->
+  <line x1="160" y1="400" x2="160" y2="440" class="arrow"/>
+  <line x1="275" y1="400" x2="275" y2="440" class="arrow"/>
+  <line x1="365" y1="400" x2="365" y2="440" class="arrow"/>
+  <line x1="455" y1="400" x2="455" y2="440" class="arrow"/>
+
+  <!-- Sequential dependency arrows: x_{k-1} feeds into position k -->
+  <path d="M 195 460 Q 220 510 240 480" class="arrow-seq"/>
+  <path d="M 310 460 Q 320 510 330 480" class="arrow-seq"/>
+  <path d="M 400 460 Q 410 510 420 480" class="arrow-seq"/>
+
+  <!-- Labels for U inputs from parallel block to sequential block -->
+  <line x1="160" y1="279" x2="160" y2="320" class="arrow-add"/>
+  <line x1="275" y1="279" x2="275" y2="320" class="arrow-add"/>
+  <line x1="365" y1="279" x2="365" y2="320" class="arrow-add"/>
+  <line x1="455" y1="279" x2="455" y2="320" class="arrow-add"/>
+
+  <!-- Right-side legend / annotation -->
+  <g>
+    <rect x="680" y="145" width="200" height="70" fill="#f0f7e8" stroke="#41ab5d" stroke-width="1" rx="4"/>
+    <text x="780" y="165" text-anchor="middle" class="label" font-weight="bold">"DFlash 那一段"</text>
+    <text x="780" y="183" text-anchor="middle" class="small">深、慢、表达能力强</text>
+    <text x="780" y="200" text-anchor="middle" class="small">→ 接受率上限</text>
+
+    <rect x="680" y="320" width="200" height="80" fill="#fff1e6" stroke="#e6550d" stroke-width="1" rx="4"/>
+    <text x="780" y="340" text-anchor="middle" class="label" font-weight="bold">"DSpark 加的那一段"</text>
+    <text x="780" y="358" text-anchor="middle" class="small">薄、快、按位置串行</text>
+    <text x="780" y="375" text-anchor="middle" class="small">引入 inter-token 依赖</text>
+    <text x="780" y="392" text-anchor="middle" class="small">→ 防"of problem"</text>
+  </g>
+
+  <!-- Bottom note -->
+  <g>
+    <rect x="60" y="520" width="780" height="80" fill="#fafafa" stroke="#ddd" stroke-width="1" rx="4"/>
+    <text x="80" y="543" class="label" font-weight="bold">怎么读这张图</text>
+    <text x="80" y="563" class="small">① Parallel Block 一次 forward 出全部 base logits（U_1…U_γ）——并行，每个位置不看彼此</text>
+    <text x="80" y="580" class="small">② Markov head 按位置 k=1,2,3,… 串行：每步看一眼上一个采样出来的 token x_{k-1}，加一个查表得到的 bias，再采样 x_k</text>
+    <text x="80" y="597" class="small">③ 串行 loop 的算力很小（就是查表 + 一次线性投影），所以总耗时还是被并行 backbone 那 5 层主导</text>
+  </g>
+
+</svg>
