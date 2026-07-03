@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="redGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#redGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">SM_121 KERNEL SERIES · 第 2 站 · 算力主力</text>
+
+  <!-- ============ LEFT: 朴素路径 naive dequant ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">朴素路径 · 先还原再乘</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(12 55)">
+      <rect x="0" y="0" width="60" height="36" rx="5" fill="#1c0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="30" y="23" text-anchor="middle" fill="#fca5a5" font-size="11" class="mono">A_fp8</text>
+
+      <path d="M64 18 L84 18" stroke="#ef4444" stroke-width="2.5" filter="url(#glow)"/>
+      <path d="M78 12 L84 18 L78 24" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+
+      <rect x="88" y="0" width="112" height="36" rx="5" fill="#2a0a0a" stroke="#ef4444" stroke-width="2"/>
+      <text x="144" y="16" text-anchor="middle" fill="#fca5a5" font-size="10" class="mono">A_bf16</text>
+      <text x="144" y="29" text-anchor="middle" fill="#f87171" font-size="8">中间张量·2×大</text>
+    </g>
+
+    <text x="115" y="122" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">往内存写一遍再读一遍</text>
+    <text x="115" y="140" text-anchor="middle" fill="#94a3b8" font-size="10">fp8 省下的带宽全还回去了</text>
+
+    <line x1="16" y1="165" x2="214" y2="165" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 182)">
+      <text x="0" y="0" fill="#fca5a5" font-size="11" font-weight="bold">torch.mm(A_bf16, B^T)</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">PyTorch 兜底路径，能跑</text>
+      <text x="0" y="38" fill="#94a3b8" font-size="10">但访存压力翻倍，算力闲死</text>
+    </g>
+
+    <text x="115" y="285" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">MoE 每层 7 次专家 GEMM 撑不住</text>
+  </g>
+
+  <!-- ============ MIDDLE: fused dequant ============ -->
+  <g transform="translate(320 90)">
+    <text x="120" y="8" text-anchor="middle" fill="#94a3b8" font-size="13">fused 路径 · 边读边乘</text>
+
+    <rect x="0" y="20" width="240" height="280" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 45)">
+      <rect x="0" y="0" width="200" height="90" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">Triton kernel 内</text>
+      <text x="100" y="46" text-anchor="middle" fill="#a7f3d0" font-size="10" class="mono">acc += tl.dot(a, b^T)</text>
+      <text x="100" y="62" text-anchor="middle" fill="#a7f3d0" font-size="10" class="mono">        · a_s · b_s</text>
+      <text x="100" y="80" text-anchor="middle" fill="#5eead4" font-size="9">fp8 byte 直喂 mma，无中间态</text>
+    </g>
+
+    <path d="M120 138 L120 158" stroke="#2dd4bf" stroke-width="2.5" filter="url(#glow)"/>
+    <path d="M113 151 L120 158 L127 151" fill="none" stroke="#2dd4bf" stroke-width="2.5"/>
+
+    <g transform="translate(20 168)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#0a1a1a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">tl.dot_scaled</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="9">fp4 dequant 焊进硬件指令</text>
+    </g>
+
+    <line x1="20" y1="240" x2="220" y2="240" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 256)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">实测提速</text>
+      <text x="0" y="19" fill="#cbd5e1" font-size="10">fp4_gemm 全档位 6-7x</text>
+      <text x="0" y="35" fill="#cbd5e1" font-size="10">A_bf16 从未出现过</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 两个函数瓜分算力 ============ -->
+  <g transform="translate(610 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">V4 每 token 99% 算力</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 40)">
+      <text x="0" y="0" fill="#93c5fd" font-size="11" font-weight="bold">fp8_gemm</text>
+      <rect x="0" y="10" width="190" height="26" rx="4" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="95" y="28" text-anchor="middle" fill="#bfdbfe" font-size="9">Q/KV/O 投影 · LM Head</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="9">scale 外乘，累加器上应用一次</text>
+    </g>
+
+    <g transform="translate(20 130)">
+      <text x="0" y="0" fill="#fbbf24" font-size="11" font-weight="bold">fp4_gemm</text>
+      <rect x="0" y="10" width="190" height="26" rx="4" fill="#2a1a0a" stroke="#d9831f" stroke-width="1.5"/>
+      <text x="95" y="28" text-anchor="middle" fill="#fde68a" font-size="9">256 个专家 SwiGLU 上下投影</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="9">scale 内嵌，dot_scaled 硬件级</text>
+    </g>
+
+    <line x1="20" y1="205" x2="210" y2="205" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 222)">
+      <text x="0" y="0" fill="#e2e8f0" font-size="11" font-weight="bold">分工逻辑</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">精度敏感 → fp8</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">参数量最大 → fp4</text>
+    </g>
+
+    <text x="115" y="285" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">这台车床决定跑不跑得动</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">算力的主力：fp8_gemm 和 fp4_gemm</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">把 dequant 融进矩阵乘——DGX Spark 上重写 DeepSeek V4 的 GEMM 算子</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13" class="mono">No.240 · 在 50 系显卡上实现 DeepSeek V4 算子 · 第 2 站</text>
+</svg>
