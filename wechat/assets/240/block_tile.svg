@@ -32,7 +32,7 @@
   <text x="20" y="208" class="small" text-anchor="middle" transform="rotate(-90 20 208)">K 维 (hidden)</text>
 
   <!-- B matrix -->
-  <text x="430" y="78" class="label" text-anchor="middle" font-weight="bold">Bᵀ [K, N]  · fp8 / fp4</text>
+  <text x="430" y="78" class="label" text-anchor="middle" font-weight="bold">B^T [K, N]  · fp8 / fp4</text>
   <rect x="320" y="92" width="220" height="220" class="gridB"/>
   <!-- highlight column BLOCK_N -->
   <rect x="370" y="92" width="56" height="220" fill="#fff4d6" stroke="#b8860b" stroke-width="2"/>
@@ -78,5 +78,5 @@
     <text x="456" y="458" class="small" text-anchor="middle">a_s[-1] · b_s[-1]</text>
   </g>
 
-  <text x="430" y="492" class="small" text-anchor="middle" fill="#555">每段算完 acc += tl.dot(a, bᵀ) · a_s · b_s，全部累加到同一个 [16, 32] 的 acc 上</text>
+  <text x="430" y="492" class="small" text-anchor="middle" fill="#555">每段算完 acc += tl.dot(a, b^T) · a_s · b_s，全部累加到同一个 [16, 32] 的 acc 上</text>
 </svg>
