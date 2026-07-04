@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="redGlow" cx="20%" cy="25%" r="42%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="goldGlow" cx="80%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#redGlow)"/>
+  <rect width="900" height="500" fill="url(#goldGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">周末杂谈 · AI TOKEN 账单里的秘密</text>
+
+  <!-- ============ LEFT: 直觉版账单，看似合理 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">直觉版：一问一答</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 45)">
+      <rect x="0" y="0" width="90" height="30" rx="14" fill="#1c2333" stroke="#4a90d9" stroke-width="1.2"/>
+      <text x="45" y="20" text-anchor="middle" fill="#93c5fd" font-size="10">提问 100</text>
+
+      <rect x="100" y="45" width="100" height="30" rx="14" fill="#1c2b25" stroke="#2dd4bf" stroke-width="1.2"/>
+      <text x="150" y="65" text-anchor="middle" fill="#5eead4" font-size="10">回答 2000</text>
+    </g>
+
+    <text x="115" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">聊满 100 万 token</text>
+    <text x="115" y="168" text-anchor="middle" fill="#94a3b8" font-size="11">≈ 476 轮</text>
+
+    <line x1="16" y1="195" x2="214" y2="195" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 212)">
+      <text x="0" y="0" fill="#e2e8f0" font-size="11" font-weight="bold">直觉算法</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">输出贵 100 倍、量大 20 倍</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">输出理所当然是大头</text>
+    </g>
+
+    <text x="115" y="285" text-anchor="middle" fill="#fca5a5" font-size="13" font-weight="bold">≈ $9.52（错的）</text>
+  </g>
+
+  <!-- ============ MIDDLE: 历史被反复重发，n² ============ -->
+  <g transform="translate(320 90)">
+    <text x="120" y="8" text-anchor="middle" fill="#94a3b8" font-size="13">真相：每轮都要背整段历史</text>
+
+    <rect x="0" y="20" width="240" height="280" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(30 40)" stroke="none">
+      <rect x="0" y="0" width="180" height="14" rx="3" fill="#ef444455"/>
+      <rect x="0" y="18" width="180" height="14" rx="3" fill="#ef444470"/>
+      <rect x="0" y="36" width="180" height="14" rx="3" fill="#ef444490"/>
+      <rect x="0" y="54" width="180" height="14" rx="3" fill="#ef4444b0"/>
+      <rect x="0" y="72" width="180" height="14" rx="3" fill="#ef4444d0"/>
+      <rect x="0" y="90" width="180" height="14" rx="3" fill="#ef4444f0"/>
+      <text x="90" y="122" text-anchor="middle" fill="#fca5a5" font-size="10">历史一轮比一轮长</text>
+    </g>
+
+    <path d="M120 168 L120 188" stroke="#fbbf24" stroke-width="2.5" filter="url(#glow)"/>
+    <path d="M113 181 L120 188 L127 181" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+
+    <g transform="translate(20 198)">
+      <text x="100" y="0" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">重发量 ≈ C² / (2c)</text>
+      <text x="100" y="20" text-anchor="middle" fill="#cbd5e1" font-size="10">n 轮 → 平方级增长</text>
+    </g>
+
+    <line x1="20" y1="222" x2="220" y2="222" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 236)">
+      <text x="0" y="0" fill="#fbbf24" font-size="11" font-weight="bold">476 轮实测</text>
+      <text x="0" y="18" fill="#cbd5e1" font-size="10">输入重发 2.37 亿 token</text>
+      <text x="0" y="34" fill="#cbd5e1" font-size="10">输出只有 95 万 token</text>
+    </g>
+
+    <text x="120" y="285" text-anchor="middle" fill="#fde047" font-size="13" font-weight="bold">≈ $33.27（反超了）</text>
+  </g>
+
+  <!-- ============ RIGHT: DeepSeek 厚道 ============ -->
+  <g transform="translate(610 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">四家一比：命中价才是关键</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 35)" font-size="10.5">
+      <text x="0" y="12" fill="#94a3b8">命中 → 输出倍数</text>
+      <rect x="0" y="22" width="190" height="20" rx="4" fill="#1c2333" stroke="#334155"/>
+      <text x="8" y="36" fill="#cbd5e1">Claude Sonnet 5</text>
+      <text x="182" y="36" text-anchor="end" fill="#cbd5e1">50x</text>
+      <rect x="0" y="46" width="190" height="20" rx="4" fill="#1c2333" stroke="#334155"/>
+      <text x="8" y="60" fill="#cbd5e1">GPT-5.5 / Gemini</text>
+      <text x="182" y="60" text-anchor="end" fill="#cbd5e1">60x</text>
+      <rect x="0" y="70" width="190" height="24" rx="4" fill="#2a1a0a" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="8" y="86" fill="#fde047" font-weight="bold">DeepSeek V4 Flash</text>
+      <text x="182" y="86" text-anchor="end" fill="#fde047" font-weight="bold">100x</text>
+    </g>
+
+    <text x="115" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">曲线上性价比最高的</text>
+    <text x="115" y="168" text-anchor="middle" fill="#94a3b8" font-size="11">那个"甜蜜点"附近</text>
+
+    <line x1="20" y1="195" x2="210" y2="195" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 212)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">而且绝对价更狠</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">命中 $0.0028 · 输出 $0.28</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">比最便宜的对手还再便宜</text>
+    </g>
+
+    <text x="115" y="285" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">两个维度都不留情面</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="425" text-anchor="middle" fill="#f8fafc" font-size="27" font-weight="bold">为什么你的 AI 账单比预期多好几倍？</text>
+  <text x="450" y="457" text-anchor="middle" fill="#fde047" font-size="17">决定账单的不是"AI答了多长"，是"你问了多少次"——还是 DeepSeek 厚道~</text>
+  <text x="450" y="483" text-anchor="middle" fill="#94a3b8" font-size="13">No.241 · 周末杂谈</text>
+</svg>
