@@ -19,7 +19,7 @@
     </marker>
   </defs>
 
-  <text x="450" y="32" class="title" text-anchor="middle">Indexer：CSA 层的 top-1024 选择器</text>
+  <text x="450" y="32" class="title" text-anchor="middle">Indexer：CSA 层的 top-512 选择器</text>
   <text x="450" y="52" class="small" text-anchor="middle">输入：S=17832 个 query, 压缩 KV 长度 T=S/4≈4458</text>
 
   <!-- Q 输入 -->
@@ -62,8 +62,8 @@
 
   <!-- topk -->
   <rect x="600" y="280" width="250" height="100" rx="8" class="topkbox"/>
-  <text x="725" y="310" class="label" text-anchor="middle" font-weight="bold">topk(1024, dim=−1)</text>
-  <text x="725" y="335" class="mono" text-anchor="middle">→ topk_idxs [1, S, 1024]</text>
+  <text x="725" y="310" class="label" text-anchor="middle" font-weight="bold">topk(512, dim=−1)</text>
+  <text x="725" y="335" class="mono" text-anchor="middle">→ topk_idxs [1, S, 512]</text>
   <text x="725" y="358" class="small" text-anchor="middle">交给 sparse_attn 做真注意力</text>
   <text x="725" y="373" class="small" text-anchor="middle" fill="#a92b2b">（下一期讲）</text>
 
@@ -78,6 +78,6 @@
 
   <!-- 分块标注 -->
   <rect x="40" y="475" width="810" height="45" rx="6" fill="#fffdf0" stroke="#b8a82b" stroke-width="1.2"/>
-  <text x="450" y="495" class="label" text-anchor="middle">PyTorch 实现把 Q 维分 256 块循环，单块中间张量从 20.3 GB 降到约 290 MB</text>
+  <text x="450" y="495" class="label" text-anchor="middle">PyTorch 实现把 Q 维分 256 块循环，单块中间张量从 20.3 GB 降到约 145 MB</text>
   <text x="450" y="512" class="dim" text-anchor="middle">原版 TileLang fused kernel 流式处理同一份 einsum，根本不实例化整张表</text>
 </svg>
