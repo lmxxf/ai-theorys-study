@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="redGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#redGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">SM_121 KERNEL SERIES · 第 3 站 · Indexer</text>
+
+  <!-- ============ LEFT: HCA vs CSA 压缩 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">同一个 Compressor · 两种压缩比</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 35)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">HCA · ratio=128</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">17832 → 约 139 条</text>
+      <text x="100" y="58" text-anchor="middle" fill="#5eead4" font-size="9">粗压缩，全看，不用筛</text>
+    </g>
+
+    <g transform="translate(15 120)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">CSA · ratio=4</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">17832 → 约 4458 条</text>
+      <text x="100" y="58" text-anchor="middle" fill="#fca5a5" font-size="9">细压缩，还是太多，得挑</text>
+    </g>
+
+    <line x1="16" y1="210" x2="214" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 226)">
+      <text x="0" y="0" fill="#e2e8f0" font-size="11" font-weight="bold">43 层交替排布</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">21 层 CSA · 20 层 HCA</text>
+      <text x="0" y="38" fill="#94a3b8" font-size="10">开头 2 层不压缩打底</text>
+    </g>
+
+    <text x="115" y="285" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">CSA 这 4458 条谁来挑？</text>
+  </g>
+
+  <!-- ============ MIDDLE: Indexer 打分选 top-512 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">打分排名，不是加权求和</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 35)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#1c0a2a" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#c4b5fd" font-size="11" font-weight="bold" class="mono">score = Q · Kᵀ</text>
+      <text x="100" y="42" text-anchor="middle" fill="#ddd6fe" font-size="9">FP4 低维打分，全程不算 softmax</text>
+    </g>
+
+    <path d="M120 100 L120 120" stroke="#a78bfa" stroke-width="2.5" filter="url(#glow)"/>
+    <path d="M113 113 L120 120 L127 113" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+
+    <g transform="translate(20 128)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">topk(512)</text>
+      <text x="100" y="44" text-anchor="middle" fill="#a7f3d0" font-size="10">4458 条 → 挑出 512 条索引</text>
+      <text x="100" y="60" text-anchor="middle" fill="#5eead4" font-size="9">交给 sparse_attn 做真注意力</text>
+    </g>
+
+    <line x1="20" y1="216" x2="220" y2="216" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 232)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">设计哲学的另一面</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">挑的是"像"，不是"该记住"</text>
+      <text x="0" y="38" fill="#94a3b8" font-size="10">内容无关的约束会被路由绕开</text>
+    </g>
+
+    <text x="120" y="285" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">图书管理员，不是读者</text>
+  </g>
+
+  <!-- ============ RIGHT: O(S²) 内存 + 分块修复 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">O(S²) 中间张量 · 分块救回来</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 35)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">不分块：20.3 GB</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="9">[1, S, 64, T] 整表实例化</text>
+    </g>
+
+    <path d="M115 100 L115 120" stroke="#94a3b8" stroke-width="2.5" filter="url(#glow)"/>
+    <path d="M108 113 L115 120 L122 113" fill="none" stroke="#94a3b8" stroke-width="2.5"/>
+
+    <g transform="translate(15 128)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">query 维分块：145 MB</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="9" class="mono">INDEXER_CHUNK = 256</text>
+    </g>
+
+    <line x1="16" y1="206" x2="214" y2="206" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 222)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">降了 140 倍</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">语义和原版 einsum 完全等价</text>
+      <text x="0" y="38" fill="#94a3b8" font-size="10">TileLang 原生就是流式处理</text>
+    </g>
+
+    <text x="115" y="285" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">没这道选择器，CSA 等于半残废</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">Indexer：CSA 层的 top-512 选择器</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">4:1 压缩里挑出真正该看的那 512 条——V4 长上下文的真发动机</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.242 · 在 50 系显卡上实现 DeepSeek V4 算子 · 第 3 站</text>
+</svg>
