@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="redGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .mono { font-family: 'DejaVu Sans Mono', monospace; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#redGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">SM_121 KERNEL SERIES · 第 4 站 · sparse_attn</text>
+
+  <!-- ============ LEFT: 五步流程 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">不是原子 kernel · 是五步组合</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="34" rx="5" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="11">1. gather 按索引抓 512 行 KV</text>
+    </g>
+    <g transform="translate(15 74)">
+      <rect x="0" y="0" width="200" height="34" rx="5" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="11">2. Q·K 点积 × scale</text>
+    </g>
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="34" rx="5" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="11">3. -1 假位置 mask 成 -inf</text>
+    </g>
+    <g transform="translate(15 158)">
+      <rect x="0" y="0" width="200" height="34" rx="5" fill="#2a1a0a" stroke="#d9831f" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="11">4. 拼一根 sink，一起 softmax</text>
+    </g>
+    <g transform="translate(15 200)">
+      <rect x="0" y="0" width="200" height="34" rx="5" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="11">5. 取前 512 个权重 × V</text>
+    </g>
+
+    <text x="115" y="262" text-anchor="middle" fill="#94a3b8" font-size="10">稀疏的"稀"只在第 1 步</text>
+    <text x="115" y="282" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">小底盘上的一次标准 attention</text>
+  </g>
+
+  <!-- ============ MIDDLE: attention sink ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">attention sink · 注意力下水口</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 35)">
+      <rect x="0" y="0" width="200" height="62" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">没有 sink：权重必须和为 1</text>
+      <text x="100" y="46" text-anchor="middle" fill="#f87171" font-size="9">512 个候选都不行也得硬凑混合物</text>
+    </g>
+
+    <path d="M120 102 L120 122" stroke="#d9831f" stroke-width="2.5" filter="url(#glow)"/>
+    <path d="M113 115 L120 122 L127 115" fill="none" stroke="#d9831f" stroke-width="2.5"/>
+
+    <g transform="translate(20 130)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#2a1a0a" stroke="#d9831f" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">拼一个第 513 选项</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="9">只分走概率，不贡献 V</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fde68a" font-size="10">"我都不喜欢"合法化</text>
+    </g>
+
+    <line x1="20" y1="222" x2="220" y2="222" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 238)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">输出模长 = 置信度信号</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">越无所适从，输出向量越短</text>
+      <text x="0" y="38" fill="#94a3b8" font-size="10">不确定终于有了表达通道</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: OOM 与分块 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">三个大张量同时活着 · 分块救</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="82" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">一次性铺平：约 13 GB</text>
+      <text x="100" y="40" text-anchor="middle" fill="#f87171" font-size="9">kv_gathered ≈ 8.7 GB</text>
+      <text x="100" y="56" text-anchor="middle" fill="#f87171" font-size="9">scores + weights ≈ 4.4 GB</text>
+      <text x="100" y="74" text-anchor="middle" fill="#fca5a5" font-size="9">权重已占 82 GB，余量贴脸</text>
+    </g>
+
+    <path d="M115 120 L115 140" stroke="#94a3b8" stroke-width="2.5" filter="url(#glow)"/>
+    <path d="M108 133 L115 140 L122 133" fill="none" stroke="#94a3b8" stroke-width="2.5"/>
+
+    <g transform="translate(15 148)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">query 分块：约 400 MB</text>
+      <text x="100" y="44" text-anchor="middle" fill="#a7f3d0" font-size="9" class="mono">SPARSE_ATTN_CHUNK = 512</text>
+    </g>
+
+    <line x1="16" y1="226" x2="214" y2="226" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 242)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">一次线性 × 大常数</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">和 Indexer 的 O(S²) 不同源</text>
+      <text x="0" y="38" fill="#94a3b8" font-size="10">数学没炸，是余量太小</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">sparse_attn：选完 top-k 之后那一刀怎么落</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">小底盘上的标准 attention + 一根 sink 泄压阀——稀疏的语义全在索引里</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.243 · 在 50 系显卡上实现 DeepSeek V4 算子 · 第 4 站</text>
+</svg>
