@@ -60,32 +60,32 @@
 
   <!-- 中间：pre → attn/moe → F(x) -->
   <g transform="translate(260 80)">
-    <text x="180" y="0" class="head" text-anchor="middle">本层的计算</text>
-    <text x="180" y="18" class="small" text-anchor="middle">先合成 1 份、再算 attention 或 MoE</text>
+    <text x="180" y="-15" class="head" text-anchor="middle">本层的计算</text>
+    <text x="180" y="0" class="small" text-anchor="middle">先合成 1 份、再算 attention 或 MoE</text>
 
-    <!-- pre -->
-    <rect x="20" y="40" width="120" height="60" rx="8" class="box op"/>
-    <text x="80" y="62" class="head" text-anchor="middle">pre × 4</text>
-    <text x="80" y="80" class="small" text-anchor="middle">4 个权重</text>
-    <text x="80" y="94" class="small" text-anchor="middle">合 4 份 → 1 份</text>
+    <!-- pre —— 高度覆盖 4 份副本但不越界到 post -->
+    <rect x="20" y="40" width="120" height="100" rx="8" class="box op"/>
+    <text x="80" y="78" class="head" text-anchor="middle">pre × 4</text>
+    <text x="80" y="98" class="small" text-anchor="middle">4 个权重</text>
+    <text x="80" y="118" class="small" text-anchor="middle">合 4 份 → 1 份</text>
 
     <!-- attention / MoE -->
-    <rect x="200" y="40" width="150" height="60" rx="8" fill="#ffffff" stroke="#6b7280" stroke-width="1.4"/>
-    <text x="275" y="65" class="head" text-anchor="middle">attention / MoE</text>
-    <text x="275" y="85" class="small" text-anchor="middle">吐出 F(x)</text>
+    <rect x="200" y="60" width="150" height="60" rx="8" fill="#ffffff" stroke="#6b7280" stroke-width="1.4"/>
+    <text x="275" y="85" class="head" text-anchor="middle">attention / MoE</text>
+    <text x="275" y="105" class="small" text-anchor="middle">吐出 F(x)</text>
 
-    <!-- 4 pre 输入 -->
-    <path d="M-70 55  H 15" class="flow"/>
-    <path d="M-70 101 H 15" class="flow"/>
-    <path d="M-70 147 H 15" class="flow"/>
-    <path d="M-70 193 H 15" class="flow"/>
+    <!-- 4 份旧副本进入 pre —— 4 条曲线均匀汇入 pre 框左边缘（y 从 40 到 140） -->
+    <path d="M-70 30  C -20 30, -20 55, 15 55" class="flow" fill="none"/>
+    <path d="M-70 76  C -20 76, -20 78, 15 78" class="flow" fill="none"/>
+    <path d="M-70 122 C -20 122, -20 102, 15 102" class="flow" fill="none"/>
+    <path d="M-70 168 C -20 168, -20 125, 15 125" class="flow" fill="none"/>
 
     <!-- pre → attn -->
-    <path d="M140 70 H 195" class="flow"/>
+    <path d="M140 90 H 195" class="flow"/>
 
     <!-- attn → F(x) 箭头 -->
-    <path d="M275 100 V 148" class="flow"/>
-    <text x="298" y="128" class="mono">F(x)</text>
+    <path d="M275 120 V 170" class="flow"/>
+    <text x="298" y="150" class="mono">F(x)</text>
   </g>
 
   <!-- post × 4 -->
@@ -101,12 +101,13 @@
     <text x="185" y="24" class="head" text-anchor="middle">comb 4×4</text>
     <text x="185" y="44" class="small" text-anchor="middle">16 个权重——4 份旧副本互相怎么串成 4 份新副本</text>
     <text x="185" y="64" class="small" text-anchor="middle">（就是这块需要 Sinkhorn 推到双随机矩阵）</text>
-    <!-- 4 份旧副本进入 comb -->
-    <path d="M-70 40 H 15" class="flow"/>
+    <!-- 4 份旧副本进入 comb —— 从最下面那份副本 x4 上方拉一条汇聚线到 comb 左边 -->
+    <path d="M-70 -72 C -20 -72, -20 40, 15 40" class="flow" fill="none"/>
+    <text x="-30" y="-90" class="small" fill="#166534">(4 份旧副本汇入)</text>
   </g>
 
   <!-- 右侧：4 份新副本 -->
-  <g transform="translate(650 80)">
+  <g transform="translate(650 145)">
     <text x="120" y="0" class="head" text-anchor="middle">离开本层后</text>
     <text x="120" y="18" class="small" text-anchor="middle">4 份新副本</text>
     <g transform="translate(0 30)">
@@ -129,16 +130,16 @@
   </g>
 
   <!-- post → new -->
-  <path d="M610 267 C 640 267, 640 155, 670 155" class="flowR"/>
-  <path d="M610 267 C 640 267, 640 207, 670 207" class="flowR"/>
-  <path d="M610 267 C 640 267, 640 259, 670 259" class="flowR"/>
-  <path d="M610 267 C 640 267, 640 311, 670 311" class="flowR"/>
+  <path d="M610 267 C 640 267, 640 205, 670 205" class="flowR"/>
+  <path d="M610 267 C 640 267, 640 257, 670 257" class="flowR"/>
+  <path d="M610 267 C 640 267, 640 309, 670 309" class="flowR"/>
+  <path d="M610 267 C 640 267, 640 361, 670 361" class="flowR"/>
 
   <!-- comb → new -->
-  <path d="M610 380 C 640 380, 640 155, 670 155" class="flowG" stroke-dasharray="4 3"/>
-  <path d="M610 380 C 640 380, 640 207, 670 207" class="flowG" stroke-dasharray="4 3"/>
-  <path d="M610 380 C 640 380, 640 259, 670 259" class="flowG" stroke-dasharray="4 3"/>
-  <path d="M610 380 C 640 380, 640 311, 670 311" class="flowG" stroke-dasharray="4 3"/>
+  <path d="M610 380 C 640 380, 640 205, 670 205" class="flowG" stroke-dasharray="4 3"/>
+  <path d="M610 380 C 640 380, 640 257, 670 257" class="flowG" stroke-dasharray="4 3"/>
+  <path d="M610 380 C 640 380, 640 309, 670 309" class="flowG" stroke-dasharray="4 3"/>
+  <path d="M610 380 C 640 380, 640 361, 670 361" class="flowG" stroke-dasharray="4 3"/>
 
   <!-- 底部说明 -->
   <g transform="translate(30 460)">
