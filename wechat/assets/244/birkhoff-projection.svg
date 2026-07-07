@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', sans-serif; fill: #1f2937; }
+    .title { font-size: 20px; font-weight: bold; }
+    .head  { font-size: 14px; font-weight: bold; }
+    .body  { font-size: 13px; }
+    .small { font-size: 11px; fill: #4b5563; }
+    .code  { font-family: 'DejaVu Sans Mono', monospace; font-size: 11px; fill: #7c2d12; }
+    .caption { font-size: 12px; fill: #374151; }
+    .polytope-fill { fill: #d9edf7; stroke: #2b7bb9; stroke-width: 2; stroke-linejoin: round; }
+    .polytope-inner { stroke: #a8c9df; stroke-width: 0.7; fill: none; }
+    .vertex { fill: #1f2937; }
+    .center-point { fill: #6b7280; }
+    .start-point { fill: #dc2626; }
+    .end-point { fill: #059669; }
+    .final-point { fill: #059669; }
+    .path-line { stroke: #dc2626; stroke-width: 1.6; fill: none; stroke-dasharray: 5 3; }
+    .path-line-final { stroke: #059669; stroke-width: 2; fill: none; }
+    .arrow-tip { fill: #059669; }
+    .arrow-tip-red { fill: #dc2626; }
+    .step-label { font-size: 10px; fill: #374151; }
+  </style>
+
+  <defs>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="30" text-anchor="middle" class="title">Sinkhorn 把 comb 投影到 Birkhoff 多面体附近</text>
+  <text x="450" y="50" text-anchor="middle" class="caption">起点 = softmax 后（行守恒但列不守恒） 　终点 = 行列都守恒（合法家族里）</text>
+
+  <!-- ============ 左：3 阶示意（画得出的多面体） ============ -->
+  <g transform="translate(50 80)">
+    <text x="180" y="0" text-anchor="middle" class="head">Birkhoff 多面体（3 阶为例）</text>
+    <text x="180" y="18" text-anchor="middle" class="small">六边形，6 个顶点都是"重排"，中心是"完全均匀"</text>
+
+    <!-- 六边形本体 -->
+    <polygon points="180,80 300,150 300,290 180,360 60,290 60,150"
+             class="polytope-fill"/>
+
+    <!-- 内部对角线（表现凸体感）-->
+    <line x1="180" y1="80"  x2="300" y2="290" class="polytope-inner"/>
+    <line x1="180" y1="80"  x2="60"  y2="290" class="polytope-inner"/>
+    <line x1="300" y1="150" x2="60"  y2="290" class="polytope-inner"/>
+    <line x1="300" y1="150" x2="180" y2="360" class="polytope-inner"/>
+    <line x1="60"  y1="150" x2="300" y2="290" class="polytope-inner"/>
+    <line x1="60"  y1="150" x2="180" y2="360" class="polytope-inner"/>
+
+    <!-- 6 个顶点（置换矩阵）-->
+    <circle cx="180" cy="80"  r="5" class="vertex"/>
+    <circle cx="300" cy="150" r="5" class="vertex"/>
+    <circle cx="300" cy="290" r="5" class="vertex"/>
+    <circle cx="180" cy="360" r="5" class="vertex"/>
+    <circle cx="60"  cy="290" r="5" class="vertex"/>
+    <circle cx="60"  cy="150" r="5" class="vertex"/>
+
+    <text x="180" y="72" text-anchor="middle" class="small">纯重排</text>
+    <text x="308" y="146" class="small">纯重排</text>
+    <text x="308" y="298" class="small">纯重排</text>
+    <text x="180" y="378" text-anchor="middle" class="small">纯重排</text>
+    <text x="52"  y="298" text-anchor="end" class="small">纯重排</text>
+    <text x="52"  y="146" text-anchor="end" class="small">纯重排</text>
+
+    <!-- 中心：均匀混合 -->
+    <circle cx="180" cy="220" r="6" class="center-point"/>
+    <text x="180" y="240" text-anchor="middle" class="small">全 1/n（均匀混合）</text>
+
+    <text x="180" y="410" text-anchor="middle" class="caption" font-style="italic">
+      内部所有点 = 合法 comb 家族
+    </text>
+    <text x="180" y="425" text-anchor="middle" class="small">
+      每个内部点都同时满足"行和=1"和"列和=1"
+    </text>
+  </g>
+
+  <!-- ============ 右：Sinkhorn 迭代把起点拖进多面体 ============ -->
+  <g transform="translate(500 80)">
+    <text x="180" y="0" text-anchor="middle" class="head">Sinkhorn 迭代 = 把起点拖进多面体</text>
+    <text x="180" y="18" text-anchor="middle" class="small">同一个六边形，标出迭代轨迹</text>
+
+    <!-- 六边形本体 -->
+    <polygon points="180,80 300,150 300,290 180,360 60,290 60,150"
+             class="polytope-fill"/>
+
+    <!-- 内部对角线 -->
+    <line x1="180" y1="80"  x2="300" y2="290" class="polytope-inner"/>
+    <line x1="180" y1="80"  x2="60"  y2="290" class="polytope-inner"/>
+    <line x1="300" y1="150" x2="60"  y2="290" class="polytope-inner"/>
+    <line x1="300" y1="150" x2="180" y2="360" class="polytope-inner"/>
+    <line x1="60"  y1="150" x2="300" y2="290" class="polytope-inner"/>
+    <line x1="60"  y1="150" x2="180" y2="360" class="polytope-inner"/>
+
+    <!-- 6 个顶点 -->
+    <circle cx="180" cy="80"  r="4" class="vertex"/>
+    <circle cx="300" cy="150" r="4" class="vertex"/>
+    <circle cx="300" cy="290" r="4" class="vertex"/>
+    <circle cx="180" cy="360" r="4" class="vertex"/>
+    <circle cx="60"  cy="290" r="4" class="vertex"/>
+    <circle cx="60"  cy="150" r="4" class="vertex"/>
+
+    <!-- 起点（在多面体外的右上方）：softmax 后但列不守恒 -->
+    <circle cx="345" cy="45" r="7" class="start-point"/>
+    <text x="330" y="30" text-anchor="end" class="body" fill="#dc2626" font-weight="bold">起点</text>
+    <text x="330" y="45" text-anchor="end" class="small">softmax 之后</text>
+    <text x="330" y="60" text-anchor="end" class="small">行守恒，列不守恒</text>
+
+    <!-- 迭代轨迹（虚线，从起点弯进多面体，但停在偏起点方向的一角，不是中心）-->
+    <path d="M 341 48 Q 295 100 265 135 Q 250 155 245 172"
+          class="path-line" marker-end="url(#arr-red)"/>
+
+    <!-- 5 步中间点（在多面体内部偏右上，还没完全稳）-->
+    <circle cx="245" cy="175" r="6" fill="#f59e0b"/>
+    <text x="270" y="170" class="body" fill="#f59e0b" font-weight="bold">5 步</text>
+    <text x="270" y="185" class="small">大致守恒</text>
+    <text x="270" y="198" class="small">偏差 ~1e-2</text>
+
+    <!-- 从 5 步继续到 20 步终点（依然在偏起点方向的内部）-->
+    <path d="M 243 178 Q 235 185 230 190"
+          class="path-line-final" marker-end="url(#arr-green)"/>
+
+    <!-- 20 步终点（明显偏向起点方向，不是中心）-->
+    <circle cx="228" cy="192" r="7" class="final-point"/>
+    <text x="248" y="220" class="body" fill="#059669" font-weight="bold">20 步</text>
+    <text x="248" y="235" class="small">终点位置由起点决定</text>
+    <text x="248" y="248" class="small">不一定在中心</text>
+
+    <!-- 中心（灰点，作参照）-->
+    <circle cx="180" cy="220" r="5" class="center-point"/>
+    <text x="140" y="223" text-anchor="middle" class="small">中心（均匀混合）</text>
+    <text x="140" y="238" text-anchor="middle" class="small">= 完全平均，无区分</text>
+
+    <!-- 一条辅助虚线，暗示"起点方向"和"终点位置"的一致性 -->
+    <line x1="180" y1="220" x2="228" y2="192" stroke="#9ca3af" stroke-width="0.8" stroke-dasharray="2 2"/>
+    <text x="200" y="320" text-anchor="middle" class="step-label" font-style="italic">
+      起点偏向哪个顶点，终点就落在多面体内偏那个方向的位置
+    </text>
+    <text x="200" y="335" text-anchor="middle" class="step-label">
+      Sinkhorn 只把"总量"拉直，保留"哪个位置更大"这个结构
+    </text>
+
+    <!-- 说明 -->
+    <text x="180" y="420" text-anchor="middle" class="caption" font-style="italic">
+      每一次"除以行和/列和" = 把点往多面体推一小步
+    </text>
+  </g>
+
+  <!-- ============ 底部：三档对比 ============ -->
+  <g transform="translate(50 470)">
+    <rect x="0" y="0" width="800" height="52" rx="8" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="20" y="20" class="body">
+      <tspan font-weight="bold">三档对比</tspan>：
+      迭代步数越多，comb 越贴近 Birkhoff 表面
+    </text>
+    <text x="30" y="40" class="body">
+      <tspan fill="#dc2626" font-weight="bold">起点</tspan>（列不守恒）→
+      <tspan fill="#f59e0b" font-weight="bold">5 步</tspan>（大致守恒，偏差 ~1e-2）→
+      <tspan fill="#059669" font-weight="bold">20 步</tspan>（几乎双随机，偏差 &lt; 1e-6）→
+      <tspan font-weight="bold">无穷步</tspan>（严格双随机）
+    </text>
+  </g>
+</svg>

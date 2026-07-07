@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">SM_121 KERNEL SERIES · 第 5 站 · mHC Sinkhorn</text>
+
+  <!-- ============ LEFT: 4 份副本调和的三件事 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">一层出口的 24 个权重</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">怎么合（pre × 4）</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">4 份副本 → 1 份</text>
+      <text x="100" y="56" text-anchor="middle" fill="#bfdbfe" font-size="10">送进 attention / MoE</text>
+    </g>
+
+    <g transform="translate(15 100)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">怎么分（post × 4）</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">F(x) 按比例注入</text>
+      <text x="100" y="56" text-anchor="middle" fill="#fbbf24" font-size="10">4 份新副本</text>
+    </g>
+
+    <g transform="translate(15 168)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">旧的怎么串（comb 4×4）</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">16 个权重</text>
+      <text x="100" y="58" text-anchor="middle" fill="#5eead4" font-size="10">这块要 Sinkhorn 加工</text>
+      <text x="100" y="72" text-anchor="middle" fill="#5eead4" font-size="9">推到守恒律里</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#94a3b8" font-size="11">4 + 4 + 16 = 24 个权重</text>
+    <text x="115" y="290" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">同时决定"合、分、串"三件事</text>
+  </g>
+
+  <!-- ============ MIDDLE: Sinkhorn 迭代把点拖进多面体 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">Sinkhorn 迭代 · 六十年前的算法</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 六边形示意 -->
+    <g transform="translate(30 50)">
+      <polygon points="90,20 145,45 145,105 90,130 35,105 35,45"
+               fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="90" y="80" text-anchor="middle" fill="#93c5fd" font-size="10">Birkhoff</text>
+      <text x="90" y="94" text-anchor="middle" fill="#93c5fd" font-size="10">多面体</text>
+
+      <!-- 起点（外部） -->
+      <circle cx="170" cy="18" r="4" fill="#dc2626"/>
+      <text x="175" y="14" fill="#fca5a5" font-size="9">起点</text>
+
+      <!-- 拉线（虚线） -->
+      <path d="M 168 20 Q 130 40 100 60" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4 2" fill="none"/>
+
+      <!-- 终点（内部） -->
+      <circle cx="100" cy="60" r="5" fill="#2dd4bf"/>
+      <text x="100" y="52" text-anchor="middle" fill="#5eead4" font-size="9">拉进合法家族</text>
+    </g>
+
+    <line x1="20" y1="210" x2="220" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 226)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">交替行 / 列归一</text>
+      <text x="0" y="18" fill="#cbd5e1" font-size="10">1964 年 Sinkhorn 论文里的算法</text>
+      <text x="0" y="36" fill="#94a3b8" font-size="10">六十年一字未改，官方 20 步</text>
+      <text x="0" y="54" fill="#94a3b8" font-size="10">"回到 2×2 那条线段就懂了"</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 双随机 + 守恒律 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">合法 comb 家族 · 双随机矩阵</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="82" rx="6" fill="#0a1a2a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">总量守恒</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">行和 = 1（每份新副本有界）</text>
+      <text x="100" y="58" text-anchor="middle" fill="#a7f3d0" font-size="10">列和 = 1（每份旧副本不蒸发）</text>
+      <text x="100" y="74" text-anchor="middle" fill="#5eead4" font-size="9">= 双随机矩阵</text>
+    </g>
+
+    <g transform="translate(15 130)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">没这层约束会怎样</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">43 层反复放大或衰减</text>
+      <text x="100" y="56" text-anchor="middle" fill="#f87171" font-size="10">4 份副本塌成 1 份独大</text>
+    </g>
+
+    <line x1="16" y1="210" x2="214" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 226)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">四家银行转账的守恒律</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">钱不能凭空生，也不能凭空没</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">怎么转由银行决定</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">但总量守恒是死规矩</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">mHC 出口的 Sinkhorn：4 份副本怎么调和</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">30 行代码藏着双随机矩阵 + Birkhoff 多面体 + 43 层稳定性</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.244 · 在 50 系显卡上实现 DeepSeek V4 算子 · 第 5 站</text>
+</svg>
