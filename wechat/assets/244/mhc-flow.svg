@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560">
+  <defs>
+    <linearGradient id="oldBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eef4fb"/>
+      <stop offset="100%" stop-color="#dbe7f5"/>
+    </linearGradient>
+    <linearGradient id="newBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eaf6ee"/>
+      <stop offset="100%" stop-color="#c9e8d3"/>
+    </linearGradient>
+    <linearGradient id="opBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff7e6"/>
+      <stop offset="100%" stop-color="#ffe9b3"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#374151"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b45309"/>
+    </marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#166534"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; fill: #1f2937; }
+    .title { font-size: 20px; font-weight: bold; }
+    .head  { font-size: 14px; font-weight: bold; }
+    .body  { font-size: 12px; }
+    .small { font-size: 11px; fill: #4b5563; }
+    .mono  { font-family: 'DejaVu Sans Mono', monospace; font-size: 11px; fill: #7c2d12; }
+    .box   { stroke: #6b7280; stroke-width: 1.4; }
+    .old   { fill: url(#oldBg); stroke: #4a90d9; stroke-width: 1.6; }
+    .new   { fill: url(#newBg); stroke: #16a34a; stroke-width: 1.6; }
+    .op    { fill: url(#opBg); stroke: #d97706; stroke-width: 1.6; }
+    .flow  { stroke: #374151; stroke-width: 1.6; fill: none; marker-end: url(#arr); }
+    .flowR { stroke: #b45309; stroke-width: 1.8; fill: none; marker-end: url(#arrR); }
+    .flowG { stroke: #166534; stroke-width: 1.8; fill: none; marker-end: url(#arrG); }
+  </style>
+
+  <text x="450" y="30" text-anchor="middle" class="title">mHC 一层里的 24 个权重都用来干嘛</text>
+  <text x="450" y="50" text-anchor="middle" class="small">24 = pre(4) + post(4) + comb(4×4)　—　三块权重一起决定 4 份副本怎么演化</text>
+
+  <!-- 左侧：4 份旧副本 -->
+  <g transform="translate(30 80)">
+    <text x="90" y="0" class="head" text-anchor="middle">进入本层前</text>
+    <text x="90" y="18" class="small" text-anchor="middle">4 份旧副本</text>
+    <g transform="translate(0 30)">
+      <rect x="20" y="0"   width="140" height="34" rx="6" class="box old"/>
+      <text x="90" y="22" class="body" text-anchor="middle">x1 （旧副本 1）</text>
+      <rect x="20" y="46"  width="140" height="34" rx="6" class="box old"/>
+      <text x="90" y="68" class="body" text-anchor="middle">x2 （旧副本 2）</text>
+      <rect x="20" y="92"  width="140" height="34" rx="6" class="box old"/>
+      <text x="90" y="114" class="body" text-anchor="middle">x3 （旧副本 3）</text>
+      <rect x="20" y="138" width="140" height="34" rx="6" class="box old"/>
+      <text x="90" y="160" class="body" text-anchor="middle">x4 （旧副本 4）</text>
+    </g>
+  </g>
+
+  <!-- 中间：pre → attn/moe → F(x) -->
+  <g transform="translate(260 80)">
+    <text x="180" y="0" class="head" text-anchor="middle">本层的计算</text>
+    <text x="180" y="18" class="small" text-anchor="middle">先合成 1 份、再算 attention 或 MoE</text>
+
+    <!-- pre -->
+    <rect x="20" y="40" width="120" height="60" rx="8" class="box op"/>
+    <text x="80" y="62" class="head" text-anchor="middle">pre × 4</text>
+    <text x="80" y="80" class="small" text-anchor="middle">4 个权重</text>
+    <text x="80" y="94" class="small" text-anchor="middle">合 4 份 → 1 份</text>
+
+    <!-- attention / MoE -->
+    <rect x="200" y="40" width="150" height="60" rx="8" fill="#ffffff" stroke="#6b7280" stroke-width="1.4"/>
+    <text x="275" y="65" class="head" text-anchor="middle">attention / MoE</text>
+    <text x="275" y="85" class="small" text-anchor="middle">吐出 F(x)</text>
+
+    <!-- 4 pre 输入 -->
+    <path d="M-70 55  H 15" class="flow"/>
+    <path d="M-70 101 H 15" class="flow"/>
+    <path d="M-70 147 H 15" class="flow"/>
+    <path d="M-70 193 H 15" class="flow"/>
+
+    <!-- pre → attn -->
+    <path d="M140 70 H 195" class="flow"/>
+
+    <!-- attn → F(x) 箭头 -->
+    <path d="M275 100 V 148" class="flow"/>
+    <text x="298" y="128" class="mono">F(x)</text>
+  </g>
+
+  <!-- post × 4 -->
+  <g transform="translate(260 240)">
+    <rect x="20" y="0" width="330" height="54" rx="8" class="box op"/>
+    <text x="185" y="22" class="head" text-anchor="middle">post × 4</text>
+    <text x="185" y="42" class="small" text-anchor="middle">4 个权重——F(x) 按什么比例注入 4 份新副本</text>
+  </g>
+
+  <!-- comb 4×4 -->
+  <g transform="translate(260 320)">
+    <rect x="20" y="0" width="330" height="80" rx="8" class="box op"/>
+    <text x="185" y="24" class="head" text-anchor="middle">comb 4×4</text>
+    <text x="185" y="44" class="small" text-anchor="middle">16 个权重——4 份旧副本互相怎么串成 4 份新副本</text>
+    <text x="185" y="64" class="small" text-anchor="middle">（就是这块需要 Sinkhorn 推到双随机矩阵）</text>
+    <!-- 4 份旧副本进入 comb -->
+    <path d="M-70 40 H 15" class="flow"/>
+  </g>
+
+  <!-- 右侧：4 份新副本 -->
+  <g transform="translate(650 80)">
+    <text x="120" y="0" class="head" text-anchor="middle">离开本层后</text>
+    <text x="120" y="18" class="small" text-anchor="middle">4 份新副本</text>
+    <g transform="translate(0 30)">
+      <rect x="20" y="0"   width="200" height="42" rx="6" class="box new"/>
+      <text x="120" y="20" class="body" text-anchor="middle">x1' = post1·F + Σ comb[1,i]·xi</text>
+      <text x="120" y="35" class="small" text-anchor="middle">post 1 个 + comb 一行 4 个</text>
+
+      <rect x="20" y="52"  width="200" height="42" rx="6" class="box new"/>
+      <text x="120" y="72" class="body" text-anchor="middle">x2' = post2·F + Σ comb[2,i]·xi</text>
+      <text x="120" y="87" class="small" text-anchor="middle">post 1 个 + comb 一行 4 个</text>
+
+      <rect x="20" y="104" width="200" height="42" rx="6" class="box new"/>
+      <text x="120" y="124" class="body" text-anchor="middle">x3' = post3·F + Σ comb[3,i]·xi</text>
+      <text x="120" y="139" class="small" text-anchor="middle">post 1 个 + comb 一行 4 个</text>
+
+      <rect x="20" y="156" width="200" height="42" rx="6" class="box new"/>
+      <text x="120" y="176" class="body" text-anchor="middle">x4' = post4·F + Σ comb[4,i]·xi</text>
+      <text x="120" y="191" class="small" text-anchor="middle">post 1 个 + comb 一行 4 个</text>
+    </g>
+  </g>
+
+  <!-- post → new -->
+  <path d="M610 267 C 640 267, 640 155, 670 155" class="flowR"/>
+  <path d="M610 267 C 640 267, 640 207, 670 207" class="flowR"/>
+  <path d="M610 267 C 640 267, 640 259, 670 259" class="flowR"/>
+  <path d="M610 267 C 640 267, 640 311, 670 311" class="flowR"/>
+
+  <!-- comb → new -->
+  <path d="M610 380 C 640 380, 640 155, 670 155" class="flowG" stroke-dasharray="4 3"/>
+  <path d="M610 380 C 640 380, 640 207, 670 207" class="flowG" stroke-dasharray="4 3"/>
+  <path d="M610 380 C 640 380, 640 259, 670 259" class="flowG" stroke-dasharray="4 3"/>
+  <path d="M610 380 C 640 380, 640 311, 670 311" class="flowG" stroke-dasharray="4 3"/>
+
+  <!-- 底部说明 -->
+  <g transform="translate(30 460)">
+    <rect x="0" y="0" width="840" height="82" rx="8" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="20" y="24" class="body">
+      <tspan font-weight="bold">为什么是 24 个权重？</tspan>
+      因为一层要同时决定三件事：
+    </text>
+    <text x="30" y="44" class="body">
+      · <tspan font-weight="bold">怎么合</tspan>（pre，4 个）—— 把 4 份旧副本合成 1 份送进本层计算
+    </text>
+    <text x="30" y="60" class="body">
+      · <tspan font-weight="bold">怎么分</tspan>（post，4 个）—— 本层算出的 F(x) 按什么比例注入 4 份新副本
+    </text>
+    <text x="30" y="76" class="body">
+      · <tspan font-weight="bold">旧的怎么串</tspan>（comb，4×4 = 16 个）—— 4 份旧副本互相怎么混成 4 份新副本 <tspan fill="#166534">（这块靠 Sinkhorn 约束成双随机矩阵）</tspan>
+    </text>
+  </g>
+</svg>
