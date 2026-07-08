@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <style>
+      text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="wsGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wsPanel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#273449"/>
+      <stop offset="100%" stop-color="#16213a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- 暗计算噪点：90% 的沉默区 -->
+  <g fill="#3b4a63" opacity="0.55">
+    <circle cx="60" cy="70" r="3"/><circle cx="130" cy="140" r="2.4"/><circle cx="80" cy="230" r="2.8"/>
+    <circle cx="180" cy="60" r="2.2"/><circle cx="230" cy="180" r="3"/><circle cx="150" cy="310" r="2.6"/>
+    <circle cx="70" cy="390" r="2.4"/><circle cx="210" cy="420" r="2.8"/><circle cx="290" cy="90" r="2.2"/>
+    <circle cx="320" cy="300" r="2.6"/><circle cx="260" cy="450" r="2.2"/><circle cx="360" cy="170" r="2.4"/>
+    <circle cx="620" cy="60" r="2.6"/><circle cx="700" cy="130" r="2.2"/><circle cx="790" cy="80" r="2.8"/>
+    <circle cx="850" cy="180" r="2.4"/><circle cx="680" cy="250" r="2.2"/><circle cx="820" cy="300" r="2.6"/>
+    <circle cx="740" cy="400" r="2.8"/><circle cx="850" cy="440" r="2.2"/><circle cx="640" cy="460" r="2.4"/>
+    <circle cx="420" cy="60" r="2.2"/><circle cx="520" cy="100" r="2.6"/><circle cx="480" cy="440" r="2.4"/>
+  </g>
+  <!-- 暗区细连线 -->
+  <g stroke="#2c3a52" stroke-width="1" opacity="0.4">
+    <line x1="60" y1="70" x2="130" y2="140"/><line x1="130" y1="140" x2="230" y2="180"/>
+    <line x1="80" y1="230" x2="150" y2="310"/><line x1="700" y1="130" x2="790" y2="80"/>
+    <line x1="680" y1="250" x2="820" y2="300"/><line x1="740" y1="400" x2="850" y2="440"/>
+    <line x1="290" y1="90" x2="360" y2="170"/><line x1="620" y1="60" x2="520" y2="100"/>
+  </g>
+
+  <!-- 工作空间：小而亮的窗口 -->
+  <ellipse cx="450" cy="255" rx="230" ry="150" fill="url(#wsGlow)"/>
+  <rect x="330" y="185" width="240" height="140" rx="16" fill="url(#wsPanel)" stroke="#fbbf24" stroke-width="2.5"/>
+  <text x="450" y="212" text-anchor="middle" font-size="16" fill="#fbbf24" font-weight="bold">工作空间 · 能说出来的想法</text>
+
+  <!-- 概念槽位 chips -->
+  <g font-size="17" font-weight="bold">
+    <rect x="350" y="228" width="62" height="30" rx="15" fill="#f59e0b" opacity="0.9"/>
+    <text x="381" y="249" text-anchor="middle" fill="#0f172a">蜘蛛</text>
+    <rect x="422" y="228" width="62" height="30" rx="15" fill="#2dd4bf" opacity="0.9"/>
+    <text x="453" y="249" text-anchor="middle" fill="#0f172a">面包</text>
+    <rect x="494" y="228" width="56" height="30" rx="15" fill="#4a90d9" opacity="0.9"/>
+    <text x="522" y="249" text-anchor="middle" fill="#0f172a">49</text>
+    <rect x="386" y="272" width="52" height="30" rx="15" fill="#334155" stroke="#64748b" stroke-width="1"/>
+    <text x="412" y="293" text-anchor="middle" fill="#94a3b8" font-size="15">空位</text>
+    <rect x="452" y="272" width="52" height="30" rx="15" fill="#334155" stroke="#64748b" stroke-width="1"/>
+    <text x="478" y="293" text-anchor="middle" fill="#94a3b8" font-size="15">空位</text>
+  </g>
+
+  <!-- J-lens 放大镜 -->
+  <g filter="url(#glow)">
+    <circle cx="620" cy="330" r="46" fill="none" stroke="#2dd4bf" stroke-width="6"/>
+    <line x1="655" y1="365" x2="705" y2="415" stroke="#2dd4bf" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <text x="620" y="338" text-anchor="middle" font-size="22" fill="#2dd4bf" font-weight="bold">J-lens</text>
+
+  <!-- 两条注脚 -->
+  <text x="415" y="368" text-anchor="middle" font-size="15" fill="#94a3b8">同时只装 ~25 个概念 · 只占激活方差 10%</text>
+
+  <!-- 标题区 -->
+  <rect x="70" y="52" width="6" height="66" rx="3" fill="url(#titleBand)"/>
+  <text x="94" y="84" font-size="40" fill="#f8fafc" font-weight="bold">J-space：AI 的"工作台"被画出来了</text>
+  <text x="94" y="118" font-size="21" fill="#cbd5e1">Anthropic 新论文——Claude 内部一块"自己能说出来的想法"专区</text>
+
+  <!-- 底部标签 -->
+  <g font-size="15">
+    <rect x="70" y="432" width="150" height="30" rx="15" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="145" y="452" text-anchor="middle" fill="#f59e0b">全局工作空间理论</text>
+    <rect x="232" y="432" width="110" height="30" rx="15" fill="#1e293b" stroke="#2dd4bf" stroke-width="1.2"/>
+    <text x="287" y="452" text-anchor="middle" fill="#2dd4bf">换心实验</text>
+    <rect x="354" y="432" width="130" height="30" rx="15" fill="#1e293b" stroke="#4a90d9" stroke-width="1.2"/>
+    <text x="419" y="452" text-anchor="middle" fill="#4a90d9">可解释性研究</text>
+  </g>
+</svg>
