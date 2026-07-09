@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <style>
+      text { font-family: 'Noto Sans CJK SC', sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#111a2e"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- 标题区 -->
+  <rect x="70" y="42" width="6" height="62" rx="3" fill="url(#titleBand)"/>
+  <text x="94" y="72" font-size="38" fill="#f8fafc" font-weight="bold">MoE 路由：查表选人，打分发钱</text>
+  <text x="94" y="104" font-size="19" fill="#cbd5e1">在 50 系显卡上实现 DeepSeek V4 算子 · 第 6 站</text>
+
+  <!-- 左卡：前 3 层 查表 -->
+  <rect x="60" y="140" width="380" height="270" rx="14" fill="url(#cardBg)" stroke="#f59e0b" stroke-width="2"/>
+  <text x="250" y="174" text-anchor="middle" font-size="20" fill="#f59e0b" font-weight="bold">前 3 层 · 按学号分宿舍</text>
+
+  <rect x="150" y="192" width="200" height="34" rx="17" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="250" y="215" text-anchor="middle" font-size="16" fill="#f8fafc">token #4471 → 查表</text>
+  <line x1="250" y1="226" x2="250" y2="252" stroke="#f59e0b" stroke-width="2.5" marker-end="none"/>
+  <path d="M 250 252 l -6 -9 h 12 z" fill="#f59e0b"/>
+
+  <!-- 专家网格 8x4，固定 6 个亮橙 -->
+  <g>
+    <!-- rows y: 272,300,328,356 ; cols x: 110..390 step 40 -->
+    <g fill="#334155">
+      <circle cx="110" cy="272" r="10"/><circle cx="150" cy="272" r="10"/><circle cx="190" cy="272" r="10"/><circle cx="230" cy="272" r="10"/><circle cx="270" cy="272" r="10"/><circle cx="310" cy="272" r="10"/><circle cx="350" cy="272" r="10"/><circle cx="390" cy="272" r="10"/>
+      <circle cx="110" cy="300" r="10"/><circle cx="150" cy="300" r="10"/><circle cx="190" cy="300" r="10"/><circle cx="230" cy="300" r="10"/><circle cx="270" cy="300" r="10"/><circle cx="310" cy="300" r="10"/><circle cx="350" cy="300" r="10"/><circle cx="390" cy="300" r="10"/>
+      <circle cx="110" cy="328" r="10"/><circle cx="150" cy="328" r="10"/><circle cx="190" cy="328" r="10"/><circle cx="230" cy="328" r="10"/><circle cx="270" cy="328" r="10"/><circle cx="310" cy="328" r="10"/><circle cx="350" cy="328" r="10"/><circle cx="390" cy="328" r="10"/>
+      <circle cx="110" cy="356" r="10"/><circle cx="150" cy="356" r="10"/><circle cx="190" cy="356" r="10"/><circle cx="230" cy="356" r="10"/><circle cx="270" cy="356" r="10"/><circle cx="310" cy="356" r="10"/><circle cx="350" cy="356" r="10"/><circle cx="390" cy="356" r="10"/>
+    </g>
+    <g fill="#f59e0b">
+      <circle cx="150" cy="272" r="10"/><circle cx="310" cy="272" r="10"/>
+      <circle cx="110" cy="328" r="10"/><circle cx="270" cy="300" r="10"/>
+      <circle cx="230" cy="356" r="10"/><circle cx="390" cy="328" r="10"/>
+    </g>
+  </g>
+  <text x="250" y="394" text-anchor="middle" font-size="14" fill="#94a3b8">256 选 6 · 表是死的，谁来都这 6 个</text>
+
+  <!-- 右卡：后 40 层 打分 -->
+  <rect x="460" y="140" width="380" height="270" rx="14" fill="url(#cardBg)" stroke="#2dd4bf" stroke-width="2"/>
+  <text x="650" y="174" text-anchor="middle" font-size="20" fill="#2dd4bf" font-weight="bold">后 40 层 · 按特长分小组</text>
+
+  <!-- 分数条形图 -->
+  <g>
+    <rect x="500" y="238" width="18" height="14" fill="#334155"/>
+    <rect x="524" y="220" width="18" height="32" fill="#2dd4bf"/>
+    <rect x="548" y="244" width="18" height="8"  fill="#334155"/>
+    <rect x="572" y="212" width="18" height="40" fill="#2dd4bf"/>
+    <rect x="596" y="232" width="18" height="20" fill="#334155"/>
+    <rect x="620" y="204" width="18" height="48" fill="#2dd4bf"/>
+    <rect x="644" y="240" width="18" height="12" fill="#334155"/>
+    <rect x="668" y="216" width="18" height="36" fill="#2dd4bf"/>
+    <rect x="692" y="236" width="18" height="16" fill="#334155"/>
+    <rect x="716" y="224" width="18" height="28" fill="#2dd4bf"/>
+    <rect x="740" y="246" width="18" height="6"  fill="#334155"/>
+    <rect x="764" y="228" width="18" height="24" fill="#2dd4bf"/>
+    <line x1="490" y1="252" x2="800" y2="252" stroke="#475569" stroke-width="1.5"/>
+  </g>
+  <text x="650" y="276" text-anchor="middle" font-size="15" fill="#cbd5e1">sqrtsoftplus 打分 + bias 选 top-6</text>
+
+  <rect x="500" y="292" width="300" height="60" rx="10" fill="#0f172a" stroke="#4a90d9" stroke-width="1.5"/>
+  <text x="650" y="316" text-anchor="middle" font-size="15" fill="#4a90d9" font-weight="bold">bias 只管选人，不管发钱</text>
+  <text x="650" y="338" text-anchor="middle" font-size="14" fill="#94a3b8">权重回到原始分数算 · 归一化 × 1.5</text>
+
+  <text x="650" y="394" text-anchor="middle" font-size="14" fill="#94a3b8">谁上场看加分，分多少看真本事</text>
+
+  <!-- 底部主线 -->
+  <text x="450" y="446" text-anchor="middle" font-size="18" fill="#f8fafc" font-weight="bold">打分 43 层都做 —— 选人与发钱，从头到尾分离</text>
+  <text x="450" y="474" text-anchor="middle" font-size="14" fill="#64748b">DeepSeek V4 Flash · 256 路由专家 + 1 共享 · top-6</text>
+</svg>
