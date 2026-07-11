@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="0.18" cy="0.28" r="0.42">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="0.82" cy="0.75" r="0.42">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+  <defs>
+    <g id="win">
+      <rect x="0" y="0" width="56" height="40" rx="5" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.2"/>
+      <circle cx="20" cy="20" r="5.5" fill="#e2e8f0"/>
+      <circle cx="38" cy="20" r="3.5" fill="#2dd4bf"/>
+      <line x1="25" y1="20" x2="34" y2="20" stroke="#2dd4bf" stroke-width="1.4"/>
+    </g>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">周末杂谈 · Nature 4130 万篇论文 · lonely crowds</text>
+
+  <!-- ============ LEFT: 公寓楼 lonely crowds ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">孤独的人群 · 每户都亮着灯</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <use href="#win" x="26"  y="34"/>
+    <use href="#win" x="148" y="34"/>
+    <use href="#win" x="26"  y="94"/>
+    <use href="#win" x="148" y="94"/>
+    <use href="#win" x="26"  y="154"/>
+    <use href="#win" x="148" y="154"/>
+
+    <!-- 窗间断掉的虚线 -->
+    <g stroke="#64748b" stroke-width="1.2" stroke-dasharray="3 6" opacity="0.5">
+      <line x1="82"  y1="54"  x2="148" y2="54"/>
+      <line x1="82"  y1="114" x2="148" y2="114"/>
+      <line x1="82"  y1="174" x2="148" y2="174"/>
+      <line x1="54"  y1="74"  x2="54"  y2="94"/>
+      <line x1="176" y1="74"  x2="176" y2="94"/>
+      <line x1="54"  y1="134" x2="54"  y2="154"/>
+      <line x1="176" y1="134" x2="176" y2="154"/>
+    </g>
+
+    <text x="115" y="230" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">户内：人和 AI 连着</text>
+    <text x="115" y="250" text-anchor="middle" fill="#cbd5e1" font-size="10">户外：邻居只剩虚线</text>
+    <text x="115" y="272" text-anchor="middle" fill="#94a3b8" font-size="10">私人翻译 · 私人程序员 · 私人陪聊</text>
+    <text x="115" y="290" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">出门的理由一个一个消失</text>
+  </g>
+
+  <!-- ============ MIDDLE: 交叉曲线 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">同一批人 · 两条曲线</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 40)">
+      <line x1="0" y1="160" x2="200" y2="160" stroke="#334155" stroke-width="1.2"/>
+      <line x1="0" y1="160" x2="0" y2="0" stroke="#334155" stroke-width="1.2"/>
+      <path d="M 0 140 C 60 136, 120 100, 196 12" fill="none" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 0 70 C 70 76, 130 110, 196 140" fill="none" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+      <text x="196" y="4" text-anchor="end" fill="#5eead4" font-size="12" font-weight="bold">个人产出 ×3~5</text>
+      <text x="196" y="158" text-anchor="end" fill="#fbbf24" font-size="12" font-weight="bold">彼此协作 −22%</text>
+      <text x="4" y="178" fill="#64748b" font-size="10">→ 用 AI 的程度</text>
+    </g>
+
+    <line x1="20" y1="240" x2="220" y2="240" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 258)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">每个人都赢了，共同体在输</text>
+      <text x="0" y="18" fill="#cbd5e1" font-size="10">科研主题 −4.63% · 全挤进热门坑</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 四组证据 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">四个人群 · 同一个形状</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">科学家</text>
+      <text x="100" y="40" text-anchor="middle" fill="#bfdbfe" font-size="10">论文 ×3 引用 ×5 · 协作 −22%</text>
+    </g>
+
+    <g transform="translate(15 88)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">程序员</text>
+      <text x="100" y="40" text-anchor="middle" fill="#fbbf24" font-size="10">Stack Overflow 半年 −25%</text>
+    </g>
+
+    <g transform="translate(15 148)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">写作者</text>
+      <text x="100" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">个体更有创意 · 作品更趋同</text>
+    </g>
+
+    <g transform="translate(15 208)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#2a0a1a" stroke="#ec4899" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#f9a8d4" font-size="12" font-weight="bold">重度用户</text>
+      <text x="100" y="40" text-anchor="middle" fill="#f472b6" font-size="10">4000 万条对话 · 越聊越孤独</text>
+    </g>
+
+    <text x="115" y="288" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">四种方法，算出同一件事</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">用 AI 的人，正在安静地远离彼此</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">个体的曲线往上，人和人之间的曲线往下</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.248 · 周末杂谈 · 4100 万篇 paper 证实的孤独</text>
+</svg>
