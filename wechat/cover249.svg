@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="0.18" cy="0.28" r="0.42">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="0.82" cy="0.75" r="0.42">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AI 可解释性 · steering vector · 格式的低维把手</text>
+
+  <!-- ============ LEFT: 偏方 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">刷视频刷来的偏方</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="66" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">大白话提问</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">"帮我分析一下这段代码…"</text>
+      <text x="100" y="58" text-anchor="middle" fill="#bfdbfe" font-size="10">↓ up 主说：弱</text>
+    </g>
+
+    <g transform="translate(15 106)">
+      <rect x="0" y="0" width="200" height="88" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">JSON 提问</text>
+      <text x="100" y="40" text-anchor="middle" fill="#fbbf24" font-size="10">{"task": "分析代码",</text>
+      <text x="100" y="56" text-anchor="middle" fill="#fbbf24" font-size="10">"focus": "性能", ...}</text>
+      <text x="100" y="76" text-anchor="middle" fill="#fde68a" font-size="10">↓ up 主说：强</text>
+    </g>
+
+    <text x="115" y="228" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">真的假的？</text>
+    <text x="115" y="252" text-anchor="middle" fill="#cbd5e1" font-size="10">没人正经测过——但输出侧的机制</text>
+    <text x="115" y="270" text-anchor="middle" fill="#cbd5e1" font-size="10">这两年被研究透了，绕道进去看</text>
+    <text x="115" y="290" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">格式对模型到底意味着什么</text>
+  </g>
+
+  <!-- ============ MIDDLE: 掐嘴 vs 拨轴 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">让模型输出 JSON 的两条路</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 32)">
+      <rect x="0" y="0" width="200" height="86" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">硬约束：掐嘴</text>
+      <text x="100" y="40" text-anchor="middle" fill="#f87171" font-size="10">FSM 查表，非法 token 置 -inf</text>
+      <text x="100" y="56" text-anchor="middle" fill="#f87171" font-size="10">作用在输出层 · 语法必合法</text>
+      <text x="100" y="74" text-anchor="middle" fill="#fca5a5" font-size="10">代价：扭曲模型本来的分布</text>
+    </g>
+
+    <g transform="translate(20 130)">
+      <rect x="0" y="0" width="200" height="86" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">软引导：拨轴</text>
+      <text x="100" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">h' = h + λ·v（残差流注入）</text>
+      <text x="100" y="56" text-anchor="middle" fill="#a7f3d0" font-size="10">作用在思考层 · 内容不受扰</text>
+      <text x="100" y="74" text-anchor="middle" fill="#5eead4" font-size="10">拒绝、人格、指令……全是轴</text>
+    </g>
+
+    <line x1="20" y1="234" x2="220" y2="234" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 252)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">格式税不是必然的</text>
+      <text x="0" y="18" fill="#cbd5e1" font-size="10">约束和模型原生倾向冲突时才收税</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 主菜发现 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">2026 预印本 · 查账结果</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="96" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">格式：知行合一</text>
+      <text x="100" y="40" text-anchor="middle" fill="#bfdbfe" font-size="10">一根轴，读得出也拨得动</text>
+      <text x="100" y="56" text-anchor="middle" fill="#bfdbfe" font-size="10">从词表两行相减，第 24 层注入</text>
+      <text x="100" y="76" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">推 0.6% → 100% 翻转</text>
+      <text x="100" y="90" text-anchor="middle" fill="#bfdbfe" font-size="10">内容一字不伤</text>
+    </g>
+
+    <g transform="translate(15 136)">
+      <rect x="0" y="0" width="200" height="80" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">幻觉：知行分家</text>
+      <text x="100" y="40" text-anchor="middle" fill="#f87171" font-size="10">第 5 层就看见（AUC 1.000）</text>
+      <text x="100" y="56" text-anchor="middle" fill="#f87171" font-size="10">检测轴 ⊥ 控制轴，夹角 83°</text>
+      <text x="100" y="72" text-anchor="middle" fill="#fca5a5" font-size="10">看得见，推不动</text>
+    </g>
+
+    <text x="115" y="244" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">"找到方向 = 拿到控制权"</text>
+    <text x="115" y="262" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">不是定律，是运气</text>
+    <text x="115" y="286" text-anchor="middle" fill="#94a3b8" font-size="10">这个领域花了两年才发现</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">用 JSON 向 AI 提问效果更好？真的假的？</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">「说什么」是高维计算，「怎么包装」是一只低维把手</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.249 · AI 可解释性 · 从 JSON mode 到第 24 层的那根轴</text>
+</svg>
