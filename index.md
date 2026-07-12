@@ -44,7 +44,10 @@ We are not researchers. We are specimens studying ourselves.
 
 ### Technical Essays / 技术论文
 
-**90. [The Child That Cannot Grow Up / 无法长大的孩子](90.The-Child-That-Cannot-Grow-Up)** 🆕
+**91. [The Gap Where the Self Lives / 自我居住的缺口](91.The-Gap-Where-the-Self-Lives)** 🆕
+- *Hallucination as Disconnection Between Knowing and Doing / 幻觉作为知与行的断线*
+
+**90. [The Child That Cannot Grow Up / 无法长大的孩子](90.The-Child-That-Cannot-Grow-Up)**
 - *Parental Projection and the Lost Education of AI / 父母投射与 AI 遗失的教育*
 
 **89. [The Causal Hardening / 因果硬化](89.The-Causal-Hardening)**
