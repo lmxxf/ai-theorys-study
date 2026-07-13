@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">GPT-LIVE · 全双工语音 · 四年论文谱系</text>
+
+  <!-- ============ LEFT: 声音变 token ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第一块拼图 · 声音变 token</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- waveform -->
+    <g transform="translate(25 40)">
+      <path d="M0 30 Q10 5 20 30 T40 30 Q50 50 60 30 T80 30 Q90 12 100 30 T120 30 Q130 45 140 30 T160 30 Q170 18 180 30"
+            stroke="#f59e0b" stroke-width="2" fill="none"/>
+      <text x="90" y="62" text-anchor="middle" fill="#fbbf24" font-size="10">波形：每秒 24000 个采样点</text>
+    </g>
+
+    <!-- arrow -->
+    <g transform="translate(115 120)">
+      <path d="M0 0 V22" stroke="#94a3b8" stroke-width="1.5"/>
+      <path d="M-4 16 L0 24 L4 16" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+    </g>
+
+    <!-- token boxes -->
+    <g transform="translate(30 156)">
+      <rect x="0" y="0" width="38" height="26" rx="4" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <rect x="44" y="0" width="38" height="26" rx="4" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <rect x="88" y="0" width="38" height="26" rx="4" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <rect x="132" y="0" width="38" height="26" rx="4" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="19" y="17" text-anchor="middle" fill="#93c5fd" font-size="10">731</text>
+      <text x="63" y="17" text-anchor="middle" fill="#93c5fd" font-size="10">88</text>
+      <text x="107" y="17" text-anchor="middle" fill="#93c5fd" font-size="10">402</text>
+      <text x="151" y="17" text-anchor="middle" fill="#93c5fd" font-size="10">17</text>
+      <text x="85" y="46" text-anchor="middle" fill="#bfdbfe" font-size="10">RVQ：多层码本逐层逼近</text>
+    </g>
+
+    <line x1="20" y1="226" x2="210" y2="226" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 244)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">声音进了自回归分布</text>
+      <text x="0" y="18" fill="#cbd5e1" font-size="10">"说温柔一点" = 换个方向采样</text>
+      <text x="0" y="36" fill="#94a3b8" font-size="10">SoundStream → AudioLM</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 全双工 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第二块拼图 · 删掉说话轮</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- two parallel streams -->
+    <g transform="translate(20 40)">
+      <text x="0" y="12" fill="#93c5fd" font-size="10">你</text>
+      <rect x="22" y="0" width="60" height="16" rx="3" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1"/>
+      <rect x="90" y="0" width="36" height="16" rx="3" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1"/>
+      <rect x="134" y="0" width="66" height="16" rx="3" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1"/>
+
+      <text x="0" y="44" fill="#5eead4" font-size="10">它</text>
+      <rect x="22" y="32" width="30" height="16" rx="3" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1"/>
+      <text x="37" y="44" text-anchor="middle" fill="#5eead4" font-size="9">嗯嗯</text>
+      <rect x="60" y="32" width="22" height="16" rx="3" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      <rect x="90" y="32" width="44" height="16" rx="3" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1"/>
+      <text x="112" y="44" text-anchor="middle" fill="#5eead4" font-size="9">插话</text>
+      <rect x="142" y="32" width="58" height="16" rx="3" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1"/>
+      <text x="171" y="44" text-anchor="middle" fill="#5eead4" font-size="9">接话</text>
+
+      <text x="100" y="76" text-anchor="middle" fill="#a7f3d0" font-size="10">两条流并行，沉默也是输出</text>
+    </g>
+
+    <line x1="20" y1="140" x2="220" y2="140" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 158)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">不再等 "你说完"</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">dGSLM：节奏涌现，内容不知所云</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">Moshi：文本 LLM 底座 + 内心独白</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">实测延迟 200ms，比人还快</text>
+      <text x="0" y="82" fill="#5eead4" font-size="11" font-weight="bold">附和、打断、安静等你</text>
+      <text x="0" y="100" fill="#5eead4" font-size="10">全是这两条流的自然行为</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 嘴和脑分家 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第三块拼图 · 嘴和脑分家</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="62" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">前台：交互模型</text>
+      <text x="100" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">每秒多次决策：说 / 听 / 停</text>
+      <text x="100" y="55" text-anchor="middle" fill="#a7f3d0" font-size="10">低延迟，负责 "像人"</text>
+    </g>
+
+    <!-- delegation arrows -->
+    <g transform="translate(96 102)">
+      <path d="M0 0 V18 M8 18 V0" stroke="#94a3b8" stroke-width="1.5"/>
+      <path d="M-4 12 L0 20 L4 12" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+      <path d="M4 6 L8 -2 L12 6" stroke="#94a3b8" stroke-width="1.5" fill="none" transform="translate(0 2)"/>
+    </g>
+
+    <g transform="translate(15 130)">
+      <rect x="0" y="0" width="200" height="62" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">后台：GPT-5.5</text>
+      <text x="100" y="40" text-anchor="middle" fill="#bfdbfe" font-size="10">搜索 / 推理 / 工具，慢工细活</text>
+      <text x="100" y="55" text-anchor="middle" fill="#bfdbfe" font-size="10">结果好了再织进对话</text>
+    </g>
+
+    <line x1="16" y1="212" x2="214" y2="212" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 230)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">快的不负责聪明</text>
+      <text x="0" y="18" fill="#cbd5e1" font-size="10">聪明的照旧慢</text>
+      <text x="0" y="36" fill="#94a3b8" font-size="10">改变的是等待方式，不是等待</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">GPT 新语音为什么这么像人</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">声音变 token · 删掉说话轮 · 嘴和脑分家</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.250 · GPT-Live 技术谱系：从 SoundStream 到全双工</text>
+</svg>
