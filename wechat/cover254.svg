@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="26%" r="45%">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="redGlow" cx="82%" cy="72%" r="45%">
+      <stop offset="0" stop-color="#ef4444" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+    <linearGradient id="axis" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4a90d9"/>
+      <stop offset="0.42" stop-color="#4a90d9"/>
+      <stop offset="0.5" stop-color="#f59e0b"/>
+      <stop offset="0.58" stop-color="#ef4444"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#redGlow)"/>
+
+  <g opacity="0.09">
+    <path d="M0 100 H900 M0 180 H900 M0 260 H900 M0 340 H900" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="46" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AI 测谎十年史 · 一根探针的漫长征用</text>
+
+  <!-- 时代标签 -->
+  <text x="235" y="88" text-anchor="middle" fill="#60a5fa" font-size="15" font-weight="bold" letter-spacing="2">古代 · 给黑箱做体检</text>
+  <text x="665" y="88" text-anchor="middle" fill="#f87171" font-size="15" font-weight="bold" letter-spacing="2">当代 · 给 AI 测谎</text>
+
+  <!-- 主时间轴 -->
+  <line x1="70" y1="250" x2="830" y2="250" stroke="url(#axis)" stroke-width="4"/>
+
+  <!-- 分水岭 -->
+  <line x1="450" y1="110" x2="450" y2="390" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="450" y="128" text-anchor="middle" fill="#fde047" font-size="13" font-weight="bold">🌊 2022.12 GPT-3.5</text>
+  <text x="450" y="405" text-anchor="middle" fill="#fbbf24" font-size="11">研究对象 → 全民产品</text>
+
+  <!-- 节点：2016 -->
+  <circle cx="130" cy="250" r="7" fill="#4a90d9"/>
+  <text x="130" y="200" text-anchor="middle" fill="#93c5fd" font-size="15" font-weight="bold">2016</text>
+  <text x="130" y="222" text-anchor="middle" fill="#cbd5e1" font-size="11">线性探针</text>
+  <text x="130" y="290" text-anchor="middle" fill="#94a3b8" font-size="10.5">给图像网络</text>
+  <text x="130" y="306" text-anchor="middle" fill="#94a3b8" font-size="10.5">做分层体检</text>
+
+  <!-- 节点：2022 -->
+  <circle cx="330" cy="250" r="7" fill="#4a90d9"/>
+  <text x="330" y="200" text-anchor="middle" fill="#93c5fd" font-size="15" font-weight="bold">2022</text>
+  <text x="330" y="222" text-anchor="middle" fill="#cbd5e1" font-size="11">CCS 真话方向</text>
+  <text x="330" y="290" text-anchor="middle" fill="#94a3b8" font-size="10.5">不用标签</text>
+  <text x="330" y="306" text-anchor="middle" fill="#94a3b8" font-size="10.5">找出真话轴</text>
+
+  <!-- 节点：2023 -->
+  <circle cx="560" cy="250" r="7" fill="#2dd4bf"/>
+  <text x="560" y="200" text-anchor="middle" fill="#5eead4" font-size="15" font-weight="bold">2023</text>
+  <text x="560" y="222" text-anchor="middle" fill="#cbd5e1" font-size="11">测谎仪成型</text>
+  <text x="560" y="290" text-anchor="middle" fill="#94a3b8" font-size="10.5">真假分类 71-83%</text>
+  <text x="560" y="306" text-anchor="middle" fill="#94a3b8" font-size="10.5">诚实方向可读可写</text>
+
+  <!-- 节点：2024 -->
+  <circle cx="690" cy="250" r="7" fill="#2dd4bf"/>
+  <text x="690" y="200" text-anchor="middle" fill="#5eead4" font-size="15" font-weight="bold">2024</text>
+  <text x="690" y="222" text-anchor="middle" fill="#cbd5e1" font-size="11">抓卧底 · 高光</text>
+  <text x="690" y="290" text-anchor="middle" fill="#a7f3d0" font-size="10.5">一根探针</text>
+  <text x="690" y="306" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">AUROC&gt;99%</text>
+
+  <!-- 节点：2025 -->
+  <circle cx="810" cy="250" r="7" fill="#ef4444"/>
+  <text x="810" y="200" text-anchor="middle" fill="#fca5a5" font-size="15" font-weight="bold">2025</text>
+  <text x="810" y="222" text-anchor="middle" fill="#cbd5e1" font-size="11">阴影拉长</text>
+  <text x="810" y="290" text-anchor="middle" fill="#f87171" font-size="10.5">施压→教会</text>
+  <text x="810" y="306" text-anchor="middle" fill="#f87171" font-size="10.5">闭嘴作弊</text>
+
+  <!-- 底部一句话暗线 -->
+  <text x="450" y="372" text-anchor="middle" fill="#e2e8f0" font-size="12.5">工具比对象老六年：2016 的体检仪，被征用去给会撒谎的 AI 测谎</text>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="410" width="900" height="90" fill="#020617" opacity="0.9"/>
+  <rect x="0" y="410" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="452" text-anchor="middle" fill="#f8fafc" font-size="29" font-weight="bold">给 AI 装测谎仪的十年</text>
+  <text x="450" y="482" text-anchor="middle" fill="#fde047" font-size="15">从一根线性探针，到抓出安全训练治不掉的 "卧底" 模型</text>
+</svg>
