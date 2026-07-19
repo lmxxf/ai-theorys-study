@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 690" font-family="Noto Sans CJK SC">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="940" height="690" fill="#ffffff"/>
+  <text x="470" y="34" text-anchor="middle" font-size="21" font-weight="bold" fill="#0f172a">同一个门，四个岗位（2014–2017）</text>
+
+  <!-- 分隔线 -->
+  <line x1="470" y1="56" x2="470" y2="620" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="30" y1="340" x2="910" y2="340" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- ═══ 面板1：GRU（左上）═══ -->
+  <text x="245" y="80" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e40af">GRU 2014 —— 在「时间」上选</text>
+
+  <rect x="50" y="150" width="120" height="48" rx="9" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <text x="110" y="179" text-anchor="middle" font-size="14" fill="#334155">上一时刻状态</text>
+  <rect x="320" y="150" width="120" height="48" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="380" y="179" text-anchor="middle" font-size="14" fill="#1e40af">这一时刻状态</text>
+
+  <line x1="170" y1="174" x2="228" y2="174" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <circle cx="245" cy="174" r="15" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="245" y="181" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">×</text>
+  <line x1="260" y1="174" x2="317" y2="174" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="185" y="235" width="120" height="44" rx="9" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="245" y="262" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">更新门 σ</text>
+  <line x1="245" y1="235" x2="245" y2="192" stroke="#dc2626" stroke-width="2" marker-end="url(#ar)"/>
+
+  <text x="245" y="305" text-anchor="middle" font-size="13" fill="#64748b">门决定：旧状态留几成、新内容进几成</text>
+  <text x="245" y="325" text-anchor="middle" font-size="13" fill="#64748b">（LSTM 三门精简成两门的时间维门控）</text>
+
+  <!-- ═══ 面板2：Highway（右上）═══ -->
+  <text x="705" y="80" text-anchor="middle" font-size="16" font-weight="bold" fill="#b45309">Highway 2015 —— 在「深度」上选</text>
+
+  <text x="760" y="303" font-size="14" fill="#334155">下层信号</text>
+  <line x1="705" y1="300" x2="705" y2="282" stroke="#475569" stroke-width="2"/>
+  <!-- 分叉点 -->
+  <circle cx="705" cy="278" r="4" fill="#475569"/>
+  <!-- 左路：过本层变换 + 门 T -->
+  <line x1="705" y1="278" x2="630" y2="252" stroke="#475569" stroke-width="2"/>
+  <rect x="575" y="204" width="110" height="44" rx="9" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="630" y="231" text-anchor="middle" font-size="14" fill="#92400e">本层变换</text>
+  <line x1="630" y1="204" x2="630" y2="180" stroke="#475569" stroke-width="2"/>
+  <circle cx="630" cy="163" r="15" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="630" y="170" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">×</text>
+  <text x="588" y="167" text-anchor="end" font-size="13" fill="#dc2626">门 T</text>
+  <line x1="630" y1="148" x2="694" y2="122" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <!-- 右路：原样跳过 + 门 1−T -->
+  <line x1="705" y1="278" x2="785" y2="252" stroke="#475569" stroke-width="2"/>
+  <line x1="785" y1="252" x2="785" y2="196" stroke="#475569" stroke-width="2"/>
+  <circle cx="785" cy="180" r="15" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="785" y="187" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">×</text>
+  <text x="808" y="184" font-size="13" fill="#dc2626">门 1−T</text>
+  <line x1="785" y1="165" x2="716" y2="124" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="836" y="238" text-anchor="middle" font-size="13" fill="#64748b">原样跳过</text>
+  <!-- 汇合 -->
+  <circle cx="705" cy="112" r="14" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="705" y="119" text-anchor="middle" font-size="16" font-weight="bold" fill="#16a34a">+</text>
+  <line x1="705" y1="98" x2="705" y2="76" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="740" y="98" font-size="13" fill="#334155">往上一层</text>
+
+  <text x="705" y="330" text-anchor="middle" font-size="13" fill="#64748b">门决定：信号过本层加工，还是原样跳过</text>
+
+  <!-- ═══ 面板3：GLU（左下）═══ -->
+  <text x="245" y="368" text-anchor="middle" font-size="16" font-weight="bold" fill="#5b21b6">GLU 2016 —— 在「特征」上选</text>
+
+  <text x="62" y="490" text-anchor="middle" font-size="15" font-weight="bold" fill="#334155">输入</text>
+  <circle cx="90" cy="485" r="4" fill="#475569"/>
+  <!-- 信号路 -->
+  <line x1="90" y1="485" x2="140" y2="440" stroke="#475569" stroke-width="2"/>
+  <rect x="142" y="416" width="120" height="44" rx="9" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="202" y="443" text-anchor="middle" font-size="14" fill="#92400e">信号路（W）</text>
+  <line x1="262" y1="438" x2="322" y2="474" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <!-- 阀门路 -->
+  <line x1="90" y1="485" x2="140" y2="530" stroke="#475569" stroke-width="2"/>
+  <rect x="142" y="508" width="120" height="44" rx="9" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="202" y="535" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">阀门路（V→σ）</text>
+  <line x1="262" y1="530" x2="322" y2="496" stroke="#dc2626" stroke-width="2" marker-end="url(#ar)"/>
+  <!-- 逐元素乘 -->
+  <circle cx="338" cy="485" r="16" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="338" y="492" text-anchor="middle" font-size="17" font-weight="bold" fill="#dc2626">×</text>
+  <line x1="354" y1="485" x2="412" y2="485" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="428" y="490" font-size="15" font-weight="bold" fill="#334155">输出</text>
+
+  <text x="245" y="585" text-anchor="middle" font-size="13" fill="#64748b">同一个输入投影两次：一路当内容，一路当阀门</text>
+  <text x="245" y="605" text-anchor="middle" font-size="13" fill="#64748b">每个特征通道各配一个 0～1 的门（SwiGLU 的祖先）</text>
+
+  <!-- ═══ 面板4：MoE（右下）═══ -->
+  <text x="705" y="368" text-anchor="middle" font-size="16" font-weight="bold" fill="#166534">稀疏 MoE 2017 —— 在「专家」上选</text>
+
+  <text x="530" y="490" text-anchor="middle" font-size="15" font-weight="bold" fill="#334155">token</text>
+  <line x1="556" y1="485" x2="588" y2="485" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="592" y="458" width="118" height="54" rx="9" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="651" y="481" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">门控网络</text>
+  <text x="651" y="501" text-anchor="middle" font-size="13" fill="#b91c1c">打分，只选 top-k</text>
+
+  <!-- 四个专家 -->
+  <rect x="790" y="396" width="110" height="40" rx="9" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="845" y="421" text-anchor="middle" font-size="14" fill="#166534">专家 1 ✓</text>
+  <rect x="790" y="452" width="110" height="40" rx="9" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="845" y="477" text-anchor="middle" font-size="14" fill="#94a3b8">专家 2（不算）</text>
+  <rect x="790" y="508" width="110" height="40" rx="9" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="845" y="533" text-anchor="middle" font-size="14" fill="#166534">专家 3 ✓</text>
+  <rect x="790" y="564" width="110" height="40" rx="9" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="845" y="589" text-anchor="middle" font-size="14" fill="#94a3b8">专家 4（不算）</text>
+
+  <line x1="710" y1="470" x2="786" y2="422" stroke="#16a34a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="710" y1="500" x2="786" y2="524" stroke="#16a34a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="710" y1="478" x2="786" y2="470" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <line x1="710" y1="506" x2="786" y2="580" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <text x="705" y="632" text-anchor="middle" font-size="13" fill="#64748b">门决定：这个 token 交给哪几个专家，其余连算都不算</text>
+
+  <!-- 总图注 -->
+  <line x1="60" y1="650" x2="880" y2="650" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="470" y="676" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">四张图是同一个动作：算一个 0 到 1 的系数，乘上去——变的只是在哪个维度上选</text>
+</svg>

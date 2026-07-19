@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 600" font-family="Noto Sans CJK SC">
+  <defs>
+    <marker id="fwd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="grad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="940" height="600" fill="#ffffff"/>
+
+  <text x="470" y="36" text-anchor="middle" font-size="21" font-weight="bold" fill="#0f172a">把堆叠 LSTM 沿时间展开：一张 "时间 × 层数" 的网格</text>
+
+  <!-- 损失节点 -->
+  <rect x="700" y="62" width="80" height="36" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="740" y="86" text-anchor="middle" font-size="15" font-weight="bold" fill="#991b1b">损失</text>
+
+  <!-- 单元格：3 层 × 4 时间步，列中心 200/380/560/740，行中心 150/270/390 -->
+  <!-- 行标签 -->
+  <text x="88" y="156" text-anchor="end" font-size="14" fill="#334155">第 3 层</text>
+  <text x="88" y="276" text-anchor="end" font-size="14" fill="#334155">第 2 层</text>
+  <text x="88" y="396" text-anchor="end" font-size="14" fill="#334155">第 1 层</text>
+
+  <!-- 格子：t=1 列 = 权重本体（黄），t=2 起 = 沿时间展开的分身（灰，虚线框） -->
+  <g fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5">
+    <rect x="145" y="122" width="110" height="56" rx="9"/>
+    <rect x="145" y="242" width="110" height="56" rx="9"/>
+    <rect x="145" y="362" width="110" height="56" rx="9"/>
+  </g>
+  <g fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4">
+    <rect x="325" y="122" width="110" height="56" rx="9"/><rect x="505" y="122" width="110" height="56" rx="9"/><rect x="685" y="122" width="110" height="56" rx="9"/>
+    <rect x="325" y="242" width="110" height="56" rx="9"/><rect x="505" y="242" width="110" height="56" rx="9"/><rect x="685" y="242" width="110" height="56" rx="9"/>
+    <rect x="325" y="362" width="110" height="56" rx="9"/><rect x="505" y="362" width="110" height="56" rx="9"/><rect x="685" y="362" width="110" height="56" rx="9"/>
+  </g>
+  <g text-anchor="middle" font-size="13" fill="#92400e">
+    <text x="200" y="155">LSTM 单元</text>
+    <text x="200" y="275">LSTM 单元</text>
+    <text x="200" y="395">LSTM 单元</text>
+  </g>
+  <g text-anchor="middle" font-size="13" fill="#64748b">
+    <text x="380" y="155">（分身）</text><text x="560" y="155">（分身）</text><text x="740" y="155">（分身）</text>
+    <text x="380" y="275">（分身）</text><text x="560" y="275">（分身）</text><text x="740" y="275">（分身）</text>
+    <text x="380" y="395">（分身）</text><text x="560" y="395">（分身）</text><text x="740" y="395">（分身）</text>
+  </g>
+
+  <!-- 前向箭头：沿时间（右） -->
+  <g stroke="#94a3b8" stroke-width="2" marker-end="url(#fwd)">
+    <line x1="255" y1="150" x2="322" y2="150"/><line x1="435" y1="150" x2="502" y2="150"/><line x1="615" y1="150" x2="682" y2="150"/>
+    <line x1="255" y1="270" x2="322" y2="270"/><line x1="435" y1="270" x2="502" y2="270"/><line x1="615" y1="270" x2="682" y2="270"/>
+    <line x1="255" y1="390" x2="322" y2="390"/><line x1="435" y1="390" x2="502" y2="390"/><line x1="615" y1="390" x2="682" y2="390"/>
+  </g>
+  <!-- 前向箭头：沿层（上） -->
+  <g stroke="#94a3b8" stroke-width="2" marker-end="url(#fwd)">
+    <line x1="200" y1="362" x2="200" y2="301"/><line x1="380" y1="362" x2="380" y2="301"/><line x1="560" y1="362" x2="560" y2="301"/><line x1="740" y1="362" x2="740" y2="301"/>
+    <line x1="200" y1="242" x2="200" y2="181"/><line x1="380" y1="242" x2="380" y2="181"/><line x1="560" y1="242" x2="560" y2="181"/><line x1="740" y1="242" x2="740" y2="181"/>
+  </g>
+  <!-- 顶层到损失 -->
+  <line x1="740" y1="122" x2="740" y2="101" stroke="#94a3b8" stroke-width="2" marker-end="url(#fwd)"/>
+
+  <!-- 底部输入 -->
+  <g stroke="#cbd5e1" stroke-width="2" marker-end="url(#fwd)">
+    <line x1="200" y1="452" x2="200" y2="421"/><line x1="380" y1="452" x2="380" y2="421"/><line x1="560" y1="452" x2="560" y2="421"/><line x1="740" y1="452" x2="740" y2="421"/>
+  </g>
+  <g text-anchor="middle" font-size="14" fill="#475569">
+    <text x="200" y="472">输入 t=1</text><text x="380" y="472">输入 t=2</text><text x="560" y="472">输入 t=3</text><text x="740" y="472">输入 t=4 …</text>
+  </g>
+
+  <!-- 梯度回传路径（红色虚线）：损失 → 顶行一路向左 → t=1 处下到第 1 层 -->
+  <g stroke="#dc2626" stroke-width="3" stroke-dasharray="7 5" fill="none" marker-end="url(#grad)">
+    <line x1="726" y1="107" x2="726" y2="120"/>
+    <line x1="682" y1="136" x2="620" y2="136"/>
+    <line x1="502" y1="136" x2="440" y2="136"/>
+    <line x1="322" y1="136" x2="260" y2="136"/>
+    <line x1="186" y1="181" x2="186" y2="238"/>
+    <line x1="186" y1="301" x2="186" y2="358"/>
+  </g>
+  <!-- 每跳的乘法标注 -->
+  <g font-size="12" fill="#dc2626" text-anchor="middle">
+    <text x="651" y="127">×一次</text>
+    <text x="471" y="127">×一次</text>
+    <text x="291" y="127">×一次</text>
+    <text x="168" y="214" text-anchor="end">×一次</text>
+    <text x="168" y="334" text-anchor="end">×一次</text>
+  </g>
+
+  <!-- 每行权重共享标注 -->
+  <g font-size="12" fill="#b45309">
+    <text x="808" y="148">← 这一行 4 个格子</text>
+    <text x="808" y="164">是同一份权重的分身</text>
+    <text x="808" y="276">← 同一份权重</text>
+    <text x="808" y="396">← 同一份权重</text>
+  </g>
+  <text x="470" y="493" text-anchor="middle" font-size="13" fill="#92400e">黄格 = 真实存在的权重（每层一份，当年撑死也就个位数层）；灰虚线格 = 同一份权重沿时间展开的分身，参数量和句子长度无关</text>
+
+  <!-- 图注两条 -->
+  <text x="470" y="517" text-anchor="middle" font-size="14" fill="#334155">灰箭头 = 前向：信息沿时间往右传，也沿层往上传　　红虚线 = 反向：梯度一格一格往回走，每过一格乘一次</text>
+  <text x="470" y="540" text-anchor="middle" font-size="14" fill="#dc2626">最长回传路径 = 时间步数 + 层数（图里是 3+2 跳；真实任务时间方向就有几百步）</text>
+  <text x="470" y="566" text-anchor="middle" font-size="13" fill="#b45309">横着走的每一跳，乘的是同一层的同一组循环权重——LSTM 的门守的就是这条横路；层数一叠，竖路又加长</text>
+</svg>

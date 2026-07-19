@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 590" font-family="Noto Sans CJK SC">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b45309"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="940" height="590" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="470" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#0f172a">LSTM：三个门，看守一条记忆传送带</text>
+
+  <!-- 传送带（细胞状态） -->
+  <text x="60" y="80" font-size="14" fill="#b45309">细胞状态 C —— 常量误差旋转木马（一条不做乘法衰减的记忆传送带）</text>
+  <rect x="50" y="90" width="840" height="44" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+
+  <!-- 传送带上的流向 -->
+  <text x="66" y="118" font-size="16" font-weight="bold" fill="#92400e">C 旧</text>
+  <line x1="112" y1="112" x2="258" y2="112" stroke="#b45309" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+  <line x1="302" y1="112" x2="518" y2="112" stroke="#b45309" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+  <line x1="562" y1="112" x2="828" y2="112" stroke="#b45309" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+  <text x="838" y="118" font-size="16" font-weight="bold" fill="#92400e">C 新</text>
+
+  <!-- 传送带上的两个运算节点 -->
+  <circle cx="280" cy="112" r="18" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="280" y="119" text-anchor="middle" font-size="19" font-weight="bold" fill="#dc2626">×</text>
+  <circle cx="540" cy="112" r="18" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="540" y="120" text-anchor="middle" font-size="21" font-weight="bold" fill="#16a34a">+</text>
+  <text x="280" y="160" text-anchor="middle" font-size="12" fill="#dc2626">乘 f：旧记忆保留几成</text>
+  <text x="540" y="160" text-anchor="middle" font-size="12" fill="#16a34a">加进新内容</text>
+
+  <!-- 输入侧合流节点 -->
+  <circle cx="540" cy="230" r="15" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="540" y="237" text-anchor="middle" font-size="17" font-weight="bold" fill="#2563eb">×</text>
+  <line x1="540" y1="215" x2="540" y2="134" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 输出侧支路 -->
+  <line x1="790" y1="134" x2="790" y2="188" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="750" y="190" width="80" height="34" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <text x="790" y="212" text-anchor="middle" font-size="14" fill="#334155">tanh</text>
+  <line x1="790" y1="224" x2="790" y2="249" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="790" cy="266" r="15" fill="#ffffff" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="790" y="273" text-anchor="middle" font-size="17" font-weight="bold" fill="#7c3aed">×</text>
+  <line x1="806" y1="266" x2="862" y2="266" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="868" y="263" font-size="16" font-weight="bold" fill="#0f172a">h</text>
+  <text x="866" y="283" font-size="11" fill="#64748b">本时刻输出</text>
+
+  <!-- 遗忘门补装标注 -->
+  <text x="205" y="296" font-size="12" fill="#dc2626">1997 原版没有它——2000 年被现实逼着补装的"删除键"</text>
+
+  <!-- 四个部件盒子 -->
+  <rect x="205" y="320" width="150" height="64" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="280" y="347" text-anchor="middle" font-size="15" font-weight="bold" fill="#991b1b">遗忘门 f = σ(·)</text>
+  <text x="280" y="370" text-anchor="middle" font-size="13" fill="#b91c1c">旧账该忘多少？</text>
+
+  <rect x="380" y="320" width="145" height="64" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="452" y="347" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e40af">输入门 i = σ(·)</text>
+  <text x="452" y="370" text-anchor="middle" font-size="13" fill="#1d4ed8">新事该记多少？</text>
+
+  <rect x="545" y="320" width="150" height="64" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <text x="620" y="347" text-anchor="middle" font-size="15" font-weight="bold" fill="#334155">候选信息 tanh(·)</text>
+  <text x="620" y="370" text-anchor="middle" font-size="13" fill="#475569">要写的内容本身</text>
+
+  <rect x="715" y="320" width="150" height="64" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="790" y="347" text-anchor="middle" font-size="15" font-weight="bold" fill="#5b21b6">输出门 o = σ(·)</text>
+  <text x="790" y="370" text-anchor="middle" font-size="13" fill="#6d28d9">记忆该露多少？</text>
+
+  <!-- 盒子到节点的箭头 -->
+  <line x1="280" y1="320" x2="280" y2="132" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="452" y1="320" x2="530" y2="240" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="620" y1="320" x2="551" y2="241" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="790" y1="320" x2="790" y2="283" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 底部输入总线 -->
+  <line x1="120" y1="440" x2="820" y2="440" stroke="#94a3b8" stroke-width="3"/>
+  <line x1="280" y1="440" x2="280" y2="386" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="452" y1="440" x2="452" y2="386" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="620" y1="440" x2="620" y2="386" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="790" y1="440" x2="790" y2="386" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="470" y="470" text-anchor="middle" font-size="14" fill="#334155">x（本时刻输入）＋ h（上一时刻输出）</text>
+  <text x="470" y="492" text-anchor="middle" font-size="13" fill="#64748b">四个部件各拿它们过一套自己专属的权重——开多大不是规则，是训练出来的判断</text>
+
+  <!-- 图例 -->
+  <line x1="60" y1="520" x2="880" y2="520" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="470" y="548" text-anchor="middle" font-size="14" fill="#0f172a">σ 输出 0～1 之间的数；× 就是把这个数乘在信息流上——乘 1 放行，乘 0 掐断，中间半开</text>
+  <text x="470" y="572" text-anchor="middle" font-size="13" fill="#b45309">传送带主干道上唯一的乘法就是遗忘门——ResNet 后来证明：主干道上连这个门都嫌多</text>
+</svg>
