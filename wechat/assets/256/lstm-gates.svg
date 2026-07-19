@@ -14,7 +14,7 @@
   <text x="470" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#0f172a">LSTM：三个门，看守一条记忆传送带</text>
 
   <!-- 传送带（细胞状态） -->
-  <text x="60" y="80" font-size="14" fill="#b45309">细胞状态 C —— 常量误差旋转木马（一条不做乘法衰减的记忆传送带）</text>
+  <text x="60" y="80" font-size="14" fill="#b45309">细胞状态 C —— 从原版恒定误差通道演化而来的记忆主干</text>
   <rect x="50" y="90" width="840" height="44" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
 
   <!-- 传送带上的流向 -->
@@ -86,5 +86,5 @@
   <!-- 图例 -->
   <line x1="60" y1="520" x2="880" y2="520" stroke="#e2e8f0" stroke-width="1"/>
   <text x="470" y="548" text-anchor="middle" font-size="14" fill="#0f172a">σ 输出 0～1 之间的数；× 就是把这个数乘在信息流上——乘 1 放行，乘 0 掐断，中间半开</text>
-  <text x="470" y="572" text-anchor="middle" font-size="13" fill="#b45309">传送带主干道上唯一的乘法就是遗忘门——ResNet 后来证明：主干道上连这个门都嫌多</text>
+  <text x="470" y="572" text-anchor="middle" font-size="13" fill="#b45309">1997 原版主干系数固定为 1；标准 LSTM 乘 f 可控衰减——记住与忘掉的交易</text>
 </svg>

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">无聊的面试题 · 门控思想史 1991–2026</text>
+
+  <!-- ============ LEFT: 1991 双源年 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">1991 · 门控的双源年</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">慕尼黑：一篇德语硕士论文</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">诊断出梯度消失</text>
+      <text x="100" y="58" text-anchor="middle" fill="#bfdbfe" font-size="10">六年后药方 = LSTM</text>
+      <text x="100" y="72" text-anchor="middle" fill="#93c5fd" font-size="9">→ 时间维度的门</text>
+    </g>
+
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">北美：9 页的 MoE 论文</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">gating network 一词确立</text>
+      <text x="100" y="58" text-anchor="middle" fill="#fbbf24" font-size="10">作者栏后来出了诺奖</text>
+      <text x="100" y="72" text-anchor="middle" fill="#fde68a" font-size="9">→ 专家维度的门</text>
+    </g>
+
+    <g transform="translate(15 204)">
+      <text x="100" y="14" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">两条血脉，互不相识</text>
+      <text x="100" y="34" text-anchor="middle" fill="#cbd5e1" font-size="10">各走三十年</text>
+      <text x="100" y="52" text-anchor="middle" fill="#cbd5e1" font-size="10">在今天的大模型里汇合</text>
+      <text x="100" y="72" text-anchor="middle" fill="#94a3b8" font-size="10">给出同一个答案：</text>
+      <text x="100" y="88" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="bold">算一个系数，乘上去</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 门的五次转世 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">同一个门 · 五个岗位</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 竖直时间轴 -->
+    <line x1="46" y1="34" x2="46" y2="252" stroke="#334155" stroke-width="2"/>
+
+    <g font-size="11">
+      <circle cx="46" cy="46" r="5" fill="#4a90d9"/>
+      <text x="60" y="43" fill="#93c5fd" font-weight="bold">1997 LSTM</text>
+      <text x="60" y="57" fill="#94a3b8" font-size="10">在时间上选：记还是忘</text>
+
+      <circle cx="46" cy="88" r="5" fill="#4a90d9"/>
+      <text x="60" y="85" fill="#93c5fd" font-weight="bold">2015 Highway</text>
+      <text x="60" y="99" fill="#94a3b8" font-size="10">在深度上选：变换还是跳过</text>
+
+      <circle cx="46" cy="130" r="5" fill="#2dd4bf"/>
+      <text x="60" y="127" fill="#5eead4" font-weight="bold">2016 GLU</text>
+      <text x="60" y="141" fill="#94a3b8" font-size="10">在特征上选：哪些通道放行</text>
+
+      <circle cx="46" cy="172" r="5" fill="#f59e0b"/>
+      <text x="60" y="169" fill="#fde68a" font-weight="bold">2017 稀疏 MoE</text>
+      <text x="60" y="183" fill="#94a3b8" font-size="10">在专家上选：交给谁处理</text>
+
+      <circle cx="46" cy="214" r="5" fill="#ec4899"/>
+      <text x="60" y="211" fill="#f9a8d4" font-weight="bold">2023 Mamba</text>
+      <text x="60" y="225" fill="#94a3b8" font-size="10">在状态上选：有定理认亲</text>
+    </g>
+
+    <line x1="20" y1="252" x2="220" y2="252" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="120" y="274" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">神经网络里那条可微分的 if</text>
+    <text x="120" y="291" text-anchor="middle" fill="#94a3b8" font-size="10">架构换了一圈，打工的是同一个零件</text>
+  </g>
+
+  <!-- ============ RIGHT: 耳光与汇流 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">一记耳光 · 三次还魂</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">ResNet：不选才是最好的选</text>
+      <text x="100" y="38" text-anchor="middle" fill="#f87171" font-size="10">跨层通路装门 → 掉点</text>
+      <text x="100" y="54" text-anchor="middle" fill="#f87171" font-size="10">恒等连接干干净净 → 赢</text>
+      <text x="100" y="68" text-anchor="middle" fill="#fca5a5" font-size="9">门只配管支路，主干道免进</text>
+    </g>
+
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="104" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">遗忘门的当代转世</text>
+      <text x="100" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">Mamba：选择 = 门，定理为证</text>
+      <text x="100" y="57" text-anchor="middle" fill="#a7f3d0" font-size="10">KDA：大扫除分房间打扫</text>
+      <text x="100" y="74" text-anchor="middle" fill="#a7f3d0" font-size="10">FoX：装回 attention</text>
+      <text x="100" y="91" text-anchor="middle" fill="#5eead4" font-size="10">还顺手兼并了位置编码</text>
+    </g>
+
+    <g transform="translate(15 232)">
+      <text x="100" y="14" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">1999 年防爆炸的补丁</text>
+      <text x="100" y="32" text-anchor="middle" fill="#cbd5e1" font-size="10">2025 年还在各大架构里转世</text>
+      <text x="100" y="50" text-anchor="middle" fill="#94a3b8" font-size="10">活得最久的，恰恰是遗忘门</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">"LSTM 的三个门是什么？"——题死了，思想没死</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">一条活了三十五年的 "if 语句"：时间、深度、特征、专家、状态</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.256 · 无聊的面试题 · 门控思想史</text>
+</svg>
