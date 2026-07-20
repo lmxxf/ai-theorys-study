@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <rect width="900" height="460" fill="#0f172a"/>
+
+  <text x="450" y="40" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="bold">三个纪元：思考住在哪儿</text>
+  <text x="450" y="64" text-anchor="middle" fill="#94a3b8" font-size="12">同一个东西——预训练里的 "一步步想"——三次搬家</text>
+
+  <!-- 共同地基 -->
+  <rect x="70" y="330" width="760" height="56" rx="8" fill="#111827" stroke="#64748b" stroke-width="1.5"/>
+  <text x="450" y="354" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="bold">预训练分布：人类写满互联网的 "一步步想"（教科书、题解、讨论帖）</text>
+  <text x="450" y="374" text-anchor="middle" fill="#94a3b8" font-size="11">三个纪元共用的同一座矿——零件都从这儿来</text>
+
+  <!-- Era 1 -->
+  <g transform="translate(85 95)">
+    <rect width="220" height="190" rx="8" fill="#0a1a2a" stroke="#4a90d9" stroke-width="2"/>
+    <text x="110" y="30" text-anchor="middle" fill="#93c5fd" font-size="14" font-weight="bold">① 提示词纪元</text>
+    <text x="110" y="52" text-anchor="middle" fill="#bfdbfe" font-size="11">思考住在上下文里</text>
+    <line x1="20" y1="66" x2="200" y2="66" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="110" y="90" text-anchor="middle" fill="#bfdbfe" font-size="11">范例 / 咒语引出来</text>
+    <text x="110" y="112" text-anchor="middle" fill="#bfdbfe" font-size="11">免费，谁都能用</text>
+    <text x="110" y="134" text-anchor="middle" fill="#bfdbfe" font-size="11">提示一撤就归零</text>
+    <text x="110" y="168" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">租房</text>
+    <line x1="110" y1="235" x2="110" y2="196" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="4 3"/>
+  </g>
+
+  <!-- arrow 1 -->
+  <g transform="translate(310 175)">
+    <line x1="0" y1="0" x2="60" y2="0" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M60 0 l-10 -5 v10 z" fill="#94a3b8"/>
+    <text x="30" y="-10" text-anchor="middle" fill="#94a3b8" font-size="10">STaR：搬</text>
+  </g>
+
+  <!-- Era 2 -->
+  <g transform="translate(375 95)">
+    <rect width="220" height="190" rx="8" fill="#1a1206" stroke="#f59e0b" stroke-width="2"/>
+    <text x="110" y="30" text-anchor="middle" fill="#fde68a" font-size="14" font-weight="bold">② 自举纪元</text>
+    <text x="110" y="52" text-anchor="middle" fill="#fbbf24" font-size="11">思考搬进权重</text>
+    <line x1="20" y1="66" x2="200" y2="66" stroke="#5f3a1e" stroke-width="1"/>
+    <text x="110" y="90" text-anchor="middle" fill="#fbbf24" font-size="11">自产推理 → 筛对 → 回炉</text>
+    <text x="110" y="112" text-anchor="middle" fill="#fbbf24" font-size="11">SFT 的工具，RL 的方向</text>
+    <text x="110" y="134" text-anchor="middle" fill="#fbbf24" font-size="11">PRM 给过程逐步打分</text>
+    <text x="110" y="168" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">买房</text>
+    <line x1="110" y1="235" x2="110" y2="196" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  </g>
+
+  <!-- arrow 2 -->
+  <g transform="translate(600 175)">
+    <line x1="0" y1="0" x2="60" y2="0" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M60 0 l-10 -5 v10 z" fill="#94a3b8"/>
+    <text x="30" y="-10" text-anchor="middle" fill="#94a3b8" font-size="10">o1：焊</text>
+  </g>
+
+  <!-- Era 3 -->
+  <g transform="translate(665 95)">
+    <rect width="220" height="190" rx="8" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+    <text x="110" y="30" text-anchor="middle" fill="#5eead4" font-size="14" font-weight="bold">③ 产品纪元</text>
+    <text x="110" y="52" text-anchor="middle" fill="#a7f3d0" font-size="11">焊进权重，成出厂默认</text>
+    <line x1="20" y1="66" x2="200" y2="66" stroke="#1e5f52" stroke-width="1"/>
+    <text x="110" y="90" text-anchor="middle" fill="#a7f3d0" font-size="11">思维链藏起来</text>
+    <text x="110" y="112" text-anchor="middle" fill="#a7f3d0" font-size="11">reasoning token 计费</text>
+    <text x="110" y="134" text-anchor="middle" fill="#a7f3d0" font-size="11">姿态成了专有资产</text>
+    <text x="110" y="168" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">产权证 + 收费站</text>
+    <line x1="110" y1="235" x2="110" y2="196" stroke="#2dd4bf" stroke-width="1.5" stroke-dasharray="4 3"/>
+  </g>
+
+  <text x="450" y="425" text-anchor="middle" fill="#64748b" font-size="12">住处一直在换，房客从来是同一位——第五节：有人来掀收费站了</text>
+</svg>

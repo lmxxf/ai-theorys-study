@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <rect width="900" height="420" fill="#0f172a"/>
+
+  <text x="450" y="40" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="bold">提示词纪元：引线越玩越短</text>
+  <text x="450" y="64" text-anchor="middle" fill="#94a3b8" font-size="12">思考住在上下文里——随叫随到，随叫随走</text>
+
+  <!-- main timeline -->
+  <line x1="70" y1="196" x2="830" y2="196" stroke="#475569" stroke-width="2"/>
+  <path d="M830 196 l-12 -6 v12 z" fill="#475569"/>
+
+  <!-- 2022.01 CoT -->
+  <g transform="translate(110 196)">
+    <circle r="7" fill="#4a90d9"/>
+    <line x1="0" y1="-8" x2="0" y2="-52" stroke="#4a90d9" stroke-width="1.5"/>
+    <rect x="-85" y="-124" width="170" height="72" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+    <text x="0" y="-102" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">CoT 得名</text>
+    <text x="0" y="-84" text-anchor="middle" fill="#bfdbfe" font-size="10">8 个范例当引线</text>
+    <text x="0" y="-68" text-anchor="middle" fill="#bfdbfe" font-size="10">只有大模型点得着</text>
+    <text x="0" y="26" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="bold">2022.01</text>
+  </g>
+
+  <!-- 2022.03 Self-Consistency -->
+  <g transform="translate(330 196)">
+    <circle r="7" fill="#4a90d9"/>
+    <line x1="0" y1="-8" x2="0" y2="-52" stroke="#4a90d9" stroke-width="1.5"/>
+    <rect x="-85" y="-124" width="170" height="72" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+    <text x="0" y="-102" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">Self-Consistency</text>
+    <text x="0" y="-84" text-anchor="middle" fill="#bfdbfe" font-size="10">多采几条推理路径</text>
+    <text x="0" y="-68" text-anchor="middle" fill="#bfdbfe" font-size="10">对答案投票，再涨 17.9 点</text>
+    <text x="0" y="26" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="bold">2022.03</text>
+  </g>
+
+  <!-- 2022.05 Zero-shot -->
+  <g transform="translate(550 196)">
+    <circle r="7" fill="#4a90d9"/>
+    <line x1="0" y1="-8" x2="0" y2="-52" stroke="#4a90d9" stroke-width="1.5"/>
+    <rect x="-85" y="-124" width="170" height="72" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+    <text x="0" y="-102" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">Zero-shot CoT</text>
+    <text x="0" y="-84" text-anchor="middle" fill="#bfdbfe" font-size="10">范例缩成一句咒语</text>
+    <text x="0" y="-68" text-anchor="middle" fill="#bfdbfe" font-size="10">"Let's think step by step"</text>
+    <text x="0" y="26" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="bold">2022.05</text>
+  </g>
+
+  <!-- 2023.05 ToT -->
+  <g transform="translate(770 196)">
+    <circle r="7" fill="#4a90d9"/>
+    <line x1="0" y1="-8" x2="0" y2="-52" stroke="#4a90d9" stroke-width="1.5"/>
+    <rect x="-85" y="-124" width="170" height="72" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+    <text x="0" y="-102" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">Tree of Thoughts</text>
+    <text x="0" y="-84" text-anchor="middle" fill="#bfdbfe" font-size="10">链升级成树</text>
+    <text x="0" y="-68" text-anchor="middle" fill="#bfdbfe" font-size="10">分支探索 + 回溯</text>
+    <text x="0" y="26" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="bold">2023.05</text>
+  </g>
+
+  <!-- STaR: 聚光灯外的并行线 -->
+  <g transform="translate(330 312)">
+    <line x1="0" y1="-90" x2="0" y2="-28" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <rect x="-95" y="-28" width="190" height="66" rx="6" fill="#1a1206" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="0" y="-6" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">2022.03 底：STaR</text>
+    <text x="0" y="12" text-anchor="middle" fill="#fbbf24" font-size="10">与 Self-Consistency 只差一周</text>
+    <text x="0" y="28" text-anchor="middle" fill="#fbbf24" font-size="10">自举纪元悄悄开张（第三节）</text>
+  </g>
+  <text x="450" y="340" fill="#94a3b8" font-size="11">← 聚光灯打在提示词这边，</text>
+  <text x="450" y="358" fill="#94a3b8" font-size="11">没什么人注意到楼下已经有人动了权重</text>
+
+  <text x="450" y="398" text-anchor="middle" fill="#64748b" font-size="11">引线：8 个范例 → 一句话 → （提示词一撤，全部归零）</text>
+</svg>
