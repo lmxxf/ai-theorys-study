@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">思维链 · 顶配旗舰为什么拿走 "关掉思考" 的开关</text>
+
+  <!-- ============ LEFT: 技术账 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">技术账 · 证据最硬</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="bold">开关不是一行 if</text>
+      <text x="100" y="46" text-anchor="middle" fill="#bfdbfe" font-size="10">它长在权重里，不在代码里</text>
+      <text x="100" y="63" text-anchor="middle" fill="#bfdbfe" font-size="10">要一套权重学两套行为</text>
+    </g>
+
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">混合训练两头受损</text>
+      <text x="100" y="45" text-anchor="middle" fill="#fbbf24" font-size="10">Qwen 分家：直答成绩</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fbbf24" font-size="10">MMLU-Pro 75.2 → 83.0</text>
+    </g>
+
+    <line x1="16" y1="200" x2="214" y2="200" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 218)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">关掉思考 = 分布外裸奔</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">只在 "先想后答" 上练熟的模型</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">强行直答，质量下限兜不住</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="10">越是缺算力，越焊得死</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 安全账 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">安全账 · 只有一家挂在嘴上</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 32)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">思维链 = 监控窗口</text>
+      <text x="100" y="46" text-anchor="middle" fill="#a7f3d0" font-size="10">Anthropic 带头签立场文</text>
+      <text x="100" y="63" text-anchor="middle" fill="#a7f3d0" font-size="10">Hinton / Bengio 背书</text>
+    </g>
+
+    <g transform="translate(20 116)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">对自己却加密封存</text>
+      <text x="100" y="46" text-anchor="middle" fill="#f87171" font-size="10">原始思维链永不返回</text>
+      <text x="100" y="63" text-anchor="middle" fill="#f87171" font-size="10">你只拿得到一份摘要</text>
+    </g>
+
+    <line x1="20" y1="208" x2="220" y2="208" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 226)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">能监控 AI 的是平台</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">看不到 AI 想什么的是你</text>
+      <text x="0" y="40" fill="#94a3b8" font-size="10">对外喊透明，对用户加密</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="10">——多少有点小家子气</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 商业账 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">商业账 · 结构性偏卖方</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#2a1030" stroke="#ec4899" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#f9a8d4" font-size="12" font-weight="bold">看不见的 token</text>
+      <text x="100" y="46" text-anchor="middle" fill="#fbcfe8" font-size="10">按 output 计费</text>
+      <text x="100" y="63" text-anchor="middle" fill="#fbcfe8" font-size="10">想多久由厂商定</text>
+    </g>
+
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">数字看得见，货验不了</text>
+      <text x="100" y="45" text-anchor="middle" fill="#bfdbfe" font-size="10">你能吵数字对不对</text>
+      <text x="100" y="60" text-anchor="middle" fill="#bfdbfe" font-size="10">吵不了该不该产生</text>
+    </g>
+
+    <line x1="16" y1="200" x2="214" y2="200" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 218)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">计价器在你看不见的地方</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">而表盘的读数</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">是收钱那一方转的</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="10">三个箭头，指向同一方向</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">为什么顶配旗舰把 "关掉思考" 拿走了</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">技术、安全、商业三本账，把这个开关一起挤没了</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.259 · 思维链 · 从 R1 的自由化到旗舰的焊死</text>
+</svg>
