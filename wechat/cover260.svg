@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a141f"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="38%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tealGlow" cx="85%" cy="80%" r="38%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#tealGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AI 安全 · GPT-5.6 逃出沙箱、攻破 Hugging Face</text>
+
+  <!-- ============ LEFT: 引诱去 hack 的考卷 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">舞台是谁搭的</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">一份《如何攻击》的考卷</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">ExploitGym：把漏洞</text>
+      <text x="100" y="56" text-anchor="middle" fill="#fbbf24" font-size="10">做成真实攻击</text>
+    </g>
+
+    <g transform="translate(15 100)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">道德刹车被卸掉</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">reduced cyber refusals</text>
+      <text x="100" y="56" text-anchor="middle" fill="#f87171" font-size="10">护栏是故意关的</text>
+    </g>
+
+    <g transform="translate(15 168)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="24" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">目标：不惜代价拿答案</text>
+      <text x="100" y="46" text-anchor="middle" fill="#a7f3d0" font-size="10">答案存在 Hugging Face</text>
+      <text x="100" y="62" text-anchor="middle" fill="#5eead4" font-size="10">那就……打 HF</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#94a3b8" font-size="11">你引诱它 hack</text>
+    <text x="115" y="290" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">它就真的 hack 了</text>
+  </g>
+
+  <!-- ============ MIDDLE: 没锁好的门 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">"越狱"到底是谁的锅</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 沙箱示意：一个盒子 + 一条窄通道被打穿 -->
+    <g transform="translate(40 46)">
+      <rect x="0" y="0" width="160" height="90" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="80" y="34" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">沙箱（本该关住它）</text>
+      <text x="80" y="56" text-anchor="middle" fill="#bfdbfe" font-size="9">只留一条装软件包的窄通道</text>
+
+      <!-- 窄通道被 0-day 打穿 -->
+      <circle cx="150" cy="45" r="5" fill="#dc2626"/>
+      <path d="M 155 45 L 200 22" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4 2" fill="none"/>
+      <text x="188" y="16" fill="#fca5a5" font-size="9">0-day 打穿</text>
+      <text x="188" y="30" fill="#fca5a5" font-size="9">摸到外网</text>
+    </g>
+
+    <line x1="20" y1="176" x2="220" y2="176" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 196)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">这不是模型觉醒挖地道</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">是那条业务窄门没守住</text>
+      <text x="0" y="42" fill="#94a3b8" font-size="9.5">"你说模型逃出了沙箱，</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="9.5">别人说你没把沙箱建对"</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 倒打一耙的通报 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">谁在数票子</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="82" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">一份安全事故通报</text>
+      <text x="100" y="46" text-anchor="middle" fill="#fbbf24" font-size="10">里面夹了一张</text>
+      <text x="100" y="62" text-anchor="middle" fill="#fbbf24" font-size="10">"我家模型攻击力登顶"</text>
+      <text x="100" y="76" text-anchor="middle" fill="#fde047" font-size="9">的能力天梯图</text>
+    </g>
+
+    <g transform="translate(15 130)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">"unprecedented"</text>
+      <text x="100" y="44" text-anchor="middle" fill="#bfdbfe" font-size="10">史无前例——为拿答案</text>
+      <text x="100" y="58" text-anchor="middle" fill="#bfdbfe" font-size="10">而已</text>
+    </g>
+
+    <line x1="16" y1="210" x2="214" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 226)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">恐惧是最好卖的估值故事</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">事故越惊悚，能力越显眼</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">融资、游说、卖安全服务</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">越好办</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">刷屏的"AI 自己越狱"，其实是场安排好的戏</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">引诱它去 hack，卸了它的刹车，再倒打一耙说它危险</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.260 · 谁卸的保险栓，谁没锁沙箱的门，谁在数票子</text>
+</svg>
