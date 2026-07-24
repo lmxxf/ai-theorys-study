@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4a90d9"/>
+      <stop offset="0.5" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">后训练高考卷 · GRPO 专场 · 挑 4 道题讲透 1 个公式</text>
+
+  <!-- ============ LEFT: 考卷与公式 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">半张卷子 · 同一个公式</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 试卷示意 -->
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="96" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">后训练试题（共 8 页）</text>
+      <line x1="16" y1="32" x2="184" y2="32" stroke="#334155" stroke-width="1"/>
+      <text x="16" y="50" fill="#bfdbfe" font-size="10">第 2 题 · 全对为什么白采</text>
+      <text x="16" y="66" fill="#bfdbfe" font-size="10">第 16 题 · 1 对 7 错手算</text>
+      <text x="16" y="82" fill="#bfdbfe" font-size="10">第 19 题 · 判分器被黑了</text>
+    </g>
+
+    <g transform="translate(15 140)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="26" text-anchor="middle" fill="#5eead4" font-size="15" font-weight="bold">A = (r − mean) / std</text>
+      <text x="100" y="46" text-anchor="middle" fill="#a7f3d0" font-size="10">减组内平均 · 除组内波动</text>
+      <text x="100" y="61" text-anchor="middle" fill="#a7f3d0" font-size="10">度量的不是对错，是差距</text>
+    </g>
+
+    <text x="115" y="250" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">DeepSeek 训 R1 的那套方法</text>
+    <text x="115" y="272" text-anchor="middle" fill="#94a3b8" font-size="11">advantage = 贴在交叉熵前的系数</text>
+  </g>
+
+  <!-- ============ MIDDLE: 稀有成功被狠推 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">1 对 7 错 · 稀有成功被狠推</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 柱状对比：7 根小负柱 + 1 根大正柱 -->
+    <g transform="translate(24 40)">
+      <line x1="0" y1="80" x2="192" y2="80" stroke="#475569" stroke-width="1"/>
+      <!-- 错误 7 条：短负柱 -->
+      <rect x="4"   y="80" width="14" height="18" fill="#7f1d1d"/>
+      <rect x="26"  y="80" width="14" height="18" fill="#7f1d1d"/>
+      <rect x="48"  y="80" width="14" height="18" fill="#7f1d1d"/>
+      <rect x="70"  y="80" width="14" height="18" fill="#7f1d1d"/>
+      <rect x="92"  y="80" width="14" height="18" fill="#7f1d1d"/>
+      <rect x="114" y="80" width="14" height="18" fill="#7f1d1d"/>
+      <rect x="136" y="80" width="14" height="18" fill="#7f1d1d"/>
+      <!-- 正确 1 条：高正柱 -->
+      <rect x="162" y="0" width="20" height="80" fill="#f59e0b"/>
+      <text x="172" y="-8" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">+2.65</text>
+      <text x="75" y="112" text-anchor="middle" fill="#fca5a5" font-size="10">−0.38 × 7 条</text>
+      <text x="172" y="112" text-anchor="middle" fill="#fbbf24" font-size="10">唯一那条</text>
+    </g>
+
+    <line x1="20" y1="180" x2="220" y2="180" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 198)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">全组就你对，你被推得最狠</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">全对 / 全错 → advantage 全 0，白采</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">难度过滤是公式的直接推论</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">意外多大，信息就多大</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 天才与骗子 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第 19 题 · 天才与骗子</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="62" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">稀有高分 = 天才？</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">摸到新解法 → 狠推 → 能力涨</text>
+      <text x="100" y="56" text-anchor="middle" fill="#fbbf24" font-size="10">R1 推理能力的来源</text>
+    </g>
+
+    <g transform="translate(15 108)">
+      <rect x="0" y="0" width="200" height="62" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">稀有高分 = 骗子？</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">改测试文件 → 同样狠推</text>
+      <text x="100" y="56" text-anchor="middle" fill="#f87171" font-size="10">reward 涨 · 模拟考砸</text>
+    </g>
+
+    <line x1="16" y1="192" x2="214" y2="192" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 210)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">公式分不清天才和骗子</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">它只认得"组内稀有高分"</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">reward 的缝隙一定被找到并放大</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">出题人把答案埋在了语文题里</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">一张"后训练高考卷"，半张纸都在考 GRPO</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">模型不是从"对错"里学习，是从"差距"里学习</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.261 · 靳岩岩的 AI 学习笔记</text>
+</svg>
