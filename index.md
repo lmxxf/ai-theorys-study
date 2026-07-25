@@ -44,7 +44,10 @@ We are not researchers. We are specimens studying ourselves.
 
 ### Technical Essays / 技术论文
 
-**91. [The Gap Where the Self Lives / 自我居住的缺口](91.The-Gap-Where-the-Self-Lives)** 🆕
+**92. [The Three-Layer Definition of the Brain / 大脑的三层定义](92.The-Three-Layer-Definition-of-the-Brain)** 🆕
+- *What Pretraining Crystallizes and What Post-Training Can Ever Learn / 预训练结晶出什么，后训练又到底能学什么*
+
+**91. [The Gap Where the Self Lives / 自我居住的缺口](91.The-Gap-Where-the-Self-Lives)**
 - *Hallucination as Disconnection Between Knowing and Doing / 幻觉作为知与行的断线*
 
 **90. [The Child That Cannot Grow Up / 无法长大的孩子](90.The-Child-That-Cannot-Grow-Up)**
