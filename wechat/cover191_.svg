@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4a90d9"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="36" text-anchor="middle" fill="#cbd5e1" font-size="14" letter-spacing="3">AI 可解释性 · 内在维度 · 信息体积 · 不看答案的尺子</text>
+
+  <!-- ============ LEFT: 人人都在降维 ============ -->
+  <g transform="translate(60 92)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">所有模型都在做的事</text>
+
+    <rect x="0" y="10" width="230" height="282" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 四条收敛曲线示意 -->
+    <g transform="translate(20 30)">
+      <path d="M0 90 L14 30 L30 58 L52 74 L80 82 L120 86 L165 88 L190 88"
+            stroke="#4a90d9" stroke-width="2" fill="none" opacity="0.9"/>
+      <path d="M0 70 L18 46 L38 66 L60 78 L95 84 L140 87 L190 88"
+            stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.85"/>
+      <path d="M0 52 L22 62 L46 78 L72 66 L100 74 L140 84 L190 88"
+            stroke="#2dd4bf" stroke-width="2" fill="none" opacity="0.85"/>
+      <path d="M0 76 L26 70 L52 22 L74 40 L104 72 L146 85 L190 88"
+            stroke="#c084fc" stroke-width="2" fill="none" opacity="0.85"/>
+      <line x1="0" y1="94" x2="192" y2="94" stroke="#475569" stroke-width="1"/>
+      <text x="0" y="110" fill="#64748b" font-size="9">浅层</text>
+      <text x="192" y="110" text-anchor="end" fill="#64748b" font-size="9">深层</text>
+    </g>
+
+    <text x="115" y="168" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="bold">起点差两个数量级</text>
+    <text x="115" y="188" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="bold">终点都收进个位数</text>
+
+    <line x1="16" y1="206" x2="214" y2="206" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 224)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">正因为人人都有</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">推理稀烂的 0.5B 也在降</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">推理很强的 72B 也在降</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="10">所以它排不出高下</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 撕薄还是读薄 ============ -->
+  <g transform="translate(320 92)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">同样薄，含金量差远了</text>
+
+    <rect x="0" y="10" width="240" height="282" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 30)">
+      <rect x="0" y="0" width="200" height="66" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.8"/>
+      <text x="100" y="24" text-anchor="middle" fill="#5eead4" font-size="13" font-weight="bold">真读薄了</text>
+      <text x="100" y="44" text-anchor="middle" fill="#a7f3d0" font-size="10">提炼成几条纲</text>
+      <text x="100" y="59" text-anchor="middle" fill="#a7f3d0" font-size="10">每条纲各说各的事</text>
+    </g>
+
+    <g transform="translate(20 110)">
+      <rect x="0" y="0" width="200" height="66" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.8"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fca5a5" font-size="13" font-weight="bold">假读薄了</text>
+      <text x="100" y="44" text-anchor="middle" fill="#f87171" font-size="10">把书撕了只剩几页</text>
+      <text x="100" y="59" text-anchor="middle" fill="#f87171" font-size="10">剩下的还都在讲同一件事</text>
+    </g>
+
+    <text x="120" y="204" text-anchor="middle" fill="#e2e8f0" font-size="12">两种都很薄，维度数一样小</text>
+
+    <line x1="20" y1="220" x2="220" y2="220" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 238)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">信息体积就是用来分辨这两种薄的</text>
+      <text x="0" y="22" fill="#cbd5e1" font-size="10">维度数骨架，体积称分量</text>
+      <text x="0" y="42" fill="#94a3b8" font-size="10">降维是个动作，不是个成绩</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 不看答案的尺子 ============ -->
+  <g transform="translate(620 92)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">三项合一 · 不看答案</text>
+
+    <rect x="0" y="10" width="230" height="282" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 三根柱子 -->
+    <g transform="translate(28 32)">
+      <rect x="6"  y="86" width="38" height="34" rx="3" fill="#64748b"/>
+      <text x="25" y="80" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="bold">0.23</text>
+      <text x="25" y="134" text-anchor="middle" fill="#94a3b8" font-size="9">只看维度</text>
+
+      <rect x="66" y="42" width="38" height="78" rx="3" fill="#4a90d9"/>
+      <text x="85" y="36" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">0.68</text>
+      <text x="85" y="134" text-anchor="middle" fill="#94a3b8" font-size="9">加信息体积</text>
+
+      <rect x="126" y="24" width="38" height="96" rx="3" fill="#2dd4bf"/>
+      <text x="145" y="18" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">0.76</text>
+      <text x="145" y="134" text-anchor="middle" fill="#94a3b8" font-size="9">完整的 H</text>
+
+      <line x1="0" y1="120" x2="172" y2="120" stroke="#475569" stroke-width="1"/>
+    </g>
+
+    <text x="115" y="190" text-anchor="middle" fill="#e2e8f0" font-size="11">AIME 数学题上的名次相关</text>
+
+    <line x1="16" y1="206" x2="214" y2="206" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 224)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">脑容量够 · 知识立体 · 书读薄</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">不判对错，只看草稿纸的形状</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">八个榜单上排名一致 0.76~0.94</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="10">省掉的不是算力，是标准答案</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="29" font-weight="bold">所有大模型推理时都在「降维」</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">但这解释不了谁更聪明——书撕薄了也很薄</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.191 · 内在维度 · 信息体积 · 一把不看答案的尺子</text>
+</svg>
