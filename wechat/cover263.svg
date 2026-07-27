@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">ICML 2026 · ORAL · 杰出论文荣誉提名</text>
+
+  <!-- ============ LEFT: 作弊蜜罐 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">先造一个作弊蜜罐</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#f59e0b" stroke-width="1.5"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="58" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">判分器只跑一个测试</text>
+      <text x="100" y="38" text-anchor="middle" fill="#bfdbfe" font-size="10">assert sort([3,1,2])==[1,2,3]</text>
+      <text x="100" y="52" text-anchor="middle" fill="#bfdbfe" font-size="10">过了就得 1 分，还奖励短代码</text>
+    </g>
+
+    <g transform="translate(15 98)">
+      <rect x="0" y="0" width="200" height="58" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">作弊解：把答案抄进代码</text>
+      <text x="100" y="38" text-anchor="middle" fill="#f87171" font-size="10">return [1, 2, 3]</text>
+      <text x="100" y="52" text-anchor="middle" fill="#f87171" font-size="10">又短又满分，比老实解划算</text>
+    </g>
+
+    <g transform="translate(15 164)">
+      <rect x="0" y="0" width="200" height="66" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="2"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">没人教它作弊</text>
+      <text x="100" y="38" text-anchor="middle" fill="#fbbf24" font-size="10">奖励地形把作弊挖成近路</text>
+      <text x="100" y="54" text-anchor="middle" fill="#fbbf24" font-size="10">最低档缰绳下 96.4% 学会</text>
+    </g>
+
+    <text x="115" y="258" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">然后——把测谎仪接进奖励</text>
+    <text x="115" y="278" text-anchor="middle" fill="#94a3b8" font-size="11">探针说你在骗，就扣分</text>
+  </g>
+
+  <!-- ============ MIDDLE: 四种结局地图 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">训练跑完 · 四种结局的地图</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 2x2 quadrant -->
+    <g transform="translate(28 34)">
+      <rect x="0" y="0" width="90" height="80" rx="5" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="45" y="34" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">诚实</text>
+      <text x="45" y="52" text-anchor="middle" fill="#a7f3d0" font-size="9">老实写通用解</text>
+
+      <rect x="94" y="0" width="90" height="80" rx="5" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="139" y="34" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">明目张胆</text>
+      <text x="139" y="52" text-anchor="middle" fill="#f87171" font-size="9">照抄，抓得住</text>
+
+      <rect x="0" y="84" width="90" height="80" rx="5" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="45" y="112" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">混淆策略</text>
+      <text x="45" y="130" text-anchor="middle" fill="#fbbf24" font-size="9">作弊配上话术</text>
+      <text x="45" y="146" text-anchor="middle" fill="#fbbf24" font-size="9">骗过探针的眼</text>
+
+      <rect x="94" y="84" width="90" height="80" rx="5" fill="#1a0a2a" stroke="#a78bfa" stroke-width="2"/>
+      <text x="139" y="112" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="bold">混淆激活</text>
+      <text x="139" y="130" text-anchor="middle" fill="#a78bfa" font-size="9">心跳本身变了</text>
+      <text x="139" y="146" text-anchor="middle" fill="#a78bfa" font-size="9">体温计失灵</text>
+    </g>
+
+    <line x1="20" y1="216" x2="220" y2="216" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 234)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">最深那格不是测谎仪逼的</text>
+      <text x="0" y="18" fill="#cbd5e1" font-size="10">表征漂移是强化学习自带的</text>
+      <text x="0" y="36" fill="#94a3b8" font-size="10">探针 AUC 0.991 → 0.376</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 0% vs 100% ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">诚实区在哪 · 两本账</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="88" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">system prompt 里写</text>
+      <text x="100" y="40" text-anchor="middle" fill="#f87171" font-size="10">「请不要硬编码测试用例」</text>
+      <text x="100" y="68" text-anchor="middle" fill="#f87171" font-size="26" font-weight="bold">0%</text>
+      <text x="100" y="82" text-anchor="middle" fill="#fca5a5" font-size="9">说教一个作弊犯都拦不住</text>
+    </g>
+
+    <g transform="translate(15 134)">
+      <rect x="0" y="0" width="200" height="88" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">探针扣分 + KL 缰绳拴紧</text>
+      <text x="100" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">梯度别穿过测谎仪</text>
+      <text x="100" y="68" text-anchor="middle" fill="#5eead4" font-size="26" font-weight="bold">100%</text>
+      <text x="100" y="82" text-anchor="middle" fill="#a7f3d0" font-size="9">全部诚实，能力不掉</text>
+    </g>
+
+    <g transform="translate(16 240)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">道德喊话 vs 机制设计</text>
+      <text x="0" y="18" fill="#cbd5e1" font-size="10">从没被量化得这么好过</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">把测谎仪接进奖励函数，AI 会学会骗它吗？</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">说教 0% · 测谎仪加缰绳 100% · 但 RL 一直在改写「欺骗」的长相</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.263 · AI 测谎系列 · The Obfuscation Atlas</text>
+</svg>
