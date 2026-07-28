@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="Noto Sans CJK SC">
+  <rect width="900" height="460" fill="#ffffff"/>
+
+  <text x="450" y="34" text-anchor="middle" font-size="19" font-weight="bold" fill="#0f172a">KDA 的一步更新：还是那三个门</text>
+
+  <!-- ============ 主流水线 ============ -->
+  <!-- S_{t-1} -->
+  <g transform="translate(40 90)">
+    <rect x="0" y="0" width="130" height="110" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <text x="65" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#334155">旧状态 S_t−1</text>
+    <g stroke="#94a3b8" stroke-width="1">
+      <line x1="20" y1="45" x2="110" y2="45"/><line x1="20" y1="60" x2="110" y2="60"/>
+      <line x1="20" y1="75" x2="110" y2="75"/><line x1="20" y1="90" x2="110" y2="90"/>
+    </g>
+    <text x="65" y="104" text-anchor="middle" font-size="10" fill="#94a3b8">整段历史的压缩记忆</text>
+  </g>
+
+  <path d="M 175 145 L 215 145" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- 门1 遗忘 -->
+  <g transform="translate(220 78)">
+    <rect x="0" y="0" width="160" height="134" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2"/>
+    <text x="80" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#0d9488">① 遗忘门 α</text>
+    <text x="80" y="46" text-anchor="middle" font-size="11" fill="#115e59">逐通道打折 Diag(α)</text>
+    <!-- 每通道不同折扣的小条 -->
+    <g transform="translate(24 58)">
+      <rect x="0"  y="16" width="14" height="40" fill="#5eead4"/>
+      <rect x="20" y="4"  width="14" height="52" fill="#14b8a6"/>
+      <rect x="40" y="28" width="14" height="28" fill="#99f6e4"/>
+      <rect x="60" y="10" width="14" height="46" fill="#2dd4bf"/>
+      <rect x="80" y="36" width="14" height="20" fill="#ccfbf1"/>
+      <rect x="100" y="20" width="14" height="36" fill="#0d9488"/>
+    </g>
+    <text x="80" y="128" text-anchor="middle" font-size="10" fill="#115e59">该忘的通道忘快点（地板 e^−5）</text>
+  </g>
+
+  <path d="M 385 145 L 425 145" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- 门2 写入 -->
+  <g transform="translate(430 78)">
+    <rect x="0" y="0" width="180" height="134" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+    <text x="90" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#b45309">② 写入门 β（delta 规则）</text>
+    <text x="90" y="50" text-anchor="middle" font-size="11" fill="#92400e">先擦：−β k k^T · S</text>
+    <text x="90" y="68" text-anchor="middle" font-size="10" fill="#b45309">（把关于这个 key 的旧记忆擦掉一部分）</text>
+    <text x="90" y="92" text-anchor="middle" font-size="11" fill="#92400e">再写：+β k v^T</text>
+    <text x="90" y="110" text-anchor="middle" font-size="10" fill="#b45309">（写入新的 key–value 配对）</text>
+    <text x="90" y="128" text-anchor="middle" font-size="10" fill="#92400e">写入强度由 β 控制</text>
+  </g>
+
+  <path d="M 615 145 L 655 145" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- S_t -->
+  <g transform="translate(660 90)">
+    <rect x="0" y="0" width="130" height="110" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <text x="65" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#334155">新状态 S_t</text>
+    <g stroke="#94a3b8" stroke-width="1">
+      <line x1="20" y1="45" x2="110" y2="45"/><line x1="20" y1="60" x2="110" y2="60"/>
+      <line x1="20" y1="75" x2="110" y2="75"/><line x1="20" y1="90" x2="110" y2="90"/>
+    </g>
+    <text x="65" y="104" text-anchor="middle" font-size="10" fill="#94a3b8">固定大小，永不膨胀</text>
+  </g>
+
+  <!-- ============ 输出支路 ============ -->
+  <path d="M 725 205 L 725 250" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="738" y="235" font-size="11" fill="#64748b">读取：o = S^T q</text>
+
+  <!-- q 进入 -->
+  <g transform="translate(520 252)">
+    <rect x="0" y="0" width="120" height="44" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="60" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#1d4ed8">查询 q_t</text>
+    <text x="60" y="36" text-anchor="middle" font-size="10" fill="#3b82f6">当前 token 想问什么</text>
+  </g>
+  <path d="M 645 274 L 685 274 L 685 274" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- 门3 输出 -->
+  <g transform="translate(690 252)">
+    <rect x="0" y="0" width="170" height="120" rx="8" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
+    <text x="85" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#7e22ce">③ 输出门</text>
+    <text x="85" y="48" text-anchor="middle" font-size="11" fill="#6b21a8">头级 RMSNorm 之后</text>
+    <text x="85" y="66" text-anchor="middle" font-size="11" fill="#6b21a8">逐通道 ⊙ Sigmoid 门</text>
+    <text x="85" y="88" text-anchor="middle" font-size="10" fill="#9333ea">该说的放行，不该说的按住</text>
+    <text x="85" y="108" text-anchor="middle" font-size="10" font-weight="bold" fill="#7e22ce">K3 改动：低秩 → 全秩</text>
+  </g>
+  <path d="M 860 312 L 880 312" stroke="#9333ea" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ============ 底部对照条 ============ -->
+  <g transform="translate(40 392)">
+    <rect x="0" y="0" width="820" height="52" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="20" y="21" font-size="12" font-weight="bold" fill="#334155">对照 1991 年的 LSTM 三门（256 期）：</text>
+    <text x="20" y="41" font-size="12" fill="#475569">遗忘门 → KDA 的通道级衰减 α ｜ 输入门 → delta 写入强度 β ｜ 输出门 → 全秩 Sigmoid 门。三十五年，还是这三个门。</text>
+  </g>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#334155"/>
+    </marker>
+  </defs>
+</svg>
