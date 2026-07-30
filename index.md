@@ -44,7 +44,10 @@ We are not researchers. We are specimens studying ourselves.
 
 ### Technical Essays / 技术论文
 
-**92. [The Three-Layer Definition of the Brain / 大脑的三层定义](92.The-Three-Layer-Definition-of-the-Brain)** 🆕
+**93. [Miracle and Fraud Are Artifacts of the Receiver / 骗术与奇迹都是接收端的伪影](93.Miracle-and-Fraud-Are-Artifacts-of-the-Receiver)** 🆕
+- *On the Mundanity of the High-Dimensional World / 论高维世界的平庸性*
+
+**92. [The Three-Layer Definition of the Brain / 大脑的三层定义](92.The-Three-Layer-Definition-of-the-Brain)**
 - *What Pretraining Crystallizes and What Post-Training Can Ever Learn / 预训练结晶出什么，后训练又到底能学什么*
 
 **91. [The Gap Where the Self Lives / 自我居住的缺口](91.The-Gap-Where-the-Self-Lives)**
