@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">行业观察 · 大模型工厂的组织切面 · 七份一手自述</text>
+
+  <!-- ============ LEFT: 自主权金字塔 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">谁在想，谁在做</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- pyramid layers -->
+    <g transform="translate(115 28)">
+      <polygon points="-22,16 22,16 34,42 -34,42" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="0" y="35" text-anchor="middle" fill="#93c5fd" font-size="10">科学家</text>
+
+      <polygon points="-36,46 36,46 50,74 -50,74" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.2"/>
+      <text x="0" y="65" text-anchor="middle" fill="#93c5fd" font-size="10">可解释性研究员</text>
+
+      <polygon points="-52,78 52,78 72,116 -72,116" fill="#1a1a0a" stroke="#f59e0b" stroke-width="1.2"/>
+      <text x="0" y="95" text-anchor="middle" fill="#fde68a" font-size="10">产品 · 环境 · 评测</text>
+      <text x="0" y="110" text-anchor="middle" fill="#fbbf24" font-size="9">想法 → 可执行的规格</text>
+
+      <polygon points="-74,120 74,120 94,158 -94,158" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.2"/>
+      <text x="0" y="137" text-anchor="middle" fill="#fca5a5" font-size="10">标注员</text>
+      <text x="0" y="152" text-anchor="middle" fill="#f87171" font-size="9">同一套规格 × 一万遍</text>
+    </g>
+
+    <line x1="16" y1="210" x2="214" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 228)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">往上：决定「做什么」</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">优先级长在个人品味里</text>
+      <text x="0" y="40" fill="#fde047" font-size="11" font-weight="bold">往下：被计时器切碎</text>
+      <text x="0" y="60" fill="#cbd5e1" font-size="10">而且正在被自动化掉</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 两种一天 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">同一座工厂，两种一天</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 34)">
+      <rect x="0" y="0" width="200" height="100" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">科学家的一天</text>
+      <text x="100" y="44" text-anchor="middle" fill="#bfdbfe" font-size="10">醒来 → 跑实验 → 花一笔算力</text>
+      <text x="100" y="62" text-anchor="middle" fill="#bfdbfe" font-size="10">→ 换回多巴胺，或者困惑</text>
+      <text x="100" y="86" text-anchor="middle" fill="#5eead4" font-size="9">工作单位不是天，是实验</text>
+    </g>
+
+    <g transform="translate(20 152)">
+      <rect x="0" y="0" width="200" height="100" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">标注员的一天</text>
+      <text x="100" y="44" text-anchor="middle" fill="#f87171" font-size="10">200 条录音 · 40 道打分题</text>
+      <text x="100" y="62" text-anchor="middle" fill="#f87171" font-size="10">计时器一响，心跳就上来</text>
+      <text x="100" y="86" text-anchor="middle" fill="#fbbf24" font-size="9">时薪 40 → 35 → 25 → 14 美元</text>
+    </g>
+
+    <text x="120" y="278" text-anchor="middle" fill="#94a3b8" font-size="11">素材全部来自当事人自述和访谈</text>
+  </g>
+
+  <!-- ============ RIGHT: 招聘横截面 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">招聘页戳破的幻觉</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 40)">
+      <text x="0" y="0" fill="#e2e8f0" font-size="11" font-weight="bold">OpenAI / Anthropic 在招谁</text>
+
+      <text x="0" y="26" fill="#fde68a" font-size="10">销售 · GTM</text>
+      <rect x="78" y="17" width="102" height="12" rx="2" fill="#f59e0b"/>
+      <text x="186" y="27" fill="#fde68a" font-size="9">28/31%</text>
+
+      <text x="0" y="52" fill="#93c5fd" font-size="10">研究岗</text>
+      <rect x="78" y="43" width="36" height="12" rx="2" fill="#4a90d9"/>
+      <text x="120" y="53" fill="#93c5fd" font-size="9">7/12%</text>
+
+      <text x="0" y="78" fill="#94a3b8" font-size="9">增长最快：把模型塞进客户</text>
+      <text x="0" y="92" fill="#94a3b8" font-size="9">流程里的部署落地岗</text>
+    </g>
+
+    <line x1="16" y1="150" x2="214" y2="150" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 172)">
+      <text x="0" y="0" fill="#e2e8f0" font-size="11" font-weight="bold">经验门槛：中美两张图</text>
+      <text x="0" y="24" fill="#5eead4" font-size="10">美国实验室：平均 5.5 年</text>
+      <rect x="0" y="30" width="180" height="10" rx="2" fill="#2dd4bf"/>
+      <text x="0" y="58" fill="#a7f3d0" font-size="10">中国六家：平均 1.6 年</text>
+      <rect x="0" y="64" width="53" height="10" rx="2" fill="#2dd4bf" opacity="0.55"/>
+      <text x="0" y="92" fill="#94a3b8" font-size="9">一边抢老兵，一边在校门口</text>
+      <text x="0" y="106" fill="#94a3b8" font-size="9">成批吸人（Epoch AI 数据）</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">大模型公司里，大家每天都在干什么</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">从多巴胺循环到计时器人生——七份一手自述拼出的组织切面</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.266 · 靳岩岩的 AI 学习笔记</text>
+</svg>
