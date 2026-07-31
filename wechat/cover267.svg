@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">老靳学线代 · 第 1 期 · 纸笔五分钟系列开篇</text>
+
+  <!-- ============ LEFT: 算术 = 几何 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">一个等式，两种记法</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">算术版</text>
+      <text x="100" y="46" text-anchor="middle" fill="#bfdbfe" font-size="12">a·b = a₁b₁ + a₂b₂ + a₃b₃</text>
+    </g>
+
+    <text x="115" y="122" text-anchor="middle" fill="#fde047" font-size="16" font-weight="bold">‖ 永远相等 ‖</text>
+
+    <g transform="translate(15 136)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">几何版</text>
+      <text x="100" y="46" text-anchor="middle" fill="#a7f3d0" font-size="12">a·b = |a| × |b| × cosθ</text>
+    </g>
+
+    <line x1="16" y1="222" x2="214" y2="222" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 240)">
+      <text x="0" y="0" fill="#cbd5e1" font-size="11">左边是纯算术，右边是纯几何</text>
+      <text x="0" y="20" fill="#e2e8f0" font-size="11" font-weight="bold">线代全部的魔法：</text>
+      <text x="0" y="40" fill="#e2e8f0" font-size="11" font-weight="bold">算术和几何本是同一件事</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: attention 打分 + 刻度尺 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">attention 打分的第一现场</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 34)">
+      <rect x="0" y="0" width="200" height="58" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">q · k = 一个分数</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">长上下文一次前向：万亿次点积</text>
+    </g>
+
+    <!-- 刻度尺 -->
+    <g transform="translate(20 118)">
+      <text x="100" y="0" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">手算出来的对齐刻度尺</text>
+      <line x1="0" y1="26" x2="200" y2="26" stroke="#64748b" stroke-width="2"/>
+      <circle cx="10" cy="26" r="5" fill="#4a90d9"/>
+      <text x="10" y="48" text-anchor="middle" fill="#93c5fd" font-size="11">0</text>
+      <text x="10" y="64" text-anchor="middle" fill="#94a3b8" font-size="9">垂直·陌生人</text>
+      <circle cx="120" cy="26" r="5" fill="#f59e0b"/>
+      <text x="120" y="48" text-anchor="middle" fill="#fde68a" font-size="11">0.6</text>
+      <text x="120" y="64" text-anchor="middle" fill="#94a3b8" font-size="9">有点关系</text>
+      <circle cx="178" cy="26" r="5" fill="#2dd4bf"/>
+      <text x="178" y="48" text-anchor="middle" fill="#5eead4" font-size="11">0.89</text>
+      <text x="178" y="64" text-anchor="middle" fill="#94a3b8" font-size="9">近亲</text>
+    </g>
+
+    <line x1="20" y1="210" x2="220" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 228)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">点积 vs 逐元素积（⊙）</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">前半步一样，差在加不加起来</text>
+      <text x="0" y="38" fill="#94a3b8" font-size="10">加 = 打分；不加 = 逐通道开关</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 高维地租优惠 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">高维的地租优惠</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">严格垂直：刚性预算</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="11">4096 维 = 4096 个槽</text>
+    </g>
+
+    <g transform="translate(15 100)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="20" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">容忍一点串扰（0.1）</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="14" font-weight="bold">≈ 8 亿个方向</text>
+      <text x="100" y="60" text-anchor="middle" fill="#5eead4" font-size="10">刚性预算的 20 万倍</text>
+    </g>
+
+    <line x1="16" y1="192" x2="214" y2="192" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 210)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">随机两向量的 cos</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">典型抖动 1/√4096 ≈ 0.016</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">高维里垂直是常态</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="10">叠加假说的几何地基：</text>
+      <text x="0" y="74" fill="#94a3b8" font-size="10">串扰换容量，划算到不容拒绝</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">老靳学线代 ①：向量与点积</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">attention 打分那一下，就是一次点积——把当年糊弄的地基重新浇一遍</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.267 · 靳岩岩的 AI 学习笔记</text>
+</svg>
