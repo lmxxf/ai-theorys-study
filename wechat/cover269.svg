@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">DEEPSEEK-V4-FLASH @ DGX SPARK · 速度翻倍归因调查</text>
+
+  <!-- ============ LEFT: 真正起作用的 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">真正起作用的：读代码坐实</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">CUDA graph 整图重放</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">老方案 eager：每 token</text>
+      <text x="100" y="56" text-anchor="middle" fill="#bfdbfe" font-size="10">上千次 CPU 逐个派活</text>
+      <text x="100" y="70" text-anchor="middle" fill="#93c5fd" font-size="10">新方案：每步一次发射</text>
+    </g>
+
+    <g transform="translate(15 118)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">B12X 特化 kernel</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">通用 Marlin = 均码成衣</text>
+      <text x="100" y="56" text-anchor="middle" fill="#a7f3d0" font-size="10">为 sm_121 量体裁衣</text>
+      <text x="100" y="70" text-anchor="middle" fill="#5eead4" font-size="10">Spark 玩家圈自产</text>
+    </g>
+
+    <g transform="translate(15 206)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">注意力直读 FP8 缓存</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">省掉一轮解压搬运（中等）</text>
+    </g>
+
+    <text x="115" y="288" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">两个大头 + 一个中等 = 40 毫秒</text>
+  </g>
+
+  <!-- ============ MIDDLE: 三笔错账 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">想当然的三笔错账：读代码推翻</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 32)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">「激活降到 8 比特了」✗</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">代码硬编码 w4a16，一比特没降</text>
+    </g>
+
+    <g transform="translate(20 100)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">「新调度藏起了通信」✗</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">老版本早就有，谁也没重叠谁</text>
+    </g>
+
+    <g transform="translate(20 168)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">「反正是版本红利」✗</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">最偷懒的糊涂账，什么都没学到</text>
+    </g>
+
+    <text x="120" y="256" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">全是自己先想当然记下的</text>
+    <text x="120" y="276" text-anchor="middle" fill="#cbd5e1" font-size="10">解药：每条判定必须带文件加行号</text>
+  </g>
+
+  <!-- ============ RIGHT: 速度阶梯 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">同一对机器的速度阶梯</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 阶梯柱 -->
+    <g transform="translate(24 40)">
+      <rect x="6"   y="150" width="46" height="34"  rx="3" fill="#7f1d1d"/>
+      <text x="29" y="144" text-anchor="middle" fill="#fca5a5" font-size="11">12</text>
+      <text x="29" y="202" text-anchor="middle" fill="#94a3b8" font-size="9">5 月手搓</text>
+
+      <rect x="70"  y="115" width="46" height="69"  rx="3" fill="#b45309"/>
+      <text x="93" y="109" text-anchor="middle" fill="#fde68a" font-size="11">24.5</text>
+      <text x="93" y="202" text-anchor="middle" fill="#94a3b8" font-size="9">本文调查</text>
+
+      <rect x="134" y="14"  width="46" height="170" rx="3" fill="#0d9488"/>
+      <text x="157" y="8"  text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">83.8</text>
+      <text x="157" y="202" text-anchor="middle" fill="#94a3b8" font-size="9">作者新配方</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#cbd5e1" font-size="10">调查写到一半，作者又开了新仓库</text>
+    <text x="115" y="290" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">「新方案」已经是旧方案了</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">从 12 到 24 token/s：速度为什么翻倍？</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">没有魔法开关——三个「绕」字换成三个「直」字，最顺嘴的解释全是错的</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.269 · 靳岩岩的 AI 学习笔记</text>
+</svg>
