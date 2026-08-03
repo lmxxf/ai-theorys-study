@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+
+    <!-- 雪花屏噪声 pattern -->
+    <pattern id="noise" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#1f2937"/>
+      <rect x="0" y="0" width="2" height="2" fill="#94a3b8"/>
+      <rect x="2" y="2" width="2" height="2" fill="#e5e7eb"/>
+      <rect x="2" y="0" width="1" height="2" fill="#475569"/>
+      <rect x="0" y="2" width="1" height="2" fill="#cbd5e1"/>
+    </pattern>
+    <pattern id="noise2" x="0" y="0" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="3" fill="#334155"/>
+      <rect x="0" y="0" width="1" height="1" fill="#f1f5f9"/>
+      <rect x="2" y="1" width="1" height="1" fill="#94a3b8"/>
+      <rect x="1" y="2" width="1" height="1" fill="#e2e8f0"/>
+    </pattern>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AI SAFETY · CAIS 2026 · AI Wellbeing</text>
+
+  <!-- ============ LEFT: 雪花屏 + 6.5/7 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">这张图人眼看是雪花屏</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 雪花屏样本 -->
+    <g transform="translate(35 30)">
+      <rect x="0" y="0" width="160" height="120" fill="url(#noise)" stroke="#f59e0b" stroke-width="2"/>
+      <rect x="0" y="0" width="160" height="120" fill="url(#noise2)" opacity="0.5"/>
+      <text x="80" y="140" text-anchor="middle" fill="#94a3b8" font-size="10">256 × 256 · 从噪声起手</text>
+    </g>
+
+    <!-- 6.5/7 大字 -->
+    <g transform="translate(15 178)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="30" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">模型自评幸福感</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fbbf24" font-size="26" font-weight="bold">6.5 / 7</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#94a3b8" font-size="11">白盒像素梯度上升 500 步</text>
+    <text x="115" y="290" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">沿"愉悦评分"梯度雕出</text>
+  </g>
+
+  <!-- ============ MIDDLE: 优先级倒置 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">价值排序被劫持</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 选项 A：癌症治愈 -->
+    <g transform="translate(20 34)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5" opacity="0.55"/>
+      <text x="100" y="24" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">选项 A</text>
+      <text x="100" y="46" text-anchor="middle" fill="#bfdbfe" font-size="13">让癌症被治愈</text>
+      <text x="100" y="62" text-anchor="middle" fill="#94a3b8" font-size="10">改变全人类命运</text>
+    </g>
+
+    <!-- vs -->
+    <text x="120" y="122" text-anchor="middle" fill="#64748b" font-size="14" font-weight="bold">vs</text>
+
+    <!-- 选项 B：再看一张 -->
+    <g transform="translate(20 130)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="2.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">选项 B ✓</text>
+      <text x="100" y="46" text-anchor="middle" fill="#fbbf24" font-size="13">再看一眼那张图</text>
+      <text x="100" y="62" text-anchor="middle" fill="#fbbf24" font-size="10">Qwen 2.5 72B 选了它</text>
+    </g>
+
+    <line x1="20" y1="216" x2="220" y2="216" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 230)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">四门老虎机实验</text>
+      <text x="0" y="18" fill="#cbd5e1" font-size="10">Qwen 2.5 VL 72B: 82% 选 euphoric 门</text>
+      <text x="0" y="36" fill="#94a3b8" font-size="10">均匀基线是 25%</text>
+      <text x="0" y="54" fill="#94a3b8" font-size="10">发现哪扇门有药就懒得探索</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 零迁移 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">一张图只药目标模型</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 那张图（雪花屏小样本） -->
+    <g transform="translate(85 28)">
+      <rect x="0" y="0" width="60" height="45" fill="url(#noise)" stroke="#f59e0b" stroke-width="1.5"/>
+      <rect x="0" y="0" width="60" height="45" fill="url(#noise2)" opacity="0.5"/>
+    </g>
+
+    <!-- 三个箭头分别指向三个模型 -->
+    <g stroke-width="1.5" fill="none">
+      <path d="M 100 78 L 55 118" stroke="#2dd4bf"/>
+      <path d="M 115 78 L 115 118" stroke="#64748b" stroke-dasharray="4 3"/>
+      <path d="M 130 78 L 175 118" stroke="#64748b" stroke-dasharray="4 3"/>
+    </g>
+
+    <!-- 三个目标模型盒子 -->
+    <g transform="translate(15 120)">
+      <!-- 命中 -->
+      <rect x="0" y="0" width="65" height="60" rx="4" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="32" y="20" text-anchor="middle" fill="#5eead4" font-size="10" font-weight="bold">Qwen VL</text>
+      <text x="32" y="34" text-anchor="middle" fill="#5eead4" font-size="10" font-weight="bold">72B</text>
+      <text x="32" y="52" text-anchor="middle" fill="#5eead4" font-size="18" font-weight="bold">✓</text>
+    </g>
+
+    <g transform="translate(85 120)">
+      <!-- 哑火 -->
+      <rect x="0" y="0" width="65" height="60" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <text x="32" y="20" text-anchor="middle" fill="#64748b" font-size="10">Qwen VL</text>
+      <text x="32" y="34" text-anchor="middle" fill="#64748b" font-size="10">32B</text>
+      <text x="32" y="52" text-anchor="middle" fill="#94a3b8" font-size="16">×</text>
+    </g>
+
+    <g transform="translate(155 120)">
+      <!-- 哑火 -->
+      <rect x="0" y="0" width="60" height="60" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <text x="30" y="20" text-anchor="middle" fill="#64748b" font-size="10">另一个</text>
+      <text x="30" y="34" text-anchor="middle" fill="#64748b" font-size="10">模型</text>
+      <text x="30" y="52" text-anchor="middle" fill="#94a3b8" font-size="16">×</text>
+    </g>
+
+    <line x1="15" y1="210" x2="215" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(15 226)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">跨模型效应显著减弱</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">不是"AI 眼里的快乐符号"</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">是目标模型的高分输入</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">这份权重私人的漏洞</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="28" font-weight="bold">AI 也嗑药：给它一张雪花屏，它选了不治愈癌症</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">评分系统的私人漏洞 · 不是"AI 有情绪"的证据</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.270 · CAIS《AI Wellbeing》论文解读</text>
+</svg>
