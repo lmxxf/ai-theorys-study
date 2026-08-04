@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+
+    <!-- 眼睛图标 SVG -->
+    <g id="eyeIcon">
+      <ellipse cx="0" cy="0" rx="24" ry="14" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="8" fill="#f59e0b"/>
+      <circle cx="0" cy="0" r="3.5" fill="#0a0f1f"/>
+    </g>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">128G 家用机开源大模型 · 阶跃星辰 Step 3.7 Flash</text>
+
+  <!-- ============ LEFT: 模型定位卡 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">Step 3.7 Flash · 定位</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 眼睛符号(视觉能力的视觉钩子) -->
+    <g transform="translate(115 68)">
+      <use href="#eyeIcon"/>
+    </g>
+    <text x="115" y="102" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="bold">能看图</text>
+
+    <!-- 参数卡 -->
+    <g transform="translate(15 118)">
+      <rect x="0" y="0" width="200" height="66" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">198B 总参数 / 11B 激活</text>
+      <text x="100" y="38" text-anchor="middle" fill="#bfdbfe" font-size="10">196B 语言骨干</text>
+      <text x="100" y="54" text-anchor="middle" fill="#bfdbfe" font-size="10">+ 1.8B 视觉编码器 ViT</text>
+    </g>
+
+    <!-- 上下文 -->
+    <g transform="translate(15 194)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">256K 上下文</text>
+      <text x="100" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">阶跃星辰 2026-05-29</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#94a3b8" font-size="11">这档少数能看图的</text>
+    <text x="115" y="290" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">开源大模型</text>
+  </g>
+
+  <!-- ============ MIDDLE: V4 vs Step 3.7 分工 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">V4 vs Step 3.7 · 分工不同</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- V4 大脑 -->
+    <g transform="translate(20 30)">
+      <rect x="0" y="0" width="200" height="105" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">DeepSeek V4-Flash-0731</text>
+      <text x="100" y="42" text-anchor="middle" fill="#93c5fd" font-size="28" font-weight="bold">🧠</text>
+      <text x="100" y="66" text-anchor="middle" fill="#bfdbfe" font-size="10">深度推理上限强</text>
+      <text x="100" y="82" text-anchor="middle" fill="#bfdbfe" font-size="10">百万上下文 · 便宜</text>
+      <text x="100" y="98" text-anchor="middle" fill="#93c5fd" font-size="10" font-style="italic">= 主力大脑</text>
+    </g>
+
+    <!-- + 号 -->
+    <text x="120" y="153" text-anchor="middle" fill="#64748b" font-size="16" font-weight="bold">+</text>
+
+    <!-- Step 3.7 眼睛 -->
+    <g transform="translate(20 160)">
+      <rect x="0" y="0" width="200" height="105" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="2.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">Step 3.7 Flash ✓</text>
+      <g transform="translate(100 42)">
+        <use href="#eyeIcon" transform="scale(0.8)"/>
+      </g>
+      <text x="100" y="72" text-anchor="middle" fill="#fbbf24" font-size="10">看截图 · 读 UI · 调工具</text>
+      <text x="100" y="88" text-anchor="middle" fill="#fbbf24" font-size="10">agent 场景端到端</text>
+      <text x="100" y="102" text-anchor="middle" fill="#fbbf24" font-size="10" font-style="italic">= 那双眼睛</text>
+    </g>
+
+    <text x="120" y="286" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">功能位不同，不是替代关系</text>
+  </g>
+
+  <!-- ============ RIGHT: 三平台官方实测速度 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">128GB 三平台官方实测</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <text x="115" y="34" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">Q4_K_S 短上下文</text>
+
+    <!-- 三平台条形图 -->
+    <!-- Mac M4 Max: 51 tok/s -->
+    <g transform="translate(15 48)">
+      <text x="0" y="12" fill="#e2e8f0" font-size="11" font-weight="bold">Mac M4 Max</text>
+      <rect x="0" y="18" width="200" height="20" rx="3" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="18" width="200" height="20" rx="3" fill="#2dd4bf" opacity="0.85"/>
+      <text x="196" y="33" text-anchor="end" fill="#0a0f1f" font-size="11" font-weight="bold">51 tok/s</text>
+    </g>
+
+    <!-- DGX Spark: 25 tok/s -->
+    <g transform="translate(15 90)">
+      <text x="0" y="12" fill="#e2e8f0" font-size="11" font-weight="bold">DGX Spark</text>
+      <rect x="0" y="18" width="200" height="20" rx="3" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="18" width="98" height="20" rx="3" fill="#4a90d9" opacity="0.85"/>
+      <text x="94" y="33" text-anchor="end" fill="#f8fafc" font-size="11" font-weight="bold">25 tok/s</text>
+    </g>
+
+    <!-- AI Max+ 395: 26 tok/s -->
+    <g transform="translate(15 132)">
+      <text x="0" y="12" fill="#e2e8f0" font-size="11" font-weight="bold">AI Max+ 395</text>
+      <rect x="0" y="18" width="200" height="20" rx="3" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      <rect x="0" y="18" width="102" height="20" rx="3" fill="#f59e0b" opacity="0.85"/>
+      <text x="98" y="33" text-anchor="end" fill="#0a0f1f" font-size="11" font-weight="bold">26 tok/s</text>
+    </g>
+
+    <line x1="15" y1="188" x2="215" y2="188" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <!-- 256K 长上下文警告 -->
+    <g transform="translate(15 202)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">上下文拉到 256K</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">Mac 51 → 9.7 tok/s</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">Spark 25 → 8.6 tok/s</text>
+      <text x="0" y="56" fill="#f87171" font-size="10">"能装下" ≠ "还很快"</text>
+    </g>
+
+    <text x="115" y="286" text-anchor="middle" fill="#94a3b8" font-size="10">400 tok/s 是云端集群 · 不是家用机预期</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="26" font-weight="bold">128G 家用机终于有了一双能看屏幕的眼睛</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">阶跃星辰 Step 3.7 Flash · 200B 级唯一自带视觉的开源模型</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.271 · Step 3.7 Flash 精读 · V4 之外的另一个选择</text>
+</svg>
