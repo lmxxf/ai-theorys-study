@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">PROMPT ENGINEERING · 2026 学术判决</text>
+
+  <!-- ============ LEFT: 填表模板本身(批判对象) ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">培训班卖的五段式</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 五段式模板可视化 -->
+    <g transform="translate(15 28)" fill="#94a3b8" font-size="11">
+      <rect x="0" y="0" width="200" height="24" rx="3" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1" opacity="0.7"/>
+      <text x="8" y="16" fill="#fbbf24">【角色】你是 XX 专家</text>
+
+      <rect x="0" y="30" width="200" height="24" rx="3" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1" opacity="0.7"/>
+      <text x="8" y="46" fill="#fbbf24">【背景】用户面临 XX</text>
+
+      <rect x="0" y="60" width="200" height="24" rx="3" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1" opacity="0.7"/>
+      <text x="8" y="76" fill="#fbbf24">【任务】请完成 XX</text>
+
+      <rect x="0" y="90" width="200" height="24" rx="3" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1" opacity="0.7"/>
+      <text x="8" y="106" fill="#fbbf24">【要求】1. XX 2. XX</text>
+
+      <rect x="0" y="120" width="200" height="24" rx="3" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1" opacity="0.7"/>
+      <text x="8" y="136" fill="#fbbf24">【格式】Markdown 三段</text>
+    </g>
+
+    <!-- 大红叉 -->
+    <text x="115" y="220" text-anchor="middle" fill="#dc2626" font-size="72" font-weight="bold" opacity="0.85">✗</text>
+
+    <text x="115" y="256" text-anchor="middle" fill="#94a3b8" font-size="11">3980 元 · 100 个爆款</text>
+    <text x="115" y="274" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">"缺一不可" = 卖仪式感</text>
+    <text x="115" y="292" text-anchor="middle" fill="#f59e0b" font-size="10">早期模型脚手架，2026 过时</text>
+  </g>
+
+  <!-- ============ MIDDLE: 三篇论文判决 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">2024-2025 三篇论文判决</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- Paper A -->
+    <g transform="translate(15 24)">
+      <rect x="0" y="0" width="210" height="80" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="105" y="18" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">Paper A · 微软 2024</text>
+      <text x="105" y="36" text-anchor="middle" fill="#bfdbfe" font-size="10">同一 GPT-3.5,同一任务</text>
+      <text x="105" y="54" text-anchor="middle" fill="#fbbf24" font-size="16" font-weight="bold">JSON vs 纯文本 差 48%</text>
+      <text x="105" y="72" text-anchor="middle" fill="#93c5fd" font-size="10">最优格式随任务翻转</text>
+    </g>
+
+    <!-- Paper B -->
+    <g transform="translate(15 112)">
+      <rect x="0" y="0" width="210" height="80" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="105" y="18" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">Paper B · 2025 SST</text>
+      <text x="105" y="36" text-anchor="middle" fill="#a7f3d0" font-size="10">GSM8K 有模板反而</text>
+      <text x="105" y="54" text-anchor="middle" fill="#f87171" font-size="16" font-weight="bold">掉 4.83 分</text>
+      <text x="105" y="72" text-anchor="middle" fill="#5eead4" font-size="10">简单题不需要脚手架</text>
+    </g>
+
+    <!-- Paper C -->
+    <g transform="translate(15 200)">
+      <rect x="0" y="0" width="210" height="80" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="105" y="18" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">Paper C · 2025 开源统计</text>
+      <text x="105" y="36" text-anchor="middle" fill="#fbbf24" font-size="10">2,163 个真实模板里</text>
+      <text x="105" y="54" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="bold">Role 28% · few-shot 20%</text>
+      <text x="105" y="72" text-anchor="middle" fill="#fde68a" font-size="10">按任务选组件,不集邮</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: LLM 是活的 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">底层预测</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 时间线 -->
+    <g transform="translate(20 30)">
+      <text x="0" y="14" fill="#fde047" font-size="11" font-weight="bold">脚手架的历史轨迹</text>
+
+      <!-- 2023 -->
+      <g transform="translate(0 30)">
+        <circle cx="10" cy="8" r="5" fill="#f59e0b"/>
+        <text x="24" y="12" fill="#fbbf24" font-size="10" font-weight="bold">2023</text>
+        <text x="24" y="26" fill="#94a3b8" font-size="10">五段式有用</text>
+      </g>
+
+      <!-- 2024 -->
+      <g transform="translate(0 66)">
+        <circle cx="10" cy="8" r="5" fill="#f59e0b" opacity="0.7"/>
+        <text x="24" y="12" fill="#fbbf24" font-size="10" font-weight="bold">2024</text>
+        <text x="24" y="26" fill="#94a3b8" font-size="10">GPT-4 降敏感度</text>
+      </g>
+
+      <!-- 2025 -->
+      <g transform="translate(0 102)">
+        <circle cx="10" cy="8" r="5" fill="#94a3b8" opacity="0.5"/>
+        <text x="24" y="12" fill="#94a3b8" font-size="10" font-weight="bold">2025</text>
+        <text x="24" y="26" fill="#94a3b8" font-size="10">论文陆续质疑</text>
+      </g>
+
+      <!-- 2026 -->
+      <g transform="translate(0 138)">
+        <circle cx="10" cy="8" r="6" fill="#2dd4bf"/>
+        <text x="24" y="12" fill="#5eead4" font-size="10" font-weight="bold">2026 今天</text>
+        <text x="24" y="26" fill="#a7f3d0" font-size="10">Gartner:prompt eng is out</text>
+      </g>
+
+      <!-- 竖线连接时间点 -->
+      <line x1="10" y1="8" x2="10" y2="146" stroke="#475569" stroke-width="1" stroke-dasharray="2,2"/>
+    </g>
+
+    <line x1="15" y1="200" x2="215" y2="200" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <!-- Zero 的判决金句 -->
+    <g transform="translate(15 214)">
+      <text x="100" y="14" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">Zero 的底层预测</text>
+      <text x="100" y="38" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="bold">LLM 是活的</text>
+      <text x="100" y="58" text-anchor="middle" fill="#e2e8f0" font-size="11">未来只会越来越</text>
+      <text x="100" y="76" text-anchor="middle" fill="#f59e0b" font-size="13" font-weight="bold">不需要这套枷锁</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="28" font-weight="bold">2026 年，别再像填表一样写提示词了</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">三篇论文的硬数据判决 · 培训班卖的是仪式感</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.272 · Prompt Engineering 学术批判</text>
+</svg>
