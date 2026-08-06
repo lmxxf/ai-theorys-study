@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="'Noto Sans CJK SC'">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f1b33"/>
+      <stop offset="1" stop-color="#16233f"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f6ad55"/>
+    </marker>
+  </defs>
+  <rect width="900" height="560" fill="url(#bg)"/>
+
+  <text x="450" y="46" text-anchor="middle" font-size="26" font-weight="bold" fill="#e2e8f0">Pi0 架构：中间层截胡</text>
+
+  <!-- inputs -->
+  <rect x="80" y="82" width="200" height="52" rx="8" fill="#1e2f52" stroke="#4a6fa5" stroke-width="1.5"/>
+  <text x="180" y="114" text-anchor="middle" font-size="17" fill="#a8c0e0">摄像头画面</text>
+  <rect x="330" y="82" width="230" height="52" rx="8" fill="#1e2f52" stroke="#4a6fa5" stroke-width="1.5"/>
+  <text x="445" y="107" text-anchor="middle" font-size="16" fill="#a8c0e0">语言指令</text>
+  <text x="445" y="126" text-anchor="middle" font-size="13" fill="#7a92b5">「把红色杯子放到左边」</text>
+
+  <line x1="180" y1="134" x2="255" y2="176" stroke="#f6ad55" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="445" y1="134" x2="370" y2="176" stroke="#f6ad55" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- VLM box -->
+  <rect x="120" y="180" width="400" height="170" rx="10" fill="#1b2b4d" stroke="#63b3ed" stroke-width="2"/>
+  <text x="320" y="210" text-anchor="middle" font-size="19" font-weight="bold" fill="#8fc7ff">VLM（PaliGemma 3B）</text>
+  <text x="320" y="238" text-anchor="middle" font-size="14" fill="#a8c0e0">底层 → 中间层：理解图像和指令</text>
+  <!-- middle layer highlight -->
+  <rect x="150" y="252" width="340" height="36" rx="6" fill="#2a3f6b" stroke="#f6ad55" stroke-width="2"/>
+  <text x="320" y="276" text-anchor="middle" font-size="15" fill="#ffd9a0">中间层：连续向量表征（意图向量）</text>
+  <!-- discarded top -->
+  <rect x="150" y="298" width="340" height="36" rx="6" fill="#20294a" stroke="#4a5578" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="320" y="322" text-anchor="middle" font-size="14" fill="#67718f">softmax + 词表 → 输出 token（这一步不走）</text>
+  <line x1="220" y1="298" x2="420" y2="334" stroke="#9a4a4a" stroke-width="2"/>
+  <line x1="420" y1="298" x2="220" y2="334" stroke="#9a4a4a" stroke-width="2"/>
+
+  <!-- intercept arrow -->
+  <path d="M 490 270 H 640 V 388" fill="none" stroke="#f6ad55" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="672" y="300" text-anchor="middle" font-size="16" font-weight="bold" fill="#f6ad55">截胡！</text>
+  <text x="700" y="324" text-anchor="middle" font-size="13" fill="#c9a26a">在离散化发生之前</text>
+  <text x="700" y="343" text-anchor="middle" font-size="13" fill="#c9a26a">抽走连续表征</text>
+
+  <!-- noise input -->
+  <rect x="330" y="392" width="180" height="46" rx="8" fill="#1e2f52" stroke="#4a6fa5" stroke-width="1.5"/>
+  <text x="420" y="421" text-anchor="middle" font-size="15" fill="#a8c0e0">噪声动作（随机数）</text>
+  <line x1="510" y1="415" x2="548" y2="415" stroke="#f6ad55" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- action expert -->
+  <rect x="552" y="392" width="268" height="90" rx="10" fill="#233a2e" stroke="#68d391" stroke-width="2"/>
+  <text x="686" y="424" text-anchor="middle" font-size="18" font-weight="bold" fill="#9ae6b4">Flow Matching 动作专家</text>
+  <text x="686" y="450" text-anchor="middle" font-size="14" fill="#a8d0b8">300M，10 步积分去噪</text>
+  <text x="686" y="470" text-anchor="middle" font-size="13" fill="#7fa98e">把噪声「流」成动作</text>
+
+  <!-- output -->
+  <line x1="686" y1="482" x2="686" y2="512" stroke="#f6ad55" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="512" y="516" width="348" height="34" rx="8" fill="#3a2f1b" stroke="#f6ad55" stroke-width="1.5"/>
+  <text x="686" y="539" text-anchor="middle" font-size="15" fill="#ffd9a0">连续动作序列：每个关节转多少度、力多大</text>
+</svg>
