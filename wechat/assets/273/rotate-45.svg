@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 470" font-family="'Noto Sans CJK SC'">
+  <rect width="560" height="470" fill="#ffffff"/>
+  <text x="280" y="34" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a202c">自己造的旋转 45°：两个标杆点上单位圆</text>
+
+  <!-- origin at (280, 350), unit = 130 -->
+  <g transform="translate(280 350)">
+    <!-- grid -->
+    <g stroke="#edf2f7" stroke-width="1">
+      <line x1="-230" y1="0" x2="230" y2="0"/>
+      <line x1="-230" y1="-130" x2="230" y2="-130"/>
+      <line x1="-230" y1="-260" x2="230" y2="-260"/>
+      <line x1="-130" y1="30" x2="-130" y2="-290"/>
+      <line x1="0" y1="30" x2="0" y2="-290"/>
+      <line x1="130" y1="30" x2="130" y2="-290"/>
+    </g>
+    <!-- unit circle -->
+    <circle cx="0" cy="0" r="130" fill="none" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <!-- axes -->
+    <line x1="-238" y1="0" x2="238" y2="0" stroke="#a0aec0" stroke-width="1"/>
+    <line x1="0" y1="30" x2="0" y2="-295" stroke="#a0aec0" stroke-width="1"/>
+
+    <!-- original unit square -->
+    <rect x="0" y="-130" width="130" height="130" fill="#cbd5e1" opacity="0.8"/>
+
+    <!-- rotated square: (0,0),(0.707,0.707),(0,1.414),(-0.707,0.707) -->
+    <polygon points="0,0 91.9,-91.9 0,-183.8 -91.9,-91.9" fill="#3182ce" opacity="0.35" stroke="#3182ce" stroke-width="1.5"/>
+
+    <!-- x axis arrow -> (0.707, 0.707) -->
+    <line x1="0" y1="0" x2="85" y2="-85" stroke="#e53e3e" stroke-width="2.5"/>
+    <path d="M 91.9 -91.9 L 78 -88 L 88 -78 z" fill="#e53e3e"/>
+    <text x="98" y="-108" font-size="12.5" fill="#e53e3e">(cos45°, sin45°)</text>
+    <text x="98" y="-92" font-size="12.5" fill="#e53e3e">≈ (0.707, 0.707)</text>
+
+    <!-- y axis arrow -> (-0.707, 0.707) -->
+    <line x1="0" y1="0" x2="-85" y2="-85" stroke="#38a169" stroke-width="2.5"/>
+    <path d="M -91.9 -91.9 L -78 -88 L -88 -78 z" fill="#38a169"/>
+    <text x="-98" y="-96" text-anchor="end" font-size="12.5" fill="#38a169">(-0.707, 0.707)</text>
+
+    <!-- old corner (1,1) and new corner (0, 1.414) -->
+    <circle cx="130" cy="-130" r="4" fill="#a0aec0"/>
+    <text x="138" y="-134" font-size="12.5" fill="#718096">(1, 1)</text>
+    <circle cx="0" cy="-183.8" r="4.5" fill="#dd6b20"/>
+    <text x="10" y="-190" font-size="12.5" fill="#dd6b20">(1,1) → (0, √2)</text>
+    <!-- arc showing the corner's travel -->
+    <path d="M 130 -130 A 183.8 183.8 0 0 0 0 -183.8" fill="none" stroke="#dd6b20" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+    <!-- 45 degree arc marker at origin -->
+    <path d="M 52 0 A 52 52 0 0 0 36.8 -36.8" fill="none" stroke="#e53e3e" stroke-width="1.5"/>
+    <text x="58" y="-18" font-size="12" fill="#e53e3e">45°</text>
+  </g>
+
+  <!-- matrix + legend -->
+  <text x="150" y="435" text-anchor="middle" font-size="14" fill="#4a5568" font-family="monospace">[  0.707  0.707 ]</text>
+  <text x="150" y="453" text-anchor="middle" font-size="14" fill="#4a5568" font-family="monospace">[ -0.707  0.707 ]</text>
+  <g font-size="12" fill="#4a5568">
+    <rect x="300" y="426" width="12" height="12" fill="#cbd5e1"/>
+    <text x="318" y="437">原正方形</text>
+    <rect x="300" y="446" width="12" height="12" fill="#3182ce" opacity="0.35"/>
+    <text x="318" y="457">转 45° 后</text>
+    <circle cx="410" cy="432" r="4" fill="#dd6b20"/>
+    <text x="420" y="437">对角点的旅程</text>
+    <text x="410" y="457" fill="#718096">虚线圆 = 标杆点的跑道</text>
+  </g>
+</svg>
