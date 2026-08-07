@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">老靳学线代 · 第二期 · 总第 273 期</text>
+
+  <!-- ============ LEFT: 点菜读法 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">代数脸 · 按分量点菜</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="bold">x · W = 拿分量当菜单</text>
+      <text x="100" y="44" text-anchor="middle" fill="#bfdbfe" font-size="11">第一个分量：第一行来这么多</text>
+      <text x="100" y="60" text-anchor="middle" fill="#bfdbfe" font-size="11">第二个分量：第二行来这么多</text>
+    </g>
+
+    <g transform="translate(15 112)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">形状账</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="11" font-family="monospace">[m,k] @ [k,n] → [m,n]</text>
+    </g>
+
+    <g transform="translate(15 178)">
+      <rect x="0" y="0" width="200" height="66" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">V4 Flash 真账</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10.5">出口打分 [4096]@[4096,129280]</text>
+      <text x="100" y="58" text-anchor="middle" fill="#a7f3d0" font-size="10.5">= 129280 次点积一把打包</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#94a3b8" font-size="11">行乘列口诀只会算</text>
+    <text x="115" y="290" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">点菜读法才看得见画面</text>
+  </g>
+
+  <!-- ============ MIDDLE: 几何脸 造旋转 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">几何脸 · 行 = 轴的去向</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- mini rotated square diagram -->
+    <g transform="translate(120 150)">
+      <circle cx="0" cy="0" r="72" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="-85" y1="0" x2="85" y2="0" stroke="#475569" stroke-width="1"/>
+      <line x1="0" y1="85" x2="0" y2="-85" stroke="#475569" stroke-width="1"/>
+      <rect x="0" y="-51" width="51" height="51" fill="#64748b" opacity="0.5"/>
+      <polygon points="0,0 36,-36 0,-72 -36,-36" fill="#3182ce" opacity="0.5" stroke="#63b3ed" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="33" y2="-33" stroke="#f56565" stroke-width="2.5"/>
+      <path d="M 36 -36 L 24 -33 L 33 -24 z" fill="#f56565"/>
+      <line x1="0" y1="0" x2="-33" y2="-33" stroke="#48bb78" stroke-width="2.5"/>
+      <path d="M -36 -36 L -24 -33 L -33 -24 z" fill="#48bb78"/>
+      <text x="52" y="-44" fill="#fca5a5" font-size="10">(cos45°, sin45°)</text>
+    </g>
+
+    <g transform="translate(20 240)">
+      <text x="100" y="0" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">想要什么变换</text>
+      <text x="100" y="20" text-anchor="middle" fill="#cbd5e1" font-size="11">回答「两个标杆点去哪」</text>
+      <text x="100" y="40" text-anchor="middle" fill="#94a3b8" font-size="11">矩阵自动写成——旋转 45° 现场造</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 线性 vs 仿射 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">意外剧情 · 线性 vs 仿射</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="62" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">y = kx + b 竟然不线性</text>
+      <text x="100" y="44" text-anchor="middle" fill="#f87171" font-size="10.5">b 让原点动了——犯死规矩</text>
+      <text x="100" y="57" text-anchor="middle" fill="#f87171" font-size="10.5">它的学名叫仿射</text>
+    </g>
+
+    <g transform="translate(15 106)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="11.5" font-weight="bold">图形学的解法：升一维</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10.5">平移 = 高一维的斜切推楼板</text>
+    </g>
+
+    <g transform="translate(15 172)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#5eead4" font-size="11.5" font-weight="bold">大模型的剧情：裁了又复活</text>
+      <text x="100" y="38" text-anchor="middle" fill="#a7f3d0" font-size="10.5">RMSNorm 裁 β，Llama 裁 bias</text>
+      <text x="100" y="54" text-anchor="middle" fill="#a7f3d0" font-size="10.5">massive activations 野生复活</text>
+      <text x="100" y="67" text-anchor="middle" fill="#7fa98e" font-size="10">= 量化人人喊打的 outlier</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#94a3b8" font-size="11">一头是中学的 b</text>
+    <text x="115" y="290" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">一头是 MXFP4/8 的钉子户</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">矩阵乘法：一层网络就是按分量点菜</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">读得了矩阵，造得了旋转，还发现 y = kx + b 竟然不线性</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">点菜读法 · 标杆点搬家 · 线性的审判 · bias 消亡史</text>
+</svg>
