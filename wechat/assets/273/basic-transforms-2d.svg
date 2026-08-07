@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="'Noto Sans CJK SC'">
+  <rect width="960" height="420" fill="#ffffff"/>
+  <text x="480" y="34" text-anchor="middle" font-size="21" font-weight="bold" fill="#1a202c">三个基本变换：矩阵的行 = 坐标轴的新去向</text>
+
+  <!-- ============ 公共图例 ============ -->
+  <g font-size="12" fill="#4a5568">
+    <rect x="330" y="392" width="12" height="12" fill="#cbd5e1"/>
+    <text x="348" y="403">原来的单位正方形</text>
+    <rect x="480" y="392" width="12" height="12" fill="#3182ce" opacity="0.35"/>
+    <text x="498" y="403">变换后</text>
+    <line x1="575" y1="398" x2="605" y2="398" stroke="#e53e3e" stroke-width="2.5"/>
+    <text x="612" y="403">x 轴去向（第一行）</text>
+    <line x1="740" y1="398" x2="770" y2="398" stroke="#38a169" stroke-width="2.5"/>
+    <text x="777" y="403">y 轴去向（第二行）</text>
+  </g>
+
+  <!-- ============ Panel 1: 缩放 ============ -->
+  <g transform="translate(55 70)">
+    <text x="115" y="0" text-anchor="middle" font-size="15" font-weight="bold" fill="#2d3748">缩放：两根轴各拉长两倍</text>
+    <!-- grid: origin at (40, 240), unit=90 -->
+    <g transform="translate(40 250)">
+      <!-- grid lines -->
+      <g stroke="#edf2f7" stroke-width="1">
+        <line x1="0" y1="0" x2="200" y2="0"/><line x1="0" y1="-90" x2="200" y2="-90"/><line x1="0" y1="-180" x2="200" y2="-180"/>
+        <line x1="0" y1="0" x2="0" y2="-200"/><line x1="90" y1="0" x2="90" y2="-200"/><line x1="180" y1="0" x2="180" y2="-200"/>
+      </g>
+      <!-- axes -->
+      <line x1="-12" y1="0" x2="205" y2="0" stroke="#a0aec0" stroke-width="1"/>
+      <line x1="0" y1="12" x2="0" y2="-205" stroke="#a0aec0" stroke-width="1"/>
+      <!-- original square -->
+      <rect x="0" y="-90" width="90" height="90" fill="#cbd5e1" opacity="0.8"/>
+      <!-- transformed square -->
+      <rect x="0" y="-180" width="180" height="180" fill="#3182ce" opacity="0.35" stroke="#3182ce" stroke-width="1.5"/>
+      <!-- axis arrows -->
+      <line x1="0" y1="0" x2="172" y2="0" stroke="#e53e3e" stroke-width="2.5"/>
+      <path d="M 180 0 L 168 -5 L 168 5 z" fill="#e53e3e"/>
+      <line x1="0" y1="0" x2="0" y2="-172" stroke="#38a169" stroke-width="2.5"/>
+      <path d="M 0 -180 L -5 -168 L 5 -168 z" fill="#38a169"/>
+      <text x="150" y="18" font-size="12" fill="#e53e3e">(2, 0)</text>
+      <text x="8" y="-168" font-size="12" fill="#38a169">(0, 2)</text>
+    </g>
+    <text x="115" y="290" text-anchor="middle" font-size="14" fill="#4a5568" font-family="monospace">[ 2  0 ]</text>
+    <text x="115" y="308" text-anchor="middle" font-size="14" fill="#4a5568" font-family="monospace">[ 0  2 ]</text>
+  </g>
+
+  <!-- ============ Panel 2: 旋转 90° ============ -->
+  <g transform="translate(370 70)">
+    <text x="125" y="0" text-anchor="middle" font-size="15" font-weight="bold" fill="#2d3748">旋转 90°：两根轴一起转</text>
+    <!-- origin shifted right since shape goes to second quadrant: origin at (130, 250), unit=90 -->
+    <g transform="translate(130 250)">
+      <g stroke="#edf2f7" stroke-width="1">
+        <line x1="-110" y1="0" x2="110" y2="0"/><line x1="-110" y1="-90" x2="110" y2="-90"/><line x1="-110" y1="-180" x2="110" y2="-180"/>
+        <line x1="-90" y1="10" x2="-90" y2="-200"/><line x1="0" y1="10" x2="0" y2="-200"/><line x1="90" y1="10" x2="90" y2="-200"/>
+      </g>
+      <line x1="-118" y1="0" x2="118" y2="0" stroke="#a0aec0" stroke-width="1"/>
+      <line x1="0" y1="12" x2="0" y2="-205" stroke="#a0aec0" stroke-width="1"/>
+      <!-- original square (0,0)-(1,1) -->
+      <rect x="0" y="-90" width="90" height="90" fill="#cbd5e1" opacity="0.8"/>
+      <!-- transformed square: corners (0,0),(0,1),(-1,1),(-1,0) -->
+      <rect x="-90" y="-90" width="90" height="90" fill="#3182ce" opacity="0.35" stroke="#3182ce" stroke-width="1.5"/>
+      <!-- x axis -> (0,1) -->
+      <line x1="0" y1="0" x2="0" y2="-82" stroke="#e53e3e" stroke-width="2.5"/>
+      <path d="M 0 -90 L -5 -78 L 5 -78 z" fill="#e53e3e"/>
+      <!-- y axis -> (-1,0) -->
+      <line x1="0" y1="0" x2="-82" y2="0" stroke="#38a169" stroke-width="2.5"/>
+      <path d="M -90 0 L -78 -5 L -78 5 z" fill="#38a169"/>
+      <text x="8" y="-78" font-size="12" fill="#e53e3e">(0, 1)</text>
+      <text x="-86" y="18" font-size="12" fill="#38a169">(-1, 0)</text>
+    </g>
+    <text x="125" y="290" text-anchor="middle" font-size="14" fill="#4a5568" font-family="monospace">[  0  1 ]</text>
+    <text x="125" y="308" text-anchor="middle" font-size="14" fill="#4a5568" font-family="monospace">[ -1  0 ]</text>
+  </g>
+
+  <!-- ============ Panel 3: 斜切 ============ -->
+  <g transform="translate(680 70)">
+    <text x="120" y="0" text-anchor="middle" font-size="15" font-weight="bold" fill="#2d3748">斜切：x 轴被斜着抬起</text>
+    <!-- origin at (45, 250), unit=90 -->
+    <g transform="translate(45 250)">
+      <g stroke="#edf2f7" stroke-width="1">
+        <line x1="0" y1="0" x2="200" y2="0"/><line x1="0" y1="-90" x2="200" y2="-90"/><line x1="0" y1="-180" x2="200" y2="-180"/>
+        <line x1="0" y1="10" x2="0" y2="-200"/><line x1="90" y1="10" x2="90" y2="-200"/><line x1="180" y1="10" x2="180" y2="-200"/>
+      </g>
+      <line x1="-12" y1="0" x2="205" y2="0" stroke="#a0aec0" stroke-width="1"/>
+      <line x1="0" y1="12" x2="0" y2="-205" stroke="#a0aec0" stroke-width="1"/>
+      <!-- original square -->
+      <rect x="0" y="-90" width="90" height="90" fill="#cbd5e1" opacity="0.8"/>
+      <!-- sheared: (0,0),(1,1),(1,2),(0,1) -> px (0,0),(90,-90),(90,-180),(0,-90) -->
+      <polygon points="0,0 90,-90 90,-180 0,-90" fill="#3182ce" opacity="0.35" stroke="#3182ce" stroke-width="1.5"/>
+      <!-- x axis -> (1,1) -->
+      <line x1="0" y1="0" x2="84" y2="-84" stroke="#e53e3e" stroke-width="2.5"/>
+      <path d="M 90 -90 L 77 -87 L 87 -77 z" fill="#e53e3e"/>
+      <!-- y axis -> (0,1) unchanged -->
+      <line x1="0" y1="0" x2="0" y2="-82" stroke="#38a169" stroke-width="2.5"/>
+      <path d="M 0 -90 L -5 -78 L 5 -78 z" fill="#38a169"/>
+      <text x="94" y="-92" font-size="12" fill="#e53e3e">(1, 1)</text>
+      <text x="8" y="-72" font-size="12" fill="#38a169">(0, 1) 没动</text>
+      <!-- point (1,1) annotation -->
+      <circle cx="90" cy="-180" r="4" fill="#dd6b20"/>
+      <text x="98" y="-178" font-size="12" fill="#dd6b20">(1,1)→(1,2)</text>
+    </g>
+    <text x="120" y="290" text-anchor="middle" font-size="14" fill="#4a5568" font-family="monospace">[ 1  1 ]</text>
+    <text x="120" y="308" text-anchor="middle" font-size="14" fill="#4a5568" font-family="monospace">[ 0  1 ]</text>
+  </g>
+</svg>
