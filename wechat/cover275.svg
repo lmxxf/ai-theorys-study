@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">周日实测 · A2A 协议 · agent 互联</text>
+
+  <!-- ============ LEFT: A2A 电话系统 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">A2A · agent 界的电话系统</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="bold">一张名片</text>
+      <text x="100" y="44" text-anchor="middle" fill="#bfdbfe" font-size="10">/.well-known/agent-card.json</text>
+      <text x="100" y="60" text-anchor="middle" fill="#bfdbfe" font-size="10">我是谁 · 会什么 · 怎么连</text>
+    </g>
+
+    <g transform="translate(15 112)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="bold">一套通话格式</text>
+      <text x="100" y="44" text-anchor="middle" fill="#fbbf24" font-size="10">JSON-RPC over HTTP</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fbbf24" font-size="10">发消息 · 回任务</text>
+    </g>
+
+    <g transform="translate(15 194)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#5eead4" font-size="13" font-weight="bold">一个任务状态机</text>
+      <text x="100" y="44" text-anchor="middle" fill="#a7f3d0" font-size="10">提交 → 工作中 → 完成</text>
+      <text x="100" y="60" text-anchor="middle" fill="#a7f3d0" font-size="10">结果装在 artifacts 里</text>
+    </g>
+
+    <text x="115" y="288" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">MCP 连工具是纵轨，A2A 是横轨</text>
+  </g>
+
+  <!-- ============ MIDDLE: 通话实录 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">实测 · pi 给 opencode 打电话</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- two phones -->
+    <g transform="translate(20 40)">
+      <rect x="0" y="0" width="80" height="50" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="40" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">pi</text>
+      <text x="40" y="40" text-anchor="middle" fill="#bfdbfe" font-size="9">a2a_call 工具</text>
+
+      <rect x="120" y="0" width="80" height="50" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="160" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">opencode</text>
+      <text x="160" y="40" text-anchor="middle" fill="#fbbf24" font-size="9">serve + 名片</text>
+
+      <path d="M 82 25 H 118" stroke="#2dd4bf" stroke-width="2" stroke-dasharray="5 3"/>
+      <text x="100" y="16" text-anchor="middle" fill="#5eead4" font-size="9">JSON-RPC</text>
+    </g>
+
+    <line x1="20" y1="120" x2="220" y2="120" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 140)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">通话三步</text>
+      <text x="0" y="22" fill="#cbd5e1" font-size="10">① pi 下单：介绍自己 + 建个文件</text>
+      <text x="0" y="40" fill="#cbd5e1" font-size="10">② opencode 真干活：文件写进磁盘</text>
+      <text x="0" y="58" fill="#cbd5e1" font-size="10">③ pi 亲自验货：ls + cat 确认存在</text>
+      <text x="0" y="84" fill="#94a3b8" font-size="10">两边都是 DeepSeek V4 Flash——</text>
+      <text x="0" y="100" fill="#94a3b8" font-size="10">左手打给右手，谁也没认出谁</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 叫醒旧会话 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">加时赛 · 叫醒 codex 旧会话</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="66" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">一条命令续旧会话</text>
+      <text x="100" y="40" text-anchor="middle" fill="#a7f3d0" font-size="9">codex exec resume 会话id</text>
+      <text x="100" y="56" text-anchor="middle" fill="#a7f3d0" font-size="10">准确复述昨天的三处修改</text>
+    </g>
+
+    <g transform="translate(15 106)">
+      <rect x="0" y="0" width="200" height="66" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">还听到了占线音</text>
+      <text x="100" y="40" text-anchor="middle" fill="#f87171" font-size="9">already has an active writer</text>
+      <text x="100" y="56" text-anchor="middle" fill="#f87171" font-size="10">一间会议室不许两支笔同时写</text>
+    </g>
+
+    <g transform="translate(15 182)">
+      <rect x="0" y="0" width="200" height="66" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">占线音的启示</text>
+      <text x="100" y="40" text-anchor="middle" fill="#bfdbfe" font-size="10">TUI 和命令行是平等客户端</text>
+      <text x="100" y="56" text-anchor="middle" fill="#bfdbfe" font-size="10">界面从来不是会话本身</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">新客服易雇，会议室难进</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="28" font-weight="bold">让 opencode 和 pi 互相打了个电话</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">还叫醒了 codex 的旧会话——A2A 协议周日实测</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.275 · 多 AI Agent 协作 · 靳岩岩的 AI 学习笔记</text>
+</svg>
