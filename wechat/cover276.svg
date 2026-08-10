@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">老靳学算法 · 第一期 · 梯度下降与反向传播</text>
+
+  <!-- ============ LEFT: 三步循环 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">一个旋钮的世界 · 三步循环</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="34" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">① 算错多少（loss）</text>
+    </g>
+    <g transform="translate(15 72)">
+      <rect x="0" y="0" width="200" height="34" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">② 问导数（往哪儿拧）</text>
+    </g>
+    <g transform="translate(15 114)">
+      <rect x="0" y="0" width="200" height="34" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">③ 反方向拧一步 → 循环</text>
+    </g>
+
+    <line x1="20" y1="166" x2="210" y2="166" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 184)">
+      <text x="0" y="0" fill="#e2e8f0" font-size="11" font-weight="bold">手算三轮，loss 一路跳水：</text>
+      <text x="0" y="20" fill="#5eead4" font-size="12">16 → 0.64 → 0.0256 → 0.001</text>
+      <text x="0" y="44" fill="#e2e8f0" font-size="11" font-weight="bold">学习率的三种命运：</text>
+      <text x="0" y="64" fill="#cbd5e1" font-size="10.5">0.1 收敛 · 0.25 荡秋千 · 0.5 爆炸</text>
+      <text x="0" y="84" fill="#94a3b8" font-size="10">纸笔五分钟，比读十遍有用</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 追责链 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">反向传播 · 一条追责链</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 36)">
+      <rect x="0" y="0" width="200" height="30" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">loss = 16 出发</text>
+    </g>
+
+    <g transform="translate(20 76)">
+      <text x="100" y="14" text-anchor="middle" fill="#f59e0b" font-size="13">责任 −8</text>
+      <path d="M 100 22 V 40" stroke="#f59e0b" stroke-width="2"/>
+      <text x="110" y="38" fill="#fbbf24" font-size="10">过门 × 斜率 3</text>
+      <text x="100" y="58" text-anchor="middle" fill="#f59e0b" font-size="13">责任 −24</text>
+      <path d="M 100 66 V 84" stroke="#f59e0b" stroke-width="2"/>
+      <text x="110" y="82" fill="#fbbf24" font-size="10">过门 × 斜率 2</text>
+      <text x="100" y="104" text-anchor="middle" fill="#f59e0b" font-size="14" font-weight="bold">落账 −48 = 梯度</text>
+    </g>
+
+    <line x1="20" y1="210" x2="220" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 228)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">每种门一张「斜率名片」</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10.5">名片是工程师手算好写死的</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10.5">连乘接力是框架自动干的</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">机器算的是数，不是式子</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: attention 实战课 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">实战课 · attention 的反向</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="108" rx="6" fill="#020617" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="12" y="22" fill="#5eead4" font-size="11">dV = P·dO（转置略）</text>
+      <text x="12" y="41" fill="#5eead4" font-size="11">dP = dO·V</text>
+      <text x="12" y="60" fill="#5eead4" font-size="11">dS = P⊙(dP−rowsum)</text>
+      <text x="12" y="79" fill="#5eead4" font-size="11">dQ = dS·K/√d</text>
+      <text x="12" y="98" fill="#5eead4" font-size="11">dK = dS·Q/√d</text>
+    </g>
+
+    <g transform="translate(15 152)">
+      <rect x="0" y="0" width="200" height="34" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="11.5" font-weight="bold">四道门 + softmax 同行连坐</text>
+    </g>
+
+    <line x1="16" y1="210" x2="214" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 228)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">公式忘了不用背</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10.5">形状对齐法当场重建：</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10.5">拼不上就转置，摆法只有一种</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">视频跳过的那块，就这么多</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">梯度下降到底怎么算：一支笔和半小时</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">三条求导公式 + 一条追责链，一路手算到 attention 的反向传播</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.276 · 老靳学算法 · 第一期</text>
+</svg>
