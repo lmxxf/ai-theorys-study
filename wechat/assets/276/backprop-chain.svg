@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" font-family="'Noto Sans CJK SC'">
+  <!-- 背景 -->
+  <rect width="1000" height="620" fill="#fafbfc"/>
+
+  <!-- 标题 -->
+  <text x="500" y="42" text-anchor="middle" font-size="22" font-weight="bold" fill="#1a2433">第 4 节的两层网络：前向算数值，反向传责任</text>
+  <text x="368" y="68" font-size="14" fill="#5a6b80">x = 2，y = 10，起点 <tspan font-family="'DejaVu Sans'">w₁</tspan> = 1，<tspan font-family="'DejaVu Sans'">w₂</tspan> = 3</text>
+
+  <!-- 图例 -->
+  <g font-size="13">
+    <line x1="340" y1="92" x2="380" y2="92" stroke="#2e8b57" stroke-width="3" marker-end="url(#arrGreen)"/>
+    <text x="388" y="97" fill="#2e8b57">前向：从左往右算数值</text>
+    <line x1="570" y1="92" x2="610" y2="92" stroke="#d2691e" stroke-width="3" marker-end="url(#arrOrange)"/>
+    <text x="618" y="97" fill="#d2691e">反向：从右往左传责任</text>
+  </g>
+
+  <defs>
+    <marker id="arrGreen" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L8,4.5 L0,9 Z" fill="#2e8b57"/>
+    </marker>
+    <marker id="arrOrange" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L8,4.5 L0,9 Z" fill="#d2691e"/>
+    </marker>
+  </defs>
+
+  <!-- ============ 前向行 ============ -->
+  <rect x="30" y="150" width="90" height="54" rx="10" fill="#e8f2ff" stroke="#4a7fb5" stroke-width="1.5"/>
+  <text x="75" y="173" text-anchor="middle" font-size="16" fill="#1a2433">输入</text>
+  <text x="75" y="193" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a2433">x = 2</text>
+
+  <line x1="120" y1="177" x2="160" y2="177" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+
+  <rect x="164" y="140" width="156" height="74" rx="10" fill="#eef8ee" stroke="#2e8b57" stroke-width="1.8"/>
+  <text x="242" y="165" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">第一道门（乘法）</text>
+  <text x="242" y="186" text-anchor="middle" font-size="15" fill="#1a2433"><tspan font-family="'DejaVu Sans'">h = x · w₁</tspan></text>
+  <text x="242" y="205" text-anchor="middle" font-size="14" fill="#5a6b80"><tspan font-family="'DejaVu Sans'">w₁ = 1</tspan></text>
+
+  <line x1="320" y1="177" x2="358" y2="177" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+
+  <rect x="362" y="150" width="100" height="54" rx="10" fill="#e8f2ff" stroke="#4a7fb5" stroke-width="1.5"/>
+  <text x="412" y="173" text-anchor="middle" font-size="16" fill="#1a2433">中间结果</text>
+  <text x="412" y="193" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a2433">h = 2</text>
+
+  <line x1="462" y1="177" x2="500" y2="177" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+
+  <rect x="504" y="140" width="156" height="74" rx="10" fill="#eef8ee" stroke="#2e8b57" stroke-width="1.8"/>
+  <text x="582" y="165" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">第二道门（乘法）</text>
+  <text x="582" y="186" text-anchor="middle" font-size="15" fill="#1a2433"><tspan font-family="'DejaVu Sans'">pred = h · w₂</tspan></text>
+  <text x="582" y="205" text-anchor="middle" font-size="14" fill="#5a6b80"><tspan font-family="'DejaVu Sans'">w₂ = 3</tspan></text>
+
+  <line x1="660" y1="177" x2="698" y2="177" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+
+  <rect x="702" y="150" width="100" height="54" rx="10" fill="#e8f2ff" stroke="#4a7fb5" stroke-width="1.5"/>
+  <text x="752" y="173" text-anchor="middle" font-size="16" fill="#1a2433">预测</text>
+  <text x="752" y="193" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a2433">pred = 6</text>
+
+  <line x1="802" y1="177" x2="840" y2="177" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+
+  <rect x="844" y="140" width="126" height="74" rx="10" fill="#fdeeee" stroke="#c0504d" stroke-width="1.8"/>
+  <text x="907" y="163" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">loss 门</text>
+  <text x="907" y="183" text-anchor="middle" font-size="14" fill="#1a2433">(pred − y)²</text>
+  <text x="907" y="204" text-anchor="middle" font-size="15" font-weight="bold" fill="#c0504d">L = 16</text>
+
+  <!-- ============ 反向行 ============ -->
+  <line x1="907" y1="214" x2="907" y2="286" stroke="#d2691e" stroke-width="2.5" marker-end="url(#arrOrange)"/>
+  <text x="822" y="255" font-size="13" fill="#d2691e">反向出发</text>
+
+  <rect x="780" y="290" width="190" height="66" rx="10" fill="#fff4e8" stroke="#d2691e" stroke-width="1.8"/>
+  <text x="875" y="314" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">dL/dpred = 2e</text>
+  <text x="808" y="336" font-size="15" fill="#1a2433">= 2 × (−4) = <tspan font-weight="bold" fill="#d2691e">−8</tspan></text>
+
+  <line x1="780" y1="323" x2="522" y2="323" stroke="#d2691e" stroke-width="2.5" marker-end="url(#arrOrange)"/>
+  <rect x="548" y="298" width="210" height="24" rx="6" fill="#fafbfc"/>
+  <text x="556" y="315" font-size="13.5" fill="#d2691e">过第二道门：× 斜率 <tspan font-family="'DejaVu Sans'">w₂</tspan> = 3</text>
+
+  <rect x="340" y="290" width="180" height="66" rx="10" fill="#fff4e8" stroke="#d2691e" stroke-width="1.8"/>
+  <text x="430" y="314" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">dL/dh</text>
+  <text x="372" y="336" font-size="15" fill="#1a2433">= −8 × 3 = <tspan font-weight="bold" fill="#d2691e">−24</tspan></text>
+
+  <line x1="340" y1="323" x2="234" y2="323" stroke="#d2691e" stroke-width="2.5" marker-end="url(#arrOrange)"/>
+  <rect x="238" y="298" width="98" height="24" rx="6" fill="#fafbfc"/>
+  <text x="246" y="315" font-size="13.5" fill="#d2691e">× 斜率 x = 2</text>
+
+  <rect x="30" y="290" width="200" height="66" rx="10" fill="#fdeeee" stroke="#c0504d" stroke-width="2"/>
+  <text x="66" y="314" font-size="15" font-weight="bold" fill="#1a2433"><tspan font-family="'DejaVu Sans'">dL/dw₁</tspan>（落账）</text>
+  <text x="62" y="336" font-size="15" fill="#1a2433">= −24 × 2 = <tspan font-weight="bold" fill="#c0504d">−48</tspan></text>
+
+  <!-- 旁支：dL/dw2 -->
+  <line x1="875" y1="356" x2="875" y2="420" stroke="#d2691e" stroke-width="2.5" marker-end="url(#arrOrange)"/>
+  <rect x="650" y="424" width="320" height="66" rx="10" fill="#fdeeee" stroke="#c0504d" stroke-width="2"/>
+  <text x="712" y="448" font-size="15" font-weight="bold" fill="#1a2433"><tspan font-family="'DejaVu Sans'">dL/dw₂</tspan>（<tspan font-family="'DejaVu Sans'">w₂</tspan> 的落账）</text>
+  <text x="676" y="472" font-size="15" fill="#1a2433">= dL/dpred × h = −8 × 2 = <tspan font-weight="bold" fill="#c0504d">−16</tspan></text>
+  <text x="640" y="410" font-size="13" fill="#5a6b80"><tspan font-family="'DejaVu Sans'">w₂</tspan> 直接碰 pred：责任 × 对面那个数 h</text>
+
+  <!-- 底部说明 -->
+  <rect x="30" y="510" width="940" height="84" rx="10" fill="#f0f3f7" stroke="#c8d2de" stroke-width="1"/>
+  <text x="50" y="540" font-size="14.5" fill="#1a2433">读图口诀：<tspan font-weight="bold">上排（绿）</tspan>前向，把数值从左算到右，每个中间结果（h、pred）都留着；</text>
+  <text x="50" y="564" font-size="14.5" fill="#1a2433"><tspan font-weight="bold">下排（橙）</tspan>反向，手里攥着一个数从 L 出发，每过一道门就乘上这道门的斜率，落到谁头上就是谁的梯度。</text>
+  <text x="50" y="586" font-size="13.5" fill="#5a6b80">−8 → ×3 → −24 → ×2 → −48：机器做的就是这条数字接力，符号公式是人类为看懂才合并的。</text>
+</svg>

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660" font-family="'Noto Sans CJK SC'">
+  <!-- 背景 -->
+  <rect width="1000" height="660" fill="#fafbfc"/>
+
+  <!-- 标题 -->
+  <text x="500" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#1a2433">第 5 节实战课地图：注意力的前向流水线与反向要账</text>
+  <text x="500" y="66" text-anchor="middle" font-size="14" fill="#5a6b80">形状标注同正文：n 个 token、每个 d 维</text>
+
+  <!-- 图例 -->
+  <g font-size="13">
+    <line x1="250" y1="90" x2="290" y2="90" stroke="#2e8b57" stroke-width="3" marker-end="url(#arrGreen)"/>
+    <text x="298" y="95" fill="#2e8b57">前向：算数值</text>
+    <line x1="420" y1="90" x2="460" y2="90" stroke="#d2691e" stroke-width="3" marker-end="url(#arrOrange)"/>
+    <text x="468" y="95" fill="#d2691e">反向：传责任</text>
+    <rect x="590" y="80" width="16" height="14" rx="3" fill="#fdeeee" stroke="#c0504d" stroke-width="1.5"/>
+    <text x="614" y="95" fill="#c0504d">红框 = 最终要的梯度（落账）</text>
+  </g>
+
+  <defs>
+    <marker id="arrGreen" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L8,4.5 L0,9 Z" fill="#2e8b57"/>
+    </marker>
+    <marker id="arrOrange" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L8,4.5 L0,9 Z" fill="#d2691e"/>
+    </marker>
+  </defs>
+
+  <!-- ============ 前向行 ============ -->
+  <rect x="30" y="140" width="120" height="84" rx="10" fill="#e8f2ff" stroke="#4a7fb5" stroke-width="1.5"/>
+  <text x="90" y="168" text-anchor="middle" font-size="15" fill="#1a2433">输入三件套</text>
+  <text x="90" y="190" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">Q、K、V</text>
+  <text x="90" y="211" text-anchor="middle" font-size="13.5" fill="#5a6b80">各自 [n,d]</text>
+
+  <line x1="150" y1="182" x2="188" y2="182" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+
+  <rect x="192" y="140" width="196" height="84" rx="10" fill="#eef8ee" stroke="#2e8b57" stroke-width="1.8"/>
+  <text x="290" y="166" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">打分门（乘法＋缩放）</text>
+  <text x="290" y="189" text-anchor="middle" font-size="15" fill="#1a2433"><tspan font-family="'DejaVu Sans'">S = Q · Kᵀ / √d</tspan></text>
+  <text x="290" y="211" text-anchor="middle" font-size="13.5" fill="#5a6b80">S：[n,n]</text>
+
+  <line x1="388" y1="182" x2="426" y2="182" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+
+  <rect x="430" y="140" width="196" height="84" rx="10" fill="#eef8ee" stroke="#2e8b57" stroke-width="1.8"/>
+  <text x="528" y="166" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">softmax 门（按行归一）</text>
+  <text x="528" y="189" text-anchor="middle" font-size="15" fill="#1a2433"><tspan font-family="'DejaVu Sans'">P = softmax(S)</tspan></text>
+  <text x="528" y="211" text-anchor="middle" font-size="13.5" fill="#5a6b80">P：[n,n]，每行和 = 1</text>
+
+  <line x1="626" y1="182" x2="664" y2="182" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+
+  <rect x="668" y="140" width="160" height="84" rx="10" fill="#eef8ee" stroke="#2e8b57" stroke-width="1.8"/>
+  <text x="748" y="166" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">加权门（乘法）</text>
+  <text x="748" y="189" text-anchor="middle" font-size="15" fill="#1a2433"><tspan font-family="'DejaVu Sans'">O = P · V</tspan></text>
+  <text x="748" y="211" text-anchor="middle" font-size="13.5" fill="#5a6b80">O：[n,d]</text>
+
+  <line x1="828" y1="182" x2="866" y2="182" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+
+  <rect x="870" y="150" width="100" height="64" rx="10" fill="#f0f3f7" stroke="#8a99ac" stroke-width="1.5"/>
+  <text x="920" y="177" text-anchor="middle" font-size="14" fill="#1a2433">去下游层</text>
+  <text x="920" y="198" text-anchor="middle" font-size="14" fill="#1a2433">最终到 loss</text>
+
+  <!-- ============ 反向行 ============ -->
+  <line x1="920" y1="214" x2="920" y2="286" stroke="#d2691e" stroke-width="2.5" marker-end="url(#arrOrange)"/>
+  <text x="820" y="255" font-size="13" fill="#d2691e">责任回程</text>
+
+  <rect x="850" y="290" width="120" height="60" rx="10" fill="#fff4e8" stroke="#d2691e" stroke-width="1.8"/>
+  <text x="910" y="315" text-anchor="middle" font-size="14.5" fill="#1a2433">下游递来</text>
+  <text x="910" y="337" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#1a2433">dO：[n,d]</text>
+
+  <line x1="850" y1="320" x2="816" y2="320" stroke="#d2691e" stroke-width="2.5" marker-end="url(#arrOrange)"/>
+
+  <!-- 过加权门 -->
+  <rect x="586" y="284" width="226" height="102" rx="10" fill="#fff4e8" stroke="#d2691e" stroke-width="1.8"/>
+  <text x="699" y="309" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#1a2433">过加权门：名片一贴</text>
+  <text x="699" y="333" text-anchor="middle" font-size="14.5" fill="#1a2433"><tspan font-family="'DejaVu Sans'">dP = dO · Vᵀ　[n,n]</tspan></text>
+  <rect x="600" y="346" width="198" height="28" rx="6" fill="#fdeeee" stroke="#c0504d" stroke-width="1.6"/>
+  <text x="699" y="366" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#c0504d"><tspan font-family="'DejaVu Sans'">dV = Pᵀ · dO　[n,d]</tspan></text>
+
+  <line x1="586" y1="320" x2="552" y2="320" stroke="#d2691e" stroke-width="2.5" marker-end="url(#arrOrange)"/>
+
+  <!-- 过 softmax 门 -->
+  <rect x="280" y="284" width="268" height="102" rx="10" fill="#fff4e8" stroke="#d2691e" stroke-width="1.8"/>
+  <text x="414" y="309" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#1a2433">过 softmax 门：同行连坐</text>
+  <text x="414" y="337" text-anchor="middle" font-size="13.5" fill="#1a2433"><tspan font-family="'DejaVu Sans'">dS = P ⊙ (dP − rowsum(dP ⊙ P))</tspan></text>
+  <text x="414" y="364" text-anchor="middle" font-size="13" fill="#5a6b80">先领责任，扣掉本行加权平均，再乘权重</text>
+
+  <line x1="280" y1="320" x2="246" y2="320" stroke="#d2691e" stroke-width="2.5" marker-end="url(#arrOrange)"/>
+
+  <!-- 过打分门 -->
+  <rect x="30" y="284" width="212" height="102" rx="10" fill="#fdeeee" stroke="#c0504d" stroke-width="2"/>
+  <text x="136" y="309" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#1a2433">过打分门：名片再贴＋÷√d</text>
+  <text x="136" y="337" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#c0504d"><tspan font-family="'DejaVu Sans'">dQ = dS · K / √d</tspan></text>
+  <text x="136" y="364" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#c0504d"><tspan font-family="'DejaVu Sans'">dK = dSᵀ · Q / √d</tspan></text>
+
+  <!-- 底部说明 -->
+  <rect x="30" y="430" width="940" height="112" rx="10" fill="#f0f3f7" stroke="#c8d2de" stroke-width="1"/>
+  <text x="50" y="462" font-size="14.5" fill="#1a2433">读图口诀：反向全程只用两样工具——<tspan font-weight="bold">矩阵乘法名片</tspan>（加权门、打分门各贴一次）＋ <tspan font-weight="bold">softmax 的同行连坐</tspan>。</text>
+  <text x="50" y="488" font-size="14.5" fill="#1a2433">每行公式都能用<tspan font-weight="bold">形状对齐法</tspan>当场验算：dQ 必须和 Q 同形 [n,d]，拿 dS [n,n] 和 K [n,d] 能拼出来的摆法只有一种。</text>
+  <text x="50" y="514" font-size="13.5" fill="#5a6b80">五行答案对应正文"对答案"代码块；÷√d 是常数缩放门，责任过门时照样缩 1/√d，已并进 dQ、dK 两行。</text>
+
+  <!-- 收尾一句 -->
+  <text x="500" y="590" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">Transformer 核心件的反向传播 = 三张乘法名片 + 一条同行连坐规则</text>
+  <text x="500" y="616" text-anchor="middle" font-size="13.5" fill="#5a6b80">（Q、K、V 各自还是"输入乘投影矩阵"得来的——那又是三道乘法门，规则一个字不变）</text>
+</svg>
