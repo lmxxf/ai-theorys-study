@@ -98,6 +98,6 @@
   <text x="50" y="514" font-size="13.5" fill="#5a6b80">五行答案对应正文"对答案"代码块；÷√d 是常数缩放门，责任过门时照样缩 1/√d，已并进 dQ、dK 两行。</text>
 
   <!-- 收尾一句 -->
-  <text x="500" y="590" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">Transformer 核心件的反向传播 = 三张乘法名片 + 一条同行连坐规则</text>
+  <text x="500" y="590" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2433">Transformer 核心件的反向传播 = 两道乘法门 + 常数缩放 + softmax 同行连坐</text>
   <text x="500" y="616" text-anchor="middle" font-size="13.5" fill="#5a6b80">（Q、K、V 各自还是"输入乘投影矩阵"得来的——那又是三道乘法门，规则一个字不变）</text>
 </svg>
