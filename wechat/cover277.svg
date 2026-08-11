@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">老靳学算法 · 第二期 · KV cache 显存账</text>
+
+  <!-- ============ LEFT: 公式与杠杆 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">一条公式 · 三个杠杆</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="66" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">每 token 每层 =</text>
+      <text x="100" y="43" text-anchor="middle" fill="#bfdbfe" font-size="11">2 × KV 头数 × 每头维度 × 字节</text>
+      <text x="100" y="59" text-anchor="middle" fill="#bfdbfe" font-size="10">再乘层数 × 长度 × 并发</text>
+    </g>
+
+    <g transform="translate(15 108)">
+      <rect x="0" y="0" width="200" height="38" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fde68a" font-size="11.5" font-weight="bold">砍每条多大：GQA / MLA / 量化</text>
+    </g>
+    <g transform="translate(15 154)">
+      <rect x="0" y="0" width="200" height="38" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#5eead4" font-size="11.5" font-weight="bold">砍存多少条：压缩 / 线性注意力</text>
+    </g>
+    <g transform="translate(15 200)">
+      <rect x="0" y="0" width="200" height="38" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#93c5fd" font-size="11.5" font-weight="bold">砍几层在存：混合架构</text>
+    </g>
+
+    <text x="115" y="266" text-anchor="middle" fill="#94a3b8" font-size="11">config 给结构，代码给口径</text>
+    <text x="115" y="284" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">不用等 OOM 教你</text>
+  </g>
+
+  <!-- ============ MIDDLE: 账本一 Qwen ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">账本一 · Qwen3.6-27B</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 32)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">64 层里只有 16 层在花钱</text>
+      <text x="100" y="41" text-anchor="middle" fill="#bfdbfe" font-size="10.5">full 层 GQA：每 token 每层 4 KiB</text>
+    </g>
+
+    <g transform="translate(20 94)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">48 层线性 = 定长便签</text>
+      <text x="100" y="41" text-anchor="middle" fill="#a7f3d0" font-size="10.5">状态 144 MiB 封顶，不随长度涨</text>
+    </g>
+
+    <line x1="20" y1="164" x2="220" y2="164" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 182)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">128K 上下文：KV cache 8 GiB</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10.5">砍价阶梯：MHA 192 → GQA 32 → 8</text>
+      <text x="0" y="40" fill="#cbd5e1" font-size="10.5">权重 51.75 GiB（读官方 index）</text>
+      <text x="0" y="60" fill="#94a3b8" font-size="10">128 GB 主机跑满 256K 有余量</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 账本二 V4 Flash ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">账本二 · DeepSeek-V4-Flash</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="21" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">三种层，显存三种分工</text>
+      <text x="100" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10.5">CSA 精读 · HCA 扫描 · 滑窗管眼前</text>
+      <text x="100" y="57" text-anchor="middle" fill="#a7f3d0" font-size="10.5">MLA：每条只存 512 维 latent</text>
+    </g>
+
+    <g transform="translate(15 112)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">CSA 层背两份 cache</text>
+      <text x="100" y="41" text-anchor="middle" fill="#fbbf24" font-size="10.5">主路 512 维 + Indexer 名片 128 维</text>
+    </g>
+
+    <line x1="16" y1="182" x2="214" y2="182" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 200)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">1M 上下文：KV cache 约 6.7 GiB</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10.5">每 token 约 6.7 KiB，是 Qwen 的 1/9.5</text>
+      <text x="0" y="40" fill="#cbd5e1" font-size="10.5">权重 148.65 GiB 才是唯一门槛</text>
+      <text x="0" y="60" fill="#94a3b8" font-size="10">cache 精度以官方实现为准：bf16</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">KV cache 到底占多少显存：两本账算给你看</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">27B 跑 128K 要 8 GiB，284B 跑 1M 只要 6.7 GiB——结构决定账，不是大小</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.277 · 老靳学算法 · 第二期</text>
+</svg>

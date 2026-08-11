@@ -35,7 +35,7 @@
 
     <rect x="18" y="200" width="179" height="48" rx="6" fill="#fafbfc" stroke="#c8d2de" stroke-width="1" stroke-dasharray="4,3"/>
     <text x="107" y="220" text-anchor="middle" font-size="12" font-weight="bold" fill="#64748b">分工：管眼前</text>
-    <text x="107" y="238" text-anchor="middle" font-size="11.5" fill="#94a3b8">每层约 0.06 MB，近乎免费</text>
+    <text x="107" y="238" text-anchor="middle" font-size="11.5" fill="#94a3b8">bf16 每层 0.125 MiB，近乎免费</text>
   </g>
 
   <!-- ============ 卡 2：HCA 层 ============ -->
@@ -47,7 +47,7 @@
     <rect x="18" y="62" width="229" height="88" rx="6" fill="#eef8ee" stroke="#2e8b57" stroke-width="1.6"/>
     <text x="132" y="84" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1e6b47">每 128 个 token 压成 1 条</text>
     <text x="132" y="104" text-anchor="middle" font-size="11.5" fill="#3d7a5c">每条 512 维（448 内容 + 64 位置）</text>
-    <text x="132" y="122" text-anchor="middle" font-size="11.5" fill="#3d7a5c">FP8 存，一条 512 字节</text>
+    <text x="132" y="122" text-anchor="middle" font-size="11.5" fill="#3d7a5c">当前 bf16 存，一条 1024 字节</text>
     <text x="132" y="140" text-anchor="middle" font-size="11.5" fill="#3d7a5c">1M 上下文 → 只有 8192 条</text>
 
     <rect x="18" y="160" width="229" height="34" rx="6" fill="#f0f3f7" stroke="#8a99ac" stroke-width="1.2"/>
@@ -55,7 +55,7 @@
 
     <rect x="18" y="206" width="229" height="48" rx="6" fill="#fafbfc" stroke="#c8d2de" stroke-width="1" stroke-dasharray="4,3"/>
     <text x="132" y="226" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e6b47">分工：管扫描（粗看全局）</text>
-    <text x="132" y="244" text-anchor="middle" font-size="11.5" fill="#94a3b8">1M 时每层仅 4 MB——近乎免费</text>
+    <text x="132" y="244" text-anchor="middle" font-size="11.5" fill="#94a3b8">1M 时每层仅 8 MiB——近乎免费</text>
   </g>
 
   <!-- ============ 卡 3：CSA 层（两份 cache）============ -->
@@ -69,31 +69,31 @@
     <text x="123" y="84" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1e6b47">主路 cache（算 attention 用）</text>
     <text x="123" y="104" text-anchor="middle" font-size="11.5" fill="#3d7a5c">每 4 个 token 压成 1 条</text>
     <text x="123" y="122" text-anchor="middle" font-size="11.5" fill="#3d7a5c">每条 512 维（448 内容 + 64 位置）</text>
-    <text x="123" y="140" text-anchor="middle" font-size="11.5" fill="#3d7a5c">FP8 存，一条 512 字节</text>
+    <text x="123" y="140" text-anchor="middle" font-size="11.5" fill="#3d7a5c">当前 bf16 存，一条 1024 字节</text>
     <text x="123" y="158" text-anchor="middle" font-size="11.5" fill="#3d7a5c">+ 128 条滑窗原始 KV 拼在一起</text>
-    <text x="123" y="180" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e6b47">1M → 262144 条 = 128 MB/层</text>
+    <text x="123" y="180" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e6b47">1M → 262144 条 = 256 MiB/层</text>
 
     <!-- indexer -->
     <rect x="247" y="62" width="121" height="132" rx="6" fill="#fff4e8" stroke="#d2691e" stroke-width="1.6"/>
     <text x="307" y="84" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#9a4b12">Indexer 附属</text>
     <text x="307" y="104" text-anchor="middle" font-size="11.5" fill="#b06a2a">只管打分选材</text>
     <text x="307" y="122" text-anchor="middle" font-size="11.5" fill="#b06a2a">每条 128 维</text>
-    <text x="307" y="140" text-anchor="middle" font-size="11.5" fill="#b06a2a">FP4，64 字节</text>
-    <text x="307" y="162" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#9a4b12">= 16 MB/层</text>
+    <text x="307" y="140" text-anchor="middle" font-size="11.5" fill="#b06a2a">当前 bf16，256 字节</text>
+    <text x="307" y="162" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#9a4b12">= 64 MiB/层</text>
     <text x="307" y="182" text-anchor="middle" font-size="10.5" fill="#b06a2a">谁也不复用谁</text>
 
     <rect x="16" y="206" width="352" height="48" rx="6" fill="#fdeeee" stroke="#c0504d" stroke-width="1.2"/>
     <text x="192" y="226" text-anchor="middle" font-size="12" font-weight="bold" fill="#c0504d">分工：管精读 + 选材——全账的九成七押在这 21 层</text>
-    <text x="192" y="244" text-anchor="middle" font-size="11.5" fill="#9a4b12">1M 时每层 128 + 16 = 144 MB，21 层共约 3 GB 的大头</text>
+    <text x="192" y="244" text-anchor="middle" font-size="11.5" fill="#9a4b12">1M 时每层 256 + 64 = 320 MiB，21 层共 6.56 GiB</text>
   </g>
 
   <!-- ============ 账目条 ============ -->
   <rect x="30" y="462" width="900" height="82" rx="10" fill="#0f172a"/>
-  <text x="50" y="492" font-size="14.5" fill="#e2e8f0">1M 上下文总账：CSA 主路 <tspan font-weight="bold" fill="#fde047">2688 MB</tspan> + Indexer <tspan font-weight="bold" fill="#fde047">336 MB</tspan> + HCA <tspan font-weight="bold" fill="#fde047">80 MB</tspan> + 滑窗 <tspan font-weight="bold" fill="#fde047">0.2 MB</tspan> ≈ <tspan font-weight="bold" fill="#f87171">3.0 GB</tspan></text>
-  <text x="50" y="524" font-size="14.5" fill="#e2e8f0">摊到每个 token：平均约 <tspan font-weight="bold" fill="#fde047">3 KB</tspan>——是 Qwen3.6-27B（每 token 64 KiB）的约二十分之一</text>
+  <text x="50" y="492" font-size="14.5" fill="#e2e8f0">1M 上下文总账：CSA 主路 <tspan font-weight="bold" fill="#fde047">5376 MiB</tspan> + Indexer <tspan font-weight="bold" fill="#fde047">1344 MiB</tspan> + HCA <tspan font-weight="bold" fill="#fde047">160 MiB</tspan> + 滑窗 <tspan font-weight="bold" fill="#fde047">5.5 MiB</tspan> ≈ <tspan font-weight="bold" fill="#f87171">6.72 GiB</tspan></text>
+  <text x="50" y="524" font-size="14.5" fill="#e2e8f0">摊到每个 token：平均约 <tspan font-weight="bold" fill="#fde047">6.7 KiB</tspan>——Qwen3.6-27B 的 64 KiB 仍是它约 9.5 倍</text>
 
   <!-- 底注 -->
   <text x="50" y="580" font-size="13.5" fill="#5a6b80">显存上的分工：贵的层管精读加选材（CSA），便宜的层管扫描（HCA），不花钱的层管眼前（滑窗）——</text>
   <text x="50" y="604" font-size="13.5" fill="#5a6b80">每层该记多少历史，是架构师拿 compress_ratios 一层一层排出来的。</text>
-  <text x="50" y="634" font-size="13" fill="#94a3b8">口径：主路 FP8、Indexer FP4（生产部署口径）；层数与压缩比读自 config.json，cache 布局读自官方 inference/model.py。</text>
+  <text x="50" y="634" font-size="13" fill="#94a3b8">口径：官方 inference/model.py 当前 bf16 buffer；若两路 cache 按源码注释落成 FP8，可再降至约 3.4 GiB。</text>
 </svg>

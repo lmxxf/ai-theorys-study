@@ -102,10 +102,10 @@
   <!-- ============ 账目条 ============ -->
   <rect x="30" y="462" width="909" height="82" rx="10" fill="#0f172a"/>
   <text x="50" y="492" font-size="14.5" fill="#e2e8f0">这个 token 在<tspan font-weight="bold" fill="#fde047">这一层</tspan>留下的 cache = 2（K 和 V）× 4 份 × 256 维 × 2 字节（bf16） = <tspan font-weight="bold" fill="#fde047">4 KiB</tspan></text>
-  <text x="50" y="524" font-size="14.5" fill="#e2e8f0">× 16 层 full = <tspan font-weight="bold" fill="#fde047">64 KiB / token</tspan>　　× 131072 个 token（128K 上下文）= <tspan font-weight="bold" fill="#f87171">8 GB</tspan></text>
+  <text x="50" y="524" font-size="14.5" fill="#e2e8f0">× 16 层 full = <tspan font-weight="bold" fill="#fde047">64 KiB / token</tspan>　　× 131072 个 token（128K 上下文）= <tspan font-weight="bold" fill="#f87171">8 GiB</tspan></text>
 
   <!-- 对照 -->
-  <text x="50" y="576" font-size="13.5" fill="#5a6b80">对照：MHA 时代 24 个 Q 头各存各的 KV——上面第一行的"4 份"换成"24 份"，一条记录 24 KiB，128K 要 192 GB；</text>
-  <text x="50" y="600" font-size="13.5" fill="#5a6b80">GQA 把每条记录砍瘦 6 倍（条数一根毛没动）；另外 48 层线性注意力连"条"都不存，只留一张 3 MB 定长便签。</text>
+  <text x="50" y="576" font-size="13.5" fill="#5a6b80">对照：MHA 时代 24 个 Q 头各存各的 KV——上面第一行的"4 份"换成"24 份"，一条记录 24 KiB，128K 要 192 GiB；</text>
+  <text x="50" y="600" font-size="13.5" fill="#5a6b80">GQA 把每条记录砍瘦 6 倍（条数一根毛没动）；另外 48 层线性注意力连"条"都不存，只留一张 3 MiB 定长便签。</text>
   <text x="50" y="630" font-size="13" fill="#94a3b8">图中每个 K/V 框 256 维；一条 cache 记录 = 本层 4 个 K 框 + 4 个 V 框拼起来，共 2048 个数。</text>
 </svg>
