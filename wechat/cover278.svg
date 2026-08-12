@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a120a"/>
+      <stop offset="55%" stop-color="#241809"/>
+      <stop offset="100%" stop-color="#0f1a14"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2b2013"/>
+      <stop offset="100%" stop-color="#1a120a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#c9a227"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.08">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#d8c9a8" font-size="15" letter-spacing="4">旅行杂谈 · 呼和浩特—鄂尔多斯—榆林 · 河南地</text>
+
+  <!-- ============ LEFT: 时间表 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#a89d87" font-size="13">统一是中点，不是终点</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#4a3a22" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="40" rx="6" fill="#241809" stroke="#c9a227" stroke-width="1.5"/>
+      <text x="100" y="17" text-anchor="middle" fill="#e8d9a0" font-size="11.5" font-weight="bold">前 316 巴蜀（早统一 95 年）</text>
+      <text x="100" y="33" text-anchor="middle" fill="#c9b878" font-size="10.5">帝国地基一块块隔几十年铺</text>
+    </g>
+    <g transform="translate(15 80)">
+      <rect x="0" y="0" width="200" height="40" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="17" text-anchor="middle" fill="#fde68a" font-size="11.5" font-weight="bold">前 221 统一六国</text>
+      <text x="100" y="33" text-anchor="middle" fill="#fbbf24" font-size="10.5">战争机器根本没停</text>
+    </g>
+    <g transform="translate(15 130)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0f1a14" stroke="#2dd4bf" stroke-width="1.8"/>
+      <text x="100" y="18" text-anchor="middle" fill="#5eead4" font-size="11.5" font-weight="bold">前 214 真正的句号</text>
+      <text x="100" y="34" text-anchor="middle" fill="#a7f3d0" font-size="10.5">北设九原郡 + 南设岭南三郡</text>
+      <text x="100" y="48" text-anchor="middle" fill="#a7f3d0" font-size="10.5">最北最南同年挂牌</text>
+    </g>
+
+    <line x1="20" y1="200" x2="210" y2="200" stroke="#4a3a22" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 218)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">「六国」是个过滤器</text>
+      <text x="0" y="20" fill="#d8c9a8" font-size="10.5">六国有名有姓排排坐</text>
+      <text x="0" y="38" fill="#d8c9a8" font-size="10.5">义渠、林胡、楼烦、百越</text>
+      <text x="0" y="56" fill="#a89d87" font-size="10.5">全被滤掉</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 对手 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#a89d87" font-size="13">对面站着谁</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#4a3a22" stroke-width="1"/>
+
+    <g transform="translate(20 30)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#241809" stroke="#c9a227" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#e8d9a0" font-size="11.5" font-weight="bold">义渠：宣太后的甘泉宫</text>
+      <text x="100" y="36" text-anchor="middle" fill="#c9b878" font-size="10.5">三十年情人，一刀灭国（前 272）</text>
+    </g>
+    <g transform="translate(20 86)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#241809" stroke="#c9a227" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#e8d9a0" font-size="11.5" font-weight="bold">林胡、楼烦：没有文字的人</text>
+      <text x="100" y="36" text-anchor="middle" fill="#c9b878" font-size="10.5">唯一的自述是鄂尔多斯青铜器</text>
+    </g>
+    <g transform="translate(20 142)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#241809" stroke="#c9a227" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#e8d9a0" font-size="11.5" font-weight="bold">头曼 → 冒顿：草原的镜像</text>
+      <text x="100" y="36" text-anchor="middle" fill="#c9b878" font-size="10.5">秦帝国与匈奴帝国几乎同龄</text>
+    </g>
+
+    <line x1="20" y1="206" x2="220" y2="206" stroke="#4a3a22" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 224)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">北闪电战，南消耗战</text>
+      <text x="0" y="20" fill="#d8c9a8" font-size="10.5">有中心的对手会退（匈奴）</text>
+      <text x="0" y="38" fill="#d8c9a8" font-size="10.5">无中心的对手会耗（百越）</text>
+      <text x="0" y="56" fill="#a89d87" font-size="10.5">对手的结构决定战争的形状</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 直道 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#a89d87" font-size="13">秦直道 · 帝国的专线</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#4a3a22" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#fde68a" font-size="11.5" font-weight="bold">甘泉宫 → 九原，约 700 公里</text>
+      <text x="100" y="35" text-anchor="middle" fill="#fbbf24" font-size="10.5">堑山堙谷，岭上跑马</text>
+      <text x="100" y="48" text-anchor="middle" fill="#fbbf24" font-size="10.5">起点 = 义渠王被杀的地方</text>
+    </g>
+    <g transform="translate(15 92)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#0f1a14" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#5eead4" font-size="11.5" font-weight="bold">秦人修山脊，今人修河谷</text>
+      <text x="100" y="36" text-anchor="middle" fill="#a7f3d0" font-size="10.5">包茂高速 = 现代版秦直道</text>
+    </g>
+    <g transform="translate(15 148)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#2a0f0f" stroke="#ef8080" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#f5b0b0" font-size="11.5" font-weight="bold">通车第一单：给始皇送葬</text>
+      <text x="100" y="36" text-anchor="middle" fill="#e09090" font-size="10.5">灵柩沿直道回咸阳（前 210）</text>
+    </g>
+
+    <line x1="16" y1="212" x2="214" y2="212" stroke="#4a3a22" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 230)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">最后征服的，最先脱手</text>
+      <text x="0" y="20" fill="#d8c9a8" font-size="10.5">河南地：秦人只握了不到十年</text>
+      <text x="0" y="38" fill="#d8c9a8" font-size="10.5">直道：夯土用了两千年</text>
+      <text x="0" y="56" fill="#a89d87" font-size="10.5">政治的寿命 vs 工程的寿命</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#0d0803" opacity="0.9"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8f4ea" font-size="30" font-weight="bold">出发去鄂尔多斯，感受秦帝国的崛起</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">帝国最后的领土只握了十年，为它修的直道用了两千年</text>
+  <text x="450" y="486" text-anchor="middle" fill="#a89d87" font-size="13">No.278 · 旅行杂谈 · 「统一六国」外面的账</text>
+</svg>
