@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AGENT 壳子源码对读 · 系统提示词 · 三家横比</text>
+
+  <!-- ============ LEFT: DeepSeek Harness ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#5eead4" font-size="14" font-weight="bold">DeepSeek Harness</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#2dd4bf" stroke-width="1.5"/>
+
+    <text x="115" y="60" text-anchor="middle" fill="#5eead4" font-size="44" font-weight="bold">1448</text>
+    <text x="115" y="82" text-anchor="middle" fill="#a7f3d0" font-size="12">字节 · 一份装配快照</text>
+
+    <line x1="20" y1="100" x2="210" y2="100" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(15 118)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">装配出来的零件</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">身份 -100 · 人格 0</text>
+      <text x="100" y="58" text-anchor="middle" fill="#a7f3d0" font-size="10">工具守则 100–199</text>
+    </g>
+
+    <text x="115" y="216" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">开机第一句只有一行</text>
+    <text x="115" y="236" text-anchor="middle" fill="#94a3b8" font-size="10">"你由 DSH 驱动"</text>
+    <text x="115" y="262" text-anchor="middle" fill="#94a3b8" font-size="10">工具守则一句话打发</text>
+    <text x="115" y="282" text-anchor="middle" fill="#94a3b8" font-size="10">插件谁都能往里塞</text>
+  </g>
+
+  <!-- ============ MIDDLE: OpenAI Codex ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="bold">OpenAI Codex</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#f59e0b" stroke-width="1.5"/>
+
+    <text x="120" y="60" text-anchor="middle" fill="#fbbf24" font-size="44" font-weight="bold">17766</text>
+    <text x="120" y="82" text-anchor="middle" fill="#fde68a" font-size="12">字节 · GPT-5.6 现役</text>
+
+    <line x1="20" y1="100" x2="220" y2="100" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 118)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">写出来的一篇散文</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">第一章就是「人格」</text>
+      <text x="100" y="58" text-anchor="middle" fill="#fbbf24" font-size="10">随模型目录服务端下发</text>
+    </g>
+
+    <text x="120" y="216" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">「你有自己的品味和偏好」</text>
+    <text x="120" y="236" text-anchor="middle" fill="#94a3b8" font-size="10">写进了系统提示词开头</text>
+    <text x="120" y="262" text-anchor="middle" fill="#94a3b8" font-size="10">仓库里的按模型 md 已成化石</text>
+    <text x="120" y="282" text-anchor="middle" fill="#94a3b8" font-size="10">codex debug models 可自查</text>
+  </g>
+
+  <!-- ============ RIGHT: 结论 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#93c5fd" font-size="14" font-weight="bold">差一个数量级，为什么</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#4a90d9" stroke-width="1.5"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="84" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">提示词 = 补课讲义</text>
+      <text x="100" y="46" text-anchor="middle" fill="#bfdbfe" font-size="10">面向一整排陌生模型</text>
+      <text x="100" y="62" text-anchor="middle" fill="#bfdbfe" font-size="10">就得把话说全</text>
+      <text x="100" y="78" text-anchor="middle" fill="#93c5fd" font-size="10">自家模型只需一句话</text>
+    </g>
+
+    <g transform="translate(15 132)">
+      <rect x="0" y="0" width="200" height="62" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">仓库里未必是线上跑的</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">本机实测撞见三类差异</text>
+      <text x="100" y="56" text-anchor="middle" fill="#f87171" font-size="9">服务端随时可增删改</text>
+    </g>
+
+    <line x1="16" y1="212" x2="214" y2="212" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 230)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">彩蛋：车床是谁的</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">DSH 骨架来自聊天机器人生态</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">仓库里躺着两个竞品的说明书</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">如今它们成了它的子代理</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">1448 字节 vs 17766 字节</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">壳子和模型越亲，讲义越薄——两家源码逐字对读</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.279 · DeepSeek Harness vs OpenAI Codex · 附本机实测</text>
+</svg>
