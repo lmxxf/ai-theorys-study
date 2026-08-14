@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AI 水印 · Claude 全面上线 · 拆一篇 ICML 奠基论文</text>
+
+  <!-- ============ LEFT: 藏在哪儿 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">藏在哪儿 · 不在字里</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="21" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">模型交出打分表</text>
+      <text x="100" y="40" text-anchor="middle" fill="#bfdbfe" font-size="10">十几万个词，各有一个分数</text>
+    </g>
+
+    <text x="115" y="98" text-anchor="middle" fill="#64748b" font-size="16">↓</text>
+
+    <g transform="translate(15 104)">
+      <rect x="0" y="0" width="200" height="66" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">密钥把词表切两半</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">绿名单一半 · 红名单一半</text>
+      <text x="100" y="58" text-anchor="middle" fill="#fbbf24" font-size="10">绿的分数 + δ（论文取 2.0）</text>
+    </g>
+
+    <text x="115" y="186" text-anchor="middle" fill="#64748b" font-size="16">↓</text>
+
+    <g transform="translate(15 192)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="21" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">这时候才抽签</text>
+      <text x="100" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">绿词被抽中的次数偏多</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">它不改任何一个字</text>
+    <text x="115" y="290" text-anchor="middle" fill="#94a3b8" font-size="11">改的是抽签前那一下</text>
+  </g>
+
+  <!-- ============ MIDDLE: 自己写验证器 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">自己写了个验证器 · 四组实验</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(16 28)">
+      <text x="0" y="12" fill="#94a3b8" font-size="10">绿词比例</text>
+      <text x="126" y="12" fill="#94a3b8" font-size="10" text-anchor="end">z 值</text>
+
+      <rect x="0" y="20" width="208" height="26" rx="4" fill="#0f172a" stroke="#334155"/>
+      <text x="8" y="37" fill="#cbd5e1" font-size="11">没加水印</text>
+      <text x="140" y="37" fill="#94a3b8" font-size="11" text-anchor="end">49.6%</text>
+      <text x="200" y="37" fill="#64748b" font-size="11" text-anchor="end">−0.1</text>
+
+      <rect x="0" y="52" width="208" height="26" rx="4" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="8" y="69" fill="#5eead4" font-size="11" font-weight="bold">加了水印</text>
+      <text x="140" y="69" fill="#a7f3d0" font-size="11" text-anchor="end">75.6%</text>
+      <text x="200" y="69" fill="#5eead4" font-size="11" text-anchor="end" font-weight="bold">7.3</text>
+
+      <rect x="0" y="84" width="208" height="26" rx="4" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="8" y="101" fill="#fca5a5" font-size="11">密钥错一位</text>
+      <text x="140" y="101" fill="#f87171" font-size="11" text-anchor="end">49.1%</text>
+      <text x="200" y="101" fill="#f87171" font-size="11" text-anchor="end" font-weight="bold">−0.3</text>
+    </g>
+
+    <line x1="16" y1="152" x2="224" y2="152" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 168)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">同一段文本，一个字没变</text>
+      <text x="0" y="18" fill="#cbd5e1" font-size="10">密钥对：z=7.3，铁证</text>
+      <text x="0" y="34" fill="#cbd5e1" font-size="10">密钥错：z=−0.3，彻底隐形</text>
+    </g>
+
+    <g transform="translate(16 226)">
+      <text x="0" y="0" fill="#94a3b8" font-size="10">另外三组：128 词才够判定 ·</text>
+      <text x="0" y="16" fill="#94a3b8" font-size="10">改 40% 洗掉 · 低熵文本藏不住</text>
+      <text x="0" y="38" fill="#e2e8f0" font-size="11" font-weight="bold">脚本几十行，纯标准库</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 谁能验 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">谁能验 · 两把锁</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">锁一 · 密钥</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">不公开，检测工具还没影</text>
+    </g>
+
+    <g transform="translate(15 98)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">锁二 · 分词器</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">Claude 的从来没公开过</text>
+    </g>
+
+    <g transform="translate(15 166)">
+      <rect x="0" y="0" width="200" height="78" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">于是出现一个位置</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">8 月 2 日法条生效</text>
+      <text x="100" y="58" text-anchor="middle" fill="#bfdbfe" font-size="10">8 月 2 日水印上线</text>
+      <text x="100" y="74" text-anchor="middle" fill="#93c5fd" font-size="9">（宽限期本来到 12 月）</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">法条要的是"可被检测"</text>
+    <text x="115" y="290" text-anchor="middle" fill="#fde047" font-size="11">交付的是"可被我们检测"</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">Claude 给输出打水印，那玩意儿怎么加进去的</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">水印不改任何一个字，它动的是每个字被选中前的那次抛硬币</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.280 · 拆 KGW 奠基论文 + 自写验证器四组实验</text>
+</svg>
