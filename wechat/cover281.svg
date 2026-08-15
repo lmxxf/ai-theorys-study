@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1008"/>
+      <stop offset="55%" stop-color="#14100c"/>
+      <stop offset="100%" stop-color="#0f1418"/>
+    </linearGradient>
+    <radialGradient id="sandGlow" cx="20%" cy="30%" r="45%">
+      <stop offset="0%" stop-color="#d9a441" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#d9a441" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dustGlow" cx="80%" cy="72%" r="42%">
+      <stop offset="0%" stop-color="#8fb0c9" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#8fb0c9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2318"/>
+      <stop offset="100%" stop-color="#16130e"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d9a441"/>
+      <stop offset="50%" stop-color="#b8763a"/>
+      <stop offset="100%" stop-color="#6b8ba8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#sandGlow)"/>
+  <rect width="900" height="500" fill="url(#dustGlow)"/>
+
+  <g opacity="0.08">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e8dcc8" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e8dcc8" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#c9b998" font-size="15" letter-spacing="4">统万城 · 大夏 407–431 · 十六国的一百三十年</text>
+
+  <!-- ============ LEFT: 四个城门 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#a89878" font-size="13">刻在城墙上的计划书</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#3d3426" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="44" rx="5" fill="#2b1410" stroke="#c0563a" stroke-width="1.6"/>
+      <text x="100" y="19" text-anchor="middle" fill="#f0a58c" font-size="13" font-weight="bold">东门 · 招魏</text>
+      <text x="100" y="36" text-anchor="middle" fill="#d98d74" font-size="10">招抚东边的北魏</text>
+    </g>
+
+    <g transform="translate(15 80)">
+      <rect x="0" y="0" width="200" height="44" rx="5" fill="#2a2416" stroke="#d9a441" stroke-width="1.4"/>
+      <text x="100" y="19" text-anchor="middle" fill="#f2d08a" font-size="13" font-weight="bold">南门 · 朝宋</text>
+      <text x="100" y="36" text-anchor="middle" fill="#d9b871" font-size="10">让南边的刘宋来朝拜</text>
+    </g>
+
+    <g transform="translate(15 132)">
+      <rect x="0" y="0" width="200" height="44" rx="5" fill="#1c2420" stroke="#6f9d84" stroke-width="1.4"/>
+      <text x="100" y="19" text-anchor="middle" fill="#a8d4bd" font-size="13" font-weight="bold">西门 · 服凉</text>
+      <text x="100" y="36" text-anchor="middle" fill="#8fbfa6" font-size="10">收服西边的北凉</text>
+    </g>
+
+    <g transform="translate(15 184)">
+      <rect x="0" y="0" width="200" height="44" rx="5" fill="#1a2029" stroke="#6b8ba8" stroke-width="1.4"/>
+      <text x="100" y="19" text-anchor="middle" fill="#a8c4dd" font-size="13" font-weight="bold">北门 · 平朔</text>
+      <text x="100" y="36" text-anchor="middle" fill="#8fa9c2" font-size="10">平定北方的朔漠</text>
+    </g>
+
+    <line x1="16" y1="244" x2="214" y2="244" stroke="#3d3426" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="115" y="264" text-anchor="middle" fill="#e8dcc8" font-size="11" font-weight="bold">418 年建成，东门刻着「招魏」</text>
+    <text x="115" y="284" text-anchor="middle" fill="#f0a58c" font-size="11" font-weight="bold">427 年，魏来了</text>
+  </g>
+
+  <!-- ============ MIDDLE: 九州 vs 二十个县 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#a89878" font-size="13">九州占全了，天下一寸没多</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#3d3426" stroke-width="1"/>
+
+    <g transform="translate(16 26)">
+      <text x="0" y="12" fill="#a89878" font-size="10">州名</text>
+      <text x="208" y="12" fill="#a89878" font-size="10" text-anchor="end">治所在今天的</text>
+
+      <rect x="0" y="20" width="208" height="26" rx="4" fill="#2b1410" stroke="#c0563a" stroke-width="1.4"/>
+      <text x="8" y="37" fill="#f0a58c" font-size="11" font-weight="bold">幽州</text>
+      <text x="200" y="37" fill="#d98d74" font-size="10" text-anchor="end">鄂尔多斯 · 榆林</text>
+
+      <rect x="0" y="52" width="208" height="26" rx="4" fill="#2b1410" stroke="#c0563a" stroke-width="1.4"/>
+      <text x="8" y="69" fill="#f0a58c" font-size="11" font-weight="bold">荆州</text>
+      <text x="200" y="69" fill="#d98d74" font-size="10" text-anchor="end">三门峡（只一座城）</text>
+
+      <rect x="0" y="84" width="208" height="24" rx="4" fill="#221d14" stroke="#4a4031"/>
+      <text x="8" y="100" fill="#c9b998" font-size="11">豫州</text>
+      <text x="200" y="100" fill="#a89878" font-size="10" text-anchor="end">陕西大荔</text>
+
+      <rect x="0" y="114" width="208" height="24" rx="4" fill="#221d14" stroke="#4a4031"/>
+      <text x="8" y="130" fill="#c9b998" font-size="11">朔州</text>
+      <text x="200" y="130" fill="#a89878" font-size="10" text-anchor="end">延安东南</text>
+    </g>
+
+    <line x1="16" y1="180" x2="224" y2="180" stroke="#3d3426" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 198)">
+      <text x="0" y="0" fill="#f2d08a" font-size="12" font-weight="bold">九个州，一共二十个县</text>
+      <text x="0" y="22" fill="#c9b998" font-size="10">前秦：21 州 · 742 县（一州 35）</text>
+      <text x="0" y="40" fill="#c9b998" font-size="10">后赵：15 州 · 577 县（一州 38）</text>
+      <text x="0" y="58" fill="#f0a58c" font-size="11" font-weight="bold">大夏：9 州 · 20 县（一州 2.2）</text>
+      <text x="0" y="80" fill="#e8dcc8" font-size="11" font-weight="bold">那不是行政区，那是番号</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 一屋子同行 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#a89878" font-size="13">而这只是一个夏</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#3d3426" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#1a2029" stroke="#6b8ba8" stroke-width="1.5"/>
+      <text x="100" y="21" text-anchor="middle" fill="#a8c4dd" font-size="12" font-weight="bold">展板上的邻居有八个</text>
+      <text x="100" y="41" text-anchor="middle" fill="#8fa9c2" font-size="10">柔然 · 契丹 · 北魏 · 北燕</text>
+      <text x="100" y="57" text-anchor="middle" fill="#8fa9c2" font-size="10">北凉 · 南凉 · 后秦 · 东晋</text>
+    </g>
+
+    <text x="115" y="118" text-anchor="middle" fill="#7a6b52" font-size="15">↓</text>
+
+    <g transform="translate(15 124)">
+      <rect x="0" y="0" width="200" height="62" rx="6" fill="#2a2416" stroke="#d9a441" stroke-width="1.5"/>
+      <text x="100" y="21" text-anchor="middle" fill="#f2d08a" font-size="12" font-weight="bold">本想标出邻国</text>
+      <text x="100" y="41" text-anchor="middle" fill="#d9b871" font-size="11">结果标出了一屋子同行</text>
+    </g>
+
+    <g transform="translate(15 200)">
+      <text x="100" y="0" text-anchor="middle" fill="#c9b998" font-size="10">南燕的幽州在山东沂水</text>
+      <text x="100" y="18" text-anchor="middle" fill="#c9b998" font-size="10">前赵的幽州在陕西铜川</text>
+      <text x="100" y="36" text-anchor="middle" fill="#c9b998" font-size="10">西凉在戈壁滩设了会稽郡</text>
+    </g>
+
+    <text x="115" y="264" text-anchor="middle" fill="#e8dcc8" font-size="11" font-weight="bold">有实力的凭实力</text>
+    <text x="115" y="284" text-anchor="middle" fill="#f2d08a" font-size="11" font-weight="bold">没实力的吹牛也得硬上</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#0d0b08" opacity="0.9"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f5ecd8" font-size="30" font-weight="bold">统万城的四个城门，和那一百三十年</text>
+  <text x="450" y="460" text-anchor="middle" fill="#f2d08a" font-size="17">一个占着陕北的政权，把九州的名号占全了</text>
+  <text x="450" y="486" text-anchor="middle" fill="#a89878" font-size="13">No.281 · 旅行杂谈 · 十六国里每个人都想当天下之主</text>
+</svg>
