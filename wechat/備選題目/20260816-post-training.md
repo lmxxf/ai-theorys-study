@@ -460,16 +460,146 @@ https://x.ai/news/grok-4-6（vs Grok 4.5 High / GPT-5.6 Sol Max / Fable 5 Max）
 
 ## 六、后续期的弹药（第一期不讲，留着逐个写）
 
-### 6.1 算法：GRPO 崩在长轨迹上 → SAO
-**SAO: Single-Rollout Asynchronous Optimization for Agentic Reinforcement Learning** — arXiv:2607.07508
-> "we replace group-wise sampling with **single-rollout sampling**, that is, using one rollout per prompt… we introduce a **strict double-side token-level clipping strategy**. SAO is able to train stably for one thousand steps and consistently outperform GRPO and its variants…"
+### 6.1 ⭐⭐⭐ 算法：SAO（**第二期已定为重点，08-16 晚 Zero 定**）
 
-GLM-5.3 用的是 "**SAO with compaction**"（compaction 处理长轨迹上下文，未展开定义）。
+**Zero 08-16 晚定题**：「明天公众号的重点那就 SAO 了~明天我在公司写，大概也不做实验（反正配置个 docker 环境也没啥意义，全参数做 GRPO 我这电脑也费劲）」
+→ **明天在公司纯读纯写，不动手。** 环境那套（§5.4）等回家想动手了再说。
 
-**要讲清楚的故障机制**：GRPO / REINFORCE 这类 episode-level 方法**给轨迹里每个 token 相同的 advantage**——短轨迹是可接受的近似，但 agent 交互动辄 **10–100+ 轮、100K–500K+ tokens**，近似就崩了。这是「为什么单纯搬 GRPO 到 agent 上不 work」的一句话答案。
+**论文**：*SAO: Single-Rollout Asynchronous Optimization for Agentic Reinforcement Learning*
+arXiv:2607.07508v1，**2026-07-08**，CC BY 4.0，HTML 全文 https://arxiv.org/html/2607.07508v1
+**作者**：Zhenyu Hou, Yujiang Li, Jie Tang（唐杰）, Yuxiao Dong（东昱晓）｜清华大学，脚注 "Work done while ZH and YL interned at Z.AI"
+**部署**：论文原文写的是 **GLM-5.2 (750B-A40B)**，⚠️ **不是 5.3**（5.3 沿用 SAO 是 Z.ai 博客的二手说法）
 
-**量级对照（很重要的一条）**：学术上做严格控制变量只换 RL 算法 = **+2~5pp**（arXiv:2603.19335 甚至说任务离训练分布越远、算法选择越不重要，通用推理 benchmark 上没有任何方法偏离 base model 均值超过 0.29pp）；而换整套后训练 = DeepSWE **7.3 → 54.4**。
+---
+
+#### ⚠️⚠️ 三个必须避开的坑（朱雀 08-16 晚口头讲错过第一条，务必以此处为准）
+
+1. **绝不能说 SAO "省掉 critic" 或"更轻量"——完全说反了。SAO 把 PPO 的 value model 请回来了，显存翻倍。**
+   论文原文：*"this approach necessitates maintaining a copy of the model parameters for the value function, essentially **doubling the memory footprint** during training"*
+   它省的是 **GPU 空转时间**，不是显存。而且**论文没给任何 wall-clock / GPU-hour 对比**，别替它编效率数字。
+2. **别说 SAO 解决熵坍缩** —— 全文没有 "entropy" 一词。
+3. **别把 compaction 说成论文内容** —— 全文 grep "compact" 零命中，那是 GLM 侧的额外工程。
+
+---
+
+#### 6.1.1 它要解决的问题（论文的批评是**系统层面**的，不是统计层面）
+
+⚠️ 修正我先前的记录：论文**没有**说"GRPO 给整条轨迹每个 token 相同 advantage 所以崩"。它说的是**组采样在异步流水线里是个隐式同步栅栏**。
+
+> "For agentic and coding workloads, rollout lengths are highly variable, so short trajectories finish quickly while long ones become stragglers; as a result, **large portions of the GPU cluster idle while waiting for the slowest rollouts**."
+
+> "GRPO forms advantages by normalizing rewards within a prompt-level group, which improves stability in synchronous training but **introduces an implicit synchronization barrier**: updates must wait until all group members are generated, exacerbating staleness and off-policy drift under asynchrony."
+
+第二条批评更根本（**这条是"为什么必须 single rollout"最强的论据**）：
+> "group-wise sampling is **incompatible with online or complex agentic settings where the environment often provides only a single trajectory feedback per prompt**."
+→ 真实线上环境一个 prompt 只给一条反馈，**根本组不出一组**。GRPO 在这种设定下不是效果差，是**结构上不可用**。
+
+#### 6.1.2 Single-rollout：baseline 从哪来？——**答案是 value model 回来了**
+
+> "single-rollout optimization inherently suffers from high variance in gradient estimation, similar to REINFORCE. **To reduce variance requires a sufficiently good value model.**"
+
+> "In contrast, **SAO utilizes a value-based critic to provide advantage estimation**, allowing for effective policy updates from individual trajectories."
+
+**value model 规格**（实验用 Qwen3-30B-A3B 场景）：和 policy **同尺寸、同初始化**（都是 SFT 后的 Qwen3-30B-A3B-Thinking-2507）。critic lr 5e-6 vs policy lr 1e-6（**快 5 倍**）。
+⚠️ **论文未涉及** GLM-5.2 那个 750B 规模下 value model 具体多大。
+
+**四个把 critic 训好的工程手段**（讲解时前两个可略）：
+- **(a) Faster value update（TTUR）**：policy 每更新 1 次，critic 更新 **K=2** 次。*"If the value model is inaccurate, the advantage estimates become noisy, leading to destructive policy updates."*
+- **(b) Frozen Attention**：**冻结 value model 的注意力层**，只训 MoE 投影。发现是 *"this instability originates primarily from the Full Attention layers, whereas the MoE layers remain relatively stable."*
+- **(c) Skip-Observation token-level GAE** ← 见下，**这是全文最该讲的技术细节**
+- **(d) Scaling value pretraining**：value 冷启动是主要瓶颈
+
+#### 6.1.3 ⭐ Skip-Observation GAE（对写过 agent 的程序员秒懂，很少人讲）
+
+> "the transition from the end of an action $a_{i,\text{end}}$ to the start of an observation $o_{i,\text{start}}$ is **discontinuous from the model's perspective, as the model does not generate $o_i$**. Calculating advantage across this boundary introduces noise."
+
+公式 (4)(5)：
+$$\hat{A}(a_{i,N})=\delta+\gamma\lambda\hat{A}(a_{i+1,0}),\qquad \delta=r_t+\gamma V(a_{i+1,0})-V(a_{i,N})$$
+- $a_{i,N}$ = 第 i 个 action 的**最后一个 token**；$a_{i+1,0}$ = 下一个 action 的**第一个 token**——**中间整段环境返回的 $o_i$ 被跳过**
+
+**人话**：agent 轨迹是 `[模型说话, 工具返回, 模型说话, 工具返回…]`，工具返回那几千个 token **不是模型生成的**，凭什么让它背 credit、让梯度穿过它？SAO 把 GAE 递推从"逐 token 相邻"改成"**上一句话的结尾直连下一句话的开头，跨过中间那坨 stdout**"。
+> "This formulation constrains the advantage estimation to rely purely on the model outputs, **filtering out the stochasticity of environment feedback**."
+
+附录 A.1 对照：token-level 89.8 > step-level last-token 87.3 > step-level average 85.8（AIME2025 @400 步）
+
+#### 6.1.4 DIS：双侧 token 级 mask——**不是 clip，是直接扔掉**
+
+**做法两步**：
+1. 三模型简化成两模型：原本 $\frac{\pi_\theta}{\pi_{\theta_{old}}}\cdot\frac{\pi_{\theta_{old}}}{\pi_{rollout}}$，**直接约掉中间项**写成 $r_t(\theta)=\frac{\pi_\theta}{\pi_{rollout}}$。理由：异步下一条轨迹跨多个 rollout 版本，*"tracking of exact behavior probabilities is computationally prohibitive"*。好处是 rollout 的 logprob **推理时就有日志，白拿**。
+2. **双侧无条件 mask**：$f(x;\epsilon_\ell,\epsilon_h)=x$ 若 $1-\epsilon_\ell<x<1+\epsilon_h$，**否则 0**。
+
+**和 PPO clip 的区别（这张表是讲解的关键）**：
+
+| | PPO clip | SAO DIS |
+|---|---|---|
+| 分母 | $\pi_{\theta_{old}}$（**需额外前向**） | $\pi_{rollout}$（**读推理日志，免费**） |
+| 越界后 | 截断到边界值，**梯度还在** | **置零，完全无梯度** |
+| 触发 | 只在优势符号与越界方向匹配时（**单侧**） | **双侧无条件**，不看 $A$ 符号 |
+
+**代码人的说法**：PPO 是 `min(max(r,lo),hi)`（越界还给你个值）；SAO 是 `if r<lo or r>hi: weight=0`（**越界直接丢弃这个 token**）。
+**阈值极不对称**：math 用 $\epsilon_{low}=0.3,\epsilon_{high}=5.0$（容忍到 6 倍！），coding 用 0.8/3.0。
+
+> "we accept a controlled degree of off-policy bias in exchange for a substantial reduction in computational complexity… this simplified mechanism **enables more aggressive clipping, which effectively regularizes the update steps**"
+
+⚠️ **论文完全未提 DAPO**（全文无此词）。它对标的是 VAPO / GSPO / DCPO / SPO。要提 DAPO 必须标明是自己的联想。
+
+#### 6.1.5 ⭐ 崩溃时间线（**建议当高潮，比罗列消融表有效**）
+
+> "Standard GRPO suffers from a **performance collapse at approximately 160 training steps**."
+> "While VAPO maintains a near-zero clip ratio, it fails to effectively gate divergent off-policy updates, leading to a **rapid training collapse at approximately 90 steps**."
+> "SAO and GRPO (w/ DIS) exhibit comparable performance in the initial stage; a distinct **performance divergence occurs after approximately 400 training steps**."
+> "SAO is able to train stably for **one thousand steps**"
+
+**串起来**：vanilla VAPO 90 步崩 → vanilla GRPO 160 步崩 → 加 DIS 后不崩 → 400 步后 SAO 与 GRPO+DIS 分道扬镳 → SAO 稳到 1000 步。
+**反直觉点（很好讲）**：VAPO 几乎不裁剪却 90 步崩，SAO 一直在裁反而稳——**"该丢的数据就得丢干净"**。
+
+#### 6.1.6 实验数字
+
+**设置**：Qwen3-30B-A3B-Thinking-2507，batch 128，**group size 1**，max length 128k。GRPO 对照组 16 prompts × 8 rollouts = 128，**batch 完全对齐**（对照做得干净，值得提）。SWE-Bench 用 OpenHands，最多 300 轮。
+
+| | AIME2025 | BeyondAIME | HMMT Nov25 | IMOAnswerBench |
+|---|---|---|---|---|
+| Qwen3-30B-A3B（无 python） | 85.0 | 63.0 | 76.7 | 55.3 |
+| GRPO | 84.2 † | 54.8 | 76.0 | 55.8 |
+| GRPO + DIS | 93.5 | 70.8 | 84.0 | 70.0 |
+| SAO（仅 DIS） | 94.2 | 71.5 | 86.7 | 71.3 |
+| **SAO 完整** | **97.3** | **74.8** | **88.3** | **74.0** |
+
+† ⚠️ **GRPO 这行是崩溃前的最好成绩，不是 1000 步成绩**，别漏这个脚注。
+**叙事点**：SAO 把一个 **30B** 模型在 AIME2025 推到 **97.3，超过 GPT-5 High 的 94.6**（论文列的参照：Claude-Sonnet-4.5 87.0，GLM-4.7 95.7）。
+
+**SWE-Bench Verified**：base 23.0 → GRPO+DIS 27.0 → **SAO 29.8**
+
+**消融（Table 4）**：SAO 97.3 / 去掉 faster value 95.0 / 去掉 frozen attention 90.6 / vanilla VAPO 91.3 / **running mean baseline 79.8** ←**全表最大落差，是"必须要真 critic"最硬的证据**
+
+#### 6.1.7 Online learning 模拟（4.5 节，被低估，**最能讲清动机**）
+
+写作任务，reward = GLM-4.7 当 judge，训练中**依次切换偏好风格**：cute → 中二 → 古典。
+> "The Running Mean baseline exhibits a **pronounced adaptation lag**… In contrast, SAO's value-based critic dynamically tracks reward shifts… This confirms that SAO's **state-dependent baseline** provides the precision necessary for effective alignment in **non-stationary environments**."
+→ 论证的正是 GRPO 结构上做不到的事：**每个 prompt 只有一条反馈的真实线上环境**。比 benchmark 数字更能讲清"为什么必须 single rollout"。
+
+#### 6.1.8 论文自己承认的局限（值得写进文章）
+
+> "SAO depends on a trained value model and rollout log-probabilities, so deployment requires **infrastructure that can reliably preserve token-level behavior probabilities during asynchronous generation**."
+结论可能不迁移到：小模型、非 agentic 的 RLHF、稠密奖励 + 短轨迹的场景。
+
+#### 6.1.9 讲解建议（子代理给的，可直接用）
+
+**必讲五点（建议顺序）**：①用 **CI 流水线**比喻讲 GRPO 的病（8 个 worker 必须等最慢那个，等的时候主分支已经合并好几次了）→ ②**baseline 从哪来**（最反直觉，配 running mean 79.8 vs SAO 97.3）→ ③**双侧 mask 不是 clip 是丢弃**（配 VAPO 不裁却崩的反直觉）→ ④**Skip-Observation GAE**（工具返回值不该背锅，程序员秒懂，最容易出彩）→ ⑤**崩溃时间线当高潮**
+
+**可跳过**：GAE 数学推导、Frozen Attention 与 K=2 的调参细节、length-adaptive GAE 与各种 lr、附录 A.1、Explained Variance 定义式、Related Work 方法谱系（GSPO/DCPO/SPO 区别——读者无先验，讲了只增负担）
+
+**⚠️ 开头必须先垫"反向传播在什么时候做一次"**（08-16 晚聊过的）：跑完整条轨迹才反传一次、一个 0/1 分数摊给几十万 token、推理占九成反传占一成、GPU 大部分时间在等 docker。**读者不理解这个节奏，就理解不了后面为什么会崩。**
+
+**开源代码**：论文正文**没给任何代码链接**。THUDM/slime 是最可能的落地位置但**未经确认**，要提须标注。
+
+---
+
+### 6.1.10 量级对照（仍然成立，可当全篇的清醒剂）
+
+学术上做严格控制变量只换 RL 算法 = **+2~5pp**（arXiv:2603.19335 说任务离训练分布越远、算法选择越不重要）；而换整套后训练 = DeepSWE **7.3 → 54.4**。
 → **收益绝大部分不来自 RL 算法本身，来自环境规模、任务质量、verifier 质量和训练基建。**
+（⚠️ 但 SAO 论文自己的数字不支持这条：GRPO 84.2 → SAO 97.3 是 13 个点。差异可能在于"崩溃前最好成绩 vs 稳定训到 1000 步"不是同一回事——**这个矛盾值得在文章里如实指出，别调和**。）
 
 ### 6.2 基建：slime（GLM 开源）
 https://github.com/THUDM/slime — Megatron 训练侧 + SGLang rollout 侧，异步。
