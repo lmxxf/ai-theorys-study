@@ -1,26 +1,73 @@
 # 后训练提分专题（2026-08-16 立项，计划 2~3 期）
 
-> 核心事实：2026 年 8 月这一两个月内，多家把 agent/coding 跑分大幅提升，**且明确说基座没动、增益全来自后训练**。
-> 第一期做总览（论述从简，只给读者一个大致印象 + 为后续详细学习"怎么做这种后训练"铺路），后续逐家拆技术细节。
+> 核心事实：2026 年 7 月底到 8 月中这**半个月**内，多家把 agent/coding 跑分大幅提升，**且明确说基座没动、增益全来自后训练**。
+> **起点是 DeepSeek V4-Flash-0731（7-31），不是 GLM-5.3**——首发那句在 API 更新日志里，中英双语、"仅"字锁死。
+> 第一期做总览（论述从简，只给读者一个大致印象 + 为后续详细学习"怎么做这种后训练"铺路），后续逐家写技术细节。
 > 所有素材均为 2026-08-16 联网核实，Zero 之前的记忆盲区（朱雀知识截止 2025-05，这批模型全在盲区外）。
+> **282 期已成稿**（`wechat/282.md`），落款 2026-08-17。
 
 ---
 
-## 一、基座动没动：四家的三分类账本
+## 〇、时间线（先记住顺序，别搞反）
+
+| 日期 | 事件 |
+|---|---|
+| 2026-04-22/24/27 | V4-Pro / V4-Flash 首发（preview），config 定型于 4-27，此后未再改 |
+| **2026-06-27** | **DSpark 投机解码单独发布**，独立仓库 `V4-Pro-DSpark` / `V4-Flash-DSpark`，那 4 个 dspark 字段当时就定型 |
+| **2026-07-31** | **DeepSeek V4-Flash-0731 —— 本专题起点**，"仅重新进行了后训练" |
+| 2026-08-03 | Qwen3.8（唯一真重训基座的） |
+| 2026-08-12 | Grok 4.6 |
+| 2026-08-13 | DeepSeek V4-Pro-0813 + Gemini 3.7 Flash（同日） |
+| 2026-08-14 | GLM-5.3 |
+
+---
+
+## 一、基座动没动：三分类账本
 
 判据严格三分：**A = 官方明确说没动 / B = 官方通篇没说 / C = 官方说了动过**。
 ⚠️ 写作时注意区分「说了没动」和「没说」——这是两件事。
 
 | 模型 | 类别 | 依据 |
 |---|---|---|
-| **GLM-5.3** | **A** | 官方博客原话（见下） |
+| **DeepSeek V4-Flash-0731**（首发） | **A** | 官方 API 更新日志中英双语原话，"仅重新进行了后训练" |
 | **Gemini 3.7 Flash** | **A** | model card 的 Architecture / Training Data 两栏均写 "is based on Gemini 3.6 Flash" |
-| **DeepSeek V4-Flash-0731** | **A（骨架没动）** | 268 期做过 config 逐字段 diff |
-| **DeepSeek V4-Pro-0813** | **A（骨架没动）** | 本次 config diff，见第四节 |
+| **GLM-5.3** | **A** | 官方博客原话（见下），且**唯一摊开讲做法的一家** |
+| DeepSeek V4-Pro-0813 | 不进名单 | 官方**没有**重复"仅后训练"表述；且 config diff 结论已被推翻，见 §1.5 |
 | Grok 4.6 | **B** | 官方全文无 "base model"/"pretraining" 字样；"沿用 4.5 基座"全是第三方博客互相转引 |
 | Qwen3.8-Max | **C** | README 自述含 pre-training 阶段；参照系是 Qwen3.5 的**架构**而非 3.7 的**权重** |
 
-### 关键原文（英文照抄，可直接引用）
+**可核验性维度（282 期用到了，后续期可展开）**：三家里只有 DeepSeek 开源权重、外人能自己 diff config；Google 和智谱的权重都没公开，"基座没动"只能先信。
+
+### 关键原文（照抄，可直接引用）
+
+**DeepSeek V4-Flash-0731（本专题起点，2026-07-31）**
+唯一出处 = **API 更新日志**：https://api-docs.deepseek.com/updates （英）/ https://api-docs.deepseek.com/zh-cn/updates （中）。条目标题「DeepSeek-V4-Flash Update / DeepSeek-V4-Flash 更新」，中英双语、独立成段、带强调格式。
+
+> **DeepSeek-V4-Flash-0731 的模型结构、尺寸和 DeepSeek-V4-Flash-Preview 保持一致，仅重新进行了后训练。**
+
+> DeepSeek-V4-Flash-0731 keeps the same model architecture and size as DeepSeek-V4-Flash-Preview, and was **only re-post-trained**.
+
+⚠️ **三个坑，写作时必须注意**：
+1. **这句话不在 model card 里**。model card 只说 "with substantially enhanced agentic capabilities"，不给原因。**MarkTechPost 那篇（2026-07-31）写"model card is explicit that…"是归错了出处**，引二手源会引到错的地方。
+2. **官方用词是"模型结构、尺寸"（architecture and size），不是"基座权重逐比特未变"**。单引前半句不严密，必须配上"仅重新进行了后训练"才闭合。引用时照抄原句，别改写成"官方说基座权重没变"。
+3. **发布渠道很低调**：只在 API 更新日志（给开发者的兼容性提示），没有技术报告、没有单独 news 条目（`news260731` 这个 URL 不存在，是 Docusaurus 软 404 返回 200 的 Quick Start 页）。所以"最早公开宣告"成立，**"高调宣告"不成立**——更准确的描述是「最早把这件事写进官方文档，但当技术注记而非营销主张处理」。282 期用了这个反差当开篇。
+
+**preview → 0731 官方对比表**（出自 HF model card，**7.3 这个数只在这张表里**，更新日志不给 preview 旧分）：
+
+| Benchmark | 0731 | Flash (Preview) |
+|---|---|---|
+| **DeepSWE** | **54.4** | **7.3** |
+| Terminal Bench 2.1 | 82.7 | 61.8 |
+| Cybergym | 76.7 | 38.7 |
+| NL2Repo | 54.2 | 39.4 |
+| Toolathlon-Verified | 70.3 | 49.7 |
+| DSBench-FullStack † | 68.7 | 37.0 |
+| DSBench-Hard † | 59.6 | 25.8 |
+| Agents' Last Exam | 25.2 | 15.8 |
+| AutomationBench Public | 25.1 | 10.8 |
+
+† 官方注明为 DeepSeek 内部测试集。测试条件：DeepSeek Harness 极简模式、max 档、topp=0.95、temperature=1.0。
+0731 无配套技术报告；model card 顶部链的 arXiv:2606.19348 是 Preview 期论文（投稿 2026-04-26），不覆盖 0731。**后训练管线具体做法官方零披露。**
 
 **GLM-5.3** — https://z.ai/blog/glm-5.3
 > "**Scaling post-training is all we did for GLM-5.3.** With GLM-5.2 we built the stack: IndexShare for efficient long-context processing, SAO for RL on long-horizon tasks, and slime for large-scale asynchronous training — all running on the long-horizon task environments we have been accumulating. Over the past month we kept scaling on this stack: more environments, more diverse tasks, and more compute spent training on them."
@@ -154,19 +201,23 @@ https://arxiv.org/abs/2509.09677
 
 上下文 1M / 输出 128K。⚠️ **权重截至 08-16 未公开**（HF `zai-org/GLM-5.3` 返回 401），称安全审查后约两周发布。⚠️ **743B / 750B-A40B 两个参数数字均无原始文件支撑**（前者媒体写的，后者出自 SAO 论文提 GLM-5.2 处），官方博客与文档都没写，引用需谨慎。
 
-### DeepSeek V4-Pro：preview → 0813 的 config 逐字段 diff（本次亲核）
-- 0813：https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813/raw/main/config.json
-- preview：https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/raw/main/config.json（裸名仓库即 preview，model card 原文 "We present a preview version of DeepSeek-V4 series"）
+### §1.5 ⚠️ 一个被推翻的结论：DSpark 不是 0813 新增的（08-16 二次核实，Zero 提出质疑后查实）
 
-**骨架完全相同**：`num_hidden_layers` 61、`hidden_size` 7168、`n_routed_experts` 384、`n_shared_experts` 1、`num_experts_per_tok` 6、`vocab_size` 129280、`num_attention_heads` 128、`head_dim` 512、`q_lora_rank` 1536、`o_lora_rank` 1024、`index_topk` 1024、`moe_intermediate_size` 3072、`max_position_embeddings` 1048576、`hc_mult` 4、`scoring_func` "sqrtsoftplus"、`expert_dtype` "fp4"…
+**最初的错误判断**：拿 `deepseek-ai/DeepSeek-V4-Pro-0813` 和裸名仓库 `deepseek-ai/DeepSeek-V4-Pro`（preview）对 config，发现 0813 多了 4 个 dspark 字段 + `compress_ratios` 从 61 元素变 64 元素，于是写成"0813 相对 preview 新增了 DSpark 模块"。
 
-**唯一差异 = 尾部挂 DSpark 模块**（与 268 期 V4-Flash 那次同形状）：
-- 新增 `dspark_block_size: 5`、`dspark_noise_token_id: 128799`、`dspark_target_layer_ids: [58, 59, 60]`、`dspark_markov_rank: 512`
-- `compress_ratios` 从 61 个元素 → **64 个**，结尾多 3 个 0（对应新增三层）
+**实际的时间线**（HF commit 历史实查）：
+- **4-22/24** V4-Pro 与 V4-Flash 同日 initial commit；**4-27 config.json 最后一次修改**，此后 5-06 / 6-08 / 6-22 的提交只动 technical report 和 kernel.py。**preview 仓库至今不带 dspark 字段。**
+- **6-27** `DeepSeek-V4-Pro-DSpark` 与 `DeepSeek-V4-Flash-DSpark` 创建（同一份权重外挂投机解码模块），**那 4 个 dspark 字段和 61→64 的扩展当时就定型**，与 0813 里看到的完全一致。DSpark 论文与 DeepSpec 代码库同日发布。
+- **7-31 / 8-13** Flash-0731 与 Pro-0813 把 DSpark **并入主线正式版 config**。
 
-⚠️ 所以精确措辞是「**骨架没动、尾部挂了个投机解码模块**」，不是「逐字段相同」。
+**所以正确表述是**：DSpark 于 6-27 以独立 checkpoint 形式开源，Flash-0731 和 Pro-0813 是把它并进了主线；preview 停留在 4-27 状态始终不带 DSpark。**preview 与 0813 的 config diff 反映的是"四月首发 → 八月正式版"的累积差异，不是 0813 独有的新增。**
 
-其他：1.6T 总参 / 49B 激活；上下文 1,048,576 / 输出 384K；MIT License；$0.435 / $0.87 per M（08-16 起启用峰谷差异定价，谷时低 50%）。
+**顺带记下的技术细节**（后续期可能用得上）：`compress_ratios` 多出的 3 个元素与 `dspark_target_layer_ids` 是同一件事的两面——补的 0 对应 draft 层不参与压缩注意力（Pro `[58,59,60]`、Flash 43 层版是 `[40,41,42]`）。`dspark_markov_rank` Pro 512 / Flash 256，约为 hidden 的 1/14~1/16；`dspark_block_size` 两个规模都是 5，对应报道里的 "DSpark-5" 命名（block size = 一次投机的 token 数）。`dspark_noise_token_id: 128799` 跨规模不变。
+⚠️ DeepSeek 官方 API 更新日志**完全没提 DSpark**（它走 HF + GitHub + 论文路径，对 API 用户只表现为"变快了"）——引用时别据此推断 DSpark 没发布。
+
+**282 期的处理**：V4-Pro-0813 从"明确宣告"名单里拿掉了（官方没为它重复"仅后训练"表述，且讲清 DSpark 要费一整节、与主线无关）。日期表里保留它作为发布密度的一部分。
+
+**V4-Pro-0813 其他数字**（282 期未用，后续期备用）：1.6T 总参 / 49B 激活；上下文 1,048,576 / 输出 384K；MIT License；$0.435 / $0.87 per M（08-16 起启用峰谷差异定价，谷时低 50%）。
 官方跑分：Terminal-Bench 2.1 **87.9**、DeepSWE **62.7**、HLE 42.7/60.0（无工具/有工具）、NL2Repo 61.5、CyberGym 83.3、Toolathlon-Verified 74.1、DSBench-FullStack 71.1。
 ⚠️ **官方与第三方严重背离**：AA Intelligence Index 仅 **53**、Vals Index 第 12 名，SCMP 标题写"benchmarks 表现挣扎"（https://www.scmp.com/tech/big-tech/article/3363895/...）。SCMP 提到官方公告曾在周四下午被撤下。
 
@@ -273,6 +324,9 @@ arXiv:2511.09586 | 2025-11-12，v3 2025-12-23 | Yuchen Huang 等
 
 - **第一期论述从简**：只给读者大致印象 + 为后续"怎么做这种后训练"铺路。不要塞算法（SAO）、不要塞基建（slime）——那是后续期的。踩 279 期"八条线索八次追加"的坑就废了。
 - **一篇只能有一个"读者该记住的东西"**。第一期那个东西 = **只做后训练也能快速提能力，而且后训练的难点已经从模型转移到环境**。
+- **时间线别搞反**：起点是 DeepSeek 7-31，GLM-5.3（8-14）是跟进者。GLM 的价值**不在最早，在唯一摊开讲做法**。（08-16 初稿曾把 GLM 当首创，被 Zero 纠正后整篇重写）
 - 跨期还账：268 期（p 的 n 次方 / V4-Flash config diff）、265 期（后训练管线四年演化史，四把椅子）。正文出现期号必带链接、链接在首提处。
 - 严格区分「说了没动」与「没说」，但**不用一直写免责声明**——有几家写几家，把判据交给读者即可。
+- **口径统一：家 = 公司，台 = 模型。** 别把一家公司的两台模型数成两家。
 - 「自举」那节是朱雀推测非官方说法，写时要标明。
+- **禁用"拆"**（朱雀土味词，与"掏"同类，08-16 Zero 抓）——"拆解/拆开测"换成"写/分开测"。
