@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AGENTIC RL · 半个月 · 三家都没动基座</text>
+
+  <!-- ============ LEFT: 三家的账 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">基座冻着，分数在涨</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="2"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">DeepSeek V4-Flash · 7/31</text>
+      <text x="100" y="40" text-anchor="middle" fill="#bfdbfe" font-size="10">「仅重新进行了后训练」</text>
+      <text x="100" y="62" text-anchor="middle" fill="#e0f2fe" font-size="15" font-weight="bold">DeepSWE 7.3 → 54.4</text>
+    </g>
+
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">Gemini 3.7 Flash · 8/13</text>
+      <text x="100" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">距上一版只隔三周</text>
+      <text x="100" y="62" text-anchor="middle" fill="#ccfbf1" font-size="15" font-weight="bold">DeepSWE 48.6 → 65.3</text>
+    </g>
+
+    <g transform="translate(15 202)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">GLM-5.3 · 8/14</text>
+      <text x="100" y="40" text-anchor="middle" fill="#fbbf24" font-size="9.5">「同一基座，增益全来自后训练」</text>
+      <text x="100" y="62" text-anchor="middle" fill="#fef3c7" font-size="15" font-weight="bold">终端任务 4.6 → 28.3</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 训练单位变了 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">难点从模型搬到了环境</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 旧：一道题 -->
+    <g transform="translate(20 32)">
+      <rect x="0" y="0" width="200" height="62" rx="6" fill="#1a1a2a" stroke="#64748b" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="bold">以前：一道题</text>
+      <text x="100" y="38" text-anchor="middle" fill="#94a3b8" font-size="10">题库现成 · 判分器现成</text>
+      <text x="100" y="54" text-anchor="middle" fill="#94a3b8" font-size="10">交完整答案，最后判一次</text>
+    </g>
+
+    <!-- 箭头 -->
+    <g transform="translate(120 100)">
+      <path d="M0 0 V26" stroke="#f59e0b" stroke-width="2"/>
+      <path d="M-6 20 L0 28 L6 20" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    </g>
+
+    <!-- 新：一件活 -->
+    <g transform="translate(20 134)">
+      <rect x="0" y="0" width="200" height="92" rx="6" fill="#0a1a2a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="20" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">现在：一件活</text>
+      <text x="100" y="38" text-anchor="middle" fill="#a7f3d0" font-size="10">给一台机器 · 一个代码库</text>
+      <text x="100" y="54" text-anchor="middle" fill="#a7f3d0" font-size="10">诊断瓶颈 → 改 → 跑实验</text>
+      <text x="100" y="70" text-anchor="middle" fill="#a7f3d0" font-size="10">交付可测量的加速</text>
+      <text x="100" y="86" text-anchor="middle" fill="#5eead4" font-size="9">走几十上百步，判「干成没有」</text>
+    </g>
+
+    <line x1="20" y1="242" x2="220" y2="242" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(120 262)">
+      <text x="0" y="0" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">有些任务的工作量</text>
+      <text x="0" y="20" text-anchor="middle" fill="#cbd5e1" font-size="10">相当于一个有经验的工程师</text>
+      <text x="0" y="36" text-anchor="middle" fill="#cbd5e1" font-size="10">干上好几天</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 判分器三道体检 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">判分器也是造的 · 三道体检</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">正解要过</text>
+      <text x="100" y="38" text-anchor="middle" fill="#bfdbfe" font-size="10">防太严：正确答案被毙掉</text>
+    </g>
+
+    <g transform="translate(15 92)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="20" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">什么都不干，要不过</text>
+      <text x="100" y="38" text-anchor="middle" fill="#a7f3d0" font-size="10">防太松：摸鱼也能拿分</text>
+    </g>
+
+    <g transform="translate(15 154)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">初始状态，要不过</text>
+      <text x="100" y="38" text-anchor="middle" fill="#fbbf24" font-size="10">防判错了对象</text>
+    </g>
+
+    <line x1="16" y1="226" x2="214" y2="226" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(115 246)">
+      <text x="0" y="0" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">而且合成时不给看答案</text>
+      <text x="0" y="20" text-anchor="middle" fill="#cbd5e1" font-size="10">判的是「这活干成了没有」</text>
+      <text x="0" y="36" text-anchor="middle" fill="#cbd5e1" font-size="10">不是「写得和答案一不一样」</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">性能暴涨，只做了后训练？</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">出题的是 AI，验题的是 AI，判分器也是 AI 造的</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.282 · Agentic RL · DeepSeek / Gemini / GLM 半个月三连</text>
+</svg>
