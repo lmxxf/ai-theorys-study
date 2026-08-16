@@ -160,13 +160,35 @@ https://arxiv.org/abs/2509.09677
 
 ---
 
-## 四、考卷也换了（可单独成节或并入上节）
+## 四、旧基准的退场（⚠️ 282 期已砍，留作后续期素材）
 
-**这六家没有一家报 SWE-bench Verified，也没有一家报数学基准（AIME/FrontierMath 全部缺失）。**
+**观察是真的**：这六台的发布材料没有一台报 SWE-bench Verified，也没有一台报数学基准。
+**但归因不能写成"厂商集体换考卷"**——上游早就退役了，厂商只是末端。Zero 08-16 判定：写出来是"打空气靶"，故 282 期整段砍掉，只保留"长任务基准天然把小改进指数放大"这个真论点。
 
-统一换成：**DeepSWE v1.1 / Terminal-Bench 2.1 & 3.0 / FrontierCode / APEX / GDPVal-AA / AutomationBench**。
+**真实时间线**（08-16 核实）：
+- **2025-12-15** SWE-bench 官方 leaderboard 的 `evaluation/verified` 赛道最后一次收到新评测，**此后停更八个月**（GitHub `SWE-bench/experiments` 目录实查；2026-02 那批评测走的是 bash-only 和 multilingual 赛道）
+- **2026-01** Artificial Analysis 指数 v4.0 移除 **AIME 2025**、MMLU-Pro、LiveCodeBench，理由是饱和
+- **2026-02** **OpenAI 自己发《Why we no longer evaluate SWE-bench Verified》** —— 基准创建方给自己的基准发死亡证明
+- **2026-06-15** AA v4.1 又移除 IFBench："the benchmark no longer distinguishes frontier models sufficiently"
+- **2026-07~08** 六台新模型发布材料集体不报
 
-⚠️ **Terminal-Bench 版本不可跨比**：DeepSeek 与 Qwen 报 **2.1**（87.9 / 86.6），GLM-5.3 报 **3.0**（28.3）。3.0 难得多——Grok 4.6 在 3.0 上仅 26%，Fable 5 Max 34.1%，Gemini 3.7 Flash 14.9%。
+**OpenAI 那篇的论据**（https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/ ，原页 403，经二手交叉确认，核心数字多源一致）：
+- 饱和：六个月内顶分只从 74.9% 挪到 80.9%
+- **数据集缺陷**：审计 138 道 hard 任务，**59.4% 存在测试设计或问题陈述缺陷**，其中 35.5% 会拒绝功能上正确的解
+- **污染迹象**：GPT-5.2 解出 31 道"nearly impossible"任务，**能说出问题陈述里从未出现的正确文件路径**；独立研究显示 32.67% 的成功补丁涉及 solution leakage，从训练数据回忆文件路径的比例最高 76%
+- 替代建议：**SWE-bench Pro**（1865 道多语言任务）
+
+**AA Intelligence Index v4.1.1 的九项构成**（2026-08-06 发布）：GDPval-AA v2、τ³-Banking、Terminal-Bench v2.1、SciCode、AA-LCR、AA-Omniscience、Humanity's Last Exam、GPQA Diamond、CritPt。四类等权各 25%（Agents / Coding / General / Scientific Reasoning）。**无 SWE-bench Verified，无任何纯数学基准**（GPQA Diamond 是科学推理不是数学）。
+
+**⚠️ 数学基准要分开看，别一竿子打死**：
+- **AIME 已饱和退场** —— Stanford 2026 AI Index 分析 60 个主要基准近半数饱和，点名 AIME 2025、SWE-bench Verified、MMLU、HumanEval 等；Benchmark Health Index（arXiv:2602.11674）评 AIME 2025 "anti-saturation capability is critically deficient"
+- **FrontierMath 仍活着** —— Epoch AI **2026-06-12 发布 v2 勘误版**（Tier 1-3 修正 123 题删 5 题，Tier 4 修正 12 题删 7 题），47 个模型在榜，分数分布 83%→58% 很开、**未饱和**。只是厂商不引用，六台新模型均未上榜。（⚠️ 具体分数为二手引用，epoch.ai 榜单是 JS dashboard 抓不到，引用前需一手核）
+
+**⚠️ 这六台没有任何一台有可信的第三方 SWE-bench Verified 分数**。聚合站数字矛盾到无法采信：同一台 V4-Pro-0813，codersera.com 报 96.40%、benchlm.ai 报 80.6%，**差 15.8 个百分点**，两家都是 SEO 垃圾站。**一个都别引。**
+
+**Terminal-Bench 版本不可跨比**：DeepSeek 与 Qwen 报 **2.1**（87.9 / 86.6），GLM-5.3 报 **3.0**（28.3）。3.0 难得多——Grok 4.6 在 3.0 上仅 26%，Fable 5 Max 34.1%，Gemini 3.7 Flash 14.9%。
+
+**后续期可用的角度**：一个用了两年的判分器，最后被创建方自己发现缝太多、宣布作废——正好和 GLM 那套"合成 verifier 三道体检"「判分器有缝就得补」咬合。基准演化史可单独成期。
 
 ---
 
