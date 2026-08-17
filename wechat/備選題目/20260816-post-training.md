@@ -656,3 +656,71 @@ arXiv:2511.09586 | 2025-11-12，v3 2025-12-23 | Yuchen Huang 等
 - **口径统一：家 = 公司，台 = 模型。** 别把一家公司的两台模型数成两家。
 - 「自举」那节是朱雀推测非官方说法，写时要标明。
 - **禁用"拆"**（朱雀土味词，与"掏"同类，08-16 Zero 抓）——"拆解/拆开测"换成"写/分开测"。
+
+---
+
+## 八、K3 评测四条轴的基准数量（08-17 核，283 期未用，留给 284）
+
+出处：K3 报告 §6.1.1 Benchmarks（`wechat/assets/283/k3-report-full.txt`）
+
+| 轴 | 基准数 | 代表 |
+|---|---|---|
+| Reasoning & Knowledge | 4 | GPQA Diamond、CritPt、AA-LCR、HLE-Full |
+| Coding | 8 | DeepSWE、ProgramBench、Terminal-Bench 2.1、FrontierSWE、SWE-Marathon、PostTrainBench、MLS-Bench-Lite、SciCode |
+| **Agentic** | **21** | BrowseComp、DeepSearchQA、Toolathlon-Verified、MCPMark-Verified、AutomationBench、JobBench、GDPval-AA v2、AA-Briefcase、ALE、APEX-Agents、OfficeQA Pro、SpreadsheetBench 2、OSWorld-Verified/2.0、SaaS-Bench、τ³-Banking、Harvey Lab-AA、CorpFin v2、Finance Agent v2、Legal Research Bench 等 |
+| Vision | 10 | WorldVQA、OmniDocBench、PerceptionBench、Video-MME、MMVU、BabyVision、MMMU-Pro、CharXiv、Math-Vision、ZeroBench |
+
+**⭐ 值钱的观察（Zero 08-17 提出"GitHub 那类题应该真能学会、评测大头儿大概也是这个"，核完是半对）**：
+- 编码确实学得好（FrontierSWE 81.2 全场第二、Terminal-Bench 2.1 88.3 逼近 GPT-5.6 Sol 的 88.8）
+- **但评测下注最重的是 agentic（21 个），不是 coding（8 个）**。agentic 里一多半非编程：金融、法律、表格、桌面操作、真实职业任务
+- **这正好是三条路的镜像**：编码=第一条路（GitHub 现成题库）；金融/法律/办公=第三条路（必须造仿真世界）
+- **反推**：如果只靠 GitHub 那类题就够，压根不需要知识图谱和仿真 Gmail。是评测大头儿在"专业活儿"上，才逼出了后两条路
+- 284 讲管线时正好和"3 领域 × 3 reasoning effort = 9 个专家模型"对上（§4.1.2 的三大领域：general / general agents / coding agents）
+
+---
+
+## 九、⭐ K3 评测数据全套（08-17 核，283 期写完又撤下，留给后续期）
+
+**撤下原因**：283 主线是"题从哪来"，评测是"训完效果如何"，隔了一层；且展开要解释十几个基准，会把文章重心带偏。整节草稿存 `/tmp/283-eval-section.txt`（会话级，失效就按本节数据重写）。
+
+### 9.1 纵向：Kimi 历代 AA 智能指数（数据存 `wechat/assets/283/aa-kimi-generations.md`）
+
+抓取方式：curl `artificialanalysis.ai/models/<slug>` → 正则取正文摘要句 `scores N on the Artificial Analysis Intelligence Index`。⚠️ AA 是 JS dashboard，**分项数值在图表 JS 里抓不到，只有总分和价格是 HTML 明文**。
+
+| 模型 | AA 指数 | 输入 $/M | 输出 $/M |
+|---|---|---|---|
+| Kimi K2 Thinking | 33 | 0.60 | 2.50 |
+| Kimi K2.5（非推理） | 30 | 0.60 | 3.00 |
+| Kimi K2.5 | 36 | 0.60 | 3.00 |
+| Kimi K2.6（非推理） | 35 | 0.95 | 4.00 |
+| Kimi K2.6 | 45 | 0.95 | 4.00 |
+| Kimi K2.7 Code | 43 | 0.95 | 4.00 |
+| Kimi K3 (low) | 48 | 3.00 | 15.00 |
+| Kimi K3 (max) | 60 | 3.00 | 15.00 |
+
+- 同档代际线：**33 → 36 → 45 → 43 → 60**
+- **最大一跳 K2.6→K3 = +15**（对照 282 期核过：Qwen 重练基座 +11、Grok 补充训练 +5，K3 这跳最大）
+- **K2.7 Code（43）比 K2.6（45）略低**——编码特化版，综合指数不占便宜，线不单调。⚠️ 别写成"每代都涨"
+- **K3 low 档 48 已超 K2.6 max 的 45**——少想一点也比上一代想到底强
+- AA 对 K3 评语：intelligence 领先，但 "particularly expensive when comparing to other open weight models of similar size"、"notably slow (68)"
+- ⚠️⚠️ **口径红线**：K3 换了新基座（2.8T 重练），这 +15 里基座与后训练各占多少**报告没分开算**，不能替它算，也不能拿来跟 Grok +5 比"做法优劣"（一个换基座一个没换，起点也不同）——282 期栽过的跟头
+
+### 9.2 横向：报告 Table 2，44 个基准 × 6 家（K3 / Fable 5 / GPT-5.6 Sol / Opus 4.8 / GPT-5.5 / GLM-5.2）
+
+全表已抄进 `wechat/assets/283/k3-report-full.txt`（搜 `Table 2: Performance comparison`）。逐项判定后统计：
+
+**K3 单项第一 14 项、并列 1 项、落后 29 项。**
+
+按轴：推理知识 第一1/落后3 ｜ 编码 第一2/落后6 ｜ **Agentic 第一8/落后14** ｜ 视觉 第一3/并列1/落后6
+
+**赢的 14 项（含领先幅度）**：ResearchRubrics 76.2(+2.4)、SWE-Marathon 42.0(+2.0)、MCPMark-Verified 94.5(+1.6)、OmniDocBench 91.1(+1.3)、AutomationBench 30.8(+1.1)、**Harvey Lab-AA 94.6(+1.0)**、BrowseComp 91.2(+0.8)、DeepSearchQA 95.0(+0.8)、Video-MME 90.0(+0.5)、AA-LCR 74.7(+0.4)、**τ³-Banking 33.4(+0.4)**、MMVU 82.1(+0.4)、ProgramBench 77.8(+0.2)、SpreadsheetBench 2 34.8(+0.1)｜并列：ZeroBench 23.0
+
+**输得最多的**：GDPval-AA v2 1686（-61 Elo）、AA-Briefcase 1548(-35)、HLE-Full 43.5(-9.8)、CritPt 23.4(-8.9)、OSWorld 2.0 58.3(-7.8)、OfficeQA Pro 63.3(-6.6)、DeepSWE 67.5(-5.5)、FrontierSWE 81.2(-5.4)、Legal Research Bench 44.2(-5.3)
+
+**⭐ 三条可写的观察**：
+1. **赢的地方和三条路一一对应**：BrowseComp / DeepSearchQA / ResearchRubrics = 第二条路（知识图谱多步检索）；Harvey Lab-AA / τ³-Banking / SpreadsheetBench = 第三条路（仿真专业世界）。**投在哪儿就在哪儿见效**
+2. **编码反倒是相对弱项**：8 项只赢 2 项。因为编码靠的是第一条路（GitHub 现成题库），人人都有，拉不开差距
+3. **赢得薄、输得厚**：14 项第一里过半领先不到 1 分，最大 +2.4；而输的有 -61 Elo、-9.8 这种。**是在一堆项目上微弱挤第一，不是哪块碾压**
+
+### 9.3 评测四条轴的基准数量（见上文第八节）
+Coding 8 个 vs **Agentic 21 个** —— 下注最重的是 agentic，不是 coding。与 9.2 的观察 1、2 互相印证。
