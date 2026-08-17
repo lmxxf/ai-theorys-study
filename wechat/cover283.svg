@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AGENTIC RL · Kimi K3 技术报告 · 训练环境怎么造</text>
+
+  <!-- ============ LEFT: 现实里捞 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第一条路 · 去现实里捞</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">题库本来就有</text>
+      <text x="100" y="44" text-anchor="middle" fill="#bfdbfe" font-size="10">GitHub 提交历史</text>
+      <text x="100" y="58" text-anchor="middle" fill="#bfdbfe" font-size="10">算子仓库、参考实现</text>
+    </g>
+
+    <g transform="translate(15 104)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">判分器也现成</text>
+      <text x="100" y="44" text-anchor="middle" fill="#fbbf24" font-size="10">测试从红变绿</text>
+      <text x="100" y="58" text-anchor="middle" fill="#fbbf24" font-size="10">秒表 + 硬件屋顶线</text>
+    </g>
+
+    <line x1="16" y1="184" x2="214" y2="184" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 202)">
+      <text x="99" y="0" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">128 个仓库 → 5 万道题</text>
+      <text x="99" y="22" text-anchor="middle" fill="#cbd5e1" font-size="10">自动往好仓库里注入 bug</text>
+      <text x="99" y="40" text-anchor="middle" fill="#94a3b8" font-size="10">在这之前：数百小时人力</text>
+      <text x="99" y="58" text-anchor="middle" fill="#94a3b8" font-size="10">才攒出一千来道</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 知识图谱 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第二条路 · 自己长一张知识图谱</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 树状图示意 -->
+    <g transform="translate(20 46)">
+      <text x="100" y="-8" text-anchor="middle" fill="#fbbf24" font-size="10">种子概念</text>
+      <circle cx="100" cy="14" r="11" fill="#2a1a0a" stroke="#f59e0b" stroke-width="2"/>
+
+      <path d="M100 25 L52 60 M100 25 L148 60" stroke="#4a90d9" stroke-width="1.4"/>
+      <circle cx="52" cy="68" r="9" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <circle cx="148" cy="68" r="9" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+
+      <path d="M52 77 L28 106 M52 77 L76 106 M148 77 L124 106 M148 77 L172 106" stroke="#2dd4bf" stroke-width="1.2"/>
+      <circle cx="28" cy="114" r="7" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <circle cx="76" cy="114" r="7" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <circle cx="124" cy="114" r="7" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <circle cx="172" cy="114" r="7" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+
+      <text x="100" y="140" text-anchor="middle" fill="#5eead4" font-size="10">一层套一层，越往下越细</text>
+      <text x="100" y="158" text-anchor="middle" fill="#94a3b8" font-size="10">停在哪儿，agent 自己判断</text>
+    </g>
+
+    <line x1="20" y1="216" x2="220" y2="216" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 236)">
+      <text x="100" y="0" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">每个节点派一个 agent 去搜</text>
+      <text x="100" y="22" text-anchor="middle" fill="#cbd5e1" font-size="10">加新节点前先查重，能复用就复用</text>
+      <text x="100" y="42" text-anchor="middle" fill="#cbd5e1" font-size="10">采样节点 → 捞真实素材 → 出题</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 造世界 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第三条路 · 连世界一起造</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">素材根本不存在</text>
+      <text x="100" y="44" text-anchor="middle" fill="#a7f3d0" font-size="10">别人公司的收件箱</text>
+      <text x="100" y="58" text-anchor="middle" fill="#a7f3d0" font-size="10">法务往来、员工工单</text>
+    </g>
+
+    <g transform="translate(15 104)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">那就重做一遍</text>
+      <text x="100" y="44" text-anchor="middle" fill="#f87171" font-size="10">仿真 Gmail / Slack / Notion</text>
+      <text x="100" y="58" text-anchor="middle" fill="#f87171" font-size="10">连收件箱内容都是 agent 编的</text>
+    </g>
+
+    <line x1="16" y1="184" x2="214" y2="184" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 202)">
+      <text x="99" y="0" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">跨越多个模拟出来的“天”</text>
+      <text x="99" y="22" text-anchor="middle" fill="#cbd5e1" font-size="10">几十个互相牵连的事件</text>
+      <text x="99" y="40" text-anchor="middle" fill="#94a3b8" font-size="10">单条轨迹上千次工具调用</text>
+      <text x="99" y="58" text-anchor="middle" fill="#94a3b8" font-size="10">最极端吃掉数百万 token</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">几万道训练题，是谁出的？</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">题不是人写的：模型自己长学科体系、自己找素材、自己造世界</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.283 · Kimi K3 技术报告第 4.2 节 · 人退到了定标准的位置</text>
+</svg>
