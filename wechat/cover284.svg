@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AGENTIC RL · 后训练管线 · 分头练，再合体</text>
+
+  <!-- ============ LEFT: 分头练 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第一步 · 分头练出一批专家</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 一个基座分出九条 -->
+    <g transform="translate(15 30)">
+      <rect x="60" y="0" width="80" height="26" rx="5" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="bold">冷启动</text>
+
+      <path d="M100 26 L38 52 M100 26 L100 52 M100 26 L162 52" stroke="#4a90d9" stroke-width="1.3"/>
+
+      <g fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.4">
+        <rect x="6" y="52" width="64" height="22" rx="4"/>
+        <rect x="68" y="52" width="64" height="22" rx="4"/>
+        <rect x="130" y="52" width="64" height="22" rx="4"/>
+      </g>
+      <text x="38" y="67" text-anchor="middle" fill="#93c5fd" font-size="9">通用任务</text>
+      <text x="100" y="67" text-anchor="middle" fill="#93c5fd" font-size="9">通用 agent</text>
+      <text x="162" y="67" text-anchor="middle" fill="#93c5fd" font-size="9">编码 agent</text>
+
+      <path d="M38 74 V86 M100 74 V86 M162 74 V86" stroke="#2dd4bf" stroke-width="1.1"/>
+
+      <g fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.2">
+        <rect x="14" y="86" width="48" height="17" rx="3"/><rect x="14" y="106" width="48" height="17" rx="3"/><rect x="14" y="126" width="48" height="17" rx="3"/>
+        <rect x="76" y="86" width="48" height="17" rx="3"/><rect x="76" y="106" width="48" height="17" rx="3"/><rect x="76" y="126" width="48" height="17" rx="3"/>
+        <rect x="138" y="86" width="48" height="17" rx="3"/><rect x="138" y="106" width="48" height="17" rx="3"/><rect x="138" y="126" width="48" height="17" rx="3"/>
+      </g>
+      <g fill="#5eead4" font-size="9" text-anchor="middle">
+        <text x="38" y="98">最大</text><text x="38" y="118">高</text><text x="38" y="138">低</text>
+        <text x="100" y="98">最大</text><text x="100" y="118">高</text><text x="100" y="138">低</text>
+        <text x="162" y="98">最大</text><text x="162" y="118">高</text><text x="162" y="138">低</text>
+      </g>
+
+      <text x="100" y="162" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">3 个领域 × 3 档力度 = 9 位老师</text>
+    </g>
+
+    <line x1="16" y1="228" x2="214" y2="228" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 246)">
+      <text x="99" y="0" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">力度靠预算逼出来</text>
+      <text x="99" y="20" text-anchor="middle" fill="#cbd5e1" font-size="10">超出预算，答对也判负分</text>
+      <text x="99" y="38" text-anchor="middle" fill="#94a3b8" font-size="10">从最大档一路收紧退火</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 合成一个 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第二步 · 在线蒸馏合成一个</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 34)">
+      <rect x="0" y="0" width="200" height="54" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="21" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">学生自己答题</text>
+      <text x="100" y="40" text-anchor="middle" fill="#bfdbfe" font-size="10">不是背老师的范文</text>
+
+      <path d="M100 54 V74" stroke="#2dd4bf" stroke-width="1.6"/>
+      <path d="M94 68 L100 76 L106 68" fill="none" stroke="#2dd4bf" stroke-width="1.6"/>
+
+      <rect x="0" y="80" width="200" height="54" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="101" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">老师在学生的答卷上批注</text>
+      <text x="100" y="120" text-anchor="middle" fill="#a7f3d0" font-size="10">按领域和力度，挑对应那位</text>
+
+      <path d="M100 134 V154" stroke="#f59e0b" stroke-width="1.6"/>
+      <path d="M94 148 L100 156 L106 148" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+
+      <rect x="0" y="160" width="200" height="58" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="181" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="bold">每个字：老师概率 ÷ 学生概率</text>
+      <text x="100" y="200" text-anchor="middle" fill="#fde68a" font-size="10">老师更看好就往上推</text>
+      <text x="100" y="214" text-anchor="middle" fill="#fde68a" font-size="10">学生太飘就往下压</text>
+    </g>
+
+    <line x1="20" y1="264" x2="220" y2="264" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="120" y="284" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">不是压缩，是合并</text>
+  </g>
+
+  <!-- ============ RIGHT: 三家 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">三家的账 · DeepSeek 在前</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">DeepSeek V4 · 四月底</text>
+      <text x="100" y="39" text-anchor="middle" fill="#bfdbfe" font-size="10">十几位老师，加权合并</text>
+      <text x="100" y="55" text-anchor="middle" fill="#bfdbfe" font-size="10">整个词表逐一对齐</text>
+    </g>
+
+    <g transform="translate(15 112)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">Kimi K3 · 七月底</text>
+      <text x="100" y="39" text-anchor="middle" fill="#a7f3d0" font-size="10">九位老师，按课挑人</text>
+      <text x="100" y="55" text-anchor="middle" fill="#a7f3d0" font-size="10">只比写出来的那一个字</text>
+    </g>
+
+    <g transform="translate(15 192)">
+      <rect x="0" y="0" width="200" height="54" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="21" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">GLM-5.3 · 八月中</text>
+      <text x="100" y="40" text-anchor="middle" fill="#f87171" font-size="10">同样三档，做法一字未提</text>
+    </g>
+
+    <line x1="16" y1="262" x2="214" y2="262" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="115" y="282" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">同一根轴，各站一头</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="29" font-weight="bold">DeepSeek 和 Kimi 的 N 个专家，合成了一个模型</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">你点的那个 low / high / max，旋钮下面埋着一批老师</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.284 · K3 报告第 4.1 节 × V4 报告第 5.1 节 · 分头练，再合体</text>
+</svg>
