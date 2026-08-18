@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .title { font-size: 15px; fill: #1e293b; font-weight: bold; }
+    .axis  { font-size: 12px; fill: #475569; }
+    .ylab  { font-size: 12px; fill: #1d4ed8; }
+    .ylab2 { font-size: 12px; fill: #dc2626; }
+    .note  { font-size: 13px; fill: #334155; }
+    .score { fill: none; stroke: #1d4ed8; stroke-width: 2.2; stroke-linejoin: round; }
+    .steps { fill: none; stroke: #dc2626; stroke-width: 2; stroke-dasharray: 6 3.5; stroke-linejoin: round; }
+    .frame { fill: none; stroke: #334155; stroke-width: 1.4; }
+    .grid  { stroke: #e2e8f0; stroke-width: 1; }
+  </style>
+
+  <rect width="980" height="520" fill="#ffffff"/>
+
+  <text x="490" y="26" text-anchor="middle" class="title" font-size="17">投进去的强化学习算力越多，模型越舍得多动手</text>
+  <text x="490" y="48" text-anchor="middle" class="axis">八项评测里，分数（蓝实线）和平均工具调用步数（红虚线）一起往上走</text>
+
+  <!-- legend -->
+  <g transform="translate(374 62)">
+    <line x1="0" y1="6" x2="26" y2="6" class="score"/>
+    <text x="32" y="10" class="ylab">分数</text>
+    <line x1="86" y1="6" x2="112" y2="6" class="steps"/>
+    <text x="118" y="10" class="ylab2">平均步数</text>
+  </g>
+
+  <!-- ============ row 1 ============ -->
+  <g transform="translate(40 92)">
+    <text x="93" y="0" text-anchor="middle" class="title">编码体验</text>
+    <g transform="translate(0 10)">
+      <line x1="0" y1="30" x2="186" y2="30" class="grid"/>
+      <line x1="0" y1="60" x2="186" y2="60" class="grid"/>
+      <path class="frame" d="M0 0 V96 H186"/>
+      <path class="score" d="M4 88 L20 66 L36 62 L52 50 L68 44 L84 46 L100 34 L116 40 L132 18 L148 34 L164 8 L172 16 L180 8"/>
+      <path class="steps" d="M4 84 L20 82 L36 80 L52 62 L68 46 L84 24 L100 18 L116 34 L132 22 L148 40 L164 54 L172 58 L180 56"/>
+      <text x="93" y="118" text-anchor="middle" class="axis">强化学习算力 →</text>
+    </g>
+  </g>
+
+  <g transform="translate(272 92)">
+    <text x="93" y="0" text-anchor="middle" class="title">通用工具使用</text>
+    <g transform="translate(0 10)">
+      <line x1="0" y1="30" x2="186" y2="30" class="grid"/>
+      <line x1="0" y1="60" x2="186" y2="60" class="grid"/>
+      <path class="frame" d="M0 0 V96 H186"/>
+      <path class="score" d="M4 92 L20 76 L36 70 L52 54 L68 52 L84 40 L100 34 L116 30 L132 24 L148 22 L164 14 L180 6"/>
+      <path class="steps" d="M4 82 L20 78 L36 74 L52 58 L68 56 L84 54 L100 40 L116 38 L132 20 L148 34 L164 16 L180 20"/>
+      <text x="93" y="118" text-anchor="middle" class="axis">强化学习算力 →</text>
+    </g>
+  </g>
+
+  <g transform="translate(504 92)">
+    <text x="93" y="0" text-anchor="middle" class="title">网页开发</text>
+    <g transform="translate(0 10)">
+      <line x1="0" y1="30" x2="186" y2="30" class="grid"/>
+      <line x1="0" y1="60" x2="186" y2="60" class="grid"/>
+      <path class="frame" d="M0 0 V96 H186"/>
+      <path class="score" d="M4 84 L20 68 L36 66 L52 66 L68 88 L84 70 L100 52 L116 30 L132 22 L148 18 L164 30 L180 8"/>
+      <path class="steps" d="M4 56 L20 70 L36 46 L52 74 L68 90 L84 48 L100 76 L116 34 L132 18 L148 22 L164 26 L180 16"/>
+      <text x="93" y="118" text-anchor="middle" class="axis">强化学习算力 →</text>
+    </g>
+  </g>
+
+  <g transform="translate(736 92)">
+    <text x="93" y="0" text-anchor="middle" class="title">agent 检索</text>
+    <g transform="translate(0 10)">
+      <line x1="0" y1="30" x2="186" y2="30" class="grid"/>
+      <line x1="0" y1="60" x2="186" y2="60" class="grid"/>
+      <path class="frame" d="M0 0 V96 H186"/>
+      <path class="score" d="M4 86 L20 84 L36 60 L52 58 L68 24 L84 34 L100 44 L116 42 L132 28 L148 46 L164 52 L180 16"/>
+      <path class="steps" d="M4 62 L20 66 L36 56 L52 22 L68 46 L84 50 L100 42 L116 46 L132 40 L148 32 L164 14 L180 30"/>
+      <text x="93" y="118" text-anchor="middle" class="axis">强化学习算力 →</text>
+    </g>
+  </g>
+
+  <!-- ============ row 2 ============ -->
+  <g transform="translate(40 316)">
+    <text x="93" y="0" text-anchor="middle" class="title">专业工作流程</text>
+    <g transform="translate(0 10)">
+      <line x1="0" y1="30" x2="186" y2="30" class="grid"/>
+      <line x1="0" y1="60" x2="186" y2="60" class="grid"/>
+      <path class="frame" d="M0 0 V96 H186"/>
+      <path class="score" d="M4 62 L20 56 L36 42 L52 82 L68 78 L84 72 L100 68 L116 64 L132 24 L148 20 L164 26 L180 24"/>
+      <path class="steps" d="M4 76 L20 78 L36 80 L52 80 L68 76 L84 70 L100 66 L116 58 L132 46 L148 30 L164 16 L180 6"/>
+      <text x="93" y="118" text-anchor="middle" class="axis">强化学习算力 →</text>
+    </g>
+  </g>
+
+  <g transform="translate(272 316)">
+    <text x="93" y="0" text-anchor="middle" class="title">办公交付物</text>
+    <g transform="translate(0 10)">
+      <line x1="0" y1="30" x2="186" y2="30" class="grid"/>
+      <line x1="0" y1="60" x2="186" y2="60" class="grid"/>
+      <path class="frame" d="M0 0 V96 H186"/>
+      <path class="score" d="M4 82 L20 58 L36 46 L52 42 L68 80 L84 76 L100 62 L116 50 L132 38 L148 28 L164 22 L180 14"/>
+      <path class="steps" d="M4 78 L20 84 L36 88 L52 90 L68 86 L84 78 L100 66 L116 52 L132 42 L148 26 L164 14 L180 4"/>
+      <text x="93" y="118" text-anchor="middle" class="axis">强化学习算力 →</text>
+    </g>
+  </g>
+
+  <g transform="translate(504 316)">
+    <text x="93" y="0" text-anchor="middle" class="title">agent 看图表</text>
+    <g transform="translate(0 10)">
+      <line x1="0" y1="30" x2="186" y2="30" class="grid"/>
+      <line x1="0" y1="60" x2="186" y2="60" class="grid"/>
+      <path class="frame" d="M0 0 V96 H186"/>
+      <path class="score" d="M4 90 L20 74 L36 62 L52 70 L68 50 L84 44 L100 40 L116 40 L132 26 L148 24 L164 18 L180 14"/>
+      <path class="steps" d="M4 72 L20 64 L36 56 L52 52 L68 44 L84 40 L100 30 L116 22 L132 20 L148 24 L164 22 L180 22"/>
+      <text x="93" y="118" text-anchor="middle" class="axis">强化学习算力 →</text>
+    </g>
+  </g>
+
+  <g transform="translate(736 316)">
+    <text x="93" y="0" text-anchor="middle" class="title">agent 解视觉谜题</text>
+    <g transform="translate(0 10)">
+      <line x1="0" y1="30" x2="186" y2="30" class="grid"/>
+      <line x1="0" y1="60" x2="186" y2="60" class="grid"/>
+      <path class="frame" d="M0 0 V96 H186"/>
+      <path class="score" d="M4 78 L20 62 L36 88 L52 66 L68 56 L84 54 L100 34 L116 30 L132 22 L148 18 L164 20 L180 10"/>
+      <path class="steps" d="M4 88 L20 76 L36 72 L52 44 L68 40 L84 34 L100 36 L116 22 L132 20 L148 24 L164 22 L180 22"/>
+      <text x="93" y="118" text-anchor="middle" class="axis">强化学习算力 →</text>
+    </g>
+  </g>
+
+  <text x="490" y="504" text-anchor="middle" class="note">曲线形状据 Kimi K3 技术报告图 8 重绘（原图无数值刻度，纵轴只表示相对高低）</text>
+</svg>
