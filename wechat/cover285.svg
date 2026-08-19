@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AGENTIC RL · 能力鸿沟 · 老师该怎么选</text>
+
+  <!-- ============ LEFT: 换强老师崩了 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">对照实验 · 换个更强的老师</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">只改一处</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">数学老师 30B → 235B</text>
+
+      <path d="M100 56 V76" stroke="#ef4444" stroke-width="1.8"/>
+      <path d="M94 70 L100 78 L106 70" fill="none" stroke="#ef4444" stroke-width="1.8"/>
+
+      <rect x="0" y="82" width="200" height="126" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="104" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">学生反而退化了</text>
+      <text x="100" y="126" text-anchor="middle" fill="#f87171" font-size="10">初始 KL 是同源的 5 倍</text>
+      <text x="100" y="146" text-anchor="middle" fill="#f87171" font-size="10">熵从 0.30 缩到 0.21</text>
+      <text x="100" y="166" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">第 18 步直接发散</text>
+      <text x="100" y="190" text-anchor="middle" fill="#f87171" font-size="10">这不叫效果不好，叫训崩了</text>
+    </g>
+
+    <line x1="16" y1="254" x2="214" y2="254" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 272)">
+      <text x="99" y="0" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">学生一路写，一路挨罚</text>
+      <text x="99" y="20" text-anchor="middle" fill="#94a3b8" font-size="10">最后不敢下笔了</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 倒 U 形 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">但也不是越弱越好 · 倒 U 形</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 倒U曲线 -->
+    <g transform="translate(24 40)">
+      <path d="M0 108 V0" stroke="#475569" stroke-width="1.2"/>
+      <path d="M0 108 H196" stroke="#475569" stroke-width="1.2"/>
+      <path d="M6 96 C 40 84, 62 30, 96 24 C 130 30, 158 74, 190 100"
+            fill="none" stroke="#2dd4bf" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="96" cy="24" r="5" fill="#f59e0b" stroke="#0f172a" stroke-width="1.5"/>
+      <text x="96" y="14" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="bold">最优老师</text>
+      <text x="98" y="126" text-anchor="middle" fill="#94a3b8" font-size="10">老师规模 →</text>
+    </g>
+
+    <g transform="translate(20 186)">
+      <text x="100" y="0" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">≈ 学生规模 × 2.5</text>
+      <text x="100" y="22" text-anchor="middle" fill="#cbd5e1" font-size="10">先提升 → 持平 → 恶化</text>
+    </g>
+
+    <line x1="20" y1="228" x2="220" y2="228" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 248)">
+      <text x="100" y="0" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">同一位 72B 老师</text>
+      <text x="100" y="20" text-anchor="middle" fill="#cbd5e1" font-size="10">教 32B：某项高 16.7 分</text>
+      <text x="100" y="38" text-anchor="middle" fill="#f87171" font-size="10">教 0.5B：某项低 12.5 分</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 真正的变量 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">真正起作用的两件事</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">一、离得够近</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">师生说话方式对得上</text>
+      <text x="100" y="58" text-anchor="middle" fill="#a7f3d0" font-size="10">token 重叠率比跑分更管用</text>
+    </g>
+
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">二、手里有新东西</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">分数更高 ≠ 有新能力</text>
+      <text x="100" y="58" text-anchor="middle" fill="#fbbf24" font-size="10">得多走一段学生没走过的路</text>
+    </g>
+
+    <line x1="16" y1="204" x2="214" y2="204" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 224)">
+      <text x="99" y="0" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">所以老师是学生自己变的</text>
+      <text x="99" y="22" text-anchor="middle" fill="#cbd5e1" font-size="10">同一起点，多走一段强化学习</text>
+      <text x="99" y="42" text-anchor="middle" fill="#94a3b8" font-size="10">两个条件同时压低了风险</text>
+      <text x="99" y="64" text-anchor="middle" fill="#94a3b8" font-size="10">参数量只是个粗糙代理</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="28" font-weight="bold">给学生换个更强的老师，它反而废了</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">名师出高徒得打个折扣：得是能扶着你、而不是替你骑的那种名师</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.285 · 知识蒸馏的能力鸿沟 · 九篇论文，从 2018 年查到今年</text>
+</svg>
