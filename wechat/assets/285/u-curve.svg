@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .title  { font-size: 19px; fill: #0f172a; font-weight: bold; }
+    .sub    { font-size: 13px; fill: #475569; }
+    .axis   { font-size: 13px; fill: #334155; }
+    .tick   { font-size: 12px; fill: #64748b; }
+    .zone   { font-size: 13px; font-weight: bold; }
+    .note   { font-size: 12px; fill: #475569; }
+    .curve  { fill: none; stroke: #1d4ed8; stroke-width: 3.2; stroke-linecap: round; }
+    .grid   { stroke: #e2e8f0; stroke-width: 1; }
+    .frame  { stroke: #334155; stroke-width: 1.6; fill: none; }
+    .dash   { stroke-dasharray: 5 4; }
+  </style>
+
+  <rect width="900" height="560" fill="#ffffff"/>
+
+  <text x="450" y="34" text-anchor="middle" class="title">老师越强，学生越好——直到某个点为止</text>
+  <text x="450" y="58" text-anchor="middle" class="sub">横轴：老师有多大（学生大小固定不变）　　纵轴：教出来的学生有多好（不同论文口径不同，此处取其形状）</text>
+
+  <!-- plot area: x 90..830, y 92..380 -->
+  <g>
+    <line x1="90" y1="150" x2="830" y2="150" class="grid"/>
+    <line x1="90" y1="215" x2="830" y2="215" class="grid"/>
+    <line x1="90" y1="280" x2="830" y2="280" class="grid"/>
+    <line x1="90" y1="345" x2="830" y2="345" class="grid"/>
+
+    <!-- 三段背景 -->
+    <rect x="90" y="92" width="250" height="288" fill="#2dd4bf" opacity="0.07"/>
+    <rect x="340" y="92" width="180" height="288" fill="#f59e0b" opacity="0.09"/>
+    <rect x="520" y="92" width="310" height="288" fill="#ef4444" opacity="0.07"/>
+
+    <!-- 曲线：先升 → 持平 → 后降 -->
+    <path class="curve" d="M110 350 C 170 322, 230 250, 300 178 C 320 158, 335 148, 355 143
+                           L 505 143
+                           C 545 148, 585 172, 640 224 C 700 280, 760 330, 815 360"/>
+
+    <!-- 最优点标注 -->
+    <circle cx="430" cy="143" r="6" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+    <line x1="430" y1="149" x2="430" y2="380" class="grid dash" stroke="#f59e0b" stroke-width="1.4"/>
+    <text x="430" y="128" text-anchor="middle" fill="#b45309" font-size="13" font-weight="bold">最优老师</text>
+    <text x="430" y="400" text-anchor="middle" fill="#b45309" font-size="13" font-weight="bold">≈ 学生的 2.5 倍</text>
+
+    <!-- 坐标框 -->
+    <path class="frame" d="M90 92 V380 H830"/>
+    <path d="M84 100 L90 88 L96 100" fill="none" stroke="#334155" stroke-width="1.6"/>
+    <path d="M822 374 L834 380 L822 386" fill="none" stroke="#334155" stroke-width="1.6"/>
+
+    <text x="70" y="240" text-anchor="middle" class="axis" transform="rotate(-90 70 240)">学生的表现</text>
+    <text x="820" y="420" text-anchor="end" class="axis">老师的规模 →</text>
+  </g>
+
+  <!-- 三段标签 -->
+  <g transform="translate(0 436)">
+    <g>
+      <rect x="90" y="0" width="250" height="26" rx="4" fill="#0d9488" opacity="0.14"/>
+      <text x="215" y="18" text-anchor="middle" class="zone" fill="#0f766e">① 老师越强，学生越强</text>
+      <text x="215" y="48" text-anchor="middle" class="note">这一段是有定量规律的，</text>
+      <text x="215" y="66" text-anchor="middle" class="note">不是"强老师没用"</text>
+    </g>
+    <g>
+      <rect x="350" y="0" width="160" height="26" rx="4" fill="#f59e0b" opacity="0.18"/>
+      <text x="430" y="18" text-anchor="middle" class="zone" fill="#b45309">② 持平</text>
+      <text x="430" y="48" text-anchor="middle" class="note">再加大也不涨了</text>
+    </g>
+    <g>
+      <rect x="520" y="0" width="310" height="26" rx="4" fill="#ef4444" opacity="0.14"/>
+      <text x="675" y="18" text-anchor="middle" class="zone" fill="#b91c1c">③ 老师越强，学生反而越差</text>
+      <text x="675" y="48" text-anchor="middle" class="note">0.5B 学生跟 72B 学，比跟 3B 学低 3.5 分；</text>
+      <text x="675" y="66" text-anchor="middle" class="note">换成差距更大的老师，训练直接崩掉</text>
+    </g>
+  </g>
+
+  <text x="450" y="548" text-anchor="middle" fill="#94a3b8" font-size="11">示意图：曲线形状据论文描述绘制，纵轴无绝对刻度；2.5 倍出自 GPT-2 / Pythia 规模上归纳的经验规律</text>
+</svg>
