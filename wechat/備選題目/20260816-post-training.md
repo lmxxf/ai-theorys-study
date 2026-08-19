@@ -853,3 +853,128 @@ V4 §5.1.2 原话：这套做法"把物理上分离的专家权重经由 logits 
 - 角度：**「大家都这么干，但没人说得清为什么——而当有人真去研究时，第一批论文就打起来了」**
 - 必须做的功课：**逐篇核原文**，尤其 2602.12566 vs 2602.02301/2606.30406 的实验设置差在哪（任务组合？规模？RLVR 还是通用 RL？）——**很可能"吵架"是设置不同造成的，写成"两派对立"会失真**
 - 可回扣：284 期（这套管线本身）、261 期（GRPO）、213 期「后训练动旋钮不造零件」
+
+---
+
+## 十二、⭐⭐⭐ 未用弹药：为什么非要"分头练专家再合并"，而不是直接混着训一个？（08-19 三轮子代理检索）
+
+**起因**：Zero 08-19 问「在线蒸馏确实有用，但为什么比"直接训练所有的场景"更好？」——**285 期结尾已埋引子，这条是下一期的正主。**
+
+⚠️⚠️ **全部数字来自 WebFetch 的 HTML→markdown 转换，不是逐格直读。写作前每个要用的数字必须自己开 HTML 回核。** 三轮报告之间还互相矛盾过一次（MOPD 的 0.882/0.937，一轮说核实准确、一轮说未能核实）——**以"未核实"为准。**
+
+### 12.1 ⭐ 最要命的一条：这个前提本身就不稳
+
+**arXiv:2602.12566《To Mix or To Merge》Table 3 其实是平手，不是分头练获胜。**
+
+Qwen3-4B-Base + SFT + GRPO，五个领域（math/coding/science/IF/agent）：
+
+| 基准 | 蒸馏合并(Ties) | 混合训练 |
+|---|---|---|
+| AIME'24 | 81.15 | 81.20 |
+| AIME'25 | **74.74** | 73.39 |
+| GPQA-D | **57.58** | 53.62 |
+| IFBench | 54.76 | **61.22** |
+| LCB v5 | 60.84 | **63.21** |
+| BFCL v3 | **61.73** | 60.74 |
+
+差距双向都在 1–4 分。**论文自己的判定是算力：混合训练只用 63.7% 的 GPU 小时达到可比性能。**
+
+**它的机制分析也反直觉**：更新落在**高度共享**的子空间（Jaccard 0.45–0.48 vs 随机基线 0.18），余弦相似度**为正**。所以低干扰**不是因为正交**，是本来就朝一个方向使劲。真正的解释在 §3.4 policy-neighborhood/KL。
+
+⚠️ 两处流传的错误说法要避开：①"RL 只做小幅参数改动"——**原文没这句**，那个"约 30%"是被**触碰**的权重比例；②例外域是 **agent 不是 instruction-following**，而且 agent 是"迁移死路"（谁都帮不了它），**本身不是干扰源**；agent 只占数据 2.37%，这个 confound 论文没处理。
+
+### 12.2 ⭐⭐ 真正的分界线：奖励类型（跨论文推断，非任何单篇原话）
+
+| 论文 | 领域 | 奖励类型 | 结论 |
+|---|---|---|---|
+| To Mix or To Merge (2602.12566) | math/code/science/IF/agent | **全可验证**（QwQ evaluator、SandboxFusion 单测、IFEvalG、NeMo-Gym），训练回路里**无 reward model 无 LLM judge** | 几乎无干扰，甚至协同 |
+| Modular Gradient Surgery (2602.02301) | math/**chat**/IF | chat 用**打分模型** | 显著跨域干扰 |
+| BAR (2604.18473, Ai2) | math/code/chat/**safety**/tool | safety 和 tool **"lack verifiable reward mechanisms"只能 SFT** | safety 被后跑的 RLVR 冲掉 |
+
+**BAR 那句机制话是最好用的**：
+> "safety lacks verifiable RL data, so when math and code RL run later, safety capabilities degrade via catastrophic forgetting."
+
+**这不是抽象的梯度打架，是训练顺序导致的遗忘**——朴素得多，也好讲得多。
+
+⚠️ **没有找到一篇专门研究"可验证奖励 vs 模型打分奖励混训"的论文**。Omni-Thinker（arXiv:2507.14783，标题含 Hybrid Reward and Task Scheduling）最贴切但**检索超时未核**——**这是明确缺口，下期动笔前该补。**
+
+### 12.3 ⭐⭐ 最诚实的一篇：BAR 明说主要是工程理由，而且效果上输了
+
+**arXiv:2604.18473（Ai2）§3.1 逐字**：
+> "This formulation enables modular upgrades (replacing a single expert without retraining others), avoids catastrophic forgetting (each domain's pipeline is isolated), and **supports parallel development across teams**."
+
+**而 Table 1（7B）它自己是输的**：
+
+| 方案 | Overall | Math | Code | Safety |
+|---|---|---|---|---|
+| BAR 5×7B | 49.1 | 56.2 | 49.9 | **94.0** |
+| **Re-train (mid+post)** | **50.5** | 55.9 | **59.6** | 90.4 |
+| Re-train (post only) | 47.8 | 48.7 | 43.6 | 92.8 |
+| Merging (w/ mid) | **6.5** | 0.3 | 0.4 | 9.1 ←权重合并灾难性崩塌 |
+
+**BAR 输给最强重训基线 1.4 分，代码差 9.7 分。** 摘要的 "matching or exceeding" 只对**较弱**的重训变体成立，论文自己用词是 "approaches"。
+
+**Discussion 那句才是题眼**：
+> "Re-training with mid-training achieves the highest score (50.5), but **requires complete access to the original pre-training checkpoint**."
+
+→ **分头练赢的不是效果，是"你不需要拿到原始预训练 checkpoint"——组织/资产可得性约束，不是算法优越性。**
+
+⚠️ 成本论证是**纯渐近推理，全文无实测 GPU 小时**；且口径不一致：正文说"线性 vs 二次"，Figure 2 caption 说"线性 vs 常数"——**引用时挑一个别混用**。
+
+### 12.4 机制：学界在打架，而且"梯度冲突"这个流行解释被证伪
+
+- **arXiv:2606.02398（Local Perturbation Theory）§1 逐字**：`substantial interference can occur even when full-model gradients are nearly orthogonal.` —— **梯度正交时干扰照样发生**。它同时说 catastrophic forgetting 和 global gradient conflict 两种解释都不完整
+- **arXiv:2608.03573（SFT Conflicts, RL Coexists）§4/Lemma 4.3/Theorem 4.5**：论证 RL 比 SFT 更能共存，机制是 **advantage centering 抵消了共享的均值梯度方向**（⚠️ 不是"已掌握任务梯度趋零"，那是想当然的猜法）
+- **arXiv:2602.05547（Multi-Task GRPO）§2**：问题是**各任务零梯度 prompt 比例不均**（组内全对/全错则 advantage 归零），有效数据配比被悄悄扭曲。⚠️ **不是**奖励尺度问题。**这条特别适合写给程序员——很具体、很 GRPO 实现层**
+- **arXiv:2602.02301（MGS）**：梯度冲突阵营的代表，模块级化解冲突，Llama/Qwen 上 +4.3/+4.5 分。**和上面两篇对立**
+
+**⚠️ "熵需求不同（推理要收敛、创作要发散）"这条我没找到任何实证支撑**——写的话必须标明是推测。
+
+### 12.5 两篇工业界论文完全没给机制
+
+- **MOPD (2606.30406)**：§5 Discussion 纯经验观察，**没解释为什么混合更差**
+- **CARE-RL (2606.00609)**：§4.3 纯经验，**无梯度/熵/超参测量**，也没用 "see-saw" 这个词
+  - ⚠️ 网上流传的引文是**拼接过的**。§4.2 原文：`Compared with the mixed-domain training of MGS, the cascade structure of CARE-RL allows per-domain hyperparameter tuning, and PA-GRM provides more reliable rewards.` —— **奖励可靠性归功于 PA-GRM 这个组件，不是 cascade 结构**，别合并这两点
+
+### 12.6 文献真空：配比消融基本没人做
+
+To Mix or To Merge 无配比消融；CARE-RL 固定每域 8000 条（明说是为防止规模主导）。**"配比调好能不能补上差距"这个问题现有文献没回答。**
+
+### 12.7 ⭐ 下一期的题眼（三选一或合并）
+
+1. **「各家都在分头练，但学术界既没证明它更好，也没给出机制解释——最诚实的那篇明说：主要是工程理由，效果上还输给完整重训 1.4 分。」**
+2. **「混合训练差不差，取决于你混的是不是同一类奖励」**（跨论文推断，需标明）
+3. **「'梯度冲突'这个人人都在用的解释，被一篇论文用一句话推翻了：梯度正交时干扰照样发生」**
+
+**我倾向 1**：它最反直觉，而且有 BAR 的自白 + 自家表格双重支撑。
+
+### 12.8 动笔前必做的功课
+- **回核 MOPD 0.882/0.937**（三轮报告自相矛盾）
+- **回核 BAR Table 1**（载重数字）
+- **回核 To Mix or To Merge Table 3/Table 5**
+- **补查 Omni-Thinker (2507.14783)** —— 混合奖励类型的最直接证据，这轮超时没拿到
+
+### 12.9 ⚠️⚠️ 补核（08-19 末轮，子代理亲自抓表）：MOPD 那 5.5 分是归一化放大的
+
+**0.882 / 0.937 确认无误**（Table 2，Qwen3-30B-A3B）。完整排序：MOPD 0.9373 > Mix-RL 0.8818 > Param-Merge(Task Arith.) 0.8574 > Off-Policy Finetune 0.8241 > Cascade RL 0.7752 > **Param-Merge(Avg.) 0.3280**。
+
+**但逐项拆开看，五个基准里 Mix-RL 赢了两个：**
+
+| 基准 | Mix-RL | MOPD |
+|---|---|---|
+| AIME25 | **52.71** | 51.46 ← Mix-RL 赢 |
+| AIME26 | 63.75 | **65.31** |
+| IFBench | 75.00 | **77.89** |
+| IFEval | **94.58** | 93.84 ← Mix-RL 赢 |
+| SWE-bench Verified | 48.80 | **50.40** |
+
+**⚠️ 那 5.5 分的差距主要由归一化方式放大**（相对各领域专家上限归一）。**写下一期时千万别把它说成"混合训练明显更差"——逐项看基本是伯仲之间。**
+
+**MOPD 确实用了 see-saw 这个词**：`cross-domain training signals interfere, producing the see-saw effect`。但**正文没有对"Mix-RL 为什么差"的任何机制分析**（无梯度实验、无熵分析、无配比消融）——这是核实过的"不存在"。
+
+**MOPD 也给了工程理由（原文）**：
+> "each domain is free to choose its own RL recipe (algorithm, rollout procedure, reward function, hyperparameters, and so on) without worrying about conflicts."
+
+**另一条更硬的干扰实测**（2606.02398，比 MOPD 的证据强）：顺序训练 Code→Math→QA→CW，**Math 从 66.49 掉到 57.66（约 −8.8 分）**，是选择性退化的实测。
+
+**⚠️ 奖励类型那条线没跑通**：Omni-Thinker (2507.14783) 超时未核。已知的只有 2606.02398 混用了两类（Math/Code/QA 规则奖励 + Creative Writing 用 LLM-as-judge 给 0/0.5/1）。**下期别断言"奖励类型是主因"，目前没有直接证据。**
