@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AGENTIC RL · 后训练系列 · K3 / V4 / GLM 都在分头练</text>
+
+  <!-- ============ LEFT: 两条路 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">同一个问题的两条路</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="104" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">分头练再合并</text>
+      <!-- fork diagram -->
+      <circle cx="40" cy="46" r="7" fill="#f59e0b"/>
+      <circle cx="90" cy="36" r="5" fill="#fbbf24"/>
+      <circle cx="90" cy="52" r="5" fill="#fbbf24"/>
+      <circle cx="90" cy="68" r="5" fill="#fbbf24"/>
+      <path d="M47 44 L84 37 M47 46 L84 52 M47 49 L84 66" stroke="#fbbf24" stroke-width="1.2" fill="none"/>
+      <circle cx="150" cy="52" r="8" fill="#f59e0b"/>
+      <path d="M96 37 L141 49 M96 52 L141 52 M96 67 L141 56" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="3 2" fill="none"/>
+      <text x="100" y="94" text-anchor="middle" fill="#fbbf24" font-size="10">fork 十来份权重，练完再缝回</text>
+    </g>
+
+    <g transform="translate(15 146)">
+      <rect x="0" y="0" width="200" height="80" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">混合训练</text>
+      <circle cx="70" cy="44" r="4" fill="#60a5fa"/>
+      <circle cx="90" cy="44" r="4" fill="#60a5fa"/>
+      <circle cx="110" cy="44" r="4" fill="#60a5fa"/>
+      <circle cx="130" cy="44" r="4" fill="#60a5fa"/>
+      <path d="M70 48 L98 60 M90 48 L100 60 M110 48 L102 60 M130 48 L104 60" stroke="#60a5fa" stroke-width="1.2" fill="none"/>
+      <circle cx="100" cy="64" r="7" fill="#4a90d9"/>
+      <text x="100" y="74" text-anchor="middle" fill="#bfdbfe" font-size="10"> </text>
+    </g>
+    <text x="115" y="248" text-anchor="middle" fill="#bfdbfe" font-size="10">所有领域一锅训一个</text>
+
+    <text x="115" y="276" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="bold">三家全选了绕的那条</text>
+    <text x="115" y="292" text-anchor="middle" fill="#94a3b8" font-size="11">但谁也没说为什么</text>
+  </g>
+
+  <!-- ============ MIDDLE: 对照实验 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">学术界真去测了</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 34)">
+      <text x="100" y="0" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">九项基准对照</text>
+      <!-- bar comparison: 5 vs 4 -->
+      <g transform="translate(0 14)">
+        <rect x="0" y="0" width="110" height="18" rx="3" fill="#f59e0b" opacity="0.85"/>
+        <rect x="0" y="24" width="88" height="18" rx="3" fill="#4a90d9" opacity="0.85"/>
+        <text x="116" y="14" fill="#fde68a" font-size="11">分头赢 5 项</text>
+        <text x="94" y="38" fill="#93c5fd" font-size="11">混训赢 4 项</text>
+      </g>
+      <text x="100" y="76" text-anchor="middle" fill="#cbd5e1" font-size="11">论文定性：性能可比</text>
+    </g>
+
+    <line x1="20" y1="132" x2="220" y2="132" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 152)">
+      <text x="100" y="0" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">但算力账不平</text>
+      <g transform="translate(0 14)">
+        <rect x="0" y="0" width="180" height="16" rx="3" fill="#334155"/>
+        <rect x="0" y="0" width="115" height="16" rx="3" fill="#2dd4bf" opacity="0.9"/>
+        <text x="90" y="30" text-anchor="middle" fill="#5eead4" font-size="11">混训只花 63.7% 的 GPU 小时</text>
+      </g>
+    </g>
+
+    <line x1="20" y1="212" x2="220" y2="212" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 232)">
+      <text x="0" y="0" fill="#cbd5e1" font-size="10">AppWorld：主指标统计不可区分</text>
+      <text x="0" y="18" fill="#cbd5e1" font-size="10">MOPD：蒸馏略优，不是碾压</text>
+      <text x="0" y="40" fill="#e2e8f0" font-size="12" font-weight="bold">混合训练没有稳定地输</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 真正买到的 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">那多花几倍算力买了什么</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="118" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">买到的全在工程侧</text>
+      <text x="100" y="44" text-anchor="middle" fill="#a7f3d0" font-size="11">十个团队并行开工</text>
+      <text x="100" y="64" text-anchor="middle" fill="#a7f3d0" font-size="11">每个领域自选配方</text>
+      <text x="100" y="84" text-anchor="middle" fill="#a7f3d0" font-size="11">换专家不动全局</text>
+      <text x="100" y="104" text-anchor="middle" fill="#a7f3d0" font-size="11">增量成本线性不翻倍</text>
+    </g>
+
+    <g transform="translate(15 166)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">效果最好的那条路</text>
+      <text x="100" y="38" text-anchor="middle" fill="#f87171" font-size="10">要原始预训练 checkpoint</text>
+      <text x="100" y="52" text-anchor="middle" fill="#f87171" font-size="10">大多数人摸不到起跑线</text>
+    </g>
+
+    <g transform="translate(15 240)">
+      <text x="100" y="0" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">康威定律：系统的形状</text>
+      <text x="100" y="18" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">就是组织的形状</text>
+      <text x="100" y="38" text-anchor="middle" fill="#94a3b8" font-size="10">训练管线长成了团队的样子</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">分头练一堆专家再合并，买到的可能不是更高分</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">对照实验是平手，算力还更贵——确定赢的全在工程和组织那一侧</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.286 · Agentic RL 系列 · To Mix or To Merge / BAR / MOPD</text>
+</svg>
