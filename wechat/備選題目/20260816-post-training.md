@@ -978,3 +978,75 @@ To Mix or To Merge 无配比消融；CARE-RL 固定每域 8000 条（明说是�
 **另一条更硬的干扰实测**（2606.02398，比 MOPD 的证据强）：顺序训练 Code→Math→QA→CW，**Math 从 66.49 掉到 57.66（约 −8.8 分）**，是选择性退化的实测。
 
 **⚠️ 奖励类型那条线没跑通**：Omni-Thinker (2507.14783) 超时未核。已知的只有 2606.02398 混用了两类（Math/Code/QA 规则奖励 + Creative Writing 用 LLM-as-judge 给 0/0.5/1）。**下期别断言"奖励类型是主因"，目前没有直接证据。**
+
+---
+
+## 十三、✅ 08-20 核查闭环（286 动笔前的六路核查，全部完成）
+
+**§12.8 的功课全部做完 + 全新检索一轮。以下为 286 期的最终地基，按此写，§十一/§十二与此冲突处以本节为准。**
+
+### 13.1 逐格核查结果（三篇载重论文）
+
+**BAR (arXiv:2604.18473，Ai2)《Train Separately, Merge Together: Modular Post-Training with Mixture-of-Experts》——全部核实**：
+- Table 1 逐格一致：BAR 5×7B Overall 49.1 / Math 56.2 / Code 49.9 / Safety 94.0；Re-train(mid+post) 50.5 / Code 59.6；Re-train(post only) 47.8；权重合并崩塌 6.5
+- §3.1 工程理由句逐字一致（modular upgrades / isolated pipeline / parallel development across teams）
+- **题眼句比记录更狠（完整版）**："Re-training with mid-training achieves the highest score (50.5), but requires complete access to the original pre-training checkpoint **and reprocessing all data from scratch—impractical for most models.**"
+- ⚠️ 修正一："lack verifiable reward mechanisms" 这个短语**原文没有**——事实成立（tool use 与 safety 均 "SFT only"），真原话是 discussion 的 "safety lacks verifiable RL data, so when math and code RL run later, safety capabilities degrade"。引用用真原话
+- ⚠️ 修正二：线性/二次（正文，累计总成本）vs 线性/常数（Figure 2 caption，边际成本）——**其实可自洽，别当把柄写**
+- 摘要 "matching or exceeding" 严格说只对 post-only 47.8 成立；被 mid+post 50.5 压着
+- 实况：基座 OLMo 2 7B；4 领域（math/code/tool use/safety）+ 1 anchor expert = 5×7B；math/code 用 GRPO RLVR，tool/safety 只 SFT
+
+**To Mix or To Merge (arXiv:2602.12566)——全部核实，⚠️ 引用钉死 v3**：
+- ⚠️⚠️ 版本坑：我们的数字全部对应 v2/v3；**v1 是另一个世界**（无 agent 领域、GPU 小时写 33.2%、Table 3 完全不同）。v3 (2026-03-11) 相对 v2 (03-09) 仅小修（GitHub URL 改 Mosi-AI/M2RL、措辞重排、gain-consistency 补入 agent 项成五模型），**所有载重数字一字未改**。引用直接标 v3
+- Table 3 六格全中（Ties vs RL-Multi）：81.15/81.20、74.74/73.39、57.58/53.62、54.76/61.22、60.84/63.21、61.73/60.74。合并基线四种：average / task arithmetic / Ties / SCE
+- "63.7% GPU hours" 在 §3.2 正文（总账 Table 2 = 10,050.6 GPU 小时）
+- Jaccard 0.45–0.48 vs 随机 0.18、余弦为正、"约 30% = 被触碰权重占比"——全中
+- agent 是迁移死路 + 数据占比 2.37%（335,122 条）——全中
+- ⚠️ 收窄：math 验证器是 "the evaluator from Qwen QwQ-32B"，措辞有歧义（大概率规则式，不能 100% 排除是 32B 模型当 judge）。写法："论文自述全部为确定性二值可验证奖励"，别断言绝对无 LLM 参与
+
+**Omni-Thinker (arXiv:2507.14783，华为诺亚/McGill，v3 2025-09-26)——首次核到，比预期值钱**：
+- 设置：Qwen2.5-7B-Instruct + GRPO；四任务 = 3 可验证（Math 符号匹配 / Coding 单测 / QA 字符串匹配）+ 1 LLM-judge（Creative Writing，gpt-4.1-mini 成对打分）
+- **Table 1 排序：顺序课程训 > 混合一次训(joint) > SFT ≈ base > 权重合并(TIES)**。课程比 joint 高 6.2%、比 merging 高 12.4%（abstract 级铁数）。joint 没崩只是次优；**TIES 权重合并在写作上崩得最狠（74.2→67.5）**
+- **机制是熵，不是"奖励类型打架"**：原文 "fine-tuning on creative writing tends to increase the model's output entropy, whereas training on verifier-supervised, structured tasks tends to decrease it"——写作把熵拉高波及全局，数学/代码压熵。BWT 矩阵排课程，最优 Code→Math→QA→Writing（judge 任务放最后）
+- **§12.4 那条"熵需求不同"的推测现在有实证了**，但表述要写"熵拉力"，别写"奖励类型是主因"（论文对 hybrid reward 只有正面表述，无 reward conflict 说法）
+- ⚠️ Table 1/3 具体分数是 WebFetch 转述级，写进正文前对 PDF 逐格再核一遍（62.1%/78.4% 那对尤其）
+
+### 13.2 ⭐⭐ V4 报告原文核查：官方理由就一个词，二手解读是补白
+
+arXiv:2606.19348v1 全文检索：**0 次出现 reward hacking / capability drift / interference**。Labonne 等二手解读说的"混合奖励易 reward hacking 和能力漂移"**原文没有，是解读者的推测性补白**。
+
+原文全部理由：
+- §5.1（只说做了、没说为什么）："a critical methodological substitution was made: the mixed Reinforcement Learning (RL) stage was entirely replaced by On-Policy Distillation"
+- §5.1.2（唯一给理由的一句）："…practically **circumventing the performance degradation** often encountered in traditional weight-merging or mixed RL techniques" ——就 "performance degradation" 一个词，权重合并和混合 RL 一起带过，机制只字未提
+- "more than ten teacher models covering various domains"（§5.1.2）；域是举例式列举（math/coding/agent/IF"such as"），且**确实按思考档位分 specialist**（§5.1.1 三档各配不同长度惩罚+上下文窗口）——"十几个"是域×档位凑出来的
+- "substantially accelerating the iteration cycle" 的主语是 §5.2 的**基建改进**（FP4 QAT、教师调度、可抢占 rollout），不是 OPD 范式本身——引这句别错挂
+- **报告没有任何一句正面论证"分开练比混着练好"**
+
+→ **题眼 1 的最终形态：三家大厂集体这么干、集体不解释（V4 一个词带过、K3 零动机、GLM 零披露）；解释是外面的人替他们编的（reward hacking 说）；而学术界真去测的时候发现效果上打平。**
+
+### 13.3 全新检索新增弹药（08-20，均 abstract 级，用前核原文）
+
+- **2607.16062《When Model Merging Rivals Joint Multi-Task RL: A Task-Vector Geometry Analysis》**（2026-07-17）：AppWorld 上 Qwen3-8B 专家 TIES/RAM+ 合并 vs 同数据联合 RL——任务完成率**统计不可区分**。又一票"效果分不出胜负"
+- **2603.19220 Nemotron-Cascade 2**（NVIDIA，2026-03）：Cascade RL（按域顺序）+ 多域 OPD；明说**只有跨任务干扰小、响应格式相近的任务组才合并成混合 RL**——工业界第三家投"分头"票，且给了合并条件
+- **2602.06869《Uncovering Cross-Objective Interference in Multi-Objective Alignment》**（Notre Dame，2026-02）：形式化跨目标干扰 + 局部协方差定律——奖励混合干扰最直接的机制论文
+- **2510.01167 MAHALO（v2 2026-05-30）**：正面处理"可验证+主观偏好奖励同训"，Multi-Action-Head DPO——**§12.2 奖励类型分界线从纯推断升级为有直接文献**
+- **2602.12125 ExOPD**（2026-02）：把 OPD 视为受约束 RL，reward extrapolation 让学生**超过所有同尺寸域 teacher**——MOPD 的理论化后续
+- 外围：2606.18521（RLVR 更新稀疏→免训练合并可行性）、2607.11997（专家训练时长对合并的影响）、2608.00782（全负 rollout 组选择性引入 teacher 蒸馏）、2604.13016 / 2604.00626 / 2605.26844 / 2601.22475（OPD 系）
+- 已知论文均无公开反驳；BAR 仍 v1
+
+### 13.4 ⚠️ 写作时必须切干净的一个概念区分
+
+**"合并"有两种，混淆会毁掉整篇文章的论证**：
+- **权重合并**（TIES/averaging/task arithmetic）：BAR 里崩到 6.5 分、Omni-Thinker 里最差、V4 明说要规避——**烂是共识**
+- **蒸馏合并**（OPD/MOPD，K3/V4 用的）：与混训伯仲之间（MOPD 逐项 Mix-RL 赢两项、To Mix or To Merge 打平）
+读者（和二手解读）最容易把"merging 输了"错记到蒸馏头上。正文必须先立这个区分。
+
+### 13.5 286 期骨架（08-20 定稿候选，待 Zero 过目）
+
+1. **开篇接 285 钩子**：老师为什么是"一堆"——为什么不把所有场景混在一起练一个？
+2. **报告集体沉默**：V4 一个词（performance degradation）、K3 零动机、GLM 零披露；二手解读的 reward hacking 说是补白
+3. **学术界真去测：打平**：To Mix or To Merge（六基准双向 1–4 分，混训省 36% 算力）+ MOPD 归一化放大真相 + 2607.16062 统计不可区分
+4. **先切开两种"合并"**（13.4 的区分，可做灯泡块）
+5. **最诚实的自白：BAR**——工程理由三连 + 效果输 1.4 分 + "需要原始预训练 checkpoint，对大多数模型不现实"
+6. **那干扰到底存不存在？存在，但故事和流行说法不同**：梯度冲突被 2606.02398 推翻（正交照样干扰）；Omni-Thinker 的熵拉力机制（judge 写作任务拉熵、可验证任务压熵、课程排序最优）；2606.02398 顺序训 Math −8.8 分实测
+7. **收尾**：分头练赢的不是数学，是组织形态——并行开发、模块化换老师、不需要预训练 checkpoint、每域自选配方（MOPD 原话）。判断在效果之外的维度上做出。可回扣 284（管线本身）、213（动旋钮不造零件）
