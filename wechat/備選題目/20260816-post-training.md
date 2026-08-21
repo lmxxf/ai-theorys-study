@@ -1050,3 +1050,57 @@ arXiv:2606.19348v1 全文检索：**0 次出现 reward hacking / capability drif
 5. **最诚实的自白：BAR**——工程理由三连 + 效果输 1.4 分 + "需要原始预训练 checkpoint，对大多数模型不现实"
 6. **那干扰到底存不存在？存在，但故事和流行说法不同**：梯度冲突被 2606.02398 推翻（正交照样干扰）；Omni-Thinker 的熵拉力机制（judge 写作任务拉熵、可验证任务压熵、课程排序最优）；2606.02398 顺序训 Math −8.8 分实测
 7. **收尾**：分头练赢的不是数学，是组织形态——并行开发、模块化换老师、不需要预训练 checkpoint、每域自选配方（MOPD 原话）。判断在效果之外的维度上做出。可回扣 284（管线本身）、213（动旋钮不造零件）
+
+---
+
+## 十四、⭐⭐⭐ 训练基建素材（08-21 四路核查，287 期正主）
+
+**四路来源：K3 报告 §5.3/§4.1.2（HTML v2 直读）、V4 报告 §5.2（v1 直读）、slime 仓库+docs 实读、学术检索。原文存 scratchpad/k3.txt、scratchpad/v4.txt（会话级）。**
+
+### 14.1 K3（arXiv:2607.24653 §5.3）
+
+- **partial rollout 机制**：每轮 N×K 条轨迹，完成 λ 比例即暂停生成开训（λ 数值报告没给）；未完轨迹入队**下轮优先续跑**；一个 prompt 的 K 条全齐才进优化。一条长轨迹天然跨多个策略版本——报告原话 "extreme off-policy regime"，靠 K2.5 的 per-token 正则扛（公式细节转引 K2.5，报告未展开；也没提 IS/logprob 对齐）
+- **共置路线**："co-located RL training…within a few hundred GPUs"（1M 上下文实验只几百张卡）；checkpoint-engine 一词 K3 全文未出现（在 K2 报告）
+- **显存芭蕾**：训练迭代完→权重+优化器下沉 NVMe，腾 DRAM 给外置 KV 池；rollout 完→池子释放还给训练。参考模型不常驻 GPU：借策略模型 FP32 梯度 buffer 双缓冲流式前向（一 slot 算一 slot 预取）
+- **1M 专属坑**：prefix KV miss 极贵；partial rollout 加剧下轮开头 prefix miss（上轮未完的长 prefill 一起涌来）。解法=write-back 外置 KV 池（活跃块留 GPU，被逐出的可复用前缀才写回 CPU DRAM，复用前预取；KDA 状态与 MLA KV 块绑定同生命周期）+ auto-throttling 调度（按活跃/排队请求数和 KV 利用率动态控并发——多轮上下文渐增，固定并发要么早期浪费要么后期爆）
+- **AgentENV 沙箱（已开源 github.com/kvcache-ai/AgentENV）**：早期容器 runtime 被 agent 乱操作搞出 **kernel panic 和死锁**→改 Firecracker microVM。checkpoint 133ms / resume 49ms；**沙箱 98% 生命周期在等模型推理**→pause 掉零内存零 CPU；Fork 用于无副作用判分；OverlayBD+自研 ublk+P2P 亚秒启动；内存超卖 6.5×；**全程 51,219,741 个沙箱 / 1,505,678 个镜像**
+- QAT 一致性（§4.1.4）："rollout and training share the same quantization scheme — eliminating the train–inference mismatch"（MXFP4/MXFP8 同方案）
+- ⚠️ 基建章无 limitation 表述；2.5× 是预训练效率 vs K2，别混进 RL
+
+### 14.2 V4（arXiv:2606.19348 §5.2，五小节）
+
+- **总起**：基建承自 V3.2，principal enhancements = 5.2.1 FP4 QAT / 5.2.2 老师调度 / 5.2.3 可抢占 rollout / 5.2.4 1M 上下文 / 5.2.5 DSec 沙箱。"substantially accelerating the iteration cycle" 的主语就是这批
+- **FP4 QAT**：MoE 专家权重 + CSA indexer QK 路径全 FP4；index 分数 FP32→BF16 = **top-k 选择器 2× 加速、KV 召回 99.7%**；FP4→FP8 反量化**无损**（E4M3 比 E2M1 多 2 位指数）故整条管线复用 FP8 框架；STE 直传梯度；**RL rollout 直接用原生 FP4 权重——与线上部署完全一致**（也是训推一致性的一手素材）
+- **老师调度**（全词表 OPD，"unbounded number of teachers, each potentially comprising trillions of parameters"）：①全部老师权重卸集中存储+ZeRO 式分片按需加载；②logits 物化"即使写到磁盘也存不下"→只缓存末层 hidden states，训练时过预测头现场重建 logits；③按老师编号排样本→每 mini-batch 每个老师头只加载一次、任一时刻至多一个头驻显存；④搬运全异步不占关键路径；⑤专用 TileLang kernel 算精确 KL
+- **可抢占 rollout = token 级 WAL**：每生成一个 token 追加写日志；抢占时存 KV cache，恢复接着解码；硬件挂了用 WAL 重跑 prefill 重建 KV。**⭐ 长度偏差论证（全章最亮）**："mathematically incorrect to regenerate unfinished requests from scratch"——短回答更容易在抢占中幸存，从头重跑会让模型系统性偏向短输出
+- **1M RL**：rollout 数据拆轻元数据+重逐 token 字段；元数据全局 shuffle/packing，重字段走共享内存 loader、mini-batch 粒度用完即释
+- **DSec（DeepSeek Elastic Compute）**：三个 Rust 组件（Apiserver/Edge/Watcher）+ 3FS；单集群**几十万并发沙箱**；四种底座（Function Call 预热容器池 / Docker 兼容容器+EROFS / Firecracker microVM / QEMU fullVM）**换个参数就切**；快照链式、毫秒级恢复；全局有序轨迹日志→抢占后 fast-forward 回放已完成命令（防非幂等重执行）+ 确定性重放
+- ⚠️ 无端到端吞吐/成本数字，别编
+
+### 14.3 GLM / slime（仓库实读，⚠️ 修正 08-16 三处旧线索）
+
+- **架构**：Megatron 训练侧 + SGLang rollout 侧（sgl-router，OpenAI 兼容 API）+ 中央 Data Buffer。**单后端深绑 SGLang 是有意的**（README：多后端抽象只能取公共子集埋掉最强特性）——对 veRL 的隐性定位。colocated/分离一个 flag 切换
+- **权重同步两条路**：NCCL 分桶；**Delta Weight Sync**（纯磁盘：每次 sync diff 成 HF checkpoint 目录，XOR 编码+zstd 压缩+xxh3 校验，engine 侧拉取就地打补丁——支持跨机房、rollout 甚至可用不同厂牌 GPU）
+- **fully async（v0.3.0 一等公民）**：后台 asyncio 维持固定 in-flight 生成池跨 rollout 边界持续；**partial rollout 尚不支持**（fully_async README 明写 TODO，被 abort 的组推回队列重来；生态项目 APRIL 补这块）——**与 K3 的差异点，可写**
+- **⚠️ 修正一**：1e-7 对齐**仅限 GLM-5 结构**（MLA+DSA）：确定性 SGLang + batch-invariant DeepGEMM/DeepEP + megatron-sglang-aligned.patch；要点=FP8 块量化双侧一致、fp32 MoE router、**LM head 两侧都保持 bf16（"匹配精度而非 fp32 才是对齐关键"）**、DeepEP 保序 FP32 归约；测试门禁断言 <1e-6、文档说参考值 "x e-7" 量级。"降 99.99%" 出自 GLM-5.3 博客非 slime 文档
+- **⚠️ 修正二**：全词表 OPD/动态切老师/prefetch 是 **GLM-5.3 博客说的内部扩展**；开源 slime 的 OPD 是**采样式 reverse-KL**（明写 "does not enumerate the full vocabulary"，单 token MC 项折进 advantage）。示例：Qwen3-8B SFT 76%→+OPD(32B teacher) 94% Pass@1。GLM-5.2 博客：并行 OPD 两天合入 10+ 专家
+- **⚠️ 修正三**：DIS 这名字**不在 slime 代码里**（GLM-5 论文的算法名），落地= `--use-tis --tis-clip --tis-clip-low` 双侧裁剪 + 可插自定义 MIS
+- **GLM-5 技术报告 = arXiv:2602.15763**（slime 本身无论文，只有 lmsys 博客 2025-07-09）；2.3× 吞吐出自 GLM-5.3 博客（长程编码 RL 端到端）
+- **IndexShare**（GLM-5.2）：每 4 层共享一个 indexer（放 4 层之首，top-k 索引复用后 3 层），1M 下每 token 计算降 2.9×——长上下文侧素材，本期可只提一句
+
+### 14.4 学术线（⚠️ 2026 段编号成稿前逐条开 abs 页核对）
+
+- **框架谱系**：veRL/HybridFlow（2409.19256，字节，共置+同步，3D-HybridEngine，事实标准）→ OpenRLHF（2405.11143，Ray+vLLM 分离调度）→ **AReaL**（2505.24298，清华+蚂蚁，NeurIPS'25，全异步：interruptible rollout 可中断生成热载新权重 + decoupled PPO + staleness-aware）→ LlamaRL（2505.24034，Meta，405B 10.7×）→ slime。NeMo-RL/TRL 无论文
+- **异步时间线**：Async RLHF（2410.18252，Mila，2024-10 最早系统论证）→ **Kimi k1.5（2501.12599）= partial rollout 出处**（超长轨迹截断进 replay buffer 下轮续写）→ StreamRL（2504.15930）→ AReaL → ROLL Flash（2510.11345，阿里，agentic 长尾）→ 2026：RolloutPipe（2606.26997，分离式同步里做流水线重叠的折中）、RollPacker（2509.21009）
+- **环境税**：**Rollout Infrastructure Tax（2607.01415）**：四种执行底座跑百万条 150 步轨迹，worker-hours 差 **110 倍**（机构未确认，引用前核 PDF）
+- **staleness**：**2607.01083 缩放律：stale 梯度偏差 ≈ O(S·η)**（滞后×学习率联合调参）；Missing Old Logits（2605.12070：异步+partial rollout 下训练侧旧 logits 丢失，staleness 修正与 mismatch 修正纠缠）；A-3PO（2512.06547）
+- **训推不一致线（很完整，可单独成节或成期）**：起点=Feng Yao 博客 2025-08《Your Efficient RL Framework Secretly Brings You Off-Policy RL Training》（vLLM vs FSDP logprob 不一致，提出 TIS；正式版 NeurIPS'25 论文 arXiv 号未确认勿引）→ **2510.26788：换 FP16 就修好（BF16 舍入是主因，最反直觉）** → 2605.14220（实测 logprob 双侧差最大到 1.0）→ 2607.24062 ACRL（token 级 TIS vs sequence 级 MIS）→ 2511.17826（确定性推理根治）→ 2602.01826（主张纯优化问题 LR 调度可修）。与 GLM 1e-7 对齐、V4 原生 FP4 rollout、K3 同量化方案三条工业实践正好合流
+- 综述：2604.07941（off/on-policy 统一视角）
+
+### 14.5 题眼候选与切期建议
+
+**素材超一期容量，候选切法**：
+1. **287 =「GPU 在等谁」**（主推）：straggler/环境/抢占三种"等"+ 三家消等术（partial rollout / WAL+长度偏差 / 异步+可中断）+ 环境税 110×。一句话主线：**RL 后训练的车间里，最贵的动作是等**
+2. **288 候选 =「训推不一致」**：博客起点→TIS→FP16 反转→三家工业实践合流。天然独立成期，1e-7/FP4/同量化都在这
+3. **沙箱基建**（AgentENV kernel panic 故事 + DSec 四底座 + 98% + 5100 万）可并入 287 当一节，或与环境税合成一期
+- 可回扣：286（分头练是组织形态→车间怎么转）、284（老师调度是 OPD 的机房侧）、282（难点从模型转移到环境）
