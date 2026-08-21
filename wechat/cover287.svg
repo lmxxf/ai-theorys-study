@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AGENTIC RL · 后训练系列第六期 · K3 / V4 / 开源框架的基建章</text>
+
+  <!-- ============ LEFT: 三种等 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">车间里的三种等</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">等最慢的轨迹</text>
+      <!-- bars: uneven lengths -->
+      <rect x="20" y="34" width="60" height="6" rx="3" fill="#fbbf24"/>
+      <rect x="20" y="44" width="100" height="6" rx="3" fill="#fbbf24"/>
+      <rect x="20" y="54" width="160" height="6" rx="3" fill="#dc2626"/>
+    </g>
+
+    <g transform="translate(15 112)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">等环境</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">五千万个沙箱</text>
+      <text x="100" y="58" text-anchor="middle" fill="#bfdbfe" font-size="10">冷启动延迟差 110 倍</text>
+    </g>
+
+    <g transform="translate(15 194)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">等抢占后的重来</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">机器不是你一个人的</text>
+      <text x="100" y="58" text-anchor="middle" fill="#f87171" font-size="10">百万 token 写一半被踢下机</text>
+    </g>
+
+    <text x="115" y="288" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="bold">最贵的动作不是算，是等</text>
+  </g>
+
+  <!-- ============ MIDDLE: 消等术 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">三家的消等术</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 34)">
+      <text x="0" y="0" fill="#fde047" font-size="12" font-weight="bold">K3 · partial rollout</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">完成 λ 比例就开训</text>
+      <text x="0" y="36" fill="#94a3b8" font-size="10">没写完的下轮新模型接着写</text>
+    </g>
+
+    <line x1="20" y1="112" x2="220" y2="112" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 132)">
+      <text x="0" y="0" fill="#fde047" font-size="12" font-weight="bold">K3 · 沙箱会睡觉</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">98% 时间在等模型 → pause 掉</text>
+      <text x="0" y="36" fill="#94a3b8" font-size="10">49 毫秒醒来 · 内存超卖 6.5 倍</text>
+    </g>
+
+    <line x1="20" y1="210" x2="220" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 230)">
+      <text x="0" y="0" fill="#fde047" font-size="12" font-weight="bold">V4 · token 级日志</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">每个 token 落一笔 WAL 断点续写</text>
+      <text x="0" y="36" fill="#e2e8f0" font-size="10" font-weight="bold">从头重跑会把模型悄悄训短</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 同步 vs 异步 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">框架的分家线</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="118" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">训练和做题等不等对方</text>
+      <!-- slider -->
+      <line x1="30" y1="48" x2="170" y2="48" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="30" cy="48" r="5" fill="#4a90d9"/>
+      <circle cx="100" cy="48" r="5" fill="#2dd4bf"/>
+      <circle cx="170" cy="48" r="5" fill="#f59e0b"/>
+      <text x="30" y="70" text-anchor="middle" fill="#93c5fd" font-size="10">veRL</text>
+      <text x="100" y="70" text-anchor="middle" fill="#5eead4" font-size="10">slime</text>
+      <text x="170" y="70" text-anchor="middle" fill="#fde68a" font-size="10">AReaL</text>
+      <text x="100" y="92" text-anchor="middle" fill="#a7f3d0" font-size="10">同步 ←——————→ 全异步</text>
+      <text x="100" y="108" text-anchor="middle" fill="#a7f3d0" font-size="10">AReaL 同卡数最高 2.77 倍加速</text>
+    </g>
+
+    <g transform="translate(15 166)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">账单</text>
+      <text x="100" y="38" text-anchor="middle" fill="#fbbf24" font-size="10">少等一些，数据就旧一些</text>
+      <text x="100" y="52" text-anchor="middle" fill="#fbbf24" font-size="10">旧数据的嗓门得压小（0.8~1.28）</text>
+    </g>
+
+    <g transform="translate(15 240)">
+      <text x="100" y="0" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">车间对车间的竞争</text>
+      <text x="100" y="20" text-anchor="middle" fill="#94a3b8" font-size="10">slime / AgentENV / veRL / AReaL</text>
+      <text x="100" y="36" text-anchor="middle" fill="#94a3b8" font-size="10">零件都开源，可以逐件摸</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">后训练的车间里，最贵的动作是等</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">等最慢的轨迹、等环境、等抢占重来——三家报告的基建章全是消等术</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.287 · Agentic RL 系列 · K3 §5.3 / V4 §5.2 / veRL · slime · AReaL</text>
+</svg>
