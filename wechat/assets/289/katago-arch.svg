@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1206" font-family="Noto Sans CJK SC">
+  <rect width="900" height="1206" fill="#fbfbfd"/>
+
+  <text x="450" y="38" font-size="22" font-weight="bold" text-anchor="middle" fill="#1a2233">KataGo 神经网络结构</text>
+  <text x="450" y="62" font-size="13" text-anchor="middle" fill="#6a7385">以 b28c512nbt 为例：28 个块，主干 512 通道</text>
+
+  <!-- ============ 输入 ============ -->
+  <rect x="60" y="90" width="780" height="128" rx="8" fill="#eef4fd" stroke="#b9d0ee"/>
+  <text x="78" y="115" font-size="15" font-weight="bold" fill="#2a5c9a">输入：整个棋盘，一次喂完</text>
+
+  <!-- 棋盘小图 -->
+  <g transform="translate(82,128)">
+    <rect x="0" y="0" width="72" height="72" fill="#f6e3bf" stroke="#c3a978"/>
+    <g stroke="#c3a978" stroke-width="0.7">
+      <line x1="0" y1="12" x2="72" y2="12"/><line x1="0" y1="24" x2="72" y2="24"/>
+      <line x1="0" y1="36" x2="72" y2="36"/><line x1="0" y1="48" x2="72" y2="48"/>
+      <line x1="0" y1="60" x2="72" y2="60"/>
+      <line x1="12" y1="0" x2="12" y2="72"/><line x1="24" y1="0" x2="24" y2="72"/>
+      <line x1="36" y1="0" x2="36" y2="72"/><line x1="48" y1="0" x2="48" y2="72"/>
+      <line x1="60" y1="0" x2="60" y2="72"/>
+    </g>
+    <circle cx="24" cy="24" r="4.4" fill="#1c1c1c"/>
+    <circle cx="36" cy="36" r="4.4" fill="#fdfdfd" stroke="#888"/>
+    <circle cx="48" cy="24" r="4.4" fill="#1c1c1c"/>
+    <circle cx="24" cy="48" r="4.4" fill="#fdfdfd" stroke="#888"/>
+  </g>
+  <text x="118" y="215" font-size="11" text-anchor="middle" fill="#6a7385">19×19</text>
+
+  <text x="176" y="150" font-size="13" fill="#33405a">361 个交叉点 = 361 个 token（<tspan font-weight="bold">恒定不变</tspan>）</text>
+  <text x="176" y="172" font-size="13" fill="#33405a">每个点摞着 <tspan font-weight="bold" fill="#2a5c9a">22 个特征平面</tspan>：己方子/对方子/1、2、3 口气/</text>
+  <text x="176" y="192" font-size="13" fill="#33405a">劫禁着点/最近 5 手/能否征吃/已活净……</text>
+  <text x="176" y="212" font-size="13" fill="#33405a">另有 <tspan font-weight="bold" fill="#2a5c9a">19 个全局值</tspan>：贴目、劫规则、是否允许自杀……</text>
+
+  <path d="M450 218 L450 248" stroke="#8a97ad" stroke-width="2" marker-end="url(#ar)"/>
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#8a97ad"/>
+    </marker>
+  </defs>
+
+  <!-- ============ 主干 ============ -->
+  <rect x="60" y="252" width="780" height="190" rx="8" fill="#f3f0fa" stroke="#cfc4e8"/>
+  <text x="78" y="277" font-size="15" font-weight="bold" fill="#6a4fa8">主干 trunk：28 个块首尾相接，数据一路穿过去</text>
+
+  <defs>
+    <marker id="arp" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="#a58fd4"/>
+    </marker>
+  </defs>
+
+  <g>
+    <rect x="80" y="296" width="66" height="44" rx="5" fill="#fff" stroke="#a58fd4"/>
+    <text x="113" y="323" font-size="12" text-anchor="middle" fill="#4a3a78">块 1</text>
+    <path d="M148 318 L166 318" stroke="#a58fd4" stroke-width="1.8" marker-end="url(#arp)"/>
+
+    <rect x="168" y="296" width="66" height="44" rx="5" fill="#fff" stroke="#a58fd4"/>
+    <text x="201" y="323" font-size="12" text-anchor="middle" fill="#4a3a78">块 2</text>
+    <path d="M236 318 L254 318" stroke="#a58fd4" stroke-width="1.8" marker-end="url(#arp)"/>
+
+    <rect x="256" y="296" width="66" height="44" rx="5" fill="#efe7ff" stroke="#8a6fd0" stroke-width="2"/>
+    <text x="289" y="315" font-size="12" text-anchor="middle" fill="#4a3a78">块 3</text>
+    <text x="289" y="332" font-size="9" text-anchor="middle" fill="#6a4fa8">带全局池化</text>
+    <path d="M324 318 L342 318" stroke="#a58fd4" stroke-width="1.8" marker-end="url(#arp)"/>
+
+    <text x="360" y="324" font-size="15" text-anchor="middle" fill="#8a7ab0">· · ·</text>
+    <path d="M378 318 L396 318" stroke="#a58fd4" stroke-width="1.8" marker-end="url(#arp)"/>
+
+    <rect x="398" y="296" width="66" height="44" rx="5" fill="#efe7ff" stroke="#8a6fd0" stroke-width="2"/>
+    <text x="431" y="315" font-size="12" text-anchor="middle" fill="#4a3a78">块 6</text>
+    <text x="431" y="332" font-size="9" text-anchor="middle" fill="#6a4fa8">带全局池化</text>
+    <path d="M466 318 L484 318" stroke="#a58fd4" stroke-width="1.8" marker-end="url(#arp)"/>
+
+    <text x="502" y="324" font-size="15" text-anchor="middle" fill="#8a7ab0">· · ·</text>
+    <path d="M520 318 L538 318" stroke="#a58fd4" stroke-width="1.8" marker-end="url(#arp)"/>
+
+    <rect x="540" y="296" width="66" height="44" rx="5" fill="#fff" stroke="#a58fd4"/>
+    <text x="573" y="323" font-size="12" text-anchor="middle" fill="#4a3a78">块 28</text>
+    <path d="M608 318 L640 318" stroke="#a58fd4" stroke-width="1.8" marker-end="url(#arp)"/>
+    <text x="700" y="322" font-size="11.5" text-anchor="middle" fill="#6a5a90">往下接输出头</text>
+  </g>
+
+  <text x="80" y="366" font-size="11" fill="#8a7ab0">↑ 512×19×19</text>
+  <text x="256" y="366" font-size="11" fill="#8a7ab0">↑ 512×19×19</text>
+  <text x="440" y="366" font-size="11" fill="#8a7ab0">↑ 512×19×19</text>
+  <text x="700" y="348" font-size="10.5" text-anchor="middle" fill="#8a7ab0">紫色块 = 带全局池化</text>
+
+  <text x="78" y="390" font-size="12.5" fill="#5a4a80"><tspan font-weight="bold">进去什么形状、出来还是什么形状</tspan>——所以能一块接一块串 28 个。和 LLM 堆 32 层是同一回事：</text>
+  <text x="78" y="409" font-size="12.5" fill="#5a4a80">位置始终是那 361 个，变的是每个位置上那 512 个数——越往后越不像“这儿有没有子”，越像“这块棋死活如何”。</text>
+  <text x="78" y="428" font-size="11.5" fill="#8a7ab0">每隔几块插一个带全局池化的块，让局部的计算也能看见全局形势。</text>
+
+  <path d="M289 442 L289 470" stroke="#8a97ad" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- ============ 三层套娃 ============ -->
+  <rect x="60" y="474" width="780" height="322" rx="8" fill="#fff8ee" stroke="#e8cfa6"/>
+  <text x="78" y="499" font-size="15" font-weight="bold" fill="#a8701a">剖开一个块：三层套娃</text>
+
+  <!-- 外层残差 -->
+  <rect x="86" y="514" width="620" height="258" rx="7" fill="#fffdf8" stroke="#d9a961" stroke-width="2"/>
+  <text x="100" y="535" font-size="13" font-weight="bold" fill="#a8701a">① 残差块</text>
+  <text x="176" y="535" font-size="11.5" fill="#a08050">算完加回输入：输出 = 输入 + f(输入)</text>
+
+  <!-- 残差跳线 -->
+  <path d="M96 548 L96 752 L696 752 L696 548" fill="none" stroke="#d9a961" stroke-width="1.6" stroke-dasharray="5,4"/>
+  <circle cx="696" cy="548" r="9" fill="#fffdf8" stroke="#d9a961" stroke-width="1.6"/>
+  <text x="696" y="553" font-size="13" text-anchor="middle" fill="#a8701a">+</text>
+  <text x="400" y="768" font-size="10.5" text-anchor="middle" fill="#b89050">跳跃连接：原样加回去</text>
+
+  <!-- 中层 bottleneck -->
+  <rect x="118" y="554" width="556" height="196" rx="6" fill="#fff5e6" stroke="#e0b878" stroke-width="1.6"/>
+  <text x="132" y="575" font-size="13" font-weight="bold" fill="#a8701a">② 瓶颈</text>
+  <text x="196" y="575" font-size="11.5" fill="#a08050">先降维、干活、再升回来——省算力</text>
+
+  <rect x="134" y="590" width="76" height="52" rx="5" fill="#fff" stroke="#c99a54"/>
+  <text x="172" y="610" font-size="11.5" text-anchor="middle" fill="#8a5c15">1×1 卷积</text>
+  <text x="172" y="628" font-size="11" text-anchor="middle" fill="#b08840">512→256</text>
+
+  <path d="M212 616 L238 616" stroke="#c99a54" stroke-width="1.8" marker-end="url(#ar2)"/>
+  <defs>
+    <marker id="ar2" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="#c99a54"/>
+    </marker>
+  </defs>
+
+  <!-- 内层 nested -->
+  <rect x="240" y="584" width="316" height="152" rx="6" fill="#ffefd6" stroke="#d09838" stroke-width="1.6"/>
+  <text x="254" y="604" font-size="13" font-weight="bold" fill="#8a5c15">③ 嵌套：里面又是两个残差块</text>
+
+  <g>
+    <rect x="256" y="616" width="128" height="102" rx="5" fill="#fff" stroke="#c99a54"/>
+    <text x="320" y="635" font-size="11" text-anchor="middle" fill="#8a5c15">内层残差块 A</text>
+    <rect x="268" y="643" width="104" height="26" rx="4" fill="#fff8ea" stroke="#dcb87b"/>
+    <text x="320" y="660" font-size="10.5" text-anchor="middle" fill="#a07830">3×3 卷积</text>
+    <rect x="268" y="675" width="104" height="26" rx="4" fill="#fff8ea" stroke="#dcb87b"/>
+    <text x="320" y="692" font-size="10.5" text-anchor="middle" fill="#a07830">3×3 卷积</text>
+    <path d="M262 638 L262 710 L378 710" fill="none" stroke="#d09838" stroke-width="1.2" stroke-dasharray="3,3"/>
+  </g>
+
+  <path d="M390 667 L406 667" stroke="#c99a54" stroke-width="1.8" marker-end="url(#ar2)"/>
+
+  <g>
+    <rect x="412" y="616" width="128" height="102" rx="5" fill="#fff" stroke="#c99a54"/>
+    <text x="476" y="635" font-size="11" text-anchor="middle" fill="#8a5c15">内层残差块 B</text>
+    <rect x="424" y="643" width="104" height="26" rx="4" fill="#fff8ea" stroke="#dcb87b"/>
+    <text x="476" y="660" font-size="10.5" text-anchor="middle" fill="#a07830">3×3 卷积</text>
+    <rect x="424" y="675" width="104" height="26" rx="4" fill="#fff8ea" stroke="#dcb87b"/>
+    <text x="476" y="692" font-size="10.5" text-anchor="middle" fill="#a07830">3×3 卷积</text>
+    <path d="M418 638 L418 710 L534 710" fill="none" stroke="#d09838" stroke-width="1.2" stroke-dasharray="3,3"/>
+  </g>
+
+  <text x="398" y="730" font-size="10.5" text-anchor="middle" fill="#b08840">这两个小块，2026 年被换成了 transformer</text>
+
+  <path d="M558 616 L584 616" stroke="#c99a54" stroke-width="1.8" marker-end="url(#ar2)"/>
+
+  <rect x="586" y="590" width="76" height="52" rx="5" fill="#fff" stroke="#c99a54"/>
+  <text x="624" y="610" font-size="11.5" text-anchor="middle" fill="#8a5c15">1×1 卷积</text>
+  <text x="624" y="628" font-size="11" text-anchor="middle" fill="#b08840">256→512</text>
+
+  <!-- 右侧换芯说明 -->
+  <rect x="718" y="554" width="106" height="196" rx="6" fill="#eaf6f0" stroke="#8ec9ab"/>
+  <text x="771" y="578" font-size="12" font-weight="bold" text-anchor="middle" fill="#2f7d5a">2026 年</text>
+  <text x="771" y="600" font-size="11" text-anchor="middle" fill="#3f7f62">①② 原封不动</text>
+  <text x="771" y="622" font-size="11" text-anchor="middle" fill="#3f7f62">只换 ③ 里面</text>
+  <text x="771" y="650" font-size="11" text-anchor="middle" fill="#2f7d5a">3×3 卷积</text>
+  <text x="771" y="670" font-size="13" text-anchor="middle" fill="#2f7d5a">↓</text>
+  <text x="771" y="690" font-size="11" font-weight="bold" text-anchor="middle" fill="#1f6b4a">注意力 + FFN</text>
+  <text x="771" y="716" font-size="10" text-anchor="middle" fill="#5a9d80">壳子没动</text>
+  <text x="771" y="732" font-size="10" text-anchor="middle" fill="#5a9d80">芯换了</text>
+
+  <path d="M450 796 L450 826" stroke="#8a97ad" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- ============ 输出头 ============ -->
+  <rect x="60" y="830" width="780" height="230" rx="8" fill="#eef7f3" stroke="#a9d8c2"/>
+  <text x="78" y="825" font-size="15" font-weight="bold" fill="#2f7d5a">输出：不是一个头，是一排</text>
+
+  <g>
+    <rect x="80" y="842" width="168" height="76" rx="6" fill="#fff" stroke="#7cbfa0"/>
+    <text x="164" y="864" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f6b4a">policy 策略</text>
+    <text x="164" y="884" font-size="10.5" text-anchor="middle" fill="#4a8a70">每个点的落子概率</text>
+    <text x="164" y="902" font-size="10" text-anchor="middle" fill="#7aa894">← 对应 LLM 那个头</text>
+
+    <rect x="262" y="842" width="168" height="76" rx="6" fill="#fff" stroke="#7cbfa0"/>
+    <text x="346" y="864" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f6b4a">对手的下一手</text>
+    <text x="346" y="884" font-size="10.5" text-anchor="middle" fill="#4a8a70">预测对方会怎么应</text>
+
+    <rect x="444" y="842" width="168" height="76" rx="6" fill="#fff" stroke="#7cbfa0"/>
+    <text x="528" y="864" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f6b4a">value 胜负</text>
+    <text x="528" y="884" font-size="10.5" text-anchor="middle" fill="#4a8a70">胜 / 负 / 无结果</text>
+
+    <rect x="626" y="842" width="194" height="76" rx="6" fill="#fff" stroke="#7cbfa0"/>
+    <text x="723" y="864" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f6b4a">ownership 归属</text>
+    <text x="723" y="884" font-size="10.5" text-anchor="middle" fill="#4a8a70">361 个点各归谁</text>
+    <text x="723" y="902" font-size="10" text-anchor="middle" fill="#7aa894">一张热力图</text>
+
+    <rect x="80" y="930" width="350" height="66" rx="6" fill="#fff" stroke="#7cbfa0"/>
+    <text x="255" y="952" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f6b4a">最终目差的完整概率分布</text>
+    <text x="255" y="972" font-size="10.5" text-anchor="middle" fill="#4a8a70">不是“赢 7 目”一个数，是整条曲线</text>
+    <text x="255" y="989" font-size="10" text-anchor="middle" fill="#7aa894">赢 3 目多少、赢 7 目多少、输 2 目多少</text>
+
+    <rect x="444" y="930" width="376" height="66" rx="6" fill="#fff" stroke="#a9d8c2" stroke-dasharray="4,3"/>
+    <text x="632" y="952" font-size="12.5" text-anchor="middle" fill="#4a8a70">外加目差均值、标准差等若干辅助输出</text>
+    <text x="632" y="976" font-size="10.5" text-anchor="middle" fill="#7aa894">胜负是二值噪声，但它是这些细变量的函数</text>
+  </g>
+
+  <text x="450" y="1046" font-size="11.5" text-anchor="middle" fill="#4a8a70">多预测这些“子成分”，正是它比 AlphaZero 省算力的主要来源之一</text>
+
+  <!-- ============ 底注 ============ -->
+  <rect x="60" y="1076" width="780" height="104" rx="8" fill="#f4f5f8" stroke="#d5d9e2"/>
+  <text x="78" y="1100" font-size="12.5" font-weight="bold" fill="#4a5468">两处和 LLM 最不一样的地方</text>
+  <text x="78" y="1122" font-size="12" fill="#5a6478">· <tspan font-weight="bold">没有因果掩码</tspan>：棋盘上 361 个点同时存在，没有先后，谁都能看见谁</text>
+  <text x="78" y="1143" font-size="12" fill="#5a6478">· <tspan font-weight="bold">没有 KV cache</tspan>：落一子是“原地改”不是“往后接”，前面算的全部作废</text>
+  <text x="78" y="1166" font-size="11" fill="#8a93a5">图中块数、通道数据 b28c512nbt 配置；全局池化块的位置为示意，实际每 3 块插一个</text>
+</svg>
