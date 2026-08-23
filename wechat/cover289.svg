@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">KATAGO · 带着 LLM 的印象读一个围棋 AI</text>
+
+  <!-- ============ LEFT: 个头 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">个头：碾压人类要多大？</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <text x="115" y="70" text-anchor="middle" fill="#93c5fd" font-size="42" font-weight="bold">0.23B</text>
+    <text x="115" y="94" text-anchor="middle" fill="#bfdbfe" font-size="12">顶配参数量，2.3 亿</text>
+
+    <!-- 对比条 -->
+    <g transform="translate(20 120)">
+      <text x="0" y="12" fill="#cbd5e1" font-size="11">KataGo 顶配</text>
+      <rect x="0" y="20" width="12" height="14" rx="2" fill="#4a90d9"/>
+      <text x="20" y="32" fill="#93c5fd" font-size="10">0.23B</text>
+
+      <text x="0" y="62" fill="#cbd5e1" font-size="11">手机上的「小模型」</text>
+      <rect x="0" y="70" width="190" height="14" rx="2" fill="#334155" stroke="#475569" stroke-width="1"/>
+      <text x="150" y="82" fill="#94a3b8" font-size="10">7B</text>
+    </g>
+
+    <line x1="16" y1="226" x2="214" y2="226" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <g transform="translate(16 244)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">全系列都在 1B 以下</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">权重 93 MiB 起，手机装得下</text>
+      <text x="0" y="38" fill="#94a3b8" font-size="10">而人类早已不在讨论范围里</text>
+    </g>
+  </g>
+
+  <!-- ============ MID: 换芯 ============ -->
+  <g transform="translate(335 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">2026 年：壳子没动，芯换了</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 三层套娃 -->
+    <g transform="translate(20 30)">
+      <rect x="0" y="0" width="190" height="150" rx="6" fill="#0a1a2a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="95" y="18" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="bold">残差块</text>
+      <rect x="14" y="28" width="162" height="112" rx="5" fill="#12233a" stroke="#f59e0b" stroke-width="1" opacity="0.9"/>
+      <text x="95" y="45" text-anchor="middle" fill="#fcd34d" font-size="10">瓶颈：1024 → 512 → 1024</text>
+      <rect x="28" y="54" width="134" height="74" rx="4" fill="#1a3050" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="95" y="72" text-anchor="middle" fill="#5eead4" font-size="10">内芯（原来是 3×3 卷积）</text>
+      <text x="95" y="96" text-anchor="middle" fill="#a7f3d0" font-size="12" font-weight="bold">→ transformer 块</text>
+      <text x="95" y="116" text-anchor="middle" fill="#5eead4" font-size="9">16 头 × 32 维 · 2D RoPE</text>
+    </g>
+
+    <line x1="16" y1="206" x2="214" y2="206" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <g transform="translate(16 224)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">token 是交叉点，恒定 361 个</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">没有因果掩码 · 没有 KV cache</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">注意力不回顾历史，环顾四周</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">——encoder 家族的族徽</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 分工 ============ -->
+  <g transform="translate(610 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">网络在整个系统里的位置</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="42" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">下一手棋</text>
+      <text x="100" y="34" text-anchor="middle" fill="#bfdbfe" font-size="9">搜索汇总之后才落子</text>
+    </g>
+    <path d="M115 76 L115 86" stroke="#64748b" stroke-width="1.5"/>
+    <g transform="translate(25 118)">
+      <rect x="0" y="-30" width="180" height="52" rx="6" fill="#1a2a0a" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="90" y="-11" text-anchor="middle" fill="#fcd34d" font-size="11" font-weight="bold">蒙特卡洛搜索：算路</text>
+      <text x="90" y="8" text-anchor="middle" fill="#fde68a" font-size="9">展开成千上万个假想局面</text>
+    </g>
+    <path d="M115 172 L115 182" stroke="#64748b" stroke-width="1.5"/>
+    <g transform="translate(35 214)">
+      <rect x="0" y="-30" width="160" height="52" rx="6" fill="#0a2a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="80" y="-11" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">神经网络：棋感</text>
+      <text x="80" y="8" text-anchor="middle" fill="#a7f3d0" font-size="9">每个局面看一眼给个判断</text>
+    </g>
+
+    <g transform="translate(16 254)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">网络只是个被反复呼叫的零件</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">LLM 把「想」压进一次前向</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">KataGo 把「想」外包给搜索</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">围棋 AI 的神经网络，和 LLM 差在哪儿</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">顶配 0.23B · 壳子没动芯换了 · 网络出棋感，搜索出算路</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.289 · KataGo 源码对读 · 靳岩岩的 AI 学习笔记</text>
+</svg>
