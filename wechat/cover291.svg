@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="0.18" cy="0.28" r="0.42">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="0.82" cy="0.72" r="0.44">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AGENTIC RL · 一件真实训练任务的生命周期</text>
+
+  <!-- left: a deceptively small request -->
+  <g transform="translate(55 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">工单看起来只有一句</text>
+    <rect x="0" y="10" width="240" height="290" rx="8" fill="url(#cardBg)" stroke="#334155"/>
+
+    <rect x="20" y="35" width="200" height="72" rx="7" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="120" y="63" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="bold">给日历加上</text>
+    <text x="120" y="88" text-anchor="middle" fill="#fbbf24" font-size="17" font-weight="bold">公共节日订阅</text>
+
+    <g transform="translate(22 138)">
+      <text x="0" y="0" fill="#cbd5e1" font-size="11">国家 / 语言选择</text>
+      <text x="0" y="23" fill="#cbd5e1" font-size="11">第一次打开自动推荐</text>
+      <text x="0" y="46" fill="#cbd5e1" font-size="11">已经订阅不能重复创建</text>
+      <text x="0" y="69" fill="#cbd5e1" font-size="11">加入 / 更新 / 删除都要能跑</text>
+    </g>
+
+    <line x1="20" y1="235" x2="220" y2="235" stroke="#334155" stroke-dasharray="3,3"/>
+    <text x="120" y="263" text-anchor="middle" fill="#94a3b8" font-size="11">不是回答一句话</text>
+    <text x="120" y="284" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">是接管一整件活</text>
+  </g>
+
+  <path d="M305 225 H335" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- middle: task expands into a system -->
+  <g transform="translate(340 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">真正落地后展开成</text>
+    <rect x="0" y="10" width="240" height="290" rx="8" fill="url(#cardBg)" stroke="#2dd4bf" stroke-width="1.5"/>
+
+    <text x="120" y="72" text-anchor="middle" fill="#5eead4" font-size="38" font-weight="bold">33</text>
+    <text x="120" y="96" text-anchor="middle" fill="#99f6e4" font-size="13">个文件</text>
+    <text x="120" y="146" text-anchor="middle" fill="#fde047" font-size="31" font-weight="bold">1,011</text>
+    <text x="120" y="168" text-anchor="middle" fill="#fde68a" font-size="13">行变更</text>
+
+    <line x1="20" y1="192" x2="220" y2="192" stroke="#334155" stroke-dasharray="3,3"/>
+
+    <g transform="translate(22 218)">
+      <rect x="0" y="0" width="58" height="25" rx="4" fill="#0f2e2b" stroke="#2dd4bf"/>
+      <text x="29" y="17" text-anchor="middle" fill="#99f6e4" font-size="10">功能开关</text>
+      <rect x="68" y="0" width="58" height="25" rx="4" fill="#0f2e2b" stroke="#2dd4bf"/>
+      <text x="97" y="17" text-anchor="middle" fill="#99f6e4" font-size="10">数据状态</text>
+      <rect x="136" y="0" width="58" height="25" rx="4" fill="#0f2e2b" stroke="#2dd4bf"/>
+      <text x="165" y="17" text-anchor="middle" fill="#99f6e4" font-size="10">界面测试</text>
+      <text x="97" y="53" text-anchor="middle" fill="#cbd5e1" font-size="11">所有层必须一起接上</text>
+    </g>
+  </g>
+
+  <path d="M590 225 H620" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- right: runnable environment and verifier -->
+  <g transform="translate(625 80)">
+    <text x="110" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">训练时不是看答案</text>
+    <rect x="0" y="10" width="220" height="290" rx="8" fill="url(#cardBg)" stroke="#334155"/>
+
+    <rect x="18" y="34" width="184" height="45" rx="6" fill="#0a1a2a" stroke="#4a90d9"/>
+    <text x="110" y="62" text-anchor="middle" fill="#bfdbfe" font-size="12" font-weight="bold">任务环境 · 工具 · 初始状态</text>
+
+    <line x1="110" y1="79" x2="110" y2="106" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <rect x="34" y="110" width="152" height="45" rx="6" fill="#2a1a0a" stroke="#f59e0b"/>
+    <text x="110" y="138" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">Agent 连续动手</text>
+
+    <line x1="110" y1="155" x2="110" y2="182" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <rect x="34" y="186" width="152" height="45" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+    <text x="110" y="214" text-anchor="middle" fill="#99f6e4" font-size="12" font-weight="bold">判分器验收结果</text>
+
+    <g transform="translate(35 250)">
+      <circle cx="38" cy="0" r="18" fill="#052e2b" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="38" y="6" text-anchor="middle" fill="#5eead4" font-size="18" font-weight="bold">1</text>
+      <circle cx="112" cy="0" r="18" fill="#3f0d0d" stroke="#ef4444" stroke-width="2"/>
+      <text x="112" y="6" text-anchor="middle" fill="#fca5a5" font-size="18" font-weight="bold">0</text>
+      <text x="75" y="36" text-anchor="middle" fill="#94a3b8" font-size="10">活儿干成了没有</text>
+    </g>
+  </g>
+
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">一件真活，怎么变成模型的训练题</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">一句需求 → 33 个文件 → 1,011 行变更 → 一个 0 / 1 奖励</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.291 · Agentic RL · 靳岩岩的 AI 学习笔记</text>
+</svg>
