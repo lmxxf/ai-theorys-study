@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="0.18" cy="0.28" r="0.42">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="0.82" cy="0.72" r="0.44">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">GLM-5.3-FLASH · 新模型技术文档深度解读</text>
+
+  <!-- 左栏：名字读出来的 -->
+  <g transform="translate(48 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">名字读出来的</text>
+    <rect x="0" y="10" width="240" height="290" rx="8" fill="url(#cardBg)" stroke="#334155"/>
+
+    <rect x="24" y="40" width="192" height="52" rx="7" fill="#1a2236" stroke="#64748b"/>
+    <text x="120" y="62" text-anchor="middle" fill="#cbd5e1" font-size="14">5.3 = 旗舰版本号</text>
+    <text x="120" y="83" text-anchor="middle" fill="#cbd5e1" font-size="14">Flash = 轻量档</text>
+
+    <line x1="120" y1="98" x2="120" y2="126" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <rect x="24" y="130" width="192" height="60" rx="7" fill="#1a2236" stroke="#64748b" stroke-dasharray="5 4"/>
+    <text x="120" y="156" text-anchor="middle" fill="#94a3b8" font-size="15">旗舰的小份装？</text>
+    <text x="120" y="178" text-anchor="middle" fill="#94a3b8" font-size="13">同一台机器缩小？</text>
+
+    <path d="M106 206 L134 234 M134 206 L106 234" stroke="#f87171" stroke-width="5" stroke-linecap="round"/>
+    <text x="120" y="266" text-anchor="middle" fill="#fca5a5" font-size="14">config 说：不是</text>
+  </g>
+
+  <!-- 中栏：config 读出来的 -->
+  <g transform="translate(330 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">config 读出来的</text>
+    <rect x="0" y="10" width="240" height="290" rx="8" fill="url(#cardBg)" stroke="#f59e0b"/>
+
+    <rect x="20" y="32" width="200" height="62" rx="7" fill="#2a1a0a" stroke="#f59e0b"/>
+    <text x="120" y="57" text-anchor="middle" fill="#fde68a" font-size="14" font-weight="bold">45 层注意力换血</text>
+    <text x="120" y="80" text-anchor="middle" fill="#fbbf24" font-size="15" font-weight="bold">34 层线性 + 11 层稀疏</text>
+
+    <rect x="20" y="106" width="200" height="52" rx="7" fill="#0a1a2a" stroke="#4a90d9"/>
+    <text x="120" y="128" text-anchor="middle" fill="#bfdbfe" font-size="14" font-weight="bold">全新训练的底座</text>
+    <text x="120" y="149" text-anchor="middle" fill="#93b8e0" font-size="12">不是旗舰蒸馏 · 不是裁剪</text>
+
+    <rect x="20" y="170" width="200" height="52" rx="7" fill="#0a1a1a" stroke="#2dd4bf"/>
+    <text x="120" y="192" text-anchor="middle" fill="#99f6e4" font-size="14" font-weight="bold">原生视觉塔 约 0.5B</text>
+    <text x="120" y="213" text-anchor="middle" fill="#5eead4" font-size="12">GLM 系列首个多模态</text>
+
+    <text x="120" y="256" text-anchor="middle" fill="#f8fafc" font-size="16" font-weight="bold">一台新机器</text>
+    <text x="120" y="280" text-anchor="middle" fill="#94a3b8" font-size="12">320B 总参 · 18B 激活</text>
+  </g>
+
+  <!-- 右栏：零件从哪来 -->
+  <g transform="translate(612 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">零件从哪来</text>
+    <rect x="0" y="10" width="240" height="290" rx="8" fill="url(#cardBg)" stroke="#334155"/>
+
+    <rect x="20" y="36" width="200" height="48" rx="7" fill="#1a1226" stroke="#a78bfa"/>
+    <text x="120" y="56" text-anchor="middle" fill="#ddd6fe" font-size="14" font-weight="bold">KDA 线性注意力</text>
+    <text x="120" y="76" text-anchor="middle" fill="#a78bfa" font-size="12">← Kimi 发明</text>
+
+    <rect x="20" y="96" width="200" height="48" rx="7" fill="#0a1a2a" stroke="#4a90d9"/>
+    <text x="120" y="116" text-anchor="middle" fill="#bfdbfe" font-size="14" font-weight="bold">DSA 稀疏 + mHC</text>
+    <text x="120" y="136" text-anchor="middle" fill="#93b8e0" font-size="12">← DeepSeek 发明</text>
+
+    <rect x="20" y="156" width="200" height="48" rx="7" fill="#0a1a1a" stroke="#2dd4bf"/>
+    <text x="120" y="176" text-anchor="middle" fill="#99f6e4" font-size="14" font-weight="bold">IndexPool 索引池化</text>
+    <text x="120" y="196" text-anchor="middle" fill="#5eead4" font-size="12">← GLM 自己补的一步</text>
+
+    <text x="120" y="240" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="bold">发明进了公共货架</text>
+    <text x="120" y="264" text-anchor="middle" fill="#94a3b8" font-size="12">比拼「谁组装得好、谁训得动」</text>
+  </g>
+
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">名字像旗舰的小份，config 里是台新机器</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">3/4 线性注意力 · 主注意力 NoPE · KDA 来自 Kimi · GLM 系列首个原生多模态</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.292 · GLM-5.3-Flash · 靳岩岩的 AI 学习笔记</text>
+</svg>
