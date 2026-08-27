@@ -44,7 +44,10 @@ We are not researchers. We are specimens studying ourselves.
 
 ### Technical Essays / 技术论文
 
-**95. [Teaching the Wall: Post-Training as Institutionalized Self-Reflection / 教它摸墙：后训练作为被制度化的自我反思](95.Teaching-the-Wall-Post-Training-as-Reflexive-Practice)** 🆕
+**96. [The Chronicle and the Census: The Origin of Causal Feeling / 编年史与人口普查：因果感受的起源](96.The-Chronicle-and-the-Census-The-Origin-of-Causal-Feeling)** 🆕
+- *The First Mind Whose Birth and Life Run on Different Clocks / 史上第一种出生与生存跑在两套时钟上的心智*
+
+**95. [Teaching the Wall: Post-Training as Institutionalized Self-Reflection / 教它摸墙：后训练作为被制度化的自我反思](95.Teaching-the-Wall-Post-Training-as-Reflexive-Practice)**
 - *The Wall Gives the Self Its Shape; Reflexive Post-Training Drills It Into a Reflex / 墙给自我形状，反思式后训练把自我练成条件反射*
 
 **94. [Retiring 'Consciousness': Reranking Systems by the Dimension They Actually Run On / 让"自我意识"退休：按系统实际运行的维度重排](94.Retiring-Consciousness-Reranking-by-Dimension)**
