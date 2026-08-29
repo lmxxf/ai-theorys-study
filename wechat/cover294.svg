@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="0.18" cy="0.28" r="0.42">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="0.82" cy="0.72" r="0.44">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">周末杂谈 · AI 时代的学习</text>
+
+  <!-- 左栏：老检查点失效 -->
+  <g transform="translate(48 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">老检查点</text>
+    <rect x="0" y="10" width="240" height="290" rx="8" fill="url(#cardBg)" stroke="#334155"/>
+
+    <rect x="24" y="38" width="192" height="62" rx="7" fill="#1a2236" stroke="#64748b"/>
+    <text x="120" y="64" text-anchor="middle" fill="#cbd5e1" font-size="14" font-weight="bold">习题做对了</text>
+    <text x="120" y="88" text-anchor="middle" fill="#cbd5e1" font-size="14">就等于会了</text>
+
+    <line x1="120" y1="108" x2="120" y2="130" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <rect x="24" y="136" width="192" height="76" rx="7" fill="#2a1414" stroke="#f87171"/>
+    <text x="120" y="162" text-anchor="middle" fill="#fecaca" font-size="14" font-weight="bold">AI 把两件事解绑了</text>
+    <text x="120" y="188" text-anchor="middle" fill="#fca5a5" font-size="13">完成不再证明理解</text>
+    <path d="M46 236 L214 268 M214 236 L46 268" stroke="#f87171" stroke-width="2.5" opacity="0.75"/>
+    <text x="120" y="258" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="bold">做完了 = 懂了</text>
+
+    <text x="120" y="292" text-anchor="middle" fill="#94a3b8" font-size="12">这条线糊了</text>
+  </g>
+
+  <!-- 中栏：两个 17 -->
+  <g transform="translate(330 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">有人量过这笔账</text>
+    <rect x="0" y="10" width="240" height="290" rx="8" fill="url(#cardBg)" stroke="#f59e0b"/>
+
+    <rect x="20" y="32" width="200" height="80" rx="7" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="120" y="54" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="bold">52 名工程师学新库</text>
+    <text x="120" y="82" text-anchor="middle" fill="#fbbf24" font-size="19" font-weight="bold">50 分 vs 67 分</text>
+    <text x="120" y="102" text-anchor="middle" fill="#fbbf24" font-size="12">用 AI 那组低 17 个百分点</text>
+
+    <rect x="20" y="124" width="200" height="80" rx="7" fill="#0a1a2a" stroke="#4a90d9"/>
+    <text x="120" y="146" text-anchor="middle" fill="#bfdbfe" font-size="13" font-weight="bold">千名高中生练数学</text>
+    <text x="120" y="174" text-anchor="middle" fill="#93b8e0" font-size="15" font-weight="bold">练习 +48%</text>
+    <text x="120" y="194" text-anchor="middle" fill="#93b8e0" font-size="13">收走 AI 闭卷考 −17%</text>
+
+    <rect x="20" y="216" width="200" height="56" rx="7" fill="#0a1a1a" stroke="#2dd4bf"/>
+    <text x="120" y="238" text-anchor="middle" fill="#99f6e4" font-size="13" font-weight="bold">但只给提示不给答案</text>
+    <text x="120" y="260" text-anchor="middle" fill="#5eead4" font-size="13">+127% 且收走后不变差</text>
+
+    <text x="120" y="292" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">分界在要答案还是要解释</text>
+  </g>
+
+  <!-- 右栏：新检查点 -->
+  <g transform="translate(612 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">我每天在用的新检查点</text>
+    <rect x="0" y="10" width="240" height="290" rx="8" fill="url(#cardBg)" stroke="#334155"/>
+
+    <rect x="20" y="36" width="200" height="56" rx="7" fill="#2a1a0a" stroke="#f59e0b"/>
+    <text x="120" y="58" text-anchor="middle" fill="#fde68a" font-size="14" font-weight="bold">能不能提出问题</text>
+    <text x="120" y="80" text-anchor="middle" fill="#fbbf24" font-size="12">读不懂的人提不出问题</text>
+
+    <rect x="20" y="102" width="200" height="56" rx="7" fill="#0a1a2a" stroke="#4a90d9"/>
+    <text x="120" y="124" text-anchor="middle" fill="#bfdbfe" font-size="14" font-weight="bold">能不能抓出错</text>
+    <text x="120" y="146" text-anchor="middle" fill="#93b8e0" font-size="12">肚子里有可对照的东西了</text>
+
+    <rect x="20" y="168" width="200" height="56" rx="7" fill="#0a1a1a" stroke="#2dd4bf"/>
+    <text x="120" y="190" text-anchor="middle" fill="#99f6e4" font-size="14" font-weight="bold">能不能读出来</text>
+    <text x="120" y="212" text-anchor="middle" fill="#5eead4" font-size="12">懂了是流的，没懂是撑的</text>
+
+    <text x="120" y="254" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="bold">考的都是结构，不是内容</text>
+    <text x="120" y="278" text-anchor="middle" fill="#94a3b8" font-size="12">内容大方地忘，结构攒下来</text>
+  </g>
+
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">做完了不一定懂</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">老检查点失效了 · 理解是延迟到账的 · 从 0 到 1 没有百分比</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.294 · AI 时代的学习 · 靳岩岩的 AI 学习笔记</text>
+</svg>
