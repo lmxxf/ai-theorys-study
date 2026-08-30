@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="'Noto Sans CJK SC'">
+  <rect width="900" height="520" fill="#fafafa"/>
+
+  <!-- 标题 -->
+  <text x="450" y="42" text-anchor="middle" font-size="24" font-weight="bold" fill="#222">“吸附”：把边长四舍五入到 28 的整数倍，再真的缩放过去</text>
+
+  <!-- ========== 左面板：原图 1024×768 ========== -->
+  <text x="205" y="88" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">原图 1024×768：按 28 切，切不干净</text>
+
+  <!-- 图片主体：5列4行整块 + 右侧窄条 + 底部窄条（示意，不按真实比例） -->
+  <g transform="translate(60,105)">
+    <!-- 整块区域 5x4，每块 56px -->
+    <g stroke="#5b8def" stroke-width="1" fill="#dbe7fb">
+      <rect x="0" y="0" width="280" height="224"/>
+    </g>
+    <!-- 网格线 -->
+    <g stroke="#5b8def" stroke-width="1">
+      <line x1="56" y1="0" x2="56" y2="224"/>
+      <line x1="112" y1="0" x2="112" y2="224"/>
+      <line x1="168" y1="0" x2="168" y2="224"/>
+      <line x1="224" y1="0" x2="224" y2="224"/>
+      <line x1="0" y1="56" x2="280" y2="56"/>
+      <line x1="0" y1="112" x2="280" y2="112"/>
+      <line x1="0" y1="168" x2="280" y2="168"/>
+    </g>
+    <!-- 一个整块的标注 -->
+    <text x="28" y="33" text-anchor="middle" font-size="13" fill="#3a6bc9">28×28</text>
+
+    <!-- 右侧多余窄条：16px 宽（示意 32px） -->
+    <rect x="280" y="0" width="32" height="224" fill="#f8cfc4" stroke="#e06a4e" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <!-- 底部多余窄条：12px 高（示意 24px） -->
+    <rect x="0" y="224" width="280" height="24" fill="#f8cfc4" stroke="#e06a4e" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <!-- 右下角 -->
+    <rect x="280" y="224" width="32" height="24" fill="#f3b8a8" stroke="#e06a4e" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+    <!-- 标注：右条 -->
+    <text x="296" y="106" text-anchor="middle" font-size="12" fill="#c04a2e" transform="rotate(90 296 106)">剩 16px</text>
+    <!-- 标注：底条 -->
+    <text x="140" y="241" text-anchor="middle" font-size="12" fill="#c04a2e">剩 12px，不够一块</text>
+
+    <!-- 尺寸标注 -->
+    <text x="156" y="272" text-anchor="middle" font-size="14" fill="#555">宽 1024 = 36 块 + 16px</text>
+    <text x="156" y="294" text-anchor="middle" font-size="14" fill="#555">高 768 = 27 块 + 12px</text>
+  </g>
+
+  <!-- ========== 中间箭头与规则 ========== -->
+  <g transform="translate(450,256)">
+    <path d="M -28,0 L 22,0 M 10,-9 L 22,0 L 10,9" stroke="#888" stroke-width="3" fill="none"/>
+  </g>
+  <text x="450" y="206" text-anchor="middle" font-size="14" fill="#666">够半块（≥14px）</text>
+  <text x="450" y="225" text-anchor="middle" font-size="14" fill="#666">→ 拉大凑整</text>
+  <text x="450" y="292" text-anchor="middle" font-size="14" fill="#666">不够半块（&lt;14px）</text>
+  <text x="450" y="311" text-anchor="middle" font-size="14" fill="#666">→ 压掉</text>
+
+  <!-- ========== 右面板：吸附后 1036×756 ========== -->
+  <text x="700" y="88" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">缩放到 1036×756：正好切整</text>
+
+  <g transform="translate(534,105)">
+    <!-- 整块区域 6列4行，宽多一列（16px条被拉成整块），高少了条（12px被压掉） -->
+    <g stroke="#4aa06a" stroke-width="1" fill="#d9efe2">
+      <rect x="0" y="0" width="336" height="224"/>
+    </g>
+    <g stroke="#4aa06a" stroke-width="1">
+      <line x1="56" y1="0" x2="56" y2="224"/>
+      <line x1="112" y1="0" x2="112" y2="224"/>
+      <line x1="168" y1="0" x2="168" y2="224"/>
+      <line x1="224" y1="0" x2="224" y2="224"/>
+      <line x1="280" y1="0" x2="280" y2="224"/>
+      <line x1="0" y1="56" x2="336" y2="56"/>
+      <line x1="0" y1="112" x2="336" y2="112"/>
+      <line x1="0" y1="168" x2="336" y2="168"/>
+    </g>
+    <!-- 新长出的整块列：高亮 -->
+    <rect x="280" y="0" width="56" height="224" fill="#a8d9bc" stroke="#2e7d4f" stroke-width="2"/>
+    <text x="308" y="118" text-anchor="middle" font-size="12" fill="#1d5c38">16px 条</text>
+    <text x="308" y="136" text-anchor="middle" font-size="12" fill="#1d5c38">拉成整块</text>
+
+    <!-- 尺寸标注 -->
+    <text x="168" y="272" text-anchor="middle" font-size="14" fill="#555">宽 1036 = 37 块整（1024 拉大了 12px）</text>
+    <text x="168" y="294" text-anchor="middle" font-size="14" fill="#555">高 756 = 27 块整（768 压小了 12px）</text>
+  </g>
+
+  <!-- ========== 底部结论 ========== -->
+  <line x1="60" y1="430" x2="840" y2="430" stroke="#ddd" stroke-width="1"/>
+  <text x="450" y="466" text-anchor="middle" font-size="16" fill="#333">缩放幅度只有十几个像素，肉眼看不出；换来的是每一块都是完整的 28×28</text>
+  <text x="450" y="494" text-anchor="middle" font-size="16" font-weight="bold" fill="#222">占位符数 = 37 × 27 = 999</text>
+</svg>
