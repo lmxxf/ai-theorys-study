@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+    <linearGradient id="weightBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="3">DLSS 5 · nvngx_dlssnr.dll · 一次意外泄露的拆解</text>
+
+  <!-- ============ LEFT: 158MB 里装了什么 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">158 MB 里，装了什么</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 权重条（大） -->
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">权重资源 WEIGHTS_HT</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="13" font-weight="bold">140.85 MiB</text>
+      <text x="100" y="60" text-anchor="middle" fill="#5eead4" font-size="9">147,695,410 字节 · 直接读出</text>
+    </g>
+
+    <!-- 数据段 -->
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="56" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">数据段 .data　16.4 MiB</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">GPU 核心和各种表在这里</text>
+    </g>
+
+    <!-- 代码段 -->
+    <g transform="translate(15 180)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">代码段 .text　0.67 MiB</text>
+      <text x="100" y="38" text-anchor="middle" fill="#bfdbfe" font-size="10">CPU 侧：加载和调度</text>
+    </g>
+
+    <text x="115" y="254" text-anchor="middle" fill="#94a3b8" font-size="11">代码不到 1 MB</text>
+    <text x="115" y="274" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="bold">一个背着模型的壳</text>
+    <text x="115" y="292" text-anchor="middle" fill="#94a3b8" font-size="10">约 1.48 亿参数 · FP8</text>
+  </g>
+
+  <!-- ============ MIDDLE: 开源的四层 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">"开源"到底是哪一层</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 30)">
+      <rect x="0" y="0" width="200" height="40" rx="5" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">1　文件可得</text>
+      <text x="100" y="34" text-anchor="middle" fill="#a7f3d0" font-size="9">泄露出来了　有</text>
+    </g>
+
+    <g transform="translate(20 78)">
+      <rect x="0" y="0" width="200" height="40" rx="5" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">2　使用授权</text>
+      <text x="100" y="34" text-anchor="middle" fill="#fbbf24" font-size="9">专有许可 · 禁止逆向</text>
+    </g>
+
+    <g transform="translate(20 126)">
+      <rect x="0" y="0" width="200" height="40" rx="5" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">3　实现公开</text>
+      <text x="100" y="34" text-anchor="middle" fill="#f87171" font-size="9">架构只能逆向猜　无</text>
+    </g>
+
+    <g transform="translate(20 174)">
+      <rect x="0" y="0" width="200" height="40" rx="5" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">4　训练可复现</text>
+      <text x="100" y="34" text-anchor="middle" fill="#f87171" font-size="9">配方一个字没给　无</text>
+    </g>
+
+    <line x1="20" y1="228" x2="220" y2="228" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="120" y="248" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">四层是四回事</text>
+    <text x="120" y="268" text-anchor="middle" fill="#cbd5e1" font-size="10">拿到权重 ≠ 拿到知识</text>
+    <text x="120" y="286" text-anchor="middle" fill="#94a3b8" font-size="10">真正没开的，是怎么造出来的</text>
+  </g>
+
+  <!-- ============ RIGHT: 为什么绑死 N 卡 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">为什么绑死 N 卡</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="58" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">搬到 40 系 = 换方言</text>
+      <text x="100" y="40" text-anchor="middle" fill="#bfdbfe" font-size="10">同是 CUDA，换编译目标</text>
+      <text x="100" y="54" text-anchor="middle" fill="#bfdbfe" font-size="9">社区已做到 · RTX 40 可跑</text>
+    </g>
+
+    <g transform="translate(15 104)">
+      <rect x="0" y="0" width="200" height="58" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">搬到 A 卡 = 换语种</text>
+      <text x="100" y="40" text-anchor="middle" fill="#f87171" font-size="10">A 卡没有 CUDA 运行时</text>
+      <text x="100" y="54" text-anchor="middle" fill="#f87171" font-size="9">sm_120 机器码它不加载</text>
+    </g>
+
+    <line x1="16" y1="180" x2="214" y2="180" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 196)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">抠权重给 A 卡重写？</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">格式 · 结构 · 后端 · 实时优化</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">四道门槛，最后一道最硬</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="10">连拿全权重的人也搬不动</text>
+      <text x="0" y="76" fill="#94a3b8" font-size="10">这就是"配方没漏"的证明</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="29" font-weight="bold">老黄一次意外的"开源权重模型"</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">158 MB 里代码不到 1 MB · 剩下全是一个跑在显卡上的视觉网络</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.296 · DLSS 5 泄露文件拆解 · 系列开篇</text>
+</svg>
