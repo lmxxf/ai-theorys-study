@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="3">DLSS 5 拆解② · 把模型从 158MB 的 DLL 里挖出来</text>
+
+  <!-- ============ LEFT: 它长什么样(U形) ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">它长什么样：一个 U 形</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 迷你U形:左下坡右上坡 -->
+    <g transform="translate(20 34)">
+      <!-- 左边下坡阶梯 -->
+      <text x="0" y="8" fill="#93c5fd" font-size="9">下坡·读懂</text>
+      <text x="150" y="8" fill="#fbbf24" font-size="9" text-anchor="end">上坡·重画</text>
+      <g font-size="10" font-weight="bold">
+        <rect x="0" y="16" width="60" height="18" rx="3" fill="#0a2a3a" stroke="#4a90d9"/><text x="30" y="29" text-anchor="middle" fill="#93c5fd">32</text>
+        <rect x="130" y="16" width="60" height="18" rx="3" fill="#2a1a0a" stroke="#f59e0b"/><text x="160" y="29" text-anchor="middle" fill="#fbbf24">32</text>
+        <rect x="15" y="42" width="60" height="18" rx="3" fill="#0a2a3a" stroke="#4a90d9"/><text x="45" y="55" text-anchor="middle" fill="#93c5fd">64</text>
+        <rect x="115" y="42" width="60" height="18" rx="3" fill="#2a1a0a" stroke="#f59e0b"/><text x="145" y="55" text-anchor="middle" fill="#fbbf24">64</text>
+        <rect x="30" y="68" width="60" height="18" rx="3" fill="#0a2a3a" stroke="#4a90d9"/><text x="60" y="81" text-anchor="middle" fill="#93c5fd">128</text>
+        <rect x="100" y="68" width="60" height="18" rx="3" fill="#2a1a0a" stroke="#f59e0b"/><text x="130" y="81" text-anchor="middle" fill="#fbbf24">128</text>
+        <rect x="45" y="94" width="60" height="18" rx="3" fill="#0a2a3a" stroke="#4a90d9"/><text x="75" y="107" text-anchor="middle" fill="#93c5fd">256</text>
+        <rect x="85" y="94" width="60" height="18" rx="3" fill="#2a1a0a" stroke="#f59e0b"/><text x="115" y="107" text-anchor="middle" fill="#fbbf24">256</text>
+        <rect x="60" y="120" width="70" height="18" rx="3" fill="#3b174d" stroke="#d8b4fe"/><text x="95" y="133" text-anchor="middle" fill="#e9d5ff">512</text>
+        <rect x="55" y="146" width="80" height="20" rx="3" fill="#2a0a2a" stroke="#c084fc" stroke-width="1.5"/><text x="95" y="160" text-anchor="middle" fill="#e9d5ff" font-size="11">1024 底</text>
+      </g>
+      <!-- skip虚线 -->
+      <g stroke="#5eead4" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.6">
+        <path d="M60 25 H130"/><path d="M75 51 H115"/>
+      </g>
+    </g>
+    <text x="115" y="230" text-anchor="middle" fill="#5eead4" font-size="9">横线 = skip 抄细节</text>
+    <text x="115" y="256" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">六站压缩，再六站还原</text>
+    <text x="115" y="276" text-anchor="middle" fill="#94a3b8" font-size="10">71 个模块 · 152 个计算层</text>
+  </g>
+
+  <!-- ============ MIDDLE: 怎么看出来的(四步) ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">怎么看出来的：四步</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(18 30)">
+      <rect x="0" y="0" width="204" height="42" rx="5" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="102" y="18" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">① objdump 看段</text>
+      <text x="102" y="34" text-anchor="middle" fill="#bfdbfe" font-size="9">代码 0.7MB，资源段独占 140MB</text>
+    </g>
+    <g transform="translate(18 80)">
+      <rect x="0" y="0" width="204" height="42" rx="5" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="102" y="18" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">② 解析资源树</text>
+      <text x="102" y="34" text-anchor="middle" fill="#a7f3d0" font-size="9">挖到 WEIGHTS_HT，锁定权重</text>
+    </g>
+    <g transform="translate(18 130)">
+      <rect x="0" y="0" width="204" height="42" rx="5" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="102" y="18" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">③ strings 读名字</text>
+      <text x="102" y="34" text-anchor="middle" fill="#fbbf24" font-size="9">认出六档宽度 32→1024</text>
+    </g>
+    <g transform="translate(18 180)">
+      <rect x="0" y="0" width="204" height="42" rx="5" fill="#2a0a2a" stroke="#c084fc" stroke-width="1.5"/>
+      <text x="102" y="18" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="bold">④ 反编译 + 真显卡核对</text>
+      <text x="102" y="34" text-anchor="middle" fill="#d8b4fe" font-size="9">把执行图逐块钉死</text>
+    </g>
+
+    <line x1="18" y1="238" x2="222" y2="238" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="120" y="258" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">全是现成工具，不用深度学习库</text>
+    <text x="120" y="278" text-anchor="middle" fill="#94a3b8" font-size="10">前三步入门，第四步才钉死</text>
+  </g>
+
+  <!-- ============ RIGHT: 读通了什么/卡在哪 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">读通了什么，卡在哪</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="86" rx="6" fill="#0c2016" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">已读通：执行图</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">71 模块 / 152 层 全部就位</text>
+      <text x="100" y="60" text-anchor="middle" fill="#a7f3d0" font-size="10">六条 skip 谁连谁，一条不差</text>
+      <text x="100" y="78" text-anchor="middle" fill="#5eead4" font-size="9">每根线都在真显卡上验过</text>
+    </g>
+
+    <g transform="translate(15 134)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#201010" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">还卡着：权重的形状</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">FP16 存 → FP8 折叠打乱塞进核心</text>
+      <text x="100" y="58" text-anchor="middle" fill="#f87171" font-size="10">这套折叠规则，还没读通</text>
+    </g>
+
+    <line x1="16" y1="222" x2="214" y2="222" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="115" y="242" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">难的不再是网络长什么样</text>
+    <text x="115" y="262" text-anchor="middle" fill="#cbd5e1" font-size="10">是每块权重被折成了什么形状</text>
+    <text x="115" y="282" text-anchor="middle" fill="#94a3b8" font-size="10">塞进 FP8 核心</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="29" font-weight="bold">把模型从 DLL 里挖出来：它长什么样</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">objdump、资源树、strings 三样工具，描出一个 U 形视觉网络</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.297 · DLSS 5 泄露文件拆解 · 逆向网络结构</text>
+</svg>
