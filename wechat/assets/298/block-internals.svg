@@ -38,8 +38,8 @@
   <!-- 加法 1 -->
   <circle cx="115" cy="300" r="16" fill="#fff" stroke="#555" stroke-width="1.5"/>
   <text x="115" y="306" text-anchor="middle" font-size="18" fill="#222">+</text>
-  <text x="180" y="290" text-anchor="start" font-size="12" fill="#555">残差：x × ffn_cos_skip</text>
-  <text x="180" y="306" text-anchor="start" font-size="11" fill="#888">（每通道一个系数，不是原样加回）</text>
+  <text x="200" y="274" text-anchor="start" font-size="12" fill="#555">残差：x × ffn_cos_skip</text>
+  <text x="200" y="290" text-anchor="start" font-size="11" fill="#888">（每通道一个系数，不是原样加回）</text>
 
   <!-- 注意力支路 -->
   <rect x="220" y="340" width="330" height="130" rx="10" fill="#fdf1e6" stroke="#d9822b"/>
@@ -61,7 +61,7 @@
   <!-- 加法 2 -->
   <circle cx="115" cy="500" r="16" fill="#fff" stroke="#555" stroke-width="1.5"/>
   <text x="115" y="506" text-anchor="middle" font-size="18" fill="#222">+</text>
-  <text x="180" y="496" text-anchor="start" font-size="12" fill="#555">残差：x' × attn_cos_skip</text>
+  <text x="200" y="484" text-anchor="start" font-size="12" fill="#555">残差：x' × attn_cos_skip</text>
 
   <!-- 输出 -->
   <rect x="60" y="540" width="110" height="46" rx="8" fill="#eee" stroke="#555"/>
