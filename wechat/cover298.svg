@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">DLSS 5 逆向 · 第 3 站 · 一个块的内部</text>
+
+  <!-- ============ LEFT: 一个外围块里有什么 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">一个外围块 · 128 通道 4 个头</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">前馈支路</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">128 → 160 → 128</text>
+      <text x="100" y="58" text-anchor="middle" fill="#bfdbfe" font-size="10">只加宽 32，不是 4 倍</text>
+    </g>
+
+    <g transform="translate(15 112)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">注意力支路</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">余弦相似度 + 64×64 偏置表</text>
+      <text x="100" y="58" text-anchor="middle" fill="#fbbf24" font-size="10">4 个头，每头 16 维</text>
+    </g>
+
+    <g transform="translate(15 192)">
+      <rect x="0" y="0" width="200" height="54" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">残差不是原样加回</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">每通道乘一个学出来的系数</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#94a3b8" font-size="11">激活是三个常数的多项式</text>
+    <text x="115" y="290" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">全网没有一层归一化</text>
+  </g>
+
+  <!-- ============ MIDDLE: 窗口注意力 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">为什么只看 8×8 的小窗口</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 窗口网格示意 -->
+    <g transform="translate(72 36)">
+      <rect x="0" y="0" width="96" height="96" fill="#0a1a2a" stroke="#f59e0b" stroke-width="2"/>
+      <g stroke="#f59e0b" stroke-width="0.6" opacity="0.45">
+        <path d="M12 0 V96 M24 0 V96 M36 0 V96 M48 0 V96 M60 0 V96 M72 0 V96 M84 0 V96"/>
+        <path d="M0 12 H96 M0 24 H96 M0 36 H96 M0 48 H96 M0 60 H96 M0 72 H96 M0 84 H96"/>
+      </g>
+      <rect x="36" y="36" width="12" height="12" fill="#f59e0b"/>
+      <text x="48" y="114" text-anchor="middle" fill="#fbbf24" font-size="10">64 个位置两两互看</text>
+    </g>
+
+    <line x1="20" y1="166" x2="220" y2="166" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 184)">
+      <text x="0" y="0" fill="#fca5a5" font-size="11">全局注意力：4.3 万亿对关系</text>
+      <text x="0" y="20" fill="#5eead4" font-size="11">窗口注意力：1.3 亿对关系</text>
+      <text x="0" y="44" fill="#fde047" font-size="11" font-weight="bold">文本往回看，图像往旁边看</text>
+      <text x="0" y="64" fill="#94a3b8" font-size="10">图像的 token 比文本多三个数量级</text>
+      <text x="0" y="82" fill="#94a3b8" font-size="10">平方开销就爆六个数量级</text>
+      <text x="0" y="102" fill="#cbd5e1" font-size="10">底部压到两千个位置，才敢全局看</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 跟 4.5 比 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">跟上一代 DLSS 4.5 并排一放</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">4.5：混血</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">卷积上下楼 + 注意力思考</text>
+      <text x="100" y="57" text-anchor="middle" fill="#f87171" font-size="10">带归一化层，最宽 160 通道</text>
+    </g>
+
+    <g transform="translate(15 108)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">丁鱥：纯血</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">卷积只在门口，归一化全砍</text>
+      <text x="100" y="57" text-anchor="middle" fill="#a7f3d0" font-size="10">加宽到 1024，底部全局注意力</text>
+    </g>
+
+    <line x1="16" y1="192" x2="214" y2="192" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 210)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">最后一笔画法变了</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">4.5：预测一个滤波核去滤原图</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">丁鱥：网络直接输出 RGB</text>
+      <text x="0" y="60" fill="#94a3b8" font-size="10">从「教滤镜怎么滤」</text>
+      <text x="0" y="78" fill="#94a3b8" font-size="10">变成「直接画」</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="29" font-weight="bold">扔掉卷积，扔掉归一化，学会「直接画」</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">所有的「怪」，都是一帧几毫秒逼出来的</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.298 · DLSS 5 逆向 · 一个块的内部与窗口注意力</text>
+</svg>
