@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" font-family="'Noto Sans CJK SC', sans-serif">
+  <rect width="1000" height="620" fill="#fafafa"/>
+
+  <!-- ===== 生成器 G ===== -->
+  <text x="20" y="34" font-size="18" font-weight="bold" fill="#c2410c">生成器 G：随机向量 → 图（DCGAN，2015）</text>
+  <text x="20" y="54" font-size="12" fill="#666">每过一层：边长翻倍、通道减半。跟丁鱥「上坡」是同一个动作</text>
+
+  <!-- z -->
+  <rect x="30" y="110" width="40" height="70" rx="4" fill="#fde68a" stroke="#b45309"/>
+  <text x="50" y="150" font-size="12" text-anchor="middle" fill="#7c2d12">z</text>
+  <text x="50" y="200" font-size="11" text-anchor="middle" fill="#444">[100]</text>
+  <text x="50" y="215" font-size="11" text-anchor="middle" fill="#888">随机数</text>
+
+  <!-- arrow -->
+  <line x1="75" y1="145" x2="105" y2="145" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="90" y="135" font-size="10" text-anchor="middle" fill="#888">FC</text>
+
+  <!-- 4x4x1024 -->
+  <rect x="110" y="125" width="22" height="22" fill="#fdba74" stroke="#c2410c"/>
+  <rect x="116" y="119" width="22" height="22" fill="#fdba74" stroke="#c2410c"/>
+  <rect x="122" y="113" width="22" height="22" fill="#fdba74" stroke="#c2410c"/>
+  <text x="127" y="200" font-size="11" text-anchor="middle" fill="#444">4×4×1024</text>
+
+  <line x1="150" y1="145" x2="185" y2="145" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="167" y="135" font-size="10" text-anchor="middle" fill="#888">反卷积</text>
+
+  <!-- 8x8x512 -->
+  <rect x="190" y="118" width="36" height="36" fill="#fdba74" stroke="#c2410c"/>
+  <rect x="197" y="111" width="36" height="36" fill="#fdba74" stroke="#c2410c"/>
+  <text x="215" y="200" font-size="11" text-anchor="middle" fill="#444">8×8×512</text>
+
+  <line x1="240" y1="145" x2="275" y2="145" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="257" y="135" font-size="10" text-anchor="middle" fill="#888">反卷积</text>
+
+  <!-- 16x16x256 -->
+  <rect x="280" y="112" width="52" height="52" fill="#fdba74" stroke="#c2410c"/>
+  <rect x="287" y="105" width="52" height="52" fill="#fdba74" stroke="#c2410c"/>
+  <text x="313" y="200" font-size="11" text-anchor="middle" fill="#444">16×16×256</text>
+
+  <line x1="345" y1="145" x2="380" y2="145" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="362" y="135" font-size="10" text-anchor="middle" fill="#888">反卷积</text>
+
+  <!-- 32x32x128 -->
+  <rect x="385" y="105" width="68" height="68" fill="#fdba74" stroke="#c2410c"/>
+  <rect x="391" y="99" width="68" height="68" fill="#fdba74" stroke="#c2410c"/>
+  <text x="425" y="200" font-size="11" text-anchor="middle" fill="#444">32×32×128</text>
+
+  <line x1="465" y1="145" x2="500" y2="145" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="482" y="135" font-size="10" text-anchor="middle" fill="#888">反卷积</text>
+
+  <!-- 64x64x3 fake image -->
+  <use href="#noteFake" x="505" y="115"/>
+  <text x="555" y="215" font-size="11" text-anchor="middle" fill="#444">64×64×3</text>
+  <text x="555" y="230" font-size="12" text-anchor="middle" font-weight="bold" fill="#c2410c">假钞 G(z)</text>
+  <text x="555" y="80" font-size="11" text-anchor="middle" fill="#888">一次前向传播 = 出一张图</text>
+
+  <!-- ===== 判别器 D ===== -->
+  <text x="20" y="300" font-size="18" font-weight="bold" fill="#1d4ed8">判别器 D：图 → 一个 0 到 1 的数</text>
+  <text x="20" y="320" font-size="12" fill="#666">就是个只有一个类别的图像分类器。结构基本是 G 倒过来</text>
+
+  <!-- real image -->
+  <use href="#noteReal" transform="translate(30,359) scale(0.7)"/>
+  <text x="65" y="432" font-size="12" text-anchor="middle" font-weight="bold" fill="#1d4ed8">真钞 x</text>
+  <text x="65" y="447" font-size="11" text-anchor="middle" fill="#888">数据集里的真图</text>
+
+  <!-- fake image (copy) -->
+  <use href="#noteFake" transform="translate(30,484) scale(0.7)"/>
+  <text x="65" y="557" font-size="12" text-anchor="middle" font-weight="bold" fill="#c2410c">假钞 G(z)</text>
+  <text x="65" y="572" font-size="11" text-anchor="middle" fill="#888">上面 G 刚画的</text>
+
+  <!-- both feed into D -->
+  <line x1="105" y1="380" x2="150" y2="440" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="105" y1="505" x2="150" y2="450" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="120" y="450" font-size="10" fill="#888">轮流喂</text>
+
+  <!-- D layers: shrinking -->
+  <rect x="160" y="405" width="68" height="68" fill="#93c5fd" stroke="#1d4ed8"/>
+  <rect x="166" y="399" width="68" height="68" fill="#93c5fd" stroke="#1d4ed8"/>
+  <text x="200" y="495" font-size="11" text-anchor="middle" fill="#444">32×32×64</text>
+
+  <line x1="240" y1="440" x2="270" y2="440" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="255" y="430" font-size="10" text-anchor="middle" fill="#888">卷积</text>
+
+  <rect x="275" y="412" width="52" height="52" fill="#93c5fd" stroke="#1d4ed8"/>
+  <rect x="282" y="405" width="52" height="52" fill="#93c5fd" stroke="#1d4ed8"/>
+  <text x="308" y="495" font-size="11" text-anchor="middle" fill="#444">16×16×128</text>
+
+  <line x1="340" y1="440" x2="370" y2="440" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="355" y="430" font-size="10" text-anchor="middle" fill="#888">卷积</text>
+
+  <rect x="375" y="420" width="36" height="36" fill="#93c5fd" stroke="#1d4ed8"/>
+  <rect x="382" y="413" width="36" height="36" fill="#93c5fd" stroke="#1d4ed8"/>
+  <text x="400" y="495" font-size="11" text-anchor="middle" fill="#444">8×8×256</text>
+
+  <line x1="425" y1="440" x2="455" y2="440" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="440" y="430" font-size="10" text-anchor="middle" fill="#888">卷积</text>
+
+  <rect x="460" y="426" width="22" height="22" fill="#93c5fd" stroke="#1d4ed8"/>
+  <rect x="466" y="420" width="22" height="22" fill="#93c5fd" stroke="#1d4ed8"/>
+  <rect x="472" y="414" width="22" height="22" fill="#93c5fd" stroke="#1d4ed8"/>
+  <text x="477" y="495" font-size="11" text-anchor="middle" fill="#444">4×4×512</text>
+
+  <line x1="500" y1="440" x2="535" y2="440" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="517" y="430" font-size="10" text-anchor="middle" fill="#888">FC</text>
+
+  <!-- output score -->
+  <circle cx="560" cy="440" r="22" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="560" y="445" font-size="12" text-anchor="middle" fill="#1e3a8a">0~1</text>
+  <text x="560" y="480" font-size="11" text-anchor="middle" fill="#444">sigmoid</text>
+  <text x="560" y="495" font-size="12" text-anchor="middle" font-weight="bold" fill="#1d4ed8">分数 D(·)</text>
+
+  <!-- ===== Loss box ===== -->
+  <rect x="640" y="330" width="340" height="160" rx="8" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="810" y="355" font-size="14" text-anchor="middle" font-weight="bold" fill="#334155">同一个 loss，两头拉</text>
+  <text x="655" y="385" font-size="12" font-family="monospace" fill="#334155">V(D,G) = log D(x) + log(1 − D(G(z)))</text>
+  <text x="655" y="415" font-size="12" fill="#1d4ed8">D 想让它最大：真钞打高分、假钞打低分</text>
+  <text x="655" y="440" font-size="12" fill="#c2410c">G 想让它最小：只能碰第二项，把假钞</text>
+  <text x="655" y="458" font-size="12" fill="#c2410c">印得让 D 打高分</text>
+  <text x="655" y="480" font-size="11" fill="#64748b">训练时交替：冻 G 更新 D，再冻 D 更新 G</text>
+
+  <line x1="585" y1="440" x2="635" y2="420" stroke="#64748b" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- gradient back to G -->
+  <path d="M700 328 C 700 260, 620 260, 610 210" stroke="#c2410c" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#arO)"/>
+  <text x="720" y="270" font-size="12" fill="#c2410c">G 的梯度穿过 D 传回来</text>
+  <text x="720" y="288" font-size="11" fill="#888">D 的参数不动，只借它的计算图</text>
+
+  <!-- fake image flows down -->
+  <path d="M555 240 C 555 262, 12 240, 12 275 L 12 505 L 26 505" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arO)"/>
+
+  <!-- footer -->
+  <text x="20" y="600" font-size="11" fill="#888">层数、通道数按 DCGAN 论文（Radford et al., 2015）64×64 配置；2014 年原版 GAN 两个网络都是纯全连接层，形状同理</text>
+
+  <defs>
+    <!-- 钞票：真（蓝）/ 假（橙），以 100×60 为基准 -->
+    <g id="noteReal">
+      <rect x="0" y="0" width="100" height="60" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+      <rect x="5" y="5" width="90" height="50" rx="2" fill="none" stroke="#1d4ed8" stroke-width="0.8" stroke-dasharray="2 2"/>
+      <ellipse cx="50" cy="30" rx="13" ry="16" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1"/>
+      <circle cx="50" cy="26" r="5" fill="#93c5fd"/>
+      <path d="M41 42 Q50 32 59 42" fill="#93c5fd"/>
+      <text x="10" y="17" font-size="9" font-weight="bold" fill="#1e3a8a">100</text>
+      <text x="90" y="52" font-size="9" font-weight="bold" fill="#1e3a8a" text-anchor="end">100</text>
+      <line x1="10" y1="48" x2="30" y2="48" stroke="#1d4ed8" stroke-width="1"/>
+    </g>
+    <g id="noteFake">
+      <rect x="0" y="0" width="100" height="60" rx="4" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+      <rect x="5" y="5" width="90" height="50" rx="2" fill="none" stroke="#c2410c" stroke-width="0.8" stroke-dasharray="2 2"/>
+      <ellipse cx="50" cy="30" rx="13" ry="16" fill="#fed7aa" stroke="#c2410c" stroke-width="1"/>
+      <circle cx="50" cy="26" r="5" fill="#fdba74"/>
+      <path d="M41 42 Q50 32 59 42" fill="#fdba74"/>
+      <text x="10" y="17" font-size="9" font-weight="bold" fill="#7c2d12">100</text>
+      <text x="90" y="52" font-size="9" font-weight="bold" fill="#7c2d12" text-anchor="end">100</text>
+      <line x1="10" y1="48" x2="30" y2="48" stroke="#c2410c" stroke-width="1"/>
+    </g>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#999"/>
+    </marker>
+    <marker id="arO" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#c2410c"/>
+    </marker>
+  </defs>
+</svg>

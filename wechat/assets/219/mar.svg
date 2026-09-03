@@ -1,0 +1,272 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" font-family="'Noto Sans CJK SC', sans-serif">
+<rect width="1000" height="680" fill="#fafafa"/>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#999"/></marker><marker id="arO" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c2410c"/></marker><marker id="arB" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1d4ed8"/></marker></defs>
+<text x="20" y="34" font-size="18" font-weight="bold" fill="#c2410c">MAR：把字典整个绕开，每个位置交给一个迷你扩散去画（Li et al., 2024）</text>
+<text x="20" y="54" font-size="12" fill="#666">主干还是自回归 Transformer，但输出头换掉：不查 8192 个词的字典，直接用扩散把连续值画出来</text>
+<rect x="20" y="70" width="470" height="28" rx="14" fill="#fff7ed" stroke="#c2410c"/>
+<text x="255" y="89" font-size="12" text-anchor="middle" fill="#7c2d12">VAR 改的是「顺序」（一档一档出），留住「离散」（还查字典）</text>
+<rect x="510" y="70" width="470" height="28" rx="14" fill="#dbeafe" stroke="#1d4ed8"/>
+<text x="745" y="89" font-size="12" text-anchor="middle" fill="#1e3a8a">MAR 改的是「字典」（不查了，扩散画），留住「自回归」（顺序照旧）</text>
+<text x="90" y="158" font-size="12" text-anchor="middle" font-weight="bold" fill="#1d4ed8">输入：图的 latent 块序列</text>
+<rect x="30" y="172" width="120.0" height="120.0" fill="#dbeafe" stroke="#1d4ed8"/>
+<line x1="37.5" y1="172" x2="37.5" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="179.5" x2="150.0" y2="179.5" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="45.0" y1="172" x2="45.0" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="187.0" x2="150.0" y2="187.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="52.5" y1="172" x2="52.5" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="194.5" x2="150.0" y2="194.5" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="60.0" y1="172" x2="60.0" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="202.0" x2="150.0" y2="202.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="67.5" y1="172" x2="67.5" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="209.5" x2="150.0" y2="209.5" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="75.0" y1="172" x2="75.0" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="217.0" x2="150.0" y2="217.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="82.5" y1="172" x2="82.5" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="224.5" x2="150.0" y2="224.5" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="90.0" y1="172" x2="90.0" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="232.0" x2="150.0" y2="232.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="97.5" y1="172" x2="97.5" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="239.5" x2="150.0" y2="239.5" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="105.0" y1="172" x2="105.0" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="247.0" x2="150.0" y2="247.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="112.5" y1="172" x2="112.5" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="254.5" x2="150.0" y2="254.5" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="120.0" y1="172" x2="120.0" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="262.0" x2="150.0" y2="262.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="127.5" y1="172" x2="127.5" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="269.5" x2="150.0" y2="269.5" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="135.0" y1="172" x2="135.0" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="277.0" x2="150.0" y2="277.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="142.5" y1="172" x2="142.5" y2="292.0" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="30" y1="284.5" x2="150.0" y2="284.5" stroke="#1d4ed8" stroke-width="0.5"/>
+<rect x="30.0" y="172.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="45.0" y="172.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="67.5" y="172.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="75.0" y="172.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="90.0" y="172.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="97.5" y="172.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="142.5" y="172.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="67.5" y="179.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="90.0" y="179.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="97.5" y="179.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="30.0" y="187.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="45.0" y="187.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="67.5" y="187.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="75.0" y="187.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="82.5" y="187.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="97.5" y="187.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="112.5" y="187.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="127.5" y="187.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="135.0" y="187.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="82.5" y="194.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="127.5" y="194.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="30.0" y="202.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="37.5" y="202.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="60.0" y="202.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="75.0" y="202.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="82.5" y="202.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="90.0" y="202.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="112.5" y="202.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="127.5" y="202.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="142.5" y="202.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="60.0" y="209.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="67.5" y="209.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="82.5" y="209.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="90.0" y="209.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="97.5" y="209.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="112.5" y="209.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="120.0" y="209.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="135.0" y="209.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="37.5" y="217.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="105.0" y="217.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="120.0" y="217.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="127.5" y="217.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="37.5" y="224.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="45.0" y="224.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="60.0" y="224.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="82.5" y="224.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="112.5" y="224.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="135.0" y="224.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="142.5" y="224.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="45.0" y="232.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="67.5" y="232.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="75.0" y="232.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="82.5" y="232.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="90.0" y="232.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="105.0" y="232.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="112.5" y="232.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="127.5" y="232.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="30.0" y="239.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="37.5" y="239.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="52.5" y="239.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="60.0" y="239.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="67.5" y="239.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="82.5" y="239.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="90.0" y="239.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="97.5" y="239.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="112.5" y="239.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="127.5" y="239.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="135.0" y="239.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="45.0" y="247.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="52.5" y="247.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="67.5" y="247.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="90.0" y="247.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="97.5" y="247.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="127.5" y="247.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="135.0" y="247.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="142.5" y="247.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="37.5" y="254.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="45.0" y="254.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="52.5" y="254.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="60.0" y="254.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="67.5" y="254.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="82.5" y="254.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="90.0" y="254.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="120.0" y="254.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="142.5" y="254.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="60.0" y="262.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="67.5" y="262.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="75.0" y="262.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="82.5" y="262.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="97.5" y="262.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="112.5" y="262.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="45.0" y="269.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="60.0" y="269.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="67.5" y="269.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="90.0" y="269.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="112.5" y="269.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="120.0" y="269.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="30.0" y="277.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="37.5" y="277.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="60.0" y="277.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="97.5" y="277.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="120.0" y="277.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="127.5" y="277.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="135.0" y="277.0" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="30.0" y="284.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="52.5" y="284.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="60.0" y="284.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="67.5" y="284.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="75.0" y="284.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="82.5" y="284.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="105.0" y="284.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="120.0" y="284.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="127.5" y="284.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<rect x="135.0" y="284.5" width="7.5" height="7.5" fill="#64748b" opacity="0.75"/>
+<text x="90" y="308.0" font-size="11" text-anchor="middle" fill="#444">16×16 = 256 个位置</text>
+<text x="90" y="323.0" font-size="10" text-anchor="middle" fill="#888">灰格 = 随机蒙住的（像 MaskGIT）</text>
+<text x="90" y="337.0" font-size="10" text-anchor="middle" fill="#888">蓝格 = 已知的，每格是连续值</text>
+<line x1="156.0" y1="232.0" x2="187" y2="232.0" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="190" y="172" width="110" height="120" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5"/>
+<text x="245.0" y="202" font-size="12" text-anchor="middle" font-weight="bold" fill="#c2410c">Transformer</text>
+<text x="245.0" y="220" font-size="11" text-anchor="middle" fill="#7c2d12">主干（直筒）</text>
+<text x="245.0" y="242" font-size="10" text-anchor="middle" fill="#888">跟文字模型同款</text>
+<text x="245.0" y="258" font-size="10" text-anchor="middle" fill="#888">按随机掩码顺序</text>
+<text x="245.0" y="274" font-size="10" text-anchor="middle" fill="#888">一批一批补蒙住的格</text>
+<line x1="303" y1="232.0" x2="327" y2="232.0" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="330" y="192" width="18" height="10" fill="#c2410c" opacity="0.56" stroke="#c2410c" stroke-width="0.5"/>
+<rect x="330" y="202" width="18" height="10" fill="#c2410c" opacity="0.40" stroke="#c2410c" stroke-width="0.5"/>
+<rect x="330" y="212" width="18" height="10" fill="#c2410c" opacity="0.28" stroke="#c2410c" stroke-width="0.5"/>
+<rect x="330" y="222" width="18" height="10" fill="#c2410c" opacity="0.38" stroke="#c2410c" stroke-width="0.5"/>
+<rect x="330" y="232" width="18" height="10" fill="#c2410c" opacity="0.24" stroke="#c2410c" stroke-width="0.5"/>
+<rect x="330" y="242" width="18" height="10" fill="#c2410c" opacity="0.54" stroke="#c2410c" stroke-width="0.5"/>
+<rect x="330" y="252" width="18" height="10" fill="#c2410c" opacity="0.65" stroke="#c2410c" stroke-width="0.5"/>
+<rect x="330" y="262" width="18" height="10" fill="#c2410c" opacity="0.42" stroke="#c2410c" stroke-width="0.5"/>
+<text x="339" y="184" font-size="13" text-anchor="middle" font-weight="bold" fill="#c2410c">z</text>
+<text x="339" y="288" font-size="10" text-anchor="middle" fill="#444">每个位置</text>
+<text x="339" y="302" font-size="10" text-anchor="middle" fill="#444">吐一个 z</text>
+<text x="339" y="318" font-size="10" text-anchor="middle" fill="#c2410c">连续向量</text>
+<text x="339" y="332" font-size="10" text-anchor="middle" fill="#c2410c">比如 1024 维</text>
+<text x="339" y="346" font-size="10" text-anchor="middle" fill="#c2410c">不是整数</text>
+<text x="339" y="360" font-size="10" text-anchor="middle" fill="#c2410c">不查字典</text>
+<path d="M352,232.0 C 390,232.0 390,170 396,170" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+<rect x="400" y="140" width="240" height="60" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+<text x="520" y="164" font-size="12" text-anchor="middle" fill="#64748b">softmax 8192 类 → 抽一个整数</text>
+<text x="520" y="184" font-size="10" text-anchor="middle" fill="#94a3b8">查字典：连续值被硬凑到最近的词</text>
+<line x1="406" y1="144" x2="634" y2="196" stroke="#dc2626" stroke-width="3" opacity="0.8"/>
+<line x1="406" y1="196" x2="634" y2="144" stroke="#dc2626" stroke-width="3" opacity="0.8"/>
+<text x="520" y="132" font-size="11" text-anchor="middle" fill="#dc2626" font-weight="bold">自回归离散版的头，MAR 不用</text>
+<path d="M352,232.0 C 390,232.0 390,302 396,302" fill="none" stroke="#c2410c" stroke-width="1.5" marker-end="url(#arO)"/>
+<rect x="400" y="242" width="260" height="126" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5"/>
+<text x="530" y="262" font-size="12" text-anchor="middle" font-weight="bold" fill="#c2410c">小扩散头（3 层 MLP），以 z 为条件</text>
+<rect x="414" y="296" width="36" height="36" fill="#e5e7eb" stroke="#64748b"/>
+<rect x="416" y="314" width="4" height="4" fill="#64748b" opacity="0.18"/>
+<rect x="425" y="310" width="4" height="4" fill="#64748b" opacity="0.60"/>
+<rect x="439" y="313" width="4" height="4" fill="#64748b" opacity="0.38"/>
+<rect x="439" y="297" width="4" height="4" fill="#64748b" opacity="0.62"/>
+<rect x="427" y="297" width="4" height="4" fill="#64748b" opacity="0.37"/>
+<rect x="429" y="320" width="4" height="4" fill="#64748b" opacity="0.70"/>
+<rect x="427" y="326" width="4" height="4" fill="#64748b" opacity="0.69"/>
+<rect x="428" y="296" width="4" height="4" fill="#64748b" opacity="0.25"/>
+<rect x="431" y="304" width="4" height="4" fill="#64748b" opacity="0.70"/>
+<rect x="416" y="321" width="4" height="4" fill="#64748b" opacity="0.42"/>
+<rect x="427" y="300" width="4" height="4" fill="#64748b" opacity="0.88"/>
+<rect x="443" y="306" width="4" height="4" fill="#64748b" opacity="0.37"/>
+<rect x="442" y="313" width="4" height="4" fill="#64748b" opacity="0.79"/>
+<rect x="422" y="299" width="4" height="4" fill="#64748b" opacity="0.46"/>
+<rect x="417" y="326" width="4" height="4" fill="#64748b" opacity="0.81"/>
+<rect x="435" y="323" width="4" height="4" fill="#64748b" opacity="0.89"/>
+<rect x="439" y="308" width="4" height="4" fill="#64748b" opacity="0.67"/>
+<rect x="437" y="306" width="4" height="4" fill="#64748b" opacity="0.56"/>
+<rect x="417" y="321" width="4" height="4" fill="#64748b" opacity="0.59"/>
+<rect x="414" y="311" width="4" height="4" fill="#64748b" opacity="0.14"/>
+<rect x="438" y="308" width="4" height="4" fill="#64748b" opacity="0.04"/>
+<rect x="416" y="314" width="4" height="4" fill="#64748b" opacity="0.10"/>
+<rect x="442" y="308" width="4" height="4" fill="#64748b" opacity="0.18"/>
+<rect x="414" y="306" width="4" height="4" fill="#64748b" opacity="0.84"/>
+<rect x="417" y="296" width="4" height="4" fill="#64748b" opacity="0.84"/>
+<rect x="435" y="311" width="4" height="4" fill="#64748b" opacity="0.84"/>
+<rect x="444" y="305" width="4" height="4" fill="#64748b" opacity="0.58"/>
+<rect x="439" y="298" width="4" height="4" fill="#64748b" opacity="0.04"/>
+<rect x="438" y="314" width="4" height="4" fill="#64748b" opacity="0.51"/>
+<rect x="436" y="303" width="4" height="4" fill="#64748b" opacity="0.11"/>
+<text x="432" y="346" font-size="10" text-anchor="middle" fill="#444">噪声</text>
+<line x1="454" y1="314" x2="486" y2="314" stroke="#c2410c" stroke-width="1.5" marker-end="url(#arO)"/>
+<circle cx="520" cy="314" r="21" fill="#fdba74" stroke="#c2410c"/>
+<path d="M531,295 A 14 14 0 1 0 509,295" fill="none" stroke="#c2410c" stroke-width="1.5" marker-end="url(#arO)"/>
+<text x="520" y="318" font-size="10" text-anchor="middle" fill="#7c2d12">去噪</text>
+<text x="520" y="346" font-size="10" text-anchor="middle" fill="#444">循环几十步</text>
+<line x1="548" y1="314" x2="580" y2="314" stroke="#c2410c" stroke-width="1.5" marker-end="url(#arO)"/>
+<rect x="586.0" y="304" width="4.5" height="20" fill="#1d4ed8" opacity="0.72"/>
+<rect x="590.5" y="304" width="4.5" height="20" fill="#1d4ed8" opacity="0.85"/>
+<rect x="595.0" y="304" width="4.5" height="20" fill="#1d4ed8" opacity="0.24"/>
+<rect x="599.5" y="304" width="4.5" height="20" fill="#1d4ed8" opacity="0.43"/>
+<rect x="604.0" y="304" width="4.5" height="20" fill="#1d4ed8" opacity="0.59"/>
+<rect x="608.5" y="304" width="4.5" height="20" fill="#1d4ed8" opacity="0.78"/>
+<rect x="613.0" y="304" width="4.5" height="20" fill="#1d4ed8" opacity="0.37"/>
+<rect x="617.5" y="304" width="4.5" height="20" fill="#1d4ed8" opacity="0.33"/>
+<text x="604" y="346" font-size="10" text-anchor="middle" fill="#1d4ed8">该位置 latent（16 维）</text>
+<text x="530" y="362" font-size="10" text-anchor="middle" fill="#888">损失就是普通扩散损失：猜加进去的噪声</text>
+<line x1="664" y1="302" x2="718" y2="302" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="693" y="290" font-size="9" text-anchor="middle" fill="#888">256 个位置</text>
+<text x="693" y="320" font-size="9" text-anchor="middle" fill="#888">各出 16 维</text>
+<rect x="722" y="278" width="64" height="64" fill="#dbeafe" stroke="#1d4ed8"/>
+<rect x="730" y="270" width="64" height="64" fill="#dbeafe" stroke="#1d4ed8"/>
+<rect x="738" y="262" width="64" height="64" fill="#dbeafe" stroke="#1d4ed8"/>
+<line x1="754" y1="262" x2="754" y2="326" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="738" y1="278" x2="802" y2="278" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="770" y1="262" x2="770" y2="326" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="738" y1="294" x2="802" y2="294" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="786" y1="262" x2="786" y2="326" stroke="#1d4ed8" stroke-width="0.5"/>
+<line x1="738" y1="310" x2="802" y2="310" stroke="#1d4ed8" stroke-width="0.5"/>
+<text x="762" y="362" font-size="11" text-anchor="middle" fill="#444">16×16×16 网格</text>
+<text x="762" y="376" font-size="10" text-anchor="middle" fill="#888">连续值，没经过字典</text>
+<line x1="808" y1="302" x2="818" y2="302" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<path d="M822,272 L878,286 L878,318 L822,332 Z" fill="#dbeafe" stroke="#1d4ed8"/>
+<text x="850" y="306" font-size="11" text-anchor="middle" fill="#1e3a8a">VAE</text>
+<text x="850" y="362" font-size="11" text-anchor="middle" fill="#444">解码器</text>
+<line x1="882" y1="302" x2="894" y2="302" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="898" y="272" width="60" height="60" rx="3" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+<circle cx="940" cy="288" r="7" fill="#fde68a"/>
+<path d="M901,324 L918,302 L930,314 L940,304 L955,324 Z" fill="#93c5fd"/>
+<text x="928" y="362" font-size="11" text-anchor="middle" fill="#444">图</text>
+<rect x="20" y="417" width="960" height="190" rx="8" fill="#f1f5f9" stroke="#64748b"/>
+<text x="500" y="443" font-size="14" text-anchor="middle" font-weight="bold" fill="#334155">杂交：两根管子各管一件事</text>
+<text x="40" y="473" font-size="12" fill="#c2410c"><tspan font-weight="bold">宏观顺序</tspan>——用自回归管：先出哪些块、后出哪些块。保住跟文字架构的兼容性</text>
+<text x="40" y="497" font-size="12" fill="#1d4ed8"><tspan font-weight="bold">微观取值</tspan>——用扩散管：每个位置具体是什么值。保住连续值的表达力</text>
+<text x="40" y="523" font-size="12" fill="#334155">字典被整个绕开：以前「连续值 → 硬凑到 8192 个词里最近的一个」那步没了，信息损失从源头消失</text>
+<line x1="40" y1="539" x2="960" y2="539" stroke="#cbd5e1"/>
+<text x="40" y="563" font-size="12" fill="#334155"><tspan font-weight="bold">工业界同款：</tspan>腾讯 HunyuanImage 3.0，80B MoE</text>
+<text x="40" y="585" font-size="11" fill="#64748b">文字按「猜下一个 token」训，图像在 VAE 特征上按扩散训——同一个主干，两种输出头</text>
+<text x="20" y="664" font-size="11" fill="#888">MAR（Li et al., 2024，何恺明组）：小扩散头只增加约 5% 参数。生成顺序是随机掩码顺序，不是光栅（一行一行）顺序</text>
+</svg>

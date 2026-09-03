@@ -1,0 +1,267 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 690" font-family="'Noto Sans CJK SC', sans-serif">
+<rect width="1000" height="690" fill="#fafafa"/>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#999"/></marker><marker id="arO" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c2410c"/></marker><marker id="arB" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1d4ed8"/></marker></defs>
+<text x="20" y="34" font-size="18" font-weight="bold" fill="#c2410c">VAR：猜「下一档分辨率」，分辨率长在时间轴上（Tian et al., 2024）</text>
+<text x="20" y="54" font-size="12" fill="#666">同一个 Transformer 跑 10 遍，每遍出一整档整数网格，越出越密；10 档整数一起解码成图</text>
+<text x="47" y="82" font-size="11" text-anchor="middle" fill="#c2410c" font-weight="bold">第 1 遍</text>
+<rect x="30" y="156" width="34" height="34" fill="#fdba74" stroke="#c2410c"/>
+<text x="47.0" y="176.5" font-size="10" text-anchor="middle" fill="#7c2d12">4127</text>
+<text x="47" y="208" font-size="11" text-anchor="middle" fill="#444">1×1</text>
+<line x1="69" y1="176" x2="93" y2="176" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="120" y="82" font-size="11" text-anchor="middle" fill="#c2410c" font-weight="bold">第 2 遍</text>
+<rect x="98" y="146" width="44" height="44" fill="#fdba74" stroke="#c2410c"/>
+<line x1="120" y1="146" x2="120" y2="190" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="98" y1="168" x2="142" y2="168" stroke="#c2410c" stroke-width="0.6"/>
+<text x="109.0" y="159.8" font-size="8" text-anchor="middle" fill="#7c2d12">5305</text>
+<text x="131.0" y="159.8" font-size="8" text-anchor="middle" fill="#7c2d12">2471</text>
+<text x="109.0" y="181.8" font-size="8" text-anchor="middle" fill="#7c2d12">6468</text>
+<text x="131.0" y="181.8" font-size="8" text-anchor="middle" fill="#7c2d12">791</text>
+<text x="120" y="208" font-size="11" text-anchor="middle" fill="#444">2×2</text>
+<line x1="147" y1="176" x2="171" y2="176" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="215" y="82" font-size="11" text-anchor="middle" fill="#c2410c" font-weight="bold">第 3 遍</text>
+<rect x="176" y="112" width="78" height="78" fill="#fdba74" stroke="#c2410c"/>
+<line x1="202" y1="112" x2="202" y2="190" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="176" y1="138" x2="254" y2="138" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="228" y1="112" x2="228" y2="190" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="176" y1="164" x2="254" y2="164" stroke="#c2410c" stroke-width="0.6"/>
+<text x="189.0" y="128.2" font-size="9" text-anchor="middle" fill="#7c2d12">1186</text>
+<text x="215.0" y="128.2" font-size="9" text-anchor="middle" fill="#7c2d12">1542</text>
+<text x="241.0" y="128.2" font-size="9" text-anchor="middle" fill="#7c2d12">5991</text>
+<text x="189.0" y="154.2" font-size="9" text-anchor="middle" fill="#7c2d12">950</text>
+<text x="215.0" y="154.2" font-size="9" text-anchor="middle" fill="#7c2d12">3517</text>
+<text x="241.0" y="154.2" font-size="9" text-anchor="middle" fill="#7c2d12">614</text>
+<text x="189.0" y="180.2" font-size="9" text-anchor="middle" fill="#7c2d12">1408</text>
+<text x="215.0" y="180.2" font-size="9" text-anchor="middle" fill="#7c2d12">7104</text>
+<text x="241.0" y="180.2" font-size="9" text-anchor="middle" fill="#7c2d12">6851</text>
+<text x="215" y="208" font-size="11" text-anchor="middle" fill="#444">3×3</text>
+<line x1="259" y1="176" x2="283" y2="176" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="332" y="82" font-size="11" text-anchor="middle" fill="#c2410c" font-weight="bold">第 4 遍</text>
+<rect x="288" y="102" width="88" height="88" fill="#fdba74" stroke="#c2410c"/>
+<line x1="310" y1="102" x2="310" y2="190" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="288" y1="124" x2="376" y2="124" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="332" y1="102" x2="332" y2="190" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="288" y1="146" x2="376" y2="146" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="354" y1="102" x2="354" y2="190" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="288" y1="168" x2="376" y2="168" stroke="#c2410c" stroke-width="0.6"/>
+<text x="299.0" y="115.8" font-size="8" text-anchor="middle" fill="#7c2d12">1144</text>
+<text x="321.0" y="115.8" font-size="8" text-anchor="middle" fill="#7c2d12">3943</text>
+<text x="343.0" y="115.8" font-size="8" text-anchor="middle" fill="#7c2d12">1486</text>
+<text x="365.0" y="115.8" font-size="8" text-anchor="middle" fill="#7c2d12">6955</text>
+<text x="299.0" y="137.8" font-size="8" text-anchor="middle" fill="#7c2d12">968</text>
+<text x="321.0" y="137.8" font-size="8" text-anchor="middle" fill="#7c2d12">2028</text>
+<text x="343.0" y="137.8" font-size="8" text-anchor="middle" fill="#7c2d12">3657</text>
+<text x="365.0" y="137.8" font-size="8" text-anchor="middle" fill="#7c2d12">1013</text>
+<text x="299.0" y="159.8" font-size="8" text-anchor="middle" fill="#7c2d12">6499</text>
+<text x="321.0" y="159.8" font-size="8" text-anchor="middle" fill="#7c2d12">812</text>
+<text x="343.0" y="159.8" font-size="8" text-anchor="middle" fill="#7c2d12">3622</text>
+<text x="365.0" y="159.8" font-size="8" text-anchor="middle" fill="#7c2d12">763</text>
+<text x="299.0" y="181.8" font-size="8" text-anchor="middle" fill="#7c2d12">2181</text>
+<text x="321.0" y="181.8" font-size="8" text-anchor="middle" fill="#7c2d12">4744</text>
+<text x="343.0" y="181.8" font-size="8" text-anchor="middle" fill="#7c2d12">6867</text>
+<text x="365.0" y="181.8" font-size="8" text-anchor="middle" fill="#7c2d12">2363</text>
+<text x="332" y="208" font-size="11" text-anchor="middle" fill="#444">4×4</text>
+<line x1="381" y1="176" x2="405" y2="176" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="422" y="182" font-size="18" fill="#999">…</text>
+<text x="432" y="82" font-size="11" text-anchor="middle" fill="#c2410c" font-weight="bold">…</text>
+<text x="432" y="208" font-size="11" text-anchor="middle" fill="#444">5,6,8,10,13</text>
+<line x1="460" y1="176" x2="484" y2="176" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="542" y="82" font-size="11" text-anchor="middle" fill="#c2410c" font-weight="bold">第 10 遍</text>
+<rect x="490" y="86.0" width="104.0" height="104.0" fill="#fdba74" stroke="#c2410c"/>
+<line x1="496.5" y1="86.0" x2="496.5" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="92.5" x2="594.0" y2="92.5" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="503.0" y1="86.0" x2="503.0" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="99.0" x2="594.0" y2="99.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="509.5" y1="86.0" x2="509.5" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="105.5" x2="594.0" y2="105.5" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="516.0" y1="86.0" x2="516.0" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="112.0" x2="594.0" y2="112.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="522.5" y1="86.0" x2="522.5" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="118.5" x2="594.0" y2="118.5" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="529.0" y1="86.0" x2="529.0" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="125.0" x2="594.0" y2="125.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="535.5" y1="86.0" x2="535.5" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="131.5" x2="594.0" y2="131.5" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="542.0" y1="86.0" x2="542.0" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="138.0" x2="594.0" y2="138.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="548.5" y1="86.0" x2="548.5" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="144.5" x2="594.0" y2="144.5" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="555.0" y1="86.0" x2="555.0" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="151.0" x2="594.0" y2="151.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="561.5" y1="86.0" x2="561.5" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="157.5" x2="594.0" y2="157.5" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="568.0" y1="86.0" x2="568.0" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="164.0" x2="594.0" y2="164.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="574.5" y1="86.0" x2="574.5" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="170.5" x2="594.0" y2="170.5" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="581.0" y1="86.0" x2="581.0" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="177.0" x2="594.0" y2="177.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="587.5" y1="86.0" x2="587.5" y2="190.0" stroke="#c2410c" stroke-width="0.6"/>
+<line x1="490" y1="183.5" x2="594.0" y2="183.5" stroke="#c2410c" stroke-width="0.6"/>
+<rect x="516.0" y="86.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="542.0" y="86.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="490.0" y="92.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="503.0" y="92.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="509.5" y="92.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="529.0" y="92.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="535.5" y="92.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="542.0" y="92.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="548.5" y="92.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="568.0" y="92.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="587.5" y="92.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="509.5" y="99.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="535.5" y="99.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="542.0" y="99.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="561.5" y="99.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="574.5" y="99.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="496.5" y="105.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="503.0" y="105.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="529.0" y="105.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="561.5" y="105.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="587.5" y="105.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="490.0" y="112.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="503.0" y="112.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="509.5" y="112.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="516.0" y="112.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="535.5" y="112.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="568.0" y="112.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="490.0" y="118.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="503.0" y="118.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="516.0" y="118.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="522.5" y="118.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="555.0" y="118.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="568.0" y="118.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="490.0" y="125.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="516.0" y="125.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="555.0" y="125.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="587.5" y="125.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="503.0" y="131.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="522.5" y="131.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="535.5" y="131.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="561.5" y="131.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="581.0" y="131.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="516.0" y="138.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="561.5" y="138.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="574.5" y="138.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="516.0" y="144.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="522.5" y="144.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="548.5" y="144.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="555.0" y="144.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="587.5" y="144.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="490.0" y="151.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="509.5" y="151.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="542.0" y="151.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="561.5" y="151.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="490.0" y="157.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="496.5" y="157.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="503.0" y="157.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="509.5" y="157.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="522.5" y="157.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="587.5" y="157.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="509.5" y="164.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="535.5" y="164.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="568.0" y="164.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="574.5" y="164.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="581.0" y="170.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="490.0" y="177.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="496.5" y="177.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="509.5" y="177.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="516.0" y="177.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="522.5" y="177.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="542.0" y="177.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="561.5" y="177.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="574.5" y="177.0" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="503.0" y="183.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="535.5" y="183.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.3"/>
+<rect x="542.0" y="183.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.45"/>
+<rect x="574.5" y="183.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<rect x="581.0" y="183.5" width="6.5" height="6.5" fill="#c2410c" opacity="0.15"/>
+<text x="542" y="208" font-size="11" text-anchor="middle" fill="#444">16×16 = 256 个</text>
+<text x="542" y="223" font-size="10" text-anchor="middle" fill="#888">每格一个整数（码本编号）</text>
+<text x="30" y="223" font-size="10" fill="#888">格子里的数是码本编号，0～4095</text>
+<line x1="600.0" y1="138" x2="628.0" y2="138" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="634.0" y="100" width="44" height="44" fill="#fff7ed" stroke="#c2410c"/>
+<rect x="640.0" y="106" width="44" height="44" fill="#fff7ed" stroke="#c2410c"/>
+<rect x="646.0" y="112" width="44" height="44" fill="#fff7ed" stroke="#c2410c"/>
+<rect x="652.0" y="118" width="44" height="44" fill="#fff7ed" stroke="#c2410c"/>
+<text x="664.0" y="94" font-size="11" text-anchor="middle" fill="#444">10 档整数</text>
+<text x="664.0" y="173" font-size="10" text-anchor="middle" fill="#888">1+4+9+…+256</text>
+<text x="664.0" y="186" font-size="10" text-anchor="middle" fill="#888">= 680 个</text>
+<line x1="704.0" y1="138" x2="730.0" y2="138" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<path d="M734.0,105 L794.0,120 L794.0,156 L734.0,171 Z" fill="#dbeafe" stroke="#1d4ed8"/>
+<text x="764.0" y="94" font-size="11" text-anchor="middle" fill="#1d4ed8">多尺度</text>
+<text x="764.0" y="143" font-size="11" text-anchor="middle" fill="#1e3a8a">VQ 解码器</text>
+<line x1="798.0" y1="138" x2="822.0" y2="138" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="826.0" y="108" width="60" height="60" rx="3" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+<circle cx="868.0" cy="124" r="7" fill="#fde68a"/>
+<path d="M829.0,160 L846.0,138 L858.0,150 L868.0,140 L883.0,160 Z" fill="#93c5fd"/>
+<text x="856.0" y="182" font-size="11" text-anchor="middle" fill="#444">256×256 图</text>
+<text x="20" y="262" font-size="14" font-weight="bold" fill="#334155">每一遍在做什么：序列越接越长，最新一档是「本遍要出的」</text>
+<rect x="30" y="284" width="110" height="96" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5"/>
+<text x="85" y="314" font-size="12" text-anchor="middle" font-weight="bold" fill="#c2410c">Transformer</text>
+<text x="85" y="332" font-size="11" text-anchor="middle" fill="#7c2d12">同一套参数</text>
+<text x="85" y="348" font-size="11" text-anchor="middle" fill="#7c2d12">跑 10 遍</text>
+<text x="85" y="366" font-size="10" text-anchor="middle" fill="#888">GPT-2 结构</text>
+<path d="M140,302 C 175,272 175,272 140,362" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arO)"/>
+<text x="85" y="398" font-size="10" text-anchor="middle" fill="#c2410c">出完一档，接到序列尾巴再跑</text>
+<rect x="210" y="302" width="22" height="30" fill="#dbeafe" stroke="#1d4ed8"/>
+<text x="221" y="321" font-size="10" text-anchor="middle" fill="#1e3a8a">1 个</text>
+<text x="221" y="346" font-size="10" text-anchor="middle" fill="#888">1×1</text>
+<rect x="235" y="302" width="40" height="30" fill="#dbeafe" stroke="#1d4ed8"/>
+<text x="255" y="321" font-size="10" text-anchor="middle" fill="#1e3a8a">4 个</text>
+<text x="255" y="346" font-size="10" text-anchor="middle" fill="#888">2×2</text>
+<rect x="278" y="302" width="58" height="30" fill="#dbeafe" stroke="#1d4ed8"/>
+<text x="307" y="321" font-size="10" text-anchor="middle" fill="#1e3a8a">9 个</text>
+<text x="307" y="346" font-size="10" text-anchor="middle" fill="#888">3×3</text>
+<rect x="339" y="302" width="76" height="30" fill="#dbeafe" stroke="#1d4ed8"/>
+<text x="377" y="321" font-size="10" text-anchor="middle" fill="#1e3a8a">16 个</text>
+<text x="377" y="346" font-size="10" text-anchor="middle" fill="#888">4×4</text>
+<rect x="418" y="302" width="40" height="30" fill="#dbeafe" stroke="#1d4ed8" stroke-dasharray="3 2"/>
+<text x="438" y="321" font-size="12" text-anchor="middle" fill="#1e3a8a">…</text>
+<rect x="461" y="298" width="130" height="38" fill="#fdba74" stroke="#c2410c" stroke-width="2"/>
+<text x="526" y="321" font-size="11" text-anchor="middle" font-weight="bold" fill="#7c2d12">256 个（本遍要出的）</text>
+<text x="526" y="346" font-size="10" text-anchor="middle" fill="#888">16×16，第 10 遍</text>
+<path d="M210,294 L210,288 L458,288 L458,294" fill="none" stroke="#1d4ed8" stroke-width="1"/>
+<text x="336" y="282" font-size="11" text-anchor="middle" fill="#1d4ed8">前缀：前面几遍已经出过的整数（回喂）</text>
+<text x="210" y="372" font-size="11" fill="#c2410c">档内：这一档的所有块并行一起出（档内双向注意力）</text>
+<text x="210" y="390" font-size="11" fill="#1d4ed8">档间：自回归，本档只能看前面的档，看不到后面的</text>
+<line x1="595" y1="317" x2="611" y2="317" stroke="#999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="613" y="284" width="367" height="70" rx="6" fill="#f1f5f9" stroke="#64748b"/>
+<text x="623" y="304" font-size="12" font-weight="bold" fill="#334155">输出头：softmax 4096 类</text>
+<text x="623" y="322" font-size="11" fill="#334155">每个位置抽一个整数，256 个位置同时抽</text>
+<text x="623" y="340" font-size="11" fill="#c2410c">跟 GPT 出字唯一区别：一次出一档，不是一个</text>
+<rect x="20" y="410" width="960" height="236" rx="8" fill="#f1f5f9" stroke="#64748b"/>
+<text x="500" y="436" font-size="14" text-anchor="middle" font-weight="bold" fill="#334155">重点：分辨率长在哪根轴上？</text>
+<text x="40" y="464" font-size="13" font-weight="bold" fill="#c2410c">VAR：时间轴</text>
+<rect x="40" y="506" width="8" height="8" fill="#fdba74" stroke="#c2410c"/>
+<line x1="51" y1="504" x2="76" y2="504" stroke="#c2410c" stroke-width="1.2" marker-end="url(#arO)"/>
+<rect x="80" y="502" width="12" height="12" fill="#fdba74" stroke="#c2410c"/>
+<line x1="95" y1="504" x2="116" y2="504" stroke="#c2410c" stroke-width="1.2" marker-end="url(#arO)"/>
+<rect x="120" y="498" width="16" height="16" fill="#fdba74" stroke="#c2410c"/>
+<line x1="139" y1="504" x2="156" y2="504" stroke="#c2410c" stroke-width="1.2" marker-end="url(#arO)"/>
+<rect x="160" y="492" width="22" height="22" fill="#fdba74" stroke="#c2410c"/>
+<text x="225" y="509" font-size="10" fill="#888">前向 1 → 2 → 3 → …（10 次）</text>
+<text x="40" y="540" font-size="11" fill="#334155">· 10 次前向传播之间，一次比一次细</text>
+<text x="40" y="558" font-size="11" fill="#334155">· 粗档是<tspan font-weight="bold">输出</tspan>（离散整数），回喂当前缀</text>
+<text x="40" y="576" font-size="11" fill="#334155">· 细档看粗档：靠 attention 看前缀</text>
+<text x="40" y="604" font-size="12" fill="#c2410c" font-weight="bold">「画家画 10 稿，每稿比上稿细」</text>
+<line x1="500" y1="450" x2="500" y2="605" stroke="#94a3b8" stroke-dasharray="4 3"/>
+<text x="520" y="464" font-size="13" font-weight="bold" fill="#1d4ed8">U-Net（DLSS 5 那种）：层轴</text>
+<rect x="520" y="496" width="22" height="22" fill="#93c5fd" stroke="#1d4ed8"/>
+<line x1="544" y1="512" x2="552" y2="512" stroke="#1d4ed8" stroke-width="1.2" marker-end="url(#arB)"/>
+<rect x="554" y="504" width="14" height="14" fill="#93c5fd" stroke="#1d4ed8"/>
+<line x1="570" y1="512" x2="586" y2="512" stroke="#1d4ed8" stroke-width="1.2" marker-end="url(#arB)"/>
+<rect x="588" y="510" width="8" height="8" fill="#93c5fd" stroke="#1d4ed8"/>
+<line x1="598" y1="512" x2="620" y2="512" stroke="#1d4ed8" stroke-width="1.2" marker-end="url(#arB)"/>
+<rect x="622" y="504" width="14" height="14" fill="#93c5fd" stroke="#1d4ed8"/>
+<line x1="638" y1="512" x2="654" y2="512" stroke="#1d4ed8" stroke-width="1.2" marker-end="url(#arB)"/>
+<rect x="656" y="496" width="22" height="22" fill="#93c5fd" stroke="#1d4ed8"/>
+<path d="M531,492 C 531,474 667,474 667,492" fill="none" stroke="#1d4ed8" stroke-width="1" stroke-dasharray="3 2" marker-end="url(#arB)"/>
+<text x="599" y="480" font-size="9" text-anchor="middle" fill="#1d4ed8">skip</text>
+<text x="698" y="516" font-size="10" fill="#888">1 次前向，层与层之间</text>
+<text x="520" y="540" font-size="11" fill="#334155">· 1 次前向传播的不同层，中间那层最低分辨率</text>
+<text x="520" y="558" font-size="11" fill="#334155">· 中间低分辨率是<tspan font-weight="bold">内部特征</tspan>，不是输出，不回喂</text>
+<text x="520" y="576" font-size="11" fill="#334155">· 细档看粗档：靠上坡时拼 skip 连接</text>
+<text x="520" y="604" font-size="12" fill="#1d4ed8" font-weight="bold">「看一眼、想一想、画一笔」</text>
+<text x="40" y="632" font-size="11" fill="#64748b">同样是「先粗后细」，一个把粗细摊在 10 次前向传播上，一个把粗细折进 1 次前向传播的层里</text>
+<text x="20" y="674" font-size="11" fill="#888">VAR（Tian et al., 2024）：ImageNet 256 上 FID 18.65 → 1.73，比逐块自回归快约 20 倍；256×256 用 10 档，尺度 1,2,3,4,5,6,8,10,13,16，码本 4096</text>
+</svg>
