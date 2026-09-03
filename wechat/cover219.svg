@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="0.18" cy="0.28" r="0.42">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="0.82" cy="0.75" r="0.42">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">DLSS 5 系列 · 番外 · 文生图四代谱系</text>
+
+  <!-- ============ LEFT: 四代方法，各猜什么 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">四代方法，只换一样东西</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="12" y="19" fill="#fde68a" font-size="12" font-weight="bold">GAN</text>
+      <text x="188" y="19" text-anchor="end" fill="#fbbf24" font-size="11">猜「怎么骗过裁判」</text>
+      <text x="12" y="37" fill="#fbbf24" font-size="10">两个网络打架 · 一步出图</text>
+    </g>
+    <g transform="translate(15 84)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="12" y="19" fill="#93c5fd" font-size="12" font-weight="bold">自回归</text>
+      <text x="188" y="19" text-anchor="end" fill="#bfdbfe" font-size="11">猜「下一块是什么」</text>
+      <text x="12" y="37" fill="#bfdbfe" font-size="10">图切成字典编号 · 和 GPT 同款</text>
+    </g>
+    <g transform="translate(15 140)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="12" y="19" fill="#5eead4" font-size="12" font-weight="bold">扩散 / 流匹配</text>
+      <text x="188" y="19" text-anchor="end" fill="#a7f3d0" font-size="11">猜「掺了什么噪声」</text>
+      <text x="12" y="37" fill="#a7f3d0" font-size="10">整块玻璃一起擦 · 几十步</text>
+    </g>
+    <g transform="translate(15 196)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#1a0a2a" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="12" y="19" fill="#c4b5fd" font-size="12" font-weight="bold">VAR / MAR</text>
+      <text x="188" y="19" text-anchor="end" fill="#ddd6fe" font-size="11">猜「下一档分辨率」</text>
+      <text x="12" y="37" fill="#ddd6fe" font-size="10">先打形再上调子 · 10 步</text>
+    </g>
+
+    <text x="115" y="268" text-anchor="middle" fill="#94a3b8" font-size="11">猜的对象换了</text>
+    <text x="115" y="286" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">模型对「图像是什么」的理解就换了</text>
+  </g>
+
+  <!-- ============ MIDDLE: 顺序那一列 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">暗线：给图像找正确的因果</text>
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 四级阶梯 -->
+    <g transform="translate(20 30)">
+      <rect x="0" y="150" width="46" height="40" rx="4" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="23" y="167" text-anchor="middle" fill="#fca5a5" font-size="10">光栅</text>
+      <text x="23" y="182" text-anchor="middle" fill="#f87171" font-size="9">假因果</text>
+
+      <rect x="56" y="110" width="46" height="80" rx="4" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+      <text x="79" y="127" text-anchor="middle" fill="#cbd5e1" font-size="10">无序</text>
+      <text x="79" y="142" text-anchor="middle" fill="#94a3b8" font-size="9">取消因果</text>
+      <text x="79" y="172" text-anchor="middle" fill="#94a3b8" font-size="9">扩散</text>
+
+      <rect x="112" y="70" width="46" height="120" rx="4" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="135" y="87" text-anchor="middle" fill="#93c5fd" font-size="10">自选</text>
+      <text x="135" y="102" text-anchor="middle" fill="#bfdbfe" font-size="9">因果当变量</text>
+      <text x="135" y="172" text-anchor="middle" fill="#bfdbfe" font-size="9">MaskGIT</text>
+
+      <rect x="168" y="30" width="46" height="160" rx="4" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="191" y="47" text-anchor="middle" fill="#5eead4" font-size="10">粗到细</text>
+      <text x="191" y="62" text-anchor="middle" fill="#a7f3d0" font-size="9">真因果</text>
+      <text x="191" y="172" text-anchor="middle" fill="#a7f3d0" font-size="9">VAR</text>
+
+      <path d="M10 8 L200 8" stroke="#475569" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="105" y="0" text-anchor="middle" fill="#94a3b8" font-size="9">「先画哪」这个问题的四种答案</text>
+    </g>
+
+    <line x1="20" y1="236" x2="220" y2="236" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="120" y="258" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">扩散赢在取消了假因果</text>
+    <text x="120" y="278" text-anchor="middle" fill="#cbd5e1" font-size="10">正确答案出现之前，不回答比答错强</text>
+  </g>
+
+  <!-- ============ RIGHT: 回到丁鱥 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">回到丁鱥：四个噪声通道</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">一遍出图</text>
+      <text x="100" y="38" text-anchor="middle" fill="#fbbf24" font-size="10">71 个块跑一遍，没有循环</text>
+      <text x="100" y="54" text-anchor="middle" fill="#fbbf24" font-size="10">跟 GAN 一路，跟扩散不是</text>
+    </g>
+    <g transform="translate(15 106)">
+      <rect x="0" y="0" width="200" height="64" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">又吃噪声</text>
+      <text x="100" y="38" text-anchor="middle" fill="#a7f3d0" font-size="10">RGB 之外四路高斯随机数</text>
+      <text x="100" y="54" text-anchor="middle" fill="#a7f3d0" font-size="10">要「无中生有」才需要随机</text>
+    </g>
+
+    <line x1="16" y1="196" x2="214" y2="196" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 214)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">站在 GAN 和一步扩散那一支上</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">不是「把糊图修清楚」</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">是「把画面画出来」</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="10">只是被一帧几毫秒逼成了一步</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="28" font-weight="bold">DLSS 5 一遍出图，文生图为什么要几十步</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">你让模型猜什么，它就怎么画：GAN · 自回归 · 扩散 · VAR</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.299 · 靳岩岩的 AI 学习笔记 · DLSS 5 系列番外</text>
+</svg>
