@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1418"/>
+      <stop offset="0.55" stop-color="#14100c"/>
+      <stop offset="1" stop-color="#1a1008"/>
+    </linearGradient>
+    <radialGradient id="steelGlow" cx="18%" cy="30%" r="45%">
+      <stop offset="0" stop-color="#8fb0c9" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#8fb0c9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="goldGlow" cx="82%" cy="70%" r="45%">
+      <stop offset="0" stop-color="#d9a441" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#d9a441" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a2318"/>
+      <stop offset="1" stop-color="#16130e"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6b8ba8"/>
+      <stop offset="0.5" stop-color="#b8763a"/>
+      <stop offset="1" stop-color="#d9a441"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#steelGlow)"/>
+  <rect width="900" height="500" fill="url(#goldGlow)"/>
+
+  <g opacity="0.08">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#c9b998" font-size="15" letter-spacing="4">霸州 · 益津关 959 · 从一座关聊到国号</text>
+
+  <!-- ============ LEFT: 框里 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#a89878" font-size="13">框里：国号是封号升上来的</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#3d3426" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="88" rx="6" fill="#1a2029" stroke="#6b8ba8" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#a8c4dd" font-size="12" font-weight="bold">曹操模式</text>
+      <text x="100" y="42" text-anchor="middle" fill="#8fa9c2" font-size="11">魏公 → 魏王 → 国号魏</text>
+      <text x="100" y="62" text-anchor="middle" fill="#8fa9c2" font-size="10">封公的时候，国号就定死了</text>
+      <text x="100" y="78" text-anchor="middle" fill="#8fa9c2" font-size="10">称帝只是把封号升一级</text>
+    </g>
+
+    <g transform="translate(15 130)">
+      <text x="0" y="0" fill="#a89878" font-size="10">同一条链</text>
+      <text x="0" y="20" fill="#c9b998" font-size="11">晋公 → 晋王 → 晋</text>
+      <text x="0" y="38" fill="#c9b998" font-size="11">随国公 → 随王 → 隋</text>
+      <text x="0" y="56" fill="#c9b998" font-size="11">唐国公 → 唐王 → 唐</text>
+      <text x="0" y="74" fill="#c9b998" font-size="11">宋州节度使 → 宋</text>
+    </g>
+
+    <line x1="16" y1="222" x2="224" y2="222" stroke="#3d3426" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="115" y="246" text-anchor="middle" fill="#e8dcc8" font-size="11" font-weight="bold">魏晋隋唐宋，全是东周封国名</text>
+    <text x="115" y="266" text-anchor="middle" fill="#a8c4dd" font-size="11" font-weight="bold">不是喜欢复古，是路径出不去</text>
+  </g>
+
+  <!-- ============ MIDDLE: 益津关 ============ -->
+  <g transform="translate(320 80)">
+    <text x="130" y="-2" text-anchor="middle" fill="#a89878" font-size="13">边界线上的一座关</text>
+    <rect x="0" y="10" width="260" height="290" rx="6" fill="url(#cardBg)" stroke="#3d3426" stroke-width="1"/>
+
+    <!-- 关隘剪影 -->
+    <g transform="translate(40 30)">
+      <rect x="0" y="52" width="180" height="26" fill="#3a2e1c" stroke="#7a6b52" stroke-width="1"/>
+      <rect x="0" y="44" width="12" height="8" fill="#3a2e1c"/><rect x="24" y="44" width="12" height="8" fill="#3a2e1c"/>
+      <rect x="48" y="44" width="12" height="8" fill="#3a2e1c"/><rect x="120" y="44" width="12" height="8" fill="#3a2e1c"/>
+      <rect x="144" y="44" width="12" height="8" fill="#3a2e1c"/><rect x="168" y="44" width="12" height="8" fill="#3a2e1c"/>
+      <rect x="66" y="16" width="48" height="62" fill="#4a3a22" stroke="#7a6b52" stroke-width="1"/>
+      <path d="M58 16 L90 0 L122 16 Z" fill="#5a4628" stroke="#7a6b52" stroke-width="1"/>
+      <path d="M80 78 V60 A10 10 0 0 1 100 60 V78 Z" fill="#16130e"/>
+      <text x="90" y="98" text-anchor="middle" fill="#f2d08a" font-size="13" font-weight="bold">益津关</text>
+    </g>
+
+    <g transform="translate(20 150)">
+      <text x="110" y="0" text-anchor="middle" fill="#c9b998" font-size="11">938 年随燕云十六州入契丹</text>
+      <text x="110" y="20" text-anchor="middle" fill="#c9b998" font-size="11">959 年柴荣北伐，四十多天收三关</text>
+      <text x="110" y="40" text-anchor="middle" fill="#f0a58c" font-size="11" font-weight="bold">以益津关置霸州，以瓦桥关置雄州</text>
+      <text x="110" y="60" text-anchor="middle" fill="#a89878" font-size="10">初二夜，帝不豫。一个月后驾崩。</text>
+    </g>
+
+    <line x1="16" y1="232" x2="244" y2="232" stroke="#3d3426" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="130" y="256" text-anchor="middle" fill="#a8c4dd" font-size="11">线南边：单字国号的宋</text>
+    <text x="130" y="276" text-anchor="middle" fill="#f2d08a" font-size="11">线北边：带“大”字的辽</text>
+  </g>
+
+  <!-- ============ RIGHT: 框外 ============ -->
+  <g transform="translate(610 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#a89878" font-size="13">框外：没走那条链的人</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#3d3426" stroke-width="1"/>
+
+    <g transform="translate(16 26)">
+      <text x="0" y="12" fill="#a89878" font-size="10">国号</text>
+      <text x="198" y="12" fill="#a89878" font-size="10" text-anchor="end">取自</text>
+
+      <rect x="0" y="20" width="198" height="24" rx="4" fill="#2a2416" stroke="#d9a441" stroke-width="1.4"/>
+      <text x="8" y="37" fill="#f2d08a" font-size="11" font-weight="bold">大辽</text>
+      <text x="190" y="37" fill="#d9b871" font-size="10" text-anchor="end">辽水 · 镔铁</text>
+
+      <rect x="0" y="50" width="198" height="24" rx="4" fill="#2a2416" stroke="#d9a441" stroke-width="1.4"/>
+      <text x="8" y="67" fill="#f2d08a" font-size="11" font-weight="bold">大金</text>
+      <text x="190" y="67" fill="#d9b871" font-size="10" text-anchor="end">金不变不坏</text>
+
+      <rect x="0" y="80" width="198" height="24" rx="4" fill="#2a2416" stroke="#d9a441" stroke-width="1.4"/>
+      <text x="8" y="97" fill="#f2d08a" font-size="11" font-weight="bold">大元</text>
+      <text x="190" y="97" fill="#d9b871" font-size="10" text-anchor="end">大哉乾元</text>
+
+      <rect x="0" y="110" width="198" height="24" rx="4" fill="#221d14" stroke="#4a4031"/>
+      <text x="8" y="127" fill="#c9b998" font-size="11">大明 · 大清</text>
+      <text x="190" y="127" fill="#a89878" font-size="10" text-anchor="end">照着新格式起</text>
+    </g>
+
+    <line x1="16" y1="180" x2="214" y2="180" stroke="#3d3426" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 200)">
+      <text x="99" y="0" text-anchor="middle" fill="#e8dcc8" font-size="11" font-weight="bold">五个字，没一个在东周名单里</text>
+      <text x="99" y="22" text-anchor="middle" fill="#c9b998" font-size="10">草原直接建国，没有封号可继承</text>
+      <text x="99" y="40" text-anchor="middle" fill="#c9b998" font-size="10">不受封爵链约束，才能自由起名</text>
+      <text x="99" y="66" text-anchor="middle" fill="#f2d08a" font-size="11" font-weight="bold">不是选择了新国号，是豁免于旧规则</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#0d0b08" opacity="0.9"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f5ecd8" font-size="30" font-weight="bold">霸州益津关，和国号里那个“大”字</text>
+  <text x="450" y="460" text-anchor="middle" fill="#f2d08a" font-size="17">框里的人比封号，框外的人比概念</text>
+  <text x="450" y="486" text-anchor="middle" fill="#a89878" font-size="13">No.300 · 旅行杂谈 · 辽金元明清，为什么一个都不是东周封国名</text>
+</svg>
