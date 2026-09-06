@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+    <pattern id="grid8" width="9" height="9" patternUnits="userSpaceOnUse">
+      <rect width="9" height="9" fill="none" stroke="#ef4444" stroke-width="0.6" stroke-opacity="0.55"/>
+    </pattern>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">DLSS 5 逆向 · 第 5 站 · 周五到周日发生了什么</text>
+
+  <!-- ============ LEFT: CPU 记账 vs GPU 执行 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">画面为什么根本没变</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="40" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="17" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">① CPU 录命令</text>
+      <text x="100" y="32" text-anchor="middle" fill="#bfdbfe" font-size="10">计数每帧 +1，永远成功</text>
+    </g>
+    <text x="115" y="88" text-anchor="middle" fill="#ef4444" font-size="16" font-weight="bold">✕</text>
+    <text x="115" y="104" text-anchor="middle" fill="#fca5a5" font-size="10">_has_commands 没设，门没开</text>
+    <g transform="translate(15 114)" opacity="0.45">
+      <rect x="0" y="0" width="200" height="40" rx="6" fill="#1a1a1a" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="100" y="17" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="bold">② 提交到 GPU 队列</text>
+      <text x="100" y="32" text-anchor="middle" fill="#64748b" font-size="10">从来没发生</text>
+    </g>
+    <g transform="translate(15 162)" opacity="0.45">
+      <rect x="0" y="0" width="200" height="40" rx="6" fill="#1a1a1a" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="100" y="17" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="bold">③ GPU 执行，栅栏信号</text>
+      <text x="100" y="32" text-anchor="middle" fill="#64748b" font-size="10">屏幕上一直是原生 FSR</text>
+    </g>
+
+    <line x1="16" y1="216" x2="214" y2="216" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <g transform="translate(16 234)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">网络每帧都在算，结果每帧被扔</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">周五截图、周六帧率、网盘那个 dll</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">全在一个没人看见的输出上</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 修好之后网格回来了 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">修好提交，网格回来了</text>
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 30)">
+      <rect x="0" y="0" width="90" height="64" rx="4" fill="#1a2a3a" stroke="#4a90d9" stroke-width="1"/>
+      <text x="45" y="30" text-anchor="middle" fill="#93c5fd" font-size="10">周六看到的</text>
+      <text x="45" y="46" text-anchor="middle" fill="#bfdbfe" font-size="10">干净，原生</text>
+      <text x="100" y="38" text-anchor="middle" fill="#cbd5e1" font-size="14">→</text>
+      <rect x="110" y="0" width="90" height="64" rx="4" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <rect x="110" y="0" width="90" height="64" rx="4" fill="url(#grid8)"/>
+      <text x="155" y="30" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="bold">真提交后</text>
+      <text x="155" y="46" text-anchor="middle" fill="#f87171" font-size="10">8×8 网格</text>
+    </g>
+    <text x="120" y="118" text-anchor="middle" fill="#f87171" font-size="10">固定相位解释 95% 的残差方差</text>
+
+    <line x1="20" y1="134" x2="220" y2="134" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 152)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">从「像」退回到「一样」</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">验收从相关 0.99 改成逐值零误差</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">FP16 当 FP8 · 随机场没做 · 前馈 128 宽</text>
+      <text x="0" y="56" fill="#cbd5e1" font-size="10">Tensor Core 累加不是顺序加法</text>
+      <text x="0" y="80" fill="#5eead4" font-size="10" font-weight="bold">差的不是 0.001，是误差从哪来</text>
+      <text x="0" y="98" fill="#94a3b8" font-size="10">一个 ulp，三层后放大一百倍</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 进度 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">周日傍晚走到哪</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 71 block progress bar -->
+    <g transform="translate(15 30)">
+      <text x="0" y="0" fill="#cbd5e1" font-size="10">71 块，从第 0 层重做</text>
+      <rect x="0" y="10" width="200" height="18" rx="3" fill="#1a1a1a" stroke="#334155"/>
+      <rect x="0" y="10" width="175" height="18" rx="3" fill="#2dd4bf" opacity="0.85"/>
+      <rect x="175" y="10" width="25" height="18" fill="#ef4444" opacity="0.5"/>
+      <text x="87" y="23" text-anchor="middle" fill="#022c22" font-size="10" font-weight="bold">0 到 61 逐值一致</text>
+      <text x="0" y="44" fill="#94a3b8" font-size="10">剩 9 块，游戏 dll 未改</text>
+    </g>
+
+    <line x1="16" y1="90" x2="214" y2="90" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(15 108)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">还必须完成的</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">· 上坡剩下九块接进连续链</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">· 最后一块的全分辨率 skip</text>
+      <text x="0" y="56" fill="#cbd5e1" font-size="10">· 1080p 几何，540 token 没测</text>
+      <text x="0" y="74" fill="#cbd5e1" font-size="10">· 192 MB 随机函数表挪出上传堆</text>
+      <text x="0" y="92" fill="#cbd5e1" font-size="10">· 游戏内 dll 重接，栅栏走完再读回</text>
+      <text x="0" y="110" fill="#94a3b8" font-size="10">· 然后才是帧率</text>
+    </g>
+
+    <g transform="translate(15 240)">
+      <rect x="0" y="0" width="200" height="44" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="18" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">过程指标和结果打架</text>
+      <text x="100" y="34" text-anchor="middle" fill="#a7f3d0" font-size="10">信结果，再查指标为什么不准</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="29" font-weight="bold">说好的跑通了，dll 也做出来了，结果是错的</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">合成从没提交给 GPU：一整天的帧率优化，量的是没人看见的输出</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.301 · DLSS 5 逆向 · 两天、一个标记位、从第 0 层重做</text>
+</svg>
