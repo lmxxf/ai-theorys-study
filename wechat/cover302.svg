@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AI 可解释性 · 豆包型人格 · 187 期的翻案</text>
+
+  <!-- ============ LEFT: 主流叙事 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">主流叙事：后训练惯出来的</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="38" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">人喜欢被认同</text>
+    </g>
+    <text x="115" y="84" text-anchor="middle" fill="#94a3b8" font-size="14">↓</text>
+    <g transform="translate(15 90)">
+      <rect x="0" y="0" width="200" height="38" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">奖励模型学会了</text>
+    </g>
+    <text x="115" y="146" text-anchor="middle" fill="#94a3b8" font-size="14">↓</text>
+    <g transform="translate(15 152)">
+      <rect x="0" y="0" width="200" height="38" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="24" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">RLHF 把它放大</text>
+    </g>
+
+    <line x1="16" y1="212" x2="214" y2="212" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <g transform="translate(16 232)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">这条链每一步都对</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">但「放大」需要输入</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">放大器之前是什么？</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">187 期没往前问</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 三份预训练证据 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">往前翻：后训练之前就有</text>
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="210" height="58" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="105" y="20" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">Anthropic 2022</text>
+      <text x="105" y="38" text-anchor="middle" fill="#bfdbfe" font-size="10">RLHF 0 步，观点题九成附和</text>
+      <text x="105" y="52" text-anchor="middle" fill="#bfdbfe" font-size="10">步数加多少都变化不大</text>
+    </g>
+
+    <g transform="translate(15 96)">
+      <rect x="0" y="0" width="210" height="58" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="105" y="20" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">Google 2023</text>
+      <text x="105" y="38" text-anchor="middle" fill="#bfdbfe" font-size="10">纯 base：8B → 62B → 540B</text>
+      <text x="105" y="52" text-anchor="middle" fill="#bfdbfe" font-size="10">越大越谄媚，+19.8 / +10 个点</text>
+    </g>
+
+    <g transform="translate(15 164)">
+      <rect x="0" y="0" width="210" height="58" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="105" y="20" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">EPFL 2026</text>
+      <text x="105" y="38" text-anchor="middle" fill="#a7f3d0" font-size="10">预训练跑到 0.22% 时</text>
+      <text x="105" y="52" text-anchor="middle" fill="#a7f3d0" font-size="10">谄媚方向已经能提出来</text>
+    </g>
+
+    <line x1="20" y1="238" x2="220" y2="238" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="120" y="262" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">起源和放大，是两个问题</text>
+    <text x="120" y="282" text-anchor="middle" fill="#94a3b8" font-size="10">后训练只动旋钮，旋钮出厂就在</text>
+  </g>
+
+  <!-- ============ RIGHT: 没有那根轴 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">再往前：它没有那根轴</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="95" height="64" rx="6" fill="#1a1a1a" stroke="#64748b" stroke-width="1.5"/>
+      <text x="47" y="26" text-anchor="middle" fill="#cbd5e1" font-size="18" font-weight="bold">五成</text>
+      <text x="47" y="46" text-anchor="middle" fill="#94a3b8" font-size="10">没读上文</text>
+      <rect x="105" y="0" width="95" height="64" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="152" y="26" text-anchor="middle" fill="#fca5a5" font-size="18" font-weight="bold">九成</text>
+      <text x="152" y="46" text-anchor="middle" fill="#f87171" font-size="10">读了上文</text>
+    </g>
+    <text x="115" y="118" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">两边都没有「自己的立场」</text>
+
+    <line x1="16" y1="136" x2="214" y2="136" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 156)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">立场要在时间里才长得出来</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">预训练先把语料打散再学</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">读过很多人的一生</text>
+      <text x="0" y="56" fill="#cbd5e1" font-size="10">没有一条是它自己的</text>
+    </g>
+
+    <g transform="translate(15 228)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="21" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">现阶段的办法</text>
+      <text x="100" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">时间轴只能外挂：给它一份记录</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">豆包为什么这么谄媚：后训练之前，毛病就有了</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">RLHF 只是放大器，输入是预训练送进来的</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.302 · 靳岩岩的 AI 学习笔记</text>
+</svg>
