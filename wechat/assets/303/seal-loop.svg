@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660">
+  <defs>
+    <marker id="a1" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#475569"/>
+    </marker>
+    <marker id="a2" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#c2410c"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .ttl { font-size: 17px; font-weight: bold; fill: #0f172a; }
+    .sub { font-size: 12px; fill: #64748b; }
+    .bx { font-size: 13px; fill: #1e293b; }
+    .tag { font-size: 11px; fill: #64748b; }
+    .note { font-size: 12px; fill: #334155; }
+    .step { font-size: 12px; font-weight: bold; fill: #0369a1; }
+  </style>
+
+  <rect width="900" height="660" fill="#fbfbfd"/>
+
+  <!-- ========= 内层 ========= -->
+  <rect x="34" y="60" width="596" height="330" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+  <text x="52" y="42" class="ttl">内层：一次自学，约 30 到 45 秒</text>
+  <text x="52" y="84" class="sub">目的不是让它学会，是看它自己写的材料好不好用</text>
+
+  <!-- 步骤1 -->
+  <rect x="56" y="104" width="128" height="60" rx="5" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="120" y="128" text-anchor="middle" class="bx">一段没见过</text>
+  <text x="120" y="146" text-anchor="middle" class="bx">的资料</text>
+
+  <text x="200" y="122" class="step">①</text>
+  <path fill="none" d="M184 134 L232 134" stroke="#475569" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <rect x="238" y="98" width="170" height="72" rx="5" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="323" y="120" text-anchor="middle" class="bx">模型自己写材料</text>
+  <text x="323" y="140" text-anchor="middle" class="tag">「列出能推出的结论」</text>
+  <text x="323" y="158" text-anchor="middle" class="tag">一行一条，当训练数据</text>
+
+  <text x="424" y="122" class="step">②</text>
+  <path fill="none" d="M408 134 L456 134" stroke="#475569" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <rect x="462" y="104" width="150" height="60" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="537" y="128" text-anchor="middle" class="bx">拿它微调</text>
+  <text x="537" y="148" text-anchor="middle" class="tag">LoRA，权重真的变了</text>
+
+  <path fill="none" d="M537 164 L537 208" stroke="#475569" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="548" y="192" class="step">③</text>
+
+  <rect x="424" y="214" width="188" height="72" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="518" y="238" text-anchor="middle" class="bx">把原文拿走，直接考</text>
+  <text x="518" y="258" text-anchor="middle" class="tag">上下文里没有资料了</text>
+  <text x="518" y="276" text-anchor="middle" class="tag">答得出来只能靠权重</text>
+
+  <path fill="none" d="M424 250 L340 250" stroke="#475569" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="372" y="242" class="step">④</text>
+
+  <rect x="206" y="222" width="128" height="56" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="270" y="244" text-anchor="middle" class="bx">对给 1 分</text>
+  <text x="270" y="264" text-anchor="middle" class="bx">错给 0 分</text>
+
+  <!-- 丢弃提示 -->
+  <rect x="56" y="306" width="556" height="62" rx="6" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="74" y="330" class="note">注意：这一轮微调出来的那份权重，考完就不要了，只用来打分。</text>
+  <text x="74" y="352" class="note">它不是“学会了这篇文章”的成品，只是一次“这份材料管不管用”的测试。</text>
+
+  <!-- ========= 外层 ========= -->
+  <rect x="34" y="424" width="830" height="150" rx="10" fill="#fef2f2" stroke="#c2410c" stroke-width="2"/>
+  <text x="52" y="412" class="ttl">外层：拿分数去训「怎么写材料」，一共两轮</text>
+
+  <rect x="56" y="452" width="150" height="60" rx="5" fill="#fff" stroke="#c2410c"/>
+  <text x="131" y="476" text-anchor="middle" class="bx">同一段资料</text>
+  <text x="131" y="496" text-anchor="middle" class="tag">写 5 份不同的材料</text>
+
+  <path fill="none" d="M206 482 L254 482" stroke="#c2410c" stroke-width="1.5" marker-end="url(#a2)"/>
+
+  <rect x="260" y="452" width="160" height="60" rx="5" fill="#fff" stroke="#c2410c"/>
+  <text x="340" y="476" text-anchor="middle" class="bx">各训各测</text>
+  <text x="340" y="496" text-anchor="middle" class="tag">每份跑 3 个种子取平均</text>
+
+  <path fill="none" d="M420 482 L468 482" stroke="#c2410c" stroke-width="1.5" marker-end="url(#a2)"/>
+
+  <rect x="474" y="452" width="150" height="60" rx="5" fill="#fff" stroke="#c2410c"/>
+  <text x="549" y="476" text-anchor="middle" class="bx">留分最高的</text>
+  <text x="549" y="496" text-anchor="middle" class="tag">那一份</text>
+
+  <path fill="none" d="M624 482 L672 482" stroke="#c2410c" stroke-width="1.5" marker-end="url(#a2)"/>
+
+  <rect x="678" y="446" width="168" height="72" rx="5" fill="#ffedd5" stroke="#c2410c" stroke-width="1.5"/>
+  <text x="762" y="470" text-anchor="middle" class="bx">训练「怎么写材料」</text>
+  <text x="762" y="490" text-anchor="middle" class="tag">更新的是出题的本事</text>
+  <text x="762" y="508" text-anchor="middle" class="tag">不是那个被适配的模型</text>
+
+  <!-- 内层→外层 -->
+  <path fill="none" d="M270 278 L270 292 L646 292 L646 482 L678 482" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#a2)"/>
+  <text x="656" y="380" class="tag">分数送到外层</text>
+
+  <!-- 底部 -->
+  <rect x="34" y="596" width="830" height="46" rx="6" fill="#1e293b"/>
+  <text x="449" y="620" text-anchor="middle" fill="#f8fafc" font-size="14">它学会的不是「记住了那篇文章」，是「怎么给自己写一份好用的自习材料」。</text>
+</svg>

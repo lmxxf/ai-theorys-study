@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#475569"/>
+    </marker>
+    <marker id="arT" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#0d9488"/>
+    </marker>
+    <marker id="arP" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .ttl { font-size: 18px; font-weight: bold; fill: #0f172a; }
+    .sub { font-size: 12px; fill: #64748b; }
+    .box { font-size: 13px; fill: #1e293b; }
+    .bx2 { font-size: 12px; fill: #1e293b; }
+    .tag { font-size: 11px; fill: #64748b; }
+    .note { font-size: 12px; fill: #334155; }
+  </style>
+
+  <rect width="900" height="700" fill="#fbfbfd"/>
+
+  <!-- ================= LEFT: TTT ================= -->
+  <text x="30" y="36" class="ttl">TTT：把注意力换掉</text>
+  <text x="30" y="56" class="sub">记忆就是那一层本身</text>
+
+  <rect x="70" y="82" width="200" height="34" rx="5" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="170" y="104" text-anchor="middle" class="box">这一段输入</text>
+
+  <rect x="50" y="150" width="240" height="118" rx="6" fill="#f0fdfa" stroke="#0d9488" stroke-width="2"/>
+  <text x="170" y="174" text-anchor="middle" class="bx2" font-weight="bold">TTT 层</text>
+  <text x="170" y="192" text-anchor="middle" class="tag">（原来这儿是自注意力）</text>
+
+  <rect x="100" y="204" width="140" height="40" rx="4" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="170" y="221" text-anchor="middle" class="bx2">小模型</text>
+  <text x="170" y="237" text-anchor="middle" class="tag">读 16 个词自训一步</text>
+
+  <rect x="70" y="302" width="200" height="34" rx="5" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="170" y="324" text-anchor="middle" class="box">输出</text>
+
+  <path fill="none" d="M170 116 L170 150" stroke="#475569" stroke-width="1.5" marker-end="url(#ar)"/>
+  <path fill="none" d="M170 268 L170 302" stroke="#475569" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <rect x="50" y="366" width="240" height="80" rx="6" fill="#f0fdfa" stroke="#5eead4"/>
+  <text x="66" y="390" class="note">· 自注意力整层被顶掉</text>
+  <text x="66" y="412" class="note">· 更新就是一步梯度下降</text>
+  <text x="66" y="432" class="note">· 论文明说：序列结束清零</text>
+
+  <line x1="320" y1="24" x2="320" y2="660" stroke="#cbd5e1" stroke-dasharray="5,5"/>
+
+  <!-- ================= RIGHT: Titans ================= -->
+  <text x="352" y="36" class="ttl">Titans：注意力留着，旁边加一块记忆</text>
+  <text x="352" y="56" class="sub">效果最好的那种接法（记忆当上下文）</text>
+
+  <!-- 当前段 -->
+  <rect x="352" y="82" width="150" height="34" rx="5" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="427" y="104" text-anchor="middle" class="box">当前这一段</text>
+
+  <!-- 记忆模块 -->
+  <rect x="600" y="150" width="250" height="96" rx="6" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="725" y="174" text-anchor="middle" class="bx2" font-weight="bold">长期记忆模块（多层小网络）</text>
+  <text x="725" y="196" text-anchor="middle" class="tag">惊讶度：这次多出乎意料</text>
+  <text x="725" y="214" text-anchor="middle" class="tag">动量：上几次的意外还留着</text>
+  <text x="725" y="232" text-anchor="middle" class="tag">遗忘门：旧的按需衰减</text>
+
+  <!-- 检索 -->
+  <path fill="none" d="M502 99 L560 99 L560 176 L600 176" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arP)"/>
+  <text x="556" y="92" class="tag">① 拿它去查</text>
+
+  <!-- 拼接 -->
+  <rect x="352" y="186" width="180" height="96" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="442" y="208" text-anchor="middle" class="bx2" font-weight="bold">拼成一条新序列</text>
+  <text x="442" y="230" text-anchor="middle" class="tag">任务知识（固定不动）</text>
+  <text x="442" y="250" text-anchor="middle" class="tag">＋ 查回来的记忆</text>
+  <text x="442" y="270" text-anchor="middle" class="tag">＋ 当前这一段</text>
+
+  <path fill="none" d="M600 200 L560 200 L560 226 L532 226" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arP)"/>
+  <text x="548" y="256" class="tag">② 查到的塞回来</text>
+
+  <path fill="none" d="M427 116 L427 186" stroke="#475569" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- 注意力 -->
+  <rect x="352" y="318" width="180" height="52" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="442" y="340" text-anchor="middle" class="bx2">注意力</text>
+  <text x="442" y="358" text-anchor="middle" class="tag">主干权重不更新</text>
+
+  <path fill="none" d="M442 282 L442 318" stroke="#475569" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="452" y="304" class="tag">③ 一起过</text>
+
+  <!-- 回写 -->
+  <path fill="none" d="M532 356 L575 356 L575 300 L725 300 L725 246" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arP)"/>
+  <text x="620" y="292" class="tag">④ 用注意力的输出更新记忆</text>
+
+  <rect x="352" y="410" width="180" height="34" rx="5" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="442" y="432" text-anchor="middle" class="box">输出</text>
+  <path fill="none" d="M442 370 L442 410" stroke="#475569" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- 守门员注 -->
+  <rect x="600" y="392" width="250" height="66" rx="6" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="616" y="414" class="note">注意力在这儿是记忆的守门员：</text>
+  <text x="616" y="434" class="note">一段里不是每个词都值得记，</text>
+  <text x="616" y="452" class="note">先筛一遍，记忆才不会被塞爆。</text>
+
+  <rect x="352" y="478" width="498" height="104" rx="6" fill="#f5f3ff" stroke="#c4b5fd"/>
+  <text x="370" y="502" class="note">· 注意力没被替换，只是缩成了只看附近一段的滑动窗口</text>
+  <text x="370" y="524" class="note">· 推理时：记忆模块的权重更新，注意力主干和那组任务知识都不动</text>
+  <text x="370" y="546" class="note">· 消融实验里贡献最大的不是“记”，是“忘”那一项</text>
+  <text x="370" y="566" class="note">· 新序列开始时记忆清不清零——论文全文没有交代</text>
+
+  <!-- 底部 -->
+  <rect x="40" y="602" width="810" height="58" rx="6" fill="#1e293b"/>
+  <text x="445" y="626" text-anchor="middle" fill="#f8fafc" font-size="14">两者都是“边读边把东西写进一小块权重”，区别在于 Titans 会挑（惊讶度）、会忘（遗忘门），还留着注意力当守门员。</text>
+  <text x="445" y="648" text-anchor="middle" fill="#94a3b8" font-size="12">但两者的实验都在一条序列内部；换一条序列还剩什么，一个说了清零，一个没说。</text>
+</svg>
