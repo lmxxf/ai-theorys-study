@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AI AGENT · 把上下文写回权重 · 十四篇论文</text>
+
+  <!-- ============ LEFT: 外挂 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">现在的办法：挂在外面</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">长上下文</text>
+      <text x="100" y="36" text-anchor="middle" fill="#bfdbfe" font-size="10">塞得越多，注意力越散</text>
+    </g>
+
+    <g transform="translate(15 86)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">检索</text>
+      <text x="100" y="36" text-anchor="middle" fill="#bfdbfe" font-size="10">没被找出来就不在</text>
+    </g>
+
+    <g transform="translate(15 142)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="20" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">摘要压缩</text>
+      <text x="100" y="38" text-anchor="middle" fill="#f87171" font-size="10">三轮之后答对率</text>
+      <text x="100" y="54" text-anchor="middle" fill="#f87171" font-size="14" font-weight="bold">36.8%</text>
+    </g>
+
+    <line x1="16" y1="216" x2="214" y2="216" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="115" y="240" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">共同点</text>
+    <text x="115" y="262" text-anchor="middle" fill="#cbd5e1" font-size="10">模型一个参数都没变</text>
+    <text x="115" y="282" text-anchor="middle" fill="#94a3b8" font-size="10">每次得重新读一遍</text>
+  </g>
+
+  <!-- ============ MIDDLE: 写进权重 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">另一条路：写进参数</text>
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="210" height="42" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="105" y="18" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">上下文蒸馏 · 2021</text>
+      <text x="105" y="34" text-anchor="middle" fill="#a7f3d0" font-size="10">固定的一段，早就能训进去</text>
+    </g>
+
+    <g transform="translate(15 82)">
+      <rect x="0" y="0" width="210" height="42" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="105" y="18" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">TTT / Titans</text>
+      <text x="105" y="34" text-anchor="middle" fill="#a7f3d0" font-size="10">边读边更新，但只管一条序列</text>
+    </g>
+
+    <g transform="translate(15 134)">
+      <rect x="0" y="0" width="210" height="42" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="105" y="18" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">SEAL · 自己写自习材料</text>
+      <text x="105" y="34" text-anchor="middle" fill="#a7f3d0" font-size="10">拿考试成绩当依据</text>
+    </g>
+
+    <g transform="translate(15 186)">
+      <rect x="0" y="0" width="210" height="56" rx="6" fill="#1a2a0a" stroke="#84cc16" stroke-width="2"/>
+      <text x="105" y="20" text-anchor="middle" fill="#bef264" font-size="11" font-weight="bold">每晚巩固 · LoRA 秩 16</text>
+      <text x="105" y="38" text-anchor="middle" fill="#a3e635" font-size="10">同一批问题答对率</text>
+      <text x="105" y="52" text-anchor="middle" fill="#bef264" font-size="14" font-weight="bold">80.4%</text>
+    </g>
+
+    <text x="120" y="266" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">流程有人接起来了</text>
+    <text x="120" y="286" text-anchor="middle" fill="#94a3b8" font-size="10">一段对话，5090 上跑一晚</text>
+  </g>
+
+  <!-- ============ RIGHT: 两种记忆 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">但它们记的不是一种东西</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <text x="115" y="42" text-anchor="middle" fill="#cbd5e1" font-size="11">同一套测试，各赢一半</text>
+
+    <g transform="translate(15 54)">
+      <rect x="0" y="0" width="98" height="70" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="49" y="20" text-anchor="middle" fill="#93c5fd" font-size="10">检索</text>
+      <text x="49" y="42" text-anchor="middle" fill="#bfdbfe" font-size="17" font-weight="bold">0.96</text>
+      <text x="49" y="60" text-anchor="middle" fill="#93c5fd" font-size="9">找回事实</text>
+
+      <rect x="106" y="0" width="98" height="70" rx="6" fill="#1a2a0a" stroke="#84cc16" stroke-width="1.5"/>
+      <text x="155" y="20" text-anchor="middle" fill="#bef264" font-size="10">写进权重</text>
+      <text x="155" y="42" text-anchor="middle" fill="#a3e635" font-size="17" font-weight="bold">0.90</text>
+      <text x="155" y="60" text-anchor="middle" fill="#bef264" font-size="9">守住目标</text>
+    </g>
+
+    <line x1="16" y1="144" x2="214" y2="144" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 164)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">查下来最在意的一件事</text>
+      <text x="0" y="22" fill="#cbd5e1" font-size="10">筛选那侧办法一堆</text>
+      <text x="0" y="40" fill="#cbd5e1" font-size="10">写入那侧还是同一招</text>
+      <text x="0" y="62" fill="#f87171" font-size="10">抽出来的是「现在用 PostgreSQL」</text>
+      <text x="0" y="80" fill="#f87171" font-size="10">不是「为什么从 MongoDB 换的」</text>
+      <text x="0" y="104" fill="#94a3b8" font-size="10">留下了结论，丢掉了转折</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">我想让 AI 记住我们的过往，有办法吗</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">十四篇论文查下来：能写进去，但留下的只是结论</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.303 · 靳岩岩的 AI 学习笔记</text>
+</svg>

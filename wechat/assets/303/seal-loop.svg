@@ -21,8 +21,8 @@
 
   <!-- ========= 内层 ========= -->
   <rect x="34" y="60" width="596" height="330" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
-  <text x="52" y="42" class="ttl">内层：一次自学，约 30 到 45 秒</text>
-  <text x="52" y="84" class="sub">目的不是让它学会，是看它自己写的材料好不好用</text>
+  <text x="52" y="42" class="ttl">训练阶段的内层：一次自学，约 30 到 45 秒</text>
+  <text x="52" y="84" class="sub">先适配，再看答题成绩：这份自习材料好不好用</text>
 
   <!-- 步骤1 -->
   <rect x="56" y="104" width="128" height="60" rx="5" fill="#e2e8f0" stroke="#94a3b8"/>
@@ -41,7 +41,7 @@
   <path fill="none" d="M408 134 L456 134" stroke="#475569" stroke-width="1.5" marker-end="url(#a1)"/>
 
   <rect x="462" y="104" width="150" height="60" rx="5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
-  <text x="537" y="128" text-anchor="middle" class="bx">拿它微调</text>
+  <text x="537" y="128" text-anchor="middle" class="bx">原文 + 材料微调</text>
   <text x="537" y="148" text-anchor="middle" class="tag">LoRA，权重真的变了</text>
 
   <path fill="none" d="M537 164 L537 208" stroke="#475569" stroke-width="1.5" marker-end="url(#a1)"/>
@@ -50,19 +50,19 @@
   <rect x="424" y="214" width="188" height="72" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
   <text x="518" y="238" text-anchor="middle" class="bx">把原文拿走，直接考</text>
   <text x="518" y="258" text-anchor="middle" class="tag">上下文里没有资料了</text>
-  <text x="518" y="276" text-anchor="middle" class="tag">答得出来只能靠权重</text>
+  <text x="518" y="276" text-anchor="middle" class="tag">不再把原文放进提示</text>
 
   <path fill="none" d="M424 250 L340 250" stroke="#475569" stroke-width="1.5" marker-end="url(#a1)"/>
   <text x="372" y="242" class="step">④</text>
 
   <rect x="206" y="222" width="128" height="56" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
-  <text x="270" y="244" text-anchor="middle" class="bx">对给 1 分</text>
-  <text x="270" y="264" text-anchor="middle" class="bx">错给 0 分</text>
+  <text x="270" y="244" text-anchor="middle" class="bx">按参考答案评分</text>
+  <text x="270" y="264" text-anchor="middle" class="bx">汇总问答准确率</text>
 
   <!-- 丢弃提示 -->
   <rect x="56" y="306" width="556" height="62" rx="6" fill="#fff7ed" stroke="#fdba74"/>
-  <text x="74" y="330" class="note">注意：这一轮微调出来的那份权重，考完就不要了，只用来打分。</text>
-  <text x="74" y="352" class="note">它不是“学会了这篇文章”的成品，只是一次“这份材料管不管用”的测试。</text>
+  <text x="74" y="330" class="note">比较候选材料时，各自从本轮起点适配；适配后的权重用于评分。</text>
+  <text x="74" y="352" class="note">外层从本轮起点更新生成策略，不接着某个候选的适配权重往下训。</text>
 
   <!-- ========= 外层 ========= -->
   <rect x="34" y="424" width="830" height="150" rx="10" fill="#fef2f2" stroke="#c2410c" stroke-width="2"/>
@@ -88,8 +88,8 @@
 
   <rect x="678" y="446" width="168" height="72" rx="5" fill="#ffedd5" stroke="#c2410c" stroke-width="1.5"/>
   <text x="762" y="470" text-anchor="middle" class="bx">训练「怎么写材料」</text>
-  <text x="762" y="490" text-anchor="middle" class="tag">更新的是出题的本事</text>
-  <text x="762" y="508" text-anchor="middle" class="tag">不是那个被适配的模型</text>
+  <text x="762" y="490" text-anchor="middle" class="tag">学的是写材料的本事</text>
+  <text x="762" y="508" text-anchor="middle" class="tag">从本轮起点更新策略</text>
 
   <!-- 内层→外层 -->
   <path fill="none" d="M270 278 L270 292 L646 292 L646 482 L678 482" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#a2)"/>
@@ -97,5 +97,5 @@
 
   <!-- 底部 -->
   <rect x="34" y="596" width="830" height="46" rx="6" fill="#1e293b"/>
-  <text x="449" y="620" text-anchor="middle" fill="#f8fafc" font-size="14">它学会的不是「记住了那篇文章」，是「怎么给自己写一份好用的自习材料」。</text>
+  <text x="449" y="620" text-anchor="middle" fill="#f8fafc" font-size="14">外层学会的不是「记住了那篇文章」，是「怎么给自己写一份好用的自习材料」。</text>
 </svg>

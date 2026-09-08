@@ -39,7 +39,7 @@
   <text x="295" y="198" text-anchor="middle" class="box">矩阵 A</text>
   <rect x="240" y="222" width="110" height="34" rx="5" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
   <text x="295" y="244" text-anchor="middle" class="box">矩阵 B</text>
-  <text x="330" y="278" text-anchor="start" class="tag">微调时学，部署后也冻住</text>
+  <text x="295" y="278" text-anchor="middle" class="tag">微调时学，常规推理时固定</text>
 
   <!-- 汇合 -->
   <circle cx="180" cy="310" r="17" fill="#fff" stroke="#475569" stroke-width="1.5"/>
@@ -60,7 +60,7 @@
   <rect x="40" y="436" width="340" height="96" rx="6" fill="#fffbeb" stroke="#fcd34d"/>
   <text x="58" y="460" class="note">· 什么都没被替换掉，是加了个补丁</text>
   <text x="58" y="482" class="note">· A 和 B 的身份是「参数」，训完存进文件</text>
-  <text x="58" y="504" class="note">· 加载之后一直不变，跟原权重一起用</text>
+  <text x="58" y="504" class="note">· 保存后供后续使用，也能继续微调</text>
   <text x="58" y="524" class="note">· 第五章那两篇 2026 年的工作，改的就是它</text>
 
   <!-- 分隔线 -->
@@ -68,7 +68,7 @@
 
   <!-- ============ RIGHT: TTT ============ -->
   <text x="490" y="38" class="ttl">TTT：顺序挂</text>
-  <text x="490" y="58" class="sub">自注意力那一层整个被换掉，数据从它中间穿过去</text>
+  <text x="490" y="58" class="sub">以 Transformer 骨架为例：用 TTT 替换自注意力</text>
 
   <rect x="590" y="96" width="120" height="40" rx="5" fill="#e2e8f0" stroke="#94a3b8"/>
   <text x="650" y="121" text-anchor="middle" class="box">输入 x</text>
@@ -82,13 +82,13 @@
   <text x="566" y="256" text-anchor="middle" class="tag">预训练学完</text>
   <text x="566" y="272" text-anchor="middle" class="tag">就冻住</text>
 
-  <rect x="638" y="212" width="130" height="46" rx="4" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
-  <text x="703" y="231" text-anchor="middle" class="box">小模型 W</text>
-  <text x="703" y="249" text-anchor="middle" class="tag">读 16 个词更新一次</text>
+  <rect x="638" y="212" width="146" height="46" rx="4" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="711" y="231" text-anchor="middle" class="tag">每个头的小模型 W</text>
+  <text x="711" y="249" text-anchor="middle" class="tag" style="font-size:9px">16 个 token 一批，因果更新</text>
 
   <path fill="none" d="M703 262 C 640 282, 620 240, 636 232" stroke="#0d9488" stroke-width="1.5" marker-end="url(#arrowTeal)"/>
   <text x="712" y="288" text-anchor="middle" class="tag">自己给自己做梯度下降</text>
-  <text x="712" y="306" text-anchor="middle" class="tag">序列结束就清零</text>
+  <text x="712" y="306" text-anchor="middle" class="tag">新序列回到共同初值</text>
 
   <path fill="none" d="M602 227 L638 227" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
 
@@ -100,12 +100,12 @@
 
   <rect x="500" y="436" width="340" height="96" rx="6" fill="#f0fdfa" stroke="#5eead4"/>
   <text x="518" y="460" class="note">· 自注意力被整个换掉，不是打补丁</text>
-  <text x="518" y="482" class="note">· 小 W 的身份是「隐状态」，不存盘</text>
-  <text x="518" y="504" class="note">· 每读一段就变一次，边用边学</text>
+  <text x="518" y="482" class="note">· 动态 W 是「隐状态」，初值由外层学</text>
+  <text x="518" y="504" class="note">· 逐位置累计已有信息，边用边学</text>
   <text x="518" y="524" class="note">· 但下一条序列从同一个起点重来</text>
 
   <!-- 底部一句话 -->
   <rect x="40" y="558" width="800" height="52" rx="6" fill="#1e293b"/>
-  <text x="440" y="580" text-anchor="middle" fill="#f8fafc" font-size="14">同样是一小块矩阵：LoRA 拿它当参数，训完存下来；TTT 拿它当隐状态，用完就扔。</text>
-  <text x="440" y="600" text-anchor="middle" fill="#94a3b8" font-size="12">差别不在怎么挂，在存不存盘。</text>
+  <text x="440" y="580" text-anchor="middle" fill="#f8fafc" font-size="14">同样是一小块矩阵：LoRA 当参数存下来，TTT 当序列内的状态用完就重置。</text>
+  <text x="440" y="600" text-anchor="middle" fill="#94a3b8" font-size="12">第五章那两篇把 LoRA 留了下来，跟 TTT 的分别就在这一步。</text>
 </svg>
