@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="'Noto Sans CJK SC', sans-serif" font-size="13" fill="#222">
+  <rect width="960" height="640" fill="#fafafa"/>
+  <text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold">DLSS 5（DLSSNR）71 块的 U 形结构：C 后面的数字是通道数</text>
+  <text x="480" y="50" text-anchor="middle" font-size="12" fill="#666">左边下坡：分辨率减半、通道翻倍；右边上坡反过来。同一行的两侧用同一套核源码，权重各是各的。</text>
+
+  <!-- row labels: resolution / tokens -->
+  <g font-size="11" fill="#777" text-anchor="end">
+    <text x="118" y="112">1920×1152，2.2M 像素</text>
+    <text x="118" y="182">960×576</text>
+    <text x="118" y="252">480×288</text>
+    <text x="118" y="322">240×144</text>
+    <text x="118" y="392">120×72</text>
+    <text x="118" y="462">60×36，2160 token</text>
+    <text x="118" y="532">640 token × 1024 通道</text>
+  </g>
+
+  <!-- block boxes: x,y,w,h, color by kernel family -->
+  <defs>
+    <g id="lab"><rect rx="6" ry="6" fill="#fff" stroke="#999"/></g>
+  </defs>
+
+  <!-- C32 family (orange) -->
+  <g stroke="#d9822b" stroke-width="1.5" fill="#fdf1e4">
+    <rect x="130" y="90" width="150" height="34" rx="6"/>
+    <rect x="680" y="90" width="150" height="34" rx="6"/>
+    <rect x="150" y="160" width="130" height="34" rx="6"/>
+    <rect x="680" y="160" width="130" height="34" rx="6"/>
+  </g>
+  <!-- multihead C64/128/256 (blue) -->
+  <g stroke="#3b6fb6" stroke-width="1.5" fill="#e7eefb">
+    <rect x="170" y="230" width="110" height="34" rx="6"/>
+    <rect x="680" y="230" width="110" height="34" rx="6"/>
+    <rect x="190" y="300" width="90" height="34" rx="6"/>
+    <rect x="680" y="300" width="90" height="34" rx="6"/>
+    <rect x="210" y="370" width="70" height="34" rx="6"/>
+    <rect x="680" y="370" width="70" height="34" rx="6"/>
+  </g>
+  <!-- C512 split (green) -->
+  <g stroke="#3a9a5b" stroke-width="1.5" fill="#e6f5ea">
+    <rect x="230" y="440" width="50" height="34" rx="6"/>
+    <rect x="680" y="440" width="50" height="34" rx="6"/>
+  </g>
+  <!-- ViT (purple) -->
+  <rect x="330" y="510" width="300" height="44" rx="6" stroke="#8a4fb5" stroke-width="1.5" fill="#f1e8f8"/>
+
+  <!-- block texts (left) -->
+  <g font-size="12">
+    <text x="205" y="111" text-anchor="middle">块 0　C32　pre</text>
+    <text x="215" y="181" text-anchor="middle">块 1–4　C32 ×4</text>
+    <text x="225" y="251" text-anchor="middle">块 5–8　C64 ×4</text>
+    <text x="235" y="321" text-anchor="middle">9–14　C128 ×6</text>
+    <text x="245" y="391" text-anchor="middle">15–22 C256</text>
+    <text x="255" y="461" text-anchor="middle">23–30</text>
+    <text x="480" y="529" text-anchor="middle">块 31–38　ViT ×8　全局注意力（640 个 token 互相看）</text>
+    <text x="480" y="545" text-anchor="middle" font-size="11" fill="#666">隐层 1024→4096→1024</text>
+  </g>
+  <!-- block texts (right) -->
+  <g font-size="12">
+    <text x="755" y="111" text-anchor="middle">块 70　C32　post</text>
+    <text x="745" y="181" text-anchor="middle">块 66–69　C32 ×4</text>
+    <text x="735" y="251" text-anchor="middle">块 62–65　C64 ×4</text>
+    <text x="725" y="321" text-anchor="middle">56–61 C128 ×6</text>
+    <text x="715" y="391" text-anchor="middle">48–55 C256</text>
+    <text x="705" y="461" text-anchor="middle">40–47</text>
+  </g>
+  <!-- small labels near C256/C512 boxes -->
+  <text x="290" y="391" font-size="11" fill="#666">×8</text>
+  <text x="760" y="391" font-size="11" fill="#666">×8</text>
+  <text x="290" y="461" font-size="11" fill="#666">C512 ×8</text>
+  <text x="740" y="461" font-size="11" fill="#666">C512 ×8</text>
+
+  <!-- down path arrows (left) -->
+  <g stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+    <path d="M205 124 V160"/>
+    <path d="M215 194 V230"/>
+    <path d="M225 264 V300"/>
+    <path d="M235 334 V370"/>
+    <path d="M245 404 V440"/>
+    <path d="M255 474 V510 H330"/>
+    <path d="M630 532 H705 V474"/>
+    <path d="M705 440 V404"/>
+    <path d="M715 370 V334"/>
+    <path d="M725 300 V264"/>
+    <path d="M735 230 V194"/>
+    <path d="M745 160 V124"/>
+  </g>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker>
+  </defs>
+  <!-- downsample / upsample labels -->
+  <g font-size="10" fill="#888">
+    <text x="214" y="146">2×2 池化，通道 32→64</text>
+    <text x="224" y="216">池化 64→128</text>
+    <text x="234" y="286">池化 128→256</text>
+    <text x="244" y="356">池化 256→512</text>
+    <text x="254" y="426">池化，通道不变</text>
+    <text x="750" y="426">块 48 先升采样投影</text>
+    <text x="750" y="356">块 56 先升采样投影</text>
+    <text x="750" y="286">块 62 先升采样投影</text>
+    <text x="750" y="216">块 66 先升采样投影</text>
+    <text x="750" y="146">块 70 里 merge 回全分辨率</text>
+  </g>
+
+  <!-- skip connections (dashed) -->
+  <g stroke="#bbb" stroke-width="1.2" stroke-dasharray="5 4" fill="none">
+    <path d="M280 107 H680"/>
+    <path d="M280 177 H680"/>
+    <path d="M280 247 H680"/>
+    <path d="M280 317 H680"/>
+    <path d="M280 387 H680"/>
+    <path d="M280 457 H680"/>
+  </g>
+  <text x="480" y="100" text-anchor="middle" font-size="11" fill="#999">虚线：跳接（skip），下坡的输出拼到同一行上坡块的输入里</text>
+
+  <!-- legend -->
+  <g transform="translate(130,585)" font-size="12">
+    <rect x="0" y="0" width="18" height="14" rx="3" fill="#fdf1e4" stroke="#d9822b"/><text x="24" y="12">C32 家族：自己一套核，8×8 瓦片序，前馈 32→128→32，像素最多也最贵</text>
+    <rect x="0" y="22" width="18" height="14" rx="3" fill="#e7eefb" stroke="#3b6fb6"/><text x="24" y="34">C64/128/256：同一份核源码按通道数编三份，前馈 → 8×8 窗口注意力 → 投影</text>
+    <rect x="460" y="0" width="18" height="14" rx="3" fill="#e6f5ea" stroke="#3a9a5b"/><text x="484" y="12">C512：结构同上，前馈拆两段，注意力直读 FP8</text>
+    <rect x="460" y="22" width="18" height="14" rx="3" fill="#f1e8f8" stroke="#8a4fb5"/><text x="484" y="34">ViT：全局注意力，另一种块</text>
+  </g>
+</svg>
