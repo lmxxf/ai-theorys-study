@@ -1,18 +1,26 @@
 #!/usr/bin/env bash
-# 把 <start> 及以后的连续期号全部 +1，腾出 <start> 这个号
-# 用法: ./shift-from.sh 236
+# 把 <start> 及以后的连续期号全部 +<count>，腾出 <count> 个空号
+# 用法: ./shift-from.sh 236        → 腾出 236 一个空号
+#       ./shift-from.sh 236 3      → 腾出 236/237/238 三个空号
 # 顺延对象: <n>.md, assets/<n>/, cover<n>.svg, cover<n>.png
 # 用 git mv 保 git history; 非 git 仓库回退到 mv
 
 set -euo pipefail
 
-if [[ $# -ne 1 || ! "$1" =~ ^[0-9]+$ ]]; then
-    echo "用法: $0 <起始期号>"
-    echo "例如: $0 236  → 把 236.md 及之后的连续期号全部 +1"
+if [[ $# -lt 1 || $# -gt 2 || ! "$1" =~ ^[0-9]+$ ]]; then
+    echo "用法: $0 <起始期号> [腾出几个]"
+    echo "例如: $0 236    → 把 236.md 及之后的连续期号全部 +1，腾出 236"
+    echo "      $0 236 3  → 全部 +3，腾出 236/237/238"
     exit 1
 fi
 
 START="$1"
+COUNT="${2:-1}"
+
+if [[ ! "$COUNT" =~ ^[0-9]+$ ]] || [[ "$COUNT" -lt 1 ]]; then
+    echo "错误: 腾出个数必须是不小于 1 的整数，收到 '$COUNT'"
+    exit 1
+fi
 DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$DIR"
 
@@ -36,13 +44,13 @@ if [[ ${#nums[@]} -eq 0 ]]; then
     exit 0
 fi
 
-echo "将顺延 ${#nums[@]} 期: ${nums[0]} → $((nums[-1] + 1))"
+echo "将顺延 ${#nums[@]} 期(每期 +${COUNT}): ${nums[0]} → $((nums[-1] + COUNT))"
 echo "用 $MV"
 
 # 从大到小倒序挪,避免覆盖
 for ((i=${#nums[@]}-1; i>=0; i--)); do
     old="${nums[i]}"
-    new=$((old + 1))
+    new=$((old + COUNT))
 
     [[ -f "${old}.md" ]] && $MV "${old}.md" "${new}.md" && echo "  ${old}.md → ${new}.md"
     [[ -d "assets/${old}" ]] && $MV "assets/${old}" "assets/${new}" && echo "  assets/${old}/ → assets/${new}/"
@@ -50,4 +58,8 @@ for ((i=${#nums[@]}-1; i>=0; i--)); do
     [[ -f "cover${old}.png" ]] && $MV "cover${old}.png" "cover${new}.png" && echo "  cover${old}.png → cover${new}.png"
 done
 
-echo "完成。腾出 ${START} 号"
+if [[ "$COUNT" -eq 1 ]]; then
+    echo "完成。腾出 ${START} 号"
+else
+    echo "完成。腾出 ${START}–$((START + COUNT - 1)) 共 ${COUNT} 个号"
+fi
