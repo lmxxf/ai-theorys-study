@@ -1,0 +1,70 @@
+{
+  "__typename": "Tweet",
+  "favorite_count": 58065,
+  "lang": "en",
+  "created_at": "2026-09-09T01:27:18.000Z",
+  "display_text_range": [
+    0,
+    279
+  ],
+  "entities": {},
+  "id_str": "2097497037956891126",
+  "text": "Jacob is correct here—we really do earnestly believe AI could kill all humans! I personally think it is &gt;10% within the next decade. I believe Anthropic is trying its best, but we do not yet have a plan to solve alignment for superintelligence and are not clearly on track to.",
+  "user": {
+    "id_str": "138923554",
+    "name": "Evan Hubinger",
+    "screen_name": "EvanHub",
+    "is_blue_verified": true,
+    "profile_image_shape": "Circle",
+    "verified": false,
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/515578813095215104/8B_rLk5f_normal.png"
+  },
+  "edit_control": {
+    "edit_tweet_ids": [
+      "2097497037956891126"
+    ],
+    "editable_until_msecs": "1788920838000",
+    "edits_remaining": "5",
+    "is_edit_eligible": false
+  },
+  "conversation_count": 4772,
+  "news_action_type": "conversation",
+  "quoted_tweet": {
+    "favorite_count": 124872,
+    "in_reply_to_screen_name": "hilbertspaess",
+    "in_reply_to_status_id_str": "2097476201283834281",
+    "in_reply_to_user_id_str": "2013902543974465536",
+    "lang": "en",
+    "reply_count": 1422,
+    "retweet_count": 14615,
+    "created_at": "2026-09-09T00:04:30.000Z",
+    "display_text_range": [
+      0,
+      274
+    ],
+    "entities": {},
+    "id_str": "2097476203863224394",
+    "text": "The people building AI earnestly believe that it could kill us all by the end of the decade. This is not a marketing stunt. If anything, many executives and senior researchers will couch their phrasing in the press to sound sensible - but I hear the same people express fear",
+    "user": {
+      "id_str": "2013902543974465536",
+      "name": "Jacob Coxon",
+      "screen_name": "hilbertspaess",
+      "is_blue_verified": true,
+      "profile_image_shape": "Circle",
+      "verified": false,
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/2097232673865601024/d6H8UbQJ_normal.jpg"
+    },
+    "edit_control": {
+      "edit_tweet_ids": [
+        "2097476203863224394"
+      ],
+      "editable_until_msecs": "1788915870000",
+      "edits_remaining": "5",
+      "is_edit_eligible": false
+    },
+    "isEdited": false,
+    "isStaleEdit": false
+  },
+  "isEdited": false,
+  "isStaleEdit": false
+}
