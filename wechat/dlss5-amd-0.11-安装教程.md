@@ -36,7 +36,7 @@
 
 ━━━━━━━━━━━━━━━━━━━━
 
-1. 下载 Magpie-DLSS5-AMD-0.11.zip（341MB，链接在文末）。
+1. 下载 Magpie-DLSS5-AMD-0.11.zip（341MB）：https://pan.quark.cn/s/570436349755
 
 2. 解压到任意目录。路径不要带中文。
 
@@ -110,3 +110,5 @@ F6 是插件自己的开关：不停 Magpie，只在 DLSS 5 和 Magpie 的 FSR3 
 https://github.com/lmxxf/dlss5-on-amd-9070xt-porting
 
 每个版本的改动、测试台数据、开发记录都在仓库里。0.11 相对 0.10 的变化是接管时间从二十多秒压到三五秒，加了强度参数。
+
+下载：https://pan.quark.cn/s/570436349755
