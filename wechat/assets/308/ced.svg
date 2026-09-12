@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 640">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 664">
   <style>
     text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
     .t { fill: #1f2937; }
@@ -6,113 +6,114 @@
     .lbl { font-size: 13px; }
     .sm { font-size: 11px; }
   </style>
-  <rect width="980" height="640" fill="#fbfbfd"/>
+  <rect width="980" height="664" fill="#fbfbfd"/>
 
-  <text x="490" y="34" text-anchor="middle" class="t" font-size="19" font-weight="bold">预填充阶段：V4 每层自己算，V4.1 后半截从第 20 层投影</text>
+  <text x="490" y="32" text-anchor="middle" class="t" font-size="19" font-weight="bold">CED：后 20 层不再各自算 KV，共用第 20 层这一个源头</text>
+  <text x="490" y="54" text-anchor="middle" class="dim lbl">对比 V4：那一代每层都要跑出自己的隐藏状态再算 KV</text>
 
   <!-- ============ LEFT: V4 ============ -->
-  <text x="230" y="70" text-anchor="middle" class="t" font-size="15" font-weight="bold">V4：40 层各算各的</text>
+  <text x="230" y="90" text-anchor="middle" class="t" font-size="15" font-weight="bold">V4：40 层各算各的</text>
 
-  <rect x="80" y="86" width="300" height="404" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <rect x="80" y="106" width="300" height="404" rx="8" fill="#ffffff" stroke="#d1d5db"/>
 
   <!-- 层堆叠 -->
   <g>
-    <rect x="104" y="104" width="150" height="26" rx="4" fill="#eef2ff" stroke="#a5b4fc"/>
-    <text x="179" y="122" text-anchor="middle" class="t sm">第 1 层</text>
-    <path d="M262 117 H322" stroke="#818cf8" stroke-width="1.6" marker-end="url(#ah)"/>
-    <rect x="326" y="106" width="40" height="22" rx="3" fill="#e0e7ff" stroke="#818cf8"/>
-    <text x="346" y="121" text-anchor="middle" class="dim sm">KV</text>
+    <rect x="104" y="124" width="150" height="26" rx="4" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="179" y="142" text-anchor="middle" class="t sm">第 1 层</text>
+    <path d="M262 137 H322" stroke="#818cf8" stroke-width="1.6" marker-end="url(#ah)"/>
+    <rect x="326" y="126" width="40" height="22" rx="3" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="346" y="141" text-anchor="middle" class="dim sm">KV</text>
   </g>
   <g>
-    <rect x="104" y="140" width="150" height="26" rx="4" fill="#eef2ff" stroke="#a5b4fc"/>
-    <text x="179" y="158" text-anchor="middle" class="t sm">第 2 层</text>
-    <path d="M262 153 H322" stroke="#818cf8" stroke-width="1.6" marker-end="url(#ah)"/>
-    <rect x="326" y="142" width="40" height="22" rx="3" fill="#e0e7ff" stroke="#818cf8"/>
-    <text x="346" y="157" text-anchor="middle" class="dim sm">KV</text>
+    <rect x="104" y="160" width="150" height="26" rx="4" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="179" y="178" text-anchor="middle" class="t sm">第 2 层</text>
+    <path d="M262 173 H322" stroke="#818cf8" stroke-width="1.6" marker-end="url(#ah)"/>
+    <rect x="326" y="162" width="40" height="22" rx="3" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="346" y="177" text-anchor="middle" class="dim sm">KV</text>
   </g>
 
-  <text x="179" y="192" text-anchor="middle" class="dim" font-size="16">···</text>
+  <text x="179" y="212" text-anchor="middle" class="dim" font-size="16">···</text>
 
   <g>
-    <rect x="104" y="204" width="150" height="26" rx="4" fill="#eef2ff" stroke="#a5b4fc"/>
-    <text x="179" y="222" text-anchor="middle" class="t sm">第 20 层</text>
-    <path d="M262 217 H322" stroke="#818cf8" stroke-width="1.6" marker-end="url(#ah)"/>
-    <rect x="326" y="206" width="40" height="22" rx="3" fill="#e0e7ff" stroke="#818cf8"/>
-    <text x="346" y="221" text-anchor="middle" class="dim sm">KV</text>
+    <rect x="104" y="224" width="150" height="26" rx="4" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="179" y="242" text-anchor="middle" class="t sm">第 20 层</text>
+    <path d="M262 237 H322" stroke="#818cf8" stroke-width="1.6" marker-end="url(#ah)"/>
+    <rect x="326" y="226" width="40" height="22" rx="3" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="346" y="241" text-anchor="middle" class="dim sm">KV</text>
   </g>
   <g>
-    <rect x="104" y="240" width="150" height="26" rx="4" fill="#eef2ff" stroke="#a5b4fc"/>
-    <text x="179" y="258" text-anchor="middle" class="t sm">第 21 层</text>
-    <path d="M262 253 H322" stroke="#818cf8" stroke-width="1.6" marker-end="url(#ah)"/>
-    <rect x="326" y="242" width="40" height="22" rx="3" fill="#e0e7ff" stroke="#818cf8"/>
-    <text x="346" y="257" text-anchor="middle" class="dim sm">KV</text>
+    <rect x="104" y="260" width="150" height="26" rx="4" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="179" y="278" text-anchor="middle" class="t sm">第 21 层</text>
+    <path d="M262 273 H322" stroke="#818cf8" stroke-width="1.6" marker-end="url(#ah)"/>
+    <rect x="326" y="262" width="40" height="22" rx="3" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="346" y="277" text-anchor="middle" class="dim sm">KV</text>
   </g>
 
-  <text x="179" y="292" text-anchor="middle" class="dim" font-size="16">···</text>
+  <text x="179" y="312" text-anchor="middle" class="dim" font-size="16">···</text>
 
   <g>
-    <rect x="104" y="304" width="150" height="26" rx="4" fill="#eef2ff" stroke="#a5b4fc"/>
-    <text x="179" y="322" text-anchor="middle" class="t sm">第 40 层</text>
-    <path d="M262 317 H322" stroke="#818cf8" stroke-width="1.6" marker-end="url(#ah)"/>
-    <rect x="326" y="306" width="40" height="22" rx="3" fill="#e0e7ff" stroke="#818cf8"/>
-    <text x="346" y="321" text-anchor="middle" class="dim sm">KV</text>
+    <rect x="104" y="324" width="150" height="26" rx="4" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="179" y="342" text-anchor="middle" class="t sm">第 40 层</text>
+    <path d="M262 337 H322" stroke="#818cf8" stroke-width="1.6" marker-end="url(#ah)"/>
+    <rect x="326" y="326" width="40" height="22" rx="3" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="346" y="341" text-anchor="middle" class="dim sm">KV</text>
   </g>
 
-  <rect x="104" y="352" width="252" height="52" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
-  <text x="230" y="373" text-anchor="middle" class="t sm" font-weight="bold">输入的每个 token 都要过完 40 层</text>
-  <text x="230" y="392" text-anchor="middle" class="dim sm">预填充计算量 ∝ N × 40</text>
+  <rect x="104" y="372" width="252" height="52" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="230" y="393" text-anchor="middle" class="t sm" font-weight="bold">输入的每个 token 都要过完 40 层</text>
+  <text x="230" y="412" text-anchor="middle" class="dim sm">预填充计算量 ∝ N × 40</text>
 
-  <rect x="104" y="418" width="252" height="52" rx="6" fill="#f9fafb" stroke="#e5e7eb"/>
-  <text x="230" y="439" text-anchor="middle" class="dim sm">每层的 KV 来自它自己那层的</text>
-  <text x="230" y="457" text-anchor="middle" class="dim sm">隐藏状态，互不相干</text>
+  <rect x="104" y="438" width="252" height="52" rx="6" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="230" y="459" text-anchor="middle" class="dim sm">每层的 KV 来自它自己那层的</text>
+  <text x="230" y="477" text-anchor="middle" class="dim sm">隐藏状态，互不相干</text>
 
   <!-- ============ RIGHT: V4.1 ============ -->
-  <text x="742" y="70" text-anchor="middle" class="t" font-size="15" font-weight="bold">V4.1：后 20 层的全局 KV 从第 20 层投影</text>
+  <text x="742" y="90" text-anchor="middle" class="t" font-size="15" font-weight="bold">V4.1：后 20 层的全局 KV 从第 20 层投影</text>
 
-  <rect x="590" y="86" width="330" height="404" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <rect x="590" y="106" width="330" height="404" rx="8" fill="#ffffff" stroke="#d1d5db"/>
 
   <!-- encoder 区 -->
-  <rect x="606" y="98" width="180" height="140" rx="6" fill="#ecfdf5" stroke="#6ee7b7"/>
-  <text x="696" y="116" text-anchor="middle" class="t sm" font-weight="bold">编码器 · 前 20 层</text>
+  <rect x="606" y="118" width="180" height="140" rx="6" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="696" y="136" text-anchor="middle" class="t sm" font-weight="bold">编码器 · 前 20 层</text>
 
-  <rect x="622" y="126" width="148" height="22" rx="3" fill="#d1fae5" stroke="#34d399"/>
-  <text x="696" y="141" text-anchor="middle" class="t sm">第 1 层</text>
-  <text x="696" y="166" text-anchor="middle" class="dim" font-size="14">···</text>
-  <rect x="622" y="176" width="148" height="26" rx="3" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
-  <text x="696" y="194" text-anchor="middle" class="t sm" font-weight="bold">第 20 层（末层）</text>
-  <text x="696" y="222" text-anchor="middle" class="dim sm">这一层的隐藏状态是关键</text>
+  <rect x="622" y="146" width="148" height="22" rx="3" fill="#d1fae5" stroke="#34d399"/>
+  <text x="696" y="161" text-anchor="middle" class="t sm">第 1 层</text>
+  <text x="696" y="186" text-anchor="middle" class="dim" font-size="14">···</text>
+  <rect x="622" y="196" width="148" height="26" rx="3" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+  <text x="696" y="214" text-anchor="middle" class="t sm" font-weight="bold">第 20 层（末层）</text>
+  <text x="696" y="242" text-anchor="middle" class="dim sm">这一层的隐藏状态是关键</text>
 
   <!-- 扇出箭头 -->
-  <path d="M786 189 C 830 189, 830 268, 812 268" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#ah2)"/>
-  <path d="M786 189 C 840 189, 840 308, 812 308" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#ah2)"/>
-  <path d="M786 189 C 850 189, 850 348, 812 348" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#ah2)"/>
-  <text x="872" y="270" class="dim sm">投影</text>
-  <text x="872" y="286" class="dim sm">出 KV</text>
+  <path d="M786 209 C 830 209, 830 288, 812 288" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#ah2)"/>
+  <path d="M786 209 C 840 209, 840 328, 812 328" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#ah2)"/>
+  <path d="M786 209 C 850 209, 850 368, 812 368" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#ah2)"/>
+  <text x="872" y="290" class="dim sm">投影</text>
+  <text x="872" y="306" class="dim sm">出 KV</text>
 
   <!-- decoder 区 -->
-  <rect x="606" y="250" width="200" height="120" rx="6" fill="#fff7ed" stroke="#fdba74"/>
-  <text x="706" y="268" text-anchor="middle" class="t sm" font-weight="bold">解码器 · 后 20 层</text>
-  <rect x="622" y="278" width="168" height="22" rx="3" fill="#ffedd5" stroke="#fb923c"/>
-  <text x="706" y="293" text-anchor="middle" class="t sm">第 21 层</text>
-  <text x="706" y="318" text-anchor="middle" class="dim" font-size="14">···</text>
-  <rect x="622" y="328" width="168" height="22" rx="3" fill="#ffedd5" stroke="#fb923c"/>
-  <text x="706" y="343" text-anchor="middle" class="t sm">第 40 层</text>
-  <text x="706" y="364" text-anchor="middle" class="dim sm">全局 KV 不用自己算</text>
+  <rect x="606" y="270" width="200" height="120" rx="6" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="706" y="288" text-anchor="middle" class="t sm" font-weight="bold">解码器 · 后 20 层</text>
+  <rect x="622" y="298" width="168" height="22" rx="3" fill="#ffedd5" stroke="#fb923c"/>
+  <text x="706" y="313" text-anchor="middle" class="t sm">第 21 层</text>
+  <text x="706" y="338" text-anchor="middle" class="dim" font-size="14">···</text>
+  <rect x="622" y="348" width="168" height="22" rx="3" fill="#ffedd5" stroke="#fb923c"/>
+  <text x="706" y="363" text-anchor="middle" class="t sm">第 40 层</text>
+  <text x="706" y="384" text-anchor="middle" class="dim sm">全局 KV 不用自己算</text>
 
-  <rect x="606" y="382" width="300" height="46" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
-  <text x="756" y="401" text-anchor="middle" class="t sm" font-weight="bold">但每层仍有自己的 query，照样看得见全部历史</text>
-  <text x="756" y="419" text-anchor="middle" class="dim sm">变的只是 KV 从哪来，不是能不能看前面</text>
+  <rect x="606" y="402" width="300" height="46" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="756" y="421" text-anchor="middle" class="t sm" font-weight="bold">但每层仍有自己的 query，照样看得见全部历史</text>
+  <text x="756" y="439" text-anchor="middle" class="dim sm">变的只是 KV 从哪来，不是能不能看前面</text>
 
-  <rect x="606" y="436" width="300" height="46" rx="6" fill="#ecfdf5" stroke="#6ee7b7"/>
-  <text x="756" y="455" text-anchor="middle" class="t sm" font-weight="bold">长输入主体只过前 20 层，计算近乎砍半</text>
-  <text x="756" y="473" text-anchor="middle" class="dim sm">末尾 128 个 token 仍要过后 20 层补窗口状态</text>
+  <rect x="606" y="456" width="300" height="46" rx="6" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="756" y="475" text-anchor="middle" class="t sm" font-weight="bold">长输入主体只过前 20 层，计算近乎砍半</text>
+  <text x="756" y="493" text-anchor="middle" class="dim sm">末尾 128 个 token 仍要过后 20 层补窗口状态</text>
 
   <!-- ============ 底部说明 ============ -->
-  <rect x="80" y="510" width="840" height="110" rx="8" fill="#ffffff" stroke="#d1d5db"/>
-  <text x="100" y="534" class="t lbl" font-weight="bold">三件事别混：</text>
-  <text x="100" y="557" class="t lbl">· 省下来的是<tspan font-weight="bold">预填充的计算</tspan>——后 20 层不用为每个输入 token 都跑一遍</text>
-  <text x="100" y="579" class="t lbl">· <tspan font-weight="bold">KV 的字节数一个没少</tspan>——该存的还得存，省字节靠的是另外两件事（跨层复用 + FP4）</text>
-  <text x="100" y="601" class="t lbl">· <tspan font-weight="bold">注意力照算不误</tspan>——40 个人查同一批档案，后 20 个人共用第 20 个人抄的那份，查还是各查各的</text>
+  <rect x="80" y="530" width="840" height="110" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="100" y="554" class="t lbl" font-weight="bold">三件事别混：</text>
+  <text x="100" y="577" class="t lbl">· 省下来的是<tspan font-weight="bold">预填充的计算</tspan>——后 20 层不用为每个输入 token 都跑一遍</text>
+  <text x="100" y="599" class="t lbl">· <tspan font-weight="bold">KV 的字节数一个没少</tspan>——该存的还得存，省字节靠的是另外两件事（跨层复用 + FP4）</text>
+  <text x="100" y="621" class="t lbl">· <tspan font-weight="bold">注意力照算不误</tspan>——40 个人查同一批档案，后 20 个人共用第 20 个人抄的那份，查还是各查各的</text>
 
   <defs>
     <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">

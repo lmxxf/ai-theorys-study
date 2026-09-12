@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 760">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .t { fill: #1f2937; }
+    .dim { fill: #6b7280; }
+    .lbl { font-size: 13px; }
+    .sm { font-size: 11px; }
+    .xs { font-size: 10px; }
+  </style>
+  <rect width="980" height="760" fill="#fbfbfd"/>
+
+  <text x="490" y="32" text-anchor="middle" class="t" font-size="19" font-weight="bold">CSA2：40 层里只有 4 个真正产出 KV 的入口</text>
+  <text x="490" y="54" text-anchor="middle" class="dim lbl">对比 V4：那一代是每层都存，但把时间轴挤扁</text>
+
+  <!-- ================= 上半：V4 ================= -->
+  <rect x="40" y="72" width="900" height="150" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="62" y="96" class="t lbl" font-weight="bold">V4：压时间轴 · 每层都存自己的</text>
+
+  <g>
+    <rect x="62" y="110" width="76" height="34" rx="4" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="100" y="125" text-anchor="middle" class="t xs">CSA 层</text>
+    <text x="100" y="139" text-anchor="middle" class="dim xs">4 个压 1 条</text>
+  </g>
+  <g>
+    <rect x="146" y="110" width="76" height="34" rx="4" fill="#fce7f3" stroke="#ec4899"/>
+    <text x="184" y="125" text-anchor="middle" class="t xs">HCA 层</text>
+    <text x="184" y="139" text-anchor="middle" class="dim xs">128 个压 1 条</text>
+  </g>
+  <g>
+    <rect x="230" y="110" width="76" height="34" rx="4" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="268" y="125" text-anchor="middle" class="t xs">CSA 层</text>
+    <text x="268" y="139" text-anchor="middle" class="dim xs">4 个压 1 条</text>
+  </g>
+  <g>
+    <rect x="314" y="110" width="76" height="34" rx="4" fill="#fce7f3" stroke="#ec4899"/>
+    <text x="352" y="125" text-anchor="middle" class="t xs">HCA 层</text>
+    <text x="352" y="139" text-anchor="middle" class="dim xs">128 个压 1 条</text>
+  </g>
+  <text x="410" y="132" class="dim" font-size="14">···</text>
+  <text x="440" y="132" class="dim sm">两种交替排满 61 层</text>
+
+  <rect x="62" y="158" width="560" height="48" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="82" y="178" class="t sm" font-weight="bold">每一层都有自己的一份 KV——61 层就是 61 份</text>
+  <text x="82" y="196" class="dim sm">省字节靠的是把 4 个、128 个 token 揉成一条，条数少了，但揉的时候细节丢了</text>
+
+  <rect x="640" y="110" width="286" height="96" rx="6" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="783" y="134" text-anchor="middle" class="t sm" font-weight="bold">这是有损的</text>
+  <text x="783" y="156" text-anchor="middle" class="dim sm">128 个 token 揉成一条</text>
+  <text x="783" y="174" text-anchor="middle" class="dim sm">还原不回原来那 128 个</text>
+  <text x="783" y="196" text-anchor="middle" class="dim sm">压得越狠，丢得越多</text>
+
+  <!-- ================= 下半：V4.1 ================= -->
+  <rect x="40" y="238" width="900" height="356" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="62" y="262" class="t lbl" font-weight="bold">V4.1：压层数 · 每组只有第一层产出，组里其余层白蹭</text>
+
+  <!-- 图例 -->
+  <g transform="translate(560 248)">
+    <rect x="0" y="0" width="18" height="14" rx="3" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
+    <text x="24" y="12" class="dim xs">Full：自己算 KV，自己挑</text>
+    <rect x="180" y="0" width="18" height="14" rx="3" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="204" y="12" class="dim xs">Reindex：借 KV，自己重挑</text>
+  </g>
+  <g transform="translate(560 268)">
+    <rect x="0" y="0" width="18" height="14" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="24" y="12" class="dim xs">Reuse：KV 和挑好的都借</text>
+    <rect x="180" y="0" width="18" height="14" rx="3" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="204" y="12" class="dim xs">纯滑动窗口层</text>
+  </g>
+
+  <!-- 编码器 -->
+  <text x="62" y="300" class="t sm" font-weight="bold">编码器 20 层（压缩率 2 比 1）</text>
+
+  <g transform="translate(62 310)">
+    <rect x="0" y="0" width="44" height="30" rx="4" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="22" y="19" text-anchor="middle" class="t xs">窗口</text>
+    <rect x="48" y="0" width="44" height="30" rx="4" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="70" y="19" text-anchor="middle" class="t xs">窗口</text>
+
+    <!-- 三组 -->
+    <rect x="100" y="-6" width="248" height="42" rx="5" fill="none" stroke="#059669" stroke-dasharray="3 3"/>
+    <rect x="106" y="0" width="36" height="30" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="124" y="19" text-anchor="middle" class="t xs">算</text>
+    <rect x="146" y="0" width="36" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="164" y="19" text-anchor="middle" class="dim xs">借</text>
+    <rect x="186" y="0" width="36" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="204" y="19" text-anchor="middle" class="dim xs">借</text>
+    <rect x="226" y="0" width="36" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="244" y="19" text-anchor="middle" class="dim xs">借</text>
+    <rect x="266" y="0" width="36" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="284" y="19" text-anchor="middle" class="dim xs">借</text>
+    <rect x="306" y="0" width="36" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="324" y="19" text-anchor="middle" class="dim xs">借</text>
+
+    <rect x="356" y="-6" width="248" height="42" rx="5" fill="none" stroke="#059669" stroke-dasharray="3 3"/>
+    <rect x="362" y="0" width="36" height="30" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="380" y="19" text-anchor="middle" class="t xs">算</text>
+    <rect x="402" y="0" width="196" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="500" y="19" text-anchor="middle" class="dim xs">借 × 5</text>
+
+    <rect x="612" y="-6" width="248" height="42" rx="5" fill="none" stroke="#059669" stroke-dasharray="3 3"/>
+    <rect x="618" y="0" width="36" height="30" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="636" y="19" text-anchor="middle" class="t xs">算</text>
+    <rect x="658" y="0" width="196" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="756" y="19" text-anchor="middle" class="dim xs">借 × 5</text>
+  </g>
+
+  <text x="62" y="372" class="dim sm">3 组 × 6 层，每组第一层 Full 产出，后五层 Reuse 白蹭 → 18 层只存 3 份</text>
+
+  <!-- 解码器 -->
+  <text x="62" y="404" class="t sm" font-weight="bold">解码器 20 层（压缩率 1 比 1，完全不压）</text>
+
+  <g transform="translate(62 414)">
+    <rect x="0" y="-6" width="164" height="42" rx="5" fill="none" stroke="#059669" stroke-dasharray="3 3"/>
+    <rect x="6" y="0" width="36" height="30" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="24" y="19" text-anchor="middle" class="t xs">算</text>
+    <rect x="46" y="0" width="112" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="102" y="19" text-anchor="middle" class="dim xs">借 × 3</text>
+
+    <rect x="172" y="-6" width="164" height="42" rx="5" fill="none" stroke="#ea580c" stroke-dasharray="3 3"/>
+    <rect x="178" y="0" width="36" height="30" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+    <text x="196" y="19" text-anchor="middle" class="t xs">挑</text>
+    <rect x="218" y="0" width="112" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="274" y="19" text-anchor="middle" class="dim xs">借 × 3</text>
+
+    <rect x="344" y="-6" width="164" height="42" rx="5" fill="none" stroke="#ea580c" stroke-dasharray="3 3"/>
+    <rect x="350" y="0" width="36" height="30" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+    <text x="368" y="19" text-anchor="middle" class="t xs">挑</text>
+    <rect x="390" y="0" width="112" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="446" y="19" text-anchor="middle" class="dim xs">借 × 3</text>
+
+    <rect x="516" y="-6" width="164" height="42" rx="5" fill="none" stroke="#ea580c" stroke-dasharray="3 3"/>
+    <rect x="522" y="0" width="36" height="30" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+    <text x="540" y="19" text-anchor="middle" class="t xs">挑</text>
+    <rect x="562" y="0" width="112" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="618" y="19" text-anchor="middle" class="dim xs">借 × 3</text>
+
+    <rect x="688" y="-6" width="164" height="42" rx="5" fill="none" stroke="#ea580c" stroke-dasharray="3 3"/>
+    <rect x="694" y="0" width="36" height="30" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+    <text x="712" y="19" text-anchor="middle" class="t xs">挑</text>
+    <rect x="734" y="0" width="112" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="790" y="19" text-anchor="middle" class="dim xs">借 × 3</text>
+  </g>
+
+  <text x="62" y="476" class="dim sm">5 组 × 4 层，第一组第一层 Full，后四组第一层 Reindex（KV 借上游的，但自己重新挑该看谁）</text>
+
+  <rect x="62" y="492" width="856" height="42" rx="6" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="490" y="511" text-anchor="middle" class="t sm" font-weight="bold">全模型真正产出 KV 的入口：编码器 3 个 + 解码器 1 个 = 4 份</text>
+  <text x="490" y="528" text-anchor="middle" class="dim sm">40 层共用这 4 份，再叠上 4 比特存储，每 token 降到 890 字节</text>
+
+  <rect x="62" y="544" width="856" height="36" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="490" y="567" text-anchor="middle" class="t sm">注意：不管哪种模式，每层的查询向量和滑动窗口 KV 都是自己算的，这部分从不共享</text>
+
+  <!-- ================= 底部对比 ================= -->
+  <rect x="40" y="610" width="900" height="132" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="62" y="636" class="t lbl" font-weight="bold">同样是省字节，两代换了个方向</text>
+  <text x="62" y="662" class="t lbl">· V4：<tspan font-weight="bold">把时间轴挤扁</tspan>——128 个 token 揉成一条，条数少了，但揉进去的细节回不来（有损）</text>
+  <text x="62" y="686" class="t lbl">· V4.1：<tspan font-weight="bold">每个 token 老老实实存一条</tspan>，改成让几十层共用那 4 份，数值一个比特不变（无损）</text>
+  <text x="62" y="712" class="dim lbl">用无损的维度换掉有损的维度，同样字节数下质量应该更好——报告没解释为什么这么换，这句是我的推断</text>
+  <text x="62" y="734" class="dim xs">配置读自技术报告 4.2.1 节</text>
+</svg>
