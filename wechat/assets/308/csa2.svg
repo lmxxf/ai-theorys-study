@@ -58,7 +58,7 @@
     <rect x="0" y="0" width="18" height="14" rx="3" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
     <text x="24" y="12" class="dim xs">Full：自己算 KV，自己挑</text>
     <rect x="180" y="0" width="18" height="14" rx="3" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
-    <text x="204" y="12" class="dim xs">Reindex：借 KV，自己重挑</text>
+    <text x="204" y="12" class="dim xs">Reindex：借 KV（不新产出），自己重挑</text>
   </g>
   <g transform="translate(560 268)">
     <rect x="0" y="0" width="18" height="14" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
@@ -141,7 +141,7 @@
     <text x="790" y="19" text-anchor="middle" class="dim xs">借 × 3</text>
   </g>
 
-  <text x="62" y="476" class="dim sm">5 组 × 4 层，第一组第一层 Full，后四组第一层 Reindex（KV 借上游的，但自己重新挑该看谁）</text>
+  <text x="62" y="476" class="dim sm">5 组 × 4 层，只有第一组第一层是 Full 真的产出；后四组的组长是 Reindex，KV 仍借上游，只是自己重新挑该看谁</text>
 
   <rect x="62" y="492" width="856" height="42" rx="6" fill="#ecfdf5" stroke="#6ee7b7"/>
   <text x="490" y="511" text-anchor="middle" class="t sm" font-weight="bold">全模型真正产出 KV 的入口：编码器 3 个 + 解码器 1 个 = 4 份</text>

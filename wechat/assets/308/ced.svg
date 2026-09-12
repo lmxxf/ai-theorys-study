@@ -84,21 +84,20 @@
   <text x="696" y="242" text-anchor="middle" class="dim sm">这一层的隐藏状态是关键</text>
 
   <!-- 扇出箭头 -->
-  <path d="M786 209 C 830 209, 830 288, 812 288" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#ah2)"/>
-  <path d="M786 209 C 840 209, 840 328, 812 328" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#ah2)"/>
-  <path d="M786 209 C 850 209, 850 368, 812 368" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#ah2)"/>
-  <text x="872" y="290" class="dim sm">投影</text>
-  <text x="872" y="306" class="dim sm">出 KV</text>
+  <path d="M786 209 C 840 209, 840 309, 812 309" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#ah2)"/>
+  <text x="852" y="256" class="dim sm">H 送给</text>
+  <text x="852" y="272" class="dim sm">第 21 层</text>
+  <path d="M706 324 V344" stroke="#94a3b8" stroke-width="1.6" fill="none" marker-end="url(#ah3)"/>
 
   <!-- decoder 区 -->
   <rect x="606" y="270" width="200" height="120" rx="6" fill="#fff7ed" stroke="#fdba74"/>
   <text x="706" y="288" text-anchor="middle" class="t sm" font-weight="bold">解码器 · 后 20 层</text>
-  <rect x="622" y="298" width="168" height="22" rx="3" fill="#ffedd5" stroke="#fb923c"/>
-  <text x="706" y="313" text-anchor="middle" class="t sm">第 21 层</text>
+  <rect x="622" y="296" width="168" height="26" rx="3" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+  <text x="706" y="313" text-anchor="middle" class="t sm" font-weight="bold">第 21 层：拿 H 投出 KV</text>
   <text x="706" y="338" text-anchor="middle" class="dim" font-size="14">···</text>
-  <rect x="622" y="348" width="168" height="22" rx="3" fill="#ffedd5" stroke="#fb923c"/>
-  <text x="706" y="363" text-anchor="middle" class="t sm">第 40 层</text>
-  <text x="706" y="384" text-anchor="middle" class="dim sm">全局 KV 不用自己算</text>
+  <rect x="622" y="348" width="168" height="22" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+  <text x="706" y="363" text-anchor="middle" class="dim sm">第 22 到 40 层：共用它</text>
+  <text x="706" y="384" text-anchor="middle" class="dim sm">这一段归 CSA2 管</text>
 
   <rect x="606" y="402" width="300" height="46" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
   <text x="756" y="421" text-anchor="middle" class="t sm" font-weight="bold">但每层仍有自己的 query，照样看得见全部历史</text>
@@ -121,6 +120,9 @@
     </marker>
     <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
       <path d="M0 0 L10 5 L0 10 z" fill="#059669"/>
+    </marker>
+    <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/>
     </marker>
   </defs>
 </svg>

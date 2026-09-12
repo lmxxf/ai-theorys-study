@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 700">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .t { fill: #1f2937; }
+    .dim { fill: #6b7280; }
+    .lbl { font-size: 13px; }
+    .sm { font-size: 11px; }
+    .xs { font-size: 10px; }
+  </style>
+  <rect width="980" height="700" fill="#fbfbfd"/>
+
+  <text x="490" y="32" text-anchor="middle" class="t" font-size="19" font-weight="bold">跨层复用是竖着借：同一个 token，向前面的层借</text>
+  <text x="490" y="54" text-anchor="middle" class="dim lbl">token 之间互不干涉，每个 token 各借各的那一列</text>
+
+  <!-- ===== 主矩阵 ===== -->
+  <rect x="40" y="74" width="620" height="340" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+
+  <!-- 横轴标题 -->
+  <text x="350" y="100" text-anchor="middle" class="t sm" font-weight="bold">token 方向（横）—— 每个 token 一列</text>
+  <path d="M150 108 H556" stroke="#9ca3af" stroke-width="1" marker-end="url(#ax)"/>
+
+  <!-- 纵轴标题 -->
+  <text x="58" y="250" class="t sm" font-weight="bold" transform="rotate(-90 58 250)">层方向（竖）</text>
+  <path d="M76 130 V392" stroke="#9ca3af" stroke-width="1" marker-end="url(#ax)"/>
+
+  <!-- 列标 -->
+  <text x="170" y="132" text-anchor="middle" class="dim sm">t1</text>
+  <text x="250" y="132" text-anchor="middle" class="dim sm">t2</text>
+  <text x="330" y="132" text-anchor="middle" class="dim sm">t3</text>
+  <text x="410" y="132" text-anchor="middle" class="dim sm">t4</text>
+  <text x="490" y="132" text-anchor="middle" class="dim sm">t5</text>
+  <text x="556" y="132" text-anchor="middle" class="dim sm">···</text>
+
+  <!-- 第21层 Full：真的存 -->
+  <text x="136" y="164" text-anchor="end" class="t sm" font-weight="bold">第 21 层</text>
+  <g>
+    <rect x="142" y="146" width="56" height="26" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="170" y="164" text-anchor="middle" class="t xs">KV</text>
+    <rect x="222" y="146" width="56" height="26" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="250" y="164" text-anchor="middle" class="t xs">KV</text>
+    <rect x="302" y="146" width="56" height="26" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="330" y="164" text-anchor="middle" class="t xs">KV</text>
+    <rect x="382" y="146" width="56" height="26" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="410" y="164" text-anchor="middle" class="t xs">KV</text>
+    <rect x="462" y="146" width="56" height="26" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="490" y="164" text-anchor="middle" class="t xs">KV</text>
+  </g>
+  <text x="576" y="164" class="dim xs">Full：真的投一份</text>
+
+  <!-- 竖直借用箭头 -->
+  <g stroke="#059669" stroke-width="1.6" fill="none" marker-end="url(#dn)">
+    <path d="M170 176 V196"/><path d="M250 176 V196"/><path d="M330 176 V196"/><path d="M410 176 V196"/><path d="M490 176 V196"/>
+    <path d="M170 226 V246"/><path d="M250 226 V246"/><path d="M330 226 V246"/><path d="M410 226 V246"/><path d="M490 226 V246"/>
+    <path d="M170 276 V296"/><path d="M250 276 V296"/><path d="M330 276 V296"/><path d="M410 276 V296"/><path d="M490 276 V296"/>
+  </g>
+
+  <!-- 第22-24层 Reuse -->
+  <text x="136" y="214" text-anchor="end" class="t sm">第 22 层</text>
+  <g>
+    <rect x="142" y="198" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="170" y="214" text-anchor="middle" class="dim xs">借</text>
+    <rect x="222" y="198" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="250" y="214" text-anchor="middle" class="dim xs">借</text>
+    <rect x="302" y="198" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="330" y="214" text-anchor="middle" class="dim xs">借</text>
+    <rect x="382" y="198" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="410" y="214" text-anchor="middle" class="dim xs">借</text>
+    <rect x="462" y="198" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="490" y="214" text-anchor="middle" class="dim xs">借</text>
+  </g>
+
+  <text x="136" y="264" text-anchor="end" class="t sm">第 23 层</text>
+  <g>
+    <rect x="142" y="248" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="170" y="264" text-anchor="middle" class="dim xs">借</text>
+    <rect x="222" y="248" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="250" y="264" text-anchor="middle" class="dim xs">借</text>
+    <rect x="302" y="248" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="330" y="264" text-anchor="middle" class="dim xs">借</text>
+    <rect x="382" y="248" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="410" y="264" text-anchor="middle" class="dim xs">借</text>
+    <rect x="462" y="248" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="490" y="264" text-anchor="middle" class="dim xs">借</text>
+  </g>
+
+  <text x="136" y="314" text-anchor="end" class="t sm">第 24 层</text>
+  <g>
+    <rect x="142" y="298" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="170" y="314" text-anchor="middle" class="dim xs">借</text>
+    <rect x="222" y="298" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="250" y="314" text-anchor="middle" class="dim xs">借</text>
+    <rect x="302" y="298" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="330" y="314" text-anchor="middle" class="dim xs">借</text>
+    <rect x="382" y="298" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="410" y="314" text-anchor="middle" class="dim xs">借</text>
+    <rect x="462" y="298" width="56" height="24" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
+    <text x="490" y="314" text-anchor="middle" class="dim xs">借</text>
+  </g>
+
+  <!-- 第25层 Reindex -->
+  <text x="136" y="364" text-anchor="end" class="t sm" font-weight="bold">第 25 层</text>
+  <g stroke="#ea580c" stroke-width="1.6" fill="none" marker-end="url(#dn2)">
+    <path d="M170 326 V346"/><path d="M250 326 V346"/><path d="M330 326 V346"/><path d="M410 326 V346"/><path d="M490 326 V346"/>
+  </g>
+  <g>
+    <rect x="142" y="348" width="56" height="24" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="170" y="364" text-anchor="middle" class="t xs">借+重挑</text>
+    <rect x="222" y="348" width="56" height="24" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="250" y="364" text-anchor="middle" class="t xs">借+重挑</text>
+    <rect x="302" y="348" width="56" height="24" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="330" y="364" text-anchor="middle" class="t xs">借+重挑</text>
+    <rect x="382" y="348" width="56" height="24" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="410" y="364" text-anchor="middle" class="t xs">借+重挑</text>
+    <rect x="462" y="348" width="56" height="24" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="490" y="364" text-anchor="middle" class="t xs">借+重挑</text>
+  </g>
+  <text x="576" y="364" class="dim xs">Reindex：KV 还是借的</text>
+  <text x="576" y="378" class="dim xs">但自己重挑该看谁</text>
+
+  <text x="142" y="400" class="dim xs">箭头一律竖直向下——第 22 层的 t3 借的是第 21 层的 t3，不是 t1 也不是 t2</text>
+
+  <!-- ===== 右侧：真正存了几份 ===== -->
+  <rect x="676" y="74" width="264" height="340" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="808" y="100" text-anchor="middle" class="t sm" font-weight="bold">实际存了几份</text>
+
+  <rect x="696" y="114" width="224" height="72" rx="6" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="808" y="136" text-anchor="middle" class="t sm" font-weight="bold">绿色那一行：真的占显存</text>
+  <text x="808" y="156" text-anchor="middle" class="dim sm">每个 token 一条，N 个 token</text>
+  <text x="808" y="174" text-anchor="middle" class="dim sm">就是 N 条</text>
+
+  <rect x="696" y="198" width="224" height="72" rx="6" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="808" y="220" text-anchor="middle" class="t sm" font-weight="bold">灰色和橙色：一个字节不占</text>
+  <text x="808" y="240" text-anchor="middle" class="dim sm">它们读的就是绿色那一行</text>
+  <text x="808" y="258" text-anchor="middle" class="dim sm">没有第二份拷贝</text>
+
+  <rect x="696" y="282" width="224" height="116" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="808" y="304" text-anchor="middle" class="t sm" font-weight="bold">每层自己算的是什么</text>
+  <text x="808" y="326" text-anchor="middle" class="dim sm">· 查询向量：每层都自己算</text>
+  <text x="808" y="346" text-anchor="middle" class="dim sm">· 滑动窗口 KV：每层都自己算</text>
+  <text x="808" y="368" text-anchor="middle" class="dim sm">· 全局 KV：只有绿色那层算</text>
+  <text x="808" y="390" text-anchor="middle" class="t sm">所以四层的注意力结果不一样</text>
+
+  <!-- ===== 底部：两条轴对照 ===== -->
+  <rect x="40" y="430" width="900" height="112" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="62" y="456" class="t lbl" font-weight="bold">两条轴别混：</text>
+  <text x="62" y="482" class="t lbl">· <tspan font-weight="bold">横着压（CSA / HCA）</tspan>——把相邻几个 token 的 KV 合并成一条，列数变少。V4 那一代的主力，有损</text>
+  <text x="62" y="506" class="t lbl">· <tspan font-weight="bold">竖着借（CSA2）</tspan>——列数一条不少，但下面几层不再产出自己的那一行，直接读上面那行。无损</text>
+  <text x="62" y="530" class="dim lbl">V4.1 的解码器压缩率是 1 比 1，横着完全不压——省字节全靠竖着借</text>
+
+  <!-- ===== 最下：CED 不在这张图里 ===== -->
+  <rect x="40" y="558" width="900" height="118" rx="8" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="62" y="584" class="t lbl" font-weight="bold">那 CED 在哪？不在这张图上。</text>
+  <text x="62" y="610" class="t lbl">这张图画的是 KV 产出之后怎么共用。CED 管的是更早一步：<tspan font-weight="bold">第 21 层那份 KV 是拿谁的隐藏状态投出来的</tspan>。</text>
+  <text x="62" y="634" class="t lbl">答案是第 20 层的。后 20 层不必各自跑出自己的隐藏状态——<tspan font-weight="bold">这一步省的是计算，跟上面这张表里存几份无关</tspan>。</text>
+  <text x="62" y="660" class="dim lbl">一句话：CED 决定绿色那行从哪来，CSA2 决定绿色下面能带几行灰的。</text>
+
+  <defs>
+    <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9ca3af"/>
+    </marker>
+    <marker id="dn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#059669"/>
+    </marker>
+    <marker id="dn2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#ea580c"/>
+    </marker>
+  </defs>
+</svg>
