@@ -111,7 +111,7 @@
   <rect x="80" y="530" width="840" height="110" rx="8" fill="#ffffff" stroke="#d1d5db"/>
   <text x="100" y="554" class="t lbl" font-weight="bold">三件事别混：</text>
   <text x="100" y="577" class="t lbl">· 省下来的是<tspan font-weight="bold">预填充的计算</tspan>——后 20 层不用为每个输入 token 都跑一遍</text>
-  <text x="100" y="599" class="t lbl">· <tspan font-weight="bold">KV 的字节数一个没少</tspan>——该存的还得存，省字节靠的是另外两件事（跨层复用 + FP4）</text>
+  <text x="100" y="599" class="t lbl">· <tspan font-weight="bold">这一步不负责省字节</tspan>——KV 最后只剩一份，但那是跨层复用干的；890 字节里没算 CED 的份</text>
   <text x="100" y="621" class="t lbl">· <tspan font-weight="bold">注意力照算不误</tspan>——40 个人查同一批档案，后 20 个人共用第 20 个人抄的那份，查还是各查各的</text>
 
   <defs>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 596">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .t { fill: #1f2937; }
+    .dim { fill: #6b7280; }
+    .lbl { font-size: 13px; }
+    .sm { font-size: 11px; }
+    .xs { font-size: 10px; }
+  </style>
+  <rect width="980" height="596" fill="#fbfbfd"/>
+
+  <text x="490" y="32" text-anchor="middle" class="t" font-size="19" font-weight="bold">一次注意力，两批 KV 拼成一串</text>
+  <text x="490" y="54" text-anchor="middle" class="dim lbl">不是近处算一次、远处算一次再相加——那样权重没法比</text>
+
+  <!-- 全部历史 -->
+  <rect x="40" y="78" width="900" height="156" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="62" y="102" class="t sm" font-weight="bold">全部历史（可能有一百万个 token）</text>
+
+  <g>
+    <rect x="62" y="114" width="700" height="26" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="412" y="131" text-anchor="middle" class="dim xs">压缩过的历史位置</text>
+    <rect x="770" y="114" width="148" height="26" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+    <text x="844" y="131" text-anchor="middle" class="t xs">最近 128 个</text>
+  </g>
+
+  <!-- 挑出来的位置（散落的绿块） -->
+  <g fill="#a7f3d0" stroke="#059669" stroke-width="1.5">
+    <rect x="130" y="150" width="26" height="20" rx="3"/>
+    <rect x="168" y="150" width="26" height="20" rx="3"/>
+    <rect x="214" y="150" width="26" height="20" rx="3"/>
+    <rect x="340" y="150" width="26" height="20" rx="3"/>
+    <rect x="470" y="150" width="26" height="20" rx="3"/>
+    <rect x="516" y="150" width="26" height="20" rx="3"/>
+    <rect x="640" y="150" width="26" height="20" rx="3"/>
+    <rect x="700" y="150" width="26" height="20" rx="3"/>
+  </g>
+  <text x="62" y="164" class="dim xs">挑出来的</text>
+  <text x="62" y="178" class="dim xs">共 512 个</text>
+  <text x="62" y="222" class="dim xs">索引器从全部历史里挑出最该看的 512 个位置（这一步就是前面说的“挑法”）</text>
+
+  <!-- 箭头汇聚 -->
+  <g stroke="#059669" stroke-width="1.2" fill="none" opacity="0.75">
+    <path d="M143 172 V200 H428"/>
+    <path d="M181 172 V200 H428"/>
+    <path d="M227 172 V200 H428"/>
+    <path d="M353 172 V200 H428"/>
+    <path d="M483 172 V200 H428"/>
+    <path d="M529 172 V200 H428"/>
+    <path d="M653 172 V200 H428"/>
+    <path d="M713 172 V200 H428"/>
+  </g>
+  <path d="M428 200 V240 H486" fill="none" stroke="#059669" stroke-width="2"/>
+  <path d="M844 146 V240 H494" fill="none" stroke="#60a5fa" stroke-width="2"/>
+  <path d="M490 240 V256" fill="none" stroke="#6b7280" stroke-width="2.5" marker-end="url(#ar)"/>
+
+  <!-- 拼接结果 -->
+  <rect x="40" y="262" width="900" height="128" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="62" y="286" class="t sm" font-weight="bold">拼成一串，进同一次注意力</text>
+
+  <g>
+    <rect x="62" y="298" width="176" height="30" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+    <text x="150" y="318" text-anchor="middle" class="t xs">窗口 128 条（原始）</text>
+    <rect x="242" y="298" width="676" height="30" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="580" y="318" text-anchor="middle" class="t xs">挑出来的 512 条（压缩过的）</text>
+  </g>
+  <text x="490" y="348" text-anchor="middle" class="t sm" font-weight="bold">一共 640 条候选</text>
+
+  <rect x="62" y="358" width="856" height="24" rx="4" fill="#f5f3ff" stroke="#a78bfa"/>
+  <text x="490" y="375" text-anchor="middle" class="t xs">query 对这 640 条统一打分 → 一次 softmax 归一化 → 加权求和</text>
+
+  <!-- 对照：错误的想法 -->
+  <rect x="40" y="408" width="440" height="158" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="62" y="434" class="t sm" font-weight="bold">如果分开算（实际不是这样）</text>
+  <text x="62" y="460" class="dim sm">近处 128 条 → 算一次 → 归一化</text>
+  <text x="62" y="482" class="dim sm">远处 512 条 → 算一次 → 归一化</text>
+  <text x="62" y="504" class="dim sm">两个结果相加</text>
+  <text x="62" y="532" class="t sm" font-weight="bold">问题：两边各自归一化</text>
+  <text x="62" y="554" class="dim sm">近处那一路总会分走固定的一份权重</text>
+
+  <rect x="500" y="408" width="440" height="158" rx="8" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="522" y="434" class="t sm" font-weight="bold">实际做法：拼起来一次算</text>
+  <text x="522" y="460" class="dim sm">640 条在同一个竞技场里抢权重</text>
+  <text x="522" y="482" class="dim sm">该看近处就全给近处</text>
+  <text x="522" y="504" class="dim sm">该盯远处那一个就全给它</text>
+  <text x="522" y="532" class="t sm" font-weight="bold">好处：权重分配是全局竞争出来的</text>
+  <text x="522" y="554" class="dim sm">模型能表达“这步近处的都不重要”</text>
+
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+</svg>
