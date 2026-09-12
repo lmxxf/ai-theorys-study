@@ -1,4 +1,4 @@
-【DLSS5】A 卡跑 DLSS 5，0.11 版安装教程
+【DLSS5】A 卡跑 DLSS 5，0.12 版安装教程
 
 ━━━━━━━━━━━━━━━━━━━━
 
@@ -36,7 +36,7 @@
 
 ━━━━━━━━━━━━━━━━━━━━
 
-1. 下载 Magpie-DLSS5-AMD-0.11.zip（341MB）：https://pan.quark.cn/s/570436349755
+1. 下载 Magpie-DLSS5-AMD-0.12.zip（342MB）：https://pan.quark.cn/s/a5bafe0e2050
 
 2. 解压到任意目录。路径不要带中文。
 
@@ -52,11 +52,11 @@
 
 1. 游戏设成无边框窗口，分辨率 1920×1080。这一条是硬的：网络只认 1080p 进、1080p 出。显示器是 2K 或 4K 也一样，游戏窗口必须是 1080p。
 
-2. 进游戏后按 Win+Shift+A（Magpie 默认的缩放热键）。
+2. 进游戏后按 Alt+Shift+A（Magpie 默认的缩放热键）。
 
 3. 等 3～5 秒。这段时间是网络初始化，画面还是 Magpie 自己的 FSR3。帧率掉到 37 左右的那一刻，就是 DLSS 5 接管了。第一次启动会多几秒，那是在缓存编译结果，以后就快了。
 
-4. 再按一次 Win+Shift+A 停止缩放，回到游戏原画面。来回按几次对比效果。
+4. 再按一次 Alt+Shift+A 停止缩放，回到游戏原画面。来回按几次对比效果。
 
 F6 是插件自己的开关：不停 Magpie，只在 DLSS 5 和 Magpie 的 FSR3 之间切换。对比画面用这个更方便。
 
@@ -66,7 +66,13 @@ F6 是插件自己的开关：不停 Magpie，只在 DLSS 5 和 Magpie 的 FSR3 
 
 ━━━━━━━━━━━━━━━━━━━━
 
-打开解压目录下的 DLSS5-AMD\logs\native-submission-order.txt，找 "sdk721_before_device" 这一行：
+先看画面左上角。0.12 起插件会直接把原因写在画面上：
+
+- "INPUT MUST BE 1920X1080 (NOW 3840X2160)"：输出尺寸不对。游戏窗口设 1920×1080，Magpie 缩放模式选"原始尺寸"。
+- "INITIALIZING..."：正在初始化，等几秒。
+- "INIT FAILED - SEE DLSS5-AMD\LOGS"：初始化失败，八成是下面两条。
+
+什么字都没有、画面也没变，再打开解压目录下的 DLSS5-AMD\logs\native-submission-order.txt，找 "sdk721_before_device" 这一行：
 
 - 后面 "experimental=" 不是 00000000：开发人员模式没开。开了重启 Magpie。
 - 这一行都没有：驱动不对，或者显卡不是 RDNA4。
@@ -109,6 +115,6 @@ F6 是插件自己的开关：不停 Magpie，只在 DLSS 5 和 Magpie 的 FSR3 
 
 https://github.com/lmxxf/dlss5-on-amd-9070xt-porting
 
-每个版本的改动、测试台数据、开发记录都在仓库里。0.11 相对 0.10 的变化是接管时间从二十多秒压到三五秒，加了强度参数。
+每个版本的改动、测试台数据、开发记录都在仓库里。0.11 把接管时间从二十多秒压到三五秒，加了强度参数；0.12 加了屏幕提示。
 
-下载：https://pan.quark.cn/s/570436349755
+下载：https://pan.quark.cn/s/a5bafe0e2050
