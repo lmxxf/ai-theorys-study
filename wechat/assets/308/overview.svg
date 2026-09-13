@@ -169,11 +169,11 @@
 
   <!-- ========== 右侧说明 ========== -->
   <rect x="466" y="182" width="404" height="150" rx="8" fill="#ffffff" stroke="#d1d5db"/>
-  <text x="488" y="206" class="t sm" font-weight="bold">预填充只跑编码器那 20 层</text>
+  <text x="488" y="206" class="t sm" font-weight="bold">预填充的主体只跑编码器那 20 层</text>
   <text x="488" y="230" class="dim sm">长输入的主体不必再过解码器一遍</text>
   <text x="488" y="254" class="dim sm">每 token 激活 8B（解码时 16B）</text>
-  <text x="488" y="282" class="dim sm">代价：末尾 128 个 token 仍要过后 20 层，</text>
-  <text x="488" y="300" class="dim sm">补齐滑动窗口状态</text>
+  <text x="488" y="282" class="dim sm">第 21 层仍要为全部 token 投一次 KV；末尾</text>
+  <text x="488" y="300" class="dim sm">128 个 token 也要过后 20 层补窗口状态</text>
   <text x="488" y="322" class="dim sm">这就是第四章那套回放机制的由来</text>
 
   <rect x="466" y="346" width="404" height="196" rx="8" fill="#ffffff" stroke="#d1d5db"/>
