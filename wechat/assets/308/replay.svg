@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .t { fill: #1f2937; }
+    .dim { fill: #6b7280; }
+    .lbl { font-size: 13px; }
+    .sm { font-size: 11px; }
+    .xs { font-size: 10px; }
+    .tiny { font-size: 9px; }
+  </style>
+  <rect width="980" height="620" fill="#fbfbfd"/>
+
+  <text x="490" y="32" text-anchor="middle" class="t" font-size="19" font-weight="bold">有界回放：重建出来的窗口是残缺的，而且越靠前缺得越狠</text>
+  <text x="490" y="54" text-anchor="middle" class="dim lbl">回放最近 128 个 token，窗口被截断在回放区间之内</text>
+
+  <!-- ============ 上：正常推理 ============ -->
+  <rect x="30" y="74" width="920" height="192" rx="8" fill="#ffffff" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="52" y="98" class="t lbl" font-weight="bold">正常推理时：缓存一直在，窗口是满的</text>
+
+  <!-- 历史条 -->
+  <rect x="52" y="112" width="600" height="22" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="352" y="127" text-anchor="middle" class="dim xs">更早的历史（窗口够不着，只能靠全局 KV）</text>
+  <rect x="656" y="112" width="270" height="22" rx="4" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <text x="791" y="127" text-anchor="middle" class="t xs">最近 128 个 token　窗口 KV 都在</text>
+
+  <!-- 位置标 -->
+  <text x="660" y="148" class="dim tiny">−127</text>
+  <text x="786" y="148" text-anchor="middle" class="dim tiny">−64</text>
+  <text x="918" y="148" text-anchor="end" class="dim tiny">0</text>
+
+  <!-- 三个位置各自的窗口 -->
+  <g>
+    <text x="52" y="172" class="t xs">位置 −127 能看：</text>
+    <rect x="150" y="162" width="120" height="14" rx="3" fill="#a7f3d0" stroke="#059669"/>
+    <text x="210" y="173" text-anchor="middle" class="t tiny">全局 512 条</text>
+    <rect x="276" y="162" width="150" height="14" rx="3" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="351" y="173" text-anchor="middle" class="t tiny">窗口 128 条（满）</text>
+  </g>
+  <g>
+    <text x="52" y="196" class="t xs">位置 −64 能看：</text>
+    <rect x="150" y="186" width="120" height="14" rx="3" fill="#a7f3d0" stroke="#059669"/>
+    <text x="210" y="197" text-anchor="middle" class="t tiny">全局 512 条</text>
+    <rect x="276" y="186" width="150" height="14" rx="3" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="351" y="197" text-anchor="middle" class="t tiny">窗口 128 条（满）</text>
+  </g>
+  <g>
+    <text x="52" y="220" class="t xs">位置 0 能看：</text>
+    <rect x="150" y="210" width="120" height="14" rx="3" fill="#a7f3d0" stroke="#059669"/>
+    <text x="210" y="221" text-anchor="middle" class="t tiny">全局 512 条</text>
+    <rect x="276" y="210" width="150" height="14" rx="3" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="351" y="221" text-anchor="middle" class="t tiny">窗口 128 条（满）</text>
+  </g>
+
+  <rect x="52" y="234" width="874" height="22" rx="4" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="489" y="249" text-anchor="middle" class="t xs" font-weight="bold">每个位置都是 512 + 128 = 640 条候选，一视同仁</text>
+
+  <!-- ============ 下：有界回放 ============ -->
+  <rect x="30" y="286" width="920" height="238" rx="8" fill="#ffffff" stroke="#fca5a5" stroke-width="2"/>
+  <text x="52" y="310" class="t lbl" font-weight="bold">缓存没命中、只回放最近 128 个时：窗口被截断在回放区间里</text>
+
+  <rect x="52" y="324" width="600" height="22" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-dasharray="3 2"/>
+  <text x="352" y="339" text-anchor="middle" class="dim xs">这一段的窗口 KV 已经被扔掉，不重算</text>
+  <rect x="656" y="324" width="270" height="22" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+  <text x="791" y="339" text-anchor="middle" class="t xs">回放区间：只有这 128 个被重新跑一遍</text>
+
+  <text x="660" y="360" class="dim tiny">−127（回放起点 s）</text>
+  <text x="918" y="360" text-anchor="end" class="dim tiny">0</text>
+
+  <!-- 三个位置的残缺窗口 -->
+  <g>
+    <text x="52" y="386" class="t xs">位置 −127 能看：</text>
+    <rect x="150" y="376" width="120" height="14" rx="3" fill="#a7f3d0" stroke="#059669"/>
+    <text x="210" y="387" text-anchor="middle" class="t tiny">全局 512 条</text>
+    <rect x="276" y="376" width="4" height="14" rx="1" fill="#fed7aa" stroke="#ea580c"/>
+    <text x="292" y="387" class="dim tiny">窗口只剩它自己 1 条 ← 本该 128 条</text>
+  </g>
+  <g>
+    <text x="52" y="410" class="t xs">位置 −64 能看：</text>
+    <rect x="150" y="400" width="120" height="14" rx="3" fill="#a7f3d0" stroke="#059669"/>
+    <text x="210" y="411" text-anchor="middle" class="t tiny">全局 512 条</text>
+    <rect x="276" y="400" width="74" height="14" rx="3" fill="#fed7aa" stroke="#ea580c"/>
+    <text x="313" y="411" text-anchor="middle" class="t tiny">窗口 64 条</text>
+    <text x="360" y="411" class="dim tiny">← 缺了一半</text>
+  </g>
+  <g>
+    <text x="52" y="434" class="t xs">位置 0 能看：</text>
+    <rect x="150" y="424" width="120" height="14" rx="3" fill="#a7f3d0" stroke="#059669"/>
+    <text x="210" y="435" text-anchor="middle" class="t tiny">全局 512 条</text>
+    <rect x="276" y="424" width="150" height="14" rx="3" fill="#fed7aa" stroke="#ea580c"/>
+    <text x="351" y="435" text-anchor="middle" class="t tiny">窗口 128 条</text>
+    <text x="436" y="435" class="dim tiny">← 只有末尾这个是齐的</text>
+  </g>
+
+  <rect x="52" y="450" width="874" height="24" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="489" y="466" text-anchor="middle" class="t xs" font-weight="bold">同一次回放里，不同位置拿到的候选数量不一样——报告原话：跨位置不是数学一致的</text>
+
+  <rect x="52" y="482" width="874" height="30" rx="4" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="489" y="494" text-anchor="middle" class="dim xs">公式：从位置 s 开始回放，位置 i 只看得到 max(s, i−W+1) 到 i 这一段的窗口 key</text>
+  <text x="489" y="508" text-anchor="middle" class="dim xs">缺掉的部分不补，全局 KV 也不动——直接复用缓存里那份，不重算不覆写</text>
+
+  <!-- 底部 -->
+  <rect x="30" y="540" width="920" height="62" rx="8" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="52" y="564" class="t lbl" font-weight="bold">为什么敢这么干</text>
+  <text x="52" y="588" class="t lbl">精确重建要回放“层数乘窗口”那么多 token；前人工作发现滑动窗口的实际有效感受野远小于这个数，报告据此接受近似。</text>
+</svg>

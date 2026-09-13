@@ -10,11 +10,11 @@
   <rect width="980" height="760" fill="#fbfbfd"/>
 
   <text x="490" y="32" text-anchor="middle" class="t" font-size="19" font-weight="bold">CSA2：40 层里只有 4 个真正产出 KV 的入口</text>
-  <text x="490" y="54" text-anchor="middle" class="dim lbl">对比 V4：那一代是每层都存，但把时间轴挤扁</text>
+  <text x="490" y="54" text-anchor="middle" class="dim lbl">对比 V4-Pro：那一代是每层都存，但把时间轴挤扁</text>
 
   <!-- ================= 上半：V4 ================= -->
   <rect x="40" y="72" width="900" height="150" rx="8" fill="#ffffff" stroke="#d1d5db"/>
-  <text x="62" y="96" class="t lbl" font-weight="bold">V4：压时间轴 · 每层都存自己的</text>
+  <text x="62" y="96" class="t lbl" font-weight="bold">V4-Pro：压时间轴 · 每层都存自己的</text>
 
   <g>
     <rect x="62" y="110" width="76" height="34" rx="4" fill="#e0e7ff" stroke="#818cf8"/>
@@ -37,7 +37,7 @@
     <text x="352" y="139" text-anchor="middle" class="dim xs">128 个压 1 条</text>
   </g>
   <text x="410" y="132" class="dim" font-size="14">···</text>
-  <text x="440" y="132" class="dim sm">两种交替排满 61 层</text>
+  <text x="440" y="132" class="dim sm">两种交替排满 61 层（V4-Pro）</text>
 
   <rect x="62" y="158" width="560" height="48" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
   <text x="82" y="178" class="t sm" font-weight="bold">每一层都有自己的一份 KV——61 层就是 61 份</text>
@@ -51,7 +51,7 @@
 
   <!-- ================= 下半：V4.1 ================= -->
   <rect x="40" y="238" width="900" height="356" rx="8" fill="#ffffff" stroke="#d1d5db"/>
-  <text x="62" y="262" class="t lbl" font-weight="bold">V4.1：压层数 · 每组只有第一层产出，组里其余层白蹭</text>
+  <text x="62" y="262" class="t lbl" font-weight="bold">V4.1-Flash：压层数 · 每组只有第一层产出，组里其余层白蹭</text>
 
   <!-- 图例 -->
   <g transform="translate(560 248)">
@@ -153,8 +153,8 @@
   <!-- ================= 底部对比 ================= -->
   <rect x="40" y="610" width="900" height="132" rx="8" fill="#ffffff" stroke="#d1d5db"/>
   <text x="62" y="636" class="t lbl" font-weight="bold">同样是省字节，两代换了个方向</text>
-  <text x="62" y="662" class="t lbl">· V4：<tspan font-weight="bold">把时间轴挤扁</tspan>——128 个 token 揉成一条，条数少了，但揉进去的细节回不来（有损）</text>
-  <text x="62" y="686" class="t lbl">· V4.1：<tspan font-weight="bold">每个 token 老老实实存一条</tspan>，改成让几十层共用那 4 份，数值一个比特不变（无损）</text>
+  <text x="62" y="662" class="t lbl">· V4-Pro：<tspan font-weight="bold">把时间轴挤扁</tspan>——128 个 token 揉成一条，条数少了，但揉进去的细节回不来（有损）</text>
+  <text x="62" y="686" class="t lbl">· V4.1-Flash：<tspan font-weight="bold">每个 token 老老实实存一条</tspan>，改成让几十层共用那 4 份，数值一个比特不变（无损）</text>
   <text x="62" y="712" class="dim lbl">用无损的维度换掉有损的维度，同样字节数下质量应该更好——报告没解释为什么这么换，这句是我的推断</text>
   <text x="62" y="734" class="dim xs">配置读自技术报告 4.2.1 节</text>
 </svg>
