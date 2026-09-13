@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 700">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .t { fill: #1f2937; }
+    .dim { fill: #6b7280; }
+    .lbl { font-size: 13px; }
+    .sm { font-size: 11px; }
+    .xs { font-size: 10px; }
+  </style>
+  <rect width="980" height="700" fill="#fbfbfd"/>
+
+  <text x="490" y="32" text-anchor="middle" class="t" font-size="19" font-weight="bold">YoCo 原版 vs V4.1 的 CED：改了哪两处</text>
+  <text x="490" y="54" text-anchor="middle" class="dim lbl">同一个思路——后半截不自己算 KV，用前半截产出的那份</text>
+
+  <!-- ================= 左：YoCo ================= -->
+  <rect x="30" y="76" width="450" height="524" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="52" y="102" class="t lbl" font-weight="bold">YoCo（2024，微软研究院 + 清华）</text>
+  <text x="52" y="122" class="dim xs">论文名：You Only Cache Once，只缓存一次</text>
+
+  <!-- 前半：self-decoder -->
+  <rect x="52" y="136" width="406" height="126" rx="6" fill="#f6fffb" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="70" y="158" class="t sm" font-weight="bold">前半：自解码器</text>
+  <rect x="70" y="166" width="370" height="18" rx="3" fill="#d1fae5" stroke="#34d399"/>
+  <text x="255" y="179" text-anchor="middle" class="t xs">第 1 层</text>
+  <rect x="70" y="188" width="370" height="18" rx="3" fill="#d1fae5" stroke="#34d399"/>
+  <text x="255" y="201" text-anchor="middle" class="t xs">···</text>
+  <rect x="70" y="210" width="370" height="18" rx="3" fill="#d1fae5" stroke="#34d399"/>
+  <text x="255" y="223" text-anchor="middle" class="t xs">第 L/2 层</text>
+  <text x="70" y="248" class="dim xs">用便宜的注意力：默认是门控保留（线性注意力一族），或者滑动窗口</text>
+
+  <!-- 箭头 -->
+  <path d="M255 268 V292" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#a2)"/>
+  <text x="268" y="286" class="dim xs">末层输出过一道线性投影</text>
+
+  <!-- 后半：cross-decoder -->
+  <rect x="52" y="298" width="406" height="152" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+  <text x="70" y="320" class="t sm" font-weight="bold">后半：交叉解码器</text>
+
+  <rect x="70" y="330" width="230" height="18" rx="3" fill="#ffedd5" stroke="#fb923c"/>
+  <text x="185" y="343" text-anchor="middle" class="t xs">第 L/2+1 层　只算 query</text>
+  <rect x="70" y="352" width="230" height="18" rx="3" fill="#ffedd5" stroke="#fb923c"/>
+  <text x="185" y="365" text-anchor="middle" class="t xs">···</text>
+  <rect x="70" y="374" width="230" height="18" rx="3" fill="#ffedd5" stroke="#fb923c"/>
+  <text x="185" y="387" text-anchor="middle" class="t xs">第 L 层　只算 query</text>
+
+  <rect x="312" y="330" width="132" height="62" rx="5" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+  <text x="378" y="352" text-anchor="middle" class="t xs" font-weight="bold">唯一一份</text>
+  <text x="378" y="369" text-anchor="middle" class="t xs" font-weight="bold">键和值</text>
+  <text x="378" y="385" text-anchor="middle" class="dim xs">这一半全共用</text>
+
+  <g stroke="#059669" stroke-width="1.4" fill="none" marker-end="url(#a1)">
+    <path d="M310 339 H304"/>
+    <path d="M310 361 H304"/>
+    <path d="M310 383 H304"/>
+  </g>
+
+  <text x="70" y="414" class="dim xs">投影权重只有一组，不带层号</text>
+  <text x="70" y="434" class="dim xs">这一半没有任何局部注意力</text>
+
+  <rect x="52" y="466" width="406" height="116" rx="6" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="72" y="488" class="t sm" font-weight="bold">收益很夸张</text>
+  <text x="72" y="510" class="dim sm">百万 token 的预填充快 71.8 倍</text>
+  <text x="72" y="530" class="dim sm">3B 模型上，1M 上下文只占 12.4 GB</text>
+  <text x="72" y="552" class="dim sm">跑完前半就能收工，后半在预填充时整个跳过</text>
+  <text x="72" y="572" class="dim xs">对照的是 Transformer 加 GQA 加 Flash-Decoding</text>
+
+  <!-- ================= 右：CED ================= -->
+  <rect x="500" y="76" width="450" height="524" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="522" y="102" class="t lbl" font-weight="bold">CED（2026，DeepSeek V4.1-Flash）</text>
+  <text x="522" y="122" class="dim xs">40 层 = 20 层因果编码器 + 20 层解码器</text>
+
+  <!-- 前半：encoder -->
+  <rect x="522" y="136" width="406" height="126" rx="6" fill="#f6fffb" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="540" y="158" class="t sm" font-weight="bold">前半：因果编码器</text>
+  <rect x="540" y="166" width="370" height="18" rx="3" fill="#d1fae5" stroke="#34d399"/>
+  <text x="725" y="179" text-anchor="middle" class="t xs">第 1 层</text>
+  <rect x="540" y="188" width="370" height="18" rx="3" fill="#d1fae5" stroke="#34d399"/>
+  <text x="725" y="201" text-anchor="middle" class="t xs">···</text>
+  <rect x="540" y="210" width="370" height="18" rx="3" fill="#d1fae5" stroke="#34d399"/>
+  <text x="725" y="223" text-anchor="middle" class="t xs">第 20 层</text>
+  <text x="540" y="248" class="dim xs">用的是 CSA2 稀疏注意力（压缩率 2 比 1）加滑动窗口</text>
+
+  <!-- 箭头 -->
+  <path d="M725 268 V292" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#a2)"/>
+  <text x="738" y="286" class="dim xs">第 20 层的隐藏状态</text>
+
+  <!-- 后半：decoder -->
+  <rect x="522" y="298" width="406" height="152" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+  <text x="540" y="320" class="t sm" font-weight="bold">后半：解码器</text>
+
+  <rect x="540" y="330" width="200" height="18" rx="3" fill="#ffedd5" stroke="#fb923c"/>
+  <text x="640" y="343" text-anchor="middle" class="t xs">第 21 层　query + 窗口</text>
+  <rect x="540" y="352" width="200" height="18" rx="3" fill="#ffedd5" stroke="#fb923c"/>
+  <text x="640" y="365" text-anchor="middle" class="t xs">···</text>
+  <rect x="540" y="374" width="200" height="18" rx="3" fill="#ffedd5" stroke="#fb923c"/>
+  <text x="640" y="387" text-anchor="middle" class="t xs">第 40 层　query + 窗口</text>
+
+  <rect x="752" y="328" width="60" height="22" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
+  <text x="782" y="343" text-anchor="middle" class="t xs">KV</text>
+  <rect x="752" y="352" width="60" height="18" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
+  <text x="782" y="365" text-anchor="middle" class="t xs">···</text>
+  <rect x="752" y="372" width="60" height="22" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
+  <text x="782" y="387" text-anchor="middle" class="t xs">KV</text>
+
+  <g stroke="#059669" stroke-width="1.4" fill="none" marker-end="url(#a1)">
+    <path d="M750 339 H744"/>
+    <path d="M750 383 H744"/>
+  </g>
+
+  <text x="824" y="342" class="dim xs">每层</text>
+  <text x="824" y="356" class="dim xs">各投</text>
+  <text x="824" y="370" class="dim xs">各的</text>
+
+  <text x="540" y="414" class="t xs" font-weight="bold">改动一：投影权重带层号，每层投出不同的 KV</text>
+  <text x="540" y="434" class="t xs" font-weight="bold">改动二：每层保留自己的滑动窗口 KV</text>
+
+  <rect x="522" y="466" width="406" height="116" rx="6" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="542" y="488" class="t sm" font-weight="bold">收益缩水，但表达能力回来了</text>
+  <text x="542" y="510" class="dim sm">预填充只能“近乎砍半”，不是几十倍</text>
+  <text x="542" y="530" class="dim sm">因为保留了每层的窗口 KV，跑完前半没法直接收工</text>
+  <text x="542" y="552" class="dim sm">末尾 128 个 token 仍要过后半截补窗口状态</text>
+  <text x="542" y="572" class="dim xs">这就是第四章那套回放机制要收的尾巴</text>
+
+  <!-- ================= 底部 ================= -->
+  <rect x="30" y="614" width="920" height="72" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="52" y="638" class="t lbl" font-weight="bold">YoCo 的软肋，正是 CED 要补的地方</text>
+  <text x="52" y="662" class="t lbl">后半截只有一份键值、投影深度只有一层——有跨层 KV 共享的综述点过这个名，说这类做法通常打不过 GQA 那种层内方法。</text>
+  <text x="52" y="680" class="dim xs">报告里“增强整体 KV 缓存容量和 KV 生成的计算深度”那句套话，拆开就是上面那两条改动</text>
+
+  <defs>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#059669"/>
+    </marker>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#059669"/>
+    </marker>
+  </defs>
+</svg>

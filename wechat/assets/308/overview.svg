@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1136">
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+    .t { fill: #1f2937; }
+    .dim { fill: #6b7280; }
+    .lbl { font-size: 13px; }
+    .sm { font-size: 11px; }
+    .xs { font-size: 10px; }
+    .tiny { font-size: 9px; }
+  </style>
+  <rect width="900" height="1136" fill="#fbfbfd"/>
+
+  <text x="450" y="32" text-anchor="middle" class="t" font-size="19" font-weight="bold">DeepSeek V4.1-Flash 全景：40 层拆开看</text>
+  <text x="450" y="54" text-anchor="middle" class="dim lbl">层号从 1 数起；配置文件里是从 0 数起的，差一位</text>
+
+  <!-- 图例 -->
+  <rect x="30" y="72" width="840" height="54" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <g transform="translate(50 86)">
+    <rect x="0" y="0" width="14" height="12" rx="3" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
+    <text x="20" y="11" class="dim xs">算：自己产出全局 KV</text>
+    <rect x="160" y="0" width="14" height="12" rx="3" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="180" y="11" class="dim xs">挑：借 KV，自己重挑位置</text>
+    <rect x="340" y="0" width="14" height="12" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="360" y="11" class="dim xs">借：KV 和位置都借</text>
+    <rect x="500" y="0" width="14" height="12" rx="3" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="520" y="11" class="dim xs">纯滑动窗口层</text>
+    <circle cx="648" cy="6" r="6" fill="#8b5cf6"/>
+    <text x="662" y="11" class="dim xs">装了 Engram 的层</text>
+  </g>
+  <text x="50" y="118" class="dim xs">每层都另有一份自己的滑动窗口 KV（128 token），这部分从不共享；下图只画全局 KV 那条线</text>
+
+  <!-- 输入 -->
+  <text x="240" y="152" text-anchor="middle" class="dim sm">输入的 token 从这里进</text>
+  <path d="M240 158 V176" stroke="#6b7280" stroke-width="2" fill="none" marker-end="url(#ar2)"/>
+
+  <!-- ========== 编码器（上） ========== -->
+  <rect x="30" y="182" width="420" height="422" rx="8" fill="#f6fffb" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="50" y="206" class="t lbl" font-weight="bold">编码器　第 1 到 20 层</text>
+  <text x="50" y="224" class="dim xs">开头两层纯滑动窗口，其余 18 层压缩率 2 比 1</text>
+
+  <g transform="translate(50 234)">
+    <!-- 纯窗口两层 -->
+    <rect x="8" y="0" width="300" height="15" rx="3" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="158" y="11" text-anchor="middle" class="t tiny">第 1 层　纯滑动窗口</text>
+    <rect x="8" y="18" width="300" height="15" rx="3" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="158" y="29" text-anchor="middle" class="t tiny">第 2 层　纯滑动窗口</text>
+    <circle cx="322" cy="26" r="6" fill="#8b5cf6"/>
+
+    <!-- 第1组 3-8 -->
+    <rect x="0" y="40" width="380" height="100" rx="5" fill="none" stroke="#059669" stroke-dasharray="3 3"/>
+    <rect x="8" y="46" width="300" height="15" rx="3" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="158" y="57" text-anchor="middle" class="t tiny" font-weight="bold">第 3 层　算</text>
+    <rect x="8" y="64" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="74" text-anchor="middle" class="dim tiny">第 4 层　借</text>
+    <rect x="8" y="79" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="89" text-anchor="middle" class="dim tiny">第 5 层　借</text>
+    <rect x="8" y="94" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="104" text-anchor="middle" class="dim tiny">第 6 层　借</text>
+    <rect x="8" y="109" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="119" text-anchor="middle" class="dim tiny">第 7 层　借</text>
+    <rect x="8" y="124" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="134" text-anchor="middle" class="dim tiny">第 8 层　借</text>
+
+    <!-- 第2组 9-14 -->
+    <rect x="0" y="146" width="380" height="100" rx="5" fill="none" stroke="#059669" stroke-dasharray="3 3"/>
+    <rect x="8" y="152" width="300" height="15" rx="3" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="158" y="163" text-anchor="middle" class="t tiny" font-weight="bold">第 9 层　算</text>
+    <rect x="8" y="170" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="180" text-anchor="middle" class="dim tiny">第 10 层　借</text>
+    <rect x="8" y="185" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="195" text-anchor="middle" class="dim tiny">第 11 层　借</text>
+    <rect x="8" y="200" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="210" text-anchor="middle" class="dim tiny">第 12 层　借</text>
+    <rect x="8" y="215" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="225" text-anchor="middle" class="dim tiny">第 13 层　借</text>
+    <rect x="8" y="230" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="240" text-anchor="middle" class="dim tiny">第 14 层　借</text>
+
+    <!-- 第3组 15-20 -->
+    <rect x="0" y="252" width="380" height="100" rx="5" fill="none" stroke="#059669" stroke-dasharray="3 3"/>
+    <rect x="8" y="258" width="300" height="15" rx="3" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="158" y="269" text-anchor="middle" class="t tiny" font-weight="bold">第 15 层　算</text>
+    <circle cx="322" cy="265" r="6" fill="#8b5cf6"/>
+    <rect x="8" y="276" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="286" text-anchor="middle" class="dim tiny">第 16 层　借</text>
+    <rect x="8" y="291" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="301" text-anchor="middle" class="dim tiny">第 17 层　借</text>
+    <rect x="8" y="306" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="316" text-anchor="middle" class="dim tiny">第 18 层　借</text>
+    <rect x="8" y="321" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="331" text-anchor="middle" class="dim tiny">第 19 层　借</text>
+    <rect x="8" y="336" width="300" height="13" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="346" text-anchor="middle" class="dim tiny">第 20 层　借</text>
+  </g>
+
+  <text x="50" y="626" class="dim xs">18 层分 3 组，每组组长产出 KV：第 3、9、15 层</text>
+
+  <!-- 交接箭头 -->
+  <path d="M240 636 V664" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+  <text x="254" y="656" class="t sm" font-weight="bold">第 20 层的隐藏状态往下交</text>
+
+  <!-- ========== 解码器（下） ========== -->
+  <rect x="30" y="672" width="420" height="404" rx="8" fill="#fffaf5" stroke="#fdba74" stroke-width="2"/>
+  <text x="50" y="696" class="t lbl" font-weight="bold">解码器　第 21 到 40 层</text>
+  <text x="50" y="714" class="dim xs">压缩率 1 比 1，横着完全不压</text>
+
+  <g transform="translate(50 724)">
+    <!-- 组1: 21-24 -->
+    <rect x="0" y="0" width="380" height="62" rx="5" fill="none" stroke="#059669" stroke-dasharray="3 3"/>
+    <rect x="8" y="6" width="300" height="16" rx="3" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="158" y="18" text-anchor="middle" class="t tiny" font-weight="bold">第 21 层　算 → 全解码器唯一那份 KV</text>
+    <rect x="8" y="25" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="34" text-anchor="middle" class="dim tiny">第 22 层　借</text>
+    <rect x="8" y="38" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="47" text-anchor="middle" class="dim tiny">第 23 层　借</text>
+    <rect x="8" y="51" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="60" text-anchor="middle" class="dim tiny">第 24 层　借</text>
+
+    <!-- 组2: 25-28 -->
+    <rect x="0" y="68" width="380" height="62" rx="5" fill="none" stroke="#ea580c" stroke-dasharray="3 3"/>
+    <rect x="8" y="74" width="300" height="16" rx="3" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="158" y="86" text-anchor="middle" class="t tiny" font-weight="bold">第 25 层　挑 → 挑法二</text>
+    <rect x="8" y="93" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="102" text-anchor="middle" class="dim tiny">第 26 层　借</text>
+    <rect x="8" y="106" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="115" text-anchor="middle" class="dim tiny">第 27 层　借</text>
+    <rect x="8" y="119" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="128" text-anchor="middle" class="dim tiny">第 28 层　借</text>
+
+    <!-- 组3: 29-32 -->
+    <rect x="0" y="136" width="380" height="62" rx="5" fill="none" stroke="#ea580c" stroke-dasharray="3 3"/>
+    <rect x="8" y="142" width="300" height="16" rx="3" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="158" y="154" text-anchor="middle" class="t tiny" font-weight="bold">第 29 层　挑 → 挑法三</text>
+    <rect x="8" y="161" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="170" text-anchor="middle" class="dim tiny">第 30 层　借</text>
+    <rect x="8" y="174" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="183" text-anchor="middle" class="dim tiny">第 31 层　借</text>
+    <rect x="8" y="187" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="196" text-anchor="middle" class="dim tiny">第 32 层　借</text>
+
+    <!-- 组4: 33-36 -->
+    <rect x="0" y="204" width="380" height="62" rx="5" fill="none" stroke="#ea580c" stroke-dasharray="3 3"/>
+    <rect x="8" y="210" width="300" height="16" rx="3" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="158" y="222" text-anchor="middle" class="t tiny" font-weight="bold">第 33 层　挑 → 挑法四</text>
+    <rect x="8" y="229" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="238" text-anchor="middle" class="dim tiny">第 34 层　借</text>
+    <rect x="8" y="242" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="251" text-anchor="middle" class="dim tiny">第 35 层　借</text>
+    <rect x="8" y="255" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="264" text-anchor="middle" class="dim tiny">第 36 层　借</text>
+
+    <!-- 组5: 37-40 -->
+    <rect x="0" y="272" width="380" height="62" rx="5" fill="none" stroke="#ea580c" stroke-dasharray="3 3"/>
+    <rect x="8" y="278" width="300" height="16" rx="3" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="158" y="290" text-anchor="middle" class="t tiny" font-weight="bold">第 37 层　挑 → 挑法五</text>
+    <rect x="8" y="297" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="306" text-anchor="middle" class="dim tiny">第 38 层　借</text>
+    <rect x="8" y="310" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="319" text-anchor="middle" class="dim tiny">第 39 层　借</text>
+    <rect x="8" y="323" width="300" height="11" rx="3" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="158" y="332" text-anchor="middle" class="dim tiny">第 40 层　借</text>
+    
+    
+    
+  </g>
+
+  <text x="50" y="1096" class="dim xs">投机解码的草稿头挂在最后三层（第 38 到 40 层）</text>
+  <text x="50" y="1112" class="dim xs">20 层分 5 组，只有第 21 层产出 KV，其余 19 层全借它；四个“挑”只换位置，不换 KV</text>
+
+  <!-- ========== 右侧说明 ========== -->
+  <rect x="466" y="182" width="404" height="150" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="488" y="206" class="t sm" font-weight="bold">预填充只跑编码器那 20 层</text>
+  <text x="488" y="230" class="dim sm">长输入的主体不必再过解码器一遍</text>
+  <text x="488" y="254" class="dim sm">每 token 激活 8B（解码时 16B）</text>
+  <text x="488" y="282" class="dim sm">代价：末尾 128 个 token 仍要过后 20 层，</text>
+  <text x="488" y="300" class="dim sm">补齐滑动窗口状态</text>
+  <text x="488" y="322" class="dim sm">这就是第四章那套回放机制的由来</text>
+
+  <rect x="466" y="346" width="404" height="196" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="488" y="370" class="t sm" font-weight="bold">解码器这一段：KV 一份，挑法五套</text>
+  <text x="488" y="394" class="dim sm">第 21 层拿编码器末层的隐藏状态，投出</text>
+  <text x="488" y="412" class="dim sm">全解码器唯一的那份全局 KV</text>
+  <text x="488" y="436" class="dim sm">后面 19 层全借它，一个字节不额外占</text>
+  <text x="488" y="460" class="dim sm">四个“挑”不产出新 KV，只是重新挑</text>
+  <text x="488" y="478" class="dim sm">该看历史里的哪 512 个位置</text>
+  <text x="488" y="506" class="t sm" font-weight="bold">每层自己算的只有两样：</text>
+  <text x="488" y="526" class="dim sm">查询向量，和自己那份滑动窗口 KV</text>
+
+  <rect x="466" y="556" width="404" height="134" rx="8" fill="#ecfdf5" stroke="#6ee7b7"/>
+  <text x="488" y="580" class="t sm" font-weight="bold">全模型只有 4 个产出全局 KV 的入口</text>
+  <text x="488" y="604" class="dim sm">编码器三组的组长：第 3、9、15 层</text>
+  <text x="488" y="624" class="dim sm">解码器唯一那个：第 21 层</text>
+  <text x="488" y="652" class="t sm" font-weight="bold">40 层共用这 4 份，再叠上 4 比特存储</text>
+  <text x="488" y="674" class="t sm" font-weight="bold">每 token 的全局 KV 降到 890 字节</text>
+
+  <rect x="466" y="704" width="404" height="112" rx="8" fill="#faf5ff" stroke="#c4b5fd"/>
+  <text x="488" y="728" class="t sm" font-weight="bold">另外两处装在层里的东西</text>
+  <text x="488" y="752" class="dim sm">Engram 查表：第 2 层和第 15 层</text>
+  <text x="488" y="770" class="dim sm">两层加起来 196B 参数</text>
+  <text x="488" y="794" class="dim sm">投机解码草稿头：最后三层</text>
+
+  <text x="466" y="846" class="dim tiny">排布读自技术报告 4.2.1 节，与 config.json 的 compress_ratios、</text>
+  <text x="466" y="860" class="dim tiny">kv_source_layer_ids、engram_layer_ids 逐字段对过</text>
+
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#059669"/>
+    </marker>
+    <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+</svg>
