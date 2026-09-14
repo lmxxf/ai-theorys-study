@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="'Noto Sans CJK SC', sans-serif" font-size="13" fill="#222">
+  <rect width="960" height="660" fill="#fafafa"/>
+  <text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold">一帧画面经过的地方：左边 CPU 安排，右边 GPU 干活</text>
+
+  <!-- ===== 游戏进程外框 ===== -->
+  <rect x="24" y="50" width="912" height="266" rx="6" fill="none" stroke="#bbb" stroke-dasharray="5 4"/>
+  <text x="36" y="68" font-size="12" fill="#888">游戏进程（《剑星》/ Magpie，我们的代码住在里面）</text>
+
+  <!-- ===== CPU 侧 ===== -->
+  <rect x="40" y="80" width="250" height="222" rx="5" fill="#eef3fb" stroke="#5a7fbf"/>
+  <text x="165" y="102" text-anchor="middle" font-size="15" font-weight="bold" fill="#2c4f8f">CPU：src/ 3592 行</text>
+  <text x="165" y="120" text-anchor="middle" font-size="11" fill="#666">一次浮点乘法都不做，只负责安排</text>
+
+  <rect x="56" y="134" width="218" height="40" rx="4" fill="#fff" stroke="#9ab"/>
+  <text x="66" y="151" font-size="12" font-weight="bold">钩住 ffxDispatch</text>
+  <text x="66" y="167" font-size="11" fill="#555">probe.cpp：从 +312 / +120 读参数</text>
+
+  <rect x="56" y="182" width="218" height="40" rx="4" fill="#fff" stroke="#9ab"/>
+  <text x="66" y="199" font-size="12" font-weight="bold">一块网络一个头文件</text>
+  <text x="66" y="215" font-size="11" fill="#555">native_c64.h 等：Create / Record</text>
+
+  <rect x="56" y="230" width="218" height="56" rx="4" fill="#fff" stroke="#9ab"/>
+  <text x="66" y="247" font-size="12" font-weight="bold">两个收口点</text>
+  <text x="66" y="263" font-size="11" fill="#555">native_pso.h：管线计时</text>
+  <text x="66" y="279" font-size="11" fill="#555">native_pinned_resource.h：显存驻留</text>
+
+  <!-- ===== 命令列表 ===== -->
+  <rect x="330" y="120" width="180" height="150" rx="5" fill="#fff7e6" stroke="#d9a441"/>
+  <text x="420" y="142" text-anchor="middle" font-size="14" font-weight="bold" fill="#96701f">命令列表</text>
+  <text x="420" y="160" text-anchor="middle" font-size="11" fill="#777">CPU 录，GPU 照着做</text>
+  <text x="346" y="184" font-size="11" fill="#444">① 原 FSR 先录完</text>
+  <text x="346" y="204" font-size="11" fill="#444">② 追加我们的几百次派发</text>
+  <text x="346" y="224" font-size="11" fill="#444">③ 结果覆盖回 FSR 输出</text>
+  <text x="346" y="250" font-size="11" fill="#b23">顺序错一步就是空转</text>
+
+  <!-- CPU -> 命令列表 箭头 -->
+  <path d="M290 191 L326 191" stroke="#5a7fbf" stroke-width="2" fill="none" marker-end="url(#ab)"/>
+  <text x="308" y="184" text-anchor="middle" font-size="10" fill="#5a7fbf">录</text>
+
+  <!-- 命令列表 -> GPU 箭头 -->
+  <path d="M514 191 L550 191" stroke="#3a8f5a" stroke-width="2" fill="none" marker-end="url(#ag)"/>
+  <text x="532" y="184" text-anchor="middle" font-size="10" fill="#3a8f5a">交</text>
+
+  <!-- ===== GPU 侧 ===== -->
+  <rect x="554" y="80" width="366" height="222" rx="5" fill="#eaf6ee" stroke="#3a8f5a"/>
+  <text x="737" y="102" text-anchor="middle" font-size="15" font-weight="bold" fill="#256b41">GPU：shaders/ 6377 行</text>
+  <text x="737" y="120" text-anchor="middle" font-size="11" fill="#666">65 个源文件，编成七十多个计算核</text>
+
+  <rect x="570" y="134" width="334" height="46" rx="4" fill="#fff" stroke="#8bb89c"/>
+  <text x="580" y="151" font-size="12" font-weight="bold">71 块网络，一块派发好几个核</text>
+  <text x="580" y="169" font-size="11" fill="#555">重排输入 → 前馈 → QKV → 注意力 → 投影</text>
+
+  <rect x="570" y="188" width="334" height="46" rx="4" fill="#fff" stroke="#8bb89c"/>
+  <text x="580" y="205" font-size="12" font-weight="bold">矩阵乘走 wave 矩阵指令</text>
+  <text x="580" y="223" font-size="11" fill="#555">一组 32 线程合伙算一块 16×16，一条指令出结果</text>
+
+  <rect x="570" y="242" width="334" height="46" rx="4" fill="#fff" stroke="#8bb89c"/>
+  <text x="580" y="259" font-size="12" font-weight="bold">数值行为靠手写函数对齐</text>
+  <text x="580" y="277" font-size="11" fill="#555">H() 半精度舍入、F() 八位量化，37 个核各带一份</text>
+
+  <!-- ===== 帧内数据流 ===== -->
+  <text x="24" y="352" font-size="15" font-weight="bold">一帧里数据怎么走</text>
+
+  <rect x="24" y="366" width="140" height="52" rx="4" fill="#f3f3f3" stroke="#aaa"/>
+  <text x="94" y="388" text-anchor="middle" font-size="12" font-weight="bold">游戏画面</text>
+  <text x="94" y="405" text-anchor="middle" font-size="11" fill="#666">FSR 刚放大完的图</text>
+
+  <path d="M168 392 L204 392" stroke="#666" stroke-width="2" fill="none" marker-end="url(#ad)"/>
+
+  <rect x="208" y="366" width="140" height="52" rx="4" fill="#f3f3f3" stroke="#aaa"/>
+  <text x="278" y="388" text-anchor="middle" font-size="12" font-weight="bold">编码</text>
+  <text x="278" y="405" text-anchor="middle" font-size="11" fill="#666">补成 1920×1152</text>
+
+  <path d="M352 392 L388 392" stroke="#666" stroke-width="2" fill="none" marker-end="url(#ad)"/>
+
+  <rect x="392" y="366" width="176" height="52" rx="4" fill="#eaf6ee" stroke="#3a8f5a"/>
+  <text x="480" y="388" text-anchor="middle" font-size="12" font-weight="bold">71 块网络</text>
+  <text x="480" y="405" text-anchor="middle" font-size="11" fill="#666">21.5 毫秒，全在 GPU</text>
+
+  <path d="M572 392 L608 392" stroke="#666" stroke-width="2" fill="none" marker-end="url(#ad)"/>
+
+  <rect x="612" y="366" width="140" height="52" rx="4" fill="#f3f3f3" stroke="#aaa"/>
+  <text x="682" y="388" text-anchor="middle" font-size="12" font-weight="bold">解码</text>
+  <text x="682" y="405" text-anchor="middle" font-size="11" fill="#666">裁回 1920×1080</text>
+
+  <path d="M756 392 L792 392" stroke="#666" stroke-width="2" fill="none" marker-end="url(#ad)"/>
+
+  <rect x="796" y="366" width="140" height="52" rx="4" fill="#f3f3f3" stroke="#aaa"/>
+  <text x="866" y="388" text-anchor="middle" font-size="12" font-weight="bold">写回原处</text>
+  <text x="866" y="405" text-anchor="middle" font-size="11" fill="#666">盖掉 FSR 的输出</text>
+
+  <!-- 时序回路 -->
+  <path d="M866 422 L866 446 L480 446 L480 424" stroke="#8a6fb0" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ap)"/>
+  <text x="673" y="462" text-anchor="middle" font-size="11" fill="#8a6fb0">上一帧的输出按运动向量对齐后，当作这一帧的历史再喂进去</text>
+
+  <!-- ===== 编译期 ===== -->
+  <text x="24" y="506" font-size="15" font-weight="bold">这些代码怎么变成能装的东西</text>
+
+  <rect x="24" y="520" width="212" height="66" rx="4" fill="#fff" stroke="#aaa"/>
+  <text x="130" y="541" text-anchor="middle" font-size="12" font-weight="bold">src/ → 一个 DLL</text>
+  <text x="130" y="559" text-anchor="middle" font-size="11" fill="#666">Linux 上交叉编译</text>
+  <text x="130" y="576" text-anchor="middle" font-size="11" fill="#666">build-addon.sh</text>
+
+  <rect x="252" y="520" width="212" height="66" rx="4" fill="#fff" stroke="#aaa"/>
+  <text x="358" y="541" text-anchor="middle" font-size="12" font-weight="bold">shaders/ → 七十多个 cso</text>
+  <text x="358" y="559" text-anchor="middle" font-size="11" fill="#666">Windows 上用预览版 dxc</text>
+  <text x="358" y="576" text-anchor="middle" font-size="11" fill="#666">bench.ps1（723 行，含失败记录）</text>
+
+  <rect x="480" y="520" width="212" height="66" rx="4" fill="#fff" stroke="#aaa"/>
+  <text x="586" y="541" text-anchor="middle" font-size="12" font-weight="bold">权重 → 从 DLL 里提</text>
+  <text x="586" y="559" text-anchor="middle" font-size="11" fill="#666">不在仓库里</text>
+  <text x="586" y="576" text-anchor="middle" font-size="11" fill="#666">约 16GB</text>
+
+  <rect x="708" y="520" width="228" height="66" rx="4" fill="#fdf0f0" stroke="#c77"/>
+  <text x="822" y="541" text-anchor="middle" font-size="12" font-weight="bold" fill="#a33">四样预览版组件</text>
+  <text x="822" y="559" text-anchor="middle" font-size="11" fill="#666">预览驱动、预览 dxc、</text>
+  <text x="822" y="576" text-anchor="middle" font-size="11" fill="#666">Agility 721、开发人员模式</text>
+
+  <!-- 底注 -->
+  <text x="480" y="622" text-anchor="middle" font-size="12" fill="#555">另有 Development/ 1286 个文件：逆向笔记、实验脚本、每天的状态日志——编译用不到，但接手要看</text>
+  <text x="480" y="644" text-anchor="middle" font-size="11" fill="#999">行数为 2026-09-14 仓库状态</text>
+
+  <defs>
+    <marker id="ab" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5a7fbf"/>
+    </marker>
+    <marker id="ag" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3a8f5a"/>
+    </marker>
+    <marker id="ad" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
+    </marker>
+    <marker id="ap" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#8a6fb0"/>
+    </marker>
+  </defs>
+</svg>
