@@ -1,0 +1,71 @@
+{
+  "commit": "85feab01987b59afe8311d30f2c8bbaf06c94d6d",
+  "directories": {
+    "src": {
+      "tracked_files": 45,
+      "physical_lines": 3592
+    },
+    "shaders": {
+      "tracked_files": 65,
+      "physical_lines": 6377
+    },
+    "scripts": {
+      "tracked_files": 13,
+      "physical_lines": 1271
+    },
+    "tools": {
+      "tracked_files": 2,
+      "physical_lines": 89
+    },
+    "Development": {
+      "tracked_files": 1286
+    }
+  },
+  "source_lines": 9969,
+  "total_lines": 11329,
+  "bench": {
+    "lines": 723,
+    "bytes": 73794,
+    "FAST_PATH_occurrences": 65,
+    "NULL_RESULT_occurrences": 3,
+    "FIX_comment_headers": 1
+  },
+  "H": {
+    "files_defining": 37,
+    "definition_and_call_tokens": 537
+  },
+  "wrapper_lines": 53,
+  "sha256": {
+    "src/native_submission_order_probe.cpp": "e8e8cc79d5582c3f67371ecfa0d0895d2da4869dce3d9662871895438d6e5493",
+    "src/native_c64.h": "01a139eb07429c4b73f3463d6a57e54b0d169fb5495720795ec02769a84c97eb",
+    "src/native_pinned_resource.h": "5ba7d7e9e1402771eb4c298225effcc0060c5a3a7ff21758028c057d8c89e583",
+    "src/native_pso.h": "3025b38523b2e227d7554254b2624fcca18c67fd4da492e9bf154ac31d4c65c6",
+    "shaders/native_wave_qkv.hlsl": "10700e73a63ea49caaa996292d29c13c05e05b72e88200d6f091222dda062358",
+    "shaders/native_sat_cast.hlsli": "c6b4cd56af79d3646082d06214aeb32bfba1160cceb17be2547134cb28a21fb2",
+    "scripts/bench.ps1": "443961b15f97c542070c85bc7ac8046ee6917b0b6a620d0833b3fbcc4a453833"
+  },
+  "windows_x64_official_layout": {
+    "commandList": 16,
+    "color": 24,
+    "depth": 72,
+    "motionVectors": 120,
+    "exposure": 168,
+    "reactive": 216,
+    "transparencyAndComposition": 264,
+    "output": 312,
+    "jitterOffset": 360,
+    "motionVectorScale": 368,
+    "renderSize": 376,
+    "upscaleSize": 384,
+    "enableSharpening": 392,
+    "sharpness": 396,
+    "frameTimeDelta": 400,
+    "preExposure": 404,
+    "reset": 408
+  },
+  "official_header_sha256": {
+    "ffx_api.h": "408b4203545e8299ed188fbb1d9ddfe0932b73ea6e8b14fe10edcf1f45771561",
+    "ffx_api_types.h": "dee2782813d22047c068e0fb27d1347324f8ce79d280a4672848b3b294cb12fe",
+    "ffx_upscale.h": "1155bcdcea9c10e6a95507bc9422ca062a853ac84250f0b09a637a66836b3ac1"
+  }
+}
