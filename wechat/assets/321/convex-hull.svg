@@ -44,12 +44,10 @@
     <!-- 以 A=(20,320),(130,300),(70,220) 与 B 相对原点平移后的形状相加；这里只画示意六边形 -->
     <polygon points="130,170 240,150 330,120 340,60 230,80 140,110" fill="#e6f0e6" stroke="#2f855a" stroke-width="2"/>
     <text x="235" y="40" text-anchor="middle" font-size="14" fill="#2f855a">两块地相加：够得着的范围变成六边形</text>
-    <text x="235" y="200" text-anchor="middle" font-size="13" fill="#2f855a">头内是平均，头间是相加</text>
-
     <!-- 箭头 -->
-    <line x1="70" y1="270" x2="180" y2="130" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
-    <line x1="255" y1="290" x2="260" y2="190" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
-    <text x="60" y="190" font-size="20" fill="#555">+</text>
+    <line x1="70" y1="210" x2="142" y2="150" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="262" y1="232" x2="272" y2="172" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+    <text x="155" y="250" font-size="20" fill="#555">+</text>
   </g>
 
   <defs>
