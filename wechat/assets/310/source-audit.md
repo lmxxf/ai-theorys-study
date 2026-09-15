@@ -1,5 +1,7 @@
 # 310 期核查记录
 
+> 2026-09-15 终审修正见文末第六节。下方 09-14 记录保留为写作过程，其中主题计数、25%通过率解释、三检查分工等已有修正，不再作为定稿结论。
+
 核查日期：2026-09-14
 方式：三组开灯子代理，全部回一手源（arXiv HTML 正文 / 官方 PDF / 会议 virtual 站点）逐字提取。
 
@@ -155,3 +157,29 @@
 - **GitHub README 的会议徽章不可靠**（Agent0 自称 ICML'26，全量比对查无此篇）。
 - **React SPA 官方博客 curl 拿不到正文**，要去 JS bundle 里提（z.ai 即此类）。
 - **spotlight 档次在 ICLR/ICML virtual 站点无法区分**，只能确证"是不是 oral"。
+
+---
+
+## 六、2026-09-15 终审修正
+
+本次重新核官方会议页、论文方法与实验表、厂商报告，并对照已发303/261/265/282/283/264/301/304/309正文。保留批评传播省掉人类劳动的主线；改稿不操作暂存区、不提交。
+
+| 项目 | 现核证据与修正 |
+|---|---|
+| 八十多篇中六篇oral，高于大盘 | 关键词分母不含TTT和Neon，分子又混入ACL奖项；跨会比例不可比。改为六个口头或获奖例子。核查日期9/15，发布落款9/16保留 |
+| 六篇档次 | [ICLR oral](https://iclr.cc/virtual/2026/events/oral)四篇成立；[Agent0-VL](https://icml.cc/virtual/2026/oral/71164)为ICML oral；[CURE](https://2026.aclweb.org/program/best_papers/)为Outstanding。去“全主题唯一获奖”和未核总量 |
+| MetaRSI两个增幅 | [§5](https://arxiv.org/html/2609.06396v2)：Qwen3.5-35B-A3B总35B激活3B，10.9为四基准均值；六模型7.3仅Terminal-Bench2.1，走冻结权重的Data/Harness路线。外部verifier/oracle/sandbox保留在可写范围之外 |
+| 自进化与RSI | [综述](https://arxiv.org/html/2607.13104v1)支持更新对象与信号来源两轴，没有“绝大多数不改权重”的计数；改“许多”。递归不蕴含每轮收益递增 |
+| Lin曲线 | [论文Fig1及§5](https://arxiv.org/html/2606.21090)：25→81→近0是7B单种子200步诊断；22.2是另组十轮链、3种子最终均值，非同曲线救回。KL参考为逐轮参考策略；早停可自动执行。固定CodeGrader仍崩，不写“尺子始终准” |
+| Song橡皮图章 | [Table1/§3.1](https://arxiv.org/html/2606.28438)：20k生成留top25%=5k，恒0.250首先是配额，不证明评分退化。Assumption2.2先假设同分，Theorem2.3再证明等价无筛选。结果支持本设置自审未阻止退化，不是普遍不可能定理 |
+| 内省阈值 | [§3.4.1](https://arxiv.org/html/2607.04277)：非正式理论主张，无原创测阈值实验。不能和前两篇并称撤掉外部验证后的实测 |
+| GLM5.3 | [博客](https://z.ai/blog/glm-5.3)及[正文bundle](https://z.ai/blog/assets/glm-5.3-B8Uy_aqG.js)：人介入与2436/269/1097原句成立，测试合作从5.2起。三检查只列名称，不编三套独立职责、不写判分器一次性；拒绝no-op不等于排除全部橡皮图章风险 |
+| Kimi K3 | [官方报告](https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf)§4.1/4.2：三处human/expert措辞成立；we design不证明任务全由人工生成 |
+| V4 GRM | [§5.1.1](https://arxiv.org/html/2606.19348v1)：联合训练生成/评判能力，不能推出同步互判、规则奖励占大头、rubric永久冻结。按报告保留评分细则和人工标注 |
+| V4正式版收益 | [API日志](https://api-docs.deepseek.com/updates/)2026-07-31与[模型卡](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731)：结构尺寸及后训练说明、DeepSWE7.3→54.4成立；不写字节不变或单独判分器造成收益 |
+| InstructGPT | [§3.5/C.2](https://cdn.openai.com/papers/Training_language_models_to_follow_instructions_with_human_feedback.pdf)：6B RM配175B策略成立；175B RM是成本高且可能不稳定，不是用不了或证明更大更差 |
+| DLSS时间与因果 | 304.md表及第三章：186ms→62.7ms，改为PSNR容差验收后做硬件舍入/核融合优化，不是测错时间。301.md先追提交链发现画面未变，再逐值重做；两道验收不可合并。八月底到9/15两周多，非一个多月 |
+| 环境与判分成本 | [Prime Intellect公告](https://www.primeintellect.ai/blog/series-a)1.3亿美元A轮成立；其做全栈训练基础设施，不能推钱只投环境、不投验证。去未逐项复核且非主线必要的工资/采购数 |
+| 长程训练与压缩 | 保留局部检查与长期选路区别、压缩策略影响；删除中间决策全不可判、压缩永不可能评价、只能一个回合、判分器只能最终判等不可能断言。可以子任务化/做对照，难点是成本与目标设计 |
+
+收尾同步：不再写“能验证必涨、没验证必崩”“出题无风险、只有判分重要”。自动运行是有意义的局部结果，批评针对把它偷换成整套流程不含人类投入。
