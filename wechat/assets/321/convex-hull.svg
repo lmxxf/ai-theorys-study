@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="900" height="460" fill="#ffffff"/>
+
+  <!-- 左：单头 -->
+  <text x="225" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">一个头：输出只能落在三角形里</text>
+
+  <g transform="translate(60,70)">
+    <!-- 三角形 v1 v2 v3 -->
+    <polygon points="40,300 300,280 160,60" fill="#dbe9f6" stroke="#2b6cb0" stroke-width="2"/>
+    <circle cx="40" cy="300" r="5" fill="#2b6cb0"/>
+    <circle cx="300" cy="280" r="5" fill="#2b6cb0"/>
+    <circle cx="160" cy="60" r="5" fill="#2b6cb0"/>
+    <text x="48" y="322" font-size="16" fill="#2b6cb0">v<tspan font-size="11" dy="4">1</tspan></text>
+    <text x="305" y="300" font-size="16" fill="#2b6cb0">v<tspan font-size="11" dy="4">2</tspan></text>
+    <text x="150" y="48" font-size="16" fill="#2b6cb0">v<tspan font-size="11" dy="4">3</tspan></text>
+
+    <!-- 中点 (v1+v2)/2 -->
+    <circle cx="170" cy="290" r="5" fill="#c53030"/>
+    <text x="120" y="275" font-size="14" fill="#c53030">(v1+v2)/2 够得着</text>
+
+    <!-- 和 v1+v2：以 v3? 不，以原点为参照。这里把原点放在左下 -->
+    <circle cx="0" cy="340" r="3" fill="#555"/>
+    <text x="-8" y="358" font-size="13" fill="#555">0</text>
+    <line x1="0" y1="340" x2="40" y2="300" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+    <line x1="0" y1="340" x2="300" y2="280" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+    <!-- v1+v2 = (40,300)+(300,280)-(0,340) 以原点为基准：向量 v1=(40,-40), v2=(300,-60)，和=(340,-100) → 点 (340,240) -->
+    <circle cx="340" cy="240" r="6" fill="none" stroke="#c53030" stroke-width="2"/>
+    <text x="300" y="228" font-size="14" fill="#c53030">v1+v2 够不着</text>
+    <line x1="0" y1="340" x2="340" y2="240" stroke="#c53030" stroke-width="1" stroke-dasharray="4 3"/>
+  </g>
+
+  <!-- 右：多头 -->
+  <text x="675" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">两个头：各挑一点再相加</text>
+
+  <g transform="translate(500,70)">
+    <!-- 头1 三角形（小） -->
+    <polygon points="20,320 130,300 70,220" fill="#dbe9f6" stroke="#2b6cb0" stroke-width="2"/>
+    <text x="50" y="345" font-size="14" fill="#2b6cb0">头 1 的三角形</text>
+    <!-- 头2 三角形（小，另一形状） -->
+    <polygon points="180,330 300,320 260,240" fill="#fdebd0" stroke="#c05621" stroke-width="2"/>
+    <text x="200" y="352" font-size="14" fill="#c05621">头 2 的三角形</text>
+
+    <!-- 闵可夫斯基和：把两个三角形相加得到的六边形（示意，放在上方） -->
+    <!-- 以 A=(20,320),(130,300),(70,220) 与 B 相对原点平移后的形状相加；这里只画示意六边形 -->
+    <polygon points="130,170 240,150 330,120 340,60 230,80 140,110" fill="#e6f0e6" stroke="#2f855a" stroke-width="2"/>
+    <text x="235" y="40" text-anchor="middle" font-size="14" fill="#2f855a">两块地相加：够得着的范围变成六边形</text>
+    <text x="235" y="200" text-anchor="middle" font-size="13" fill="#2f855a">头内是平均，头间是相加</text>
+
+    <!-- 箭头 -->
+    <line x1="70" y1="270" x2="180" y2="130" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="255" y1="290" x2="260" y2="190" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+    <text x="60" y="190" font-size="20" fill="#555">+</text>
+  </g>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#888"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="440" text-anchor="middle" font-size="14" fill="#666">softmax 权重非负、和为 1 → 输出是 value 的凸组合 → 一个头够不着凸包外面</text>
+</svg>
