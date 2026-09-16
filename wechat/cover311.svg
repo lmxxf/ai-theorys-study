@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', 'Droid Sans Fallback', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">判分的那个模型，需要比被判的更聪明吗</text>
+
+  <!-- ============ LEFT: 可以更小 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">事实 · 2022 年就这么干了</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 34)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#1a1206" stroke="#f59e0b" stroke-width="2"/>
+      <text x="100" y="33" text-anchor="middle" fill="#fcd34d" font-size="20" font-weight="bold">可 以 更 小</text>
+    </g>
+
+    <g transform="translate(15 104)">
+      <rect x="0" y="0" width="200" height="88" rx="6" fill="#141005" stroke="#78350f" stroke-width="1"/>
+      <text x="100" y="30" text-anchor="middle" fill="#fcd34d" font-size="17" font-weight="bold">6B 判 175B</text>
+      <text x="100" y="55" text-anchor="middle" fill="#fbbf24" font-size="11">差了将近三十倍</text>
+      <text x="100" y="75" text-anchor="middle" fill="#fbbf24" font-size="11">训出的策略一样强</text>
+    </g>
+
+    <text x="115" y="224" text-anchor="middle" fill="#94a3b8" font-size="11">省算力、大的训不稳</text>
+    <text x="115" y="246" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="bold">是当时的工程取舍</text>
+    <text x="115" y="270" text-anchor="middle" fill="#fcd34d" font-size="12" font-weight="bold">不是一条通用比例</text>
+  </g>
+
+  <!-- ============ MIDDLE: 但不更容易 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">转折 · 我原来想岔了</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#2dd4bf" stroke-width="2"/>
+
+    <g transform="translate(20 34)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="33" text-anchor="middle" fill="#5eead4" font-size="20" font-weight="bold">不 更 容 易</text>
+    </g>
+
+    <g transform="translate(20 104)">
+      <rect x="0" y="0" width="200" height="88" rx="6" fill="#0a1a1a" stroke="#115e59" stroke-width="1"/>
+      <text x="100" y="26" text-anchor="middle" fill="#a7f3d0" font-size="11">拿弱模型的标签去教</text>
+      <text x="100" y="50" text-anchor="middle" fill="#5eead4" font-size="13" font-weight="bold">判分是最难补上来的</text>
+      <text x="100" y="72" text-anchor="middle" fill="#a7f3d0" font-size="11">那一类任务</text>
+    </g>
+
+    <text x="120" y="224" text-anchor="middle" fill="#94a3b8" font-size="11">能做小是成本选择</text>
+    <text x="120" y="250" text-anchor="middle" fill="#fde047" font-size="15" font-weight="bold">不是这活本来就轻</text>
+    <text x="120" y="274" text-anchor="middle" fill="#cbd5e1" font-size="11">这两句特别容易混成一句</text>
+  </g>
+
+  <!-- ============ RIGHT: 缺的那半句 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">猜想 · 没有实验，就当闲聊</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 34)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0f1629" stroke="#4a90d9" stroke-width="2"/>
+      <text x="100" y="33" text-anchor="middle" fill="#93c5fd" font-size="19" font-weight="bold">缺 的 那 半 句</text>
+    </g>
+
+    <g transform="translate(15 104)">
+      <rect x="0" y="0" width="200" height="88" rx="6" fill="#0b1120" stroke="#1e3a5f" stroke-width="1"/>
+      <text x="100" y="26" text-anchor="middle" fill="#93c5fd" font-size="11">标签只留下“A 比 B 好”</text>
+      <text x="100" y="50" text-anchor="middle" fill="#bfdbfe" font-size="11">没留下这次是嫌它哪儿</text>
+      <text x="100" y="74" text-anchor="middle" fill="#93c5fd" font-size="11">而两者差着几百样东西</text>
+    </g>
+
+    <text x="115" y="224" text-anchor="middle" fill="#94a3b8" font-size="11">熟悉的题上八成准</text>
+    <text x="115" y="246" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="bold">换一批比随机猜还低</text>
+    <text x="115" y="270" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">那不是变笨，是判反</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">判分的那个模型该多大</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">不必更聪明，但得在这项判断上可靠</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.311 · 换一批题、换一个更强的答题者，这份可靠还剩多少</text>
+</svg>
