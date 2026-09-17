@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">老靳学线代 · 第三期 · 总第 312 期</text>
+
+  <!-- ============ LEFT: 回声 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">话题一 · 菜单里的回声</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 三向量共面示意 -->
+    <g transform="translate(115 96)">
+      <polygon points="-88,26 60,34 92,-10 -56,-18" fill="#6366f1" opacity="0.22" stroke="#6366f1" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="-30" y1="14" x2="42" y2="16" stroke="#22d3ee" stroke-width="2.5"/>
+      <path d="M46 16 L36 12 L36 20 z" fill="#22d3ee"/>
+      <line x1="-30" y1="14" x2="-2" y2="-16" stroke="#34d399" stroke-width="2.5"/>
+      <path d="M2 -20 L-4 -10 L4 -12 z" fill="#34d399"/>
+      <line x1="-30" y1="14" x2="70" y2="-14" stroke="#f87171" stroke-width="3"/>
+      <path d="M75 -16 L64 -18 L66 -10 z" fill="#f87171"/>
+      <text x="48" y="32" fill="#67e8f9" font-size="11" font-weight="bold">u</text>
+      <text x="-6" y="-26" fill="#6ee7b7" font-size="11" font-weight="bold">v</text>
+      <text x="80" y="-22" fill="#fca5a5" font-size="11" font-weight="bold">w</text>
+    </g>
+
+    <g transform="translate(15 150)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="23" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="bold">w = u + v</text>
+      <text x="100" y="45" text-anchor="middle" fill="#bfdbfe" font-size="11">三条汉子，挤在一张平面上</text>
+    </g>
+
+    <text x="115" y="238" text-anchor="middle" fill="#94a3b8" font-size="11">能被别人调出来的那道菜</text>
+    <text x="115" y="260" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="bold">叫回声，不提供新东西</text>
+    <text x="115" y="284" text-anchor="middle" fill="#67e8f9" font-size="12" font-weight="bold">数身家时不算数</text>
+  </g>
+
+  <!-- ============ MIDDLE: 秩 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">话题二 · 真菜有几道</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#2dd4bf" stroke-width="2"/>
+
+    <g transform="translate(20 32)">
+      <rect x="0" y="0" width="200" height="52" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="17" font-weight="bold">秩 = 真菜道数</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="11">划掉回声之后还剩几行</text>
+    </g>
+
+    <!-- 菜单厚 vs 真菜薄 -->
+    <g transform="translate(20 100)">
+      <rect x="0" y="0" width="200" height="86" rx="6" fill="#0a1a1a" stroke="#115e59" stroke-width="1"/>
+      <text x="14" y="22" fill="#94a3b8" font-size="11">菜单</text>
+      <rect x="54" y="12" width="132" height="13" fill="#475569"/>
+      <text x="192" y="23" text-anchor="end" fill="#cbd5e1" font-size="9.5" font-weight="bold">4096 行</text>
+      <text x="14" y="52" fill="#5eead4" font-size="11">真菜</text>
+      <rect x="54" y="42" width="22" height="13" fill="#2dd4bf"/>
+      <text x="186" y="53" text-anchor="end" fill="#5eead4" font-size="9.5" font-weight="bold">可能只有几百道</text>
+      <text x="100" y="74" text-anchor="middle" fill="#fde047" font-size="11.5" font-weight="bold">厚度是排场，秩才是实力</text>
+    </g>
+
+    <g transform="translate(20 200)">
+      <rect x="0" y="0" width="200" height="46" rx="6" fill="#2a1a06" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="19" text-anchor="middle" fill="#fcd34d" font-size="11.5" font-weight="bold">秩只数个数，不数强弱</text>
+      <text x="100" y="37" text-anchor="middle" fill="#fbbf24" font-size="10.5">浓淡是奇异值的账，第八期分家</text>
+    </g>
+
+    <text x="120" y="264" text-anchor="middle" fill="#94a3b8" font-size="11">这两本账我记混了两年</text>
+    <text x="120" y="285" text-anchor="middle" fill="#e2e8f0" font-size="11.5" font-weight="bold">这个系列就是为还这笔账开的</text>
+  </g>
+
+  <!-- ============ RIGHT: 低秩从哪来 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">追问 · 谁把菜单压薄的</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="40" rx="6" fill="#0f1629" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="17" text-anchor="middle" fill="#93c5fd" font-size="11.5" font-weight="bold">随机矩阵几乎必然满秩</text>
+      <text x="100" y="33" text-anchor="middle" fill="#bfdbfe" font-size="10.5">回声是奇迹，不是常态</text>
+    </g>
+
+    <g transform="translate(15 82)">
+      <rect x="0" y="0" width="200" height="74" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="19" text-anchor="middle" fill="#5eead4" font-size="11.5" font-weight="bold">精打细算：有人故意造的</text>
+      <text x="100" y="38" text-anchor="middle" fill="#a7f3d0" font-size="10.5">LoRA 的 r = 8 只许动 8 个方向</text>
+      <text x="100" y="54" text-anchor="middle" fill="#a7f3d0" font-size="10.5">MLA 把 KV 关进 512 维压缩包</text>
+      <text x="100" y="68" text-anchor="middle" fill="#7fa98e" font-size="10">省的是显存，付的是表达力</text>
+    </g>
+
+    <g transform="translate(15 168)">
+      <rect x="0" y="0" width="200" height="74" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="19" text-anchor="middle" fill="#fca5a5" font-size="11.5" font-weight="bold">家道中落：训练压出来的</text>
+      <text x="100" y="38" text-anchor="middle" fill="#f87171" font-size="10.5">菜单还那么厚，后厨只会几道菜</text>
+      <text x="100" y="54" text-anchor="middle" fill="#f87171" font-size="10.5">自家量过：线性尺 3558 维</text>
+      <text x="100" y="68" text-anchor="middle" fill="#fbbf24" font-size="10.5" font-weight="bold">非线性尺只有 277 维</text>
+    </g>
+
+    <text x="115" y="266" text-anchor="middle" fill="#94a3b8" font-size="11">同样是低秩</text>
+    <text x="115" y="288" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="bold">一个是设计，一个是病</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">线性无关与秩：菜单四千行，真菜有几道</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">秩数的是方向的个数，不是强度——这两本账我记混了两年</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">回声与张成 · 消元求秩 · LoRA 的 r · MLA 的 512 · 权重空间是弯的</text>
+</svg>

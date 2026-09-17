@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 470">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .ttl { font-size: 17px; font-weight: bold; fill: #0f172a; }
+    .lab { font-size: 14px; font-weight: bold; }
+    .note { font-size: 13px; fill: #475569; }
+    .big { font-size: 15px; font-weight: bold; fill: #0f172a; }
+    .ax { font-size: 12px; fill: #94a3b8; }
+  </style>
+
+  <rect width="880" height="470" fill="#fdfdfb"/>
+
+  <!--
+    等距投影：屏幕坐标 = 原点 + x*(60,-30) + y*(72,18) + z*(0,-72)
+    原点 (250, 300)
+    u=(1,2,0) -> 250+60+144=454, 300-30+36=306
+    v=(0,1,1) -> 250+72=322,      300+18-72=246
+    w=(1,3,1) -> 250+60+216=526,  300-30+54-72=252
+  -->
+
+  <text x="40" y="40" class="ttl">u = (1, 2, 0)　　v = (0, 1, 1)　　w = u + v = (1, 3, 1)</text>
+  <text x="40" y="64" class="note">三个三维向量，看着是三条汉子——画出来才知道它们挤在同一张平面上</text>
+
+  <!-- ===== 平面（u、v 张成的那张） ===== -->
+  <!-- 平面由 a*u + b*v 铺成，取 a,b ∈ [-0.5, 2.2] 画一块平行四边形 -->
+  <!-- 角点: a=-0.4,b=-0.4 / a=2.3,b=-0.4 / a=2.3,b=2.0 / a=-0.4,b=2.0 -->
+  <!-- P(a,b) = (250 + a*204 + b*72, 300 + a*6 + b*(-54)) 其中 u屏幕增量=(204,6), v屏幕增量=(72,-54) -->
+  <polygon points="142.6,324.9 591.4,338.1 753.4,216.6 304.6,203.4"
+           fill="#c7d2fe" fill-opacity="0.45" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <text x="700" y="160" class="lab" fill="#4338ca">u 和 v 张成的平面</text>
+  <text x="700" y="180" class="note" fill="#4338ca">（过原点，二维）</text>
+
+  <!-- ===== 坐标轴（淡） ===== -->
+  <g stroke="#cbd5e1" stroke-width="1">
+    <path d="M250 300 L430 210"/>
+    <path d="M250 300 L466 354"/>
+    <path d="M250 300 L250 120"/>
+  </g>
+  <text x="438" y="206" class="ax">x</text>
+  <text x="472" y="362" class="ax">y</text>
+  <text x="243" y="112" class="ax">z</text>
+
+  <!-- ===== 三个向量 ===== -->
+  <defs>
+    <marker id="au" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#0891b2"/>
+    </marker>
+    <marker id="av" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#059669"/>
+    </marker>
+    <marker id="aw" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- 平行四边形法则的虚线：u 末端 -> w，v 末端 -> w -->
+  <g stroke="#f87171" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.9">
+    <path d="M454 306 L526 252"/>
+    <path d="M322 246 L526 252"/>
+  </g>
+
+  <path d="M250 300 L454 306" stroke="#0891b2" stroke-width="3" marker-end="url(#au)"/>
+  <path d="M250 300 L322 246" stroke="#059669" stroke-width="3" marker-end="url(#av)"/>
+  <path d="M250 300 L526 252" stroke="#dc2626" stroke-width="3.5" marker-end="url(#aw)"/>
+
+  <circle cx="250" cy="300" r="4" fill="#0f172a"/>
+  <text x="236" y="320" class="note">原点</text>
+
+  <text x="420" y="330" class="lab" fill="#0891b2">u</text>
+  <text x="296" y="238" class="lab" fill="#059669">v</text>
+  <text x="540" y="246" class="lab" fill="#dc2626">w</text>
+
+  <text x="470" y="296" class="note" fill="#b91c1c" font-size="12">一份 u 加一份 v</text>
+
+  <!-- ===== 右侧说明 ===== -->
+  <text x="40" y="378" class="big">w 不在平面外面——它就躺在这张平面里</text>
+  <text x="40" y="404" class="note">u 和 v 能配出的所有组合，铺出来就是这张平面（二维）。w 是其中一种配法，所以它跑不出去。</text>
+  <text x="40" y="428" class="note">三个向量撑不起三维空间，只撑得起这张二维的平面——把 w 从菜单上划掉，能配出的东西一样不少。</text>
+  <text x="40" y="456" class="big" fill="#b91c1c">独立方向是 2 个，不是 3 个。数身家的时候，回声不算数。</text>
+</svg>
