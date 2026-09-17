@@ -48,51 +48,71 @@
 
   <!-- ============ CASE 2: attention ============ -->
   <text x="40" y="336" class="ttl">② 注意力算分</text>
-  <text x="180" y="336" class="sub">Q · K^T　（经典形态：每头 d = 64，图中序列长 8）</text>
+  <text x="180" y="336" class="sub">生成第 9 个 token 这一步　q · K^T　（每头 d = 64，前面已有 8 个 token）</text>
 
   <!-- K 原始：横着存 -->
   <text x="40" y="374" class="lab">K 存进来时 [8, 64]</text>
   <text x="40" y="392" class="sub">每行 = 一个 token 的 k</text>
   <g>
-    <rect x="40" y="402" width="190" height="112" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <rect x="40" y="402" width="170" height="112" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
     <g stroke="#16a34a" stroke-width="0.8" opacity="0.5">
-      <path d="M40 416 H230 M40 430 H230 M40 444 H230 M40 458 H230 M40 472 H230 M40 486 H230 M40 500 H230"/>
+      <path d="M40 416 H210 M40 430 H210 M40 444 H210 M40 458 H210 M40 472 H210 M40 486 H210 M40 500 H210"/>
     </g>
-    <rect x="40" y="430" width="190" height="14" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+    <rect x="40" y="430" width="170" height="14" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
   </g>
-  <text x="135" y="534" text-anchor="middle" class="dim">64 列</text>
+  <text x="125" y="534" text-anchor="middle" class="dim">64 列</text>
   <text x="30" y="458" class="dim" transform="rotate(-90 30 458)" text-anchor="middle">8 行</text>
 
   <!-- 转置箭头 -->
-  <path d="M250 452 L310 452" stroke="#dc2626" stroke-width="2.5" marker-end="url(#ar)"/>
+  <path d="M228 452 L278 452" stroke="#dc2626" stroke-width="2.5" marker-end="url(#ar)"/>
   <defs>
     <marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
       <path d="M0 0 L9 4.5 L0 9 z" fill="#dc2626"/>
     </marker>
   </defs>
-  <text x="280" y="440" text-anchor="middle" class="dim" fill="#dc2626">转置</text>
-  <text x="280" y="474" text-anchor="middle" class="sub" fill="#dc2626">行立起来</text>
-  <text x="280" y="490" text-anchor="middle" class="sub" fill="#dc2626">变成列</text>
+  <text x="253" y="440" text-anchor="middle" class="dim" fill="#dc2626">转置</text>
+  <text x="253" y="476" text-anchor="middle" class="sub" fill="#dc2626">行立起来</text>
+  <text x="253" y="492" text-anchor="middle" class="sub" fill="#dc2626">变成列</text>
 
-  <!-- Kᵀ：竖着 -->
-  <text x="330" y="374" class="lab">K^T 用的时候 [64, 8]</text>
-  <text x="330" y="392" class="sub">每列 = 一个 token 的 k</text>
+  <!-- q 向量：只有一行！ -->
+  <text x="309" y="392" text-anchor="middle" class="lab" fill="#b45309">q</text>
+  <rect x="300" y="402" width="18" height="190" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+  <text x="309" y="612" text-anchor="middle" class="dim" fill="#ea580c">1 行</text>
+  
+
+  <text x="330" y="500" class="dim" fill="#334155">·</text>
+
+  <!-- K^T：竖着 -->
+  <text x="348" y="374" class="lab">K^T 用的时候 [64, 8]</text>
+  <text x="348" y="392" class="sub">每列 = 一个 token 的 k</text>
   <g>
-    <rect x="330" y="402" width="112" height="190" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <rect x="348" y="402" width="112" height="190" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
     <g stroke="#16a34a" stroke-width="0.8" opacity="0.5">
-      <path d="M344 402 V592 M358 402 V592 M372 402 V592 M386 402 V592 M400 402 V592 M414 402 V592 M428 402 V592"/>
+      <path d="M362 402 V592 M376 402 V592 M390 402 V592 M404 402 V592 M418 402 V592 M432 402 V592 M446 402 V592"/>
     </g>
-    <rect x="358" y="402" width="14" height="190" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+    <rect x="376" y="402" width="14" height="190" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
   </g>
-  <text x="386" y="612" text-anchor="middle" class="dim">8 列</text>
-  <text x="458" y="497" class="dim" transform="rotate(-90 458 497)" text-anchor="middle">64 行</text>
+  <text x="404" y="612" text-anchor="middle" class="dim">8 列</text>
+  <text x="476" y="497" class="dim" transform="rotate(-90 476 497)" text-anchor="middle">64 行</text>
+
+  <!-- = 分数 -->
+  <text x="500" y="500" class="dim" fill="#334155" font-size="16">=</text>
+  <text x="529" y="392" text-anchor="middle" class="lab" fill="#b45309">分数</text>
+  <g>
+    <rect x="520" y="402" width="18" height="190" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+    <g stroke="#ea580c" stroke-width="0.8" opacity="0.6">
+      <path d="M520 426 H538 M520 450 H538 M520 474 H538 M520 498 H538 M520 522 H538 M520 546 H538 M520 570 H538"/>
+    </g>
+    <rect x="520" y="450" width="18" height="24" fill="#fb923c" stroke="#c2410c" stroke-width="1.5"/>
+  </g>
+  <text x="529" y="612" text-anchor="middle" class="dim" fill="#ea580c">8 个</text>
 
   <!-- 说明 -->
-  <text x="490" y="424" class="big">同一份数据，躺着存、立着用</text>
-  <text x="490" y="454" class="note">存的时候按行——和“每行一个 token”的</text>
-  <text x="490" y="474" class="note">张量约定一致</text>
-  <text x="490" y="506" class="note">打分的时候按列——打分器必须是列，</text>
-  <text x="490" y="526" class="note">所以中间翻一下</text>
-  <text x="490" y="562" class="lab">绿色深的那条：从第 3 行，变成第 3 列</text>
-  <text x="490" y="590" class="sub">（lm_head 那张出厂就竖着存，不用转置）</text>
+  <text x="580" y="424" class="big">一个 q，问前面所有的 k</text>
+  <text x="580" y="452" class="note">生成下一个字的时候，Q 这边只有一行——</text>
+  <text x="580" y="472" class="note">就是当前位置这一个 q。不是所有 q 一起算。</text>
+  <text x="580" y="504" class="note">它跟已经存下的 8 个 k 各点一次积，</text>
+  <text x="580" y="524" class="note">得到 8 个分数：“我该看前面哪几个字”。</text>
+  <text x="580" y="556" class="lab">深色那一对：这个 q 和第 3 个 k 点出第 3 个分数</text>
+  <text x="580" y="584" class="sub">（训练时才是一整摞 q 同时算，那是另一张图）</text>
 </svg>
