@@ -17,7 +17,7 @@ Based in Beijing. Available from October 2026.
 
 **LLM deployment and inference optimization.** Deployed Qwen3.6-27B privately on an 8×V100 cluster (vLLM + AWQ + tensor parallelism) serving 70+ engineers daily; diagnosed and fixed a CUDA graph concurrency defect for a 2.6× throughput gain at 8-way concurrency. Built a two-node DGX Spark deployment image for DeepSeek-V4 (280B) — 10K+ pulls on Docker Hub.
 
-**GPU kernels and neural network inference.** Reverse-engineered NVIDIA's DLSS 5 network (71 modules, 152 compute layers) out of a closed-source DLL and ported it to AMD RDNA4, with two backends — D3D12/HLSL and HIP — validated bit-for-bit throughout. Brought a frame from 576 ms down to 13 ms; 56–57 FPS at 900p in real gameplay. Found and fixed an unhandled FP8 numerical defect along the way (hardware E4M3 conversion doesn't saturate — values beyond ±448 become NaN, which `clamp` then washes into black blocks on screen); that fix is the direct reason the community reports better image quality from this implementation than from comparable closed-source ones. 55★ and climbing.
+**GPU kernels and neural network inference.** Reverse-engineered NVIDIA's DLSS 5 network (71 modules, 152 compute layers) out of a closed-source DLL and ported it to AMD RDNA4, with two backends — D3D12/HLSL and HIP — validated bit-for-bit throughout. Brought a frame from 576 ms down to 13 ms; 56–57 FPS at 900p in real gameplay. Found and fixed an unhandled FP8 numerical defect along the way (hardware E4M3 conversion doesn't saturate — values beyond ±448 become NaN, which `clamp` then washes into black blocks on screen); that fix is the direct reason the community reports better image quality from this implementation than from comparable closed-source ones. 60★ and climbing.
 
 **Working across unfamiliar territory.** I use Claude Code / Codex as my primary development method, on a self-built two-node DGX Spark cluster (128 GB × 2, 200 Gbps direct link) for interpretability experiments and 280B inference and fine-tuning. When a domain is new to me — GPU kernels, FP8 numerical behavior, graphics pipelines — I get to a working result in weeks by holding to bit-exact comparison, recomputable evidence, and small reversible steps. The DLSS 5 port is the full worked example: every optimization round left behind per-frame bit-exact RGB comparisons and ABBA timing records, and any gain without a control was not adopted.
 
@@ -30,7 +30,7 @@ Based in Beijing. Available from October 2026.
 ## Selected Projects
 
 ### DLSS 5 Neural Network on AMD GPUs · 2026/08 – present · creator, principal developer
-[github.com/lmxxf/dlss5-on-amd-9070xt-porting](https://github.com/lmxxf/dlss5-on-amd-9070xt-porting) · 55★
+[github.com/lmxxf/dlss5-on-amd-9070xt-porting](https://github.com/lmxxf/dlss5-on-amd-9070xt-porting) · 60★
 
 NVIDIA's DLSS 5 denoising/upscaling network shipped inside a driver DLL with no public documentation. I recovered the full network structure from that 158 MB binary — a six-stage U-shaped vision network, 71 modules, 152 compute layers, FP8 stored and computed in two layers — and reimplemented it on an AMD RX 9070 XT (RDNA4) across two backends, then wired it into three injection paths (OptiScaler / Magpie / REFramework) for playable use in commercial games.
 
@@ -103,7 +103,7 @@ UI development and maintenance for networking modules on the MTK platform — Wi
 
 **Newsletter.** A daily AI technical newsletter (315+ posts, 6,000+ subscribers) along three lines: deep reads of model architectures (DeepSeek MLA/MoE, Qwen, Kimi linear attention — verifying every technical report's numbers and running the experiments myself), the full post-training chain, and AI interpretability.
 
-**Open source.** [@lmxxf](https://github.com/lmxxf), 200+ stars total: DLSS 5 on AMD GPUs (55★), an open implementation of Agentic Context Engineering (45★), LLM reasoning-enhancement prompt experiments (43★), two-node DGX Spark deployment for DeepSeek-V4 (25★), OpenHarmony on-device AI porting. The companion image `lmxxf/vllm-deepseek-v4-dgx-spark` has 10K+ pulls on Docker Hub.
+**Open source.** [@lmxxf](https://github.com/lmxxf), 200+ stars total: DLSS 5 on AMD GPUs (60★), an open implementation of Agentic Context Engineering (45★), LLM reasoning-enhancement prompt experiments (43★), two-node DGX Spark deployment for DeepSeek-V4 (25★), OpenHarmony on-device AI porting. The companion image `lmxxf/vllm-deepseek-v4-dgx-spark` has 10K+ pulls on Docker Hub.
 
 **Languages.** English (CET-6), Japanese (conversational), Mandarin, Hokkien.
 
@@ -129,7 +129,7 @@ Fifteen-plus years of training every day, which is where the steadiness comes fr
 
 **大模型部署与推理优化。** 在 8×V100 集群私有化部署 Qwen3.6-27B（vLLM + AWQ + 张量并行），服务 70+ 工程师日常使用；定位并修复 CUDA graph 并发缺陷，8 路并发总吞吐提升 2.6 倍。自制 DeepSeek-V4（280B）双机 DGX Spark 部署镜像，Docker Hub 下载 10K+。
 
-**GPU 内核与神经网络推理。** 把 NVIDIA DLSS 5 的神经网络（71 模块 152 计算层）从闭源 DLL 中逆向还原，移植到 AMD RDNA4，D3D12/HLSL 与 HIP 两条后端全程逐位一致验证。单帧从 576 毫秒优化到 13 毫秒，实玩 900P 56–57 FPS。过程中定位并修复了一个上游未处理的 FP8 数值缺陷——硬件 E4M3 转换不饱和，超过 ±448 变成 NaN，再被 `clamp` 洗成画面上的黑块——这个修复正是社区反馈本实现画质优于同类闭源方案的直接原因。开源 55★，仍在增长。
+**GPU 内核与神经网络推理。** 把 NVIDIA DLSS 5 的神经网络（71 模块 152 计算层）从闭源 DLL 中逆向还原，移植到 AMD RDNA4，D3D12/HLSL 与 HIP 两条后端全程逐位一致验证。单帧从 576 毫秒优化到 13 毫秒，实玩 900P 56–57 FPS。过程中定位并修复了一个上游未处理的 FP8 数值缺陷——硬件 E4M3 转换不饱和，超过 ±448 变成 NaN，再被 `clamp` 洗成画面上的黑块——这个修复正是社区反馈本实现画质优于同类闭源方案的直接原因。开源 60★，仍在增长。
 
 **在不熟悉的领域里推进。** 日常以 Claude Code / Codex 为主力开发方式，自建 DGX Spark 双机集群（128G × 2，200Gbps 直连）跑可解释性实验与 280B 模型推理微调。面对不熟的领域——GPU 内核、FP8 数值行为、图形管线——靠逐位对照、可复算的证据、小步可回退的验证，在周级别拿到可用结果。DLSS 5 移植就是这套方法的完整样本：每一轮优化都留下逐帧 RGB 逐位比对与 ABBA 计时记录，没有对照的收益一律不采用。
 
@@ -142,7 +142,7 @@ Fifteen-plus years of training every day, which is where the steadiness comes fr
 ## 代表项目
 
 ### DLSS 5 神经网络移植到 AMD 显卡 · 2026/08 – 至今 · 发起者、主要开发
-[github.com/lmxxf/dlss5-on-amd-9070xt-porting](https://github.com/lmxxf/dlss5-on-amd-9070xt-porting) · 55★
+[github.com/lmxxf/dlss5-on-amd-9070xt-porting](https://github.com/lmxxf/dlss5-on-amd-9070xt-porting) · 60★
 
 NVIDIA DLSS 5 的降噪/超分神经网络随驱动 DLL 泄露，但没有任何公开文档。我从这个 158MB 的二进制里还原出完整网络结构——U 形视觉网络六站、71 模块 152 计算层、FP8 存算两层——在 AMD RX 9070 XT（RDNA4）上用两条后端重新实现，并接入 OptiScaler / Magpie / REFramework 三条注入路径，在多款商业游戏中实玩可用。
 
@@ -215,7 +215,7 @@ MTK 平台网络相关模块 UI 开发维护（Wi-Fi、IPSec、电子邮件、�
 
 **公众号。** AI 技术公众号日更 315+ 篇、6000+ 订阅，三大主线：主流模型架构深度解析（DeepSeek MLA/MoE、Qwen、Kimi 线性注意力等，逐篇核实技术报告的数据并动手做实验）、后训练全链条、AI 可解释性。
 
-**开源。** [@lmxxf](https://github.com/lmxxf)，累计 200+ star：DLSS 5 移植到 AMD 显卡 55★、Agentic Context Engineering 开源实现 45★、LLM 推理增强提示词实验 43★、DeepSeek-V4 双机 DGX Spark 部署 25★、OpenHarmony 端侧 AI 移植等；配套 Docker 镜像 `lmxxf/vllm-deepseek-v4-dgx-spark` 在 Docker Hub 下载 10K+。
+**开源。** [@lmxxf](https://github.com/lmxxf)，累计 200+ star：DLSS 5 移植到 AMD 显卡 60★、Agentic Context Engineering 开源实现 45★、LLM 推理增强提示词实验 43★、DeepSeek-V4 双机 DGX Spark 部署 25★、OpenHarmony 端侧 AI 移植等；配套 Docker 镜像 `lmxxf/vllm-deepseek-v4-dgx-spark` 在 Docker Hub 下载 10K+。
 
 **语言。** 英语（CET-6）、日语（基本听说读写）、普通话、闽南语。
 
