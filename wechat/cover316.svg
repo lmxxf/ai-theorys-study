@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">TYPESAFE AI · Jev · 官方 API 的全部题型</text>
+
+  <!-- ============ 三个真实题型 ============ -->
+  <g transform="translate(48 76)">
+    <text x="125" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">它能返回的</text>
+    <rect x="0" y="10" width="250" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(18 34)">
+      <rect x="0" y="0" width="214" height="76" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="107" y="24" text-anchor="middle" fill="#93c5fd" font-size="14" font-weight="bold">noul</text>
+      <text x="107" y="45" text-anchor="middle" fill="#bfdbfe" font-size="11">是非题 · 返回「是」的概率</text>
+      <text x="107" y="63" text-anchor="middle" fill="#64748b" font-size="10">= 二分类</text>
+    </g>
+
+    <g transform="translate(18 120)">
+      <rect x="0" y="0" width="214" height="76" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="107" y="24" text-anchor="middle" fill="#fde68a" font-size="14" font-weight="bold">choice</text>
+      <text x="107" y="45" text-anchor="middle" fill="#fbbf24" font-size="11">单选 · 最多 255 个选项</text>
+      <text x="107" y="63" text-anchor="middle" fill="#64748b" font-size="10">= 多分类</text>
+    </g>
+
+    <g transform="translate(18 206)">
+      <rect x="0" y="0" width="214" height="76" rx="6" fill="#0a2018" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="107" y="24" text-anchor="middle" fill="#5eead4" font-size="14" font-weight="bold">score</text>
+      <text x="107" y="45" text-anchor="middle" fill="#99f6e4" font-size="11">有序打分 · 2 到 10 档</text>
+      <text x="107" y="63" text-anchor="middle" fill="#64748b" font-size="10">= 有序分类</text>
+    </g>
+  </g>
+
+  <!-- ============ 中间：缺席的那一个 ============ -->
+  <g transform="translate(325 76)">
+    <text x="125" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">它不提供的</text>
+    <rect x="0" y="10" width="250" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(18 92)">
+      <rect x="0" y="0" width="214" height="118" rx="6" fill="#1a1020" stroke="#475569"
+            stroke-width="1.5" stroke-dasharray="7 6"/>
+      <text x="107" y="34" text-anchor="middle" fill="#64748b" font-size="14" font-weight="bold">生成一句话</text>
+      <text x="107" y="60" text-anchor="middle" fill="#475569" font-size="11">没有这个接口</text>
+      <text x="107" y="84" text-anchor="middle" fill="#475569" font-size="11">不是设计取舍</text>
+      <text x="107" y="102" text-anchor="middle" fill="#475569" font-size="11">是压根没给这个选项</text>
+    </g>
+
+    <text x="125" y="248" text-anchor="middle" fill="#94a3b8" font-size="11">所谓「不生成文本的新模型」</text>
+    <text x="125" y="268" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="bold">= 能干的事都在左边三个框里</text>
+  </g>
+
+  <!-- ============ 右：三句判断 ============ -->
+  <g transform="translate(602 76)">
+    <text x="125" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">翻完一手材料</text>
+    <rect x="0" y="10" width="250" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(18 34)">
+      <text x="0" y="14" fill="#fca5a5" font-size="12" font-weight="bold">快一百倍</text>
+      <text x="0" y="34" fill="#cbd5e1" font-size="11">省掉的是「逐词生成」</text>
+      <text x="0" y="51" fill="#64748b" font-size="10">整个环节，不是某个算法</text>
+    </g>
+
+    <g transform="translate(18 116)">
+      <text x="0" y="14" fill="#fca5a5" font-size="12" font-weight="bold">不会幻觉</text>
+      <text x="0" y="34" fill="#cbd5e1" font-size="11">保的是输出形状</text>
+      <text x="0" y="51" fill="#64748b" font-size="10">它照样能一本正经选错</text>
+    </g>
+
+    <g transform="translate(18 198)">
+      <text x="0" y="14" fill="#fca5a5" font-size="12" font-weight="bold">全新架构</text>
+      <text x="0" y="34" fill="#cbd5e1" font-size="11">参数量、结构、论文</text>
+      <text x="0" y="51" fill="#64748b" font-size="10">官方一个字都没公开</text>
+    </g>
+  </g>
+
+  <!-- ============ 底部标题带 ============ -->
+  <rect x="0" y="406" width="900" height="4" fill="url(#titleBand)"/>
+  <text x="450" y="452" text-anchor="middle" fill="#f1f5f9" font-size="27" font-weight="bold">一个不公开架构的分类器</text>
+  <text x="450" y="482" text-anchor="middle" fill="#94a3b8" font-size="16">怎么被吹成新范式</text>
+</svg>
