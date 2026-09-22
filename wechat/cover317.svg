@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">RLHF · 一位网友卡在 75% · 后验与采样预算</text>
+
+  <!-- ============ LEFT: 那个公式是放大器 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">2022 年那个闭式解</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="54" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="bold">π* ∝ π0 · exp(r/β)</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">后验 = 先验 × 奖励的指数</text>
+    </g>
+
+    <g transform="translate(15 96)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">第一反应：这是天花板</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">先验是 0 的地方</text>
+      <text x="100" y="56" text-anchor="middle" fill="#fbbf24" font-size="10">乘多大都还是 0</text>
+    </g>
+
+    <g transform="translate(15 168)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">代进数字算一遍</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">p=1%，β=0.1</text>
+      <text x="100" y="60" text-anchor="middle" fill="#5eead4" font-size="14" font-weight="bold">p* ≈ 99.55%</text>
+    </g>
+
+    <text x="115" y="272" text-anchor="middle" fill="#94a3b8" font-size="11">它不是一道墙</text>
+    <text x="115" y="290" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">是一台放大器的说明书</text>
+  </g>
+
+  <!-- ============ MIDDLE: 采样预算这把尺子 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">采样预算这把尺子 · 1−(1−p)^k</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <text x="120" y="38" text-anchor="middle" fill="#fde047" font-size="12" font-weight="bold">采 256 次，能捞上来吗</text>
+
+    <!-- 横条图 -->
+    <g transform="translate(24 52)">
+      <text x="0" y="10" fill="#cbd5e1" font-size="10">1/256</text>
+      <rect x="52" y="1" width="130" height="12" rx="2" fill="#1e293b"/>
+      <rect x="52" y="1" width="82" height="12" rx="2" fill="#2dd4bf"/>
+      <text x="190" y="11" fill="#5eead4" font-size="10">63%</text>
+
+      <text x="0" y="36" fill="#cbd5e1" font-size="10">1/1000</text>
+      <rect x="52" y="27" width="130" height="12" rx="2" fill="#1e293b"/>
+      <rect x="52" y="27" width="29" height="12" rx="2" fill="#4a90d9"/>
+      <text x="190" y="37" fill="#93c5fd" font-size="10">23%</text>
+
+      <text x="0" y="62" fill="#cbd5e1" font-size="10">1/万</text>
+      <rect x="52" y="53" width="130" height="12" rx="2" fill="#1e293b"/>
+      <rect x="52" y="53" width="4" height="12" rx="2" fill="#f59e0b"/>
+      <text x="190" y="63" fill="#fbbf24" font-size="10">2.5%</text>
+
+      <text x="0" y="88" fill="#cbd5e1" font-size="10">1/十万</text>
+      <rect x="52" y="79" width="130" height="12" rx="2" fill="#1e293b"/>
+      <rect x="52" y="79" width="2" height="12" rx="2" fill="#ef4444"/>
+      <text x="190" y="89" fill="#f87171" font-size="10">0.3%</text>
+    </g>
+
+    <line x1="20" y1="180" x2="220" y2="180" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 198)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">量程下限在千分之几</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">低于这个的正确解</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">测量上等于不存在</text>
+      <text x="0" y="60" fill="#5eead4" font-size="10" font-weight="bold">但它的概率并不是零</text>
+      <text x="0" y="78" fill="#94a3b8" font-size="10">采不到，就没有梯度</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 两种边界 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">75% 到底是哪一种边界</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">能力边界</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">那 25% 真的不在基座里</text>
+      <text x="100" y="60" text-anchor="middle" fill="#f87171" font-size="10">只能换基座</text>
+      <text x="100" y="72" text-anchor="middle" fill="#fca5a5" font-size="9">死路</text>
+    </g>
+
+    <g transform="translate(15 120)">
+      <rect x="0" y="0" width="200" height="90" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">可达边界</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">在里面，但预算捞不到</text>
+      <text x="100" y="60" text-anchor="middle" fill="#a7f3d0" font-size="10">加采样 / 过滤零梯度</text>
+      <text x="100" y="74" text-anchor="middle" fill="#a7f3d0" font-size="10">换难度 / 引入搜索</text>
+      <text x="100" y="86" text-anchor="middle" fill="#5eead4" font-size="9">工程问题</text>
+    </g>
+
+    <line x1="16" y1="228" x2="214" y2="228" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 246)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">先诊断，再换算法</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">pass@k 还在随 k 涨吗</text>
+      <text x="0" y="38" fill="#94a3b8" font-size="10">早期检查点是不是更高</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">把 1% 推到 99%，公式只用一行</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">难的是你采不到它——采样没见过，推不出概率是零</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.317 · 后验 = 先验 × 奖励的指数 · 可达边界不是能力边界</text>
+</svg>
