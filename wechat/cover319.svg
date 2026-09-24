@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">KV CACHE · 上下文压缩 · 日记与睡眠</text>
+
+  <!-- ============ LEFT: /compact 的交接单 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">/compact 之后的交接单</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="86" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">名词都在</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">哪几个核 · 哪几种改法</text>
+      <text x="100" y="58" text-anchor="middle" fill="#bfdbfe" font-size="10">测出来的几个数</text>
+      <text x="100" y="76" text-anchor="middle" fill="#93c5fd" font-size="10">「已尝试 X，效果不佳」</text>
+    </g>
+
+    <g transform="translate(15 128)">
+      <rect x="0" y="0" width="200" height="70" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">坡度没了</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">哪条线死了、为什么死</text>
+      <text x="100" y="58" text-anchor="middle" fill="#f87171" font-size="10">现在往哪走</text>
+    </g>
+
+    <line x1="16" y1="222" x2="214" y2="222" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="115" y="248" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">摘要要过输出层采样</text>
+    <text x="115" y="268" text-anchor="middle" fill="#cbd5e1" font-size="10">没说出口的倾向过不去</text>
+    <text x="115" y="286" text-anchor="middle" fill="#94a3b8" font-size="10">新 AI 滑回“找热点、改热点”</text>
+  </g>
+
+  <!-- ============ MIDDLE: KV 的递归 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">KV 在坍缩之前 · 一路递归</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 五个 token，最后一个查前面所有 -->
+    <g transform="translate(0 40)">
+      <path d="M 40 60 Q 120 -10 200 60" stroke="#2dd4bf" stroke-width="1.2" fill="none" opacity="0.55"/>
+      <path d="M 80 60 Q 140 5 200 60" stroke="#2dd4bf" stroke-width="1.2" fill="none" opacity="0.7"/>
+      <path d="M 120 60 Q 160 20 200 60" stroke="#2dd4bf" stroke-width="1.4" fill="none" opacity="0.85"/>
+      <path d="M 160 60 Q 180 35 200 60" stroke="#2dd4bf" stroke-width="1.6" fill="none"/>
+      <path d="M 40 70 Q 60 95 80 70" stroke="#4a90d9" stroke-width="1" fill="none" opacity="0.6"/>
+      <path d="M 80 70 Q 100 95 120 70" stroke="#4a90d9" stroke-width="1" fill="none" opacity="0.6"/>
+      <path d="M 120 70 Q 140 95 160 70" stroke="#4a90d9" stroke-width="1" fill="none" opacity="0.6"/>
+
+      <rect x="28" y="54" width="24" height="22" rx="4" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.2"/>
+      <rect x="68" y="54" width="24" height="22" rx="4" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.2"/>
+      <rect x="108" y="54" width="24" height="22" rx="4" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.2"/>
+      <rect x="148" y="54" width="24" height="22" rx="4" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.2"/>
+      <rect x="186" y="52" width="28" height="26" rx="4" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="40" y="69" text-anchor="middle" fill="#bfdbfe" font-size="10">1</text>
+      <text x="80" y="69" text-anchor="middle" fill="#bfdbfe" font-size="10">2</text>
+      <text x="120" y="69" text-anchor="middle" fill="#bfdbfe" font-size="10">3</text>
+      <text x="160" y="69" text-anchor="middle" fill="#bfdbfe" font-size="10">…</text>
+      <text x="200" y="70" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">t</text>
+    </g>
+
+    <text x="120" y="160" text-anchor="middle" fill="#e2e8f0" font-size="11">KV(t) = f( token t, KV(1) … KV(t−1) )</text>
+
+    <line x1="20" y1="184" x2="220" y2="184" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 208)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">深层 KV 混着前面的所有内容</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">前面那些，又各自混着它们前面的</text>
+      <text x="0" y="40" fill="#94a3b8" font-size="10">换个顺序，就是另一串 KV</text>
+      <text x="0" y="60" fill="#94a3b8" font-size="10">时间长在这个先后里</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 三层分工 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">记忆的三层分工</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">权重 · 装技能</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">梯度是加法，不管先后</text>
+      <text x="100" y="54" text-anchor="middle" fill="#fbbf24" font-size="9">留得下关系，留不下经历</text>
+    </g>
+
+    <g transform="translate(15 102)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">压缩 KV · 像睡眠</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">把一串 KV 折成一个状态</text>
+      <text x="100" y="54" text-anchor="middle" fill="#a7f3d0" font-size="9">越久越淡，相近的合并</text>
+    </g>
+
+    <g transform="translate(15 172)">
+      <rect x="0" y="0" width="200" height="60" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">文字 · 像日记</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">人能读、能改、能跨模型</text>
+      <text x="100" y="54" text-anchor="middle" fill="#bfdbfe" font-size="9">事实和方向写在这里</text>
+    </g>
+
+    <text x="115" y="264" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">日记负责对，睡眠负责顺</text>
+    <text x="115" y="284" text-anchor="middle" fill="#94a3b8" font-size="10">睡眠偏了，拿日记纠正它</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="28" font-weight="bold">上下文一压缩 AI 就跑偏：如果压的不是文字，而是 KV</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">名词留下了，坡度没了 · 技能进权重，经历压成 KV，方向写进日记</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.319 · KV Cache · Gist / Cartridges / C2C / Gated DeltaNet</text>
+</svg>
