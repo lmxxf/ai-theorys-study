@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">周末杂谈 · AI 时代的学习</text>
+
+  <!-- ============ LEFT: 知道就够 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">知道就够 · 你是怎么学会日心说的</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <!-- 太阳与轨道 -->
+    <g transform="translate(115 90)">
+      <ellipse cx="0" cy="0" rx="80" ry="40" fill="none" stroke="#4a90d9" stroke-width="1.2" stroke-dasharray="4 3"/>
+      <circle cx="0" cy="0" r="16" fill="url(#sun)"/>
+      <circle cx="78" cy="-10" r="7" fill="#2dd4bf"/>
+      <path d="M60 -30 Q76 -30 82 -20" stroke="#5eead4" stroke-width="1.2" fill="none"/>
+      <path d="M78 -24 L82 -20 L76 -18" stroke="#5eead4" stroke-width="1.2" fill="none"/>
+    </g>
+
+    <text x="115" y="160" text-anchor="middle" fill="#e2e8f0" font-size="11">没读过数据，没算过轨道</text>
+    <text x="115" y="178" text-anchor="middle" fill="#e2e8f0" font-size="11">照样够用</text>
+
+    <line x1="16" y1="196" x2="214" y2="196" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 218)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">文明靠“结论可以转手”运转</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">1838 年才可靠测到恒星视差</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">日心体系早已被广泛接受</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="10">靠的是预测一次次应验</text>
+    </g>
+  </g>
+
+  <!-- ============ MIDDLE: 简化 vs 错化 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">简化，还是错化</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="210" height="66" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.6"/>
+      <text x="105" y="20" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">简化：同一张地图的缩小版</text>
+      <text x="105" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">放大一级，细节补上来</text>
+      <text x="105" y="56" text-anchor="middle" fill="#a7f3d0" font-size="10">“把前面的 token 看一遍”→ QKV</text>
+    </g>
+
+    <g transform="translate(15 108)">
+      <rect x="0" y="0" width="210" height="66" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.6"/>
+      <text x="105" y="20" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">错化：另一张图</text>
+      <text x="105" y="40" text-anchor="middle" fill="#f87171" font-size="10">放大一级，整个扔掉</text>
+      <text x="105" y="56" text-anchor="middle" fill="#f87171" font-size="10">“夏天是因为离太阳近”</text>
+    </g>
+
+    <line x1="20" y1="196" x2="220" y2="196" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 218)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">放大一级：被补细，还是被推翻</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">地平论者做的实验比你多</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">缺的是结果不合心意时认下它</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="10">A Private Universe · Behind the Curve</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 往前挪一层 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">每个人都往前挪了一层</text>
+
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 32)">
+      <rect x="0" y="0" width="200" height="40" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.4"/>
+      <text x="100" y="17" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="bold">产品经理 → 自己做 app</text>
+      <text x="100" y="32" text-anchor="middle" fill="#bfdbfe" font-size="9">以前做不了的那一层</text>
+
+      <rect x="0" y="50" width="200" height="40" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.4"/>
+      <text x="100" y="67" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">程序员 → 碰 GPU 开发</text>
+      <text x="100" y="82" text-anchor="middle" fill="#fbbf24" font-size="9">DLSS 5 搬上 AMD 9070 XT · 85 ★</text>
+
+      <rect x="0" y="100" width="200" height="40" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="118" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="bold">科普级认知 + AI = 能做事</text>
+      <text x="100" y="133" text-anchor="middle" fill="#a7f3d0" font-size="9">细节有 AI 兜着，人管方向</text>
+    </g>
+
+    <line x1="16" y1="196" x2="214" y2="196" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 218)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">分辨率跟着活儿走</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="10">什么时候要严谨？</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="10">当你是天文学家、需要计算的时候</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="10">学的没白学，只是分辨率换了</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="28" font-weight="bold">AI 时代该怎么学？像普通人知道日心说那样</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">知道结论 · 分清简化和错化 · 认得出一直在应验的信任链</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.321 · 周末杂谈</text>
+</svg>
