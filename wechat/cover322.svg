@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f1f"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">FLASH 对照 · 第 5 款 · 小米 MiMo-V2.6</text>
+
+  <!-- ============ LEFT: 一年半补课 ============ -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">补课 · 小米做大模型这一年半</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <line x1="30" y1="40" x2="30" y2="252" stroke="#475569" stroke-width="2"/>
+
+    <g transform="translate(30 44)">
+      <circle cx="0" cy="0" r="5" fill="#94a3b8"/>
+      <text x="16" y="4" fill="#cbd5e1" font-size="11" font-weight="bold">2025-04  MiMo-7B</text>
+      <text x="16" y="20" fill="#94a3b8" font-size="10">稠密小模型，逐个铺模态</text>
+    </g>
+    <g transform="translate(30 90)">
+      <circle cx="0" cy="0" r="5" fill="#4a90d9"/>
+      <text x="16" y="4" fill="#93c5fd" font-size="11" font-weight="bold">2025-12  V2-Flash</text>
+      <text x="16" y="20" fill="#bfdbfe" font-size="10">309B MoE，主干骨架定型</text>
+    </g>
+    <g transform="translate(30 136)">
+      <circle cx="0" cy="0" r="5" fill="#94a3b8"/>
+      <text x="16" y="4" fill="#cbd5e1" font-size="11" font-weight="bold">2026-03  Hunter Alpha</text>
+      <text x="16" y="20" fill="#94a3b8" font-size="10">匿名上 OpenRouter，揭晓是 V2-Pro</text>
+    </g>
+    <g transform="translate(30 182)">
+      <circle cx="0" cy="0" r="5" fill="#94a3b8"/>
+      <text x="16" y="4" fill="#cbd5e1" font-size="11" font-weight="bold">2026-04  V2.5 / V2.5-Pro</text>
+      <text x="16" y="20" fill="#94a3b8" font-size="10">两个尺寸一起开源</text>
+    </g>
+    <g transform="translate(30 228)">
+      <circle cx="0" cy="0" r="6" fill="#f59e0b"/>
+      <text x="16" y="4" fill="#fde68a" font-size="11" font-weight="bold">2026-09  V2.6</text>
+      <text x="16" y="20" fill="#fbbf24" font-size="10">Pro 拿下 AA 开源第一（46 分）</text>
+    </g>
+
+    <text x="115" y="288" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">之前在我这儿：小透明</text>
+  </g>
+
+  <!-- ============ MIDDLE: 这一年的新零件，一样没有 ============ -->
+  <g transform="translate(320 80)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">这一年的新零件 · 对着 config 找</text>
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g font-size="12">
+      <text x="30" y="46" fill="#cbd5e1">超连接（mHC 家族）</text><text x="210" y="46" text-anchor="end" fill="#ef4444" font-weight="bold">无</text>
+      <text x="30" y="74" fill="#cbd5e1">线性注意力（KDA / GDN）</text><text x="210" y="74" text-anchor="end" fill="#ef4444" font-weight="bold">无</text>
+      <text x="30" y="102" fill="#cbd5e1">KV 压缩（MLA / CSA）</text><text x="210" y="102" text-anchor="end" fill="#ef4444" font-weight="bold">无</text>
+      <text x="30" y="130" fill="#cbd5e1">跨层共享 KV</text><text x="210" y="130" text-anchor="end" fill="#ef4444" font-weight="bold">无</text>
+      <text x="30" y="158" fill="#cbd5e1">查表记忆（Engram）</text><text x="210" y="158" text-anchor="end" fill="#ef4444" font-weight="bold">无</text>
+      <text x="30" y="186" fill="#cbd5e1">共享专家</text><text x="210" y="186" text-anchor="end" fill="#ef4444" font-weight="bold">无</text>
+    </g>
+
+    <line x1="20" y1="208" x2="220" y2="208" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(20 230)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">它只有这几样</text>
+      <text x="0" y="20" fill="#5eead4" font-size="11">大部分层只看眼前 128 个 token</text>
+      <text x="0" y="38" fill="#5eead4" font-size="11">注意力汇 + GQA + 少数全局层</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">1M 上下文 KV 约 22.5 GiB（Flash）</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: 零件年份 ============ -->
+  <g transform="translate(620 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">主干零件 · 按出处年份</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g font-size="12">
+      <text x="24" y="46" fill="#fbbf24" font-weight="bold">2020</text><text x="72" y="46" fill="#cbd5e1">滑动窗口注意力</text>
+      <text x="24" y="74" fill="#fbbf24" font-weight="bold">2020</text><text x="72" y="74" fill="#cbd5e1">滑窗、全局交错排</text>
+      <text x="24" y="102" fill="#fbbf24" font-weight="bold">2023</text><text x="72" y="102" fill="#cbd5e1">GQA</text>
+      <text x="24" y="130" fill="#fbbf24" font-weight="bold">2023</text><text x="72" y="130" fill="#cbd5e1">不设共享专家</text>
+      <text x="24" y="158" fill="#fbbf24" font-weight="bold">2024</text><text x="72" y="158" fill="#cbd5e1">多 token 预测</text>
+      <text x="24" y="186" fill="#2dd4bf" font-weight="bold">2025</text><text x="72" y="186" fill="#5eead4">注意力汇（借自 gpt-oss）</text>
+    </g>
+
+    <line x1="16" y1="208" x2="214" y2="208" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <g transform="translate(16 230)">
+      <text x="0" y="0" fill="#fde047" font-size="11" font-weight="bold">五版 config 逐字段对</text>
+      <text x="0" y="20" fill="#cbd5e1" font-size="11">主干拓扑九个月没换</text>
+      <text x="0" y="38" fill="#cbd5e1" font-size="11">报告 44 页，架构只占两页</text>
+      <text x="0" y="56" fill="#94a3b8" font-size="10">剩下全在讲强化学习</text>
+    </g>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">上古战神，开源榜第一的新面孔</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="17">一副两三年前的骨架，大份 Pro 拿了开源第一</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.322 · 小米 MiMo-V2.6 · 架构速览</text>
+</svg>

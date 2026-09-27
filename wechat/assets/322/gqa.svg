@@ -1,0 +1,347 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 530" width="900" height="530">
+<rect width="900" height="530" fill="#ffffff"/>
+<text x="40" y="36" font-size="20" font-weight="bold" fill="#111" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">MiMo-V2.6 的分组查询注意力（GQA）：几个 Q 头共用一份 KV</text>
+<text x="40" y="70" font-size="17" font-weight="bold" fill="#222" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">Flash · 滑窗层</text>
+<text x="210" y="70" font-size="14" fill="#555" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">64 个 Q 头，分 8 组，每 8 个 Q 共用一份 KV</text>
+<rect x="40" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="46" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="52" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="58" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="64" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="70" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="76" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="82" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M40,107 L40,112 L87,112 L87,107" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="63.5" y1="112" x2="63.5" y2="138" stroke="#666" stroke-width="1"/>
+<rect x="40.0" y="138" width="47" height="22" rx="4" fill="#4C8BF5"/>
+<text x="63.5" y="154" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="98" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="104" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="110" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="116" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="122" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="128" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="134" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="140" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M98,107 L98,112 L145,112 L145,107" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="121.5" y1="112" x2="121.5" y2="138" stroke="#666" stroke-width="1"/>
+<rect x="98.0" y="138" width="47" height="22" rx="4" fill="#4C8BF5"/>
+<text x="121.5" y="154" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="156" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="162" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="168" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="174" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="180" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="186" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="192" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="198" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M156,107 L156,112 L203,112 L203,107" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="179.5" y1="112" x2="179.5" y2="138" stroke="#666" stroke-width="1"/>
+<rect x="156.0" y="138" width="47" height="22" rx="4" fill="#4C8BF5"/>
+<text x="179.5" y="154" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="214" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="220" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="226" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="232" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="238" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="244" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="250" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="256" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M214,107 L214,112 L261,112 L261,107" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="237.5" y1="112" x2="237.5" y2="138" stroke="#666" stroke-width="1"/>
+<rect x="214.0" y="138" width="47" height="22" rx="4" fill="#4C8BF5"/>
+<text x="237.5" y="154" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="272" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="278" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="284" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="290" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="296" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="302" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="308" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="314" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M272,107 L272,112 L319,112 L319,107" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="295.5" y1="112" x2="295.5" y2="138" stroke="#666" stroke-width="1"/>
+<rect x="272.0" y="138" width="47" height="22" rx="4" fill="#4C8BF5"/>
+<text x="295.5" y="154" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="330" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="336" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="342" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="348" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="354" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="360" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="366" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="372" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M330,107 L330,112 L377,112 L377,107" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="353.5" y1="112" x2="353.5" y2="138" stroke="#666" stroke-width="1"/>
+<rect x="330.0" y="138" width="47" height="22" rx="4" fill="#4C8BF5"/>
+<text x="353.5" y="154" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="388" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="394" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="400" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="406" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="412" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="418" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="424" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="430" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M388,107 L388,112 L435,112 L435,107" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="411.5" y1="112" x2="411.5" y2="138" stroke="#666" stroke-width="1"/>
+<rect x="388.0" y="138" width="47" height="22" rx="4" fill="#4C8BF5"/>
+<text x="411.5" y="154" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="446" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="452" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="458" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="464" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="470" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="476" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="482" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="488" y="88" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M446,107 L446,112 L493,112 L493,107" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="469.5" y1="112" x2="469.5" y2="138" stroke="#666" stroke-width="1"/>
+<rect x="446.0" y="138" width="47" height="22" rx="4" fill="#4C8BF5"/>
+<text x="469.5" y="154" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<text x="40" y="220" font-size="17" font-weight="bold" fill="#222" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">Flash · 全局层</text>
+<text x="210" y="220" font-size="14" fill="#555" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">64 个 Q 头，分 4 组，每 16 个 Q 共用一份 KV</text>
+<rect x="40" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="46" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="52" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="58" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="64" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="70" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="76" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="82" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="88" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="94" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="100" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="106" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="112" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="118" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="124" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="130" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M40,257 L40,262 L135,262 L135,257" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="87.5" y1="262" x2="87.5" y2="288" stroke="#666" stroke-width="1"/>
+<rect x="57.5" y="288" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="87.5" y="304" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="146" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="152" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="158" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="164" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="170" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="176" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="182" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="188" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="194" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="200" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="206" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="212" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="218" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="224" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="230" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="236" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M146,257 L146,262 L241,262 L241,257" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="193.5" y1="262" x2="193.5" y2="288" stroke="#666" stroke-width="1"/>
+<rect x="163.5" y="288" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="193.5" y="304" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="252" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="258" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="264" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="270" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="276" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="282" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="288" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="294" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="300" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="306" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="312" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="318" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="324" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="330" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="336" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="342" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M252,257 L252,262 L347,262 L347,257" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="299.5" y1="262" x2="299.5" y2="288" stroke="#666" stroke-width="1"/>
+<rect x="269.5" y="288" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="299.5" y="304" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="358" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="364" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="370" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="376" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="382" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="388" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="394" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="400" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="406" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="412" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="418" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="424" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="430" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="436" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="442" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="448" y="238" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M358,257 L358,262 L453,262 L453,257" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="405.5" y1="262" x2="405.5" y2="288" stroke="#666" stroke-width="1"/>
+<rect x="375.5" y="288" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="405.5" y="304" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<text x="40" y="370" font-size="17" font-weight="bold" fill="#222" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">Pro · 两种层都一样</text>
+<text x="210" y="370" font-size="14" fill="#555" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">128 个 Q 头，分 8 组，每 16 个 Q 共用一份 KV</text>
+<rect x="40" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="46" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="52" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="58" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="64" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="70" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="76" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="82" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="88" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="94" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="100" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="106" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="112" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="118" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="124" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="130" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M40,407 L40,412 L135,412 L135,407" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="87.5" y1="412" x2="87.5" y2="438" stroke="#666" stroke-width="1"/>
+<rect x="57.5" y="438" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="87.5" y="454" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="146" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="152" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="158" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="164" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="170" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="176" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="182" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="188" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="194" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="200" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="206" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="212" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="218" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="224" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="230" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="236" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M146,407 L146,412 L241,412 L241,407" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="193.5" y1="412" x2="193.5" y2="438" stroke="#666" stroke-width="1"/>
+<rect x="163.5" y="438" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="193.5" y="454" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="252" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="258" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="264" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="270" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="276" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="282" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="288" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="294" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="300" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="306" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="312" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="318" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="324" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="330" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="336" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="342" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M252,407 L252,412 L347,412 L347,407" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="299.5" y1="412" x2="299.5" y2="438" stroke="#666" stroke-width="1"/>
+<rect x="269.5" y="438" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="299.5" y="454" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="358" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="364" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="370" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="376" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="382" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="388" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="394" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="400" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="406" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="412" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="418" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="424" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="430" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="436" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="442" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="448" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M358,407 L358,412 L453,412 L453,407" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="405.5" y1="412" x2="405.5" y2="438" stroke="#666" stroke-width="1"/>
+<rect x="375.5" y="438" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="405.5" y="454" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="464" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="470" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="476" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="482" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="488" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="494" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="500" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="506" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="512" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="518" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="524" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="530" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="536" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="542" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="548" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="554" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M464,407 L464,412 L559,412 L559,407" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="511.5" y1="412" x2="511.5" y2="438" stroke="#666" stroke-width="1"/>
+<rect x="481.5" y="438" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="511.5" y="454" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="570" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="576" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="582" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="588" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="594" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="600" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="606" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="612" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="618" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="624" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="630" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="636" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="642" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="648" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="654" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="660" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M570,407 L570,412 L665,412 L665,407" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="617.5" y1="412" x2="617.5" y2="438" stroke="#666" stroke-width="1"/>
+<rect x="587.5" y="438" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="617.5" y="454" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="676" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="682" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="688" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="694" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="700" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="706" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="712" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="718" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="724" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="730" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="736" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="742" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="748" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="754" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="760" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="766" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M676,407 L676,412 L771,412 L771,407" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="723.5" y1="412" x2="723.5" y2="438" stroke="#666" stroke-width="1"/>
+<rect x="693.5" y="438" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="723.5" y="454" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="782" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="788" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="794" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="800" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="806" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="812" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="818" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="824" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="830" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="836" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="842" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="848" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="854" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="860" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="866" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<rect x="872" y="388" width="5" height="16" rx="1" fill="#9AA5B1"/>
+<path d="M782,407 L782,412 L877,412 L877,407" stroke="#666" fill="none" stroke-width="1"/>
+<line x1="829.5" y1="412" x2="829.5" y2="438" stroke="#666" stroke-width="1"/>
+<rect x="799.5" y="438" width="60" height="22" rx="4" fill="#E8710A"/>
+<text x="829.5" y="454" font-size="12" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text>
+<rect x="40" y="492" width="5" height="14" fill="#9AA5B1"/><text x="52" y="503" font-size="13" fill="#444" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">一个 Q 头：192 维（不进缓存）</text><rect x="290" y="490" width="34" height="18" rx="4" fill="#E8710A"/><text x="307" y="503" font-size="11" fill="#fff" text-anchor="middle" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">KV</text><text x="332" y="503" font-size="13" fill="#444" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">一份 K（192 维）+ V（128 维），要进 KV 缓存；缓存大小只看这些块有几个</text>
+</svg>
