@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="0.18" cy="0.28" r="0.42">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="0.82" cy="0.75" r="0.42">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="4">AGENTIC RL · 小米 MiMo-V2.6 技术报告</text>
+
+  <!-- LEFT: 打基础 -->
+  <g transform="translate(60 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第一课 · 先打基础</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+    <text x="115" y="40" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="bold">DeepSWE · Pro</text>
+
+    <g transform="translate(48 56)">
+      <line x1="-4" y1="150" x2="138" y2="150" stroke="#475569" stroke-width="1"/>
+      <rect x="8" y="121" width="30" height="29" fill="#475569"/>
+      <text x="23" y="115" text-anchor="middle" fill="#94a3b8" font-size="11">19.0</text>
+      <rect x="52" y="61" width="30" height="89" fill="#f59e0b"/>
+      <text x="67" y="55" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">58.4</text>
+      <rect x="96" y="40" width="30" height="110" fill="#2dd4bf"/>
+      <text x="111" y="34" text-anchor="middle" fill="#5eead4" font-size="11">72.6</text>
+      <text x="23" y="166" text-anchor="middle" fill="#94a3b8" font-size="9">上一代</text>
+      <text x="67" y="166" text-anchor="middle" fill="#fde68a" font-size="9">RL 前</text>
+      <text x="111" y="166" text-anchor="middle" fill="#5eead4" font-size="9">RL 后</text>
+    </g>
+
+    <text x="115" y="250" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">还没进 RL 已领先近 40 分</text>
+    <text x="115" y="268" text-anchor="middle" fill="#cbd5e1" font-size="10">mid-training 让好轨迹更容易采到</text>
+  </g>
+
+  <!-- MIDDLE: 判卷排名 -->
+  <g transform="translate(320 80)">
+    <text x="130" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第二课 · 及格了再排名</text>
+    <rect x="0" y="10" width="260" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(20 30)">
+      <rect x="0" y="0" width="220" height="56" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="110" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">GRS · 事先写评分细则</text>
+      <text x="110" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">测试 × 解法分 × 过程分</text>
+    </g>
+
+    <g transform="translate(20 98)">
+      <rect x="0" y="0" width="220" height="104" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="110" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">GAR · 全班作业摊开比</text>
+      <text x="20" y="46" fill="#a7f3d0" font-size="10">过了，写得好</text>
+      <text x="200" y="46" text-anchor="end" fill="#5eead4" font-size="11" font-weight="bold">+0.5 → +0.67</text>
+      <text x="20" y="66" fill="#a7f3d0" font-size="10">过了，写得差</text>
+      <text x="200" y="66" text-anchor="end" fill="#fbbf24" font-size="11" font-weight="bold">+0.5 → +0.33</text>
+      <text x="20" y="86" fill="#94a3b8" font-size="10">没过</text>
+      <text x="200" y="86" text-anchor="end" fill="#94a3b8" font-size="11">−0.5 不动</text>
+    </g>
+
+    <text x="130" y="250" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">不加分，只在及格的人里挪</text>
+    <text x="130" y="268" text-anchor="middle" fill="#cbd5e1" font-size="10">不然学生学会吞异常、放宽校验</text>
+  </g>
+
+  <!-- RIGHT: 查考场 -->
+  <g transform="translate(610 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">第三课 · 考前查考场</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 30)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">学生怎么抄</text>
+      <text x="100" y="42" text-anchor="middle" fill="#f87171" font-size="10">pip 装新版 · curl · git clone</text>
+      <text x="100" y="60" text-anchor="middle" fill="#f87171" font-size="10">翻当年的修复记录</text>
+    </g>
+
+    <g transform="translate(15 114)">
+      <rect x="0" y="0" width="200" height="88" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">hack agent 先试一遍</text>
+      <text x="100" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">第一轮九成以上环境能攻破</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fbbf24" font-size="10">堵完再试，直到找不到</text>
+      <text x="100" y="78" text-anchor="middle" fill="#fbbf24" font-size="10">训练中作弊始终低于 2%</text>
+    </g>
+
+    <text x="115" y="250" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">还给学生看改正范文</text>
+    <text x="115" y="268" text-anchor="middle" fill="#cbd5e1" font-size="10">「想抄，发现不对，改回来了」</text>
+  </g>
+
+  <!-- bottom title band -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="430" text-anchor="middle" fill="#f8fafc" font-size="30" font-weight="bold">小米老师教得好，开源跑分得第一</text>
+  <text x="450" y="462" text-anchor="middle" fill="#fde047" font-size="17">打基础 · 判卷排名 · 防作弊：RL 是老师和学生一整套斗智斗勇</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.323 · Agentic RL</text>
+</svg>
