@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 760" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" fill="#222">
+<rect width="960" height="760" fill="#fafafa"/>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs>
+<text x="480" y="30" text-anchor="middle" font-size="19" font-weight="bold">C512 一块的注意力是怎么算的（900 档）</text>
+<text x="480" y="50" text-anchor="middle" font-size="12" fill="#666">从一整幅画面，到一个 wave 里的 32 个线程</text>
+<rect x="20" y="64" width="450" height="320" rx="8" fill="#fff" stroke="#999"/>
+<circle cx="38" cy="84" r="11" fill="#d9822b"/><text x="38" y="88" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<text x="56" y="89" font-size="14" font-weight="bold">画面一层层缩小，到 C512 只剩 50×30</text>
+<rect x="40" y="100" width="160" height="96" fill="#e8eef6" stroke="#6f8fbf"/><text x="120" y="152" text-anchor="middle" font-size="11">原图 1600×960</text>
+<text x="120" y="214" text-anchor="middle" font-size="10" fill="#666">每往下一层长宽各缩一半</text>
+<line x1="205" y1="148" x2="245" y2="148" stroke="#555" marker-end="url(#a)"/>
+<text x="252" y="106" font-size="10" fill="#666">C512：50×30 个位置，补齐 56×32</text>
+<rect x="252.0" y="112.0" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="279.2" y="112.0" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="306.4" y="112.0" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="333.6" y="112.0" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="360.8" y="112.0" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="388.0" y="112.0" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="415.2" y="112.0" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="252.0" y="139.2" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="279.2" y="139.2" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="306.4" y="139.2" width="27.2" height="27.2" fill="#f6c28b" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="333.6" y="139.2" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="360.8" y="139.2" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="388.0" y="139.2" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="415.2" y="139.2" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="252.0" y="166.4" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="279.2" y="166.4" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="306.4" y="166.4" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="333.6" y="166.4" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="360.8" y="166.4" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="388.0" y="166.4" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="415.2" y="166.4" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="252.0" y="193.6" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="279.2" y="193.6" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="306.4" y="193.6" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="333.6" y="193.6" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="360.8" y="193.6" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="388.0" y="193.6" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="415.2" y="193.6" width="27.2" height="27.2" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<rect x="422.0" y="112" width="20.4" height="108.8" fill="none" stroke="#bbb" stroke-dasharray="2 2"/>
+<text x="352" y="239" text-anchor="middle" font-size="11">7 × 4 = 28 个 8×8 窗口（灰边是补的零）</text>
+<text x="40" y="258" font-size="12" fill="#222">一个位置 = 原图 32×32 像素</text>
+<text x="40" y="280" font-size="12" fill="#222">一个窗口 = 8×8 = 64 个位置 ≈ 原图 256×256</text>
+<text x="40" y="302" font-size="12" fill="#222">窗口之间互不相干，可以并行</text>
+<text x="40" y="324" font-size="12" fill="#222">一块只有 28 个窗口 → 这一块只有 28 份活</text>
+<text x="40" y="346" font-size="12" fill="#999">（错开半格的块补到 56×40，是 35 个）</text>
+<rect x="490" y="64" width="450" height="320" rx="8" fill="#fff" stroke="#999"/>
+<circle cx="508" cy="84" r="11" fill="#d9822b"/><text x="508" y="88" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<text x="526" y="89" font-size="14" font-weight="bold">一个窗口：64 个位置 × 512 通道，切成 16 个头</text>
+<text x="520" y="104" font-size="10" fill="#666">64 行（位置）× 512 列（通道）</text>
+<rect x="520" y="110" width="24" height="140" fill="#f6c28b" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="532" y="266" text-anchor="middle" font-size="9">0</text>
+<rect x="544" y="110" width="24" height="140" fill="#dfe8f5" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="556" y="266" text-anchor="middle" font-size="9">1</text>
+<rect x="568" y="110" width="24" height="140" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="580" y="266" text-anchor="middle" font-size="9">2</text>
+<rect x="592" y="110" width="24" height="140" fill="#dfe8f5" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="604" y="266" text-anchor="middle" font-size="9">3</text>
+<rect x="616" y="110" width="24" height="140" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="628" y="266" text-anchor="middle" font-size="9">4</text>
+<rect x="640" y="110" width="24" height="140" fill="#dfe8f5" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="652" y="266" text-anchor="middle" font-size="9">5</text>
+<rect x="664" y="110" width="24" height="140" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="676" y="266" text-anchor="middle" font-size="9">6</text>
+<rect x="688" y="110" width="24" height="140" fill="#dfe8f5" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="700" y="266" text-anchor="middle" font-size="9">7</text>
+<rect x="712" y="110" width="24" height="140" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="724" y="266" text-anchor="middle" font-size="9">8</text>
+<rect x="736" y="110" width="24" height="140" fill="#dfe8f5" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="748" y="266" text-anchor="middle" font-size="9">9</text>
+<rect x="760" y="110" width="24" height="140" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="772" y="266" text-anchor="middle" font-size="9">10</text>
+<rect x="784" y="110" width="24" height="140" fill="#dfe8f5" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="796" y="266" text-anchor="middle" font-size="9">11</text>
+<rect x="808" y="110" width="24" height="140" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="820" y="266" text-anchor="middle" font-size="9">12</text>
+<rect x="832" y="110" width="24" height="140" fill="#dfe8f5" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="844" y="266" text-anchor="middle" font-size="9">13</text>
+<rect x="856" y="110" width="24" height="140" fill="#eef3f9" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="868" y="266" text-anchor="middle" font-size="9">14</text>
+<rect x="880" y="110" width="24" height="140" fill="#dfe8f5" stroke="#6f8fbf" stroke-width="0.8"/>
+<text x="892" y="266" text-anchor="middle" font-size="9">15</text>
+<text x="712" y="282" text-anchor="middle" font-size="11">头 0 ～ 头 15，每个头 32 个通道：16 × 32 = 512</text>
+<text x="520" y="308" font-size="12">每个头只用自己那 32 个通道，</text>
+<text x="520" y="328" font-size="12">让 64 个位置两两互看，16 个头各看各的。</text>
+<text x="520" y="348" font-size="12">同一对位置，16 个头会给出 16 种“该多关注”。</text>
+<text x="520" y="368" font-size="12">最后 16 个头拼回 64×512，再做一次投影。</text>
+<rect x="20" y="400" width="450" height="340" rx="8" fill="#fff" stroke="#999"/>
+<circle cx="38" cy="420" r="11" fill="#d9822b"/><text x="38" y="424" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+<text x="56" y="425" font-size="14" font-weight="bold">一个头 = 一个 wave（32 个线程合伙算）</text>
+<text x="40" y="445" font-size="11" fill="#666">wave 的 32 个线程：</text>
+<rect x="150" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="159" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="168" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="177" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="186" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="195" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="204" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="213" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="222" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="231" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="240" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="249" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="258" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="267" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="276" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="285" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="294" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="303" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="312" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="321" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="330" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="339" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="348" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="357" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="366" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="375" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="384" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="393" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="402" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="411" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="420" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="429" y="435" width="7" height="12" fill="#5a86bd"/>
+<rect x="40" y="467" width="120" height="30" rx="4" fill="#fde9d4" stroke="#d9822b"/>
+<text x="100" y="487" text-anchor="middle" font-size="12">Q 16×32</text>
+<rect x="175" y="467" width="120" height="30" rx="4" fill="#e7f3e9" stroke="#4c9a5b"/>
+<text x="235" y="487" text-anchor="middle" font-size="12">× K转置 32×64</text>
+<rect x="310" y="467" width="120" height="30" rx="4" fill="#fde9d4" stroke="#d9822b"/>
+<text x="370" y="487" text-anchor="middle" font-size="12">= 分数 16×64</text>
+<rect x="40" y="509" width="120" height="30" rx="4" fill="#fde9d4" stroke="#d9822b"/>
+<text x="100" y="529" text-anchor="middle" font-size="12">分数 16×64</text>
+<rect x="175" y="509" width="120" height="30" rx="4" fill="#e7f3e9" stroke="#4c9a5b"/>
+<text x="235" y="529" text-anchor="middle" font-size="12">softmax</text>
+<rect x="310" y="509" width="120" height="30" rx="4" fill="#fde9d4" stroke="#d9822b"/>
+<text x="370" y="529" text-anchor="middle" font-size="12">= 权重 16×64</text>
+<rect x="40" y="551" width="120" height="30" rx="4" fill="#fde9d4" stroke="#d9822b"/>
+<text x="100" y="571" text-anchor="middle" font-size="12">权重 16×64</text>
+<rect x="175" y="551" width="120" height="30" rx="4" fill="#e7f3e9" stroke="#4c9a5b"/>
+<text x="235" y="571" text-anchor="middle" font-size="12">× V 64×32</text>
+<rect x="310" y="551" width="120" height="30" rx="4" fill="#fde9d4" stroke="#d9822b"/>
+<text x="370" y="571" text-anchor="middle" font-size="12">= 输出 16×32</text>
+<text x="40" y="607" font-size="12">每次处理 16 个位置（矩阵指令一次算 16×16 的块），</text>
+<text x="40" y="627" font-size="12">64 个位置分 4 段，这三步做 4 遍。</text>
+<text x="40" y="647" font-size="12">一块 16×16 的结果摊在 32 个线程手里，每人拿 8 个数；</text>
+<text x="40" y="667" font-size="12">没有哪个线程拿着“一个位置的全部”，32 人合起来才是一个头。</text>
+<rect x="490" y="400" width="450" height="340" rx="8" fill="#fff" stroke="#999"/>
+<circle cx="508" cy="420" r="11" fill="#d9822b"/><text x="508" y="424" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+<text x="526" y="425" font-size="14" font-weight="bold">16 个头 = 16 个 wave = 一个工作组，住进一个 WGP</text>
+<rect x="520" y="440" width="390" height="150" rx="6" fill="#f7f7f7" stroke="#777"/>
+<text x="528" y="456" font-size="11" fill="#444">一个 WGP：4 个 SIMD32</text>
+<rect x="530" y="464" width="85" height="116" rx="4" fill="#fff" stroke="#999"/>
+<text x="572" y="478" text-anchor="middle" font-size="10">SIMD 0</text>
+<rect x="538" y="486" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="572" y="499" text-anchor="middle" font-size="10">头 0</text>
+<rect x="538" y="508" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="572" y="521" text-anchor="middle" font-size="10">头 1</text>
+<rect x="538" y="530" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="572" y="543" text-anchor="middle" font-size="10">头 2</text>
+<rect x="538" y="552" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="572" y="565" text-anchor="middle" font-size="10">头 3</text>
+<rect x="625" y="464" width="85" height="116" rx="4" fill="#fff" stroke="#999"/>
+<text x="667" y="478" text-anchor="middle" font-size="10">SIMD 1</text>
+<rect x="633" y="486" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="667" y="499" text-anchor="middle" font-size="10">头 4</text>
+<rect x="633" y="508" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="667" y="521" text-anchor="middle" font-size="10">头 5</text>
+<rect x="633" y="530" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="667" y="543" text-anchor="middle" font-size="10">头 6</text>
+<rect x="633" y="552" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="667" y="565" text-anchor="middle" font-size="10">头 7</text>
+<rect x="720" y="464" width="85" height="116" rx="4" fill="#fff" stroke="#999"/>
+<text x="762" y="478" text-anchor="middle" font-size="10">SIMD 2</text>
+<rect x="728" y="486" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="762" y="499" text-anchor="middle" font-size="10">头 8</text>
+<rect x="728" y="508" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="762" y="521" text-anchor="middle" font-size="10">头 9</text>
+<rect x="728" y="530" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="762" y="543" text-anchor="middle" font-size="10">头 10</text>
+<rect x="728" y="552" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="762" y="565" text-anchor="middle" font-size="10">头 11</text>
+<rect x="815" y="464" width="85" height="116" rx="4" fill="#fff" stroke="#999"/>
+<text x="857" y="478" text-anchor="middle" font-size="10">SIMD 3</text>
+<rect x="823" y="486" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="857" y="499" text-anchor="middle" font-size="10">头 12</text>
+<rect x="823" y="508" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="857" y="521" text-anchor="middle" font-size="10">头 13</text>
+<rect x="823" y="530" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="857" y="543" text-anchor="middle" font-size="10">头 14</text>
+<rect x="823" y="552" width="69" height="18" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="857" y="565" text-anchor="middle" font-size="10">头 15</text>
+<text x="520" y="612" font-size="12" fill="#222">16 个头要在投影时汇合，得共用共享内存，</text>
+<text x="520" y="632" font-size="12" fill="#222">所以只能整组住进同一个 WGP。</text>
+<text x="520" y="652" font-size="12" fill="#222">一块 C512 = 28 组 × 16 个 wave = 448 个 wave。</text>
+<text x="520" y="672" font-size="12" fill="#b35c00">全卡 32 个 WGP 一次能住 96 组，只来了 28 组；</text>
+<text x="520" y="692" font-size="12" fill="#b35c00">13 块 C512 一块接一块串着跑，每块都这样。</text>
+</svg>
