@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" fill="#222">
+<rect width="960" height="640" fill="#fafafa"/>
+<text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold">一个 WGP 里能挂多少个 wave：以 C512 一头一 wave 的核为例</text>
+<text x="480" y="50" text-anchor="middle" font-size="12" fill="#666">全卡 32 个 WGP，结构都一样；这里展开其中一个</text>
+<rect x="30" y="64" width="560" height="24" rx="5" fill="#eeeeee" stroke="#999"/><text x="310" y="80" text-anchor="middle">显存 · 16 GB</text>
+<rect x="30" y="94" width="560" height="24" rx="5" fill="#e8eef6" stroke="#8aa0bf"/><text x="310" y="110" text-anchor="middle">Infinity Cache · 64 MB</text>
+<rect x="30" y="124" width="560" height="24" rx="5" fill="#dfe8f5" stroke="#6f8fbf"/><text x="310" y="140" text-anchor="middle">L2 · 8 MB · 全卡共享</text>
+<rect x="30" y="160" width="560" height="460" rx="8" fill="#fff" stroke="#555" stroke-width="1.5"/>
+<text x="44" y="180" font-size="13" font-weight="bold">一个 WGP = 2 个计算单元 × 2 个 SIMD32 = 4 个 SIMD</text>
+<rect x="44" y="190" width="260" height="360" rx="6" fill="#f7f7f7" stroke="#999"/>
+<text x="54" y="207" fill="#444">计算单元（CU）0</text>
+<rect x="54" y="214" width="240" height="20" rx="4" fill="#d3e4f7" stroke="#5a86bd"/><text x="174" y="228" text-anchor="middle" font-size="11">L0 缓存</text>
+<rect x="56" y="242" width="112" height="300" rx="5" fill="#fff" stroke="#777"/>
+<text x="112" y="258" text-anchor="middle" font-size="11" font-weight="bold">SIMD32 #0</text>
+<rect x="64.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="67.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="70.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="73.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="76.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="79.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="82.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="85.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="88.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="91.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="94.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="97.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="100.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="103.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="106.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="109.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="112.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="115.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="118.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="121.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="124.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="127.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="130.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="133.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="136.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="139.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="142.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="145.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="148.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="151.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="154.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="157.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<text x="112" y="286" text-anchor="middle" font-size="9" fill="#5a86bd">32 条车道</text>
+<rect x="64" y="294" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="112" y="306" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="64" y="314" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="112" y="326" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="64" y="334" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="112" y="346" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="64" y="354" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="112" y="366" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="64" y="374" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="64" y="394" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="64" y="414" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="64" y="434" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="64" y="454" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="64" y="474" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="64" y="494" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="64" y="514" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="180" y="242" width="112" height="300" rx="5" fill="#fff" stroke="#777"/>
+<text x="236" y="258" text-anchor="middle" font-size="11" font-weight="bold">SIMD32 #1</text>
+<rect x="188.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="191.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="194.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="197.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="200.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="203.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="206.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="209.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="212.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="215.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="218.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="221.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="224.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="227.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="230.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="233.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="236.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="239.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="242.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="245.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="248.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="251.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="254.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="257.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="260.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="263.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="266.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="269.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="272.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="275.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="278.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="281.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<text x="236" y="286" text-anchor="middle" font-size="9" fill="#5a86bd">32 条车道</text>
+<rect x="188" y="294" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="236" y="306" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="188" y="314" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="236" y="326" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="188" y="334" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="236" y="346" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="188" y="354" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="236" y="366" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="188" y="374" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="188" y="394" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="188" y="414" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="188" y="434" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="188" y="454" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="188" y="474" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="188" y="494" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="188" y="514" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="316" y="190" width="260" height="360" rx="6" fill="#f7f7f7" stroke="#999"/>
+<text x="326" y="207" fill="#444">计算单元（CU）1</text>
+<rect x="326" y="214" width="240" height="20" rx="4" fill="#d3e4f7" stroke="#5a86bd"/><text x="446" y="228" text-anchor="middle" font-size="11">L0 缓存</text>
+<rect x="328" y="242" width="112" height="300" rx="5" fill="#fff" stroke="#777"/>
+<text x="384" y="258" text-anchor="middle" font-size="11" font-weight="bold">SIMD32 #2</text>
+<rect x="336.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="339.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="342.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="345.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="348.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="351.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="354.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="357.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="360.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="363.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="366.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="369.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="372.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="375.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="378.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="381.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="384.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="387.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="390.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="393.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="396.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="399.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="402.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="405.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="408.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="411.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="414.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="417.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="420.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="423.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="426.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="429.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<text x="384" y="286" text-anchor="middle" font-size="9" fill="#5a86bd">32 条车道</text>
+<rect x="336" y="294" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="384" y="306" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="336" y="314" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="384" y="326" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="336" y="334" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="384" y="346" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="336" y="354" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="384" y="366" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="336" y="374" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="336" y="394" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="336" y="414" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="336" y="434" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="336" y="454" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="336" y="474" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="336" y="494" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="336" y="514" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="452" y="242" width="112" height="300" rx="5" fill="#fff" stroke="#777"/>
+<text x="508" y="258" text-anchor="middle" font-size="11" font-weight="bold">SIMD32 #3</text>
+<rect x="460.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="463.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="466.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="469.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="472.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="475.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="478.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="481.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="484.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="487.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="490.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="493.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="496.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="499.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="502.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="505.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="508.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="511.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="514.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="517.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="520.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="523.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="526.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="529.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="532.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="535.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="538.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="541.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="544.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="547.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="550.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<rect x="553.0" y="264" width="2.2" height="10" fill="#5a86bd"/>
+<text x="508" y="286" text-anchor="middle" font-size="9" fill="#5a86bd">32 条车道</text>
+<rect x="460" y="294" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="508" y="306" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="460" y="314" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="508" y="326" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="460" y="334" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="508" y="346" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="460" y="354" width="96" height="16" rx="3" fill="#f6c28b" stroke="#d9822b" />
+<text x="508" y="366" text-anchor="middle" font-size="9">wave（32 线程）</text>
+<rect x="460" y="374" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="460" y="394" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="460" y="414" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="460" y="434" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="460" y="454" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="460" y="474" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="460" y="494" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="460" y="514" width="96" height="16" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="44" y="560" width="532" height="46" rx="5" fill="#e7f3e9" stroke="#4c9a5b"/>
+<text x="310" y="579" text-anchor="middle">共享内存（LDS）· 128 KB · 同一工作组的 wave 在这里交换数据</text>
+<text x="310" y="597" text-anchor="middle" font-size="11" fill="#2f6b3b">一个工作组只能住在一个 WGP 里</text>
+<text x="610" y="80" font-size="14" font-weight="bold">图里的数字各是什么</text>
+<text x="610" y="104" font-size="15" font-weight="bold" fill="#b35c00">32</text>
+<text x="610" y="122" font-size="12">一个 wave 有 32 个线程；一个 SIMD32 有 32 条车道。两</text>
+<text x="610" y="139" font-size="12">个数相等，所以一周期正好执行一个 wave 的一条指令。</text>
+<text x="610" y="166" font-size="15" font-weight="bold" fill="#b35c00">4</text>
+<text x="610" y="184" font-size="12">一个 WGP 有 4 个 SIMD（2 个计算单元 × 2）。全卡 32 </text>
+<text x="610" y="201" font-size="12">个 WGP，一共 128 个 SIMD。</text>
+<text x="610" y="228" font-size="15" font-weight="bold" fill="#b35c00">12</text>
+<text x="610" y="246" font-size="12">一个 SIMD 上最多同时挂几个 wave，由核用多少寄存器、多</text>
+<text x="610" y="263" font-size="12">少共享内存决定。这个核是 12 个（虚线格）；C32 的核是 </text>
+<text x="610" y="280" font-size="12">8 个。挂着的 wave 轮流上场，一个在等数据，下一周期换</text>
+<text x="610" y="297" font-size="12">另一个。</text>
+<text x="610" y="324" font-size="15" font-weight="bold" fill="#b35c00">16</text>
+<text x="610" y="342" font-size="12">C512 一个窗口 16 个头，一头一 wave，所以一个工作组 </text>
+<text x="610" y="359" font-size="12">16 个 wave，平摊到 4 个 SIMD 上，每个 4 个（橙色）。</text>
+<text x="610" y="386" font-size="15" font-weight="bold" fill="#b35c00">3</text>
+<text x="610" y="404" font-size="12">每个 SIMD 12 个位置 ÷ 每组占 4 个 = 一个 WGP 最多住</text>
+<text x="610" y="421" font-size="12"> 3 组。</text>
+<text x="610" y="448" font-size="15" font-weight="bold" fill="#b35c00">16（另一个）</text>
+<text x="610" y="466" font-size="12">矩阵指令一次算 16×16 的块，所以一个 wave 一段处理 16</text>
+<text x="610" y="483" font-size="12"> 个位置；一个头 64 个位置要分 4 段。</text>
+</svg>

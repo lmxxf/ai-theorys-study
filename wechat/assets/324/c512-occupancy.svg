@@ -1,0 +1,648 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" fill="#222">
+<rect width="960" height="660" fill="#fafafa"/>
+<text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold">C512 一头一 wave：全卡能住多少，实际住了多少</text>
+<text x="480" y="50" text-anchor="middle" font-size="12" fill="#666">900 档，一块 C512 = 28 个窗口；一个窗口 16 个头 → 一个工作组 16 个 wave</text>
+<text x="40" y="82" font-size="14" font-weight="bold">全卡 32 个 WGP，每个最多同时住 3 个这样的工作组（虚线格）</text>
+<rect x="40" y="96" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="44" y="108" font-size="9" fill="#888">WGP 0</text>
+<rect x="46" y="112" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="51.0" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="142" r="2.2" fill="#b35c00"/>
+<rect x="77" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="108" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="148" y="96" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="152" y="108" font-size="9" fill="#888">WGP 1</text>
+<rect x="154" y="112" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="159.0" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="142" r="2.2" fill="#b35c00"/>
+<rect x="185" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="216" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="256" y="96" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="260" y="108" font-size="9" fill="#888">WGP 2</text>
+<rect x="262" y="112" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="267.0" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="142" r="2.2" fill="#b35c00"/>
+<rect x="293" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="324" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="364" y="96" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="368" y="108" font-size="9" fill="#888">WGP 3</text>
+<rect x="370" y="112" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="375.0" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="142" r="2.2" fill="#b35c00"/>
+<rect x="401" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="432" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="472" y="96" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="476" y="108" font-size="9" fill="#888">WGP 4</text>
+<rect x="478" y="112" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="483.0" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="483.0" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="483.0" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="483.0" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="142" r="2.2" fill="#b35c00"/>
+<rect x="509" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="540" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="580" y="96" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="584" y="108" font-size="9" fill="#888">WGP 5</text>
+<rect x="586" y="112" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="591.0" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="591.0" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="591.0" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="591.0" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="142" r="2.2" fill="#b35c00"/>
+<rect x="617" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="648" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="688" y="96" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="692" y="108" font-size="9" fill="#888">WGP 6</text>
+<rect x="694" y="112" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="699.0" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="699.0" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="699.0" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="699.0" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="142" r="2.2" fill="#b35c00"/>
+<rect x="725" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="756" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="796" y="96" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="800" y="108" font-size="9" fill="#888">WGP 7</text>
+<rect x="802" y="112" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="807.0" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="118" r="2.2" fill="#b35c00"/>
+<circle cx="807.0" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="126" r="2.2" fill="#b35c00"/>
+<circle cx="807.0" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="134" r="2.2" fill="#b35c00"/>
+<circle cx="807.0" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="142" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="142" r="2.2" fill="#b35c00"/>
+<rect x="833" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="864" y="112" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="40" y="164" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="44" y="176" font-size="9" fill="#888">WGP 8</text>
+<rect x="46" y="180" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="51.0" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="210" r="2.2" fill="#b35c00"/>
+<rect x="77" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="108" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="148" y="164" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="152" y="176" font-size="9" fill="#888">WGP 9</text>
+<rect x="154" y="180" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="159.0" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="210" r="2.2" fill="#b35c00"/>
+<rect x="185" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="216" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="256" y="164" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="260" y="176" font-size="9" fill="#888">WGP 10</text>
+<rect x="262" y="180" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="267.0" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="210" r="2.2" fill="#b35c00"/>
+<rect x="293" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="324" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="364" y="164" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="368" y="176" font-size="9" fill="#888">WGP 11</text>
+<rect x="370" y="180" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="375.0" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="210" r="2.2" fill="#b35c00"/>
+<rect x="401" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="432" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="472" y="164" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="476" y="176" font-size="9" fill="#888">WGP 12</text>
+<rect x="478" y="180" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="483.0" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="483.0" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="483.0" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="483.0" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="210" r="2.2" fill="#b35c00"/>
+<rect x="509" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="540" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="580" y="164" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="584" y="176" font-size="9" fill="#888">WGP 13</text>
+<rect x="586" y="180" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="591.0" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="591.0" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="591.0" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="591.0" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="210" r="2.2" fill="#b35c00"/>
+<rect x="617" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="648" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="688" y="164" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="692" y="176" font-size="9" fill="#888">WGP 14</text>
+<rect x="694" y="180" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="699.0" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="699.0" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="699.0" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="699.0" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="210" r="2.2" fill="#b35c00"/>
+<rect x="725" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="756" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="796" y="164" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="800" y="176" font-size="9" fill="#888">WGP 15</text>
+<rect x="802" y="180" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="807.0" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="186" r="2.2" fill="#b35c00"/>
+<circle cx="807.0" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="194" r="2.2" fill="#b35c00"/>
+<circle cx="807.0" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="202" r="2.2" fill="#b35c00"/>
+<circle cx="807.0" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="210" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="210" r="2.2" fill="#b35c00"/>
+<rect x="833" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="864" y="180" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="40" y="232" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="44" y="244" font-size="9" fill="#888">WGP 16</text>
+<rect x="46" y="248" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="51.0" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="278" r="2.2" fill="#b35c00"/>
+<rect x="77" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="108" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="148" y="232" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="152" y="244" font-size="9" fill="#888">WGP 17</text>
+<rect x="154" y="248" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="159.0" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="278" r="2.2" fill="#b35c00"/>
+<rect x="185" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="216" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="256" y="232" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="260" y="244" font-size="9" fill="#888">WGP 18</text>
+<rect x="262" y="248" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="267.0" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="278" r="2.2" fill="#b35c00"/>
+<rect x="293" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="324" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="364" y="232" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="368" y="244" font-size="9" fill="#888">WGP 19</text>
+<rect x="370" y="248" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="375.0" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="278" r="2.2" fill="#b35c00"/>
+<rect x="401" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="432" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="472" y="232" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="476" y="244" font-size="9" fill="#888">WGP 20</text>
+<rect x="478" y="248" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="483.0" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="483.0" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="483.0" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="483.0" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="488.7" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="494.4" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="500.1" cy="278" r="2.2" fill="#b35c00"/>
+<rect x="509" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="540" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="580" y="232" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="584" y="244" font-size="9" fill="#888">WGP 21</text>
+<rect x="586" y="248" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="591.0" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="591.0" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="591.0" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="591.0" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="596.7" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="602.4" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="608.1" cy="278" r="2.2" fill="#b35c00"/>
+<rect x="617" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="648" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="688" y="232" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="692" y="244" font-size="9" fill="#888">WGP 22</text>
+<rect x="694" y="248" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="699.0" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="699.0" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="699.0" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="699.0" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="704.7" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="710.4" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="716.1" cy="278" r="2.2" fill="#b35c00"/>
+<rect x="725" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="756" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="796" y="232" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="800" y="244" font-size="9" fill="#888">WGP 23</text>
+<rect x="802" y="248" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="807.0" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="254" r="2.2" fill="#b35c00"/>
+<circle cx="807.0" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="262" r="2.2" fill="#b35c00"/>
+<circle cx="807.0" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="270" r="2.2" fill="#b35c00"/>
+<circle cx="807.0" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="812.7" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="818.4" cy="278" r="2.2" fill="#b35c00"/>
+<circle cx="824.1" cy="278" r="2.2" fill="#b35c00"/>
+<rect x="833" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="864" y="248" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="40" y="300" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="44" y="312" font-size="9" fill="#888">WGP 24</text>
+<rect x="46" y="316" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="51.0" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="51.0" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="56.7" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="62.4" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="68.1" cy="346" r="2.2" fill="#b35c00"/>
+<rect x="77" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="108" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="148" y="300" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="152" y="312" font-size="9" fill="#888">WGP 25</text>
+<rect x="154" y="316" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="159.0" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="159.0" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="164.7" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="170.4" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="176.1" cy="346" r="2.2" fill="#b35c00"/>
+<rect x="185" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="216" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="256" y="300" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="260" y="312" font-size="9" fill="#888">WGP 26</text>
+<rect x="262" y="316" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="267.0" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="267.0" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="272.7" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="278.4" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="284.1" cy="346" r="2.2" fill="#b35c00"/>
+<rect x="293" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="324" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="364" y="300" width="100" height="58" rx="5" fill="#fff" stroke="#777"/>
+<text x="368" y="312" font-size="9" fill="#888">WGP 27</text>
+<rect x="370" y="316" width="27" height="36" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<circle cx="375.0" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="322" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="330" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="338" r="2.2" fill="#b35c00"/>
+<circle cx="375.0" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="380.7" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="386.4" cy="346" r="2.2" fill="#b35c00"/>
+<circle cx="392.1" cy="346" r="2.2" fill="#b35c00"/>
+<rect x="401" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="432" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="472" y="300" width="100" height="58" rx="5" fill="#e6e6e6" stroke="#777"/>
+<text x="476" y="312" font-size="9" fill="#888">WGP 28</text>
+<rect x="478" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="509" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="540" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<text x="522.0" y="339.0" text-anchor="middle" font-size="12" fill="#999">闲着</text>
+<rect x="580" y="300" width="100" height="58" rx="5" fill="#e6e6e6" stroke="#777"/>
+<text x="584" y="312" font-size="9" fill="#888">WGP 29</text>
+<rect x="586" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="617" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="648" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<text x="630.0" y="339.0" text-anchor="middle" font-size="12" fill="#999">闲着</text>
+<rect x="688" y="300" width="100" height="58" rx="5" fill="#e6e6e6" stroke="#777"/>
+<text x="692" y="312" font-size="9" fill="#888">WGP 30</text>
+<rect x="694" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="725" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="756" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<text x="738.0" y="339.0" text-anchor="middle" font-size="12" fill="#999">闲着</text>
+<rect x="796" y="300" width="100" height="58" rx="5" fill="#e6e6e6" stroke="#777"/>
+<text x="800" y="312" font-size="9" fill="#888">WGP 31</text>
+<rect x="802" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="833" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<rect x="864" y="316" width="27" height="36" rx="3" fill="none" stroke="#bbb" stroke-dasharray="3 2"/>
+<text x="846.0" y="339.0" text-anchor="middle" font-size="12" fill="#999">闲着</text>
+<rect x="40" y="372" width="12" height="12" fill="#f6c28b" stroke="#d9822b"/><text x="58" y="382">一个工作组，16 个点 = 16 个 wave</text>
+<text x="40" y="404" font-size="13">能住约 96 组（1536 个 wave），实际只有 28 组（448 个 wave），用上不到三成；28 组还比 32 个 WGP 少，4 个 WGP 一直空着。</text>
+<text x="40" y="444" font-size="14" font-weight="bold">住得少，每个 wave 还要串着干：一个头 64 个位置，分 4 段、一段 16 个</text>
+<text x="40" y="477" font-size="12">融合核：1 个 wave</text>
+<rect x="180" y="462" width="121" height="22" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="240.5" y="477" text-anchor="middle" font-size="11">段 1</text>
+<rect x="305" y="462" width="121" height="22" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="365.5" y="477" text-anchor="middle" font-size="11">段 2</text>
+<rect x="430" y="462" width="121" height="22" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="490.5" y="477" text-anchor="middle" font-size="11">段 3</text>
+<rect x="555" y="462" width="121" height="22" rx="3" fill="#f6c28b" stroke="#d9822b"/>
+<text x="615.5" y="477" text-anchor="middle" font-size="11">段 4</text>
+<text x="686" y="477" font-size="11" fill="#b35c00">一段接一段，等数据时没人顶上</text>
+<text x="40" y="517" font-size="12">原版：分给多个 wave</text>
+<rect x="180" y="502" width="121" height="22" rx="3" fill="#bfe3c6" stroke="#4c9a5b"/>
+<text x="240.5" y="517" text-anchor="middle" font-size="11">段 1</text>
+<text x="40" y="545" font-size="12"></text>
+<rect x="180" y="530" width="121" height="22" rx="3" fill="#bfe3c6" stroke="#4c9a5b"/>
+<text x="240.5" y="545" text-anchor="middle" font-size="11">段 2</text>
+<text x="40" y="573" font-size="12"></text>
+<rect x="180" y="558" width="121" height="22" rx="3" fill="#bfe3c6" stroke="#4c9a5b"/>
+<text x="240.5" y="573" text-anchor="middle" font-size="11">段 3</text>
+<text x="40" y="601" font-size="12"></text>
+<rect x="180" y="586" width="121" height="22" rx="3" fill="#bfe3c6" stroke="#4c9a5b"/>
+<text x="240.5" y="601" text-anchor="middle" font-size="11">段 4</text>
+<text x="311" y="550" font-size="11" fill="#2f6b3b">同一份活切成上千个小工作组，</text>
+<text x="311" y="566" font-size="11" fill="#2f6b3b">各做一小段，住不下的排队，谁在等数据就换别人上</text>
+<line x1="180" y1="628" x2="680" y2="628" stroke="#555" marker-end="url(#a)"/>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs>
+<text x="690" y="632" font-size="11" fill="#555">时间</text>
+</svg>
