@@ -47,8 +47,8 @@
 <text x="40" y="346" font-size="12" fill="#999">（错开半格的块补到 56×40，是 35 个）</text>
 <rect x="490" y="64" width="450" height="320" rx="8" fill="#fff" stroke="#999"/>
 <circle cx="508" cy="84" r="11" fill="#d9822b"/><text x="508" y="88" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
-<text x="526" y="89" font-size="14" font-weight="bold">一个窗口：64 个位置 × 512 通道，切成 16 个头</text>
-<text x="520" y="104" font-size="10" fill="#666">64 行（位置）× 512 列（通道）</text>
+<text x="526" y="89" font-size="14" font-weight="bold">一个窗口：64×512，导出 Q/K/V，切给 16 个头</text>
+<text x="520" y="104" font-size="10" fill="#666">Q / K / V 各是 64 行（位置）× 512 列，按列切成 16 个头</text>
 <rect x="520" y="110" width="24" height="140" fill="#f6c28b" stroke="#6f8fbf" stroke-width="0.8"/>
 <text x="532" y="266" text-anchor="middle" font-size="9">0</text>
 <rect x="544" y="110" width="24" height="140" fill="#dfe8f5" stroke="#6f8fbf" stroke-width="0.8"/>
@@ -82,8 +82,8 @@
 <rect x="880" y="110" width="24" height="140" fill="#dfe8f5" stroke="#6f8fbf" stroke-width="0.8"/>
 <text x="892" y="266" text-anchor="middle" font-size="9">15</text>
 <text x="712" y="282" text-anchor="middle" font-size="11">头 0 ～ 头 15，每个头 32 个通道：16 × 32 = 512</text>
-<text x="520" y="308" font-size="12">每个头只用自己那 32 个通道，</text>
-<text x="520" y="328" font-size="12">让 64 个位置两两互看，16 个头各看各的。</text>
+<text x="520" y="308" font-size="12">64×512 乘三套权重，导出 Q、K、V 各 64×512，</text>
+<text x="520" y="328" font-size="12">再各切 16 份，每个头拿 32 列，64 个位置两两互看。</text>
 <text x="520" y="348" font-size="12">同一对位置，16 个头会给出 16 种“该多关注”。</text>
 <text x="520" y="368" font-size="12">最后 16 个头拼回 64×512，再做一次投影。</text>
 <rect x="20" y="400" width="450" height="340" rx="8" fill="#fff" stroke="#999"/>
