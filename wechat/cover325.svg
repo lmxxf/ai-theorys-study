@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 34px; font-weight: bold; fill: #2b2b2b; }
+    .subtitle { font-size: 18px; fill: #555; }
+    .city { font-size: 17px; font-weight: bold; }
+    .tag { font-size: 12px; fill: #555; }
+    .axis-label { font-size: 14px; fill: #8a7a50; font-style: italic; }
+    .footer { font-size: 14px; fill: #888; font-style: italic; }
+  </style>
+
+  <rect width="800" height="600" fill="#f4ecd8"/>
+
+  <!-- 标题 -->
+  <text x="400" y="54" text-anchor="middle" class="title">国庆去北满：顺着中东铁路走一圈</text>
+  <text x="400" y="85" text-anchor="middle" class="subtitle">俄国人画了一个 T，日俄战争把它劈成两半</text>
+  <line x1="90" y1="106" x2="710" y2="106" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 今年的环线（虚线） -->
+  <path d="M 300 200 Q 360 130 440 142 Q 540 125 640 140 L 650 200 Q 590 215 520 200"
+        fill="none" stroke="#c19a32" stroke-width="2" stroke-dasharray="3,5"/>
+  <text x="540" y="120" text-anchor="middle" class="axis-label">— 今年：北满 —</text>
+
+  <!-- 横线：俄国宽轨 -->
+  <line x1="90" y1="200" x2="730" y2="200" stroke="#8b1a1a" stroke-width="6"/>
+  <line x1="90" y1="200" x2="730" y2="200" stroke="#f4ecd8" stroke-width="2" stroke-dasharray="2,8"/>
+  <!-- 竖线北段：俄国宽轨 -->
+  <line x1="520" y1="200" x2="520" y2="300" stroke="#8b1a1a" stroke-width="6"/>
+  <line x1="520" y1="200" x2="520" y2="300" stroke="#f4ecd8" stroke-width="2" stroke-dasharray="2,8"/>
+  <!-- 竖线南段：满铁标准轨 -->
+  <line x1="520" y1="300" x2="520" y2="490" stroke="#2b5a8b" stroke-width="6"/>
+  <line x1="520" y1="300" x2="520" y2="490" stroke="#f4ecd8" stroke-width="2" stroke-dasharray="2,8"/>
+
+  <text x="200" y="228" text-anchor="middle" font-size="13" fill="#8b1a1a" font-weight="bold">俄国 · 1524 毫米宽轨</text>
+  <text x="600" y="420" text-anchor="middle" font-size="13" fill="#2b5a8b" font-weight="bold">日本 · 满铁</text>
+  <text x="600" y="438" text-anchor="middle" font-size="13" fill="#2b5a8b" font-weight="bold">1435 毫米标准轨</text>
+  <text x="600" y="470" text-anchor="middle" class="axis-label" fill="#2b5a8b">— 去年：南满 —</text>
+
+  <!-- 横线上的站 -->
+  <circle cx="90" cy="200" r="6" fill="#8b1a1a"/>
+  <text x="90" y="182" text-anchor="middle" class="city" fill="#8b1a1a">满洲里</text>
+
+  <circle cx="300" cy="200" r="8" fill="#c19a32" stroke="#8b1a1a" stroke-width="2"/>
+  <text x="300" y="182" text-anchor="middle" class="city" fill="#8b6a18">齐齐哈尔</text>
+  <text x="300" y="248" text-anchor="middle" class="tag">站在昂昂溪</text>
+
+  <circle cx="520" cy="200" r="10" fill="#fff8e6" stroke="#8b1a1a" stroke-width="3"/>
+  <text x="488" y="226" text-anchor="end" class="city" fill="#8b1a1a">哈尔滨</text>
+  <text x="488" y="242" text-anchor="end" class="tag">T 字的交叉点</text>
+
+  <circle cx="650" cy="200" r="8" fill="#c19a32" stroke="#8b1a1a" stroke-width="2"/>
+  <text x="650" y="228" text-anchor="middle" class="city" fill="#8b6a18">牡丹江</text>
+
+  <circle cx="730" cy="200" r="6" fill="#8b1a1a"/>
+  <text x="730" y="228" text-anchor="middle" class="city" fill="#8b1a1a">绥芬河</text>
+  <text x="730" y="244" text-anchor="middle" class="tag">→ 海参崴</text>
+
+  <!-- 铁路外的两站 -->
+  <circle cx="440" cy="142" r="7" fill="#c19a32"/>
+  <text x="440" y="133" text-anchor="end" class="city" fill="#8b6a18" dx="-10">黑河</text>
+  <circle cx="640" cy="140" r="7" fill="#c19a32"/>
+  <text x="656" y="146" class="city" fill="#8b6a18">鹤岗</text>
+
+  <!-- 长春断点 -->
+  <rect x="496" y="290" width="48" height="20" fill="#f4ecd8" stroke="#2b2b2b" stroke-width="2"/>
+  <text x="520" y="305" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2b2b">长春</text>
+  <text x="558" y="296" class="tag" fill="#2b2b2b">1905–1935</text>
+  <text x="558" y="312" class="tag" fill="#2b2b2b">轨距断点，下车换车</text>
+
+  <!-- 竖线南段的站 -->
+  <circle cx="520" cy="380" r="6" fill="#2b5a8b"/>
+  <text x="506" y="385" text-anchor="end" class="city" fill="#1f4368">奉天</text>
+  <circle cx="520" cy="490" r="6" fill="#2b5a8b"/>
+  <text x="506" y="495" text-anchor="end" class="city" fill="#1f4368">大连</text>
+
+  <!-- 左下：两种轨距 -->
+  <g>
+    <text x="210" y="320" text-anchor="middle" class="axis-label">两条钢轨之间的宽度</text>
+    <line x1="140" y1="345" x2="140" y2="440" stroke="#8b1a1a" stroke-width="5"/>
+    <line x1="290" y1="345" x2="290" y2="440" stroke="#8b1a1a" stroke-width="5"/>
+    <line x1="160" y1="345" x2="160" y2="440" stroke="#2b5a8b" stroke-width="5"/>
+    <line x1="270" y1="345" x2="270" y2="440" stroke="#2b5a8b" stroke-width="5"/>
+    <g stroke="#8a7a50" stroke-width="3" opacity="0.6">
+      <line x1="125" y1="360" x2="305" y2="360"/>
+      <line x1="125" y1="392" x2="305" y2="392"/>
+      <line x1="125" y1="424" x2="305" y2="424"/>
+    </g>
+    <text x="215" y="462" text-anchor="middle" font-size="13" fill="#8b1a1a" font-weight="bold">1524</text>
+    <text x="215" y="480" text-anchor="middle" font-size="13" fill="#2b5a8b" font-weight="bold">1435</text>
+    <text x="215" y="500" text-anchor="middle" class="tag">横着那一笔，改了三回</text>
+  </g>
+
+  <!-- 底部 -->
+  <text x="400" y="556" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2b2b">一条铁路，劈成两半，走了两年</text>
+  <text x="400" y="586" text-anchor="middle" class="footer">No.325</text>
+</svg>
