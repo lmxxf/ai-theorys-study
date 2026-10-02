@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 34px; font-weight: bold; fill: #2b2b2b; }
+    .subtitle { font-size: 18px; fill: #555; }
+    .head { font-size: 17px; font-weight: bold; }
+    .yr { font-size: 13px; fill: #555; }
+    .city { font-size: 15px; }
+    .axis-label { font-size: 14px; fill: #8a7a50; font-style: italic; }
+    .footer { font-size: 14px; fill: #888; font-style: italic; }
+  </style>
+
+  <rect width="800" height="600" fill="#f4ecd8"/>
+
+  <text x="400" y="54" text-anchor="middle" class="title">黑龙江的城市都是怎么来的</text>
+  <text x="400" y="85" text-anchor="middle" class="subtitle">13 个地级行政区，1900 年以前成形的只有三座</text>
+  <line x1="90" y1="106" x2="710" y2="106" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 三拨卡片 -->
+  <g>
+    <rect x="60" y="140" width="190" height="150" rx="6" fill="#eaf1f8" stroke="#2b5a8b" stroke-width="2.5"/>
+    <text x="155" y="168" text-anchor="middle" class="head" fill="#1f4368">第一拨 · 边防城</text>
+    <text x="155" y="188" text-anchor="middle" class="yr">1683–1699</text>
+    <text x="155" y="222" text-anchor="middle" class="city" fill="#1f4368">齐齐哈尔</text>
+    <text x="155" y="246" text-anchor="middle" class="city" fill="#1f4368">瑷珲 → 黑河</text>
+    <text x="155" y="276" text-anchor="middle" class="yr">《尼布楚条约》前后</text>
+  </g>
+  <g>
+    <rect x="300" y="140" width="190" height="150" rx="6" fill="#fbeaea" stroke="#8b1a1a" stroke-width="2.5"/>
+    <text x="395" y="168" text-anchor="middle" class="head" fill="#8b1a1a">第二拨 · 开禁和铁路</text>
+    <text x="395" y="188" text-anchor="middle" class="yr">1862–1903</text>
+    <text x="395" y="222" text-anchor="middle" class="city" fill="#8b1a1a">绥化 · 佳木斯</text>
+    <text x="395" y="246" text-anchor="middle" class="city" fill="#8b1a1a">哈尔滨 · 牡丹江</text>
+    <text x="395" y="276" text-anchor="middle" class="yr">放荒招垦，中东铁路</text>
+  </g>
+  <g>
+    <rect x="540" y="140" width="200" height="150" rx="6" fill="#fff8e6" stroke="#c19a32" stroke-width="2.5"/>
+    <text x="640" y="168" text-anchor="middle" class="head" fill="#8b6a18">第三拨 · 煤、木头、石油</text>
+    <text x="640" y="188" text-anchor="middle" class="yr">1914–1964</text>
+    <text x="640" y="218" text-anchor="middle" class="city" fill="#8b6a18">鹤岗 · 鸡西 · 双鸭山 · 七台河</text>
+    <text x="640" y="240" text-anchor="middle" class="city" fill="#8b6a18">伊春 · 加格达奇</text>
+    <text x="640" y="262" text-anchor="middle" class="city" fill="#8b6a18">大庆</text>
+    <text x="640" y="282" text-anchor="middle" class="yr">跨民国、伪满、新中国</text>
+  </g>
+
+  <!-- 时间轴：x = 80 + (年-1650) × 2 -->
+  <line x1="80" y1="420" x2="730" y2="420" stroke="#7a6843" stroke-width="2"/>
+  <rect x="146" y="408" width="32" height="24" fill="#2b5a8b"/>
+  <rect x="180" y="408" width="320" height="24" fill="#d8ccaf"/>
+  <text x="340" y="425" text-anchor="middle" font-size="13" fill="#5a4d30">一百六十年封禁，没长出新城</text>
+  <rect x="504" y="408" width="82" height="24" fill="#8b1a1a"/>
+  <rect x="608" y="408" width="100" height="24" fill="#c19a32"/>
+
+  <!-- 卡片到时间轴的引线 -->
+  <g stroke-width="1.5" fill="none" stroke-dasharray="4,3">
+    <path d="M 155 290 L 162 406" stroke="#2b5a8b"/>
+    <path d="M 395 290 L 545 406" stroke="#8b1a1a"/>
+    <path d="M 640 290 L 658 406" stroke="#c19a32"/>
+  </g>
+
+  <!-- 刻度 -->
+  <g class="yr" text-anchor="middle">
+    <text x="180" y="452">1700</text>
+    <text x="380" y="452">1800</text>
+    <text x="580" y="452">1900</text>
+  </g>
+  <g stroke="#7a6843" stroke-width="1.5">
+    <line x1="180" y1="434" x2="180" y2="440"/>
+    <line x1="380" y1="434" x2="380" y2="440"/>
+    <line x1="580" y1="434" x2="580" y2="440"/>
+  </g>
+
+  <text x="400" y="490" text-anchor="middle" class="axis-label">更早的渤海上京、金上京，都被下令毁掉了</text>
+
+  <text x="400" y="548" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2b2b">先是军城，空了一百六十年，再是铁路，最后是煤、木头和石油</text>
+  <text x="400" y="584" text-anchor="middle" class="footer">No.327</text>
+</svg>
