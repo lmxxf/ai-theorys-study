@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 670">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .h { font-size: 16px; font-weight: bold; fill: #2b2b2b; }
+    .t { font-size: 13px; fill: #555; }
+    .c { font-size: 14px; font-weight: bold; fill: #2b2b2b; }
+  </style>
+  <rect width="960" height="670" fill="#f4ecd8"/>
+
+  <!-- 同心圆：中心 (310,330) -->
+  <circle cx="310" cy="330" r="295" fill="#ece3cc" stroke="#8a7a50" stroke-width="2" stroke-dasharray="8,6"/>
+  <circle cx="310" cy="330" r="250" fill="#e3ebdf" stroke="#5c7a4a" stroke-width="2"/>
+  <circle cx="310" cy="330" r="205" fill="#f1e2c4" stroke="#c19a32" stroke-width="2"/>
+  <circle cx="310" cy="330" r="160" fill="#f3dede" stroke="#8b1a1a" stroke-width="2"/>
+  <circle cx="310" cy="330" r="115" fill="#dfe8f2" stroke="#2b5a8b" stroke-width="2"/>
+    <circle cx="310" cy="330" r="48" fill="#7a6843"/>
+  <text x="310" y="335" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">皇帝</text>
+
+  <!-- 圈内短名 -->
+    <text x="310" y="252" text-anchor="middle" class="c">满蒙汉 24 旗</text>
+  <text x="310" y="270" text-anchor="middle" class="t">含旗下包衣</text>
+  <text x="310" y="202" text-anchor="middle" class="c">新满洲 · 锡伯</text>
+  <text x="310" y="155" text-anchor="middle" class="c">布特哈 · 呼伦贝尔 · 伊犁四营</text>
+  <text x="310" y="110" text-anchor="middle" class="c">察哈尔 · 土默特</text>
+  <text x="310" y="62" text-anchor="middle" class="c" fill="#7a6843">外藩札萨克旗（不算八旗）</text>
+
+  <!-- 右侧说明 -->
+  <g>
+    <rect x="620" y="40" width="320" height="523" rx="6" fill="#fffaf0" stroke="#c9b98f"/>
+    <text x="640" y="72" class="h">从里往外</text>
+
+    <circle cx="648" cy="102" r="7" fill="#dfe8f2" stroke="#2b5a8b" stroke-width="2"/>
+    <text x="664" y="107" class="h">八旗本体 24 旗</text>
+    <text x="664" y="127" class="t">满洲 1615 · 蒙古 1635 · 汉军 1642</text>
+    <text x="664" y="145" class="t">马甲月饷 3 两，岁米 22 石 2 斗</text>
+    <text x="664" y="163" class="t">旗下包衣：世袭家仆，身份低一等</text>
+    <text x="664" y="181" class="t">　却离皇帝最近，曹家江宁织造 58 年</text>
+
+    <circle cx="648" cy="215" r="7" fill="#f3dede" stroke="#8b1a1a" stroke-width="2"/>
+    <text x="664" y="220" class="h">新满洲 · 锡伯</text>
+    <text x="664" y="240" class="t">1673 赫哲编 40 牛录（宁古塔、吉林）</text>
+    <text x="664" y="258" class="t">1692 锡伯从科尔沁赎买，编入上三旗</text>
+
+    <circle cx="648" cy="290" r="7" fill="#f1e2c4" stroke="#c19a32" stroke-width="2"/>
+    <text x="664" y="295" class="h">东北部落旗 · 伊犁四营</text>
+    <text x="664" y="315" class="t">布特哈 1691：索伦、达斡尔、鄂伦春</text>
+    <text x="664" y="333" class="t">　每丁年交貂皮一张，不领饷</text>
+    <text x="664" y="351" class="t">呼伦贝尔 1732 · 打牲乌拉 1657</text>
+    <text x="664" y="369" class="t">伊犁：锡伯、索伦、察哈尔、厄鲁特营</text>
+
+    <circle cx="648" cy="401" r="7" fill="#e3ebdf" stroke="#5c7a4a" stroke-width="2"/>
+    <text x="664" y="406" class="h">内属蒙古</text>
+    <text x="664" y="426" class="t">察哈尔：1675 布尔尼之后改编八旗</text>
+    <text x="664" y="444" class="t">归化城土默特：副都统管</text>
+
+    <circle cx="648" cy="476" r="7" fill="#ece3cc" stroke="#8a7a50" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="664" y="481" class="h">外藩札萨克旗</text>
+    <text x="664" y="501" class="t">王公世袭自治，叫“旗”但不是八旗</text>
+
+    <text x="640" y="543" class="t" fill="#8b1a1a" font-weight="bold">圈外：民人，归州县管</text>
+  </g>
+
+  <!-- 底注 -->
+  <text x="310" y="655" text-anchor="middle" font-size="13" fill="#8a7a50" font-style="italic">每一圈，在外面那一圈眼里都是贵族</text>
+</svg>
