@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 34px; font-weight: bold; fill: #2b2b2b; }
+    .subtitle { font-size: 18px; fill: #555; }
+    .flagname { font-size: 17px; font-weight: bold; fill: #2b2b2b; }
+    .note { font-size: 13px; fill: #777; }
+    .footer { font-size: 21px; font-weight: bold; fill: #2b2b2b; }
+    .no { font-size: 14px; fill: #888; font-style: italic; }
+  </style>
+
+  <rect width="800" height="600" fill="#f4ecd8"/>
+
+  <text x="400" y="54" text-anchor="middle" class="title">八旗不只是满蒙汉</text>
+  <text x="400" y="85" text-anchor="middle" class="subtitle">清代“旗”的同心圆：每一圈，在外面那一圈眼里都是贵族</text>
+  <line x1="90" y1="106" x2="710" y2="106" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 八面旗：第一行上三旗+正红，第二行下五旗其余 -->
+  <!-- 每面旗：旗杆 + 旗面（正=纯色，镶=红边色心） -->
+  <g id="flags"></g>
+
+  <!-- 镶黄（头旗，上三旗） -->
+  <g transform="translate(110,150)">
+    <line x1="0" y1="-14" x2="0" y2="128" stroke="#5a4a2a" stroke-width="4"/>
+    <rect x="5" y="-8" width="112" height="88" fill="#b03030"/>
+    <rect x="13" y="0" width="96" height="72" fill="#d9a821"/>
+    <text x="61" y="118" text-anchor="middle" class="flagname">镶黄旗</text>
+    <text x="61" y="140" text-anchor="middle" class="note">上三旗</text>
+  </g>
+
+  <!-- 正黄 -->
+  <g transform="translate(280,150)">
+    <line x1="0" y1="-14" x2="0" y2="128" stroke="#5a4a2a" stroke-width="4"/>
+    <rect x="5" y="-8" width="112" height="88" fill="#d9a821"/>
+    <text x="61" y="118" text-anchor="middle" class="flagname">正黄旗</text>
+    <text x="61" y="140" text-anchor="middle" class="note">上三旗</text>
+  </g>
+
+  <!-- 正白 -->
+  <g transform="translate(450,150)">
+    <line x1="0" y1="-14" x2="0" y2="128" stroke="#5a4a2a" stroke-width="4"/>
+    <rect x="5" y="-8" width="112" height="88" fill="#f0ead8" stroke="#999" stroke-width="1"/>
+    <text x="61" y="118" text-anchor="middle" class="flagname">正白旗</text>
+    <text x="61" y="140" text-anchor="middle" class="note">上三旗</text>
+  </g>
+
+  <!-- 正红 -->
+  <g transform="translate(620,150)">
+    <line x1="0" y1="-14" x2="0" y2="128" stroke="#5a4a2a" stroke-width="4"/>
+    <rect x="5" y="-8" width="112" height="88" fill="#b03030"/>
+    <text x="61" y="118" text-anchor="middle" class="flagname">正红旗</text>
+    <text x="61" y="140" text-anchor="middle" class="note">下五旗</text>
+  </g>
+
+  <!-- 镶白 -->
+  <g transform="translate(110,330)">
+    <line x1="0" y1="-14" x2="0" y2="128" stroke="#5a4a2a" stroke-width="4"/>
+    <rect x="5" y="-8" width="112" height="88" fill="#b03030"/>
+    <rect x="13" y="0" width="96" height="72" fill="#f0ead8"/>
+    <text x="61" y="118" text-anchor="middle" class="flagname">镶白旗</text>
+    <text x="61" y="140" text-anchor="middle" class="note">下五旗</text>
+  </g>
+
+  <!-- 镶红 -->
+  <g transform="translate(280,330)">
+    <line x1="0" y1="-14" x2="0" y2="128" stroke="#5a4a2a" stroke-width="4"/>
+    <rect x="5" y="-8" width="112" height="88" fill="#f0ead8" stroke="#999" stroke-width="1"/>
+    <rect x="13" y="0" width="96" height="72" fill="#b03030"/>
+    <text x="61" y="118" text-anchor="middle" class="flagname">镶红旗</text>
+    <text x="61" y="140" text-anchor="middle" class="note">下五旗</text>
+  </g>
+
+  <!-- 正蓝 -->
+  <g transform="translate(450,330)">
+    <line x1="0" y1="-14" x2="0" y2="128" stroke="#5a4a2a" stroke-width="4"/>
+    <rect x="5" y="-8" width="112" height="88" fill="#2b5a8b"/>
+    <text x="61" y="118" text-anchor="middle" class="flagname">正蓝旗</text>
+    <text x="61" y="140" text-anchor="middle" class="note">下五旗</text>
+  </g>
+
+  <!-- 镶蓝 -->
+  <g transform="translate(620,330)">
+    <line x1="0" y1="-14" x2="0" y2="128" stroke="#5a4a2a" stroke-width="4"/>
+    <rect x="5" y="-8" width="112" height="88" fill="#b03030"/>
+    <rect x="13" y="0" width="96" height="72" fill="#2b5a8b"/>
+    <text x="61" y="118" text-anchor="middle" class="flagname">镶蓝旗</text>
+    <text x="61" y="140" text-anchor="middle" class="note">下五旗</text>
+  </g>
+
+  <text x="400" y="530" text-anchor="middle" class="note">满洲 1615 · 蒙古 1635 · 汉军 1642 —— 后来还长出了新满洲、布特哈、察哈尔、外藩札萨克……</text>
+
+  <text x="400" y="562" text-anchor="middle" class="footer">划开两边的不是满还是汉，是在旗还是不在旗</text>
+  <text x="400" y="590" text-anchor="middle" class="no">No.328</text>
+</svg>
