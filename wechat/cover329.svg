@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 34px; font-weight: bold; fill: #2b2b2b; }
+    .subtitle { font-size: 18px; fill: #555; }
+    .city { font-size: 19px; font-weight: bold; }
+    .tag { font-size: 13px; fill: #555; }
+    .axis-label { font-size: 14px; fill: #8a7a50; font-style: italic; }
+    .footer { font-size: 14px; fill: #888; font-style: italic; }
+  </style>
+
+  <rect width="800" height="600" fill="#f4ecd8"/>
+
+  <!-- 标题 -->
+  <text x="400" y="52" text-anchor="middle" class="title">爱辉和瑷珲：中俄往事</text>
+  <text x="400" y="82" text-anchor="middle" class="subtitle">一个地名两套字：1956 年改成爱辉，2015 年镇子改回瑷珲</text>
+  <line x1="90" y1="100" x2="710" y2="100" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 北岸标签 -->
+  <text x="120" y="128" class="axis-label">北岸 · 1858 年起归俄国</text>
+
+  <!-- 北岸：瑷珲旧城（界外） -->
+  <rect x="105" y="142" width="200" height="70" rx="6" fill="none" stroke="#8a7a50" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="205" y="168" text-anchor="middle" class="city" fill="#8a7a50">瑷珲旧城</text>
+  <text x="205" y="188" text-anchor="middle" class="tag">1683 萨布素筑 · 1858 后在界外</text>
+
+  <!-- 北岸：布拉戈维申斯克 -->
+  <rect x="470" y="142" width="250" height="86" rx="6" fill="#eef3f7" stroke="#2b5a8b" stroke-width="2.5"/>
+  <text x="595" y="168" text-anchor="middle" class="city" fill="#2b5a8b">布拉戈维申斯克</text>
+  <text x="595" y="188" text-anchor="middle" class="tag">1856 建城 · 俄文意为「报喜」</text>
+  <text x="595" y="206" text-anchor="middle" class="tag">即海兰泡 · 1900 惨案发生地</text>
+
+  <!-- 黑龙江 -->
+  <path d="M 0 262 Q 130 246 260 262 Q 400 280 540 262 Q 670 246 800 262" fill="none" stroke="#7fa3c4" stroke-width="30" opacity="0.5"/>
+  <text x="400" y="246" text-anchor="middle" font-size="15" fill="#4a6f93" font-style="italic">黑龙江 · 江面最窄处不到一公里</text>
+
+  <!-- 1858 界河标记 -->
+  <line x1="400" y1="240" x2="400" y2="286" stroke="#8b1a1a" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="412" y="300" font-size="13" font-weight="bold" fill="#8b1a1a">1858《瑷珲条约》：江成了界河</text>
+
+  <!-- 南岸：瑷珲新城 -->
+  <rect x="105" y="330" width="240" height="104" rx="6" fill="#fff8e6" stroke="#8b1a1a" stroke-width="2.5"/>
+  <text x="225" y="356" text-anchor="middle" class="city" fill="#8b1a1a">瑷珲（新城）</text>
+  <text x="225" y="376" text-anchor="middle" class="tag">1685 筑 · 黑龙江将军初驻</text>
+  <text x="225" y="394" text-anchor="middle" class="tag">1858 条约在此签</text>
+  <text x="225" y="412" text-anchor="middle" class="tag">1900 被俄军焚毁</text>
+
+  <!-- 北移箭头 -->
+  <line x1="350" y1="382" x2="445" y2="382" stroke="#8a7a50" stroke-width="2"/>
+  <polygon points="445,382 435,377 435,387" fill="#8a7a50"/>
+  <text x="398" y="372" text-anchor="middle" class="tag">北移三十多公里</text>
+
+  <!-- 南岸：黑河 -->
+  <rect x="450" y="330" width="250" height="104" rx="6" fill="#fff8e6" stroke="#c19a32" stroke-width="2.5"/>
+  <text x="575" y="356" text-anchor="middle" class="city" fill="#8b6a18">黑河</text>
+  <text x="575" y="376" text-anchor="middle" class="tag">1909 设府 · 接瑷珲的班</text>
+  <text x="575" y="394" text-anchor="middle" class="tag">2022 跨江大桥通车</text>
+  <text x="575" y="412" text-anchor="middle" class="tag">如今对岸的人来逛夜市</text>
+
+  <!-- 改名对照 -->
+  <g>
+    <text x="225" y="490" text-anchor="middle" font-size="26" font-weight="bold" fill="#8b1a1a">瑷珲</text>
+    <text x="320" y="490" text-anchor="middle" font-size="20" fill="#8a7a50">→</text>
+    <text x="415" y="490" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b5a8b">爱辉</text>
+    <text x="320" y="512" text-anchor="middle" class="tag">1956 生僻字改常用字 · 区至今叫爱辉 · 镇 2015 改回瑷珲</text>
+  </g>
+
+  <!-- 底部 -->
+  <text x="400" y="556" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2b2b">对岸的城名记的是「报喜」，这边的镇名改回来，是为了永铭惨痛</text>
+  <text x="400" y="586" text-anchor="middle" class="footer">No.329</text>
+</svg>
