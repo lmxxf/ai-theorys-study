@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 32px; font-weight: bold; fill: #2b2b2b; }
+    .subtitle { font-size: 18px; fill: #555; }
+    .yr { font-size: 13px; font-weight: bold; fill: #8b6a18; }
+    .job { font-size: 15px; font-weight: bold; fill: #6b4f10; }
+    .tag { font-size: 13px; fill: #555; }
+    .axis-label { font-size: 14px; fill: #8a7a50; font-style: italic; }
+    .footer { font-size: 14px; fill: #888; font-style: italic; }
+  </style>
+
+  <rect width="800" height="600" fill="#f4ecd8"/>
+
+  <!-- 标题 -->
+  <text x="400" y="52" text-anchor="middle" class="title">从甲午战争到九一八：张作霖是怎么发起来的</text>
+  <text x="400" y="82" text-anchor="middle" class="subtitle">东北的七十三年，一个保险队长的发迹史</text>
+  <line x1="90" y1="100" x2="710" y2="100" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 顶上两个帝国 -->
+  <rect x="95" y="112" width="270" height="52" rx="6" fill="#f7ecec" stroke="#8b1a1a" stroke-width="1.5"/>
+  <text x="230" y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#8b1a1a">俄国</text>
+  <text x="230" y="152" text-anchor="middle" class="tag">1896 密约修中东铁路 · 1900 七十天占遍东北</text>
+
+  <rect x="470" y="112" width="270" height="52" rx="6" fill="#eef3f7" stroke="#2b5a8b" stroke-width="1.5"/>
+  <text x="605" y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b5a8b">日本</text>
+  <text x="605" y="152" text-anchor="middle" class="tag">1894 甲午 · 1905 朴茨茅斯拿走南满</text>
+
+  <!-- 引信标注 -->
+  <text x="105" y="465" class="axis-label">1858《瑷珲条约》：引信埋下</text>
+
+  <!-- 上升阶梯 -->
+  <line x1="100" y1="440" x2="580" y2="205" stroke="#c19a32" stroke-width="3"/>
+
+  <!-- 节点 1: 1900 保险队长 -->
+  <circle cx="100" cy="440" r="7" fill="#c19a32"/>
+  <text x="100" y="492" text-anchor="middle" class="yr">1900</text>
+  <text x="100" y="510" text-anchor="middle" class="job">保险队长</text>
+
+  <!-- 节点 2: 1902 招安 -->
+  <circle cx="180" cy="401" r="7" fill="#c19a32"/>
+  <text x="180" y="384" text-anchor="middle" class="yr">1902</text>
+  <text x="180" y="368" text-anchor="middle" class="job">招安</text>
+
+  <!-- 节点 3: 1906 五营统带 -->
+  <circle cx="260" cy="362" r="7" fill="#c19a32"/>
+  <text x="260" y="414" text-anchor="middle" class="yr">1906</text>
+  <text x="260" y="432" text-anchor="middle" class="job">五营统带</text>
+
+  <!-- 节点 4: 1912 27师师长 -->
+  <circle cx="340" cy="323" r="7" fill="#c19a32"/>
+  <text x="340" y="306" text-anchor="middle" class="yr">1912</text>
+  <text x="340" y="290" text-anchor="middle" class="job">第 27 师师长</text>
+
+  <!-- 节点 5: 1916 奉天督军 -->
+  <circle cx="420" cy="283" r="7" fill="#c19a32"/>
+  <text x="420" y="335" text-anchor="middle" class="yr">1916</text>
+  <text x="420" y="353" text-anchor="middle" class="job">奉天督军</text>
+
+  <!-- 节点 6: 1918 东三省巡阅使 -->
+  <circle cx="500" cy="244" r="7" fill="#c19a32"/>
+  <text x="500" y="227" text-anchor="middle" class="yr">1918</text>
+  <text x="500" y="211" text-anchor="middle" class="job">东三省巡阅使</text>
+
+  <!-- 节点 7: 1927 大元帅 -->
+  <circle cx="580" cy="205" r="9" fill="#fff8e6" stroke="#c19a32" stroke-width="3"/>
+  <text x="580" y="253" text-anchor="middle" class="yr">1927</text>
+  <text x="580" y="271" text-anchor="middle" class="job">陆海军大元帅 ★</text>
+
+  <!-- 1928 皇姑屯炸点 -->
+  <line x1="648" y1="208" x2="672" y2="232" stroke="#8b1a1a" stroke-width="4"/>
+  <line x1="672" y1="208" x2="648" y2="232" stroke="#8b1a1a" stroke-width="4"/>
+  <text x="660" y="196" text-anchor="middle" font-size="13" font-weight="bold" fill="#8b1a1a">1928 皇姑屯</text>
+
+  <!-- 断崖下坠 -->
+  <line x1="660" y1="238" x2="660" y2="330" stroke="#2b5a8b" stroke-width="2.5" stroke-dasharray="6,5"/>
+  <polygon points="660,344 654,328 666,328" fill="#2b5a8b"/>
+  <rect x="560" y="352" width="200" height="56" rx="6" fill="#eef3f7" stroke="#2b5a8b" stroke-width="2"/>
+  <text x="660" y="376" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b5a8b">1931 九一八</text>
+  <text x="660" y="396" text-anchor="middle" class="tag">夹缝焊死，连骑墙的资格都没了</text>
+
+  <!-- 底部 -->
+  <text x="400" y="556" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2b2b">东北王是谈出来、熬出来、捡出来的</text>
+  <text x="400" y="586" text-anchor="middle" class="footer">No.330</text>
+</svg>
