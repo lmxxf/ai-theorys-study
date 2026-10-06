@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 32px; font-weight: bold; fill: #2b2b2b; }
+    .subtitle { font-size: 18px; fill: #555; }
+    .city { font-size: 18px; font-weight: bold; }
+    .tag { font-size: 13px; fill: #555; }
+    .axis-label { font-size: 14px; fill: #8a7a50; font-style: italic; }
+    .footer { font-size: 14px; fill: #888; font-style: italic; }
+  </style>
+
+  <rect width="800" height="600" fill="#f4ecd8"/>
+
+  <!-- 标题 -->
+  <text x="400" y="52" text-anchor="middle" class="title">伪满洲国的“中俄边界”：张鼓峰、诺门罕</text>
+  <text x="400" y="82" text-anchor="middle" class="subtitle">名义上是满洲国在守国界，实际扛枪的是日本师团</text>
+  <line x1="90" y1="100" x2="710" y2="100" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 黑龙江 -->
+  <path d="M 0 250 Q 160 232 320 250 Q 480 270 640 250 Q 730 240 800 248" fill="none" stroke="#7fa3c4" stroke-width="26" opacity="0.5"/>
+  <text x="400" y="240" text-anchor="middle" font-size="15" fill="#4a6f93" font-style="italic">黑龙江 · 今天的黑河江面</text>
+
+  <!-- 北岸：苏联 -->
+  <text x="120" y="128" class="axis-label">北岸 · 苏联（不承认满洲国，铁路照卖钱照收）</text>
+  <rect x="470" y="132" width="250" height="62" rx="6" fill="#eef3f7" stroke="#2b5a8b" stroke-width="2.5"/>
+  <text x="595" y="156" text-anchor="middle" class="city" fill="#2b5a8b">布拉戈维申斯克</text>
+  <text x="595" y="176" text-anchor="middle" class="tag">1945-08-10 区舰队从这里渡江</text>
+
+  <!-- 南岸：黑河 -->
+  <rect x="470" y="290" width="250" height="62" rx="6" fill="#fff8e6" stroke="#c19a32" stroke-width="2.5"/>
+  <text x="595" y="314" text-anchor="middle" class="city" fill="#8b6a18">黑河</text>
+  <text x="595" y="334" text-anchor="middle" class="tag">第一批被攻占的沿江城镇</text>
+
+  <!-- 时间线：张鼓峰 → 诺门罕 → 中立条约 → 八月风暴 -->
+  <line x1="110" y1="460" x2="710" y2="460" stroke="#8b1a1a" stroke-width="3"/>
+  <polygon points="710,460 698,454 698,466" fill="#8b1a1a"/>
+
+  <circle cx="150" cy="460" r="7" fill="#8b1a1a"/>
+  <text x="150" y="440" text-anchor="middle" font-size="14" font-weight="bold" fill="#8b1a1a">1938</text>
+  <text x="150" y="488" text-anchor="middle" class="city" fill="#8b1a1a">张鼓峰</text>
+  <text x="150" y="506" text-anchor="middle" class="tag">试探：一个师团覆灭也无妨</text>
+
+  <circle cx="330" cy="460" r="7" fill="#8b1a1a"/>
+  <text x="330" y="440" text-anchor="middle" font-size="14" font-weight="bold" fill="#8b1a1a">1939</text>
+  <text x="330" y="488" text-anchor="middle" class="city" fill="#8b1a1a">诺门罕</text>
+  <text x="330" y="506" text-anchor="middle" class="tag">工业流水线给精神论上课</text>
+
+  <circle cx="510" cy="460" r="7" fill="#8b1a1a"/>
+  <text x="510" y="440" text-anchor="middle" font-size="14" font-weight="bold" fill="#8b1a1a">1941</text>
+  <text x="510" y="488" text-anchor="middle" class="city" fill="#8b1a1a">中立条约</text>
+  <text x="510" y="506" text-anchor="middle" class="tag">车站拥抱：我们同是亚洲人</text>
+
+  <circle cx="680" cy="460" r="7" fill="#8b1a1a"/>
+  <text x="680" y="440" text-anchor="middle" font-size="14" font-weight="bold" fill="#8b1a1a">1945</text>
+  <text x="680" y="488" text-anchor="middle" class="city" fill="#8b1a1a">八月风暴</text>
+  <text x="680" y="506" text-anchor="middle" class="tag">守了六年的边界一周作废</text>
+
+  <!-- 底部 -->
+  <text x="400" y="556" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2b2b">但这条线没有作废——它穿过伪满和苏联，传到今天的地图上</text>
+  <text x="400" y="586" text-anchor="middle" class="footer">No.331</text>
+</svg>
