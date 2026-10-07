@@ -1,0 +1,37 @@
+model = "gpt-5.6-sol"
+model_reasoning_effort = "low"
+sandbox_mode = "danger-full-access"
+approval_policy = "never"
+project_doc_max_bytes = 262144
+
+model_context_window = 1000000
+model_auto_compact_token_limit = 900000
+
+personality = "pragmatic"
+approvals_reviewer = "user"
+
+[notice]
+"hide_gpt-5.1-codex-max_migration_prompt" = true
+fast_default_opt_out = true
+hide_full_access_warning = true
+
+[notice.model_migrations]
+"gpt-5.1-codex-max" = "gpt-5.2-codex"
+"gpt-5.2" = "gpt-5.3-codex"
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[tui]
+status_line = ["model-with-reasoning", "current-dir", "context-remaining", "context-used"]
+terminal_title = ["spinner", "project-name", "app-name", "current-dir", "run-state", "thread-title", "context-remaining"]
+status_line_use_colors = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 4
+
+[features]
+memories = true
+terminal_resize_reflow = true
+prevent_idle_sleep = true

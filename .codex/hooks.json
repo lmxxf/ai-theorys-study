@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"[%s %s]\"}}\\n' \"$(date '+%Z%z')\" \"$(date '+%Y-%m-%d %H:%M:%S %A')\""
+          }
+        ]
+      }
+    ]
+  }
+}
