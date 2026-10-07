@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 32px; font-weight: bold; fill: #2b2b2b; }
+    .subtitle { font-size: 18px; fill: #555; }
+    .zone { font-size: 20px; font-weight: bold; }
+    .tag { font-size: 14px; fill: #555; }
+    .axis-label { font-size: 14px; fill: #8a7a50; font-style: italic; }
+    .footer { font-size: 14px; fill: #888; font-style: italic; }
+  </style>
+
+  <rect width="800" height="600" fill="#f4ecd8"/>
+
+  <!-- 标题 -->
+  <text x="400" y="52" text-anchor="middle" class="title">蒙古 vs 女真：游牧民族和渔猎民族</text>
+  <text x="400" y="82" text-anchor="middle" class="subtitle">一个标签装不下：草原和林海，长出两套活法</text>
+  <line x1="90" y1="100" x2="710" y2="100" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 左半：草原 -->
+  <rect x="60" y="120" width="320" height="330" rx="8" fill="#f9f3e0" stroke="#c19a32" stroke-width="2"/>
+  <text x="220" y="152" text-anchor="middle" class="zone" fill="#8b6a18">西 · 草原</text>
+  <text x="220" y="174" text-anchor="middle" class="tag">呼伦贝尔 · 蒙古高原</text>
+
+  <!-- 草原起伏 -->
+  <path d="M 75 250 Q 140 230 220 246 Q 300 262 365 244" fill="none" stroke="#c19a32" stroke-width="2.5"/>
+  <path d="M 75 285 Q 150 268 230 282 Q 310 296 365 280" fill="none" stroke="#c19a32" stroke-width="2" opacity="0.7"/>
+  <path d="M 75 318 Q 160 304 250 316 Q 320 326 365 312" fill="none" stroke="#c19a32" stroke-width="1.5" opacity="0.45"/>
+
+  <!-- 骑手剪影（简笔） -->
+  <g stroke="#8b6a18" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M 190 228 Q 200 214 218 216 L 236 220 Q 246 222 244 230 L 240 240"/>
+    <path d="M 196 240 L 196 252 M 236 240 L 240 252"/>
+    <circle cx="196" cy="206" r="5" fill="#8b6a18"/>
+    <path d="M 194 212 L 202 226"/>
+  </g>
+
+  <text x="220" y="360" text-anchor="middle" class="zone" fill="#8b6a18" font-size="17">游牧</text>
+  <text x="220" y="384" text-anchor="middle" class="tag">逐水草而居 · 牧群是家产</text>
+  <text x="220" y="406" text-anchor="middle" class="tag">打不过，往大漠深处一缩</text>
+  <text x="220" y="432" text-anchor="middle" font-size="14" font-weight="bold" fill="#8b6a18">组织从千户里长出来</text>
+
+  <!-- 中间山脊分界 -->
+  <path d="M 400 130 L 388 170 L 412 210 L 390 250 L 410 290 L 392 330 L 408 370 L 394 410 L 400 450" fill="none" stroke="#8a7a50" stroke-width="2" stroke-dasharray="6,5"/>
+  <text x="400" y="468" text-anchor="middle" class="axis-label">一道山，两个世界</text>
+
+  <!-- 右半：林海 -->
+  <rect x="420" y="120" width="320" height="330" rx="8" fill="#eef4ee" stroke="#3a6b4f" stroke-width="2"/>
+  <text x="580" y="152" text-anchor="middle" class="zone" fill="#3a6b4f">东 · 林海</text>
+  <text x="580" y="174" text-anchor="middle" class="tag">小兴安岭 · 塔头甸子 · 零下四十度</text>
+
+  <!-- 针叶林剪影（三角形） -->
+  <g fill="#3a6b4f" opacity="0.85">
+    <polygon points="470,250 486,208 502,250"/>
+    <polygon points="476,228 486,196 496,228"/>
+    <polygon points="530,256 548,206 566,256"/>
+    <polygon points="537,230 548,192 559,230"/>
+    <polygon points="600,250 616,208 632,250"/>
+    <polygon points="606,228 616,196 626,228"/>
+  </g>
+
+  <!-- 猎人（简笔：弓） -->
+  <g stroke="#2b4a38" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M 660 240 Q 678 222 660 204" />
+    <line x1="660" y1="204" x2="660" y2="240"/>
+    <line x1="646" y1="222" x2="660" y2="222"/>
+  </g>
+
+  <text x="580" y="360" text-anchor="middle" class="zone" fill="#3a6b4f" font-size="17">渔猎 + 村庄田地</text>
+  <text x="580" y="384" text-anchor="middle" class="tag">不住帐篷，住村庄</text>
+  <text x="580" y="406" text-anchor="middle" class="tag">围猎错一步出人命</text>
+  <text x="580" y="432" text-anchor="middle" font-size="14" font-weight="bold" fill="#3a6b4f">组织从围猎里长出来</text>
+
+  <!-- 底部 -->
+  <text x="400" y="508" text-anchor="middle" class="axis-label">肃慎、挹娄、勿吉、靺鞨、女真——同一片林海的历代名字</text>
+  <text x="400" y="552" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2b2b">环境不一样，长出来的队伍就不一样</text>
+  <text x="400" y="584" text-anchor="middle" class="footer">No.332</text>
+</svg>
