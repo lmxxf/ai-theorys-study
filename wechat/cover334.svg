@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 30px; font-weight: bold; fill: #2b2b2b; }
+    .subtitle { font-size: 18px; fill: #555; }
+    .yr { font-size: 14px; font-weight: bold; fill: #8b6a18; }
+    .evt { font-size: 15px; font-weight: bold; }
+    .tag { font-size: 13px; fill: #555; }
+    .axis-label { font-size: 14px; fill: #8a7a50; font-style: italic; }
+    .footer { font-size: 14px; fill: #888; font-style: italic; }
+  </style>
+
+  <rect width="800" height="600" fill="#f4ecd8"/>
+
+  <!-- 标题 -->
+  <text x="400" y="52" text-anchor="middle" class="title">中国东北和朝鲜半岛：两千年的相爱相杀</text>
+  <text x="400" y="82" text-anchor="middle" class="subtitle">打起来是战争，和下来是朝贡，中间靠吵架</text>
+  <line x1="90" y1="100" x2="710" y2="100" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 左：东北；右：半岛 -->
+  <rect x="60" y="120" width="300" height="60" rx="8" fill="#f7ecec" stroke="#8b1a1a" stroke-width="2.5"/>
+  <text x="210" y="148" text-anchor="middle" font-size="19" font-weight="bold" fill="#8b1a1a">中国东北</text>
+  <text x="210" y="170" text-anchor="middle" class="tag">高句丽 · 渤海 · 辽金 · 清</text>
+
+  <rect x="440" y="120" width="300" height="60" rx="8" fill="#eef3f7" stroke="#2b5a8b" stroke-width="2.5"/>
+  <text x="590" y="148" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b5a8b">朝鲜半岛</text>
+  <text x="590" y="170" text-anchor="middle" class="tag">新罗 · 高丽 · 朝鲜</text>
+
+  <!-- 中间：鸭绿江 -->
+  <path d="M 400 190 Q 385 260 405 330 Q 420 400 400 470" fill="none" stroke="#7fa3c4" stroke-width="12" opacity="0.5"/>
+  <text x="400" y="205" text-anchor="middle" class="axis-label" fill="#4a6f93">鸭绿江</text>
+
+  <!-- 时间线 -->
+  <line x1="110" y1="330" x2="720" y2="330" stroke="#8b1a1a" stroke-width="3"/>
+  <polygon points="720,330 708,324 708,336" fill="#8b1a1a"/>
+
+  <!-- 节点 -->
+  <circle cx="130" cy="330" r="6" fill="#8b1a1a"/>
+  <text x="130" y="312" text-anchor="middle" class="yr">668</text>
+  <text x="130" y="356" text-anchor="middle" class="evt" fill="#6b4f10">唐联新罗</text>
+  <text x="130" y="374" text-anchor="middle" class="tag">灭高句丽</text>
+
+  <circle cx="250" cy="330" r="6" fill="#c19a32"/>
+  <text x="250" y="312" text-anchor="middle" class="yr">897</text>
+  <text x="250" y="356" text-anchor="middle" class="evt" fill="#6b4f10">长安争座次</text>
+  <text x="250" y="374" text-anchor="middle" class="tag">渤海 vs 新罗</text>
+
+  <circle cx="370" cy="330" r="6" fill="#8b1a1a"/>
+  <text x="370" y="312" text-anchor="middle" class="yr">1019</text>
+  <text x="370" y="356" text-anchor="middle" class="evt" fill="#8b1a1a">龟州大捷</text>
+  <text x="370" y="374" text-anchor="middle" class="tag">辽丽三战收场</text>
+
+  <circle cx="480" cy="330" r="6" fill="#2b5a8b"/>
+  <text x="480" y="312" text-anchor="middle" class="yr">1281</text>
+  <text x="480" y="356" text-anchor="middle" class="evt" fill="#2b5a8b">征日本</text>
+  <text x="480" y="374" text-anchor="middle" class="tag">高丽当跳板</text>
+
+  <circle cx="580" cy="330" r="6" fill="#8b1a1a"/>
+  <text x="580" y="312" text-anchor="middle" class="yr">1637</text>
+  <text x="580" y="356" text-anchor="middle" class="evt" fill="#8b1a1a">三田渡</text>
+  <text x="580" y="374" text-anchor="middle" class="tag">三跪九叩</text>
+
+  <circle cx="690" cy="330" r="6" fill="#2b2b2b"/>
+  <text x="690" y="312" text-anchor="middle" class="yr">1895</text>
+  <text x="690" y="356" text-anchor="middle" class="evt" fill="#2b2b2b">马关第一款</text>
+  <text x="690" y="374" text-anchor="middle" class="tag">宗藩终结</text>
+
+  <!-- 底部 -->
+  <text x="400" y="470" text-anchor="middle" class="axis-label">吵了两百年的邻居，亡国后把遗民送到了半岛的新主人手里</text>
+  <text x="400" y="540" text-anchor="middle" font-size="21" font-weight="bold" fill="#2b2b2b">“完全无缺之独立自主”——十五年后亡国</text>
+  <text x="400" y="580" text-anchor="middle" class="footer">No.334</text>
+</svg>
