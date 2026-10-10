@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    text { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; }
+    .title { font-size: 32px; font-weight: bold; fill: #2b2b2b; }
+    .subtitle { font-size: 18px; fill: #555; }
+    .zone { font-size: 19px; font-weight: bold; }
+    .tag { font-size: 13px; fill: #555; }
+    .axis-label { font-size: 14px; fill: #8a7a50; font-style: italic; }
+    .footer { font-size: 14px; fill: #888; font-style: italic; }
+  </style>
+
+  <rect width="800" height="600" fill="#f4ecd8"/>
+
+  <!-- 标题 -->
+  <text x="400" y="52" text-anchor="middle" class="title">站在金上京，想宋朝的事</text>
+  <text x="400" y="82" text-anchor="middle" class="subtitle">灭北宋的王朝从这里出发，可九百年后，我们的乡愁全是宋的</text>
+  <line x1="90" y1="100" x2="710" y2="100" stroke="#aaa" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 左：金上京废墟 -->
+  <rect x="60" y="120" width="320" height="300" rx="8" fill="#f2efe6" stroke="#8a7a50" stroke-width="2"/>
+  <text x="220" y="152" text-anchor="middle" class="zone" fill="#6b5a2a">金上京 · 阿城</text>
+  <text x="220" y="174" text-anchor="middle" class="tag">1115 建都 · 1127 破汴京</text>
+
+  <!-- 残垣 -->
+  <path d="M 90 300 L 130 300 L 130 268 L 170 268 L 170 300 L 230 300 L 230 282 L 270 282 L 270 300 L 350 300" fill="none" stroke="#8a7a50" stroke-width="4"/>
+  <!-- 荒草 -->
+  <g stroke="#8a7a50" stroke-width="1.5" opacity="0.7">
+    <line x1="100" y1="316" x2="96" y2="306"/>
+    <line x1="112" y1="316" x2="114" y2="304"/>
+    <line x1="190" y1="316" x2="186" y2="305"/>
+    <line x1="205" y1="316" x2="209" y2="306"/>
+    <line x1="310" y1="316" x2="306" y2="305"/>
+    <line x1="322" y1="316" x2="326" y2="306"/>
+  </g>
+  <line x1="80" y1="316" x2="360" y2="316" stroke="#8a7a50" stroke-width="2"/>
+
+  <text x="220" y="356" text-anchor="middle" class="tag">科举考词赋 · 章宗学瘦金体</text>
+  <text x="220" y="376" text-anchor="middle" class="tag">德运承北宋 · 自称“中国”</text>
+  <text x="220" y="398" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b5a2a">赢的没人记得都城在哪</text>
+
+  <!-- 右：西湖 -->
+  <rect x="420" y="120" width="320" height="300" rx="8" fill="#eef3f7" stroke="#2b5a8b" stroke-width="2"/>
+  <text x="580" y="152" text-anchor="middle" class="zone" fill="#2b5a8b">临安 · 西湖</text>
+  <text x="580" y="174" text-anchor="middle" class="tag">官方文书里叫“行在”——临时驻跸</text>
+
+  <!-- 湖面与游船 -->
+  <path d="M 435 290 Q 500 278 580 290 Q 660 302 725 288" fill="none" stroke="#7fa3c4" stroke-width="2.5"/>
+  <path d="M 435 310 Q 500 300 580 310 Q 660 320 725 306" fill="none" stroke="#7fa3c4" stroke-width="2" opacity="0.6"/>
+  <g>
+    <path d="M 540 262 Q 580 272 620 262 L 610 276 L 550 276 Z" fill="#8b6a18"/>
+    <rect x="568" y="244" width="24" height="18" fill="none" stroke="#8b6a18" stroke-width="2"/>
+    <line x1="580" y1="244" x2="580" y2="236" stroke="#8b6a18" stroke-width="2"/>
+    <circle cx="580" cy="232" r="4" fill="#c19a32"/>
+  </g>
+
+  <text x="580" y="356" text-anchor="middle" class="tag">宋词 · 汝窑 · 点茶 · 西湖十景</text>
+  <text x="580" y="376" text-anchor="middle" class="tag">销金锅 · “直把杭州作汴州”</text>
+  <text x="580" y="398" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b5a8b">输的那个成了乡愁</text>
+
+  <!-- 中间对拉箭头 -->
+  <line x1="388" y1="270" x2="412" y2="270" stroke="#8a7a50" stroke-width="1.5" marker-end="none"/>
+  <line x1="412" y1="270" x2="388" y2="270" stroke="#8a7a50" stroke-width="1.5"/>
+  <text x="400" y="255" text-anchor="middle" class="axis-label">靖康</text>
+
+  <!-- 底部 -->
+  <text x="400" y="478" text-anchor="middle" class="axis-label">身体继承得太彻底就隐形了，乡愁才需要一件看得见的载体</text>
+  <text x="400" y="546" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2b2b">我们从清继承了身体，从宋认领了乡愁</text>
+  <text x="400" y="582" text-anchor="middle" class="footer">No.335</text>
+</svg>
