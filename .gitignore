@@ -12,3 +12,6 @@ wechat/assets/297/large-resources
 large-resources/
 .codewhale
 .zcodeignore
+**/.codewhale/*
+!**/.codewhale/constitution.json
+.deepseek/
