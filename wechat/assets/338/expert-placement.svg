@@ -12,12 +12,12 @@
 <text x="815" y="246" text-anchor="middle" font-size="18" fill="#f6cb7e">未在显存缓存中</text>
 <rect x="55" y="260" width="370" height="180" rx="12" fill="#123332" stroke="#3a948b" stroke-width="2"/>
 <rect x="535" y="260" width="370" height="180" rx="12" fill="#342d24" stroke="#927242" stroke-width="2"/>
-<text x="240" y="301" text-anchor="middle" font-size="29" fill="#62d8c0">GPU 计算</text>
-<text x="720" y="301" text-anchor="middle" font-size="29" fill="#f6cb7e">CPU 计算</text>
+<text x="240" y="301" text-anchor="middle" font-size="29" fill="#62d8c0">GPU · 16GB 显存</text>
+<text x="720" y="301" text-anchor="middle" font-size="29" fill="#f6cb7e">CPU · 48GB 内存</text>
 <text x="240" y="342" text-anchor="middle" font-size="22" fill="#e8eef8">读取显存里的热门专家</text>
 <text x="240" y="378" text-anchor="middle" font-size="18" fill="#b9c9d9">注意力等常用模块也在 GPU</text>
 <text x="720" y="342" text-anchor="middle" font-size="22" fill="#e8eef8">直接读取系统内存里的专家</text>
-<text x="720" y="378" text-anchor="middle" font-size="18" fill="#b9c9d9">与 GPU 的专家计算并行</text>
+<text x="720" y="378" text-anchor="middle" font-size="18" fill="#b9c9d9">约 34GB 专家权重常驻内存</text>
 <path d="M535 414H430" fill="none" stroke="#9cb0c9" stroke-width="2" marker-end="url(#a)" stroke-dasharray="6 5"/>
 <text x="480" y="472" text-anchor="middle" font-size="19" fill="#afc0d5">部分未缓存专家，也可经 PCIe 分给 GPU</text>
 <path d="M240 440V495H370V521" fill="none" stroke="#9cb0c9" stroke-width="2" marker-end="url(#a)"/>
