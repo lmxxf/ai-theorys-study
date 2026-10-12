@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 730" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#9cb0c9"/></marker></defs>
+<rect width="960" height="730" rx="16" fill="#101b2d"/>
+<text x="480" y="48" text-anchor="middle" font-size="30" fill="#e8eef8">Strata：显卡装不下，就让整台电脑一起算</text>
+<text x="480" y="83" text-anchor="middle" font-size="18" fill="#a5b7d0">以一层 MoE 的常规专家计算为例</text>
+<rect x="287" y="112" width="386" height="81" rx="12" fill="#25344a" stroke="#42546c" stroke-width="2"/>
+<text x="480" y="143" text-anchor="middle" font-size="21" fill="#e8eef8">当前 token 的表示 → 路由器</text>
+<text x="480" y="175" text-anchor="middle" font-size="24" fill="#f6cb7e">每层 512 个专家，选中 10 个</text>
+<path d="M400 194V222H250V256" fill="none" stroke="#9cb0c9" stroke-width="2" marker-end="url(#a)"/>
+<path d="M560 194V222H710V256" fill="none" stroke="#9cb0c9" stroke-width="2" marker-end="url(#a)"/>
+<text x="145" y="246" text-anchor="middle" font-size="18" fill="#62d8c0">显存缓存命中</text>
+<text x="815" y="246" text-anchor="middle" font-size="18" fill="#f6cb7e">未在显存缓存中</text>
+<rect x="55" y="260" width="370" height="180" rx="12" fill="#123332" stroke="#3a948b" stroke-width="2"/>
+<rect x="535" y="260" width="370" height="180" rx="12" fill="#342d24" stroke="#927242" stroke-width="2"/>
+<text x="240" y="301" text-anchor="middle" font-size="29" fill="#62d8c0">GPU 计算</text>
+<text x="720" y="301" text-anchor="middle" font-size="29" fill="#f6cb7e">CPU 计算</text>
+<text x="240" y="342" text-anchor="middle" font-size="22" fill="#e8eef8">读取显存里的热门专家</text>
+<text x="240" y="378" text-anchor="middle" font-size="18" fill="#b9c9d9">注意力等常用模块也在 GPU</text>
+<text x="720" y="342" text-anchor="middle" font-size="22" fill="#e8eef8">直接读取系统内存里的专家</text>
+<text x="720" y="378" text-anchor="middle" font-size="18" fill="#b9c9d9">与 GPU 的专家计算并行</text>
+<path d="M535 414H430" fill="none" stroke="#9cb0c9" stroke-width="2" marker-end="url(#a)" stroke-dasharray="6 5"/>
+<text x="480" y="472" text-anchor="middle" font-size="19" fill="#afc0d5">部分未缓存专家，也可经 PCIe 分给 GPU</text>
+<path d="M240 440V495H370V521" fill="none" stroke="#9cb0c9" stroke-width="2" marker-end="url(#a)"/>
+<path d="M720 440V495H590V521" fill="none" stroke="#9cb0c9" stroke-width="2" marker-end="url(#a)"/>
+<rect x="290" y="525" width="380" height="65" rx="12" fill="#24374c" stroke="#42546c" stroke-width="2"/>
+<text x="480" y="564" text-anchor="middle" font-size="23" fill="#e8eef8">按路由权重合并 → 继续下一步</text>
+<rect x="55" y="623" width="850" height="74" rx="12" fill="#1c2940" stroke="#42546c" stroke-width="2"/>
+<text x="480" y="652" text-anchor="middle" font-size="22" fill="#99bff2">另一条路径：SSD 保存约 28.8 GB 的词组查找表</text>
+<text x="480" y="681" text-anchor="middle" font-size="17" fill="#b1c2da">按当前 token 序列取所需行；常规模式的专家主体则留在系统内存</text>
+</svg>
