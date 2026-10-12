@@ -1,0 +1,39 @@
+loading the model (the first start takes a minute or two) ...
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (about 38 GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the browser opens when it is ready.
+[strata] experts loaded: 31.64 GiB at 4.74 GiB/s (15 s so far)
+[strata] filling the GPU's expert cache (2850 experts, 3.67 GiB of VRAM) ...
+[strata] almost ready ...
+Traceback (most recent call last):
+  File "C:\Strata-Lab\Strata\serve\server.py", line 6459, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\Strata-Lab\Strata\serve\server.py", line 6264, in main
+    engine = StrataEngine(exe, engine_args(cfg) + (effort_end or []), cwd=cfg.get("cwd"), log=cfg.get("log"),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Strata-Lab\Strata\serve\server.py", line 719, in __init__
+    raise EngineDied(why + (f" (see {log})" if log else "") +
+EngineDied: the engine exited before it was ready (see C:\Strata-Lab\Strata\strata-q2_0.log)
+the engine log's last lines:
+  strata generate: expert arena read unbuffered (1 of 16 probe reads from the file cache; 3.2 GiB available, 35.0 GiB of files)
+  strata generate: expert arena: locked 1351 MiB via working-set minimum + VirtualLock; cudaHostRegister of the whole arena FAILED (invalid argument); 46 slices pinned (30 GiB); large pages refused for 33975959552 B (GetLargePageMinimum=2097152, VirtualAlloc error 1314); using 4 KB pages
+  strata generate: loaded 31.64 GiB at 4.74 GiB/s
+  strata generate: CPU pool tasks/phase: 48 (automatic), participating threads: 16
+  strata generate: 15 pool workers on logical processors 1,10,11,12,13,22,23,2,3,4,5,6,7,8,9, the host thread on 0 (draining too) (--host-core first)
+  strata aux cpus: not available on this system
+  strata: Windows budgets 14953 of this card's 16304 MiB for this process; free VRAM is counted within that (STRATA_WDDM_BUDGET=0: off)
+  strata generate: expert cache auto: 9.41 GiB free, 4096 MiB reserved (+184 MiB for the draft head) -> 4065 slots
+  strata generate: only 2558 MiB free once the slots are written (reserve 4096 MiB); shrinking the expert cache
+  strata generate: expert cache 2850 slots, 3.67 GiB of VRAM; policy is
+  strata generate: the GPU computes the experts in the cache; it rounds differently from the CPU,
+                   so a reply can differ slightly from a run without the cache (same quality:
+                   bench/results/2026-09-27-cache-parity).
+                   PROFILE, ranked by routing frequency, no eviction.
+  strata generate: pre-filled 2850 of 2850 slots from the profile in 0.5 s (7590 MB/s); slot 0 verified
+  strata generate: R4 hit path ON - resident experts are computed on the GPU
+  strata generate: 15 expert-pool workers + the host thread
+  strata generate: session is up (engine 0.1.43)
+  strata generate: token graph hit path: 2850 resident experts, decided on the device
+  strata serve: needs --spec T and --prefill CHUNK (and a fillable --expert-cache; the graphed hit path additionally needs --expert-profile P)

@@ -1,0 +1,49 @@
+{
+  "exe": "C:\\Strata-Lab\\capture-engine\\strata.exe",
+  "args": [
+    "--pack",
+    "C:\\Strata-Lab\\Strata-data\\packs\\q2_0",
+    "--native",
+    "C:\\Strata-Lab\\Strata-data\\models\\Q2_0\\Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf",
+    "--ple-gguf",
+    "C:\\Strata-Lab\\Strata-data\\models\\Q2_0\\Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf",
+    "--expert-profile",
+    "C:\\Strata-Lab\\Strata\\data\\expert-profile.bin",
+    "--expert-cache",
+    "auto",
+    "--prefill",
+    "128",
+    "--spec",
+    "4",
+    "--spec-min-p",
+    "0.5",
+    "--mtp",
+    "C:\\Strata-Lab\\Strata-data\\mtp\\rt",
+    "--max-context",
+    "4096",
+    "--pool-workers",
+    "15",
+    "--short-read",
+    "65536",
+    "--prompt-cache",
+    "0",
+    "--vram-reserve-mib",
+    "4096"
+  ],
+  "cwd": "C:\\Strata-Lab\\Strata",
+  "tokenizer": "C:\\Strata-Lab\\Strata-data\\packs\\q2_0\\tokenizer",
+  "model_name": "qwen3.8-flash-next-q2_0",
+  "log": "C:\\Strata-Lab\\route-study\\engine.log",
+  "lib_dirs": [
+    "C:\\Strata-Lab\\capture-engine\\rocm\\bin"
+  ],
+  "port": 18081,
+  "backend": "hip",
+  "env": {
+    "STRATA_HIPBLASLT_TUNING": "C:\\Strata-Lab\\Strata\\tools\\hip\\gfx1201-hipblaslt-100500.txt",
+    "STRATA_ROUTE_TAIL_SKIP": "0",
+    "STRATA_CAPTURE_ROUTES": "C:\\Strata-Lab\\route-study\\routes.bin",
+    "STRATA_CAPTURE_STRIDE": "4",
+    "STRATA_CAPTURE_MAX_WINDOWS": "2048"
+  }
+}

@@ -1,0 +1,3 @@
+HEALTH {"status": "ok", "max_context": 4096, "model": "qwen3.8-flash-next-q2_0", "images": false, "api_key": false, "loaded": true, "service": "strata"}
+{"prompt": "请用中文简短介绍你自己。", "answer": "我是通义千问，由阿里巴巴通义实验室开发的大语言模型。我擅长理解复杂问题、提供逻辑推理、编写代码以及协助创作，致力于成为您高效、可靠的智能助手。", "ttft_seconds": 0.2960000000020955, "total_seconds": 0.8429999999934807}
+{"prompt": "一个袋子里有3个红球和2个蓝球，随机取一个球，取到红球的概率是多少？请用一句话回答。", "answer": "取到红球的概率是 $\\frac{3}{5}$。", "ttft_seconds": 0.4220000000204891, "total_seconds": 0.625}

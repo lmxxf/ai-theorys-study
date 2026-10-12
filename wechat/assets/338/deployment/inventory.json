@@ -1,0 +1,98 @@
+﻿{
+    "timestamp":  "2026-10-12T21:52:18.2618011+08:00",
+    "host_name":  "DESKTOP-2026",
+    "cpu":  [
+                {
+                    "Name":  "Intel(R) Core(TM) Ultra 7 270K Plus",
+                    "NumberOfCores":  24,
+                    "NumberOfLogicalProcessors":  24
+                }
+            ],
+    "os":  {
+               "Caption":  "Microsoft Windows 11 专业版 Insider Preview",
+               "Version":  "10.0.26340",
+               "TotalVisibleMemorySize":  49779588,
+               "FreePhysicalMemory":  35242648
+           },
+    "memory":  [
+                   {
+                       "Capacity":  25769803776,
+                       "Speed":  6000,
+                       "ConfiguredClockSpeed":  6000
+                   },
+                   {
+                       "Capacity":  25769803776,
+                       "Speed":  6000,
+                       "ConfiguredClockSpeed":  6000
+                   }
+               ],
+    "disks":  [
+                  {
+                      "Number":  0,
+                      "FriendlyName":  "SIX X7400 Pro SSD",
+                      "BusType":  "NVMe",
+                      "Size":  1024209543168
+                  },
+                  {
+                      "Number":  1,
+                      "FriendlyName":  "SanDisk Extreme SSD",
+                      "BusType":  "USB",
+                      "Size":  1000204886016
+                  }
+              ],
+    "volumes":  [
+                    {
+                        "DeviceID":  "C:",
+                        "Size":  1022771924992,
+                        "FreeSpace":  186249072640
+                    },
+                    {
+                        "DeviceID":  "D:",
+                        "Size":  999960870912,
+                        "FreeSpace":  363463311360
+                    }
+                ],
+    "gpu":  [
+                {
+                    "Name":  "Intel(R) Graphics",
+                    "DriverVersion":  "32.0.101.8331",
+                    "PNPDeviceID":  "PCI\\VEN_8086\u0026DEV_7D67\u0026SUBSYS_D0001458\u0026REV_06\\3\u002611583659\u00260\u002610"
+                },
+                {
+                    "Name":  "AMD Radeon RX 9070 XT",
+                    "DriverVersion":  "32.0.31007.2048",
+                    "PNPDeviceID":  "PCI\\VEN_1002\u0026DEV_7550\u0026SUBSYS_24241458\u0026REV_C0\\6\u0026FAB044\u00260\u002600000030"
+                }
+            ],
+    "pagefile":  [
+                     {
+                         "Name":  "C:\\pagefile.sys",
+                         "AllocatedBaseSize":  3072,
+                         "CurrentUsage":  104,
+                         "PeakUsage":  161
+                     }
+                 ],
+    "engine_build":  {
+                         "source":  "prebuilt",
+                         "backend":  "hip",
+                         "platform":  "windows-x64",
+                         "version":  "0.1.43",
+                         "archs":  [
+                                       "gfx1100",
+                                       "gfx1101",
+                                       "gfx1102",
+                                       "gfx1200",
+                                       "gfx1201",
+                                       "gfx1030",
+                                       "gfx1151"
+                                   ],
+                         "rocm":  "10.2.0a20260930",
+                         "hipblaslt_version":  100500,
+                         "vision":  "none",
+                         "lib_dirs":  [
+                                          "rocm/bin"
+                                      ]
+                     },
+    "engine_sha256":  "C0B6CF8C5152EEC4B56486D554A4323ABD5999071BE5DA844D7087C888BE88DF",
+    "source_commit":  "7695859aa13afb248bdb4d36f9b2e95707db079d"
+}

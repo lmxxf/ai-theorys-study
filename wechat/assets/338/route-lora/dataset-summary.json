@@ -1,0 +1,170 @@
+{
+  "samples_per_layer": 7896,
+  "layers": 48,
+  "pairs": 47,
+  "split_counts": {
+    "train": 5454,
+    "val": 1266,
+    "test": 1176
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "split": "test",
+      "samples": 204,
+      "prompt_tokens": 924
+    },
+    {
+      "id": 1,
+      "split": "train",
+      "samples": 186,
+      "prompt_tokens": 851
+    },
+    {
+      "id": 2,
+      "split": "val",
+      "samples": 282,
+      "prompt_tokens": 1228
+    },
+    {
+      "id": 3,
+      "split": "train",
+      "samples": 78,
+      "prompt_tokens": 414
+    },
+    {
+      "id": 4,
+      "split": "test",
+      "samples": 276,
+      "prompt_tokens": 1222
+    },
+    {
+      "id": 5,
+      "split": "train",
+      "samples": 282,
+      "prompt_tokens": 1227
+    },
+    {
+      "id": 6,
+      "split": "train",
+      "samples": 336,
+      "prompt_tokens": 1437
+    },
+    {
+      "id": 7,
+      "split": "val",
+      "samples": 324,
+      "prompt_tokens": 1398
+    },
+    {
+      "id": 8,
+      "split": "train",
+      "samples": 294,
+      "prompt_tokens": 1274
+    },
+    {
+      "id": 9,
+      "split": "train",
+      "samples": 360,
+      "prompt_tokens": 1546
+    },
+    {
+      "id": 10,
+      "split": "train",
+      "samples": 300,
+      "prompt_tokens": 1287
+    },
+    {
+      "id": 11,
+      "split": "train",
+      "samples": 336,
+      "prompt_tokens": 1446
+    },
+    {
+      "id": 12,
+      "split": "train",
+      "samples": 294,
+      "prompt_tokens": 1290
+    },
+    {
+      "id": 13,
+      "split": "train",
+      "samples": 354,
+      "prompt_tokens": 1516
+    },
+    {
+      "id": 14,
+      "split": "train",
+      "samples": 282,
+      "prompt_tokens": 1224
+    },
+    {
+      "id": 15,
+      "split": "train",
+      "samples": 348,
+      "prompt_tokens": 1494
+    },
+    {
+      "id": 16,
+      "split": "val",
+      "samples": 318,
+      "prompt_tokens": 1377
+    },
+    {
+      "id": 17,
+      "split": "train",
+      "samples": 318,
+      "prompt_tokens": 1367
+    },
+    {
+      "id": 18,
+      "split": "train",
+      "samples": 318,
+      "prompt_tokens": 1380
+    },
+    {
+      "id": 19,
+      "split": "train",
+      "samples": 354,
+      "prompt_tokens": 1517
+    },
+    {
+      "id": 20,
+      "split": "val",
+      "samples": 342,
+      "prompt_tokens": 1460
+    },
+    {
+      "id": 21,
+      "split": "train",
+      "samples": 312,
+      "prompt_tokens": 1359
+    },
+    {
+      "id": 22,
+      "split": "train",
+      "samples": 330,
+      "prompt_tokens": 1432
+    },
+    {
+      "id": 23,
+      "split": "test",
+      "samples": 342,
+      "prompt_tokens": 1465
+    },
+    {
+      "id": 24,
+      "split": "test",
+      "samples": 354,
+      "prompt_tokens": 1516
+    },
+    {
+      "id": 25,
+      "split": "train",
+      "samples": 372,
+      "prompt_tokens": 1582
+    }
+  ],
+  "exclusions": "first 4 sampled windows per independent prompt; non-6-token windows",
+  "stride": 4
+}

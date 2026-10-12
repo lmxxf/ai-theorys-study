@@ -1,0 +1,30 @@
+Looking in indexes: https://nightly.repo.amd.com/rocm/whl-next/
+Collecting rocm==10.2.0a20260930 (from rocm[devel,device-gfx1201,libraries]==10.2.0a20260930)
+  Downloading https://nightly.repo.amd.com/rocm/core/whl-next/rocm/rocm-10.2.0a20260930.tar.gz (28 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting rocm-sdk-core==10.2.0a20260930 (from rocm==10.2.0a20260930->rocm[devel,device-gfx1201,libraries]==10.2.0a20260930)
+  Downloading https://nightly.repo.amd.com/rocm/core/whl-next/rocm-sdk-core/rocm_sdk_core-10.2.0a20260930-py3-none-win_amd64.whl (820.7 MB)
+     ------------------------------------- 820.7/820.7 MB 19.8 MB/s eta 0:00:00
+Collecting rocm-sdk-libraries==10.2.0a20260930 (from rocm[devel,device-gfx1201,libraries]==10.2.0a20260930)
+  Downloading https://nightly.repo.amd.com/rocm/core/whl-next/rocm-sdk-libraries/rocm_sdk_libraries-10.2.0a20260930-py3-none-win_amd64.whl (121.0 MB)
+     ------------------------------------- 121.0/121.0 MB 19.6 MB/s eta 0:00:00
+Collecting rocm-sdk-devel==10.2.0a20260930 (from rocm[devel,device-gfx1201,libraries]==10.2.0a20260930)
+  Downloading https://nightly.repo.amd.com/rocm/core/whl-next/rocm-sdk-devel/rocm_sdk_devel-10.2.0a20260930-py3-none-win_amd64.whl (255.0 MB)
+     ------------------------------------- 255.0/255.0 MB 20.5 MB/s eta 0:00:00
+Collecting rocm-sdk-device-gfx1201==10.2.0a20260930 (from rocm[devel,device-gfx1201,libraries]==10.2.0a20260930)
+  Downloading https://nightly.repo.amd.com/rocm/core/whl-next/rocm-sdk-device-gfx1201/rocm_sdk_device_gfx1201-10.2.0a20260930-py3-none-win_amd64.whl (315.4 MB)
+     ------------------------------------- 315.4/315.4 MB 20.3 MB/s eta 0:00:00
+Building wheels for collected packages: rocm
+  Building wheel for rocm (pyproject.toml): started
+  Building wheel for rocm (pyproject.toml): finished with status 'done'
+  Created wheel for rocm: filename=rocm-10.2.0a20260930-py3-none-any.whl size=34238 sha256=edfa1796fa97fb608429e37e83039caada5481f786d4415a8e5f2d4ad22d73db
+  Stored in directory: c:\users\lmxxf\appdata\local\pip\cache\wheels\13\2c\c7\786aca159526f69d440eb3da40318f4cfd9fcf65b9cb1d78c4
+Successfully built rocm
+Installing collected packages: rocm-sdk-libraries, rocm-sdk-devel, rocm-sdk-core, rocm-sdk-device-gfx1201, rocm
+Successfully installed rocm-10.2.0a20260930 rocm-sdk-core-10.2.0a20260930 rocm-sdk-devel-10.2.0a20260930 rocm-sdk-device-gfx1201-10.2.0a20260930 rocm-sdk-libraries-10.2.0a20260930
+Devel contents expanded to 'C:\Strata-Lab\Strata\.rocm-win\Lib\site-packages\_rocm_sdk_devel'

@@ -1,0 +1,39 @@
+loading the model (the first start takes a minute or two) ...
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (about 38 GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the browser opens when it is ready.
+[strata] experts loaded: 31.64 GiB at 4.68 GiB/s (15 s so far)
+[strata] filling the GPU's expert cache (2063 experts, 2.66 GiB of VRAM) ...
+[strata] almost ready ...
+Traceback (most recent call last):
+  File "C:\Strata-Lab\Strata\serve\server.py", line 6459, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\Strata-Lab\Strata\serve\server.py", line 6264, in main
+    engine = StrataEngine(exe, engine_args(cfg) + (effort_end or []), cwd=cfg.get("cwd"), log=cfg.get("log"),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Strata-Lab\Strata\serve\server.py", line 719, in __init__
+    raise EngineDied(why + (f" (see {log})" if log else "") +
+EngineDied: the engine exited before it was ready (see C:\Strata-Lab\Strata\strata-q2_0.log)
+the engine log's last lines:
+  strata generate: expert cache 2063 slots, 2.66 GiB of VRAM; policy is
+  strata generate: the GPU computes the experts in the cache; it rounds differently from the CPU,
+                   so a reply can differ slightly from a run without the cache (same quality:
+                   bench/results/2026-09-27-cache-parity).
+                   PROFILE, ranked by routing frequency, no eviction.
+  strata generate: pre-filled 2063 of 2063 slots from the profile in 0.4 s (7087 MB/s); slot 0 verified
+  strata generate: R4 hit path ON - resident experts are computed on the GPU
+  strata generate: 15 expert-pool workers + the host thread
+  strata generate: session is up (engine 0.1.43)
+  strata generate: token graph hit path: 2063 resident experts, decided on the device
+  strata serve: Windows commit: 2.1 GiB left of a 63.7 GiB limit (RAM + page file)
+  strata serve: WARNING the Windows commit limit is 63.7 GiB (RAM + page file) and 2.1 GiB of it is left, but this run plans 2.0 GiB of host allocations and keeps 4.0 GiB free: it can end at the limit with no message (exit code 0xC0000409, #1607) while RAM is still free. Raise the page file (System managed, or RAM-sized) or lower --conversation-cache-mib / --max-context / --prefill
+  strata: the CPU prefill share is not armed by default: only 3.0 GiB of RAM is free (the share needs 0.30 GiB and 3.0 GiB left over). STRATA_PREFILL_CPU_SHARE=auto turns it on anyway
+  strata serve: prompt chunk auto: 4608 tokens, a 384-slot ring
+  strata serve: the prompt path borrows 1807 CUDA0 cache slots (2.33 GiB)
+  prefill gemm: hipBLASLt tuning enabled (32 rows, gfx1201, version 100500)
+  strata hc: CUDA0: the check of split/staged could not run (setting up the check failed)
+  strata hc: CUDA0: the hyper-connection read runs as the plain read (the norm per token, the down projection on 41 blocks)
+  strata serve: verify: mapped staging allocation failed
+  Hip error: 'unspecified launch failure'(719) at C:/home/runner/_work/rockrel/rockrel/rocm-libraries/projects/hipblaslt/library/src/amd_detail/hipblaslt.cpp:468

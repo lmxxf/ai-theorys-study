@@ -1,0 +1,72 @@
+{
+  "groups": [
+    0,
+    4,
+    23,
+    24
+  ],
+  "counts": {
+    "current": {
+      "0": {
+        "before": 1739,
+        "after": 29113,
+        "targets": 95880
+      },
+      "4": {
+        "before": 2851,
+        "after": 69744,
+        "targets": 129720
+      },
+      "23": {
+        "before": 3307,
+        "after": 89310,
+        "targets": 160740
+      },
+      "24": {
+        "before": 3377,
+        "after": 93959,
+        "targets": 166380
+      }
+    },
+    "next": {
+      "0": {
+        "before": 56143,
+        "after": 46226,
+        "targets": 95880
+      },
+      "4": {
+        "before": 83582,
+        "after": 85093,
+        "targets": 129720
+      },
+      "23": {
+        "before": 100085,
+        "after": 105685,
+        "targets": 160740
+      },
+      "24": {
+        "before": 103690,
+        "after": 110158,
+        "targets": 166380
+      }
+    }
+  },
+  "paired_bootstrap": {
+    "current": {
+      "delta": 0.490034737299175,
+      "ci95": [
+        0.37496097060529016,
+        0.539817192467596
+      ],
+      "note": "resampling only four held-out text chunks, not independent documents"
+    },
+    "next": {
+      "delta": 0.006625416123896367,
+      "ci95": [
+        -0.05386279495071145,
+        0.03689166055270237
+      ],
+      "note": "resampling only four held-out text chunks, not independent documents"
+    }
+  }
+}

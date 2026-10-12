@@ -1,0 +1,117 @@
+{
+  "health": {
+    "status": "ok",
+    "max_context": 65536,
+    "model": "qwen3.8-flash-next-q2_0",
+    "images": false,
+    "api_key": false,
+    "loaded": true,
+    "service": "strata"
+  },
+  "requests": [
+    {
+      "answer": "兰斯洛特",
+      "ttft_seconds": 0.485000000015134,
+      "total_seconds": 0.5320000000065193,
+      "events": [
+        {
+          "id": "chatcmpl-bcf13a77446042dd9ca476f1",
+          "object": "chat.completion.chunk",
+          "created": 1791821370,
+          "model": "qwen3.8-flash-next-q2_0",
+          "choices": [
+            {
+              "index": 0,
+              "delta": {
+                "role": "assistant",
+                "content": ""
+              },
+              "finish_reason": null
+            }
+          ]
+        },
+        {
+          "id": "chatcmpl-bcf13a77446042dd9ca476f1",
+          "object": "chat.completion.chunk",
+          "created": 1791821370,
+          "model": "qwen3.8-flash-next-q2_0",
+          "choices": [
+            {
+              "index": 0,
+              "delta": {
+                "content": "兰"
+              },
+              "finish_reason": null
+            }
+          ]
+        },
+        {
+          "id": "chatcmpl-bcf13a77446042dd9ca476f1",
+          "object": "chat.completion.chunk",
+          "created": 1791821370,
+          "model": "qwen3.8-flash-next-q2_0",
+          "choices": [
+            {
+              "index": 0,
+              "delta": {
+                "content": "斯洛"
+              },
+              "finish_reason": null
+            }
+          ]
+        },
+        {
+          "id": "chatcmpl-bcf13a77446042dd9ca476f1",
+          "object": "chat.completion.chunk",
+          "created": 1791821370,
+          "model": "qwen3.8-flash-next-q2_0",
+          "choices": [
+            {
+              "index": 0,
+              "delta": {
+                "content": "特"
+              },
+              "finish_reason": null
+            }
+          ]
+        },
+        {
+          "id": "chatcmpl-bcf13a77446042dd9ca476f1",
+          "object": "chat.completion.chunk",
+          "created": 1791821370,
+          "model": "qwen3.8-flash-next-q2_0",
+          "choices": [
+            {
+              "index": 0,
+              "delta": {},
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 33733,
+            "completion_tokens": 4,
+            "total_tokens": 33737,
+            "prompt_tokens_details": {
+              "cached_tokens": 33692
+            }
+          },
+          "timings": {
+            "cache_n": 33692,
+            "prompt_n": 41,
+            "prompt_ms": 390.0,
+            "prompt_per_token_ms": 9.512,
+            "prompt_per_second": 105.1,
+            "predicted_n": 4,
+            "predicted_ms": 74.4,
+            "predicted_per_token_ms": 18.6,
+            "predicted_per_second": 53.8,
+            "draft_n": 3,
+            "draft_n_accepted": 3
+          }
+        }
+      ],
+      "prompt_sha256": "1d5dffaee9354411ba7caf3001bc886492f21f3a0e3ffd826fd6815f5de988e8",
+      "prompt_characters": 18
+    }
+  ]
+}
