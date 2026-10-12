@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif">
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop offset="0" stop-color="#0a0f1f"/><stop offset="0.55" stop-color="#0f172a"/><stop offset="1" stop-color="#0a1a1a"/></linearGradient>
+<radialGradient id="orange"><stop stop-color="#f59e0b" stop-opacity="0.18"/><stop offset="1" stop-color="#f59e0b" stop-opacity="0"/></radialGradient>
+<radialGradient id="green"><stop stop-color="#2dd4bf" stop-opacity="0.15"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></radialGradient>
+<linearGradient id="card" x2="0" y2="1"><stop stop-color="#1e293b"/><stop offset="1" stop-color="#101a2c"/></linearGradient>
+<linearGradient id="band"><stop stop-color="#f59e0b"/><stop offset="0.5" stop-color="#2dd4bf"/><stop offset="1" stop-color="#4a90d9"/></linearGradient>
+</defs>
+<rect width="900" height="500" fill="url(#bg)"/>
+<ellipse cx="160" cy="130" rx="360" ry="270" fill="url(#orange)"/>
+<ellipse cx="740" cy="330" rx="350" ry="250" fill="url(#green)"/>
+<path d="M90 0V390" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M180 0V390" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M270 0V390" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M360 0V390" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M450 0V390" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M540 0V390" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M630 0V390" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M720 0V390" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M810 0V390" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M0 88H900" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M0 166H900" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M0 244H900" stroke="#e5e7eb" opacity="0.055"/>
+<path d="M0 322H900" stroke="#e5e7eb" opacity="0.055"/>
+<text x="450" y="36" text-anchor="middle" font-size="17" fill="#cbd5e1">DeepSeek-V4 · 压缩注意力 · No.337</text>
+<rect x="40" y="67" width="245" height="295" rx="7" fill="url(#card)" stroke="#334155"/>
+<rect x="305" y="67" width="290" height="295" rx="7" fill="url(#card)" stroke="#334155"/>
+<rect x="615" y="67" width="245" height="295" rx="7" fill="url(#card)" stroke="#334155"/>
+<text x="162" y="101" text-anchor="middle" font-size="18" fill="#93c5fd" font-weight="bold">① 算法里的位置周期</text>
+<text x="162" y="144" text-anchor="middle" font-size="23" fill="#f8fafc" font-weight="bold">窗口 8  /  步长 4</text>
+<rect x="66" y="170" width="43" height="34" rx="7" fill="#403222" stroke="#f59e0b"/>
+<text x="87.5" y="194" text-anchor="middle" font-size="20" fill="#e2e8f0">0</text>
+<rect x="115" y="170" width="43" height="34" rx="7" fill="#123943" stroke="#2dd4bf"/>
+<text x="136.5" y="194" text-anchor="middle" font-size="20" fill="#e2e8f0">1</text>
+<rect x="164" y="170" width="43" height="34" rx="7" fill="#123943" stroke="#2dd4bf"/>
+<text x="185.5" y="194" text-anchor="middle" font-size="20" fill="#e2e8f0">2</text>
+<rect x="213" y="170" width="43" height="34" rx="7" fill="#403222" stroke="#f59e0b"/>
+<text x="234.5" y="194" text-anchor="middle" font-size="20" fill="#e2e8f0">3</text>
+<rect x="66" y="213" width="43" height="34" rx="7" fill="#403222" stroke="#f59e0b"/>
+<text x="87.5" y="237" text-anchor="middle" font-size="20" fill="#e2e8f0">0</text>
+<rect x="115" y="213" width="43" height="34" rx="7" fill="#123943" stroke="#2dd4bf"/>
+<text x="136.5" y="237" text-anchor="middle" font-size="20" fill="#e2e8f0">1</text>
+<rect x="164" y="213" width="43" height="34" rx="7" fill="#123943" stroke="#2dd4bf"/>
+<text x="185.5" y="237" text-anchor="middle" font-size="20" fill="#e2e8f0">2</text>
+<rect x="213" y="213" width="43" height="34" rx="7" fill="#403222" stroke="#f59e0b"/>
+<text x="234.5" y="237" text-anchor="middle" font-size="20" fill="#e2e8f0">3</text>
+<text x="162" y="276" text-anchor="middle" font-size="18" fill="#fde68a">相位 = 位置 % 4</text>
+<text x="162" y="315" text-anchor="middle" font-size="17" fill="#cbd5e1">同一类站位</text>
+<text x="162" y="340" text-anchor="middle" font-size="17" fill="#cbd5e1">每隔 4 个 token 重复</text>
+<text x="450" y="101" text-anchor="middle" font-size="18" fill="#5eead4" font-weight="bold">② 实验测到多大差距</text>
+<text x="450" y="126" text-anchor="middle" font-size="13" fill="#94a3b8">V4-Flash 基础版 · 128K 检索</text>
+<rect x="330" y="190.3125" width="20" height="54.6875" rx="3" fill="#f59e0b" stroke="none"/>
+<text x="340" y="265" text-anchor="middle" font-size="12" fill="#94a3b8">0</text>
+<rect x="360" y="158.0875" width="20" height="86.9125" rx="3" fill="#2dd4bf" stroke="none"/>
+<text x="370" y="265" text-anchor="middle" font-size="12" fill="#94a3b8">1</text>
+<rect x="390" y="162.47500000000002" width="20" height="82.52499999999999" rx="3" fill="#2dd4bf" stroke="none"/>
+<text x="400" y="265" text-anchor="middle" font-size="12" fill="#94a3b8">2</text>
+<rect x="420" y="207.8875" width="20" height="37.112500000000004" rx="3" fill="#f59e0b" stroke="none"/>
+<text x="430" y="265" text-anchor="middle" font-size="12" fill="#94a3b8">3</text>
+<rect x="450" y="188.85" width="20" height="56.150000000000006" rx="3" fill="#f59e0b" stroke="none"/>
+<text x="460" y="265" text-anchor="middle" font-size="12" fill="#94a3b8">4</text>
+<rect x="480" y="157.6" width="20" height="87.4" rx="3" fill="#2dd4bf" stroke="none"/>
+<text x="490" y="265" text-anchor="middle" font-size="12" fill="#94a3b8">5</text>
+<rect x="510" y="164.4375" width="20" height="80.5625" rx="3" fill="#2dd4bf" stroke="none"/>
+<text x="520" y="265" text-anchor="middle" font-size="12" fill="#94a3b8">6</text>
+<rect x="540" y="203.9875" width="20" height="41.0125" rx="3" fill="#f59e0b" stroke="none"/>
+<text x="550" y="265" text-anchor="middle" font-size="12" fill="#94a3b8">7</text>
+<path d="M326 246H576" stroke="#64748b"/>
+<text x="450" y="289" text-anchor="middle" font-size="12" fill="#94a3b8">目标位置除以 8 的余数</text>
+<text x="450" y="323" text-anchor="middle" font-size="28" fill="#fbbf24" font-weight="bold">40.2 个百分点</text>
+<text x="450" y="347" text-anchor="middle" font-size="14" fill="#cbd5e1">最好位置组 − 最差位置组</text>
+<text x="737" y="101" text-anchor="middle" font-size="18" fill="#fde68a" font-weight="bold">③ 后训练改善了多少</text>
+<text x="737" y="141" text-anchor="middle" font-size="13" fill="#94a3b8">V4-Flash · 同一检索任务</text>
+<text x="737" y="175" text-anchor="middle" font-size="16" fill="#cbd5e1">平均正确率</text>
+<text x="737" y="211" text-anchor="middle" font-size="25" fill="#5eead4" font-weight="bold">52.6% → 91.4%</text>
+<path d="M642 234H833" stroke="#334155"/>
+<text x="737" y="266" text-anchor="middle" font-size="15" fill="#cbd5e1">最好组与最差组的差距</text>
+<text x="737" y="302" text-anchor="middle" font-size="27" fill="#fbbf24" font-weight="bold">40.2 → 19.1</text>
+<text x="737" y="338" text-anchor="middle" font-size="13" fill="#cbd5e1">个百分点 · 改善后仍有差异</text>
+<rect x="0" y="389" width="900" height="111" rx="0" fill="#020617" stroke="none"/>
+<rect x="0" y="389" width="900" height="5" rx="0" fill="url(#band)" stroke="none"/>
+<text x="450" y="435" text-anchor="middle" font-size="35" fill="#f8fafc" font-weight="bold">分块压缩的代价</text>
+<text x="450" y="470" text-anchor="middle" font-size="24" fill="#fde68a">不同相位的检索能力差多少？</text>
+</svg>
