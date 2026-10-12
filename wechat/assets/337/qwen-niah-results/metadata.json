@@ -1,0 +1,24 @@
+{
+  "models": [
+    "Qwen/Qwen3-0.6B-Base",
+    "Qwen/Qwen3-0.6B"
+  ],
+  "torch": "2.9.1+cu128",
+  "transformers": "4.57.1",
+  "seeds": 4,
+  "lengths": [
+    4096,
+    16384
+  ],
+  "pairs": 256,
+  "cases_sha256": "cf67238dc6aa4e1eb7b027856f812934f18386e2f50e2fd334e9c45b4624fa76",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "max_new_tokens": 16,
+  "scoring": "first non-whitespace alphabetic word must equal the gold value",
+  "filler": "repeated neutral sentence; synthetic pilot, not paper replication",
+  "resolved_model_commits": {
+    "Qwen/Qwen3-0.6B-Base": "da87bfb608c14b7cf20ba1ce41287e8de496c0cd",
+    "Qwen/Qwen3-0.6B": "c1899de289a04d12100db370d81485cdf75e47ca"
+  }
+}

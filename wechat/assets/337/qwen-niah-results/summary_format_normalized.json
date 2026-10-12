@@ -1,0 +1,131 @@
+{
+  "summary": [
+    {
+      "protocol": "base_raw",
+      "length": 4096,
+      "n": 32,
+      "accuracy": 0.25,
+      "by_residue": {
+        "0": 0.25,
+        "1": 0.25,
+        "2": 0.25,
+        "3": 0.25,
+        "4": 0.25,
+        "5": 0.25,
+        "6": 0.25,
+        "7": 0.25
+      }
+    },
+    {
+      "protocol": "base_raw",
+      "length": 16384,
+      "n": 32,
+      "accuracy": 0.25,
+      "by_residue": {
+        "0": 0.25,
+        "1": 0.25,
+        "2": 0.25,
+        "3": 0.25,
+        "4": 0.25,
+        "5": 0.25,
+        "6": 0.25,
+        "7": 0.25
+      }
+    },
+    {
+      "protocol": "post_chat_no_thinking",
+      "length": 4096,
+      "n": 32,
+      "accuracy": 0.5,
+      "by_residue": {
+        "0": 0.5,
+        "1": 0.5,
+        "2": 0.5,
+        "3": 0.5,
+        "4": 0.5,
+        "5": 0.5,
+        "6": 0.5,
+        "7": 0.5
+      }
+    },
+    {
+      "protocol": "post_chat_no_thinking",
+      "length": 16384,
+      "n": 32,
+      "accuracy": 0.75,
+      "by_residue": {
+        "0": 0.75,
+        "1": 0.75,
+        "2": 0.75,
+        "3": 0.75,
+        "4": 0.75,
+        "5": 0.75,
+        "6": 0.75,
+        "7": 0.75
+      }
+    },
+    {
+      "protocol": "post_raw",
+      "length": 4096,
+      "n": 32,
+      "accuracy": 0.25,
+      "by_residue": {
+        "0": 0.25,
+        "1": 0.25,
+        "2": 0.25,
+        "3": 0.25,
+        "4": 0.25,
+        "5": 0.25,
+        "6": 0.25,
+        "7": 0.25
+      }
+    },
+    {
+      "protocol": "post_raw",
+      "length": 16384,
+      "n": 32,
+      "accuracy": 0.03125,
+      "by_residue": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.25,
+        "6": 0.0,
+        "7": 0.0
+      }
+    }
+  ],
+  "paired": [
+    {
+      "length": 4096,
+      "comparison": "post_raw vs base_raw",
+      "n": 32,
+      "post_only_correct": 8,
+      "base_only_correct": 8
+    },
+    {
+      "length": 4096,
+      "comparison": "post_chat_no_thinking vs base_raw",
+      "n": 32,
+      "post_only_correct": 8,
+      "base_only_correct": 0
+    },
+    {
+      "length": 16384,
+      "comparison": "post_raw vs base_raw",
+      "n": 32,
+      "post_only_correct": 1,
+      "base_only_correct": 8
+    },
+    {
+      "length": 16384,
+      "comparison": "post_chat_no_thinking vs base_raw",
+      "n": 32,
+      "post_only_correct": 16,
+      "base_only_correct": 0
+    }
+  ],
+  "note": "Exploratory pilot; offsets within a seed are correlated, not independent samples. Residues are reporting bins, not compression phases in these full-attention models."
+}
