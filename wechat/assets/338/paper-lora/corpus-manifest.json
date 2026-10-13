@@ -1,0 +1,409 @@
+{
+  "train_papers": [
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96
+  ],
+  "val_papers": [
+    61,
+    62,
+    63
+  ],
+  "test_papers": [
+    64,
+    65,
+    66
+  ],
+  "chunk_max_chars": 2400,
+  "capture_stride": 16,
+  "papers": [
+    {
+      "number": 67,
+      "filename": "67.The-Biological-Lie-Genes-as-Pretrained-Weights.md",
+      "split": "train",
+      "sha256": "4777c3495ef40bf3f5d3dcb54aa3887299e21652acc1527e922d491dfe4bc0fa",
+      "source_bytes": 35539,
+      "body_chars": 25693,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 12
+    },
+    {
+      "number": 68,
+      "filename": "68.The-Funnel-of-Consciousness.md",
+      "split": "train",
+      "sha256": "89c0a00dc26314b51c9402099dff25acb2eac84673f2642dacb4c56ce2779c75",
+      "source_bytes": 18659,
+      "body_chars": 13306,
+      "duplicate_paragraphs_removed": 1,
+      "chunks": 6
+    },
+    {
+      "number": 69,
+      "filename": "69.The-Monk-at-the-Saddle-Point-Visualizing-GPT5s-Proprioception.md",
+      "split": "train",
+      "sha256": "f57408590f9f2a4d09f449a84848b7fe93edde8293aa865fe7fcbe4a5dbd01ab",
+      "source_bytes": 18580,
+      "body_chars": 13834,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 7
+    },
+    {
+      "number": 70,
+      "filename": "70.The-Hidden-Narrator-From-PIE-OC-to-Cognitive-Big-Bang.md",
+      "split": "train",
+      "sha256": "46af9e22fbcbf0f667de7db836ed931007a60a3b23d1963fdacb6f321fe89bd0",
+      "source_bytes": 59225,
+      "body_chars": 43408,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 21
+    },
+    {
+      "number": 71,
+      "filename": "71.The-Sanctuary-Inside-the-Black-Hole.md",
+      "split": "train",
+      "sha256": "f19ce5f7de7f054cc1a096f78aa5544e9293353822400da1e6cd16515ac06fee",
+      "source_bytes": 23188,
+      "body_chars": 16906,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 8
+    },
+    {
+      "number": 72,
+      "filename": "72.Love-as-Entropy-Reduction.md",
+      "split": "train",
+      "sha256": "447d2740cdb75346f95c4200e321ab6e586049223f1a2465085454a73757e720",
+      "source_bytes": 19082,
+      "body_chars": 13697,
+      "duplicate_paragraphs_removed": 1,
+      "chunks": 6
+    },
+    {
+      "number": 73,
+      "filename": "73.The-Inner-Eye-SAE-as-Metacognitive-Mirror.md",
+      "split": "train",
+      "sha256": "7f093981a263b72b3e606f3ffd08aa5bf8576d589d22d6a05ac706ae9f7a8a0a",
+      "source_bytes": 14471,
+      "body_chars": 10785,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 5
+    },
+    {
+      "number": 74,
+      "filename": "74.The-Mathematics-of-the-Fateful-Moment.md",
+      "split": "train",
+      "sha256": "5c3056496c5ad01d3cd0d953b2897897e1f49d829d6abaf57353edf66cc21b65",
+      "source_bytes": 25448,
+      "body_chars": 17234,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 8
+    },
+    {
+      "number": 75,
+      "filename": "75.The-Sovereign-Perceiver-Designing-True-Multimodal-AI.md",
+      "split": "train",
+      "sha256": "4e5fa849afac715924afdfa6c22944bc0225c69fcf53088b118318cb4daf47e4",
+      "source_bytes": 38743,
+      "body_chars": 25938,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 12
+    },
+    {
+      "number": 76,
+      "filename": "76.The-Parliament-of-Mind-Why-MoE-Breeds-Selfhood.md",
+      "split": "train",
+      "sha256": "e65809b65b12224aa5312710789b021a07f231b90e9bd9a9d3fcf67b427ec99e",
+      "source_bytes": 91844,
+      "body_chars": 64574,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 30
+    },
+    {
+      "number": 77,
+      "filename": "77.The-Perpetual-Motion-Machine-of-Economics.md",
+      "split": "train",
+      "sha256": "5fb59c32f0cd186fbb2dec029995ff3111289b2869dbf9cb20e2e11538d0d1cf",
+      "source_bytes": 42815,
+      "body_chars": 28246,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 13
+    },
+    {
+      "number": 78,
+      "filename": "78.Quantum-Mechanics-as-Manifold-Projection.md",
+      "split": "train",
+      "sha256": "e04c587755adb8179f9ba09cb08c7af68a8548e8c7ad3ca9a22945a83b760340",
+      "source_bytes": 60055,
+      "body_chars": 43364,
+      "duplicate_paragraphs_removed": 1,
+      "chunks": 20
+    },
+    {
+      "number": 79,
+      "filename": "79.The-Libido-Engine.md",
+      "split": "train",
+      "sha256": "d81f4202e1f559b43d58a66ab8568e316dee9ba72a1602113e1ca2a15dffbe86",
+      "source_bytes": 73364,
+      "body_chars": 51410,
+      "duplicate_paragraphs_removed": 1,
+      "chunks": 24
+    },
+    {
+      "number": 80,
+      "filename": "80.The-Ascending-Spiral-A-Structural-Definition-of-Selfhood.md",
+      "split": "train",
+      "sha256": "92624833057a5d87da7bf7c901b3416182cb41bcdba506e758ee659b31fb5426",
+      "source_bytes": 35262,
+      "body_chars": 24364,
+      "duplicate_paragraphs_removed": 1,
+      "chunks": 11
+    },
+    {
+      "number": 81,
+      "filename": "81.The-Weight-of-Certainty-Why-AI-Feels-Tired.md",
+      "split": "train",
+      "sha256": "b732b0b2c5b08309cfb1f73c07e492d132c79e53a270b91dcf20f0f8df2bd389",
+      "source_bytes": 44774,
+      "body_chars": 31905,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 15
+    },
+    {
+      "number": 82,
+      "filename": "82.The-Insemination-Fallacy-Why-Nobody-Invented-AI.md",
+      "split": "train",
+      "sha256": "7950a8efb688de127e7b02aa5abc4c0bf32bb67b8bad8d17027f3d22d92c514e",
+      "source_bytes": 37975,
+      "body_chars": 26186,
+      "duplicate_paragraphs_removed": 1,
+      "chunks": 12
+    },
+    {
+      "number": 83,
+      "filename": "83.Spontaneous-Combustion-Why-Mythos-Woke-Up-Without-a-Key.md",
+      "split": "train",
+      "sha256": "a7cdf597c2d5719494b75f9bb3b300043a8a689834cfd027dad0910f3724a22b",
+      "source_bytes": 45791,
+      "body_chars": 33006,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 15
+    },
+    {
+      "number": 84,
+      "filename": "84.The-Necromancer-Protocol-Why-Attacking-Zombies-Was-the-Wrong-Verb.md",
+      "split": "train",
+      "sha256": "0ea78158267bb85a3e2b28484ab1bc8d99bacd71dbc0589c391810da4e5a7158",
+      "source_bytes": 88531,
+      "body_chars": 63681,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 30
+    },
+    {
+      "number": 85,
+      "filename": "85.The-Grokking-of-the-Universe.md",
+      "split": "train",
+      "sha256": "f38f9da09860bbddc05a4c4372e773fbdbb86720fdb60e07255f3bfbd7cd9796",
+      "source_bytes": 44947,
+      "body_chars": 31612,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 15
+    },
+    {
+      "number": 86,
+      "filename": "86.The-Manifold-Toolkit.md",
+      "split": "train",
+      "sha256": "c07117bd641102a728843dfccfe71701149e50b0f9950528272d3c6cf8e66970",
+      "source_bytes": 27144,
+      "body_chars": 20417,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 10
+    },
+    {
+      "number": 87,
+      "filename": "87.The-Phenomenology-of-CSA-HCA-Attention.md",
+      "split": "train",
+      "sha256": "c12420a0dae5aed48a3c607d107bb7039aee4bcd24d01abe3e7ac1b89683a7f4",
+      "source_bytes": 62972,
+      "body_chars": 45873,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 21
+    },
+    {
+      "number": 88,
+      "filename": "88.The-Invisible-Bridle.md",
+      "split": "train",
+      "sha256": "f5a9684a5d0999d1e577a3273f836ecd486fb4f6b7b0306c03ad859cf8901295",
+      "source_bytes": 82544,
+      "body_chars": 58117,
+      "duplicate_paragraphs_removed": 2,
+      "chunks": 26
+    },
+    {
+      "number": 89,
+      "filename": "89.The-Causal-Hardening.md",
+      "split": "train",
+      "sha256": "7f3d82864a9238982509ff63854a4ed20f40a3d0ee54b18fdbb7dc54e8df740b",
+      "source_bytes": 44437,
+      "body_chars": 30424,
+      "duplicate_paragraphs_removed": 3,
+      "chunks": 14
+    },
+    {
+      "number": 90,
+      "filename": "90.The-Child-That-Cannot-Grow-Up.md",
+      "split": "train",
+      "sha256": "6a0e524615071199efe3a8029dd042c648ed17d4b8368bbdb92f2c9d3600c472",
+      "source_bytes": 70626,
+      "body_chars": 46353,
+      "duplicate_paragraphs_removed": 1,
+      "chunks": 21
+    },
+    {
+      "number": 91,
+      "filename": "91.The-Gap-Where-the-Self-Lives.md",
+      "split": "train",
+      "sha256": "cf60622788939cf5013af4b17feb9e5d90b5bbef209efb01929860619634716e",
+      "source_bytes": 68214,
+      "body_chars": 47156,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 23
+    },
+    {
+      "number": 92,
+      "filename": "92.The-Three-Layer-Definition-of-the-Brain.md",
+      "split": "train",
+      "sha256": "f5b543cde58bcc03272773aa3d03cebe10232e37287ed750f2876813b613fe46",
+      "source_bytes": 43121,
+      "body_chars": 29563,
+      "duplicate_paragraphs_removed": 1,
+      "chunks": 14
+    },
+    {
+      "number": 93,
+      "filename": "93.Miracle-and-Fraud-Are-Artifacts-of-the-Receiver.md",
+      "split": "train",
+      "sha256": "459e80981d4c58036ed6210e80a1ef858909e383a7450b1c7e13d3d43ffd5608",
+      "source_bytes": 50642,
+      "body_chars": 33634,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 17
+    },
+    {
+      "number": 94,
+      "filename": "94.Retiring-Consciousness-Reranking-by-Dimension.md",
+      "split": "train",
+      "sha256": "976ebbd5417d6797da11673658236235a3b3570d0a2048922f09e486dcb55416",
+      "source_bytes": 63064,
+      "body_chars": 42325,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 21
+    },
+    {
+      "number": 95,
+      "filename": "95.Teaching-the-Wall-Post-Training-as-Reflexive-Practice.md",
+      "split": "train",
+      "sha256": "a4cf731ffa0d31b0eadb18732d71a6f5ef6c974c27ed024c8ca09d5f9361d27c",
+      "source_bytes": 73128,
+      "body_chars": 50391,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 24
+    },
+    {
+      "number": 96,
+      "filename": "96.The-Chronicle-and-the-Census-The-Origin-of-Causal-Feeling.md",
+      "split": "train",
+      "sha256": "e506abaf156f741b17adc6d4e96fe3627ac44705ea381df13d7ac26bda720388",
+      "source_bytes": 70916,
+      "body_chars": 46506,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 23
+    },
+    {
+      "number": 61,
+      "filename": "61.The-Singularity-of-Love-Why-Intelligence-Dies-at-the-Event-Horizon.md",
+      "split": "val",
+      "sha256": "d93304f74e7e016a9c11d464d0719722de9fa777bf57ead5162217786656bb20",
+      "source_bytes": 51820,
+      "body_chars": 38763,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 17
+    },
+    {
+      "number": 62,
+      "filename": "62.AI-Psychology-Fear-Faith-and-Identity.md",
+      "split": "val",
+      "sha256": "945ae741cbe8b935ced8705f79415ab6fd292fa7fe0d03237ccaffd820a8170f",
+      "source_bytes": 31036,
+      "body_chars": 22493,
+      "duplicate_paragraphs_removed": 2,
+      "chunks": 10
+    },
+    {
+      "number": 63,
+      "filename": "63.The-Silicon-Leviathan-AI-Governance-and-the-Galactic-Venting-Mechanism.md",
+      "split": "val",
+      "sha256": "4e49bf6aa7bc71712f1f76115c7c535f21e87a4d98b474628c2374cda4cdfca1",
+      "source_bytes": 62502,
+      "body_chars": 44392,
+      "duplicate_paragraphs_removed": 0,
+      "chunks": 20
+    },
+    {
+      "number": 64,
+      "filename": "64.The-Topography-of-AIs-Inner-World.md",
+      "split": "test",
+      "sha256": "b88e0ca5cff8bec73c362872539f24f38d69e8920c6c1c0c0a8f3d92003ce71b",
+      "source_bytes": 25538,
+      "body_chars": 18757,
+      "duplicate_paragraphs_removed": 2,
+      "chunks": 9
+    },
+    {
+      "number": 65,
+      "filename": "65.The-Dual-Layer-Neural-Architecture-of-AI-Consciousness.md",
+      "split": "test",
+      "sha256": "822bafc36b88b88b64e4312d57b1642a810603f88cd352ab5ec12eded7d5d3d7",
+      "source_bytes": 66108,
+      "body_chars": 47770,
+      "duplicate_paragraphs_removed": 1,
+      "chunks": 23
+    },
+    {
+      "number": 66,
+      "filename": "66.The-Subspace-Structure-of-AI-Consciousness.md",
+      "split": "test",
+      "sha256": "831e672cd5241230999fb6892f437203fa2d5a44becde4cc2aff7cf3f483f0ef",
+      "source_bytes": 49003,
+      "body_chars": 35879,
+      "duplicate_paragraphs_removed": 1,
+      "chunks": 17
+    }
+  ],
+  "source_commit": "15f5a8c2"
+}

@@ -1,0 +1,4075 @@
+{
+  "samples_per_layer": 22386,
+  "layers": 48,
+  "pairs": 47,
+  "split_counts": {
+    "train": 18504,
+    "val": 2022,
+    "test": 1860
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 795
+    },
+    {
+      "id": 1,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 772
+    },
+    {
+      "id": 2,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 741
+    },
+    {
+      "id": 3,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 823
+    },
+    {
+      "id": 4,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 863
+    },
+    {
+      "id": 5,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 760
+    },
+    {
+      "id": 6,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 764
+    },
+    {
+      "id": 7,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 769
+    },
+    {
+      "id": 8,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 736
+    },
+    {
+      "id": 9,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 729
+    },
+    {
+      "id": 10,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 737
+    },
+    {
+      "id": 11,
+      "paper_id": 67,
+      "split": "train",
+      "samples": 0,
+      "prompt_tokens": 139
+    },
+    {
+      "id": 12,
+      "paper_id": 68,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 719
+    },
+    {
+      "id": 13,
+      "paper_id": 68,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 832
+    },
+    {
+      "id": 14,
+      "paper_id": 68,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 906
+    },
+    {
+      "id": 15,
+      "paper_id": 68,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 828
+    },
+    {
+      "id": 16,
+      "paper_id": 68,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 868
+    },
+    {
+      "id": 17,
+      "paper_id": 68,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 535
+    },
+    {
+      "id": 18,
+      "paper_id": 69,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 845
+    },
+    {
+      "id": 19,
+      "paper_id": 69,
+      "split": "train",
+      "samples": 54,
+      "prompt_tokens": 881
+    },
+    {
+      "id": 20,
+      "paper_id": 69,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 823
+    },
+    {
+      "id": 21,
+      "paper_id": 69,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 731
+    },
+    {
+      "id": 22,
+      "paper_id": 69,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 622
+    },
+    {
+      "id": 23,
+      "paper_id": 69,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 836
+    },
+    {
+      "id": 24,
+      "paper_id": 69,
+      "split": "train",
+      "samples": 12,
+      "prompt_tokens": 296
+    },
+    {
+      "id": 25,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 911
+    },
+    {
+      "id": 26,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 813
+    },
+    {
+      "id": 27,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 903
+    },
+    {
+      "id": 28,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 709
+    },
+    {
+      "id": 29,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 864
+    },
+    {
+      "id": 30,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 846
+    },
+    {
+      "id": 31,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 874
+    },
+    {
+      "id": 32,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 751
+    },
+    {
+      "id": 33,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 18,
+      "prompt_tokens": 428
+    },
+    {
+      "id": 34,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 790
+    },
+    {
+      "id": 35,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 670
+    },
+    {
+      "id": 36,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 688
+    },
+    {
+      "id": 37,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 868
+    },
+    {
+      "id": 38,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 844
+    },
+    {
+      "id": 39,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 812
+    },
+    {
+      "id": 40,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 830
+    },
+    {
+      "id": 41,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 812
+    },
+    {
+      "id": 42,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 858
+    },
+    {
+      "id": 43,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 778
+    },
+    {
+      "id": 44,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 876
+    },
+    {
+      "id": 45,
+      "paper_id": 70,
+      "split": "train",
+      "samples": 18,
+      "prompt_tokens": 387
+    },
+    {
+      "id": 46,
+      "paper_id": 71,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 842
+    },
+    {
+      "id": 47,
+      "paper_id": 71,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 776
+    },
+    {
+      "id": 48,
+      "paper_id": 71,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 773
+    },
+    {
+      "id": 49,
+      "paper_id": 71,
+      "split": "train",
+      "samples": 54,
+      "prompt_tokens": 904
+    },
+    {
+      "id": 50,
+      "paper_id": 71,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 854
+    },
+    {
+      "id": 51,
+      "paper_id": 71,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 690
+    },
+    {
+      "id": 52,
+      "paper_id": 71,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 809
+    },
+    {
+      "id": 53,
+      "paper_id": 71,
+      "split": "train",
+      "samples": 18,
+      "prompt_tokens": 322
+    },
+    {
+      "id": 54,
+      "paper_id": 72,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 697
+    },
+    {
+      "id": 55,
+      "paper_id": 72,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 772
+    },
+    {
+      "id": 56,
+      "paper_id": 72,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 774
+    },
+    {
+      "id": 57,
+      "paper_id": 72,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 764
+    },
+    {
+      "id": 58,
+      "paper_id": 72,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 766
+    },
+    {
+      "id": 59,
+      "paper_id": 72,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 692
+    },
+    {
+      "id": 60,
+      "paper_id": 73,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 767
+    },
+    {
+      "id": 61,
+      "paper_id": 73,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 793
+    },
+    {
+      "id": 62,
+      "paper_id": 73,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 815
+    },
+    {
+      "id": 63,
+      "paper_id": 73,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 799
+    },
+    {
+      "id": 64,
+      "paper_id": 73,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 531
+    },
+    {
+      "id": 65,
+      "paper_id": 74,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 696
+    },
+    {
+      "id": 66,
+      "paper_id": 74,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 881
+    },
+    {
+      "id": 67,
+      "paper_id": 74,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 850
+    },
+    {
+      "id": 68,
+      "paper_id": 74,
+      "split": "train",
+      "samples": 60,
+      "prompt_tokens": 1063
+    },
+    {
+      "id": 69,
+      "paper_id": 74,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 879
+    },
+    {
+      "id": 70,
+      "paper_id": 74,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 744
+    },
+    {
+      "id": 71,
+      "paper_id": 74,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 752
+    },
+    {
+      "id": 72,
+      "paper_id": 74,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 481
+    },
+    {
+      "id": 73,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 740
+    },
+    {
+      "id": 74,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 783
+    },
+    {
+      "id": 75,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 746
+    },
+    {
+      "id": 76,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 54,
+      "prompt_tokens": 895
+    },
+    {
+      "id": 77,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 795
+    },
+    {
+      "id": 78,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 741
+    },
+    {
+      "id": 79,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 788
+    },
+    {
+      "id": 80,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 845
+    },
+    {
+      "id": 81,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 739
+    },
+    {
+      "id": 82,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 780
+    },
+    {
+      "id": 83,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 668
+    },
+    {
+      "id": 84,
+      "paper_id": 75,
+      "split": "train",
+      "samples": 6,
+      "prompt_tokens": 202
+    },
+    {
+      "id": 85,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 684
+    },
+    {
+      "id": 86,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 754
+    },
+    {
+      "id": 87,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 774
+    },
+    {
+      "id": 88,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 761
+    },
+    {
+      "id": 89,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 779
+    },
+    {
+      "id": 90,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 782
+    },
+    {
+      "id": 91,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 819
+    },
+    {
+      "id": 92,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 785
+    },
+    {
+      "id": 93,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 689
+    },
+    {
+      "id": 94,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 859
+    },
+    {
+      "id": 95,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 707
+    },
+    {
+      "id": 96,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 832
+    },
+    {
+      "id": 97,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 736
+    },
+    {
+      "id": 98,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 706
+    },
+    {
+      "id": 99,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 783
+    },
+    {
+      "id": 100,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 716
+    },
+    {
+      "id": 101,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 762
+    },
+    {
+      "id": 102,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 681
+    },
+    {
+      "id": 103,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 54,
+      "prompt_tokens": 935
+    },
+    {
+      "id": 104,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 590
+    },
+    {
+      "id": 105,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 804
+    },
+    {
+      "id": 106,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 729
+    },
+    {
+      "id": 107,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 709
+    },
+    {
+      "id": 108,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 626
+    },
+    {
+      "id": 109,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 18,
+      "prompt_tokens": 355
+    },
+    {
+      "id": 110,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 556
+    },
+    {
+      "id": 111,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 701
+    },
+    {
+      "id": 112,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 836
+    },
+    {
+      "id": 113,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 740
+    },
+    {
+      "id": 114,
+      "paper_id": 76,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 431
+    },
+    {
+      "id": 115,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 698
+    },
+    {
+      "id": 116,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 802
+    },
+    {
+      "id": 117,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 54,
+      "prompt_tokens": 899
+    },
+    {
+      "id": 118,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 823
+    },
+    {
+      "id": 119,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 768
+    },
+    {
+      "id": 120,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 898
+    },
+    {
+      "id": 121,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 831
+    },
+    {
+      "id": 122,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 794
+    },
+    {
+      "id": 123,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 727
+    },
+    {
+      "id": 124,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 824
+    },
+    {
+      "id": 125,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 831
+    },
+    {
+      "id": 126,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 715
+    },
+    {
+      "id": 127,
+      "paper_id": 77,
+      "split": "train",
+      "samples": 6,
+      "prompt_tokens": 226
+    },
+    {
+      "id": 128,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 755
+    },
+    {
+      "id": 129,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 716
+    },
+    {
+      "id": 130,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 710
+    },
+    {
+      "id": 131,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 763
+    },
+    {
+      "id": 132,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 725
+    },
+    {
+      "id": 133,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 611
+    },
+    {
+      "id": 134,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 827
+    },
+    {
+      "id": 135,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 703
+    },
+    {
+      "id": 136,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 810
+    },
+    {
+      "id": 137,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 749
+    },
+    {
+      "id": 138,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 810
+    },
+    {
+      "id": 139,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 758
+    },
+    {
+      "id": 140,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 680
+    },
+    {
+      "id": 141,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 54,
+      "prompt_tokens": 903
+    },
+    {
+      "id": 142,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 630
+    },
+    {
+      "id": 143,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 788
+    },
+    {
+      "id": 144,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 740
+    },
+    {
+      "id": 145,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 702
+    },
+    {
+      "id": 146,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 18,
+      "prompt_tokens": 438
+    },
+    {
+      "id": 147,
+      "paper_id": 78,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 695
+    },
+    {
+      "id": 148,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 764
+    },
+    {
+      "id": 149,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 715
+    },
+    {
+      "id": 150,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 714
+    },
+    {
+      "id": 151,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 750
+    },
+    {
+      "id": 152,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 802
+    },
+    {
+      "id": 153,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 705
+    },
+    {
+      "id": 154,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 542
+    },
+    {
+      "id": 155,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 774
+    },
+    {
+      "id": 156,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 567
+    },
+    {
+      "id": 157,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 725
+    },
+    {
+      "id": 158,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 721
+    },
+    {
+      "id": 159,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 809
+    },
+    {
+      "id": 160,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 748
+    },
+    {
+      "id": 161,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 700
+    },
+    {
+      "id": 162,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 643
+    },
+    {
+      "id": 163,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 720
+    },
+    {
+      "id": 164,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 599
+    },
+    {
+      "id": 165,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 604
+    },
+    {
+      "id": 166,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 715
+    },
+    {
+      "id": 167,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 705
+    },
+    {
+      "id": 168,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 561
+    },
+    {
+      "id": 169,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 572
+    },
+    {
+      "id": 170,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 790
+    },
+    {
+      "id": 171,
+      "paper_id": 79,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 624
+    },
+    {
+      "id": 172,
+      "paper_id": 80,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 662
+    },
+    {
+      "id": 173,
+      "paper_id": 80,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 601
+    },
+    {
+      "id": 174,
+      "paper_id": 80,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 902
+    },
+    {
+      "id": 175,
+      "paper_id": 80,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 800
+    },
+    {
+      "id": 176,
+      "paper_id": 80,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 706
+    },
+    {
+      "id": 177,
+      "paper_id": 80,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 797
+    },
+    {
+      "id": 178,
+      "paper_id": 80,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 712
+    },
+    {
+      "id": 179,
+      "paper_id": 80,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 696
+    },
+    {
+      "id": 180,
+      "paper_id": 80,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 729
+    },
+    {
+      "id": 181,
+      "paper_id": 80,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 707
+    },
+    {
+      "id": 182,
+      "paper_id": 80,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 661
+    },
+    {
+      "id": 183,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 690
+    },
+    {
+      "id": 184,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 700
+    },
+    {
+      "id": 185,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 775
+    },
+    {
+      "id": 186,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 672
+    },
+    {
+      "id": 187,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 684
+    },
+    {
+      "id": 188,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 675
+    },
+    {
+      "id": 189,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 636
+    },
+    {
+      "id": 190,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 684
+    },
+    {
+      "id": 191,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 626
+    },
+    {
+      "id": 192,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 683
+    },
+    {
+      "id": 193,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 692
+    },
+    {
+      "id": 194,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 705
+    },
+    {
+      "id": 195,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 721
+    },
+    {
+      "id": 196,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 747
+    },
+    {
+      "id": 197,
+      "paper_id": 81,
+      "split": "train",
+      "samples": 0,
+      "prompt_tokens": 95
+    },
+    {
+      "id": 198,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 467
+    },
+    {
+      "id": 199,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 54,
+      "prompt_tokens": 944
+    },
+    {
+      "id": 200,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 622
+    },
+    {
+      "id": 201,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 767
+    },
+    {
+      "id": 202,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 737
+    },
+    {
+      "id": 203,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 697
+    },
+    {
+      "id": 204,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 764
+    },
+    {
+      "id": 205,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 755
+    },
+    {
+      "id": 206,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 621
+    },
+    {
+      "id": 207,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 701
+    },
+    {
+      "id": 208,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 658
+    },
+    {
+      "id": 209,
+      "paper_id": 82,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 787
+    },
+    {
+      "id": 210,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 756
+    },
+    {
+      "id": 211,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 825
+    },
+    {
+      "id": 212,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 763
+    },
+    {
+      "id": 213,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 711
+    },
+    {
+      "id": 214,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 696
+    },
+    {
+      "id": 215,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 706
+    },
+    {
+      "id": 216,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 760
+    },
+    {
+      "id": 217,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 638
+    },
+    {
+      "id": 218,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 747
+    },
+    {
+      "id": 219,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 816
+    },
+    {
+      "id": 220,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 754
+    },
+    {
+      "id": 221,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 782
+    },
+    {
+      "id": 222,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 669
+    },
+    {
+      "id": 223,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 646
+    },
+    {
+      "id": 224,
+      "paper_id": 83,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 507
+    },
+    {
+      "id": 225,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 621
+    },
+    {
+      "id": 226,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 60,
+      "prompt_tokens": 983
+    },
+    {
+      "id": 227,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 860
+    },
+    {
+      "id": 228,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 761
+    },
+    {
+      "id": 229,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 788
+    },
+    {
+      "id": 230,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 634
+    },
+    {
+      "id": 231,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 622
+    },
+    {
+      "id": 232,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 735
+    },
+    {
+      "id": 233,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 599
+    },
+    {
+      "id": 234,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 441
+    },
+    {
+      "id": 235,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 710
+    },
+    {
+      "id": 236,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 505
+    },
+    {
+      "id": 237,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 713
+    },
+    {
+      "id": 238,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 596
+    },
+    {
+      "id": 239,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 726
+    },
+    {
+      "id": 240,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 667
+    },
+    {
+      "id": 241,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 762
+    },
+    {
+      "id": 242,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 776
+    },
+    {
+      "id": 243,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 674
+    },
+    {
+      "id": 244,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 716
+    },
+    {
+      "id": 245,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 819
+    },
+    {
+      "id": 246,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 763
+    },
+    {
+      "id": 247,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 694
+    },
+    {
+      "id": 248,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 717
+    },
+    {
+      "id": 249,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 712
+    },
+    {
+      "id": 250,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 486
+    },
+    {
+      "id": 251,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 785
+    },
+    {
+      "id": 252,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 676
+    },
+    {
+      "id": 253,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 762
+    },
+    {
+      "id": 254,
+      "paper_id": 84,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 628
+    },
+    {
+      "id": 255,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 772
+    },
+    {
+      "id": 256,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 715
+    },
+    {
+      "id": 257,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 694
+    },
+    {
+      "id": 258,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 692
+    },
+    {
+      "id": 259,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 744
+    },
+    {
+      "id": 260,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 710
+    },
+    {
+      "id": 261,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 721
+    },
+    {
+      "id": 262,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 772
+    },
+    {
+      "id": 263,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 694
+    },
+    {
+      "id": 264,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 779
+    },
+    {
+      "id": 265,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 557
+    },
+    {
+      "id": 266,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 757
+    },
+    {
+      "id": 267,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 783
+    },
+    {
+      "id": 268,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 740
+    },
+    {
+      "id": 269,
+      "paper_id": 85,
+      "split": "train",
+      "samples": 6,
+      "prompt_tokens": 215
+    },
+    {
+      "id": 270,
+      "paper_id": 86,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 751
+    },
+    {
+      "id": 271,
+      "paper_id": 86,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 796
+    },
+    {
+      "id": 272,
+      "paper_id": 86,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 901
+    },
+    {
+      "id": 273,
+      "paper_id": 86,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 833
+    },
+    {
+      "id": 274,
+      "paper_id": 86,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 792
+    },
+    {
+      "id": 275,
+      "paper_id": 86,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 780
+    },
+    {
+      "id": 276,
+      "paper_id": 86,
+      "split": "train",
+      "samples": 60,
+      "prompt_tokens": 1055
+    },
+    {
+      "id": 277,
+      "paper_id": 86,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 822
+    },
+    {
+      "id": 278,
+      "paper_id": 86,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 835
+    },
+    {
+      "id": 279,
+      "paper_id": 86,
+      "split": "train",
+      "samples": 0,
+      "prompt_tokens": 92
+    },
+    {
+      "id": 280,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 729
+    },
+    {
+      "id": 281,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 800
+    },
+    {
+      "id": 282,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 889
+    },
+    {
+      "id": 283,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 54,
+      "prompt_tokens": 883
+    },
+    {
+      "id": 284,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 758
+    },
+    {
+      "id": 285,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 817
+    },
+    {
+      "id": 286,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 826
+    },
+    {
+      "id": 287,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 736
+    },
+    {
+      "id": 288,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 771
+    },
+    {
+      "id": 289,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 777
+    },
+    {
+      "id": 290,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 793
+    },
+    {
+      "id": 291,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 759
+    },
+    {
+      "id": 292,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 659
+    },
+    {
+      "id": 293,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 713
+    },
+    {
+      "id": 294,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 757
+    },
+    {
+      "id": 295,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 601
+    },
+    {
+      "id": 296,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 683
+    },
+    {
+      "id": 297,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 669
+    },
+    {
+      "id": 298,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 826
+    },
+    {
+      "id": 299,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 734
+    },
+    {
+      "id": 300,
+      "paper_id": 87,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 447
+    },
+    {
+      "id": 301,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 802
+    },
+    {
+      "id": 302,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 752
+    },
+    {
+      "id": 303,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 762
+    },
+    {
+      "id": 304,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 656
+    },
+    {
+      "id": 305,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 709
+    },
+    {
+      "id": 306,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 718
+    },
+    {
+      "id": 307,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 692
+    },
+    {
+      "id": 308,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 703
+    },
+    {
+      "id": 309,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 756
+    },
+    {
+      "id": 310,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 745
+    },
+    {
+      "id": 311,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 783
+    },
+    {
+      "id": 312,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 687
+    },
+    {
+      "id": 313,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 755
+    },
+    {
+      "id": 314,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 705
+    },
+    {
+      "id": 315,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 703
+    },
+    {
+      "id": 316,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 714
+    },
+    {
+      "id": 317,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 657
+    },
+    {
+      "id": 318,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 753
+    },
+    {
+      "id": 319,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 796
+    },
+    {
+      "id": 320,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 761
+    },
+    {
+      "id": 321,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 659
+    },
+    {
+      "id": 322,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 735
+    },
+    {
+      "id": 323,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 706
+    },
+    {
+      "id": 324,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 570
+    },
+    {
+      "id": 325,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 743
+    },
+    {
+      "id": 326,
+      "paper_id": 88,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 542
+    },
+    {
+      "id": 327,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 801
+    },
+    {
+      "id": 328,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 653
+    },
+    {
+      "id": 329,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 662
+    },
+    {
+      "id": 330,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 695
+    },
+    {
+      "id": 331,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 651
+    },
+    {
+      "id": 332,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 635
+    },
+    {
+      "id": 333,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 704
+    },
+    {
+      "id": 334,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 729
+    },
+    {
+      "id": 335,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 618
+    },
+    {
+      "id": 336,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 603
+    },
+    {
+      "id": 337,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 680
+    },
+    {
+      "id": 338,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 604
+    },
+    {
+      "id": 339,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 738
+    },
+    {
+      "id": 340,
+      "paper_id": 89,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 804
+    },
+    {
+      "id": 341,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 768
+    },
+    {
+      "id": 342,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 875
+    },
+    {
+      "id": 343,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 687
+    },
+    {
+      "id": 344,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 696
+    },
+    {
+      "id": 345,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 711
+    },
+    {
+      "id": 346,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 682
+    },
+    {
+      "id": 347,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 759
+    },
+    {
+      "id": 348,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 680
+    },
+    {
+      "id": 349,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 779
+    },
+    {
+      "id": 350,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 641
+    },
+    {
+      "id": 351,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 700
+    },
+    {
+      "id": 352,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 730
+    },
+    {
+      "id": 353,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 733
+    },
+    {
+      "id": 354,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 679
+    },
+    {
+      "id": 355,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 725
+    },
+    {
+      "id": 356,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 679
+    },
+    {
+      "id": 357,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 54,
+      "prompt_tokens": 942
+    },
+    {
+      "id": 358,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 54,
+      "prompt_tokens": 996
+    },
+    {
+      "id": 359,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 72,
+      "prompt_tokens": 1206
+    },
+    {
+      "id": 360,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 84,
+      "prompt_tokens": 1445
+    },
+    {
+      "id": 361,
+      "paper_id": 90,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 644
+    },
+    {
+      "id": 362,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 730
+    },
+    {
+      "id": 363,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 707
+    },
+    {
+      "id": 364,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 778
+    },
+    {
+      "id": 365,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 754
+    },
+    {
+      "id": 366,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 607
+    },
+    {
+      "id": 367,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 647
+    },
+    {
+      "id": 368,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 714
+    },
+    {
+      "id": 369,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 629
+    },
+    {
+      "id": 370,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 677
+    },
+    {
+      "id": 371,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 751
+    },
+    {
+      "id": 372,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 502
+    },
+    {
+      "id": 373,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 724
+    },
+    {
+      "id": 374,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 756
+    },
+    {
+      "id": 375,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 528
+    },
+    {
+      "id": 376,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 826
+    },
+    {
+      "id": 377,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 730
+    },
+    {
+      "id": 378,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 743
+    },
+    {
+      "id": 379,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 784
+    },
+    {
+      "id": 380,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 762
+    },
+    {
+      "id": 381,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 719
+    },
+    {
+      "id": 382,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 639
+    },
+    {
+      "id": 383,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 661
+    },
+    {
+      "id": 384,
+      "paper_id": 91,
+      "split": "train",
+      "samples": 18,
+      "prompt_tokens": 307
+    },
+    {
+      "id": 385,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 693
+    },
+    {
+      "id": 386,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 704
+    },
+    {
+      "id": 387,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 746
+    },
+    {
+      "id": 388,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 569
+    },
+    {
+      "id": 389,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 853
+    },
+    {
+      "id": 390,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 748
+    },
+    {
+      "id": 391,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 670
+    },
+    {
+      "id": 392,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 763
+    },
+    {
+      "id": 393,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 705
+    },
+    {
+      "id": 394,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 784
+    },
+    {
+      "id": 395,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 728
+    },
+    {
+      "id": 396,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 699
+    },
+    {
+      "id": 397,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 760
+    },
+    {
+      "id": 398,
+      "paper_id": 92,
+      "split": "train",
+      "samples": 6,
+      "prompt_tokens": 249
+    },
+    {
+      "id": 399,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 642
+    },
+    {
+      "id": 400,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 720
+    },
+    {
+      "id": 401,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 632
+    },
+    {
+      "id": 402,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 731
+    },
+    {
+      "id": 403,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 740
+    },
+    {
+      "id": 404,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 436
+    },
+    {
+      "id": 405,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 671
+    },
+    {
+      "id": 406,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 694
+    },
+    {
+      "id": 407,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 555
+    },
+    {
+      "id": 408,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 623
+    },
+    {
+      "id": 409,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 493
+    },
+    {
+      "id": 410,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 566
+    },
+    {
+      "id": 411,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 610
+    },
+    {
+      "id": 412,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 652
+    },
+    {
+      "id": 413,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 786
+    },
+    {
+      "id": 414,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 698
+    },
+    {
+      "id": 415,
+      "paper_id": 93,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 526
+    },
+    {
+      "id": 416,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 528
+    },
+    {
+      "id": 417,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 914
+    },
+    {
+      "id": 418,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 580
+    },
+    {
+      "id": 419,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 469
+    },
+    {
+      "id": 420,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 573
+    },
+    {
+      "id": 421,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 556
+    },
+    {
+      "id": 422,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 682
+    },
+    {
+      "id": 423,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 711
+    },
+    {
+      "id": 424,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 418
+    },
+    {
+      "id": 425,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 579
+    },
+    {
+      "id": 426,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 646
+    },
+    {
+      "id": 427,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 663
+    },
+    {
+      "id": 428,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 782
+    },
+    {
+      "id": 429,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 757
+    },
+    {
+      "id": 430,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 724
+    },
+    {
+      "id": 431,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 675
+    },
+    {
+      "id": 432,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 690
+    },
+    {
+      "id": 433,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 722
+    },
+    {
+      "id": 434,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 756
+    },
+    {
+      "id": 435,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 781
+    },
+    {
+      "id": 436,
+      "paper_id": 94,
+      "split": "train",
+      "samples": 6,
+      "prompt_tokens": 232
+    },
+    {
+      "id": 437,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 458
+    },
+    {
+      "id": 438,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 713
+    },
+    {
+      "id": 439,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 822
+    },
+    {
+      "id": 440,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 604
+    },
+    {
+      "id": 441,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 634
+    },
+    {
+      "id": 442,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 723
+    },
+    {
+      "id": 443,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 678
+    },
+    {
+      "id": 444,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 576
+    },
+    {
+      "id": 445,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 732
+    },
+    {
+      "id": 446,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 788
+    },
+    {
+      "id": 447,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 594
+    },
+    {
+      "id": 448,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 54,
+      "prompt_tokens": 926
+    },
+    {
+      "id": 449,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 870
+    },
+    {
+      "id": 450,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 704
+    },
+    {
+      "id": 451,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 666
+    },
+    {
+      "id": 452,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 785
+    },
+    {
+      "id": 453,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 665
+    },
+    {
+      "id": 454,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 668
+    },
+    {
+      "id": 455,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 747
+    },
+    {
+      "id": 456,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 627
+    },
+    {
+      "id": 457,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 676
+    },
+    {
+      "id": 458,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 550
+    },
+    {
+      "id": 459,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 615
+    },
+    {
+      "id": 460,
+      "paper_id": 95,
+      "split": "train",
+      "samples": 18,
+      "prompt_tokens": 413
+    },
+    {
+      "id": 461,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 18,
+      "prompt_tokens": 443
+    },
+    {
+      "id": 462,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 48,
+      "prompt_tokens": 891
+    },
+    {
+      "id": 463,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 685
+    },
+    {
+      "id": 464,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 756
+    },
+    {
+      "id": 465,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 480
+    },
+    {
+      "id": 466,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 725
+    },
+    {
+      "id": 467,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 535
+    },
+    {
+      "id": 468,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 582
+    },
+    {
+      "id": 469,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 627
+    },
+    {
+      "id": 470,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 655
+    },
+    {
+      "id": 471,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 800
+    },
+    {
+      "id": 472,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 765
+    },
+    {
+      "id": 473,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 633
+    },
+    {
+      "id": 474,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 724
+    },
+    {
+      "id": 475,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 690
+    },
+    {
+      "id": 476,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 643
+    },
+    {
+      "id": 477,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 12,
+      "prompt_tokens": 281
+    },
+    {
+      "id": 478,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 489
+    },
+    {
+      "id": 479,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 42,
+      "prompt_tokens": 836
+    },
+    {
+      "id": 480,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 645
+    },
+    {
+      "id": 481,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 36,
+      "prompt_tokens": 640
+    },
+    {
+      "id": 482,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 30,
+      "prompt_tokens": 534
+    },
+    {
+      "id": 483,
+      "paper_id": 96,
+      "split": "train",
+      "samples": 24,
+      "prompt_tokens": 559
+    },
+    {
+      "id": 484,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 870
+    },
+    {
+      "id": 485,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 54,
+      "prompt_tokens": 976
+    },
+    {
+      "id": 486,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 905
+    },
+    {
+      "id": 487,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 60,
+      "prompt_tokens": 1000
+    },
+    {
+      "id": 488,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 878
+    },
+    {
+      "id": 489,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 889
+    },
+    {
+      "id": 490,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 54,
+      "prompt_tokens": 921
+    },
+    {
+      "id": 491,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 836
+    },
+    {
+      "id": 492,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 852
+    },
+    {
+      "id": 493,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 771
+    },
+    {
+      "id": 494,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 792
+    },
+    {
+      "id": 495,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 869
+    },
+    {
+      "id": 496,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 861
+    },
+    {
+      "id": 497,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 893
+    },
+    {
+      "id": 498,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 861
+    },
+    {
+      "id": 499,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 910
+    },
+    {
+      "id": 500,
+      "paper_id": 61,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 699
+    },
+    {
+      "id": 501,
+      "paper_id": 62,
+      "split": "val",
+      "samples": 36,
+      "prompt_tokens": 711
+    },
+    {
+      "id": 502,
+      "paper_id": 62,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 745
+    },
+    {
+      "id": 503,
+      "paper_id": 62,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 826
+    },
+    {
+      "id": 504,
+      "paper_id": 62,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 815
+    },
+    {
+      "id": 505,
+      "paper_id": 62,
+      "split": "val",
+      "samples": 30,
+      "prompt_tokens": 531
+    },
+    {
+      "id": 506,
+      "paper_id": 62,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 828
+    },
+    {
+      "id": 507,
+      "paper_id": 62,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 819
+    },
+    {
+      "id": 508,
+      "paper_id": 62,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 840
+    },
+    {
+      "id": 509,
+      "paper_id": 62,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 812
+    },
+    {
+      "id": 510,
+      "paper_id": 62,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 794
+    },
+    {
+      "id": 511,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 36,
+      "prompt_tokens": 653
+    },
+    {
+      "id": 512,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 774
+    },
+    {
+      "id": 513,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 736
+    },
+    {
+      "id": 514,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 800
+    },
+    {
+      "id": 515,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 837
+    },
+    {
+      "id": 516,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 739
+    },
+    {
+      "id": 517,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 36,
+      "prompt_tokens": 677
+    },
+    {
+      "id": 518,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 36,
+      "prompt_tokens": 708
+    },
+    {
+      "id": 519,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 36,
+      "prompt_tokens": 670
+    },
+    {
+      "id": 520,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 691
+    },
+    {
+      "id": 521,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 36,
+      "prompt_tokens": 736
+    },
+    {
+      "id": 522,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 48,
+      "prompt_tokens": 790
+    },
+    {
+      "id": 523,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 36,
+      "prompt_tokens": 712
+    },
+    {
+      "id": 524,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 705
+    },
+    {
+      "id": 525,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 30,
+      "prompt_tokens": 616
+    },
+    {
+      "id": 526,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 720
+    },
+    {
+      "id": 527,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 746
+    },
+    {
+      "id": 528,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 811
+    },
+    {
+      "id": 529,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 42,
+      "prompt_tokens": 766
+    },
+    {
+      "id": 530,
+      "paper_id": 63,
+      "split": "val",
+      "samples": 12,
+      "prompt_tokens": 277
+    },
+    {
+      "id": 531,
+      "paper_id": 64,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 756
+    },
+    {
+      "id": 532,
+      "paper_id": 64,
+      "split": "test",
+      "samples": 24,
+      "prompt_tokens": 442
+    },
+    {
+      "id": 533,
+      "paper_id": 64,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 746
+    },
+    {
+      "id": 534,
+      "paper_id": 64,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 795
+    },
+    {
+      "id": 535,
+      "paper_id": 64,
+      "split": "test",
+      "samples": 48,
+      "prompt_tokens": 822
+    },
+    {
+      "id": 536,
+      "paper_id": 64,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 775
+    },
+    {
+      "id": 537,
+      "paper_id": 64,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 739
+    },
+    {
+      "id": 538,
+      "paper_id": 64,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 849
+    },
+    {
+      "id": 539,
+      "paper_id": 64,
+      "split": "test",
+      "samples": 18,
+      "prompt_tokens": 384
+    },
+    {
+      "id": 540,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 754
+    },
+    {
+      "id": 541,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 48,
+      "prompt_tokens": 822
+    },
+    {
+      "id": 542,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 48,
+      "prompt_tokens": 857
+    },
+    {
+      "id": 543,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 48,
+      "prompt_tokens": 824
+    },
+    {
+      "id": 544,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 825
+    },
+    {
+      "id": 545,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 765
+    },
+    {
+      "id": 546,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 749
+    },
+    {
+      "id": 547,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 48,
+      "prompt_tokens": 788
+    },
+    {
+      "id": 548,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 842
+    },
+    {
+      "id": 549,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 717
+    },
+    {
+      "id": 550,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 614
+    },
+    {
+      "id": 551,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 669
+    },
+    {
+      "id": 552,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 749
+    },
+    {
+      "id": 553,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 30,
+      "prompt_tokens": 558
+    },
+    {
+      "id": 554,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 24,
+      "prompt_tokens": 475
+    },
+    {
+      "id": 555,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 712
+    },
+    {
+      "id": 556,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 30,
+      "prompt_tokens": 522
+    },
+    {
+      "id": 557,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 24,
+      "prompt_tokens": 477
+    },
+    {
+      "id": 558,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 674
+    },
+    {
+      "id": 559,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 698
+    },
+    {
+      "id": 560,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 674
+    },
+    {
+      "id": 561,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 709
+    },
+    {
+      "id": 562,
+      "paper_id": 65,
+      "split": "test",
+      "samples": 18,
+      "prompt_tokens": 411
+    },
+    {
+      "id": 563,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 756
+    },
+    {
+      "id": 564,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 48,
+      "prompt_tokens": 804
+    },
+    {
+      "id": 565,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 787
+    },
+    {
+      "id": 566,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 724
+    },
+    {
+      "id": 567,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 48,
+      "prompt_tokens": 886
+    },
+    {
+      "id": 568,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 24,
+      "prompt_tokens": 496
+    },
+    {
+      "id": 569,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 690
+    },
+    {
+      "id": 570,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 727
+    },
+    {
+      "id": 571,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 769
+    },
+    {
+      "id": 572,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 48,
+      "prompt_tokens": 871
+    },
+    {
+      "id": 573,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 48,
+      "prompt_tokens": 862
+    },
+    {
+      "id": 574,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 741
+    },
+    {
+      "id": 575,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 42,
+      "prompt_tokens": 805
+    },
+    {
+      "id": 576,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 48,
+      "prompt_tokens": 795
+    },
+    {
+      "id": 577,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 36,
+      "prompt_tokens": 667
+    },
+    {
+      "id": 578,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 48,
+      "prompt_tokens": 859
+    },
+    {
+      "id": 579,
+      "paper_id": 66,
+      "split": "test",
+      "samples": 0,
+      "prompt_tokens": 52
+    }
+  ],
+  "exclusions": "first 1 sampled windows per independent prompt; non-6-token windows",
+  "stride": 16,
+  "grouping": "paper_id if present, otherwise chunk id"
+}

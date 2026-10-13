@@ -1,0 +1,37 @@
+{
+  "metric": "uncached recall@10",
+  "groups": [
+    64,
+    65,
+    66
+  ],
+  "counts": {
+    "next": {
+      "64": {
+        "before": 84056,
+        "after": 88764,
+        "targets": 120605
+      },
+      "65": {
+        "before": 211694,
+        "after": 223266,
+        "targets": 298567
+      },
+      "66": {
+        "before": 164944,
+        "after": 174536,
+        "targets": 235610
+      }
+    }
+  },
+  "paired_bootstrap": {
+    "next": {
+      "delta": 0.039512387328912525,
+      "ci95": [
+        0.03875846962323365,
+        0.040711345019311576
+      ],
+      "note": "resampling 3 held-out groups; grouping defined by dataset/group.npy"
+    }
+  }
+}

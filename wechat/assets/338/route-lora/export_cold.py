@@ -1,9 +1,10 @@
-import pathlib,json,csv,hashlib,shutil,torch,matplotlib
+import pathlib,json,csv,hashlib,shutil,torch,matplotlib,argparse
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-root=pathlib.Path('/home/lmxxf/work/strata-route-study');dst=pathlib.Path(__file__).resolve().parent
+parser=argparse.ArgumentParser();parser.add_argument('--study',default='/home/lmxxf/work/strata-route-study');parser.add_argument('--destination',default=str(pathlib.Path(__file__).resolve().parent));args=parser.parse_args()
+root=pathlib.Path(args.study);dst=pathlib.Path(args.destination);dst.mkdir(parents=True,exist_ok=True);(dst/'weights').mkdir(exist_ok=True)
 run=root/'trained-cold';report=json.loads((run/'report.json').read_text());assert len(report['layers'])==47
-out=root/'weights';manifest={'base':'next','objective':'uncached','rank':16,'dtype':'bfloat16','endianness':'little','disabled_layers':'use original router, no delta','layers':[]}
+out=root/'weights';out.mkdir(exist_ok=True);manifest={'base':'next','objective':'uncached','rank':16,'dtype':'bfloat16','endianness':'little','disabled_layers':'use original router, no delta','layers':[]}
 p=out/'lora-next-uncached-r16.bf16.bin'
 with p.open('wb') as f:
  for row in report['layers']:
@@ -27,6 +28,6 @@ with (dst/'cold-per-layer.csv').open('w',newline='') as f:
 fig,ax=plt.subplots(figsize=(11,4),layout='constrained')
 for phase,label,color in [('before_test','Original next router','#64748b'),('after_test_bf16','Uncached objective + validation selection','#dc5800')]:
  ax.plot(range(47),[x['variants']['next'][phase]['10']['cold_recall']*100 for x in report['layers']],label=label,color=color)
-ax.set(xlabel='Source layer (predicting layer + 1)',ylabel='Uncached recall@10 (%)',title='Fixed held-out chunks and cache masks; rank 16',ylim=(0,100));ax.grid(alpha=.2);ax.legend(frameon=False)
+ax.set(xlabel='Source layer (predicting layer + 1)',ylabel='Uncached recall@10 (%)',title='Fixed held-out data and cache masks; rank 16',ylim=(0,100));ax.grid(alpha=.2);ax.legend(frameon=False)
 fig.savefig(dst/'cold-per-layer.svg');plt.close(fig)
 print(json.dumps({k:v for k,v in manifest.items() if k!='layers'}))

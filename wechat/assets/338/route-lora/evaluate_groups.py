@@ -23,7 +23,7 @@ res={'metric':'uncached recall@10' if a.uncached else 'overall recall@10','group
 for kind,cc in counts.items():
  rows=np.array([[v['before'],v['after'],v['targets']] for v in cc.values()]);rng=np.random.default_rng(338)
  totals=rows[rng.integers(0,len(rows),(10000,len(rows)))].sum(1);deltas=(totals[:,1]-totals[:,0])/totals[:,2]
- res['paired_bootstrap'][kind]={'delta':float((rows[:,1].sum()-rows[:,0].sum())/rows[:,2].sum()),'ci95':np.quantile(deltas,[.025,.975]).tolist(),'note':'resampling only four held-out text chunks, not independent documents'}
+ res['paired_bootstrap'][kind]={'delta':float((rows[:,1].sum()-rows[:,0].sum())/rows[:,2].sum()),'ci95':np.quantile(deltas,[.025,.975]).tolist(),'note':f'resampling {len(gids)} held-out groups; grouping defined by dataset/group.npy'}
  for phase,col in [('before_test',0),('after_test_bf16',1)]:
   assert int(rows[:,col].sum())==r['aggregate'][kind][phase]['10']['cold_hits' if a.uncached else 'hits']
 (out/'groups.json').write_text(json.dumps(res,indent=2));print(json.dumps(res),flush=True)

@@ -1,0 +1,241 @@
+{
+  "arms": {
+    "A": {
+      "requests": 12,
+      "input_tokens": 15657,
+      "output_tokens": 1536,
+      "prefill_ms": 140576.0,
+      "decode_ms": 26712.9,
+      "prefill_tps": 111.37747552925109,
+      "decode_tps": 57.500308839549426,
+      "total_seconds": 167.60899999999674
+    },
+    "B": {
+      "requests": 12,
+      "input_tokens": 15657,
+      "output_tokens": 1536,
+      "prefill_ms": 146875.6,
+      "decode_ms": 27889.8,
+      "prefill_tps": 106.60041558979162,
+      "decode_tps": 55.07389798420928,
+      "total_seconds": 175.09299999999348
+    },
+    "C": {
+      "requests": 12,
+      "input_tokens": 15657,
+      "output_tokens": 1536,
+      "prefill_ms": 147369.1,
+      "decode_ms": 27879.1,
+      "prefill_tps": 106.24343909272703,
+      "decode_tps": 55.095035349060765,
+      "total_seconds": 175.53100000001723
+    },
+    "D": {
+      "requests": 12,
+      "input_tokens": 15657,
+      "output_tokens": 1536,
+      "prefill_ms": 146869.3,
+      "decode_ms": 27722.2,
+      "prefill_tps": 106.60498824465019,
+      "decode_tps": 55.40685804156957,
+      "total_seconds": 174.8729999999632
+    }
+  },
+  "rounds": [
+    {
+      "A": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 46057.1,
+        "decode_ms": 8744.3,
+        "prefill_tps": 113.31586226662122,
+        "decode_tps": 58.552428439097476,
+        "total_seconds": 54.90600000001723
+      },
+      "B": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 48193.5,
+        "decode_ms": 9107.4,
+        "prefill_tps": 108.29261207424237,
+        "decode_tps": 56.21802051079342,
+        "total_seconds": 57.40700000000652
+      },
+      "C": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 47983.6,
+        "decode_ms": 9095.7,
+        "prefill_tps": 108.76632849556933,
+        "decode_tps": 56.290334993458444,
+        "total_seconds": 57.17099999997299
+      },
+      "D": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 48203.8,
+        "decode_ms": 9035.3,
+        "prefill_tps": 108.26947253121122,
+        "decode_tps": 56.66662977432958,
+        "total_seconds": 57.35899999999674
+      }
+    },
+    {
+      "A": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 46339.1,
+        "decode_ms": 8803.4,
+        "prefill_tps": 112.6262702555725,
+        "decode_tps": 58.15934752481996,
+        "total_seconds": 55.26600000000326
+      },
+      "B": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 48222.5,
+        "decode_ms": 9129.8,
+        "prefill_tps": 108.22748716885272,
+        "decode_tps": 56.08008937764245,
+        "total_seconds": 57.46799999999348
+      },
+      "C": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 48433.1,
+        "decode_ms": 9109.9,
+        "prefill_tps": 107.7568852706104,
+        "decode_tps": 56.2025927836749,
+        "total_seconds": 57.64100000000326
+      },
+      "D": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 48806.5,
+        "decode_ms": 9162.1,
+        "prefill_tps": 106.93247825597,
+        "decode_tps": 55.88238504273038,
+        "total_seconds": 58.04599999997299
+      }
+    },
+    {
+      "A": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 48179.8,
+        "decode_ms": 9165.2,
+        "prefill_tps": 108.32340524452155,
+        "decode_tps": 55.86348361192336,
+        "total_seconds": 57.43699999997625
+      },
+      "B": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 50459.600000000006,
+        "decode_ms": 9652.6,
+        "prefill_tps": 103.42927807592608,
+        "decode_tps": 53.04270352029505,
+        "total_seconds": 60.21799999999348
+      },
+      "C": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 50952.4,
+        "decode_ms": 9673.5,
+        "prefill_tps": 102.42893367142666,
+        "decode_tps": 52.92810254819869,
+        "total_seconds": 60.71900000004098
+      },
+      "D": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 49859.0,
+        "decode_ms": 9524.8,
+        "prefill_tps": 104.6751840189334,
+        "decode_tps": 53.754409541407696,
+        "total_seconds": 59.46799999999348
+      }
+    }
+  ],
+  "completion_lengths": [
+    128
+  ],
+  "lora_throughput_delta_percent": {
+    "prefill_tps": -0.3348734571901435,
+    "decode_tps": 0.0383800050934191
+  },
+  "lora_round_delta_percent": [
+    {
+      "prefill_tps": 0.43744112571797444,
+      "decode_tps": 0.12863221082488607
+    },
+    {
+      "prefill_tps": -0.43482659586109307,
+      "decode_tps": 0.21844367117092034
+    },
+    {
+      "prefill_tps": -0.9671772085318775,
+      "decode_tps": -0.21605416860495108
+    }
+  ],
+  "output_hashes_per_case": {
+    "0": {
+      "A": 1,
+      "B": 3,
+      "C": 3,
+      "D": 3
+    },
+    "24": {
+      "A": 1,
+      "B": 3,
+      "C": 3,
+      "D": 3
+    },
+    "4": {
+      "A": 1,
+      "B": 3,
+      "C": 3,
+      "D": 3
+    },
+    "23": {
+      "A": 1,
+      "B": 3,
+      "C": 3,
+      "D": 2
+    }
+  },
+  "new_vs_old_percent": {
+    "prefill_tps": 0.3403025683379912,
+    "decode_tps": 0.5659723975730557
+  },
+  "new_vs_router_percent": {
+    "prefill_tps": 0.004289528172352064,
+    "decode_tps": 0.6045696229014963
+  },
+  "new_vs_old_round_percent": [
+    {
+      "prefill_tps": -0.4568104589264932,
+      "decode_tps": 0.6684891481190558
+    },
+    {
+      "prefill_tps": -0.7650620306721589,
+      "decode_tps": -0.5697383787559684
+    },
+    {
+      "prefill_tps": 2.192984215487681,
+      "decode_tps": 1.5611876364858057
+    }
+  ]
+}
