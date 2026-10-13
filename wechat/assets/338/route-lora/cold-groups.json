@@ -1,0 +1,43 @@
+{
+  "metric": "uncached recall@10",
+  "groups": [
+    0,
+    4,
+    23,
+    24
+  ],
+  "counts": {
+    "next": {
+      "0": {
+        "before": 51913,
+        "after": 49258,
+        "targets": 83569
+      },
+      "4": {
+        "before": 70097,
+        "after": 72664,
+        "targets": 95709
+      },
+      "23": {
+        "before": 67238,
+        "after": 70904,
+        "targets": 91971
+      },
+      "24": {
+        "before": 67876,
+        "after": 71717,
+        "targets": 92819
+      }
+    }
+  },
+  "paired_bootstrap": {
+    "next": {
+      "delta": 0.020378061241306568,
+      "ci95": [
+        -0.012545304921821652,
+        0.04062449266735213
+      ],
+      "note": "resampling only four held-out text chunks, not independent documents"
+    }
+  }
+}

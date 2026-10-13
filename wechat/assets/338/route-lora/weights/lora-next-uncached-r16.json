@@ -1,0 +1,473 @@
+{
+  "base": "next",
+  "objective": "uncached",
+  "rank": 16,
+  "dtype": "bfloat16",
+  "endianness": "little",
+  "disabled_layers": "use original router, no delta",
+  "layers": [
+    {
+      "layer": 0,
+      "enabled": true,
+      "A": {
+        "offset": 0,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 81920,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 1,
+      "enabled": true,
+      "A": {
+        "offset": 98304,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 180224,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 2,
+      "enabled": true,
+      "A": {
+        "offset": 196608,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 278528,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 3,
+      "enabled": false
+    },
+    {
+      "layer": 4,
+      "enabled": true,
+      "A": {
+        "offset": 294912,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 376832,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 5,
+      "enabled": false
+    },
+    {
+      "layer": 6,
+      "enabled": false
+    },
+    {
+      "layer": 7,
+      "enabled": false
+    },
+    {
+      "layer": 8,
+      "enabled": false
+    },
+    {
+      "layer": 9,
+      "enabled": true,
+      "A": {
+        "offset": 393216,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 475136,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 10,
+      "enabled": false
+    },
+    {
+      "layer": 11,
+      "enabled": true,
+      "A": {
+        "offset": 491520,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 573440,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 12,
+      "enabled": false
+    },
+    {
+      "layer": 13,
+      "enabled": false
+    },
+    {
+      "layer": 14,
+      "enabled": false
+    },
+    {
+      "layer": 15,
+      "enabled": false
+    },
+    {
+      "layer": 16,
+      "enabled": false
+    },
+    {
+      "layer": 17,
+      "enabled": true,
+      "A": {
+        "offset": 589824,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 671744,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 18,
+      "enabled": false
+    },
+    {
+      "layer": 19,
+      "enabled": false
+    },
+    {
+      "layer": 20,
+      "enabled": true,
+      "A": {
+        "offset": 688128,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 770048,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 21,
+      "enabled": false
+    },
+    {
+      "layer": 22,
+      "enabled": true,
+      "A": {
+        "offset": 786432,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 868352,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 23,
+      "enabled": true,
+      "A": {
+        "offset": 884736,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 966656,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 24,
+      "enabled": false
+    },
+    {
+      "layer": 25,
+      "enabled": false
+    },
+    {
+      "layer": 26,
+      "enabled": false
+    },
+    {
+      "layer": 27,
+      "enabled": true,
+      "A": {
+        "offset": 983040,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 1064960,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 28,
+      "enabled": false
+    },
+    {
+      "layer": 29,
+      "enabled": false
+    },
+    {
+      "layer": 30,
+      "enabled": false
+    },
+    {
+      "layer": 31,
+      "enabled": false
+    },
+    {
+      "layer": 32,
+      "enabled": false
+    },
+    {
+      "layer": 33,
+      "enabled": true,
+      "A": {
+        "offset": 1081344,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 1163264,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 34,
+      "enabled": false
+    },
+    {
+      "layer": 35,
+      "enabled": false
+    },
+    {
+      "layer": 36,
+      "enabled": true,
+      "A": {
+        "offset": 1179648,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 1261568,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 37,
+      "enabled": false
+    },
+    {
+      "layer": 38,
+      "enabled": true,
+      "A": {
+        "offset": 1277952,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 1359872,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 39,
+      "enabled": false
+    },
+    {
+      "layer": 40,
+      "enabled": false
+    },
+    {
+      "layer": 41,
+      "enabled": true,
+      "A": {
+        "offset": 1376256,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 1458176,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 42,
+      "enabled": false
+    },
+    {
+      "layer": 43,
+      "enabled": false
+    },
+    {
+      "layer": 44,
+      "enabled": true,
+      "A": {
+        "offset": 1474560,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 1556480,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    },
+    {
+      "layer": 45,
+      "enabled": false
+    },
+    {
+      "layer": 46,
+      "enabled": true,
+      "A": {
+        "offset": 1572864,
+        "bytes": 81920,
+        "shape": [
+          2560,
+          16
+        ]
+      },
+      "B": {
+        "offset": 1654784,
+        "bytes": 16384,
+        "shape": [
+          16,
+          512
+        ]
+      }
+    }
+  ],
+  "bytes": 1671168,
+  "sha256": "5e36d6565bd777f02af8e3e2987629603c23881ef58b36d95f1b3977db4d5479",
+  "active_layers": 17
+}
