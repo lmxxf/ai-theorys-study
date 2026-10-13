@@ -1,0 +1,70 @@
+[strata] 2026-10-13 11:55:52 engine started: C:\Strata-Lab\speed-engine\strata.exe --serve --pack C:\Strata-Lab\Strata-data\packs\q2_0 --native C:\Strata-Lab\Strata-data\models\Q2_0\Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf --ple-gguf C:\Strata-Lab\Strata-data\models\Q2_0\Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf --expert-profile C:\Strata-Lab\Strata\data\expert-profile.bin --expert-cache 3437 --prefill 128 --spec 4 --spec-min-p 0.5 --max-context 65536 --pool-workers 15 --kv int8 --vram-reserve-mib 4096 --short-read 65536 --prompt-cache 0 --suffix-draft 0 --lookup-chain 0 --adapt-every 0 --adapt-swaps 0 --pcie-frac 0.3
+strata: gfx12 (RDNA4): 5 exact speed switches on by default (STRATA_GFX12_DEFAULTS=0 turns them off; a switch you set is kept): GDN_HEAD GDN_PP GDN_CONVL2 GDN_NOY CVEC_FUSE
+strata generate: memory guard: limit 47.5 GiB (source: meminfo), current 12.0 GiB, reclaimable cache credited 0.0 GiB; available 35.5 GiB (MemAvailable 35.5 GiB), floor 2560 MiB
+strata generate: this CPU has no AVX-512: the expert kernels run on AVX-2 (multi-token for the i-quant gate/up rows)
+strata generate: native pack: C:\Strata-Lab\Strata-data\packs\q2_0 experts (largest blob 1.38 MB), token embedding Q3_K in mapped host memory (260 MiB, 0.3 s)
+strata generate: 1416 MiB of weights loaded from C:\Strata-Lab\Strata-data\packs\q2_0 in 0.4 s (303 canonical tensors skipped: served natively)
+strata generate: 301 native projection matrices, 1376.20 MiB of weights, in 1.4 s
+strata generate: PLE direct read probe: 86517 rows/s (fine)
+strata generate: the SSD is kept awake while rows are read: one page of the table after 100 ms without a read, until 60 s after the last request (STRATA_SSD_KEEPALIVE=0 turns it off)
+strata generate: profile C:\Strata-Lab\Strata\data\expert-profile.bin: 24576 ranked pairs, built for 24576 slots
+strata generate: PLE on, table 320001536 rows of C:\Strata-Lab\Strata-data\models\Q2_0\Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf
+strata generate: experimental native Q5_K head, 437043200 bytes, in 0.4 s
+strata generate: GPU 0: AMD Radeon RX 9070 XT (gfx1201)
+strata generate: hint: STRATA_HIP_WMMA=1 reads prompts about 30% faster on this card with --kv int8 (prompt attention on the matrix cores); it is off by default because the output bits change (last-place rounding). Nothing was enabled.
+strata generate: HIP runtime C:\Strata-Lab\speed-engine\amdhip64_7.dll
+strata generate: expert arena read unbuffered (0 of 16 probe reads from the file cache; 3.2 GiB available, 35.0 GiB of files)
+strata generate: expert arena: locked 1351 MiB via working-set minimum + VirtualLock; cudaHostRegister of the whole arena FAILED (invalid argument); 46 slices pinned (30 GiB); large pages refused for 33975959552 B (GetLargePageMinimum=2097152, VirtualAlloc error 1314); using 4 KB pages
+strata generate: loaded 31.64 GiB at 4.46 GiB/s
+strata generate: CPU pool tasks/phase: 48 (automatic), participating threads: 16
+strata generate: 15 pool workers on logical processors 1,10,11,12,13,22,23,2,3,4,5,6,7,8,9, the host thread on 0 (draining too) (--host-core first)
+strata aux cpus: not available on this system
+strata: Windows budgets 14953 of this card's 16304 MiB for this process; free VRAM is counted within that (STRATA_WDDM_BUDGET=0: off)
+strata generate: expert cache 3437 slots, 4.43 GiB of VRAM; policy is
+strata generate: the GPU computes the experts in the cache; it rounds differently from the CPU,
+                 so a reply can differ slightly from a run without the cache (same quality:
+                 bench/results/2026-09-27-cache-parity).
+                 PROFILE, ranked by routing frequency, no eviction.
+strata generate: pre-filled 3437 of 3437 slots from the profile in 0.5 s (8842 MB/s); slot 0 verified
+strata generate: routing-aware prefetch on (the next layer's router, feeding the Foresight swap space)
+strata generate: R4 hit path ON - resident experts are computed on the GPU
+strata generate: 15 expert-pool workers + the host thread
+strata generate: session is up (engine 0.1.43)
+strata generate: token graph hit path: 3437 resident experts, decided on the device
+strata serve: Windows commit: 0.4 GiB left of a 61.8 GiB limit (RAM + page file)
+strata serve: WARNING the Windows commit limit is 61.8 GiB (RAM + page file) and 0.4 GiB of it is left, but this run plans 2.0 GiB of host allocations and keeps 4.0 GiB free: it can end at the limit with no message (exit code 0xC0000409, #1607) while RAM is still free. Raise the page file (System managed, or RAM-sized) or lower --conversation-cache-mib / --max-context / --prefill
+strata: the CPU prefill share is not armed by default: only 3.1 GiB of RAM is free (the share needs 0.30 GiB and 3.0 GiB left over). STRATA_PREFILL_CPU_SHARE=auto turns it on anyway
+strata serve: the prompt path allocates its own buffers (too few cache slots to borrow)
+prefill gemm: hipBLASLt tuning enabled (32 rows, gfx1201, version 100500)
+strata hc: CUDA0: the hyper-connection read runs as staged (the norm per token and stream, the down projection's activations staged ahead by cp.async); checked bit for bit against the plain read on this card (STRATA_HC_SPLIT=1 or 0 for the earlier ones)
+strata verify: window up to 4 tokens, 43.8 MiB of device buffers
+strata serve: foresight swap: 16 slots per layer on 1 card(s), up to 32 copies per card and window, admit after 1 miss(es), reuse after 4 windows
+strata serve: 2874 MiB of VRAM free with everything loaded
+strata verify: capturing the 4-token window (2878 MiB of VRAM free)
+strata verify: captured the 4-token window (upload no error, sync no error)
+strata verify: capturing the 1-token window (2810 MiB of VRAM free)
+strata verify: captured the 1-token window (upload no error, sync no error)
+strata serve: foresight swap: 872 experts served from the swap space, 1280 copies (531 from the router look-ahead), 172 not landed yet, 2686 no free slot, 28058 over budget
+strata lookahead totals: predicted_experts=16534 skipped=719 busy_ms=497.713 LoRA active=0 calls=0 us=0
+strata serve: prompt 30 tokens = 0 reused + 30 read in 422 ms (71.0 tok/s), 32 generated in 607 ms (52.7 tok/s), drafts accepted 0 of 0, 0 checkpoints
+strata serve: decode expert cache hit rate: 40.3% (5371 hits / 13324 lookups); 2036 more read by the GPU over PCIe or from another GPU (13.3% of all 15360 routed)
+strata verify: capturing the 2-token window (2807 MiB of VRAM free)
+strata verify: captured the 2-token window (upload no error, sync no error)
+strata serve: foresight swap: 29047 experts served from the swap space, 12960 copies (8402 from the router look-ahead), 3851 not landed yet, 119305 no free slot, 527493 over budget
+strata lookahead totals: predicted_experts=368776 skipped=3602 busy_ms=7460.126 LoRA active=0 calls=0 us=0
+strata serve: prompt 947 tokens = 0 reused + 947 read in 9549 ms (99.2 tok/s), 128 generated in 2422 ms (52.8 tok/s), drafts accepted 0 of 0, 0 checkpoints
+strata serve: decode expert cache hit rate: 33.4% (17710 hits / 53075 lookups); 8365 more read by the GPU over PCIe or from another GPU (13.6% of all 61440 routed)
+strata serve: foresight swap: 63452 experts served from the swap space, 27008 copies (17866 from the router look-ahead), 9019 not landed yet, 252856 no free slot, 1094777 over budget
+strata lookahead totals: predicted_experts=784925 skipped=7007 busy_ms=15753.036 LoRA active=0 calls=0 us=0
+strata serve: prompt 1245 tokens = 0 reused + 1245 read in 11475 ms (108.5 tok/s), 128 generated in 2393 ms (53.5 tok/s), drafts accepted 0 of 0, 0 checkpoints
+strata serve: decode expert cache hit rate: 36.2% (19359 hits / 53476 lookups); 7964 more read by the GPU over PCIe or from another GPU (13.0% of all 61440 routed)
+strata verify: capturing the 3-token window (2849 MiB of VRAM free)
+strata verify: captured the 3-token window (upload no error, sync no error)
+strata serve: foresight swap: 105747 experts served from the swap space, 43008 copies (29421 from the router look-ahead), 15296 not landed yet, 409625 no free slot, 1770624 over budget
+strata lookahead totals: predicted_experts=1279992 skipped=10372 busy_ms=25516.479 LoRA active=0 calls=0 us=0
+strata serve: prompt 1488 tokens = 0 reused + 1488 read in 13999 ms (106.3 tok/s), 128 generated in 2321 ms (55.1 tok/s), drafts accepted 0 of 0, 0 checkpoints
+strata serve: decode expert cache hit rate: 40.0% (21674 hits / 54139 lookups); 7301 more read by the GPU over PCIe or from another GPU (11.9% of all 61440 routed)
+strata serve: foresight swap: 148160 experts served from the swap space, 59424 copies (40952 from the router look-ahead), 21345 not landed yet, 567555 no free slot, 2474037 over budget
+strata lookahead totals: predicted_experts=1792967 skipped=13800 busy_ms=35551.271 LoRA active=0 calls=0 us=0
+strata serve: prompt 1539 tokens = 0 reused + 1539 read in 14422 ms (106.7 tok/s), 128 generated in 2382 ms (53.7 tok/s), drafts accepted 0 of 0, 0 checkpoints
+strata serve: decode expert cache hit rate: 40.5% (21939 hits / 54208 lookups); 7232 more read by the GPU over PCIe or from another GPU (11.8% of all 61440 routed)

@@ -1,0 +1,56 @@
+[
+  {
+    "file": "run-01-A-engine.log",
+    "arm": "A",
+    "lookahead": null,
+    "foresight": null
+  },
+  {
+    "file": "run-02-B-engine.log",
+    "arm": "B",
+    "lookahead": "strata lookahead totals: predicted_experts=1792473 skipped=13823 busy_ms=35529.134 LoRA active=0 calls=0 us=0",
+    "foresight": "strata serve: foresight swap: 149054 experts served from the swap space, 59424 copies (40851 from the router look-ahead), 21333 not landed yet, 566552 no free slot, 2474089 over budget"
+  },
+  {
+    "file": "run-03-C-engine.log",
+    "arm": "C",
+    "lookahead": "strata lookahead totals: predicted_experts=1798986 skipped=14167 busy_ms=35763.937 LoRA active=17 calls=26936 us=460098",
+    "foresight": "strata serve: foresight swap: 159166 experts served from the swap space, 59424 copies (39779 from the router look-ahead), 22107 not landed yet, 571962 no free slot, 2451606 over budget"
+  },
+  {
+    "file": "run-04-B-engine.log",
+    "arm": "B",
+    "lookahead": "strata lookahead totals: predicted_experts=1792967 skipped=13800 busy_ms=35551.271 LoRA active=0 calls=0 us=0",
+    "foresight": "strata serve: foresight swap: 148160 experts served from the swap space, 59424 copies (40952 from the router look-ahead), 21345 not landed yet, 567555 no free slot, 2474037 over budget"
+  },
+  {
+    "file": "run-05-C-engine.log",
+    "arm": "C",
+    "lookahead": "strata lookahead totals: predicted_experts=1796197 skipped=14274 busy_ms=35788.523 LoRA active=17 calls=26825 us=459491",
+    "foresight": "strata serve: foresight swap: 156917 experts served from the swap space, 59424 copies (39426 from the router look-ahead), 22055 not landed yet, 571767 no free slot, 2453256 over budget"
+  },
+  {
+    "file": "run-06-A-engine.log",
+    "arm": "A",
+    "lookahead": null,
+    "foresight": null
+  },
+  {
+    "file": "run-07-C-engine.log",
+    "arm": "C",
+    "lookahead": "strata lookahead totals: predicted_experts=1799963 skipped=14157 busy_ms=35612.127 LoRA active=17 calls=26896 us=460917",
+    "foresight": "strata serve: foresight swap: 157335 experts served from the swap space, 59424 copies (39403 from the router look-ahead), 22101 not landed yet, 573385 no free slot, 2457911 over budget"
+  },
+  {
+    "file": "run-08-A-engine.log",
+    "arm": "A",
+    "lookahead": null,
+    "foresight": null
+  },
+  {
+    "file": "run-09-B-engine.log",
+    "arm": "B",
+    "lookahead": "strata lookahead totals: predicted_experts=1794818 skipped=13782 busy_ms=35561.815 LoRA active=0 calls=0 us=0",
+    "foresight": "strata serve: foresight swap: 149986 experts served from the swap space, 59424 copies (40907 from the router look-ahead), 21195 not landed yet, 567443 no free slot, 2471927 over budget"
+  }
+]

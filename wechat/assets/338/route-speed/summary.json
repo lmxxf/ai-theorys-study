@@ -1,0 +1,175 @@
+{
+  "arms": {
+    "A": {
+      "requests": 12,
+      "input_tokens": 15657,
+      "output_tokens": 1536,
+      "prefill_ms": 143254.6,
+      "decode_ms": 27283.5,
+      "prefill_tps": 109.29491967448165,
+      "decode_tps": 56.29776238385838,
+      "total_seconds": 170.7829999999376
+    },
+    "B": {
+      "requests": 12,
+      "input_tokens": 15657,
+      "output_tokens": 1536,
+      "prefill_ms": 148549.0,
+      "decode_ms": 28743.0,
+      "prefill_tps": 105.39956512665854,
+      "decode_tps": 53.43909821521762,
+      "total_seconds": 177.57800000003772
+    },
+    "C": {
+      "requests": 12,
+      "input_tokens": 15657,
+      "output_tokens": 1536,
+      "prefill_ms": 150001.4,
+      "decode_ms": 29882.2,
+      "prefill_tps": 104.37902579575925,
+      "decode_tps": 51.40183788342224,
+      "total_seconds": 180.15700000000652
+    }
+  },
+  "rounds": [
+    {
+      "A": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 47746.9,
+        "decode_ms": 9116.9,
+        "prefill_tps": 109.30552559433177,
+        "decode_tps": 56.1594401605809,
+        "total_seconds": 56.95299999997951
+      },
+      "B": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 49564.4,
+        "decode_ms": 9675.8,
+        "prefill_tps": 105.29735051771029,
+        "decode_tps": 52.91552119721367,
+        "total_seconds": 59.34400000004098
+      },
+      "C": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 50063.6,
+        "decode_ms": 9481.5,
+        "prefill_tps": 104.2473973106209,
+        "decode_tps": 53.99989453145599,
+        "total_seconds": 59.625
+      }
+    },
+    {
+      "A": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 47758.1,
+        "decode_ms": 9058.1,
+        "prefill_tps": 109.2798917879899,
+        "decode_tps": 56.5239950983098,
+        "total_seconds": 56.89199999999255
+      },
+      "B": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 49444.8,
+        "decode_ms": 9517.6,
+        "prefill_tps": 105.55204996278678,
+        "decode_tps": 53.7950743885013,
+        "total_seconds": 59.06199999997625
+      },
+      "C": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 49309.5,
+        "decode_ms": 9468.2,
+        "prefill_tps": 105.84167351118953,
+        "decode_tps": 54.07574829429036,
+        "total_seconds": 58.85899999999674
+      }
+    },
+    {
+      "A": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 47749.6,
+        "decode_ms": 9108.5,
+        "prefill_tps": 109.29934491597835,
+        "decode_tps": 56.21123126749739,
+        "total_seconds": 56.93799999996554
+      },
+      "B": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 49539.8,
+        "decode_ms": 9549.6,
+        "prefill_tps": 105.3496380687851,
+        "decode_tps": 53.61481109156404,
+        "total_seconds": 59.17200000002049
+      },
+      "C": {
+        "requests": 4,
+        "input_tokens": 5219,
+        "output_tokens": 512,
+        "prefill_ms": 50628.299999999996,
+        "decode_ms": 10932.5,
+        "prefill_tps": 103.08463843344533,
+        "decode_tps": 46.83283786873999,
+        "total_seconds": 61.67300000000978
+      }
+    }
+  ],
+  "completion_lengths": [
+    128
+  ],
+  "lora_throughput_delta_percent": {
+    "prefill_tps": -0.9682576295954481,
+    "decode_tps": -3.8123029763538208
+  },
+  "lora_round_delta_percent": [
+    {
+      "prefill_tps": -0.997131648543037,
+      "decode_tps": 2.0492538100511437
+    },
+    {
+      "prefill_tps": 0.2743893164603106,
+      "decode_tps": 0.5217464776831937
+    },
+    {
+      "prefill_tps": -2.1499833097299192,
+      "decode_tps": -12.649439743882917
+    }
+  ],
+  "output_hashes_per_case": {
+    "0": {
+      "A": 1,
+      "B": 3,
+      "C": 3
+    },
+    "24": {
+      "A": 1,
+      "B": 3,
+      "C": 3
+    },
+    "4": {
+      "A": 1,
+      "B": 3,
+      "C": 3
+    },
+    "23": {
+      "A": 1,
+      "B": 3,
+      "C": 3
+    }
+  }
+}

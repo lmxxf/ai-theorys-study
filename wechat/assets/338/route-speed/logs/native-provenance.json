@@ -1,0 +1,31 @@
+﻿{
+    "timestamp":  "2026-10-13T12:05:28.0544733+08:00",
+    "source_commit":  "7695859aa13afb248bdb4d36f9b2e95707db079d",
+    "cpu":  [
+                {
+                    "Name":  "Intel(R) Core(TM) Ultra 7 270K Plus",
+                    "NumberOfCores":  24,
+                    "NumberOfLogicalProcessors":  24
+                }
+            ],
+    "gpu":  [
+                {
+                    "Name":  "Intel(R) Graphics",
+                    "DriverVersion":  "32.0.101.8331"
+                },
+                {
+                    "Name":  "AMD Radeon RX 9070 XT",
+                    "DriverVersion":  "32.0.31007.2048"
+                }
+            ],
+    "hashes":  {
+                   "speed-study\\lora-runtime.bin":  "5D09B76453CCD4B7090C3CB93DD558043BB3FC19E089B27F3654D1B0A613AB2E",
+                   "Strata-speed\\src\\core\\expert_source.cpp":  "B7E9127D741DA175AA0D51503B8C8BAFC3A71A96E6A64C7D138C8D9D8294729C",
+                   "Strata-speed\\src\\core\\verify.cpp":  "0722ADF2DAF0706C812D2280C608683D5D8D81C19719C1A12F2F047A2890C105",
+                   "Strata-speed\\src\\core\\lookahead_lora.hpp":  "9C306CA138985CB3E61E77F084E47740354EEF2009A1B65FAB3AB2844FE113AB",
+                   "speed-engine\\amdhip64_7.dll":  "344386DD39B2BBA7060D62720054B9375401F23F2BCD29D730DD8D43019683CD",
+                   "speed-engine\\strata.exe":  "6CCBC13BEAABB8074F0B09DD152A02F3F53C62987FA4E026FF8C1BED954799B0",
+                   "speed-study\\base-config.json":  "58CEE7C887035BC2F7104731F02DE16B0CED3242EA1E1A8DBCF74DFAA3625492",
+                   "Strata-speed\\src\\program\\generate.cpp":  "06475241AF92F76F0B2CF33E28E0CC91622802F3F3AAD97B4013D6B13179792C"
+               }
+}

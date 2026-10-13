@@ -117,3 +117,8 @@ python3 wechat/assets/338/route-lora/train.py /home/lmxxf/work/strata-route-stud
 ```
 
 完整checkpoint在Spark的`trained-cold/`。有效17对层导出为`weights/lora-next-uncached-r16.bf16.bin`，1671168字节（约1.67MB），配套JSON标记哪些层禁用、矩阵偏移及SHA256；已逐张量核验与BF16 checkpoint一致。两台实验机的weights目录均已保存，二进制继续不入git。原始数据快照仍是首轮归档，本轮新checkpoint不在旧快照中。未部署进实际预取路径，9070 XT没有为本轮训练重新加载模型。
+
+
+## 实际速度对照已完成
+
+后续已将预测器接入独立HIP预取引擎，完成36次prefill/纯自回归对照。未测到稳定提速，详细条件、全部结果与异常样本见[速度报告](../route-speed/README.md)。本节之前的离线结果保留其原始时间点含义。
