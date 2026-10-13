@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 1180" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7fabc8"/></marker></defs>
+<rect width="1040" height="1180" rx="16" fill="#101c30"/>
+<text x="520" y="48" text-anchor="middle" font-size="33" fill="#d9e5f4" font-weight="bold">Prefill：逐层推进，层内并行</text>
+<text x="520" y="83" text-anchor="middle" font-size="19" fill="#a5b9d0">普通因果自注意力示意：四个输入 token 已知，四列对应四个位置</text>
+<text x="270" y="121" text-anchor="middle" font-size="19" fill="#a8bdd5">位置 1</text>
+<rect x="185.0" y="138" width="170" height="53" rx="9" fill="#23334b" stroke="#405773" stroke-width="1.5"/>
+<text x="270" y="172" text-anchor="middle" font-size="22" fill="#d9e5f4">输入表示 x₁</text>
+<text x="480" y="121" text-anchor="middle" font-size="19" fill="#a8bdd5">位置 2</text>
+<rect x="395.0" y="138" width="170" height="53" rx="9" fill="#23334b" stroke="#405773" stroke-width="1.5"/>
+<text x="480" y="172" text-anchor="middle" font-size="22" fill="#d9e5f4">输入表示 x₂</text>
+<text x="690" y="121" text-anchor="middle" font-size="19" fill="#a8bdd5">位置 3</text>
+<rect x="605.0" y="138" width="170" height="53" rx="9" fill="#23334b" stroke="#405773" stroke-width="1.5"/>
+<text x="690" y="172" text-anchor="middle" font-size="22" fill="#d9e5f4">输入表示 x₃</text>
+<text x="900" y="121" text-anchor="middle" font-size="19" fill="#a8bdd5">位置 4</text>
+<rect x="815.0" y="138" width="170" height="53" rx="9" fill="#23334b" stroke="#405773" stroke-width="1.5"/>
+<text x="900" y="172" text-anchor="middle" font-size="22" fill="#d9e5f4">输入表示 x₄</text>
+<text x="88" y="158" text-anchor="middle" font-size="20" fill="#a8bdd5">上一层</text>
+<text x="88" y="184" text-anchor="middle" font-size="18" fill="#a8bdd5">已经算好</text>
+<path d="M270 192L270 245" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M480 192L480 245" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M690 192L690 245" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M900 192L900 245" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<text x="88" y="265" text-anchor="middle" font-size="21" fill="#76bff1" font-weight="bold">① 并行投影</text>
+<text x="88" y="294" text-anchor="middle" font-size="18" fill="#a8bdd5">各算各的</text>
+<rect x="185.0" y="250" width="170" height="60" rx="9" fill="#14374c" stroke="#55a9d6" stroke-width="1.5"/>
+<text x="270" y="287" text-anchor="middle" font-size="23" fill="#9edcff" font-weight="bold">Q₁ · K₁ · V₁</text>
+<rect x="395.0" y="250" width="170" height="60" rx="9" fill="#14374c" stroke="#55a9d6" stroke-width="1.5"/>
+<text x="480" y="287" text-anchor="middle" font-size="23" fill="#9edcff" font-weight="bold">Q₂ · K₂ · V₂</text>
+<rect x="605.0" y="250" width="170" height="60" rx="9" fill="#14374c" stroke="#55a9d6" stroke-width="1.5"/>
+<text x="690" y="287" text-anchor="middle" font-size="23" fill="#9edcff" font-weight="bold">Q₃ · K₃ · V₃</text>
+<rect x="815.0" y="250" width="170" height="60" rx="9" fill="#14374c" stroke="#55a9d6" stroke-width="1.5"/>
+<text x="900" y="287" text-anchor="middle" font-size="23" fill="#9edcff" font-weight="bold">Q₄ · K₄ · V₄</text>
+<path d="M270 312L270 426" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.85" marker-end="url(#arrow)"/>
+<path d="M273 312L472 426" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M480 312L480 426" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.85" marker-end="url(#arrow)"/>
+<path d="M276 312L674 426" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M483 312L682 426" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M690 312L690 426" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.85" marker-end="url(#arrow)"/>
+<path d="M279 312L876 426" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M486 312L884 426" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M693 312L892 426" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M900 312L900 426" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.85" marker-end="url(#arrow)"/>
+<text x="88" y="339" text-anchor="middle" font-size="17" fill="#a8bdd5">Q 只供本列</text>
+<text x="88" y="366" text-anchor="middle" font-size="17" fill="#a8bdd5">K/V 按可见</text>
+<text x="88" y="391" text-anchor="middle" font-size="17" fill="#a8bdd5">范围跨列读取</text>
+<text x="88" y="453" text-anchor="middle" font-size="20" fill="#67ddbc" font-weight="bold">② 并行注意力</text>
+<text x="88" y="483" text-anchor="middle" font-size="17" fill="#a8bdd5">无需逐位置排队</text>
+<rect x="185.0" y="430" width="170" height="83" rx="9" fill="#163a36" stroke="#49b89c" stroke-width="1.5"/>
+<text x="270" y="461" text-anchor="middle" font-size="21" fill="#85edcf" font-weight="bold">Attention 1</text>
+<text x="270" y="491" text-anchor="middle" font-size="17" fill="#d9e5f4">读 KV₁</text>
+<rect x="395.0" y="430" width="170" height="83" rx="9" fill="#163a36" stroke="#49b89c" stroke-width="1.5"/>
+<text x="480" y="461" text-anchor="middle" font-size="21" fill="#85edcf" font-weight="bold">Attention 2</text>
+<text x="480" y="491" text-anchor="middle" font-size="17" fill="#d9e5f4">读 KV₁ 到 KV₂</text>
+<rect x="605.0" y="430" width="170" height="83" rx="9" fill="#163a36" stroke="#49b89c" stroke-width="1.5"/>
+<text x="690" y="461" text-anchor="middle" font-size="21" fill="#85edcf" font-weight="bold">Attention 3</text>
+<text x="690" y="491" text-anchor="middle" font-size="17" fill="#d9e5f4">读 KV₁ 到 KV₃</text>
+<rect x="815.0" y="430" width="170" height="83" rx="9" fill="#163a36" stroke="#49b89c" stroke-width="1.5"/>
+<text x="900" y="461" text-anchor="middle" font-size="21" fill="#85edcf" font-weight="bold">Attention 4</text>
+<text x="900" y="491" text-anchor="middle" font-size="17" fill="#d9e5f4">读 KV₁ 到 KV₄</text>
+<path d="M270 514L270 554" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M480 514L480 554" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M690 514L690 554" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M900 514L900 554" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<text x="88" y="580" text-anchor="middle" font-size="20" fill="#d4bfec" font-weight="bold">③ 更新表示</text>
+<text x="88" y="609" text-anchor="middle" font-size="17" fill="#a8bdd5">各位置独立</text>
+<rect x="185.0" y="560" width="170" height="68" rx="9" fill="#302d49" stroke="#907aaf" stroke-width="1.5"/>
+<text x="270" y="586" text-anchor="middle" font-size="17" fill="#d9e5f4">残差＋前馈更新</text>
+<text x="270" y="613" text-anchor="middle" font-size="20" fill="#e0cef7">本层输出 h₁</text>
+<rect x="395.0" y="560" width="170" height="68" rx="9" fill="#302d49" stroke="#907aaf" stroke-width="1.5"/>
+<text x="480" y="586" text-anchor="middle" font-size="17" fill="#d9e5f4">残差＋前馈更新</text>
+<text x="480" y="613" text-anchor="middle" font-size="20" fill="#e0cef7">本层输出 h₂</text>
+<rect x="605.0" y="560" width="170" height="68" rx="9" fill="#302d49" stroke="#907aaf" stroke-width="1.5"/>
+<text x="690" y="586" text-anchor="middle" font-size="17" fill="#d9e5f4">残差＋前馈更新</text>
+<text x="690" y="613" text-anchor="middle" font-size="20" fill="#e0cef7">本层输出 h₃</text>
+<rect x="815.0" y="560" width="170" height="68" rx="9" fill="#302d49" stroke="#907aaf" stroke-width="1.5"/>
+<text x="900" y="586" text-anchor="middle" font-size="17" fill="#d9e5f4">残差＋前馈更新</text>
+<text x="900" y="613" text-anchor="middle" font-size="20" fill="#e0cef7">本层输出 h₄</text>
+<path d="M270 630L270 707" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M480 630L480 707" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M690 630L690 707" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M900 630L900 707" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<rect x="212.0" y="641" width="788" height="35" rx="9" fill="#101c30" stroke="#101c30" stroke-width="1.5"/>
+<text x="606" y="665" text-anchor="middle" font-size="20" fill="#f0ca87" font-weight="bold">这一层完成后，下一层重复同样的顺序</text>
+<text x="88" y="738" text-anchor="middle" font-size="21" fill="#76bff1" font-weight="bold">下一层</text>
+<text x="88" y="765" text-anchor="middle" font-size="17" fill="#a8bdd5">① 再并行投影</text>
+<rect x="185.0" y="712" width="170" height="66" rx="9" fill="#14374c" stroke="#55a9d6" stroke-width="1.5"/>
+<text x="270" y="739" text-anchor="middle" font-size="17" fill="#d9e5f4">从各自 h 生成</text>
+<text x="270" y="765" text-anchor="middle" font-size="20" fill="#9edcff" font-weight="bold">Q′₁ · K′₁ · V′₁</text>
+<rect x="395.0" y="712" width="170" height="66" rx="9" fill="#14374c" stroke="#55a9d6" stroke-width="1.5"/>
+<text x="480" y="739" text-anchor="middle" font-size="17" fill="#d9e5f4">从各自 h 生成</text>
+<text x="480" y="765" text-anchor="middle" font-size="20" fill="#9edcff" font-weight="bold">Q′₂ · K′₂ · V′₂</text>
+<rect x="605.0" y="712" width="170" height="66" rx="9" fill="#14374c" stroke="#55a9d6" stroke-width="1.5"/>
+<text x="690" y="739" text-anchor="middle" font-size="17" fill="#d9e5f4">从各自 h 生成</text>
+<text x="690" y="765" text-anchor="middle" font-size="20" fill="#9edcff" font-weight="bold">Q′₃ · K′₃ · V′₃</text>
+<rect x="815.0" y="712" width="170" height="66" rx="9" fill="#14374c" stroke="#55a9d6" stroke-width="1.5"/>
+<text x="900" y="739" text-anchor="middle" font-size="17" fill="#d9e5f4">从各自 h 生成</text>
+<text x="900" y="765" text-anchor="middle" font-size="20" fill="#9edcff" font-weight="bold">Q′₄ · K′₄ · V′₄</text>
+<path d="M270 780L270 882" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.85" marker-end="url(#arrow)"/>
+<path d="M273 780L472 882" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M480 780L480 882" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.85" marker-end="url(#arrow)"/>
+<path d="M276 780L674 882" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M483 780L682 882" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M690 780L690 882" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.85" marker-end="url(#arrow)"/>
+<path d="M279 780L876 882" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M486 780L884 882" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M693 780L892 882" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.56" marker-end="url(#arrow)"/>
+<path d="M900 780L900 882" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="0.85" marker-end="url(#arrow)"/>
+<text x="88" y="915" text-anchor="middle" font-size="19" fill="#67ddbc" font-weight="bold">② 再并行注意力</text>
+<rect x="185.0" y="886" width="170" height="76" rx="9" fill="#163a36" stroke="#49b89c" stroke-width="1.5"/>
+<text x="270" y="917" text-anchor="middle" font-size="21" fill="#85edcf" font-weight="bold">Attention 1</text>
+<text x="270" y="944" text-anchor="middle" font-size="16" fill="#d9e5f4">读 KV′₁</text>
+<rect x="395.0" y="886" width="170" height="76" rx="9" fill="#163a36" stroke="#49b89c" stroke-width="1.5"/>
+<text x="480" y="917" text-anchor="middle" font-size="21" fill="#85edcf" font-weight="bold">Attention 2</text>
+<text x="480" y="944" text-anchor="middle" font-size="16" fill="#d9e5f4">读 KV′₁ 到 KV′₂</text>
+<rect x="605.0" y="886" width="170" height="76" rx="9" fill="#163a36" stroke="#49b89c" stroke-width="1.5"/>
+<text x="690" y="917" text-anchor="middle" font-size="21" fill="#85edcf" font-weight="bold">Attention 3</text>
+<text x="690" y="944" text-anchor="middle" font-size="16" fill="#d9e5f4">读 KV′₁ 到 KV′₃</text>
+<rect x="815.0" y="886" width="170" height="76" rx="9" fill="#163a36" stroke="#49b89c" stroke-width="1.5"/>
+<text x="900" y="917" text-anchor="middle" font-size="21" fill="#85edcf" font-weight="bold">Attention 4</text>
+<text x="900" y="944" text-anchor="middle" font-size="16" fill="#d9e5f4">读 KV′₁ 到 KV′₄</text>
+<path d="M270 964L270 996" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M480 964L480 996" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M690 964L690 996" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<path d="M900 964L900 996" fill="none" stroke="#7fabc8" stroke-width="1.8" opacity="1" marker-end="url(#arrow)"/>
+<text x="606" y="1027" text-anchor="middle" font-size="19" fill="#a5b9d0">再做残差与前馈更新，继续进入后续层……</text>
+<rect x="39.0" y="1055" width="962" height="87" rx="9" fill="#3c3326" stroke="#b19051" stroke-width="1.5"/>
+<text x="520" y="1090" text-anchor="middle" font-size="24" fill="#f4d08f" font-weight="bold">位置 4 读的是已生成的本层 KV₁ 到 KV₄</text>
+<text x="520" y="1123" text-anchor="middle" font-size="23" fill="#f4d08f" font-weight="bold">不用等位置 1、2、3 的本层 attention 输出</text>
+<text x="520" y="1166" text-anchor="middle" font-size="16" fill="#96adc7">省略归一化与残差支路连线；线性注意力的状态递推不按此图展开。</text>
+</svg>
