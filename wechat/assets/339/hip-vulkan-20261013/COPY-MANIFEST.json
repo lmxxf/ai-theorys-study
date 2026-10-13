@@ -1,0 +1,222 @@
+[
+  {
+    "file": "formal-00-hip.json",
+    "bytes": 3940,
+    "sha256": "74dcf124a9900165b4364c65d37a271840b75f606e3a59ec15398fa1d3c9eef4"
+  },
+  {
+    "file": "formal-00-hip.err.log",
+    "bytes": 414,
+    "sha256": "4ccf9f9e0770133344a2dd163decfad7567c23d1099619013bd539c5d391ceb8"
+  },
+  {
+    "file": "formal-00-hip-launch.json",
+    "bytes": 883,
+    "sha256": "342d1b8ef244f962399a558ee8392b00cc76df0cd9d227fb057358fd9175aa48"
+  },
+  {
+    "file": "formal-01-vulkan.json",
+    "bytes": 4012,
+    "sha256": "3073dc88906aabee9b331910063dada859dc7ac155f3bee12b56d5f086f1fbd0"
+  },
+  {
+    "file": "formal-01-vulkan.err.log",
+    "bytes": 659,
+    "sha256": "c172c68231596f6ab9be54b85499d9910a6d254d938efa96d70767fddeec90eb"
+  },
+  {
+    "file": "formal-01-vulkan-launch.json",
+    "bytes": 888,
+    "sha256": "7a102257417a8326df908178c0cc2e3c9e265b9ecae556ad636c710e3f5a1d55"
+  },
+  {
+    "file": "formal-02-vulkan.json",
+    "bytes": 4012,
+    "sha256": "cd1334105960cff40ad919553d5ee1337426e9538030cd8cffe700dd341d8a9c"
+  },
+  {
+    "file": "formal-02-vulkan.err.log",
+    "bytes": 659,
+    "sha256": "c172c68231596f6ab9be54b85499d9910a6d254d938efa96d70767fddeec90eb"
+  },
+  {
+    "file": "formal-02-vulkan-launch.json",
+    "bytes": 888,
+    "sha256": "c0b828aed92e124223d4e784f4e9e876dc41ba96fbc1c2042d0b51e47f24a3f9"
+  },
+  {
+    "file": "formal-03-hip.json",
+    "bytes": 3940,
+    "sha256": "099fc79c175f6cad788e31ca2b15e23d8d33a12fc9d5311c37d306fb2caa7515"
+  },
+  {
+    "file": "formal-03-hip.err.log",
+    "bytes": 414,
+    "sha256": "4ccf9f9e0770133344a2dd163decfad7567c23d1099619013bd539c5d391ceb8"
+  },
+  {
+    "file": "formal-03-hip-launch.json",
+    "bytes": 883,
+    "sha256": "10b793f22ec330c48eb184c02563d7f1372ff8be7e5db5934a47b00ba698f864"
+  },
+  {
+    "file": "formal-04-hip.json",
+    "bytes": 3939,
+    "sha256": "f45e099488a0ec64bcf6c3fc1130cc6a9a7114ae572ab8824b1f0924b609f6d4"
+  },
+  {
+    "file": "formal-04-hip.err.log",
+    "bytes": 414,
+    "sha256": "4ccf9f9e0770133344a2dd163decfad7567c23d1099619013bd539c5d391ceb8"
+  },
+  {
+    "file": "formal-04-hip-launch.json",
+    "bytes": 883,
+    "sha256": "2f827044a95dbee9ad4803bf8bd25c9247c06c377c9bac2db51465a5e54919bb"
+  },
+  {
+    "file": "formal-05-vulkan.json",
+    "bytes": 4011,
+    "sha256": "1f7365196f76025ea55c29158933fd198850eaaeb7ff7c1c972a85f042966da9"
+  },
+  {
+    "file": "formal-05-vulkan.err.log",
+    "bytes": 659,
+    "sha256": "c172c68231596f6ab9be54b85499d9910a6d254d938efa96d70767fddeec90eb"
+  },
+  {
+    "file": "formal-05-vulkan-launch.json",
+    "bytes": 888,
+    "sha256": "14dae8c13740df9663fcca9a7dcc7b4949697ee4a64b28e274f39420954cd277"
+  },
+  {
+    "file": "formal-receipts.json",
+    "bytes": 6545,
+    "sha256": "eb7e3a096903d4abe6c494abb13eb8dbca74eb81fb8955c778f51f0d6ff63732"
+  },
+  {
+    "file": "bench-summary.json",
+    "bytes": 1567,
+    "sha256": "61ad529b45a24072d68465fd6cf3f20034e5a61316a2edcd2c1039f6c1197c67"
+  },
+  {
+    "file": "server-summary.json",
+    "bytes": 559,
+    "sha256": "a4a2f4d1a0a0597bfaf8dd5b9993d4016a0fdff1dab21c21970573ef61956aab"
+  },
+  {
+    "file": "official-qwen-q4.json",
+    "bytes": 353,
+    "sha256": "317b5abdce23f91aa98a833d1134d82a87ecf0c11241e28b320bc0f5577ce14c"
+  },
+  {
+    "file": "model-q4-receipt.json",
+    "bytes": 185,
+    "sha256": "2634cce1529505dd5e77a84f7da26461065589b5bcac49b9d9ba3dd3338d9c54"
+  },
+  {
+    "file": "model-amd-receipt.json",
+    "bytes": 236,
+    "sha256": "1119b30e7d767d8e828775c4c5aa435b789ebb17f77d8a673b5f1a5554a62cdf"
+  },
+  {
+    "file": "common-binary-hashes.json",
+    "bytes": 991,
+    "sha256": "4df3de9ca036a25b400e6a99c7028ea4830b96b7d27f08d3ccbdda283f538475"
+  },
+  {
+    "file": "llama-tag.json",
+    "bytes": 376,
+    "sha256": "1fd3a7e2ed89f6f3598d12a2270ce4fda5510df4b0ff536e5f63c75446baf26d"
+  },
+  {
+    "file": "binary-assets.json",
+    "bytes": 4109,
+    "sha256": "45ff6fc84da0b538c27e0e6499e9fcdaae7f794ff916c1a5519f7e182ebef3ed"
+  },
+  {
+    "file": "rocm-receipts.json",
+    "bytes": 920,
+    "sha256": "702c1864fdd84b8226c015057c22af9e366b12af544baa6b5c27b090c14d5cd5"
+  },
+  {
+    "file": "preflight-vulkan.err.log",
+    "bytes": 17124,
+    "sha256": "d758df943d91e6f0ccff0ba6d3a7c4f895d00f097aac21ced770adef3de687a9"
+  },
+  {
+    "file": "preflight-hip-receipt.json",
+    "bytes": 13606,
+    "sha256": "1b47164e8bc5d0f9a22cd10dc849e1e4b30c0ae8a8cfd0b625c89912a30248e4"
+  },
+  {
+    "file": "preflight-vulkan-receipt.json",
+    "bytes": 17423,
+    "sha256": "c82a4442690b62cfcb938584a234314dcebff56831a91e778148b719bf7957f1"
+  },
+  {
+    "file": "run-bench.ps1",
+    "bytes": 2033,
+    "sha256": "b85cac07aa324634bfa9aa8b78b76de8ca72a31c053ecc4124fba48c119ac9d9"
+  },
+  {
+    "file": "server-timing.ps1",
+    "bytes": 3238,
+    "sha256": "15162c8e090c520189554a2cfcd9704abd4fac23e72e841cd66a79b11cbb53ca"
+  },
+  {
+    "file": "preflight.ps1",
+    "bytes": 3324,
+    "sha256": "730bafaefd3b9f56b64cb36617951b399d8dfef9d97bdd784e50e66d0036aac5"
+  },
+  {
+    "file": "verify-model.ps1",
+    "bytes": 485,
+    "sha256": "defc9119a389ced967b6d39f6220e32dfc020bcc95418dbc4b7599d8c27cc6e0"
+  },
+  {
+    "file": "prepare-runtime.ps1",
+    "bytes": 1244,
+    "sha256": "2d9a3e5e7618faeee78785916706bc04223629e78cc559aa76ddd11d48a09e97"
+  },
+  {
+    "file": "server-hip-timings.json",
+    "bytes": 143057,
+    "sha256": "72e83d9171d527df01703c4418fde5351c580e3ca6263b453ddaecb891c156f2"
+  },
+  {
+    "file": "server-hip.err.log",
+    "bytes": 8613,
+    "sha256": "9614759d491929ed33d7d20e4cb5a87785e8e001b7f22c709b20ea907a43bd76"
+  },
+  {
+    "file": "server-hip-launch.json",
+    "bytes": 977,
+    "sha256": "571ebd066945a6a7f65f2545615df759baab4344f8d3c7bb8735b8b217054f57"
+  },
+  {
+    "file": "server-hip-receipt.json",
+    "bytes": 66,
+    "sha256": "a87d9658a7c3cae501e2e2c2e8c1185b310b4e0370cafc95d1489310b2676e07"
+  },
+  {
+    "file": "server-vulkan-timings.json",
+    "bytes": 143074,
+    "sha256": "3c30e9601ffdfd344d97b66987bf9755b71b4328d7f3314b4599f949c2c5f479"
+  },
+  {
+    "file": "server-vulkan.err.log",
+    "bytes": 8613,
+    "sha256": "1f336a933678a7267e50687cea3c072238d53ccf7e41a508b4e04b8ef9571708"
+  },
+  {
+    "file": "server-vulkan-launch.json",
+    "bytes": 979,
+    "sha256": "ffb739c5966b3ddb090f23a5ca2c89db0a34157c7d6cc731c25a6abe67a3b178"
+  },
+  {
+    "file": "server-vulkan-receipt.json",
+    "bytes": 66,
+    "sha256": "3b821cee4fc2adc167d5c430d174f24d6f75fdd8ffa8d97dd6d7c1ba8d2b4704"
+  }
+]

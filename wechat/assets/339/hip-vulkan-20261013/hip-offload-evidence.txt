@@ -1,0 +1,18 @@
+source: bench-00-hip.err.log (diagnostic pilot; NOT in performance statistics)
+source_sha256: 1e1b030ecef82da95104c10239ec1201bc2bbce936f72cba804840164fa03007
+
+1344: load_tensors: offloaded 41/41 layers to GPU
+1345: load_tensors:   CPU_Mapped model buffer size =   417.30 MiB
+1346: load_tensors:        ROCm0 model buffer size =  8161.75 MiB
+1355: llama_context: flash_attn            = enabled
+1405: llama_kv_cache:      ROCm0 KV buffer size =    80.00 MiB
+2661: sched_reserve:      ROCm0 compute buffer size =   168.63 MiB
+2662: sched_reserve:  ROCm_Host compute buffer size =    20.26 MiB
+2687: llama_context: flash_attn            = enabled
+2737: llama_kv_cache:      ROCm0 KV buffer size =   320.00 MiB
+3993: sched_reserve:      ROCm0 compute buffer size =   169.38 MiB
+3994: sched_reserve:  ROCm_Host compute buffer size =    21.01 MiB
+4017: llama_context: flash_attn            = enabled
+4067: llama_kv_cache:      ROCm0 KV buffer size =    40.00 MiB
+5323: sched_reserve:      ROCm0 compute buffer size =    84.25 MiB
+5324: sched_reserve:  ROCm_Host compute buffer size =    10.07 MiB

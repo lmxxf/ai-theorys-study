@@ -1,0 +1,216 @@
+{
+    "exit_code":  null,
+    "natural_exit":  false,
+    "pid":  29128,
+    "elapsed":  9.6284791,
+    "samples":  [
+                    {
+                        "adapter":  [
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00016d53_phys_0)\\dedicated usage",
+                                            "CookedValue":  10905784320
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00018eff_phys_0)\\dedicated usage",
+                                            "CookedValue":  0
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00018f6a_phys_0)\\dedicated usage",
+                                            "CookedValue":  0
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x000192ef_phys_0)\\dedicated usage",
+                                            "CookedValue":  0
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00016d53_phys_0)\\shared usage",
+                                            "CookedValue":  170749952
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00018eff_phys_0)\\shared usage",
+                                            "CookedValue":  8192
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00018f6a_phys_0)\\shared usage",
+                                            "CookedValue":  17080320
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x000192ef_phys_0)\\shared usage",
+                                            "CookedValue":  8192
+                                        }
+                                    ],
+                        "elapsed":  0.5383249
+                    },
+                    {
+                        "adapter":  [
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00016d53_phys_0)\\dedicated usage",
+                                            "CookedValue":  11699552256
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00018eff_phys_0)\\dedicated usage",
+                                            "CookedValue":  0
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00018f6a_phys_0)\\dedicated usage",
+                                            "CookedValue":  0
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x000192ef_phys_0)\\dedicated usage",
+                                            "CookedValue":  0
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00016d53_phys_0)\\shared usage",
+                                            "CookedValue":  267526144
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00018eff_phys_0)\\shared usage",
+                                            "CookedValue":  8192
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x00018f6a_phys_0)\\shared usage",
+                                            "CookedValue":  17080320
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu adapter memory(luid_0x00000000_0x000192ef_phys_0)\\shared usage",
+                                            "CookedValue":  8192
+                                        }
+                                    ],
+                        "elapsed":  3.568767
+                    },
+                    {
+                        "elapsed":  6.6055766,
+                        "ready":  true,
+                        "process":  [
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu process memory(pid_29128_luid_0x00000000_0x00016d53_phys_0)\\dedicated usage",
+                                            "CookedValue":  9605738496
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu process memory(pid_29128_luid_0x00000000_0x00016d53_phys_0)\\shared usage",
+                                            "CookedValue":  105631744
+                                        }
+                                    ]
+                    },
+                    {
+                        "elapsed":  7.8062442,
+                        "process":  [
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu process memory(pid_29128_luid_0x00000000_0x00016d53_phys_0)\\dedicated usage",
+                                            "CookedValue":  9605738496
+                                        },
+                                        {
+                                            "Path":  "\\\\desktop-2026\\gpu process memory(pid_29128_luid_0x00000000_0x00016d53_phys_0)\\shared usage",
+                                            "CookedValue":  105631744
+                                        }
+                                    ],
+                        "after_inference":  true
+                    }
+                ],
+    "ready":  true,
+    "response":  {
+                     "index":  0,
+                     "content":  ": I have a question about the following",
+                     "tokens":  [
+
+                                ],
+                     "id_slot":  0,
+                     "stop":  true,
+                     "model":  "C:\\LLama-Compare-20261013\\models\\Qwen3-14B-Q4_K_M.gguf",
+                     "tokens_predicted":  8,
+                     "tokens_evaluated":  1,
+                     "generation_settings":  {
+                                                 "seed":  123,
+                                                 "temperature":  0.0,
+                                                 "dynatemp_range":  0.0,
+                                                 "dynatemp_exponent":  1.0,
+                                                 "top_k":  40,
+                                                 "top_p":  0.949999988079071,
+                                                 "min_p":  0.05000000074505806,
+                                                 "top_n_sigma":  -1.0,
+                                                 "xtc_probability":  0.0,
+                                                 "xtc_threshold":  0.10000000149011612,
+                                                 "typical_p":  1.0,
+                                                 "repeat_last_n":  64,
+                                                 "repeat_penalty":  1.0,
+                                                 "presence_penalty":  0.0,
+                                                 "frequency_penalty":  0.0,
+                                                 "dry_multiplier":  0.0,
+                                                 "dry_base":  1.75,
+                                                 "dry_allowed_length":  2,
+                                                 "dry_penalty_last_n":  64,
+                                                 "dry_sequence_breakers":  [
+                                                                               "\n",
+                                                                               ":",
+                                                                               "\"",
+                                                                               "*"
+                                                                           ],
+                                                 "mirostat":  0,
+                                                 "mirostat_tau":  5.0,
+                                                 "mirostat_eta":  0.10000000149011612,
+                                                 "adaptive_target":  -1.0,
+                                                 "adaptive_decay":  0.8999999761581421,
+                                                 "stop":  [
+
+                                                          ],
+                                                 "max_tokens":  8,
+                                                 "n_predict":  8,
+                                                 "n_keep":  0,
+                                                 "n_discard":  0,
+                                                 "ignore_eos":  false,
+                                                 "stream":  false,
+                                                 "logit_bias":  [
+
+                                                                ],
+                                                 "n_probs":  0,
+                                                 "min_keep":  0,
+                                                 "grammar":  "",
+                                                 "grammar_lazy":  false,
+                                                 "grammar_triggers":  [
+
+                                                                      ],
+                                                 "preserved_tokens":  [
+
+                                                                      ],
+                                                 "chat_format":  "Content-only",
+                                                 "reasoning_format":  "deepseek",
+                                                 "reasoning_in_content":  false,
+                                                 "generation_prompt":  "",
+                                                 "samplers":  [
+                                                                  "penalties",
+                                                                  "dry",
+                                                                  "top_n_sigma",
+                                                                  "top_k",
+                                                                  "typ_p",
+                                                                  "top_p",
+                                                                  "min_p",
+                                                                  "xtc",
+                                                                  "temperature"
+                                                              ],
+                                                 "speculative.types":  "none",
+                                                 "timings_per_token":  false,
+                                                 "post_sampling_probs":  false,
+                                                 "backend_sampling":  false,
+                                                 "lora":  [
+
+                                                          ]
+                                             },
+                     "prompt":  "Hello",
+                     "has_new_line":  false,
+                     "truncated":  false,
+                     "stop_type":  "limit",
+                     "stopping_word":  "",
+                     "tokens_cached":  8,
+                     "timings":  {
+                                     "cache_n":  0,
+                                     "prompt_n":  1,
+                                     "prompt_ms":  26.407,
+                                     "prompt_per_token_ms":  26.407,
+                                     "prompt_per_second":  37.86874692316431,
+                                     "predicted_n":  8,
+                                     "predicted_ms":  120.932,
+                                     "predicted_per_token_ms":  17.276,
+                                     "predicted_per_second":  57.88376939106274
+                                 }
+                 }
+}

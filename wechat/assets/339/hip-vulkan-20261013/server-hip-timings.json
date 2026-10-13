@@ -1,0 +1,1106 @@
+[
+    {
+        "final":  {
+                      "index":  0,
+                      "content":  "",
+                      "tokens":  [
+
+                                 ],
+                      "id_slot":  0,
+                      "stop":  true,
+                      "model":  "C:\\LLama-Compare-20261013\\models\\Qwen3-14B-Q4_K_M.gguf",
+                      "tokens_predicted":  128,
+                      "tokens_evaluated":  512,
+                      "generation_settings":  {
+                                                  "seed":  123,
+                                                  "temperature":  0.0,
+                                                  "dynatemp_range":  0.0,
+                                                  "dynatemp_exponent":  1.0,
+                                                  "top_k":  40,
+                                                  "top_p":  0.949999988079071,
+                                                  "min_p":  0.05000000074505806,
+                                                  "top_n_sigma":  -1.0,
+                                                  "xtc_probability":  0.0,
+                                                  "xtc_threshold":  0.10000000149011612,
+                                                  "typical_p":  1.0,
+                                                  "repeat_last_n":  64,
+                                                  "repeat_penalty":  1.0,
+                                                  "presence_penalty":  0.0,
+                                                  "frequency_penalty":  0.0,
+                                                  "dry_multiplier":  0.0,
+                                                  "dry_base":  1.75,
+                                                  "dry_allowed_length":  2,
+                                                  "dry_penalty_last_n":  64,
+                                                  "dry_sequence_breakers":  [
+                                                                                "\n",
+                                                                                ":",
+                                                                                "\"",
+                                                                                "*"
+                                                                            ],
+                                                  "mirostat":  0,
+                                                  "mirostat_tau":  5.0,
+                                                  "mirostat_eta":  0.10000000149011612,
+                                                  "adaptive_target":  -1.0,
+                                                  "adaptive_decay":  0.8999999761581421,
+                                                  "stop":  [
+
+                                                           ],
+                                                  "max_tokens":  128,
+                                                  "n_predict":  128,
+                                                  "n_keep":  0,
+                                                  "n_discard":  0,
+                                                  "ignore_eos":  true,
+                                                  "stream":  true,
+                                                  "logit_bias":  [
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  128247
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151643
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151645
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151662
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151663
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151664
+                                                                     }
+                                                                 ],
+                                                  "n_probs":  0,
+                                                  "min_keep":  0,
+                                                  "grammar":  "",
+                                                  "grammar_lazy":  false,
+                                                  "grammar_triggers":  [
+
+                                                                       ],
+                                                  "preserved_tokens":  [
+
+                                                                       ],
+                                                  "chat_format":  "Content-only",
+                                                  "reasoning_format":  "deepseek",
+                                                  "reasoning_in_content":  false,
+                                                  "generation_prompt":  "",
+                                                  "samplers":  [
+                                                                   "penalties",
+                                                                   "dry",
+                                                                   "top_n_sigma",
+                                                                   "top_k",
+                                                                   "typ_p",
+                                                                   "top_p",
+                                                                   "min_p",
+                                                                   "xtc",
+                                                                   "temperature"
+                                                               ],
+                                                  "speculative.types":  "none",
+                                                  "timings_per_token":  false,
+                                                  "post_sampling_probs":  false,
+                                                  "backend_sampling":  false,
+                                                  "lora":  [
+
+                                                           ]
+                                              },
+                      "prompt":  "The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a",
+                      "has_new_line":  false,
+                      "truncated":  false,
+                      "stop_type":  "limit",
+                      "stopping_word":  "",
+                      "tokens_cached":  639,
+                      "timings":  {
+                                      "cache_n":  0,
+                                      "prompt_n":  512,
+                                      "prompt_ms":  251.526,
+                                      "prompt_per_token_ms":  0.49126171875,
+                                      "prompt_per_second":  2035.5748511088316,
+                                      "predicted_n":  128,
+                                      "predicted_ms":  2155.125,
+                                      "predicted_per_token_ms":  16.969488188976378,
+                                      "predicted_per_second":  58.92929644452178
+                                  }
+                  },
+        "total_ms":  2413.0188000000003,
+        "prompt_tokens":  512,
+        "round":  0,
+        "backend":  "hip",
+        "ttft_ms":  260.0819,
+        "events":  129,
+        "warmup":  true,
+        "n_predict":  128
+    },
+    {
+        "final":  {
+                      "index":  0,
+                      "content":  "",
+                      "tokens":  [
+
+                                 ],
+                      "id_slot":  0,
+                      "stop":  true,
+                      "model":  "C:\\LLama-Compare-20261013\\models\\Qwen3-14B-Q4_K_M.gguf",
+                      "tokens_predicted":  128,
+                      "tokens_evaluated":  2048,
+                      "generation_settings":  {
+                                                  "seed":  123,
+                                                  "temperature":  0.0,
+                                                  "dynatemp_range":  0.0,
+                                                  "dynatemp_exponent":  1.0,
+                                                  "top_k":  40,
+                                                  "top_p":  0.949999988079071,
+                                                  "min_p":  0.05000000074505806,
+                                                  "top_n_sigma":  -1.0,
+                                                  "xtc_probability":  0.0,
+                                                  "xtc_threshold":  0.10000000149011612,
+                                                  "typical_p":  1.0,
+                                                  "repeat_last_n":  64,
+                                                  "repeat_penalty":  1.0,
+                                                  "presence_penalty":  0.0,
+                                                  "frequency_penalty":  0.0,
+                                                  "dry_multiplier":  0.0,
+                                                  "dry_base":  1.75,
+                                                  "dry_allowed_length":  2,
+                                                  "dry_penalty_last_n":  64,
+                                                  "dry_sequence_breakers":  [
+                                                                                "\n",
+                                                                                ":",
+                                                                                "\"",
+                                                                                "*"
+                                                                            ],
+                                                  "mirostat":  0,
+                                                  "mirostat_tau":  5.0,
+                                                  "mirostat_eta":  0.10000000149011612,
+                                                  "adaptive_target":  -1.0,
+                                                  "adaptive_decay":  0.8999999761581421,
+                                                  "stop":  [
+
+                                                           ],
+                                                  "max_tokens":  128,
+                                                  "n_predict":  128,
+                                                  "n_keep":  0,
+                                                  "n_discard":  0,
+                                                  "ignore_eos":  true,
+                                                  "stream":  true,
+                                                  "logit_bias":  [
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  128247
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151643
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151645
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151662
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151663
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151664
+                                                                     }
+                                                                 ],
+                                                  "n_probs":  0,
+                                                  "min_keep":  0,
+                                                  "grammar":  "",
+                                                  "grammar_lazy":  false,
+                                                  "grammar_triggers":  [
+
+                                                                       ],
+                                                  "preserved_tokens":  [
+
+                                                                       ],
+                                                  "chat_format":  "Content-only",
+                                                  "reasoning_format":  "deepseek",
+                                                  "reasoning_in_content":  false,
+                                                  "generation_prompt":  "",
+                                                  "samplers":  [
+                                                                   "penalties",
+                                                                   "dry",
+                                                                   "top_n_sigma",
+                                                                   "top_k",
+                                                                   "typ_p",
+                                                                   "top_p",
+                                                                   "min_p",
+                                                                   "xtc",
+                                                                   "temperature"
+                                                               ],
+                                                  "speculative.types":  "none",
+                                                  "timings_per_token":  false,
+                                                  "post_sampling_probs":  false,
+                                                  "backend_sampling":  false,
+                                                  "lora":  [
+
+                                                           ]
+                                              },
+                      "prompt":  "The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment",
+                      "has_new_line":  false,
+                      "truncated":  false,
+                      "stop_type":  "limit",
+                      "stopping_word":  "",
+                      "tokens_cached":  2175,
+                      "timings":  {
+                                      "cache_n":  0,
+                                      "prompt_n":  2048,
+                                      "prompt_ms":  950.074,
+                                      "prompt_per_token_ms":  0.4639033203125,
+                                      "prompt_per_second":  2155.621562109899,
+                                      "predicted_n":  128,
+                                      "predicted_ms":  2218.954,
+                                      "predicted_per_token_ms":  17.47207874015748,
+                                      "predicted_per_second":  57.234174300143216
+                                  }
+                  },
+        "total_ms":  3170.7285,
+        "prompt_tokens":  2048,
+        "round":  0,
+        "backend":  "hip",
+        "ttft_ms":  951.65960000000007,
+        "events":  129,
+        "warmup":  true,
+        "n_predict":  128
+    },
+    {
+        "final":  {
+                      "index":  0,
+                      "content":  "",
+                      "tokens":  [
+
+                                 ],
+                      "id_slot":  0,
+                      "stop":  true,
+                      "model":  "C:\\LLama-Compare-20261013\\models\\Qwen3-14B-Q4_K_M.gguf",
+                      "tokens_predicted":  128,
+                      "tokens_evaluated":  512,
+                      "generation_settings":  {
+                                                  "seed":  123,
+                                                  "temperature":  0.0,
+                                                  "dynatemp_range":  0.0,
+                                                  "dynatemp_exponent":  1.0,
+                                                  "top_k":  40,
+                                                  "top_p":  0.949999988079071,
+                                                  "min_p":  0.05000000074505806,
+                                                  "top_n_sigma":  -1.0,
+                                                  "xtc_probability":  0.0,
+                                                  "xtc_threshold":  0.10000000149011612,
+                                                  "typical_p":  1.0,
+                                                  "repeat_last_n":  64,
+                                                  "repeat_penalty":  1.0,
+                                                  "presence_penalty":  0.0,
+                                                  "frequency_penalty":  0.0,
+                                                  "dry_multiplier":  0.0,
+                                                  "dry_base":  1.75,
+                                                  "dry_allowed_length":  2,
+                                                  "dry_penalty_last_n":  64,
+                                                  "dry_sequence_breakers":  [
+                                                                                "\n",
+                                                                                ":",
+                                                                                "\"",
+                                                                                "*"
+                                                                            ],
+                                                  "mirostat":  0,
+                                                  "mirostat_tau":  5.0,
+                                                  "mirostat_eta":  0.10000000149011612,
+                                                  "adaptive_target":  -1.0,
+                                                  "adaptive_decay":  0.8999999761581421,
+                                                  "stop":  [
+
+                                                           ],
+                                                  "max_tokens":  128,
+                                                  "n_predict":  128,
+                                                  "n_keep":  0,
+                                                  "n_discard":  0,
+                                                  "ignore_eos":  true,
+                                                  "stream":  true,
+                                                  "logit_bias":  [
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  128247
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151643
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151645
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151662
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151663
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151664
+                                                                     }
+                                                                 ],
+                                                  "n_probs":  0,
+                                                  "min_keep":  0,
+                                                  "grammar":  "",
+                                                  "grammar_lazy":  false,
+                                                  "grammar_triggers":  [
+
+                                                                       ],
+                                                  "preserved_tokens":  [
+
+                                                                       ],
+                                                  "chat_format":  "Content-only",
+                                                  "reasoning_format":  "deepseek",
+                                                  "reasoning_in_content":  false,
+                                                  "generation_prompt":  "",
+                                                  "samplers":  [
+                                                                   "penalties",
+                                                                   "dry",
+                                                                   "top_n_sigma",
+                                                                   "top_k",
+                                                                   "typ_p",
+                                                                   "top_p",
+                                                                   "min_p",
+                                                                   "xtc",
+                                                                   "temperature"
+                                                               ],
+                                                  "speculative.types":  "none",
+                                                  "timings_per_token":  false,
+                                                  "post_sampling_probs":  false,
+                                                  "backend_sampling":  false,
+                                                  "lora":  [
+
+                                                           ]
+                                              },
+                      "prompt":  "The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a",
+                      "has_new_line":  false,
+                      "truncated":  false,
+                      "stop_type":  "limit",
+                      "stopping_word":  "",
+                      "tokens_cached":  639,
+                      "timings":  {
+                                      "cache_n":  0,
+                                      "prompt_n":  512,
+                                      "prompt_ms":  230.992,
+                                      "prompt_per_token_ms":  0.45115625,
+                                      "prompt_per_second":  2216.526979289326,
+                                      "predicted_n":  128,
+                                      "predicted_ms":  2154.114,
+                                      "predicted_per_token_ms":  16.961527559055117,
+                                      "predicted_per_second":  58.95695399593522
+                                  }
+                  },
+        "total_ms":  2386.2713000000003,
+        "prompt_tokens":  512,
+        "round":  1,
+        "backend":  "hip",
+        "ttft_ms":  232.11890000000002,
+        "events":  129,
+        "warmup":  false,
+        "n_predict":  128
+    },
+    {
+        "final":  {
+                      "index":  0,
+                      "content":  "",
+                      "tokens":  [
+
+                                 ],
+                      "id_slot":  0,
+                      "stop":  true,
+                      "model":  "C:\\LLama-Compare-20261013\\models\\Qwen3-14B-Q4_K_M.gguf",
+                      "tokens_predicted":  128,
+                      "tokens_evaluated":  2048,
+                      "generation_settings":  {
+                                                  "seed":  123,
+                                                  "temperature":  0.0,
+                                                  "dynatemp_range":  0.0,
+                                                  "dynatemp_exponent":  1.0,
+                                                  "top_k":  40,
+                                                  "top_p":  0.949999988079071,
+                                                  "min_p":  0.05000000074505806,
+                                                  "top_n_sigma":  -1.0,
+                                                  "xtc_probability":  0.0,
+                                                  "xtc_threshold":  0.10000000149011612,
+                                                  "typical_p":  1.0,
+                                                  "repeat_last_n":  64,
+                                                  "repeat_penalty":  1.0,
+                                                  "presence_penalty":  0.0,
+                                                  "frequency_penalty":  0.0,
+                                                  "dry_multiplier":  0.0,
+                                                  "dry_base":  1.75,
+                                                  "dry_allowed_length":  2,
+                                                  "dry_penalty_last_n":  64,
+                                                  "dry_sequence_breakers":  [
+                                                                                "\n",
+                                                                                ":",
+                                                                                "\"",
+                                                                                "*"
+                                                                            ],
+                                                  "mirostat":  0,
+                                                  "mirostat_tau":  5.0,
+                                                  "mirostat_eta":  0.10000000149011612,
+                                                  "adaptive_target":  -1.0,
+                                                  "adaptive_decay":  0.8999999761581421,
+                                                  "stop":  [
+
+                                                           ],
+                                                  "max_tokens":  128,
+                                                  "n_predict":  128,
+                                                  "n_keep":  0,
+                                                  "n_discard":  0,
+                                                  "ignore_eos":  true,
+                                                  "stream":  true,
+                                                  "logit_bias":  [
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  128247
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151643
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151645
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151662
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151663
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151664
+                                                                     }
+                                                                 ],
+                                                  "n_probs":  0,
+                                                  "min_keep":  0,
+                                                  "grammar":  "",
+                                                  "grammar_lazy":  false,
+                                                  "grammar_triggers":  [
+
+                                                                       ],
+                                                  "preserved_tokens":  [
+
+                                                                       ],
+                                                  "chat_format":  "Content-only",
+                                                  "reasoning_format":  "deepseek",
+                                                  "reasoning_in_content":  false,
+                                                  "generation_prompt":  "",
+                                                  "samplers":  [
+                                                                   "penalties",
+                                                                   "dry",
+                                                                   "top_n_sigma",
+                                                                   "top_k",
+                                                                   "typ_p",
+                                                                   "top_p",
+                                                                   "min_p",
+                                                                   "xtc",
+                                                                   "temperature"
+                                                               ],
+                                                  "speculative.types":  "none",
+                                                  "timings_per_token":  false,
+                                                  "post_sampling_probs":  false,
+                                                  "backend_sampling":  false,
+                                                  "lora":  [
+
+                                                           ]
+                                              },
+                      "prompt":  "The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment",
+                      "has_new_line":  false,
+                      "truncated":  false,
+                      "stop_type":  "limit",
+                      "stopping_word":  "",
+                      "tokens_cached":  2175,
+                      "timings":  {
+                                      "cache_n":  0,
+                                      "prompt_n":  2048,
+                                      "prompt_ms":  951.249,
+                                      "prompt_per_token_ms":  0.46447705078125,
+                                      "prompt_per_second":  2152.958899299763,
+                                      "predicted_n":  128,
+                                      "predicted_ms":  2222.908,
+                                      "predicted_per_token_ms":  17.503212598425197,
+                                      "predicted_per_second":  57.13236895094174
+                                  }
+                  },
+        "total_ms":  3175.8146,
+        "prompt_tokens":  2048,
+        "round":  1,
+        "backend":  "hip",
+        "ttft_ms":  952.763,
+        "events":  129,
+        "warmup":  false,
+        "n_predict":  128
+    },
+    {
+        "final":  {
+                      "index":  0,
+                      "content":  "",
+                      "tokens":  [
+
+                                 ],
+                      "id_slot":  0,
+                      "stop":  true,
+                      "model":  "C:\\LLama-Compare-20261013\\models\\Qwen3-14B-Q4_K_M.gguf",
+                      "tokens_predicted":  128,
+                      "tokens_evaluated":  512,
+                      "generation_settings":  {
+                                                  "seed":  123,
+                                                  "temperature":  0.0,
+                                                  "dynatemp_range":  0.0,
+                                                  "dynatemp_exponent":  1.0,
+                                                  "top_k":  40,
+                                                  "top_p":  0.949999988079071,
+                                                  "min_p":  0.05000000074505806,
+                                                  "top_n_sigma":  -1.0,
+                                                  "xtc_probability":  0.0,
+                                                  "xtc_threshold":  0.10000000149011612,
+                                                  "typical_p":  1.0,
+                                                  "repeat_last_n":  64,
+                                                  "repeat_penalty":  1.0,
+                                                  "presence_penalty":  0.0,
+                                                  "frequency_penalty":  0.0,
+                                                  "dry_multiplier":  0.0,
+                                                  "dry_base":  1.75,
+                                                  "dry_allowed_length":  2,
+                                                  "dry_penalty_last_n":  64,
+                                                  "dry_sequence_breakers":  [
+                                                                                "\n",
+                                                                                ":",
+                                                                                "\"",
+                                                                                "*"
+                                                                            ],
+                                                  "mirostat":  0,
+                                                  "mirostat_tau":  5.0,
+                                                  "mirostat_eta":  0.10000000149011612,
+                                                  "adaptive_target":  -1.0,
+                                                  "adaptive_decay":  0.8999999761581421,
+                                                  "stop":  [
+
+                                                           ],
+                                                  "max_tokens":  128,
+                                                  "n_predict":  128,
+                                                  "n_keep":  0,
+                                                  "n_discard":  0,
+                                                  "ignore_eos":  true,
+                                                  "stream":  true,
+                                                  "logit_bias":  [
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  128247
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151643
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151645
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151662
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151663
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151664
+                                                                     }
+                                                                 ],
+                                                  "n_probs":  0,
+                                                  "min_keep":  0,
+                                                  "grammar":  "",
+                                                  "grammar_lazy":  false,
+                                                  "grammar_triggers":  [
+
+                                                                       ],
+                                                  "preserved_tokens":  [
+
+                                                                       ],
+                                                  "chat_format":  "Content-only",
+                                                  "reasoning_format":  "deepseek",
+                                                  "reasoning_in_content":  false,
+                                                  "generation_prompt":  "",
+                                                  "samplers":  [
+                                                                   "penalties",
+                                                                   "dry",
+                                                                   "top_n_sigma",
+                                                                   "top_k",
+                                                                   "typ_p",
+                                                                   "top_p",
+                                                                   "min_p",
+                                                                   "xtc",
+                                                                   "temperature"
+                                                               ],
+                                                  "speculative.types":  "none",
+                                                  "timings_per_token":  false,
+                                                  "post_sampling_probs":  false,
+                                                  "backend_sampling":  false,
+                                                  "lora":  [
+
+                                                           ]
+                                              },
+                      "prompt":  "The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a",
+                      "has_new_line":  false,
+                      "truncated":  false,
+                      "stop_type":  "limit",
+                      "stopping_word":  "",
+                      "tokens_cached":  639,
+                      "timings":  {
+                                      "cache_n":  0,
+                                      "prompt_n":  512,
+                                      "prompt_ms":  230.598,
+                                      "prompt_per_token_ms":  0.45038671875,
+                                      "prompt_per_second":  2220.314139758367,
+                                      "predicted_n":  128,
+                                      "predicted_ms":  2156.869,
+                                      "predicted_per_token_ms":  16.983220472440944,
+                                      "predicted_per_second":  58.88164742504065
+                                  }
+                  },
+        "total_ms":  2388.7563,
+        "prompt_tokens":  512,
+        "round":  2,
+        "backend":  "hip",
+        "ttft_ms":  231.6545,
+        "events":  129,
+        "warmup":  false,
+        "n_predict":  128
+    },
+    {
+        "final":  {
+                      "index":  0,
+                      "content":  "",
+                      "tokens":  [
+
+                                 ],
+                      "id_slot":  0,
+                      "stop":  true,
+                      "model":  "C:\\LLama-Compare-20261013\\models\\Qwen3-14B-Q4_K_M.gguf",
+                      "tokens_predicted":  128,
+                      "tokens_evaluated":  2048,
+                      "generation_settings":  {
+                                                  "seed":  123,
+                                                  "temperature":  0.0,
+                                                  "dynatemp_range":  0.0,
+                                                  "dynatemp_exponent":  1.0,
+                                                  "top_k":  40,
+                                                  "top_p":  0.949999988079071,
+                                                  "min_p":  0.05000000074505806,
+                                                  "top_n_sigma":  -1.0,
+                                                  "xtc_probability":  0.0,
+                                                  "xtc_threshold":  0.10000000149011612,
+                                                  "typical_p":  1.0,
+                                                  "repeat_last_n":  64,
+                                                  "repeat_penalty":  1.0,
+                                                  "presence_penalty":  0.0,
+                                                  "frequency_penalty":  0.0,
+                                                  "dry_multiplier":  0.0,
+                                                  "dry_base":  1.75,
+                                                  "dry_allowed_length":  2,
+                                                  "dry_penalty_last_n":  64,
+                                                  "dry_sequence_breakers":  [
+                                                                                "\n",
+                                                                                ":",
+                                                                                "\"",
+                                                                                "*"
+                                                                            ],
+                                                  "mirostat":  0,
+                                                  "mirostat_tau":  5.0,
+                                                  "mirostat_eta":  0.10000000149011612,
+                                                  "adaptive_target":  -1.0,
+                                                  "adaptive_decay":  0.8999999761581421,
+                                                  "stop":  [
+
+                                                           ],
+                                                  "max_tokens":  128,
+                                                  "n_predict":  128,
+                                                  "n_keep":  0,
+                                                  "n_discard":  0,
+                                                  "ignore_eos":  true,
+                                                  "stream":  true,
+                                                  "logit_bias":  [
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  128247
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151643
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151645
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151662
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151663
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151664
+                                                                     }
+                                                                 ],
+                                                  "n_probs":  0,
+                                                  "min_keep":  0,
+                                                  "grammar":  "",
+                                                  "grammar_lazy":  false,
+                                                  "grammar_triggers":  [
+
+                                                                       ],
+                                                  "preserved_tokens":  [
+
+                                                                       ],
+                                                  "chat_format":  "Content-only",
+                                                  "reasoning_format":  "deepseek",
+                                                  "reasoning_in_content":  false,
+                                                  "generation_prompt":  "",
+                                                  "samplers":  [
+                                                                   "penalties",
+                                                                   "dry",
+                                                                   "top_n_sigma",
+                                                                   "top_k",
+                                                                   "typ_p",
+                                                                   "top_p",
+                                                                   "min_p",
+                                                                   "xtc",
+                                                                   "temperature"
+                                                               ],
+                                                  "speculative.types":  "none",
+                                                  "timings_per_token":  false,
+                                                  "post_sampling_probs":  false,
+                                                  "backend_sampling":  false,
+                                                  "lora":  [
+
+                                                           ]
+                                              },
+                      "prompt":  "The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment",
+                      "has_new_line":  false,
+                      "truncated":  false,
+                      "stop_type":  "limit",
+                      "stopping_word":  "",
+                      "tokens_cached":  2175,
+                      "timings":  {
+                                      "cache_n":  0,
+                                      "prompt_n":  2048,
+                                      "prompt_ms":  951.993,
+                                      "prompt_per_token_ms":  0.46484033203125,
+                                      "prompt_per_second":  2151.2763224099335,
+                                      "predicted_n":  128,
+                                      "predicted_ms":  2214.219,
+                                      "predicted_per_token_ms":  17.434795275590552,
+                                      "predicted_per_second":  57.35656680752897
+                                  }
+                  },
+        "total_ms":  3167.5799,
+        "prompt_tokens":  2048,
+        "round":  2,
+        "backend":  "hip",
+        "ttft_ms":  953.437,
+        "events":  129,
+        "warmup":  false,
+        "n_predict":  128
+    },
+    {
+        "final":  {
+                      "index":  0,
+                      "content":  "",
+                      "tokens":  [
+
+                                 ],
+                      "id_slot":  0,
+                      "stop":  true,
+                      "model":  "C:\\LLama-Compare-20261013\\models\\Qwen3-14B-Q4_K_M.gguf",
+                      "tokens_predicted":  128,
+                      "tokens_evaluated":  512,
+                      "generation_settings":  {
+                                                  "seed":  123,
+                                                  "temperature":  0.0,
+                                                  "dynatemp_range":  0.0,
+                                                  "dynatemp_exponent":  1.0,
+                                                  "top_k":  40,
+                                                  "top_p":  0.949999988079071,
+                                                  "min_p":  0.05000000074505806,
+                                                  "top_n_sigma":  -1.0,
+                                                  "xtc_probability":  0.0,
+                                                  "xtc_threshold":  0.10000000149011612,
+                                                  "typical_p":  1.0,
+                                                  "repeat_last_n":  64,
+                                                  "repeat_penalty":  1.0,
+                                                  "presence_penalty":  0.0,
+                                                  "frequency_penalty":  0.0,
+                                                  "dry_multiplier":  0.0,
+                                                  "dry_base":  1.75,
+                                                  "dry_allowed_length":  2,
+                                                  "dry_penalty_last_n":  64,
+                                                  "dry_sequence_breakers":  [
+                                                                                "\n",
+                                                                                ":",
+                                                                                "\"",
+                                                                                "*"
+                                                                            ],
+                                                  "mirostat":  0,
+                                                  "mirostat_tau":  5.0,
+                                                  "mirostat_eta":  0.10000000149011612,
+                                                  "adaptive_target":  -1.0,
+                                                  "adaptive_decay":  0.8999999761581421,
+                                                  "stop":  [
+
+                                                           ],
+                                                  "max_tokens":  128,
+                                                  "n_predict":  128,
+                                                  "n_keep":  0,
+                                                  "n_discard":  0,
+                                                  "ignore_eos":  true,
+                                                  "stream":  true,
+                                                  "logit_bias":  [
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  128247
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151643
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151645
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151662
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151663
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151664
+                                                                     }
+                                                                 ],
+                                                  "n_probs":  0,
+                                                  "min_keep":  0,
+                                                  "grammar":  "",
+                                                  "grammar_lazy":  false,
+                                                  "grammar_triggers":  [
+
+                                                                       ],
+                                                  "preserved_tokens":  [
+
+                                                                       ],
+                                                  "chat_format":  "Content-only",
+                                                  "reasoning_format":  "deepseek",
+                                                  "reasoning_in_content":  false,
+                                                  "generation_prompt":  "",
+                                                  "samplers":  [
+                                                                   "penalties",
+                                                                   "dry",
+                                                                   "top_n_sigma",
+                                                                   "top_k",
+                                                                   "typ_p",
+                                                                   "top_p",
+                                                                   "min_p",
+                                                                   "xtc",
+                                                                   "temperature"
+                                                               ],
+                                                  "speculative.types":  "none",
+                                                  "timings_per_token":  false,
+                                                  "post_sampling_probs":  false,
+                                                  "backend_sampling":  false,
+                                                  "lora":  [
+
+                                                           ]
+                                              },
+                      "prompt":  "The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a",
+                      "has_new_line":  false,
+                      "truncated":  false,
+                      "stop_type":  "limit",
+                      "stopping_word":  "",
+                      "tokens_cached":  639,
+                      "timings":  {
+                                      "cache_n":  0,
+                                      "prompt_n":  512,
+                                      "prompt_ms":  231.773,
+                                      "prompt_per_token_ms":  0.452681640625,
+                                      "prompt_per_second":  2209.058000716218,
+                                      "predicted_n":  128,
+                                      "predicted_ms":  2153.976,
+                                      "predicted_per_token_ms":  16.960440944881892,
+                                      "predicted_per_second":  58.96073122448903
+                                  }
+                  },
+        "total_ms":  2386.9015,
+        "prompt_tokens":  512,
+        "round":  3,
+        "backend":  "hip",
+        "ttft_ms":  232.98520000000002,
+        "events":  129,
+        "warmup":  false,
+        "n_predict":  128
+    },
+    {
+        "final":  {
+                      "index":  0,
+                      "content":  "",
+                      "tokens":  [
+
+                                 ],
+                      "id_slot":  0,
+                      "stop":  true,
+                      "model":  "C:\\LLama-Compare-20261013\\models\\Qwen3-14B-Q4_K_M.gguf",
+                      "tokens_predicted":  128,
+                      "tokens_evaluated":  2048,
+                      "generation_settings":  {
+                                                  "seed":  123,
+                                                  "temperature":  0.0,
+                                                  "dynatemp_range":  0.0,
+                                                  "dynatemp_exponent":  1.0,
+                                                  "top_k":  40,
+                                                  "top_p":  0.949999988079071,
+                                                  "min_p":  0.05000000074505806,
+                                                  "top_n_sigma":  -1.0,
+                                                  "xtc_probability":  0.0,
+                                                  "xtc_threshold":  0.10000000149011612,
+                                                  "typical_p":  1.0,
+                                                  "repeat_last_n":  64,
+                                                  "repeat_penalty":  1.0,
+                                                  "presence_penalty":  0.0,
+                                                  "frequency_penalty":  0.0,
+                                                  "dry_multiplier":  0.0,
+                                                  "dry_base":  1.75,
+                                                  "dry_allowed_length":  2,
+                                                  "dry_penalty_last_n":  64,
+                                                  "dry_sequence_breakers":  [
+                                                                                "\n",
+                                                                                ":",
+                                                                                "\"",
+                                                                                "*"
+                                                                            ],
+                                                  "mirostat":  0,
+                                                  "mirostat_tau":  5.0,
+                                                  "mirostat_eta":  0.10000000149011612,
+                                                  "adaptive_target":  -1.0,
+                                                  "adaptive_decay":  0.8999999761581421,
+                                                  "stop":  [
+
+                                                           ],
+                                                  "max_tokens":  128,
+                                                  "n_predict":  128,
+                                                  "n_keep":  0,
+                                                  "n_discard":  0,
+                                                  "ignore_eos":  true,
+                                                  "stream":  true,
+                                                  "logit_bias":  [
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  128247
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151643
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151645
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151662
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151663
+                                                                     },
+                                                                     {
+                                                                         "bias":  null,
+                                                                         "token":  151664
+                                                                     }
+                                                                 ],
+                                                  "n_probs":  0,
+                                                  "min_keep":  0,
+                                                  "grammar":  "",
+                                                  "grammar_lazy":  false,
+                                                  "grammar_triggers":  [
+
+                                                                       ],
+                                                  "preserved_tokens":  [
+
+                                                                       ],
+                                                  "chat_format":  "Content-only",
+                                                  "reasoning_format":  "deepseek",
+                                                  "reasoning_in_content":  false,
+                                                  "generation_prompt":  "",
+                                                  "samplers":  [
+                                                                   "penalties",
+                                                                   "dry",
+                                                                   "top_n_sigma",
+                                                                   "top_k",
+                                                                   "typ_p",
+                                                                   "top_p",
+                                                                   "min_p",
+                                                                   "xtc",
+                                                                   "temperature"
+                                                               ],
+                                                  "speculative.types":  "none",
+                                                  "timings_per_token":  false,
+                                                  "post_sampling_probs":  false,
+                                                  "backend_sampling":  false,
+                                                  "lora":  [
+
+                                                           ]
+                                              },
+                      "prompt":  "The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment and records every result carefully. The patient programmer examines a numerical experiment",
+                      "has_new_line":  false,
+                      "truncated":  false,
+                      "stop_type":  "limit",
+                      "stopping_word":  "",
+                      "tokens_cached":  2175,
+                      "timings":  {
+                                      "cache_n":  0,
+                                      "prompt_n":  2048,
+                                      "prompt_ms":  953.158,
+                                      "prompt_per_token_ms":  0.4654091796875,
+                                      "prompt_per_second":  2148.646918978805,
+                                      "predicted_n":  128,
+                                      "predicted_ms":  2216.947,
+                                      "predicted_per_token_ms":  17.456275590551183,
+                                      "predicted_per_second":  57.28598834342905
+                                  }
+                  },
+        "total_ms":  3171.4313,
+        "prompt_tokens":  2048,
+        "round":  3,
+        "backend":  "hip",
+        "ttft_ms":  954.30320000000006,
+        "events":  129,
+        "warmup":  false,
+        "n_predict":  128
+    }
+]

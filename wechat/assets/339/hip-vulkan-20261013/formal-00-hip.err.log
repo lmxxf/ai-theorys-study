@@ -1,0 +1,5 @@
+ggml_cuda_init: found 1 ROCm devices (Total VRAM: 16304 MiB):
+  Device 0: AMD Radeon RX 9070 XT, gfx1201 (0x1201), VMM: no, Wave Size: 32, VRAM: 16304 MiB
+load_backend: loaded ROCm backend from C:\LLama-Compare-20261013\hip\ggml-hip.dll
+load_backend: loaded RPC backend from C:\LLama-Compare-20261013\hip\ggml-rpc.dll
+load_backend: loaded CPU backend from C:\LLama-Compare-20261013\hip\ggml-cpu-alderlake.dll
