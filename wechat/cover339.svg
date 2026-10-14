@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#090f20"/><stop offset="1" stop-color="#142932"/></linearGradient>
+ <radialGradient id="halo"><stop stop-color="#58d9cd" stop-opacity=".18"/><stop offset="1" stop-color="#58d9cd" stop-opacity="0"/></radialGradient>
+ <linearGradient id="line"><stop stop-color="#ffab69"/><stop offset="1" stop-color="#54d6c8"/></linearGradient>
+ <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#bfd2ee" stroke-opacity=".045"/></pattern>
+</defs>
+<rect width="900" height="500" fill="url(#bg)"/>
+<rect width="900" height="500" fill="url(#grid)"/>
+<ellipse cx="450" cy="230" rx="430" ry="220" fill="url(#halo)"/>
+<text x="48" y="42" fill="#a4b4cb" font-size="16" letter-spacing="3">靳岩岩的 AI 学习笔记</text>
+<text x="852" y="42" text-anchor="end" fill="#71869d" font-size="16">339 / GPU 推理</text>
+<g fill="none" stroke-width="2">
+ <path d="M90 159H245L326 217H361 M118 219H270L326 246H361 M90 279H245L326 272H361" stroke="#f9a15e" opacity=".6"/>
+ <path d="M539 217H578L654 159H810 M539 246H615L660 219H810 M539 272H578L654 279H810" stroke="#55d6c7" opacity=".6"/>
+</g>
+<g fill="#ffb16e"><circle cx="151" cy="159" r="5"/><circle cx="216" cy="219" r="5"/><circle cx="165" cy="279" r="5"/></g>
+<g fill="#61e4d4"><circle cx="708" cy="159" r="5"/><circle cx="740" cy="159" r="5"/><circle cx="772" cy="159" r="5"/><circle cx="702" cy="219" r="5"/><circle cx="734" cy="219" r="5"/><circle cx="766" cy="219" r="5"/><circle cx="708" cy="279" r="5"/><circle cx="740" cy="279" r="5"/><circle cx="772" cy="279" r="5"/></g>
+<text x="210" y="112" text-anchor="middle" font-size="41" font-weight="bold" fill="#ffb16e">ROCm</text>
+<text x="690" y="112" text-anchor="middle" font-size="41" font-weight="bold" fill="#61e4d4">Vulkan</text>
+<text x="450" y="113" text-anchor="middle" font-size="23" fill="#879aaf">VS</text>
+<g stroke="#6c97a5" stroke-width="3">
+ <path d="M391 169V185 M420 169V185 M450 169V185 M480 169V185 M509 169V185 M391 303V319 M420 303V319 M450 303V319 M480 303V319 M509 303V319 M345 208H361 M345 237H361 M345 267H361 M539 208H555 M539 237H555 M539 267H555"/>
+ <rect x="362" y="185" width="176" height="118" rx="13" fill="#172b3e"/>
+ <rect x="374" y="197" width="152" height="94" rx="7" fill="#0c192b" stroke-width="1"/>
+</g>
+<text x="450" y="238" text-anchor="middle" fill="#ecf4fc" font-size="27" font-weight="bold">AMD GPU</text>
+<text x="450" y="268" text-anchor="middle" fill="#98b4c5" font-size="17">同一张显卡</text>
+<path d="M140 337H760" stroke="url(#line)" stroke-width="2" opacity=".6"/>
+<text x="450" y="388" text-anchor="middle" fill="#f3f6fc" font-size="37" font-weight="bold">AMD 显卡跑大模型，到底谁更快？</text>
+<text x="450" y="432" text-anchor="middle" fill="#abc0d1" font-size="23">先开口，还是出字快？</text>
+<text x="450" y="474" text-anchor="middle" fill="#728ba0" font-size="16" letter-spacing="1">Phoronix 评测 · RX 9070 XT 实测 · DLSS 5 优化经验</text>
+</svg>
