@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="720" viewBox="0 0 900 720">
+<defs>
+ <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#6b7c93" stroke-width="1.5"/></marker>
+</defs>
+<rect width="900" height="720" rx="20" fill="#f5f7fb"/>
+<g font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" text-anchor="middle">
+ <text x="450" y="49" font-size="28" font-weight="bold" fill="#182c45">换后端，换的是 GPU 运算的执行路径</text>
+ <text x="450" y="81" font-size="17" fill="#63738a">Phoronix 本次测试中的调用关系</text>
+ <rect x="235" y="108" width="430" height="93" rx="14" fill="#e4edfc" stroke="#7ea4d8" stroke-width="2"/>
+ <text x="450" y="144" font-size="26" font-weight="bold" fill="#244d82">Lemonade</text>
+ <text x="450" y="177" font-size="19" fill="#355773">提供本地服务，管理模型与运行配置</text>
+ <path d="M450 204 V239" stroke="#6b7c93" stroke-width="2.5" marker-end="url(#arrow)"/>
+ <rect x="235" y="250" width="430" height="93" rx="14" fill="#e4edfc" stroke="#7ea4d8" stroke-width="2"/>
+ <text x="450" y="287" font-size="26" font-weight="bold" fill="#244d82">llama.cpp</text>
+ <text x="450" y="318" font-size="19" fill="#355773">加载模型、组织推理，调用所选后端</text>
+ <path d="M450 346 V366 H235 V410 M450 366 H665 V410" fill="none" stroke="#6b7c93" stroke-width="2.5" marker-end="url(#arrow)"/>
+ <path d="M235 397 V410" stroke="#6b7c93" stroke-width="2.5" marker-end="url(#arrow)"/>
+ <rect x="60" y="423" width="350" height="117" rx="14" fill="#fff0e3" stroke="#db975a" stroke-width="2"/>
+ <text x="235" y="459" font-size="25" font-weight="bold" fill="#99541d">ROCm／HIP 后端</text>
+ <text x="235" y="491" font-size="19" fill="#775b46">通过 AMD 计算软件栈</text>
+ <text x="235" y="518" font-size="19" fill="#775b46">执行 GPU 运算</text>
+ <rect x="490" y="423" width="350" height="117" rx="14" fill="#def3ed" stroke="#65ab99" stroke-width="2"/>
+ <text x="665" y="459" font-size="25" font-weight="bold" fill="#246e5d">Vulkan 后端</text>
+ <text x="665" y="491" font-size="19" fill="#376c61">通过 Vulkan 接口与驱动</text>
+ <text x="665" y="518" font-size="19" fill="#376c61">执行 GPU 运算</text>
+ <path d="M235 543 V570 H665 V543 M450 570 V594" fill="none" stroke="#6b7c93" stroke-width="2.5" marker-end="url(#arrow)"/>
+ <rect x="260" y="608" width="380" height="57" rx="12" fill="#243b55"/>
+ <text x="450" y="645" font-size="25" font-weight="bold" fill="#fff">同一张 AMD GPU</text>
+ <text x="450" y="698" font-size="18" fill="#63738a">每次选择一条后端运行，再比较两次的表现</text>
+</g>
+</svg>
