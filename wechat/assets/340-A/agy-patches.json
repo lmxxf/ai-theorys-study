@@ -1,0 +1,129 @@
+{
+  "version": "1.3.5",
+  "architecture": "Linux ARM64 ELF PIE",
+  "size": 204820664,
+  "original_sha256": "7bf3dfb07781b561f77134e2dd35a8a14efa837a587b74aa866363ae5c87ea69",
+  "patched_sha256": "d64feb0f3c39825b5d20a2bcf11c90624c89da8862942da8c6380950e130a40f",
+  "changed_byte_ranges": [
+    {
+      "offset": "0x703bfc9",
+      "before_hex": "009d",
+      "after_hex": "4888"
+    },
+    {
+      "offset": "0x703bfcc",
+      "before_hex": "6200",
+      "after_hex": "e201"
+    },
+    {
+      "offset": "0x703bfd5",
+      "before_hex": "009d",
+      "after_hex": "4888"
+    },
+    {
+      "offset": "0x703bfd8",
+      "before_hex": "6200",
+      "after_hex": "e201"
+    },
+    {
+      "offset": "0x703c299",
+      "before_hex": "009d",
+      "after_hex": "4888"
+    },
+    {
+      "offset": "0x703c29c",
+      "before_hex": "6300",
+      "after_hex": "e301"
+    },
+    {
+      "offset": "0x718d094",
+      "before_hex": "010800f9",
+      "after_hex": "03ab1514"
+    },
+    {
+      "offset": "0x76f7c80",
+      "before_hex": "900b40f9f1",
+      "after_hex": "e0031faae1"
+    },
+    {
+      "offset": "0x76f7c86",
+      "before_hex": "01d13f0210eb491a0054",
+      "after_hex": "1faae2031faac0035fd6"
+    },
+    {
+      "offset": "0x76f7ca0",
+      "before_hex": "e3130ea9e10b0da9e06700f9813840f9e00305aa20003fd6201800b4e27740f9422040",
+      "after_hex": "030440f9e30000b4634040b97f2c16718100005403488852e301a072231000b9010800"
+    },
+    {
+      "offset": "0x76f7cc4",
+      "before_hex": "010400d1",
+      "after_hex": "f554ea17"
+    },
+    {
+      "offset": "0x76f7e86",
+      "before_hex": "40b2",
+      "after_hex": "1faa"
+    },
+    {
+      "offset": "0x76f7f3a",
+      "before_hex": "40b2",
+      "after_hex": "1faa"
+    },
+    {
+      "offset": "0x77395dd",
+      "before_hex": "b88b",
+      "after_hex": "02a0"
+    },
+    {
+      "offset": "0x773a2d1",
+      "before_hex": "b88b",
+      "after_hex": "02a0"
+    },
+    {
+      "offset": "0x773d725",
+      "before_hex": "b88b",
+      "after_hex": "02a0"
+    },
+    {
+      "offset": "0x773e864",
+      "before_hex": "e7",
+      "after_hex": "47"
+    },
+    {
+      "offset": "0x773e866",
+      "before_hex": "80b9",
+      "after_hex": "a0d2"
+    },
+    {
+      "offset": "0x773e874",
+      "before_hex": "07c489",
+      "after_hex": "4700a0"
+    },
+    {
+      "offset": "0x773e8c4",
+      "before_hex": "c6",
+      "after_hex": "46"
+    },
+    {
+      "offset": "0x773e8c6",
+      "before_hex": "80b9",
+      "after_hex": "a0d2"
+    },
+    {
+      "offset": "0x773e8d4",
+      "before_hex": "06c489",
+      "after_hex": "4600a0"
+    },
+    {
+      "offset": "0xa70ef5b",
+      "before_hex": "205c2273747261746567795c223a205c22434845434b504f494e545f53545241544547595f53414d455f4d4f44454c5c222c5c6e",
+      "after_hex": "5c2273747261746567795c223a205c22434845434b504f494e545f53545241544547595f53414d455f4d4f44454c5c222c5c6e20"
+    },
+    {
+      "offset": "0xa70ef92",
+      "before_hex": "205c226d61785f746f6b656e5f6c696d69745c223a205c22323536",
+      "after_hex": "5c226d61785f746f6b656e5f6c696d69745c223a205c2231303030"
+    }
+  ]
+}
