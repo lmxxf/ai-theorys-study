@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset="0.55" stop-color="#0b1b2b"/>
+      <stop offset="1" stop-color="#102d2d"/>
+    </linearGradient>
+    <radialGradient id="amberGlow" cx="18%" cy="30%" r="48%">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cyanGlow" cx="78%" cy="30%" r="52%">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.52" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#bfdbfe" stroke-opacity="0.045"/>
+    </pattern>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#grid)"/>
+  <rect width="900" height="500" fill="url(#amberGlow)"/>
+  <rect width="900" height="500" fill="url(#cyanGlow)"/>
+
+  <text x="48" y="42" fill="#a7b8ca" font-size="16" letter-spacing="3">靳岩岩的 AI 学习笔记</text>
+  <text x="852" y="42" text-anchor="end" fill="#71869d" font-size="16">340 / AI 工具链</text>
+
+  <!-- left: model -->
+  <g transform="translate(52 108)">
+    <rect width="260" height="224" rx="14" fill="#0b1526" stroke="#334155"/>
+    <rect x="18" y="18" width="224" height="46" rx="9" fill="#15263b" stroke="#f59e0b"/>
+    <text x="130" y="48" text-anchor="middle" fill="#fbbf24" font-size="26" font-weight="bold">大模型</text>
+
+    <g font-family="'WenQuanYi Micro Hei Mono', monospace" font-size="13" fill="#93c5fd">
+      <text x="24" y="92">mov eax, [ebp+8]</text>
+      <text x="24" y="114">fild dword ptr ...</text>
+      <text x="24" y="136">fmul [0x420068]</text>
+      <text x="24" y="158">fsub [0x420070]</text>
+      <text x="24" y="180">call __ftol</text>
+    </g>
+
+    <text x="130" y="205" text-anchor="middle" fill="#cbd5e1" font-size="14">读汇编的能力，本来就在模型里</text>
+  </g>
+
+  <!-- center: REA hub -->
+  <g transform="translate(365 122)">
+    <polygon points="85,0 170,49 170,147 85,196 0,147 0,49" fill="#102435" stroke="#2dd4bf" stroke-width="3" filter="url(#softGlow)"/>
+    <text x="85" y="82" text-anchor="middle" fill="#5eead4" font-size="42" font-weight="bold">REA</text>
+    <text x="85" y="112" text-anchor="middle" fill="#a7f3d0" font-size="15">skill + MCP</text>
+    <text x="85" y="138" text-anchor="middle" fill="#94a3b8" font-size="13">把工具接给智能体</text>
+  </g>
+
+  <!-- right: external tools -->
+  <g transform="translate(600 108)">
+    <rect width="248" height="224" rx="14" fill="#0b1526" stroke="#334155"/>
+    <g transform="translate(18 18)">
+      <rect width="212" height="52" rx="8" fill="#12313a" stroke="#2dd4bf"/>
+      <text x="106" y="22" text-anchor="middle" fill="#5eead4" font-size="17" font-weight="bold">Ghidra / IDA / Hopper</text>
+      <text x="106" y="41" text-anchor="middle" fill="#99f6e4" font-size="12">伪代码 · 汇编 · 交叉引用</text>
+    </g>
+    <g transform="translate(18 86)">
+      <rect width="212" height="50" rx="8" fill="#1e293b" stroke="#60a5fa"/>
+      <text x="106" y="22" text-anchor="middle" fill="#bfdbfe" font-size="17" font-weight="bold">objdump / JADX</text>
+      <text x="106" y="41" text-anchor="middle" fill="#93c5fd" font-size="12">现有命令行与解析器</text>
+    </g>
+    <g transform="translate(18 152)">
+      <rect width="212" height="52" rx="8" fill="#2b1c10" stroke="#f59e0b"/>
+      <text x="106" y="22" text-anchor="middle" fill="#fde68a" font-size="17" font-weight="bold">Evidence</text>
+      <text x="106" y="41" text-anchor="middle" fill="#fcd34d" font-size="12">证据编号 · 覆盖边界 · 未知项</text>
+    </g>
+  </g>
+
+  <!-- connections -->
+  <g fill="none" stroke-width="3" stroke-linecap="round">
+    <path d="M312 205 H350" stroke="#f59e0b"/>
+    <path d="M350 205 L362 198 M350 205 L362 212" stroke="#f59e0b"/>
+    <path d="M535 205 H586" stroke="#2dd4bf"/>
+    <path d="M586 205 L574 198 M586 205 L574 212" stroke="#2dd4bf"/>
+  </g>
+  <text x="331" y="190" text-anchor="middle" fill="#fcd34d" font-size="12">缺材料时自己查</text>
+  <text x="560" y="190" text-anchor="middle" fill="#99f6e4" font-size="12">调用外部引擎</text>
+
+  <!-- bottom note above title -->
+  <path d="M105 360 H795" stroke="url(#band)" stroke-width="2" opacity="0.62"/>
+  <text x="450" y="373" text-anchor="middle" fill="#a7f3d0" font-size="16">170 个工具是目录，不是全平台可用清单</text>
+
+  <!-- title band -->
+  <rect x="0" y="392" width="900" height="108" fill="#020617" opacity="0.9"/>
+  <rect x="0" y="392" width="900" height="6" fill="url(#band)"/>
+  <text x="450" y="431" text-anchor="middle" fill="#f8fafc" font-size="34" font-weight="bold">REA：只补工具，不补脑</text>
+  <text x="450" y="463" text-anchor="middle" fill="#cbd5e1" font-size="19">MCP 接起逆向工具，汇编和验证仍要亲自过关</text>
+  <text x="450" y="489" text-anchor="middle" fill="#71869d" font-size="13" letter-spacing="1">No.340 · Reverse Engineer Anything · 有用，但不是魔法</text>
+</svg>
