@@ -1,0 +1,56 @@
+{
+  "original_sha256": "e14253aa79d4e910cbf8bcb40b68e80f9e85476725e130ed085122c98face92b",
+  "patched_sha256": "4701d840f20eb78319153f177f8814932052259d418de32b54f5bcb9ad71b34a",
+  "size": 217768144,
+  "backup": "/home/lmxxf/.local/share/agy-patches/agy-x86-original-e14253aa.bak",
+  "changes": [
+    {
+      "offset": "0x7ce7f09",
+      "before": "b9c05d0000",
+      "after": "b900001000",
+      "purpose": "file read cap 1MiB"
+    },
+    {
+      "offset": "0x7ce8e85",
+      "before": "b9c05d0000",
+      "after": "b900001000",
+      "purpose": "file read cap 1MiB"
+    },
+    {
+      "offset": "0x7ced60e",
+      "before": "b9c05d0000",
+      "after": "b900001000",
+      "purpose": "file read cap 1MiB"
+    },
+    {
+      "offset": "0x7ceef94",
+      "before": "8b9c24e0000000",
+      "after": "bb000002009090",
+      "purpose": "rules budget 128Ki tokens"
+    },
+    {
+      "offset": "0x7ceef9e",
+      "before": "8b8424e4000000",
+      "after": "b8000002009090",
+      "purpose": "customizations budget 128Ki tokens"
+    },
+    {
+      "offset": "0x7c90a80",
+      "before": "4c8d6424d04d3b",
+      "after": "31c031db31c9c3",
+      "purpose": "disable automatic checkpoint"
+    },
+    {
+      "offset": "0x7c90aa0",
+      "before": "00004c898424e00000004889b424d80000004889bc24d000000048898c24c800000048899c24c00000",
+      "after": "488b50084885d27415817a408b050000750c4885c97407c7411040420f004889481031dbe99cae9cff",
+      "purpose": "Argon Low final configuration override"
+    },
+    {
+      "offset": "0x765b95f",
+      "before": "4889481031db",
+      "after": "e93c51630090",
+      "purpose": "jump to override; replay store and xor"
+    }
+  ]
+}

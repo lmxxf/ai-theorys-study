@@ -1,0 +1,47 @@
+[
+  {
+    "name": "google3/third_party/jetski/cortex_pb/cortex_go_proto.(*CascadeConfig).GetCheckpointConfig",
+    "pc": 10566656,
+    "end": 10566688
+  },
+  {
+    "name": "google3/third_party/jetski/cortex/utils/utils.GetCheckpointConfig",
+    "pc": 21797728,
+    "end": 21799008
+  },
+  {
+    "name": "google3/third_party/jetski/cortex/utils/utils.GetCheckpointConfigForModelInfo",
+    "pc": 21799008,
+    "end": 21799488
+  },
+  {
+    "name": "google3/third_party/jetski/cortex/config/config.applyFeatureProviderCheckpointOverrideConfig",
+    "pc": 23373376,
+    "end": 23374176
+  },
+  {
+    "name": "google3/third_party/oneharness/internal/core/hooks/hooks.checkpointNeeded",
+    "pc": 29882880,
+    "end": 29883904
+  },
+  {
+    "name": "google3/third_party/jetski/cortex/customizations/customizations.(*Manager).readGlobalRules",
+    "pc": 30237632,
+    "end": 30241728
+  },
+  {
+    "name": "google3/third_party/jetski/cortex/customizations/customizations.(*Manager).parseRuleFile",
+    "pc": 30244000,
+    "end": 30247168
+  },
+  {
+    "name": "google3/third_party/jetski/cortex/customizations/customizations.convertSkillPath",
+    "pc": 30261152,
+    "end": 30264224
+  },
+  {
+    "name": "google3/third_party/jetski/cortex/customizations/customizations.(*Manager).computeTruncatedCustomizations",
+    "pc": 30268288,
+    "end": 30269792
+  }
+]
