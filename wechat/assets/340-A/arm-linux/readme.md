@@ -15,7 +15,7 @@
 
 原版 SHA256：`51a1839c1055a9c80bbab0494e3adad38d4b83af9762166443438742e90651ca`
 
-修改版 SHA256：`fab0e1f5cfedfc1ccc63c1990fa9bc866509aa79e3d2286fcdb23a7886f19ed8`
+修改版 SHA256：`3ec0697a2252b8a8467442794484057288507b5c6cd210cb829bd2d666094ab0`
 
 目录不存原版二进制。安装位置保留 `agy-1.4.0-original.bak`；补丁脚本创建备份且不会覆盖不同内容的备份。旧版 README、封面及归档已按要求移除，x86-linux 不在本次维护范围。
 
@@ -29,7 +29,7 @@
 python3 fix-argon-context.py
 ```
 
-已是修改版则报告 Already patched；未知哈希直接退出，不能删校验硬套。脚本在同目录写临时文件、保留执行权限，再原子替换，避免对运行中的文件原地写入。
+已是修改版则报告 Already patched；此前只支持 Low 的已知修改版也可直接升级；脚本先按旧清单还原原版字节再应用新清单。未知哈希直接退出，不能删校验硬套。脚本在同目录写临时文件、保留执行权限，再原子替换，避免对运行中的文件原地写入。
 
 解包归档用于检查或恢复（当前目录已有解包文件时先确认它的用途）：
 
@@ -43,7 +43,7 @@ sha256sum -c agy.sha256
 
 ## 新版本：重新定位后再修改
 
-目标保持四项：仅 Argon Low 的最终窗口预算为 1000000；规则/skill 单文件上限 1048576 字节；rules/customizations 总预算各 131072 tokens；自动 checkpoint 谓词返回 false,nil。其他模型窗口不扩改。先确认新版本是否仍有这些限制；已被上游修好的部分不重复补。
+目标保持四项：Argon Low/Medium/High 三档的最终窗口预算均为 1000000；规则/skill 单文件上限 1048576 字节；rules/customizations 总预算各 131072 tokens；自动 checkpoint 谓词返回 false,nil。其他模型窗口不扩改。先确认新版本是否仍有这些限制；已被上游修好的部分不重复补。
 
 ### 1. 找函数，别沿用偏移
 
@@ -75,9 +75,9 @@ pcHeader 的 +8 是 nfunc；+24 是 textStart；+32 是 funcnameOffset；+64 是
 
 逐项核实：模型名对应的枚举值；CascadeConfig 的 planner 指针偏移；planner 的 plan_model 偏移；CheckpointConfig 的 max_token_limit 字段宽度和偏移；出口现场寄存器与返回路径。
 
-本构建：Argon Low=1419，planner 指针在 +8，plan_model 为32位字段 +64，max_token_limit 为32位字段 +16。出口 `0x752ee24` 原指令为 `str x1,[x0,#16]`；x0 是外层配置，x1 是最终 checkpoint 配置，x3 可作临时寄存器。
+本构建：Argon High=1417、Medium=1418、Low=1419，planner 指针在 +8，plan_model 为32位字段 +64，max_token_limit 为32位字段 +16。出口 `0x752ee24` 原指令为 `str x1,[x0,#16]`；x0 是外层配置，x1 是最终 checkpoint 配置，x3 可作临时寄存器。
 
-补丁跳到 `0x7aa7320`：检查 planner 非空、模型等于1419；匹配时写1000000；随后无论匹配与否都补做原指令，跳回 `0x752ee28`。精确机器码见 JSON，生成分支时校验4字节对齐和 ARM64 B 的范围。
+补丁跳到 `0x7aa7320`：检查 planner 非空、模型编号在1417到1419之间（减1417后按无符号数比较是否≤2）；匹配时写1000000；随后无论匹配与否都补做原指令，跳回 `0x752ee28`。精确机器码见 JSON，生成分支时校验4字节对齐和 ARM64 B 的范围。
 
 ### 3. 自动 checkpoint 与跳板空间
 
@@ -144,3 +144,9 @@ python3 verify-request.py <conversation_id> --agents /实际项目/AGENTS.md
 确认本机补丁验证通过后，更新同名文件，不堆 v1/v2。以当前安装文件生成 `agy.gz`，同步哈希、补丁脚本、字节清单与验证记录；解压逐字节比对安装版，并将补丁清单逆向恢复的原版哈希对上，以免归档和脚本来自不同构建。
 
 更新本文的版本、大小、定位和验证边界。操作完成后提示重启正在运行的 agy；新会话可重新加载完整规则，旧会话已丢的内容不会自动恢复。不改 git index，不自动提交或发布。
+
+## 10月17日 22:04：切换 Medium 后再次裁剪的原因
+
+会话 `59ba0454-d962-4cdd-b406-fab616ae6d4d` 的 gen_metadata 0到7为1419，上限983040；从8开始切到1418，上限立即变256000。第22条起出现多次truncation_reason=2。屏幕显示 Conversation compacted，但数据库证据是发送前裁剪，不能仅凭UI认定生成了摘要。
+
+初版只覆盖Low，因此这次扩展为Argon三档，其他模型仍不改。跳板由40字节增为44字节。分别对Low、Medium、High发真实请求，executor及gen两处均为983040，结果见verification.json。AGENTS全文注入记录来自扩展前同版规则补丁，三档扩展未改规则路径；尚未重跑长上下文压力测试。以后验收须覆盖用户会切换的档位，不能只测默认Low。

@@ -1,17 +1,48 @@
 {
   "version": "1.4.0",
-  "conversation_id": "b148ab0e-7b38-40b6-a32f-925c12825f9d",
-  "actual_request_limit": 983040,
-  "agents_bytes": 118908,
-  "sections": [
+  "sha256": "3ec0697a2252b8a8467442794484057288507b5c6cd210cb829bd2d666094ab0",
+  "tiers": [
     {
-      "title": "user_rules",
-      "bytes": 119283,
-      "contains_full_agents": true,
-      "excluded": false
+      "model": "low",
+      "model_enum": 1419,
+      "conversation_id": "53b743af-519e-48a3-9d6d-77ac54fdce02",
+      "request_limit": 983040,
+      "executor_limit": 983040,
+      "response": "OK"
+    },
+    {
+      "model": "medium",
+      "model_enum": 1418,
+      "conversation_id": "c128d54e-fc1d-47cf-8fd8-8e63752a4a1a",
+      "request_limit": 983040,
+      "executor_limit": 983040,
+      "response": "OK"
+    },
+    {
+      "model": "high",
+      "model_enum": 1417,
+      "conversation_id": "82cfa5f7-c90e-46bb-9b02-061c4f322eed",
+      "request_limit": 983040,
+      "executor_limit": 983040,
+      "response": "OK"
     }
   ],
-  "response": "OK",
   "long_context_over_256k_tested": false,
-  "sha256": "fab0e1f5cfedfc1ccc63c1990fa9bc866509aa79e3d2286fcdb23a7886f19ed8"
+  "rules_verification_before_tier_extension": {
+    "version": "1.4.0",
+    "conversation_id": "b148ab0e-7b38-40b6-a32f-925c12825f9d",
+    "actual_request_limit": 983040,
+    "agents_bytes": 118908,
+    "sections": [
+      {
+        "title": "user_rules",
+        "bytes": 119283,
+        "contains_full_agents": true,
+        "excluded": false
+      }
+    ],
+    "response": "OK",
+    "long_context_over_256k_tested": false,
+    "sha256": "fab0e1f5cfedfc1ccc63c1990fa9bc866509aa79e3d2286fcdb23a7886f19ed8"
+  }
 }
