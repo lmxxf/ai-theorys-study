@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 680" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif" font-size="12" fill="#222">
+  <rect width="1040" height="680" fill="#fafafa"/>
+  <text x="520" y="28" text-anchor="middle" font-size="18" font-weight="bold">DLSS 5 两代网络并排对照：砍掉三分之二外围块，死保谷底 8 个 ViT</text>
+  <text x="520" y="48" text-anchor="middle" font-size="12" fill="#666">左：诚实的丁鱥（honest tench，71 块 / 1x）　｜　右：疯狂的杜鹃（crazy cuckoo，31 块 / 0.5x，310.9.16.0 新默认）</text>
+
+  <defs>
+    <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- ================= 左半屏：71 块（丁鱥 1x） ================= -->
+  <rect x="20" y="62" width="485" height="546" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2"/>
+  <rect x="20" y="62" width="485" height="36" rx="8" fill="#eef3fb"/>
+  <text x="262" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c4f8f">旧默认（现 Preset 1）：诚实的丁鱥 · 71 块 / 152 层</text>
+
+  <!-- 左 skip 虚线 -->
+  <g stroke="#bbb" stroke-width="1.2" stroke-dasharray="4 3" fill="none">
+    <path d="M202 130 H322"/>
+    <path d="M202 194 H322"/>
+    <path d="M202 258 H322"/>
+    <path d="M202 322 H322"/>
+    <path d="M202 386 H322"/>
+    <path d="M202 450 H322"/>
+  </g>
+  <text x="262" y="123" text-anchor="middle" font-size="10" fill="#999">skip 跳接 ×6</text>
+
+  <!-- 左 C32 (orange) -->
+  <g stroke="#d9822b" stroke-width="1.5" fill="#fdf1e4">
+    <rect x="36" y="110" width="166" height="40" rx="5"/>
+    <rect x="322" y="110" width="166" height="40" rx="5"/>
+    <rect x="42" y="174" width="160" height="40" rx="5"/>
+    <rect x="322" y="174" width="160" height="40" rx="5"/>
+  </g>
+  <!-- 左 C64/128/256 (blue) -->
+  <g stroke="#3b6fb6" stroke-width="1.5" fill="#e7eefb">
+    <rect x="48" y="238" width="154" height="40" rx="5"/>
+    <rect x="322" y="238" width="154" height="40" rx="5"/>
+    <rect x="54" y="302" width="148" height="40" rx="5"/>
+    <rect x="322" y="302" width="148" height="40" rx="5"/>
+    <rect x="60" y="366" width="142" height="40" rx="5"/>
+    <rect x="322" y="366" width="142" height="40" rx="5"/>
+  </g>
+  <!-- 左 C512 (green) -->
+  <g stroke="#3a9a5b" stroke-width="1.5" fill="#e6f5ea">
+    <rect x="64" y="430" width="138" height="40" rx="5"/>
+    <rect x="322" y="430" width="138" height="40" rx="5"/>
+  </g>
+  <!-- 左 ViT (purple) -->
+  <rect x="96" y="494" width="332" height="44" rx="6" stroke="#8a4fb5" stroke-width="1.8" fill="#f1e8f8"/>
+
+  <!-- 左 文字 -->
+  <g font-size="11.5" text-anchor="middle" font-weight="bold">
+    <text x="119" y="127">块 0 · C32 pre</text>
+    <text x="122" y="191">块 1–4 · C32 ×4</text>
+    <text x="125" y="255">块 5–8 · C64 ×4</text>
+    <text x="128" y="319">块 9–14 · C128 ×6</text>
+    <text x="131" y="383">块 15–22 · C256 ×8</text>
+    <text x="133" y="447">块 23–30 · C512 ×8</text>
+
+    <text x="405" y="127">块 70 · C32 post</text>
+    <text x="402" y="191">块 66–69 · C32 ×4</text>
+    <text x="399" y="255">块 62–65 · C64 ×4</text>
+    <text x="396" y="319">块 56–61 · C128 ×6</text>
+    <text x="393" y="383">块 48–55 · C256 ×8</text>
+    <text x="391" y="447">块 39–47 · C512 ×9</text>
+
+    <text x="262" y="513" font-size="12.5" fill="#5b2c82">块 31–38 · ViT C1024 ×8（40 层）</text>
+  </g>
+  <g font-size="10" fill="#666" text-anchor="middle">
+    <text x="119" y="143">1920×1152（入口）</text>
+    <text x="122" y="207">960×576 · 4 块</text>
+    <text x="125" y="271">480×288 · 4 块</text>
+    <text x="128" y="335">240×144 · 6 块</text>
+    <text x="131" y="399">120×72 · 8 块</text>
+    <text x="133" y="463">60×36 · 33 层</text>
+
+    <text x="405" y="143">1920×1152（RGB+历史）</text>
+    <text x="402" y="207">960×576 · 4 块</text>
+    <text x="399" y="271">480×288 · 4 块</text>
+    <text x="396" y="335">240×144 · 6 块</text>
+    <text x="393" y="399">120×72 · 8 块</text>
+    <text x="391" y="463">60×36 · 33 层（含块 39）</text>
+
+    <text x="262" y="530">640 token 全局注意力 · 权重 100.7 MB</text>
+  </g>
+
+  <!-- 左 箭头 -->
+  <g stroke="#666" stroke-width="1.3" fill="none" marker-end="url(#arr)">
+    <path d="M133 150 V174"/><path d="M133 214 V238"/><path d="M133 278 V302"/>
+    <path d="M133 342 V366"/><path d="M133 406 V430"/><path d="M133 470 V494"/>
+    <path d="M391 494 V470"/><path d="M391 430 V406"/><path d="M391 366 V342"/>
+    <path d="M391 302 V278"/><path d="M391 238 V214"/><path d="M391 174 V150"/>
+  </g>
+
+  <!-- 左 底部账本 -->
+  <rect x="36" y="550" width="452" height="46" rx="5" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="262" y="569" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#333">外围局部窗口：63 块（47.0 MB）　＋　谷底 ViT：8 块（100.7 MB）＝ 147.7 MB</text>
+  <text x="262" y="587" text-anchor="middle" font-size="11" fill="#555">RX 9070 XT 单帧耗时：1080 档 9.16 ms　｜　900 档 6.56 ms</text>
+
+
+  <!-- ================= 右半屏：31 块（杜鹃 0.5x） ================= -->
+  <rect x="535" y="62" width="485" height="546" rx="8" fill="#ffffff" stroke="#a8d5ba" stroke-width="1.5"/>
+  <rect x="535" y="62" width="485" height="36" rx="8" fill="#e6f5ea"/>
+  <text x="777" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e6b3b">新默认（Preset 2 / 0.5x）：疯狂的杜鹃 · 31 块 / 76 层</text>
+
+  <!-- 右 skip 虚线 -->
+  <g stroke="#bbb" stroke-width="1.2" stroke-dasharray="4 3" fill="none">
+    <path d="M717 130 H837"/>
+    <path d="M717 194 H837"/>
+    <path d="M717 258 H837"/>
+    <path d="M717 322 H837"/>
+    <path d="M717 386 H837"/>
+    <path d="M717 450 H837"/>
+  </g>
+  <text x="777" y="123" text-anchor="middle" font-size="10" fill="#999">skip 跳接 ×6（全保留）</text>
+
+  <!-- 右 C32 (orange) -->
+  <g stroke="#d9822b" stroke-width="1.5" fill="#fdf1e4">
+    <rect x="551" y="110" width="166" height="40" rx="5"/>
+    <rect x="837" y="110" width="166" height="40" rx="5"/>
+    <rect x="557" y="174" width="160" height="40" rx="5"/>
+    <rect x="837" y="174" width="160" height="40" rx="5"/>
+  </g>
+  <!-- 右 C64/128/256 (blue) -->
+  <g stroke="#3b6fb6" stroke-width="1.5" fill="#e7eefb">
+    <rect x="563" y="238" width="154" height="40" rx="5"/>
+    <rect x="837" y="238" width="154" height="40" rx="5"/>
+    <rect x="569" y="302" width="148" height="40" rx="5"/>
+    <rect x="837" y="302" width="148" height="40" rx="5"/>
+    <rect x="575" y="366" width="142" height="40" rx="5"/>
+    <rect x="837" y="366" width="142" height="40" rx="5"/>
+  </g>
+  <!-- 右 C512 (green) -->
+  <g stroke="#3a9a5b" stroke-width="1.5" fill="#e6f5ea">
+    <rect x="579" y="430" width="138" height="40" rx="5"/>
+    <rect x="837" y="430" width="138" height="40" rx="5"/>
+  </g>
+  <!-- 右 ViT (purple) -->
+  <rect x="611" y="494" width="332" height="44" rx="6" stroke="#8a4fb5" stroke-width="2.2" fill="#f1e8f8"/>
+
+  <!-- 右 文字 -->
+  <g font-size="11.5" text-anchor="middle" font-weight="bold">
+    <text x="634" y="127">块 0 · C32 pre</text>
+    <text x="637" y="191" fill="#b54708">块 1–2 · C32 ×2</text>
+    <text x="640" y="255" fill="#1d4ed8">块 3–4 · C64 ×2</text>
+    <text x="643" y="319" fill="#1d4ed8">块 5–6 · C128 ×2</text>
+    <text x="646" y="383" fill="#1d4ed8">块 7–8 · C256 ×2</text>
+    <text x="648" y="447" fill="#15803d">块 9–10 · C512 ×2</text>
+
+    <text x="920" y="127">块 30 · C32 post</text>
+    <text x="917" y="191" fill="#b54708">块 28–29 · C32 ×2</text>
+    <text x="914" y="255" fill="#1d4ed8">块 26–27 · C64 ×2</text>
+    <text x="911" y="319" fill="#1d4ed8">块 24–25 · C128 ×2</text>
+    <text x="908" y="383" fill="#1d4ed8">块 22–23 · C256 ×2</text>
+    <text x="906" y="447" fill="#15803d">块 19–21 · C512 ×3</text>
+
+    <text x="777" y="513" font-size="12.5" fill="#5b2c82">块 11–18 · ViT C1024 ×8（40 层，原封不动！）</text>
+  </g>
+  <g font-size="10" fill="#666" text-anchor="middle">
+    <text x="634" y="143">1920×1152（入口）</text>
+    <text x="637" y="207">砍掉 2 块（4→2）</text>
+    <text x="640" y="271">砍掉 2 块（4→2）</text>
+    <text x="643" y="335">砍掉 4 块（6→2）</text>
+    <text x="646" y="399">砍掉 6 块（8→2）</text>
+    <text x="648" y="463">砍掉 6 块（9 层）</text>
+
+    <text x="920" y="143">1920×1152（blend 0x3A23）</text>
+    <text x="917" y="207">砍掉 2 块（4→2）</text>
+    <text x="914" y="271">砍掉 2 块（4→2）</text>
+    <text x="911" y="335">砍掉 4 块（6→2）</text>
+    <text x="908" y="399">砍掉 6 块（8→2）</text>
+    <text x="906" y="463">砍掉 6 块（9 层，含块 19）</text>
+
+    <text x="777" y="530">640 token 全局注意力 · 权重 100.7 MB（占全网 88.4%！）</text>
+  </g>
+
+  <!-- 右 箭头 -->
+  <g stroke="#666" stroke-width="1.3" fill="none" marker-end="url(#arr)">
+    <path d="M648 150 V174"/><path d="M648 214 V238"/><path d="M648 278 V302"/>
+    <path d="M648 342 V366"/><path d="M648 406 V430"/><path d="M648 470 V494"/>
+    <path d="M906 494 V470"/><path d="M906 430 V406"/><path d="M906 366 V342"/>
+    <path d="M906 302 V278"/><path d="M906 238 V214"/><path d="M906 174 V150"/>
+  </g>
+
+  <!-- 右 底部账本 -->
+  <rect x="551" y="550" width="452" height="46" rx="5" fill="#eaf6ee" stroke="#8bb89c"/>
+  <text x="777" y="569" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e6b3b">外围局部窗口：23 块（仅 13.2 MB）＋ 谷底 ViT：8 块（100.7 MB）＝ 113.9 MB</text>
+  <text x="777" y="587" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e6b3b">RX 9070 XT 单帧耗时：1080 档 5.55 ms（−39.3%）｜ 900 档 4.38 ms（−33.3%）</text>
+
+  <!-- 底部总注 -->
+  <text x="520" y="632" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">核心规律：参数量（脑容量）88.4% 集中在谷底 8 个 ViT 块；算力耗时大头却在分辨率最高的外围局部窗口块。</text>
+  <text x="520" y="652" text-anchor="middle" font-size="11.5" fill="#666">所以把外围每站缩成 2 块，权重体积只少 23%，却直接砍掉了近四成的显卡执行时间；余弦相似度 ≈ 0.000 证明全网从头重训。</text>
+</svg>
