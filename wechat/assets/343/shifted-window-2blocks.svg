@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <rect width="960" height="430" fill="#fafafa"/>
+  <text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">为什么每站刚好留 2 块，不能砍成 1 块？——「正切 + 错半格切」缝合窗口接缝</text>
+  <text x="480" y="50" text-anchor="middle" font-size="12" fill="#666">每个 8×8 小方格只在内部算注意力；必须靠第 2 块把网格错开半格（4 像素），才能让跨边界的相邻像素互相看见</text>
+
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#555"/>
+    </marker>
+    <g id="pixelGrid">
+      <line x1="0" y1="0" x2="224" y2="0"/><line x1="0" y1="14" x2="224" y2="14"/><line x1="0" y1="28" x2="224" y2="28"/><line x1="0" y1="42" x2="224" y2="42"/><line x1="0" y1="56" x2="224" y2="56"/><line x1="0" y1="70" x2="224" y2="70"/><line x1="0" y1="84" x2="224" y2="84"/><line x1="0" y1="98" x2="224" y2="98"/><line x1="0" y1="112" x2="224" y2="112"/><line x1="0" y1="126" x2="224" y2="126"/><line x1="0" y1="140" x2="224" y2="140"/><line x1="0" y1="154" x2="224" y2="154"/><line x1="0" y1="168" x2="224" y2="168"/><line x1="0" y1="182" x2="224" y2="182"/><line x1="0" y1="196" x2="224" y2="196"/><line x1="0" y1="210" x2="224" y2="210"/><line x1="0" y1="224" x2="224" y2="224"/>
+      <line x1="0" y1="0" x2="0" y2="224"/><line x1="14" y1="0" x2="14" y2="224"/><line x1="28" y1="0" x2="28" y2="224"/><line x1="42" y1="0" x2="42" y2="224"/><line x1="56" y1="0" x2="56" y2="224"/><line x1="70" y1="0" x2="70" y2="224"/><line x1="84" y1="0" x2="84" y2="224"/><line x1="98" y1="0" x2="98" y2="224"/><line x1="112" y1="0" x2="112" y2="224"/><line x1="126" y1="0" x2="126" y2="224"/><line x1="140" y1="0" x2="140" y2="224"/><line x1="154" y1="0" x2="154" y2="224"/><line x1="168" y1="0" x2="168" y2="224"/><line x1="182" y1="0" x2="182" y2="224"/><line x1="196" y1="0" x2="196" y2="224"/><line x1="210" y1="0" x2="210" y2="224"/><line x1="224" y1="0" x2="224" y2="224"/>
+    </g>
+  </defs>
+
+  <!-- ===== 左图：第 1 块（正着切） ===== -->
+  <text x="147" y="76" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c4f8f">第 1 块：从 (0, 0) 正着切 8×8 方格</text>
+  <g transform="translate(35, 90)">
+    <g stroke="#e2e8f0" stroke-width="0.8">
+      <use href="#pixelGrid"/>
+    </g>
+    <!-- 四个 8x8 窗口 (112x112) -->
+    <rect x="0" y="0" width="112" height="112" fill="#3b6fb6" fill-opacity="0.08" stroke="#3b6fb6" stroke-width="2"/>
+    <rect x="112" y="0" width="112" height="112" fill="#3b6fb6" fill-opacity="0.08" stroke="#3b6fb6" stroke-width="2"/>
+    <rect x="0" y="112" width="112" height="112" fill="#3b6fb6" fill-opacity="0.08" stroke="#3b6fb6" stroke-width="2"/>
+    <rect x="112" y="112" width="112" height="112" fill="#3b6fb6" fill-opacity="0.08" stroke="#3b6fb6" stroke-width="2"/>
+    <!-- 接缝高亮 -->
+    <line x1="112" y1="0" x2="112" y2="224" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="4 3"/>
+    <line x1="0" y1="112" x2="224" y2="112" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="4 3"/>
+    <!-- 两个紧挨着的像素 -->
+    <rect x="98" y="98" width="14" height="14" fill="#d9822b"/>
+    <rect x="112" y="98" width="14" height="14" fill="#dc2626"/>
+    <text x="112" y="250" text-anchor="middle" font-size="12" font-weight="bold" fill="#dc2626">橙点与红点紧挨着，却被边界切在两个方格里</text>
+    <text x="112" y="268" text-anchor="middle" font-size="10.8" fill="#555">如果每站只算这 1 块，红虚线处就会留下 8×8 网格接缝</text>
+  </g>
+
+  <!-- 中间箭头 -->
+  <path d="M272,202 L322,202" stroke="#555" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="297" y="190" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#d9822b">第 2 块</text>
+  <text x="297" y="220" text-anchor="middle" font-size="11" fill="#555">斜移 4 格</text>
+
+  <!-- ===== 中图：第 2 块（错开半格切） ===== -->
+  <text x="447" y="76" text-anchor="middle" font-size="14" font-weight="bold" fill="#b54708">第 2 块：网格横竖各错开半格（4 像素）</text>
+  <g transform="translate(335, 90)">
+    <g stroke="#e2e8f0" stroke-width="0.8">
+      <use href="#pixelGrid"/>
+    </g>
+    <!-- 上一块的旧边界（淡虚线） -->
+    <line x1="112" y1="0" x2="112" y2="224" stroke="#3b6fb6" stroke-width="1.4" stroke-dasharray="4 4" opacity="0.45"/>
+    <line x1="0" y1="112" x2="224" y2="112" stroke="#3b6fb6" stroke-width="1.4" stroke-dasharray="4 4" opacity="0.45"/>
+    <!-- 移位后的外围边窗 -->
+    <g stroke="#d9822b" stroke-width="1.2" fill="none" opacity="0.45">
+      <rect x="0" y="0" width="56" height="56"/><rect x="56" y="0" width="112" height="56"/><rect x="168" y="0" width="56" height="56"/>
+      <rect x="0" y="56" width="56" height="112"/><rect x="168" y="56" width="56" height="112"/>
+      <rect x="0" y="168" width="56" height="56"/><rect x="56" y="168" width="112" height="56"/><rect x="168" y="168" width="56" height="56"/>
+    </g>
+    <!-- 正中央的新 8x8 窗口 (56,56 -> 168,168) -->
+    <rect x="56" y="56" width="112" height="112" fill="#d9822b" fill-opacity="0.14" stroke="#d9822b" stroke-width="2.5"/>
+    <!-- 两个紧挨着的像素现在在正中央 -->
+    <rect x="98" y="98" width="14" height="14" fill="#d9822b"/>
+    <rect x="112" y="98" width="14" height="14" fill="#dc2626"/>
+    <text x="112" y="250" text-anchor="middle" font-size="12" font-weight="bold" fill="#15803d">橙点与红点现在落进同一个方格正中央！</text>
+    <text x="112" y="268" text-anchor="middle" font-size="10.8" fill="#555">新方格正好骑在旧十字接缝上，一次缝合横竖两条边</text>
+  </g>
+
+  <!-- ===== 右侧卡片：1 块 vs 2 块 vs 4~8 块 ===== -->
+  <rect x="595" y="66" width="335" height="305" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1.3"/>
+  <text x="762" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">三种块数方案对比</text>
+
+  <!-- 1 块 -->
+  <rect x="613" y="106" width="299" height="68" rx="6" fill="#fef2f2" stroke="#f87171" stroke-width="1.2"/>
+  <text x="625" y="126" font-size="12.5" font-weight="bold" fill="#b91c1c">如果砍成每站 1 块（不可行）</text>
+  <text x="625" y="145" font-size="11" fill="#555">只有正切、没有错切，相邻方格永远不互通，</text>
+  <text x="625" y="162" font-size="11" fill="#555">画面会直接裂开成一格格 8×8 的豆腐块。</text>
+
+  <!-- 2 块 -->
+  <rect x="613" y="186" width="299" height="84" rx="6" fill="#eaf6ee" stroke="#3a9a5b" stroke-width="1.8"/>
+  <text x="625" y="206" font-size="12.5" font-weight="bold" fill="#15803d">新模型「杜鹃」：每站留 2 块（最优解）</text>
+  <text x="625" y="225" font-size="11" fill="#222">「第 1 块正切 + 第 2 块错半格切」刚好凑成</text>
+  <text x="625" y="242" font-size="11" fill="#222">1 次完整缝合闭环——既消掉了所有窗口接缝，</text>
+  <text x="625" y="259" font-size="11" font-weight="bold" fill="#15803d">又把高分辨率外围站的耗时压到了物理最低限度。</text>
+
+  <!-- 4~8 块 -->
+  <rect x="613" y="282" width="299" height="74" rx="6" fill="#eef3fb" stroke="#5a7fbf" stroke-width="1.2"/>
+  <text x="625" y="302" font-size="12.5" font-weight="bold" fill="#2c4f8f">旧模型「丁鱥」：每站叠 4～8 块（算力豪华版）</text>
+  <text x="625" y="321" font-size="11" fill="#555">相当于把「正切 + 错切」在同一站里反复来回</text>
+  <text x="625" y="338" font-size="11" fill="#555">揉了 2 到 4 轮，精细度略高，但耗时翻了几倍。</text>
+
+  <!-- 底部总注 -->
+  <text x="480" y="405" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#333">结论：在 Swin 局部窗口注意力里，「2 块」就是消除接缝的最小原子单位——老黄这次瘦身刚好停在底线上。</text>
+</svg>
