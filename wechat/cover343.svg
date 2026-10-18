@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="0.18" cy="0.28" r="0.42">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="0.82" cy="0.75" r="0.42">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="3">DLSS 5 逆向与 AMD RDNA 4 移植 · 310.9.16.0 新网络</text>
+
+  <!-- ============ LEFT CARD: 254 MB 双模型动物园 ============ -->
+  <g transform="translate(55 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">一个 DLL 塞进两只动物</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="72" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">Preset 1 · 诚实的丁鱥</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">WEIGHTS_HT · 147.7 MB</text>
+      <text x="100" y="58" text-anchor="middle" fill="#64748b" font-size="10">71 块 / 152 层（退居可选）</text>
+    </g>
+
+    <g transform="translate(15 112)">
+      <rect x="0" y="0" width="200" height="82" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">Preset 2 · 疯狂的杜鹃</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">WEIGHTS_CC_SMALL_FP8</text>
+      <text x="100" y="58" text-anchor="middle" fill="#a7f3d0" font-size="10">113.9 MB · 31 块 / 76 层</text>
+      <text x="100" y="74" text-anchor="middle" fill="#fde047" font-size="10" font-weight="bold">鸠占鹊巢，升为新默认档</text>
+    </g>
+
+    <line x1="18" y1="210" x2="212" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="115" y="232" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">5090 产能受限 · 次旗舰当家</text>
+    <text x="115" y="252" text-anchor="middle" fill="#cbd5e1" font-size="10">5080 SM 数量仅 5090 的 49.4%</text>
+    <text x="115" y="270" text-anchor="middle" fill="#94a3b8" font-size="10">软件替硬件减负：默认网瘦身</text>
+    <text x="115" y="288" text-anchor="middle" fill="#64748b" font-size="10">另有 almond-eagle-11m 残留</text>
+  </g>
+
+  <!-- ============ MIDDLE CARD: 71 块 → 31 块 & 余弦破案 ============ -->
+  <g transform="translate(325 80)">
+    <text x="125" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">砍掉外围苦力活 · 留住谷底中枢</text>
+    <rect x="0" y="10" width="250" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="220" height="68" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="110" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">外围局部窗口：63 → 23 块</text>
+      <text x="110" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">C32～C512 每站只留 2 块最小单元</text>
+      <text x="110" y="58" text-anchor="middle" fill="#cbd5e1" font-size="10">权重仅 13.2 MB，却省下四成耗时</text>
+    </g>
+
+    <g transform="translate(15 108)">
+      <rect x="0" y="0" width="220" height="86" rx="6" fill="#1e1035" stroke="#a855f7" stroke-width="1.8"/>
+      <text x="110" y="22" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="bold">谷底全局 ViT：8 块结构全留</text>
+      <text x="110" y="42" text-anchor="middle" fill="#d8b4fe" font-size="10">100.7 MB（占新模型体积 88.4%）</text>
+      <text x="110" y="60" text-anchor="middle" fill="#fde047" font-size="10" font-weight="bold">新旧权重余弦相似度 ≈ 0.000</text>
+      <text x="110" y="76" text-anchor="middle" fill="#cbd5e1" font-size="10">1677 万对行向量排查：全部重训</text>
+    </g>
+
+    <line x1="18" y1="210" x2="232" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="125" y="232" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">用 23% 体积缩减换 40% 提速</text>
+    <text x="125" y="252" text-anchor="middle" fill="#cbd5e1" font-size="10">80 个双架构 HIP 算子 100% 复用</text>
+    <text x="125" y="270" text-anchor="middle" fill="#94a3b8" font-size="10">移位表、900p 补零、0x3A23 对齐</text>
+    <text x="125" y="288" text-anchor="middle" fill="#64748b" font-size="10">绝非旧权重加跳层列表可凑</text>
+  </g>
+
+  <!-- ============ RIGHT CARD: RX 9070 XT 0.44 实测 ============ -->
+  <g transform="translate(615 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">RX 9070 XT · 0.44 版 0.5x 实测</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a2a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">1080 档：5.55 ms / 帧</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">相比同批 1x（9.16 ms）</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">耗时减少 39.35%（1.65×）</text>
+    </g>
+
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="78" rx="6" fill="#0a1a1a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">900 档：4.38 ms / 帧</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">相比同批 1x（6.56 ms）</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">耗时减少 33.26%（1.50×）</text>
+    </g>
+
+    <line x1="18" y1="210" x2="212" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="115" y="232" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">F9 热键：0.5x → 1x → 2x → 3x</text>
+    <text x="115" y="252" text-anchor="middle" fill="#cbd5e1" font-size="10">双模型常驻显存，同尺寸原地秒切</text>
+    <text x="115" y="270" text-anchor="middle" fill="#94a3b8" font-size="10">对 5090 原版 PSNR 47.4～48.0 dB</text>
+    <text x="115" y="288" text-anchor="middle" fill="#64748b" font-size="10">《剑星》《鬼武者》实玩验证通过</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="27" font-weight="bold">5090 停产风波背后，老黄偷偷把 DLSS 5 砍了一半</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="16">31 块「疯狂杜鹃」上位默认档 · RX 9070 XT 单帧干进 5.55 毫秒</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.343 · DLSS 5 逆向与 AMD RDNA 4 移植系列 · 0.44 正式版发布</text>
+</svg>
