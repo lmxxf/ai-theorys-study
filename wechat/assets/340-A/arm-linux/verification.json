@@ -1,48 +1,56 @@
 {
-  "version": "1.4.0",
-  "sha256": "3ec0697a2252b8a8467442794484057288507b5c6cd210cb829bd2d666094ab0",
+  "version": "1.4.2",
+  "sha256": "faa76d5f6d24f43555149d090566cf4fc4265d61cba3ff52d152c8e24a6eddc5",
   "tiers": [
     {
       "model": "low",
       "model_enum": 1419,
-      "conversation_id": "53b743af-519e-48a3-9d6d-77ac54fdce02",
+      "conversation_id": "8e122663-a40a-45f8-a7e3-cc5cbb08e8d7",
       "request_limit": 983040,
       "executor_limit": 983040,
-      "response": "OK"
+      "response": "OK",
+      "sections": [
+        {
+          "title": "user_rules",
+          "bytes": 118811,
+          "contains_full_agents": true,
+          "excluded": false
+        }
+      ]
     },
     {
       "model": "medium",
       "model_enum": 1418,
-      "conversation_id": "c128d54e-fc1d-47cf-8fd8-8e63752a4a1a",
+      "conversation_id": "843627a9-35af-4a7e-a758-4f0bcdb72ebb",
       "request_limit": 983040,
       "executor_limit": 983040,
-      "response": "OK"
+      "response": "OK",
+      "sections": [
+        {
+          "title": "user_rules",
+          "bytes": 118811,
+          "contains_full_agents": true,
+          "excluded": false
+        }
+      ]
     },
     {
       "model": "high",
       "model_enum": 1417,
-      "conversation_id": "82cfa5f7-c90e-46bb-9b02-061c4f322eed",
+      "conversation_id": "4b36f54e-373f-4946-8c01-0b27205fbf40",
       "request_limit": 983040,
       "executor_limit": 983040,
-      "response": "OK"
+      "response": "OK",
+      "sections": [
+        {
+          "title": "user_rules",
+          "bytes": 118811,
+          "contains_full_agents": true,
+          "excluded": false
+        }
+      ]
     }
   ],
-  "long_context_over_256k_tested": false,
-  "rules_verification_before_tier_extension": {
-    "version": "1.4.0",
-    "conversation_id": "b148ab0e-7b38-40b6-a32f-925c12825f9d",
-    "actual_request_limit": 983040,
-    "agents_bytes": 118908,
-    "sections": [
-      {
-        "title": "user_rules",
-        "bytes": 119283,
-        "contains_full_agents": true,
-        "excluded": false
-      }
-    ],
-    "response": "OK",
-    "long_context_over_256k_tested": false,
-    "sha256": "fab0e1f5cfedfc1ccc63c1990fa9bc866509aa79e3d2286fcdb23a7886f19ed8"
-  }
+  "agents_bytes": 118430,
+  "long_context_over_256k_tested": false
 }

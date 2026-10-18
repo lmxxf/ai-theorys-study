@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verified ARM64 agy 1.4.0 patch. Reject all unknown builds; atomic replacement."""
+"""Verified ARM64 agy 1.4.2 patch. Reject all unknown builds; atomic replacement."""
 from pathlib import Path
 import hashlib,json,os,shutil,tempfile
 import argparse
@@ -9,7 +9,7 @@ p=a.parse_args().target.expanduser()
 m=json.loads((Path(__file__).parent/'agy-patches.json').read_text())
 d=bytearray(p.read_bytes());h=hashlib.sha256(d).hexdigest()
 if h==m['patched_sha256']:
- print('Already patched: agy 1.4.0');raise SystemExit(0)
+ print('Already patched: agy 1.4.2');raise SystemExit(0)
 input_hash=h
 if h==m.get('upgrade_from',{}).get('sha256'):
  for v in m['upgrade_from']['patches']:
@@ -25,7 +25,7 @@ for v in m['patches']:
  assert len(a)==len(b) and d[o:o+len(a)]==a
  d[o:o+len(b)]=b
 assert hashlib.sha256(d).hexdigest()==m['patched_sha256']
-backup=p.with_name('agy-1.4.0-original.bak')
+backup=p.with_name('agy-1.4.2-original.bak')
 if backup.exists():assert hashlib.sha256(backup.read_bytes()).hexdigest()==h
 else:backup.write_bytes(original);os.chmod(backup,p.stat().st_mode & 0o777)
 fd,tmp=tempfile.mkstemp(prefix='agy-patch-',dir=p.parent)
@@ -34,5 +34,5 @@ try:
  os.chmod(tmp,p.stat().st_mode & 0o777);os.replace(tmp,p)
 finally:
  if os.path.exists(tmp):os.unlink(tmp)
-print('Patched agy 1.4.0:',m['patched_sha256'])
+print('Patched agy 1.4.2:',m['patched_sha256'])
 print('Backup:',backup)

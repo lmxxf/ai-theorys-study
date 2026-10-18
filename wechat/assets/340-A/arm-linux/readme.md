@@ -1,27 +1,27 @@
 # agy ARM64 补丁维护操作说明
 
-更新：2026-10-17。此目录只保留当前修改版；用于 agy 自动升级后恢复长上下文、完整规则注入和关闭自动 checkpoint。按用户指定保留 `readme.md` 作为操作入口，供后续 agent/skill 读取，不自动安装到技能目录。
+更新：2026-10-18。此目录只保留当前修改版；用于 agy 自动升级后恢复长上下文、完整规则注入和关闭自动 checkpoint。按用户指定保留 `readme.md` 作为操作入口，供后续 agent/skill 读取，不自动安装到技能目录。
 
 ## 当前产物
 
 | 文件 | 用途 |
 |---|---|
-| `agy.gz` | 已修改的 Linux ARM64 1.4.0 可执行文件，解压后 209932520 字节 |
+| `agy.gz` | 已修改的 Linux ARM64 1.4.2 可执行文件，解压后 210981096 字节 |
 | `agy.sha256` | 解压后的执行文件校验值 |
 | `agy-patches.json` | 原版/修改版 SHA256、每处文件偏移和修改前后完整字节 |
 | `fix-argon-context.py` | 此构建的完整幂等补丁；支持 `--target`，默认修改 `~/.local/bin/agy` |
 | `verify-request.py` | 只读检查指定会话数据库中的请求窗口、规则全文注入 |
 | `verification.json` | 当前版本已完成的小请求验证记录；不是新版本的验证证据 |
 
-原版 SHA256：`51a1839c1055a9c80bbab0494e3adad38d4b83af9762166443438742e90651ca`
+原版 SHA256：`842764a2ada5c71084254ea792a40edc988929e5dee490f3224c0b77b6b7d0eb`
 
-修改版 SHA256：`3ec0697a2252b8a8467442794484057288507b5c6cd210cb829bd2d666094ab0`
+修改版 SHA256：`faa76d5f6d24f43555149d090566cf4fc4265d61cba3ff52d152c8e24a6eddc5`
 
-目录不存原版二进制。安装位置保留 `agy-1.4.0-original.bak`；补丁脚本创建备份且不会覆盖不同内容的备份。旧版 README、封面及归档已按要求移除，x86-linux 不在本次维护范围。
+目录不存原版二进制。安装位置保留 `agy-1.4.2-original.bak`；补丁脚本创建备份且不会覆盖不同内容的备份。旧版 README、封面及归档已按要求移除，x86-linux 不在本次维护范围。
 
 ## 已知版本：恢复或重新打补丁
 
-先检查 `command -v agy`、`file`、`agy --version` 和 SHA256。同为 1.4.0 也可能重新构建，以哈希为准。
+先检查 `command -v agy`、`file`、`agy --version` 和 SHA256。同为 1.4.2 也可能重新构建，以哈希为准。
 
 对匹配原版哈希的文件执行：
 
@@ -29,7 +29,7 @@
 python3 fix-argon-context.py
 ```
 
-已是修改版则报告 Already patched；此前只支持 Low 的已知修改版也可直接升级；脚本先按旧清单还原原版字节再应用新清单。未知哈希直接退出，不能删校验硬套。脚本在同目录写临时文件、保留执行权限，再原子替换，避免对运行中的文件原地写入。
+已是修改版则报告 Already patched；本脚本只接受当前构建原版或修改版哈希。未知哈希直接退出，不能删校验硬套。脚本在同目录写临时文件、保留执行权限，再原子替换，避免对运行中的文件原地写入。
 
 解包归档用于检查或恢复（当前目录已有解包文件时先确认它的用途）：
 
@@ -53,7 +53,7 @@ Go stripped 二进制仍可从 pclntab 找函数：搜索 Go 1.20+ ARM64 头字�
 
 pcHeader 的 +8 是 nfunc；+24 是 textStart；+32 是 funcnameOffset；+64 是 pclnOffset。后两项相对表头。函数表每项是两枚 uint32：entryOff、funcOff；下一项 entryOff 给出结束位置。函数记录在 pclnOffset+funcOff，+4 的 int32 是名称偏移，指向 funcname 表。PIE 文件的 textStart 可能是零，要结合模块初始化/重定位和已知函数反汇编定位 Go text 起点，并用多个 getter 交叉核验。
 
-1.4.0 的表头在 `0x1500018`，Go text 起点为 `0x60c40c0`，这些只是本次定位结果。
+1.4.2 的表头在 `0x1517550`，Go text 起点为 `0x61440c0`，这些只是本次定位结果。
 
 找这些名称：
 
@@ -71,17 +71,17 @@ pcHeader 的 +8 是 nfunc；+24 是 textStart；+32 是 funcnameOffset；+64 是
 
 ### 2. 在最终配置合并出口设窗口
 
-仅修改早期 GetCheckpointConfig 常量、内嵌实验字符串或 UI contextWindow，可能再次被特征配置覆盖。1.4.0 只补最终合并出口即可，小请求已验证，无需复制 1.3.5 的早期试错改动。
+仅修改早期 GetCheckpointConfig 常量、内嵌实验字符串或 UI contextWindow，可能再次被特征配置覆盖。1.4.2 只补最终合并出口即可，小请求已验证，无需复制 1.3.5 的早期试错改动。
 
 逐项核实：模型名对应的枚举值；CascadeConfig 的 planner 指针偏移；planner 的 plan_model 偏移；CheckpointConfig 的 max_token_limit 字段宽度和偏移；出口现场寄存器与返回路径。
 
-本构建：Argon High=1417、Medium=1418、Low=1419，planner 指针在 +8，plan_model 为32位字段 +64，max_token_limit 为32位字段 +16。出口 `0x752ee24` 原指令为 `str x1,[x0,#16]`；x0 是外层配置，x1 是最终 checkpoint 配置，x3 可作临时寄存器。
+本构建：Argon High=1417、Medium=1418、Low=1419，planner 指针在 +8，plan_model 为32位字段 +64，max_token_limit 为32位字段 +16。出口 `0x75da010` 原指令为 `str x1,[x0,#16]`；x0 是外层配置，x1 是最终 checkpoint 配置，x3 可作临时寄存器。
 
-补丁跳到 `0x7aa7320`：检查 planner 非空、模型编号在1417到1419之间（减1417后按无符号数比较是否≤2）；匹配时写1000000；随后无论匹配与否都补做原指令，跳回 `0x752ee28`。精确机器码见 JSON，生成分支时校验4字节对齐和 ARM64 B 的范围。
+补丁跳到 `0x7b404d0`：检查 planner 非空、模型编号在1417到1419之间（减1417后按无符号数比较是否≤2）；匹配时写1000000；随后无论匹配与否都补做原指令，跳回 `0x75da014`。精确机器码见 JSON，生成分支时校验4字节对齐和 ARM64 B 的范围。
 
 ### 3. 自动 checkpoint 与跳板空间
 
-本构建 `checkpointNeeded` 入口 `0x7aa7300`，返回签名 `(bool,error)`。入口写：
+本构建 `checkpointNeeded` 入口 `0x7b404b0`，返回签名 `(bool,error)`。入口写：
 
 ```text
 mov x0,xzr
@@ -102,18 +102,18 @@ ret
 
 | 文件偏移 | 函数 |
 |---|---|
-| `0x7ae9b0c` | readGlobalRules |
-| `0x7aea800` | parseRuleFile |
-| `0x7aedc74` | convertSkillPath |
+| `0x7b82ccc` | readGlobalRules |
+| `0x7b839c0` | parseRuleFile |
+| `0x7b86e44` | convertSkillPath |
 
 总预算要修改实际消费的配置读取路径和默认路径，两项共四处：
 
 | 偏移 | 原指令 | 新指令 |
 |---|---|---|
-| `0x7aeedf4` | `0xb98000e7` | `0xd2a00047` |
-| `0x7aeee04` | `0xd289c407` | `0xd2a00047` |
-| `0x7aeee54` | `0xb98000c6` | `0xd2a00046` |
-| `0x7aeee64` | `0xd289c406` | `0xd2a00046` |
+| `0x7b87fc4` | `0xb98000e7` | `0xd2a00047` |
+| `0x7b87fd4` | `0xd289c407` | `0xd2a00047` |
+| `0x7b88024` | `0xb98000c6` | `0xd2a00046` |
+| `0x7b88034` | `0xd289c406` | `0xd2a00046` |
 
 即 x7/x6 都设131072。函数前部还存在用于判断是否配置预算的读取，不要误认成最终消费点；沿控制流追到汇合及预算参数传递处。
 
@@ -137,7 +137,7 @@ python3 verify-request.py <conversation_id> --agents /实际项目/AGENTS.md
 
 同时核对 executor_metadata 中运行配置的 checkpoint 上限。当前 schema：executor 根字段10→CascadeConfig 字段2→CheckpointConfig 字段5；gen 根字段1→chat 字段9→start 字段10→window 字段4。脚本当前检查后者，前者用字段解析核对。
 
-本次真实结果：模型回复 OK，实际请求上限983040（1048576减65536输出预留）；user_rules为119283字节，逐字包含AGENTS.md全部118908字节。1.4.0 **未做超过256K的长会话压力测试**；1.3.5 曾达到474.8K，不能当新版验收。需要完整长会话验收时交用户运行，再检查历史是否保留及是否裁剪。
+本次真实结果：模型回复 OK，实际请求上限983040（1048576减65536输出预留）；三档的user_rules均为118811字节，逐字包含AGENTS.md全部118430字节。1.4.2 **未做超过256K的长会话压力测试**；1.3.5 曾达到474.8K，不能当新版验收。需要完整长会话验收时交用户运行，再检查历史是否保留及是否裁剪。
 
 ## 每次更新本目录
 
@@ -145,8 +145,10 @@ python3 verify-request.py <conversation_id> --agents /实际项目/AGENTS.md
 
 更新本文的版本、大小、定位和验证边界。操作完成后提示重启正在运行的 agy；新会话可重新加载完整规则，旧会话已丢的内容不会自动恢复。不改 git index，不自动提交或发布。
 
-## 10月17日 22:04：切换 Medium 后再次裁剪的原因
+## 10月18日：1.4.2 升级后重新适配
 
-会话 `59ba0454-d962-4cdd-b406-fab616ae6d4d` 的 gen_metadata 0到7为1419，上限983040；从8开始切到1418，上限立即变256000。第22条起出现多次truncation_reason=2。屏幕显示 Conversation compacted，但数据库证据是发送前裁剪，不能仅凭UI认定生成了摘要。
+自动升级覆盖了补丁。本次从新版 Go pclntab 重新定位并核对 getter、最终合并出口、checkpoint 函数与规则预算消费点，重新生成跳转和逐处字节清单。三档真实请求均回复 OK，模型编号仍为 High=1417、Medium=1418、Low=1419；executor 与 gen 两处实际上限均为983040。三档均包含本地 AGENTS.md 全部118430字节，user_rules各118811字节。
 
-初版只覆盖Low，因此这次扩展为Argon三档，其他模型仍不改。跳板由40字节增为44字节。分别对Low、Medium、High发真实请求，executor及gen两处均为983040，结果见verification.json。AGENTS全文注入记录来自扩展前同版规则补丁，三档扩展未改规则路径；尚未重跑长上下文压力测试。以后验收须覆盖用户会切换的档位，不能只测默认Low。
+已验证启动、补丁幂等、归档解压与安装版逐字节一致、逆向补丁恢复原版哈希。直接分支扫描确认借用函数体只有新插入跳转引用。尚未重跑超过256K长会话，也未验证手动 compact；不能用旧版压力测试替代本版验证。
+
+10月17日旧版只补 Low 导致切 Medium 后回到256K的教训继续适用：每次升级都须验证三档，不能只测默认 Low。

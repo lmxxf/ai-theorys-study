@@ -38,6 +38,6 @@ for f,w,v in fields(chat):
   if b'AGENTS.md' in content:sections.append(dict(title=title,bytes=len(content),contains_full_agents=original in content,excluded=b'exceeded the rules token budget' in content))
 assert limit==args.expected_limit
 assert any(v['contains_full_agents'] and not v['excluded'] for v in sections)
-r=dict(version='1.4.0',conversation_id=cid,actual_request_limit=limit,agents_bytes=len(original),sections=sections,response='OK',long_context_over_256k_tested=False,sha256=hashlib.sha256(args.binary.read_bytes()).hexdigest())
+r=dict(version='1.4.2',conversation_id=cid,actual_request_limit=limit,agents_bytes=len(original),sections=sections,response='OK',long_context_over_256k_tested=False,sha256=hashlib.sha256(args.binary.read_bytes()).hexdigest())
 if args.output:args.output.write_text(json.dumps(r,indent=2)+'\n')
 print(json.dumps(r,indent=2))
