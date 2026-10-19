@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="0.18" cy="0.28" r="0.42">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="0.82" cy="0.75" r="0.42">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="3">DEEPSEEK-V4.1-FLASH-1017 · 技术报告后训练篇精读</text>
+
+  <!-- ============ LEFT CARD: 37 天刷权重 & 省钱架构 ============ -->
+  <g transform="translate(55 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">0910 → 1017 · 骨架一字未改</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="74" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">架构做减法：先把账单焊死</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">CED 预填充仅激活 8B 参数</text>
+      <text x="100" y="58" text-anchor="middle" fill="#64748b" font-size="10">1M 上下文全局 KV 不到 1 GB</text>
+    </g>
+
+    <g transform="translate(15 114)">
+      <rect x="0" y="0" width="200" height="80" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">1017 新权重：提分又省钱</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">Terminal-Bench 4.0：31.2 → 42.3</text>
+      <text x="100" y="58" text-anchor="middle" fill="#a7f3d0" font-size="10">DeepSWE：74.2 → 77.0（单题 ¥1.3）</text>
+      <text x="100" y="74" text-anchor="middle" fill="#fde047" font-size="10" font-weight="bold">Vals 总榜 56.58% 稳居国模第 1</text>
+    </g>
+
+    <line x1="18" y1="210" x2="212" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="115" y="232" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">96,085 个张量键名 100% 相同</text>
+    <text x="115" y="252" text-anchor="middle" fill="#cbd5e1" font-size="10">AA 综合指数 39 → 45，单题 $0.26</text>
+    <text x="115" y="270" text-anchor="middle" fill="#94a3b8" font-size="10">新 max 档比旧 low 档更便宜</text>
+    <text x="115" y="288" text-anchor="middle" fill="#64748b" font-size="10">同步开放自研 Search / Fetch API</text>
+  </g>
+
+  <!-- ============ MIDDLE CARD: 指数控长 & 百万沙箱造题 ============ -->
+  <g transform="translate(325 80)">
+    <text x="125" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">1～100 连续控长 · 百万沙箱攻防</text>
+    <rect x="0" y="10" width="250" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="220" height="72" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="110" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">指数级长度惩罚 k(b)</text>
+      <text x="110" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">按 (题目 x, 档位 b) 划分子组算 GRPO</text>
+      <text x="110" y="58" text-anchor="middle" fill="#cbd5e1" font-size="10">对冲边际收益衰减，换来均匀刻度</text>
+    </g>
+
+    <g transform="translate(15 112)">
+      <rect x="0" y="0" width="220" height="82" rx="6" fill="#1e1035" stroke="#a855f7" stroke-width="1.8"/>
+      <text x="110" y="22" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="bold">四棒造题 + DSec 百万容器</text>
+      <text x="110" y="42" text-anchor="middle" fill="#d8b4fe" font-size="10">放弃 K8s 强一致，单机 2500+ 容器</text>
+      <text x="110" y="60" text-anchor="middle" fill="#fde047" font-size="10" font-weight="bold">防模型钻 XFS 漏洞 / 镜像源偷答案</text>
+      <text x="110" y="76" text-anchor="middle" fill="#cbd5e1" font-size="10">1017 新增自反馈 RL 攻克 3D 与游戏</text>
+    </g>
+
+    <line x1="18" y1="210" x2="232" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="125" y="232" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">不改 RL 算法，全靠数据与环境基建</text>
+    <text x="125" y="252" text-anchor="middle" fill="#cbd5e1" font-size="10">API 三档 low/high/max = 50/75/100</text>
+    <text x="125" y="270" text-anchor="middle" fill="#94a3b8" font-size="10">预训练懂真实世界 → 沙箱到处漏风</text>
+    <text x="125" y="288" text-anchor="middle" fill="#64748b" font-size="10">AppArmor + eBPF 焊死系统铁笼子</text>
+  </g>
+
+  <!-- ============ RIGHT CARD: 权重合并重启 & 40 老师蒸馏 ============ -->
+  <g transform="translate(615 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">跨脚手架合并 · 40 老师在线蒸馏</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a2a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">检查点权重合并重启</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">同起点多分支跑平后加权平均</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fde047" font-size="10" font-weight="bold">先分头深挖，再合流突破平台期</text>
+    </g>
+
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="78" rx="6" fill="#0a1a1a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">40+ 异构老师全词表 OPD</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">词元级中断，新权重直接读旧 KV</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fde047" font-size="10" font-weight="bold">跨阶段、跨架构专长一次性合体</text>
+    </g>
+
+    <line x1="18" y1="210" x2="212" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="115" y="232" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">2.64 亿词元仅合 $1.97（约 ¥14）</text>
+    <text x="115" y="252" text-anchor="middle" fill="#cbd5e1" font-size="10">词元消耗是 GPT-6 Astra 的 14 倍</text>
+    <text x="115" y="270" text-anchor="middle" fill="#94a3b8" font-size="10">API 估算账单却便宜 20 至 38 倍</text>
+    <text x="115" y="288" text-anchor="middle" fill="#64748b" font-size="10">多轮试错无负担 · 开源轻量级赢法</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="26" font-weight="bold">DeepSeek-V4.1-Flash-1017：省钱的架构，靠什么补回智能？</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="16">骨架一字未改再坐稳国模第一 · 指数控长 × 百万沙箱 × 权重合并接力</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.344 · V4.1 技术报告第 5 章后训练工程与第三方评测全解析</text>
+</svg>
