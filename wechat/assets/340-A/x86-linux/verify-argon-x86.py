@@ -1,47 +1,46 @@
 from pathlib import Path
-import sqlite3,json
-root=Path(__file__).resolve().parent
-p=Path.home()/'.gemini/antigravity-cli/conversations/b5b575f7-bae4-4d03-97a4-3541d97ded7d.db'
-def vi(b,i):
- v=0;s=0
- while i<len(b) and s<70:
-  c=b[i];i+=1;v|=(c&127)<<s
-  if c<128:return v,i
-  s+=7
- raise ValueError()
+import sqlite3,json,hashlib
+
+def var(b,p):
+ v=s=0
+ while True:
+  x=b[p];p+=1;v|=(x&127)<<s;s+=7
+  if x<128:return v,p
+  if s>70:raise ValueError()
 def fields(b):
- out=[];i=0
- while i<len(b):
-  tag,i=vi(b,i);n,w=tag>>3,tag&7
-  if not n:raise ValueError()
-  if w==0:v,i=vi(b,i)
-  elif w==2:
-   l,i=vi(b,i);v=b[i:i+l];i+=l
-   if i>len(b):raise ValueError()
-  elif w in (1,5):l=8 if w==1 else 4;v=b[i:i+l];i+=l
+ p=0
+ while p<len(b):
+  t,p=var(b,p);w=t&7
+  if w==0:v,p=var(b,p)
+  elif w==2:n,p=var(b,p);v=b[p:p+n];p+=n
+  elif w in (1,5):n=8 if w==1 else 4;v=b[p:p+n];p+=n
   else:raise ValueError()
-  out.append((n,w,v))
- return out
-agent=Path('/home/lmxxf/work/ai-theorys-study/AGENTS.md').read_bytes()
-def walk(b,path='',depth=0):
- if depth>12:return
- try:fs=fields(b)
- except (ValueError,IndexError):return
- for n,w,v in fs:
-  key=path+'.'+str(n)
-  if w==0 and v in [256000,983040,1000000,131072,1419]:print(key,v)
-  if w==2:
-   if key=='gen_metadata.1.9.10':
-    print('ContextWindowMetadata scalar fields',[(a,c) for a,t,c in fields(v) if t==0])
-   if agent in v and len(v)<len(agent)+2000:
-    print('Full rules payload',key,'bytes',len(v))
-   walk(v,key,depth+1)
-c=sqlite3.connect(f'file:{p}?mode=ro',uri=True)
-print('database',p,'AGENTS bytes',len(agent))
-for table in ['executor_metadata','gen_metadata']:
- for idx,b in c.execute(f'select idx,data from {table}'):
-  print(table,idx,'contains full AGENTS',agent in b,'exclusion warning',b'exceeded the rules token budget' in b)
-  walk(b,table)
-  if table=='gen_metadata':
-   for n,w,v in fields(b):
-    if n==10:print('ContextWindowMetadata',[(a,c) for a,t,c in fields(v) if t==0])
+  yield t>>3,w,v
+def get(b,k):return next(v for f,w,v in fields(b) if f==k)
+import argparse
+a=argparse.ArgumentParser()
+a.add_argument('conversation_id')
+a.add_argument('--agents', type=Path, required=True)
+a.add_argument('--binary', type=Path, default=Path.home()/'.local/bin/agy')
+a.add_argument('--expected-limit', type=int, default=983040)
+a.add_argument('--output', type=Path)
+args=a.parse_args()
+cid=args.conversation_id
+c=sqlite3.connect(f"file:{Path.home()}/.gemini/antigravity-cli/conversations/{cid}.db?mode=ro",uri=True)
+g=c.execute('select data from gen_metadata where idx=0').fetchone()[0];chat=get(g,1)
+window=get(get(chat,9),10)
+limit=get(window,4)
+e=c.execute('select data from executor_metadata where idx=0').fetchone()[0]
+executor_limit=get(get(get(e,10),2),5)
+assert executor_limit==args.expected_limit
+original=args.agents.read_bytes()
+sections=[]
+for f,w,v in fields(chat):
+ if f==16:
+  title=get(v,1).decode();content=get(v,2)
+  if b'AGENTS.md' in content:sections.append(dict(title=title,bytes=len(content),contains_full_agents=original in content,excluded=b'exceeded the rules token budget' in content))
+assert limit==args.expected_limit
+assert any(v['contains_full_agents'] and not v['excluded'] for v in sections)
+r=dict(version='1.4.2',conversation_id=cid,actual_request_limit=limit,agents_bytes=len(original),sections=sections,executor_limit=executor_limit,long_context_over_256k_tested=False,sha256=hashlib.sha256(args.binary.read_bytes()).hexdigest())
+if args.output:args.output.write_text(json.dumps(r,indent=2)+'\n')
+print(json.dumps(r,indent=2))

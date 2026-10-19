@@ -1,92 +1,71 @@
-Antigravity CLI（agy）x86 Linux 修正版
-更新日期：2026-10-16
+Antigravity CLI（agy）Linux x86_64 1.4.2 修正版
+更新日期：2026-10-19
 
-【适用环境】
+【怎么恢复】
 
-Linux x86_64，包括 Windows 里的 x86_64 WSL。
-这是可直接使用的完整程序压缩包，不需要编译，也不需要先安装原版。
-DGX Spark 的 ARM64 不能用这一份。
-
-【怎么安装／误升级后怎么恢复】
-
-1. 退出正在运行的 agy。
-
-2. 在 WSL 终端运行：
+退出 agy，在终端运行：
 
 python3 /home/lmxxf/work/ai-theorys-study/wechat/assets/340-A/x86-linux/restore-agy.py
 
-如果仓库放在其他位置，改成你自己的路径即可。
-也可以先进入本目录，再运行：
+仓库换了位置就改路径。脚本解压同目录 agy.gz、检查 SHA256，
+将当前安装版本备份到 ~/.local/share/agy-patches/，再原子替换 ~/.local/bin/agy。
+已是这一份修改版则不重复操作。只需 Python 3 标准库。
+这是 Linux x86_64 完整程序，ARM64 不能用。
 
-python3 restore-agy.py
-
-脚本会自动解压同目录的 agy.gz，检查 SHA256，然后安装到：
-
-~/.local/bin/agy
-
-如果那里已有其他版本，会先保存到 ~/.local/share/agy-patches/，再替换。
-如果已经是这一份修正版，会提示 Already installed，不重复操作。
-需要 Python 3；解压、校验和安装只用标准库，不需要另外装依赖。
-
-3. 进入你要工作的项目目录，启动：
-
-agy --model gemini-4-argon-low
-
-请新开会话，让项目的 AGENTS.md 重新完整加载。
-已经运行的进程不会自动换成新版；旧会话此前丢失的历史也不会自动补回来。
-
-以后如果 agy 自动升级，导致这些限制重新出现，再运行一次恢复脚本即可。
-恢复的是本目录归档的版本，不是给升级后的新版本动态打补丁。
+然后重启 agy，新建会话，让完整 AGENTS.md 重新加载。
+旧会话已经丢失的历史不会自动恢复。
+自动升级覆盖补丁后，再运行恢复脚本可恢复本目录归档的 1.4.2，
+不是为未来新版本自动打补丁。
 
 【改了什么】
 
-- Gemini 4 Argon Low（模型编号 1419）：在最终配置合并后，将上下文
-  max_token_limit 设为 1000000。实际请求扣除输出预留后为 983040 tokens。
-- 关闭自动 checkpoint 的触发判断。
-- 三处规则／技能文件读取上限：从 24000 字节提高到 1048576 字节。
-- 规则与自定义内容的 token 预算：两项都提高到 131072 tokens，
-  避免长 AGENTS.md 超预算后被整份排除。
+- Argon High/Medium/Low（1417/1418/1419）在最终配置合并出口
+  设置 max_token_limit=1000000，实际请求上限为983040 tokens。
+- 自动 checkpoint 判断返回 false,nil（同时清零 AX/BX/CX）。
+- 三处规则/技能单文件读取上限：24000 → 1048576 字节。
+- rules/customizations 两项最终 token 预算分别改为131072。
 
-上下文窗口修改只针对 Argon Low；其他模型的窗口没有改。
-文件读取上限和规则预算修改适用于整个客户端。
-手动 /compact 未验证；这份补丁不意味着所有上下文裁剪都被关闭。
+其他模型的窗口不修改。规则读取与预算修改对整个客户端生效。
+自动 checkpoint 关闭不等于所有裁剪关闭；手动 /compact 未验证。
 
-【这台 WSL 上验证了什么】
+【验证】
 
-新建 Argon Low 会话，真实请求正常返回 OK。
-SQLite 会话数据库记录：
+Low、Medium、High 三档分别新开会话发送小请求，均正常回复 OK。
+每档 executor_metadata 与 gen_metadata 实际上限均为983040。
+user_rules 逐字包含本地 AGENTS.md 的118430字节全文，没有预算排除提示。
+完整记录见 verification.txt。未重跑超过256K的长会话压力测试。
+启动、补丁重复运行、归档解压与安装版逐字节一致、逆向补丁还原原版哈希均已检查。
 
-- max_context_tokens = 983040
-- estimated_tokens_used = 56707
-- user_rules 完整包含本地 AGENTS.md 的 119127 字节原文
-- 没有“超过规则 token 预算”的排除提示
+【文件】
 
-这台 x86 机器没有重复做超过 256K 的长会话压力测试。
-具体记录见 verification.txt。不要只凭 /context 面板的 1M 判断是否生效。
+agy.gz                       修改版完整可执行文件，解压后221286656字节
+restore-agy.py               安装/恢复归档
+SHA256SUMS                   本目录文件校验清单
+agy-x86-patches.json         原版/修改版哈希、每处修改前后字节与偏移
+fix-argon-context-x86.py     对指定原版构建打补丁；支持 --target
+argon-x86-trampoline.s      跳板汇编源码
+trampoline.bin              跳板机器码
+functions.json              新版 pclntab 定位结果，含实际虚拟地址
+verify-argon-x86.py          只读核查会话数据库
+verification.txt            三档真实请求的验证记录
 
-【目录里的文件】
+核查自己新建的会话：
+python3 verify-argon-x86.py <conversation_id> --agents /项目路径/AGENTS.md
 
-agy.gz                         修好的完整可执行程序，解压后 217768144 字节
-restore-agy.py                 日常安装／恢复用这个脚本
-SHA256SUMS                     本目录各文件的 SHA256 校验清单
-agy-x86-patches.json           原版与修正版哈希、每处修改的偏移和字节
-fix-argon-context-x86.py       从指定原版构建制作补丁的脚本
-argon-x86-trampoline.s         x86_64 跳板汇编源码
-trampoline.bin                跳板机器码，制作补丁时与脚本放在同一目录
-functions.json                本次定位的 Go 函数与地址信息
-verify-argon-x86.py            读取本机测试会话数据库的核查脚本
-verification.txt              本次实请求核查结果
+原版只备份在本机 ~/.local/share/agy-patches/，不放入仓库。
+原版 SHA256：085f43e0d0628a8a8dabe1e547067818fa2c0adc86cfac98a3c4492918f455ef
+修改版 SHA256：2a58516fdd1275208425a78bbfb4b2b43ec0e71d7d4f2664d64c09382b0f5b7c
 
-普通使用只需要 agy.gz 和 restore-agy.py。
-verify-argon-x86.py 使用原测试机的会话路径，其他机器没有那份数据库，
-不能直接照跑；会话数据库没有上传到这里。
-fix-argon-context-x86.py 只接受指定原版的 SHA256，不能拿固定偏移套新版本。
-本目录没有打包原版程序。
+【新版本维护】
 
-【程序哈希（解压后）】
+未知哈希必须重新定位，不能删除哈希检查或沿用固定偏移。
+本次 pclntab 位于0x1512750，Go text基址0x61d4080；通过三个getter
+核对 planner指针+8、plan_model+64、max_token_limit+16。
+最终配置出口0x78c1213，原指令为mov [rax+16],rcx（AT&T：mov %rcx,16(%rax)）
+及xor ebx,ebx，替换为跳往0x7ee74e0；跳板重放两条指令后返回0x78c1219。
+checkpointNeeded入口0x7ee74c0短路后，借用其函数体容纳跳板。
+规则/技能读取点：0x7f3fc49、0x7f40bc5、0x7f4534e。
+最终预算参数读取点：0x7f46cd4、0x7f46cde，覆盖配置值和默认值两条路径。
 
-修正版 SHA256：
-4701d840f20eb78319153f177f8814932052259d418de32b54f5bcb9ad71b34a
-
-制作补丁时使用的原版 SHA256：
-e14253aa79d4e910cbf8bcb40b68e80f9e85476725e130ed085122c98face92b
+下次适配参照 ../arm-linux/readme.md 的定位思路，指令/ABI必须按x86重新核对。
+恢复或修改后必须验证真实请求，不以UI显示1M或模型自述为依据。

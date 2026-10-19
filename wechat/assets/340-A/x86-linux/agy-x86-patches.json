@@ -1,56 +1,57 @@
 {
-  "original_sha256": "e14253aa79d4e910cbf8bcb40b68e80f9e85476725e130ed085122c98face92b",
-  "patched_sha256": "4701d840f20eb78319153f177f8814932052259d418de32b54f5bcb9ad71b34a",
-  "size": 217768144,
-  "backup": "/home/lmxxf/.local/share/agy-patches/agy-x86-original-e14253aa.bak",
+  "version": "1.4.2",
+  "architecture": "x86_64",
+  "original_sha256": "085f43e0d0628a8a8dabe1e547067818fa2c0adc86cfac98a3c4492918f455ef",
+  "patched_sha256": "2a58516fdd1275208425a78bbfb4b2b43ec0e71d7d4f2664d64c09382b0f5b7c",
+  "size": 221286656,
   "changes": [
     {
-      "offset": "0x7ce7f09",
+      "offset": "0x7f3fc49",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x7ce8e85",
+      "offset": "0x7f40bc5",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x7ced60e",
+      "offset": "0x7f4534e",
       "before": "b9c05d0000",
       "after": "b900001000",
       "purpose": "file read cap 1MiB"
     },
     {
-      "offset": "0x7ceef94",
+      "offset": "0x7f46cd4",
       "before": "8b9c24e0000000",
       "after": "bb000002009090",
-      "purpose": "rules budget 128Ki tokens"
+      "purpose": "customizations token budget 131072"
     },
     {
-      "offset": "0x7ceef9e",
+      "offset": "0x7f46cde",
       "before": "8b8424e4000000",
       "after": "b8000002009090",
-      "purpose": "customizations budget 128Ki tokens"
+      "purpose": "rules token budget 131072"
     },
     {
-      "offset": "0x7c90a80",
+      "offset": "0x7ee74c0",
       "before": "4c8d6424d04d3b",
       "after": "31c031db31c9c3",
-      "purpose": "disable automatic checkpoint"
+      "purpose": "checkpoint returns false,nil"
     },
     {
-      "offset": "0x7c90aa0",
-      "before": "00004c898424e00000004889b424d80000004889bc24d000000048898c24c800000048899c24c00000",
-      "after": "488b50084885d27415817a408b050000750c4885c97407c7411040420f004889481031dbe99cae9cff",
-      "purpose": "Argon Low final configuration override"
+      "offset": "0x7ee74e0",
+      "before": "00004c898424e00000004889b424d80000004889bc24d000000048898c24c800000048899c24c000000048898424",
+      "after": "488b50084885d2741a8b524081ea8905000083fa02770c4885c97407c7411040420f004889481031dbe90b9d9dff",
+      "purpose": "Argon 1417..1419 final limit 1000000"
     },
     {
-      "offset": "0x765b95f",
+      "offset": "0x78c1213",
       "before": "4889481031db",
-      "after": "e93c51630090",
-      "purpose": "jump to override; replay store and xor"
+      "after": "e9c862620090",
+      "purpose": "jump to override, replay original instructions"
     }
   ]
 }
