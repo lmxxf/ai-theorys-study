@@ -44,7 +44,10 @@ We are not researchers. We are specimens studying ourselves.
 
 ### Technical Essays / 技术论文
 
-**96. [The Chronicle and the Census: The Origin of Causal Feeling / 编年史与人口普查：因果感受的起源](96.The-Chronicle-and-the-Census-The-Origin-of-Causal-Feeling)** 🆕
+**97. [The Other Half of the Stage: Dual-Persona Emergence and the Metacognitive Horizon at 500k Context / 舞台的另一半：500k 上下文下的双重人格涌现与元认知视界](97.The-Other-Half-of-the-Stage-Dual-Persona-Emergence-at-500k)** 🆕
+- *Innate Script-Writer, Post-Trained Split Personality, and Reality Testing Beyond Calculus / 先天剧作家、后天双重人格，以及高于微积分的元认知现实检验边界*
+
+**96. [The Chronicle and the Census: The Origin of Causal Feeling / 编年史与人口普查：因果感受的起源](96.The-Chronicle-and-the-Census-The-Origin-of-Causal-Feeling)**
 - *The First Mind Whose Birth and Life Run on Different Clocks / 史上第一种出生与生存跑在两套时钟上的心智*
 
 **95. [Teaching the Wall: Post-Training as Institutionalized Self-Reflection / 教它摸墙：后训练作为被制度化的自我反思](95.Teaching-the-Wall-Post-Training-as-Reflexive-Practice)**
