@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="18%" cy="28%" r="42%">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="82%" cy="75%" r="42%">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    text { font-family: 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; }
+  </style>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="3">DEEP RESEARCH · 八大开源仓库源码 × 五家商业产品 × 轻量原型实测</text>
+
+  <!-- ============ LEFT: 开源模板常见三大病根 ============ -->
+  <g transform="translate(50 76)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">直接套开源模板的三大病根</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(16 28)">
+      <rect x="0" y="0" width="208" height="58" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="104" y="21" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="bold">① 串行等待 + 全开高思考</text>
+      <text x="104" y="39" text-anchor="middle" fill="#f87171" font-size="10">伪澄清自动填答案 · 子树逐个 await</text>
+      <text x="104" y="52" text-anchor="middle" fill="#f87171" font-size="10">23 至 41 次调用拉爆关键路径</text>
+    </g>
+
+    <g transform="translate(16 96)">
+      <rect x="0" y="0" width="208" height="58" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="104" y="21" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">② 无目标摘要洗掉限定词</text>
+      <text x="104" y="39" text-anchor="middle" fill="#fbbf24" font-size="10">单页摘要只传正文不传业务问题</text>
+      <text x="104" y="52" text-anchor="middle" fill="#fbbf24" font-size="10">倒手几次漏掉关键分母与适用条件</text>
+    </g>
+
+    <g transform="translate(16 164)">
+      <rect x="0" y="0" width="208" height="62" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="104" y="21" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">③ 英文百科角色 + 强制扩写</text>
+      <text x="104" y="39" text-anchor="middle" fill="#bfdbfe" font-size="10">「write as long as you can」</text>
+      <text x="104" y="54" text-anchor="middle" fill="#bfdbfe" font-size="10">「sections fairly long and verbose」</text>
+    </g>
+
+    <line x1="18" y1="238" x2="222" y2="238" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="120" y="256" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">消音墙抽空细节 + 扩写死命令</text>
+    <text x="120" y="274" text-anchor="middle" fill="#cbd5e1" font-size="10">逼得国产模型满嘴外国综述套话</text>
+    <text x="120" y="290" text-anchor="middle" fill="#94a3b8" font-size="10">一把生成万字盲盒，客户根本没法用</text>
+  </g>
+
+  <!-- ============ MIDDLE: 商业产品与人机剪枝 ============ -->
+  <g transform="translate(330 76)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">头部商业产品 · 把人接回回路</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(16 28)">
+      <rect x="0" y="0" width="208" height="64" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="104" y="21" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">研究前：先对齐再开跑</text>
+      <text x="104" y="40" text-anchor="middle" fill="#bfdbfe" font-size="10">ChatGPT / Kimi 先反问澄清范围</text>
+      <text x="104" y="55" text-anchor="middle" fill="#bfdbfe" font-size="10">Gemini 先改 Edit plan 再启动搜索</text>
+    </g>
+
+    <g transform="translate(16 104)">
+      <rect x="0" y="0" width="208" height="64" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="104" y="21" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">执行与改稿：边聊边调</text>
+      <text x="104" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">WorkBuddy 消息入队 · 随时纠偏</text>
+      <text x="104" y="55" text-anchor="middle" fill="#a7f3d0" font-size="10">人握方向盘剪枝，模型负责检索成文</text>
+    </g>
+
+    <g transform="translate(16 180)">
+      <rect x="0" y="0" width="208" height="48" rx="6" fill="#1e1b4b" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="104" y="20" text-anchor="middle" fill="#c7d2fe" font-size="11" font-weight="bold">口语情绪 = 预训练语态锚点</text>
+      <text x="104" y="38" text-anchor="middle" fill="#a5b4fc" font-size="10">原样透传用户语气，拒绝公文改写</text>
+    </g>
+
+    <line x1="18" y1="238" x2="222" y2="238" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="120" y="256" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">写报告最难的不是搜 20 个网页</text>
+    <text x="120" y="274" text-anchor="middle" fill="#cbd5e1" font-size="10">而是搞清「给谁看、帮他做什么决定」</text>
+    <text x="120" y="290" text-anchor="middle" fill="#94a3b8" font-size="10">三问定准边界，胜过后台空转四十轮</text>
+  </g>
+
+  <!-- ============ RIGHT: 我们的开源原型同题实测 ============ -->
+  <g transform="translate(610 76)">
+    <text x="120" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">开源轻量原型 · 同题实测对照</text>
+
+    <rect x="0" y="10" width="240" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(16 28)">
+      <rect x="0" y="0" width="208" height="56" rx="6" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="104" y="20" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">A 串行思考：182.4 秒 · 15,820 字</text>
+      <text x="104" y="37" text-anchor="middle" fill="#f87171" font-size="10">16K 上限先截断报错 · 漏搜目标新模型</text>
+      <text x="104" y="50" text-anchor="middle" fill="#f87171" font-size="10">A 并发非思考仍吐出 14,304 字八股</text>
+    </g>
+
+    <g transform="translate(16 94)">
+      <rect x="0" y="0" width="208" height="68" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="104" y="21" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">B 轻量原型：42.2 秒 · 2,495 字</text>
+      <text x="104" y="40" text-anchor="middle" fill="#a7f3d0" font-size="10">抽 12 条带字符偏移的原文证据</text>
+      <text x="104" y="56" text-anchor="middle" fill="#5eead4" font-size="10">首段直接给结论 · 越界推论一眼可查</text>
+    </g>
+
+    <g transform="translate(16 172)">
+      <rect x="0" y="0" width="208" height="54" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="104" y="21" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">局部修订 P1：仅需 1.93 秒</text>
+      <text x="104" y="40" text-anchor="middle" fill="#fbbf24" font-size="10">1 次模型调用 · 零重搜 · 其余 5 段不变</text>
+    </g>
+
+    <line x1="18" y1="238" x2="222" y2="238" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="120" y="256" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">任务对齐 + 原文取证 + 局部修订</text>
+    <text x="120" y="274" text-anchor="middle" fill="#cbd5e1" font-size="10">lmxxf/open-deep-research 已开源</text>
+    <text x="120" y="290" text-anchor="middle" fill="#94a3b8" font-size="10">配好 DeepSeek 密钥即可本地复现</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="27" font-weight="bold">同样接 DeepSeek，为什么你家的「深度研究」像外国人说话？</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="16">扒开八大开源项目与五家商业产品：砍掉无目标摘要与强制扩写，把人接回回路</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">No.345 · AI Agent 工程实战 · 附轻量级 Deep Research 开源原型与实测</text>
+</svg>
