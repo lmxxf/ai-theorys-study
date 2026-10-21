@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="cardNew" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#064e3b" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#047857" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="cardOld" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e3a8a" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#1d4ed8" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="cardRecent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#78350f" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#b45309" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="cardUnrel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#334155" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#1e293b" stop-opacity="0.75"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="640" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="480" y="38" fill="#f8fafc" font-size="22" font-weight="bold" text-anchor="middle">DeepSeek 生产推理栈开源全景图：新代码、老零件与未公开基建</text>
+  <text x="480" y="62" fill="#94a3b8" font-size="13" text-anchor="middle">按仓库真实目录结构梳理（支持 NVIDIA SM100 与华为昇腾 Ascend 950 双后端）</text>
+
+  <!-- Legend -->
+  <g transform="translate(110, 78)">
+    <rect x="0" y="0" width="14" height="14" rx="3" fill="#10b981"/>
+    <text x="20" y="12" fill="#e2e8f0" font-size="12">本次全新开源（2026.10）</text>
+
+    <rect x="195" y="0" width="14" height="14" rx="3" fill="#f59e0b"/>
+    <text x="215" y="12" fill="#e2e8f0" font-size="12">V4.1 周期新放出的算子库（2026.09）</text>
+
+    <rect x="445" y="0" width="14" height="14" rx="3" fill="#3b82f6"/>
+    <text x="465" y="12" fill="#e2e8f0" font-size="12">早期开源周老熟人（2025.02）</text>
+
+    <rect x="655" y="0" width="14" height="14" rx="3" fill="#64748b" stroke="#94a3b8" stroke-dasharray="3,2"/>
+    <text x="675" y="12" fill="#cbd5e1" font-size="12">仅披露设计、未含源码</text>
+  </g>
+
+  <!-- Top Box: deepseek-recipe (NEW) -->
+  <g transform="translate(30, 108)">
+    <rect x="0" y="0" width="900" height="96" rx="8" fill="url(#cardNew)" stroke="#10b981" stroke-width="1.5"/>
+    <text x="16" y="24" fill="#6ee7b7" font-size="15" font-weight="bold">【新开源仓 1】deepseek-ai/deepseek-recipe （Rust 生产级协议与分词组件 + Python 绑定）</text>
+    <text x="884" y="24" fill="#a7f3d0" font-size="12" text-anchor="end">对齐官方 API 行为</text>
+
+    <!-- 4 sub-crates -->
+    <rect x="16" y="36" width="210" height="48" rx="5" fill="#064e3b" stroke="#34d399" stroke-width="0.8"/>
+    <text x="121" y="55" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">deepseek-recipe/src/protocol/</text>
+    <text x="121" y="73" fill="#cbd5e1" font-size="10" text-anchor="middle">OpenAI Chat/Responses 与 Claude 协议</text>
+
+    <rect x="238" y="36" width="210" height="48" rx="5" fill="#064e3b" stroke="#34d399" stroke-width="0.8"/>
+    <text x="343" y="55" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">deepseek-recipe-encoding/</text>
+    <text x="343" y="73" fill="#cbd5e1" font-size="10" text-anchor="middle">V4/V4.1 模板、防控制符注入、并行分词</text>
+
+    <rect x="460" y="36" width="210" height="48" rx="5" fill="#064e3b" stroke="#34d399" stroke-width="0.8"/>
+    <text x="565" y="55" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">deepseek-recipe-image/</text>
+    <text x="565" y="73" fill="#cbd5e1" font-size="10" text-anchor="middle">OpenCV 图像预处理、URL 抓取与重试</text>
+
+    <rect x="682" y="36" width="202" height="48" rx="5" fill="#064e3b" stroke="#34d399" stroke-width="0.8"/>
+    <text x="783" y="55" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">deepseek-recipe/src/stream/</text>
+    <text x="783" y="73" fill="#cbd5e1" font-size="10" text-anchor="middle">增量 KMP 解析思考链与 DSML 工具流</text>
+  </g>
+
+  <!-- Middle Box: DeepInfer Main Repo (NEW) -->
+  <g transform="translate(30, 218)">
+    <rect x="0" y="0" width="900" height="296" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <rect x="0" y="0" width="900" height="32" rx="8" fill="#065f46"/>
+    <text x="16" y="21" fill="#ffffff" font-size="15" font-weight="bold">【新开源仓 2】deepseek-ai/DeepInfer （生产级推理引擎整车底盘，源自 vLLM 深度改造）</text>
+    <text x="884" y="21" fill="#a7f3d0" font-size="12" text-anchor="end">单集群日吞吐 155 万亿 Token</text>
+
+    <!-- Row 1: Engine Core (New) -->
+    <g transform="translate(16, 42)">
+      <rect x="0" y="0" width="280" height="108" rx="6" fill="url(#cardNew)" stroke="#10b981" stroke-width="1"/>
+      <text x="12" y="20" fill="#6ee7b7" font-size="12.5" font-weight="bold">1. 引擎调度与运行时（csrc/ + deepinfer/）</text>
+      <text x="12" y="40" fill="#f1f5f9" font-size="11">• csrc/engine/zos.cpp：零开销异步批次调度器</text>
+      <text x="12" y="58" fill="#f1f5f9" font-size="11">• csrc/engine/mtp_varlen.hpp：DSpark 变长验证</text>
+      <text x="12" y="76" fill="#f1f5f9" font-size="11">• deepinfer/worker/：CUDA Graph 与状态缓存</text>
+      <text x="12" y="94" fill="#f1f5f9" font-size="11">• deepinfer/structure_output/：语法掩码约束</text>
+
+      <rect x="294" y="0" width="280" height="108" rx="6" fill="url(#cardNew)" stroke="#10b981" stroke-width="1"/>
+      <text x="306" y="20" fill="#6ee7b7" font-size="12.5" font-weight="bold">2. V4.1 专属模型层（model_executor/）</text>
+      <text x="306" y="40" fill="#f1f5f9" font-size="11">• models/v4_modules/yoco.py：SWA 有界回放</text>
+      <text x="306" y="58" fill="#f1f5f9" font-size="11">• models/v4_modules/engram.py：词组查表层</text>
+      <text x="306" y="76" fill="#f1f5f9" font-size="11">• models/v4_modules/mhc_ops.py：流形超连接</text>
+      <text x="306" y="94" fill="#f1f5f9" font-size="11">• models/mtp/dflash.py：DFlash 投机草稿头</text>
+
+      <rect x="588" y="0" width="280" height="108" rx="6" fill="url(#cardNew)" stroke="#10b981" stroke-width="1"/>
+      <text x="600" y="20" fill="#6ee7b7" font-size="12.5" font-weight="bold">3. 多模态、负载均衡与双平台（ve/ + eplb/）</text>
+      <text x="600" y="40" fill="#f1f5f9" font-size="11">• deepinfer/ve/：独立视觉编码器（ViT）管线</text>
+      <text x="600" y="58" fill="#f1f5f9" font-size="11">• model_executor/eplb/：冗余专家动态洗牌</text>
+      <text x="600" y="76" fill="#f1f5f9" font-size="11">• layers/tilelang_ops/：cuda 与 asc 双份算子</text>
+      <text x="600" y="94" fill="#f1f5f9" font-size="11">• deep_cluster/：NVIDIA 与昇腾硬件拓扑绑定</text>
+    </g>
+
+    <!-- Row 2: Submodules in vendor/ + pip TileKernels -->
+    <g transform="translate(16, 162)">
+      <rect x="0" y="0" width="868" height="120" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="14" y="22" fill="#e2e8f0" font-size="13" font-weight="bold">底层算子与通信库挂载区：vendor/ 目录下的 6 个 Git Submodule + pip 依赖包（scripts/build_vendor.sh 编译）</text>
+
+      <!-- Old 3 (2025.02) + Ascend twins -->
+      <rect x="14" y="34" width="162" height="74" rx="5" fill="url(#cardOld)" stroke="#60a5fa" stroke-width="1"/>
+      <text x="95" y="53" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">vendor/FlashMLA</text>
+      <text x="95" y="71" fill="#bfdbfe" font-size="11" text-anchor="middle">2025.02 开源周发布</text>
+      <text x="95" y="88" fill="#93c5fd" font-size="10.5" text-anchor="middle">MLA/CSA2 注意力（含昇腾）</text>
+
+      <rect x="186" y="34" width="210" height="74" rx="5" fill="url(#cardOld)" stroke="#60a5fa" stroke-width="1"/>
+      <text x="291" y="53" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">vendor/DeepEP (+ -Ascend)</text>
+      <text x="291" y="71" fill="#bfdbfe" font-size="11" text-anchor="middle">2025.02 开源周 + 昇腾分仓</text>
+      <text x="291" y="88" fill="#93c5fd" font-size="10.5" text-anchor="middle">MoE 跨卡专家并行 All-to-All</text>
+
+      <rect x="406" y="34" width="225" height="74" rx="5" fill="url(#cardOld)" stroke="#60a5fa" stroke-width="1"/>
+      <text x="518" y="53" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">vendor/DeepGEMM (+ -Ascend)</text>
+      <text x="518" y="71" fill="#bfdbfe" font-size="11" text-anchor="middle">2025.02 开源周 + 昇腾分仓</text>
+      <text x="518" y="88" fill="#93c5fd" font-size="10.5" text-anchor="middle">FP8/FP4 矩阵乘与 Mega MoE</text>
+
+      <!-- Recent 2 (2026.09) -->
+      <rect x="641" y="34" width="105" height="74" rx="5" fill="url(#cardRecent)" stroke="#fbbf24" stroke-width="1"/>
+      <text x="693" y="53" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">DeepSelect</text>
+      <text x="693" y="71" fill="#fde68a" font-size="10.5" text-anchor="middle">2026.09 开源</text>
+      <text x="693" y="88" fill="#fcd34d" font-size="10" text-anchor="middle">索引器 TopK 算子</text>
+
+      <rect x="754" y="34" width="102" height="74" rx="5" fill="url(#cardRecent)" stroke="#fbbf24" stroke-width="1"/>
+      <text x="805" y="53" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">TileKernels</text>
+      <text x="805" y="71" fill="#fde68a" font-size="10.5" text-anchor="middle">pip 依赖包</text>
+      <text x="805" y="88" fill="#fcd34d" font-size="10" text-anchor="middle">Engram/mHC 算子</text>
+    </g>
+  </g>
+
+  <!-- Bottom Box: Unreleased / External Cluster Infra -->
+  <g transform="translate(30, 528)">
+    <rect x="0" y="0" width="900" height="92" rx="8" fill="url(#cardUnrel)" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <text x="16" y="24" fill="#cbd5e1" font-size="14" font-weight="bold">【未含源码 · 仅在 doc/inference_deployment_qa.md 披露设计】线上集群调度与持久化缓存层</text>
+    <text x="884" y="24" fill="#94a3b8" font-size="12" text-anchor="end">与内部基建深度耦合</text>
+
+    <rect x="16" y="35" width="280" height="45" rx="5" fill="#0f172a" stroke="#64748b" stroke-width="0.8"/>
+    <text x="156" y="53" fill="#e2e8f0" font-size="12" font-weight="bold" text-anchor="middle">VE / Prefill / Decode 分离式调度器</text>
+    <text x="156" y="70" fill="#94a3b8" font-size="10" text-anchor="middle">三路独立负载均衡（Prefill 四档分桶 + 二次方程算配额）</text>
+
+    <rect x="310" y="35" width="280" height="45" rx="5" fill="#0f172a" stroke="#64748b" stroke-width="0.8"/>
+    <text x="450" y="53" fill="#e2e8f0" font-size="12" font-weight="bold" text-anchor="middle">kvcache-store 缓存管理服务</text>
+    <text x="450" y="70" fill="#94a3b8" font-size="10" text-anchor="middle">块缓存落盘 + SWA 驻主机内存（400G VLAN 跨机拉取）</text>
+
+    <rect x="604" y="35" width="280" height="45" rx="5" fill="#1e3a8a" fill-opacity="0.4" stroke="#60a5fa" stroke-width="0.8"/>
+    <text x="744" y="53" fill="#93c5fd" font-size="12" font-weight="bold" text-anchor="middle">3FS 分布式文件系统（2025.02 已开源）</text>
+    <text x="744" y="70" fill="#cbd5e1" font-size="10" text-anchor="middle">100 PiB SSD 池，每 GPU 配 14.4 TB，保留 3 至 7 天</text>
+  </g>
+</svg>
