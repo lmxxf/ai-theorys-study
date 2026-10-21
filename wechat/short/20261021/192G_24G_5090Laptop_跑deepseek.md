@@ -65,3 +65,23 @@
 - 如果要在 **AMD 显卡（RDNA 3 / RDNA 4 / Strix Halo）** 上用 192 GB 内存跑 `DeepSeek-V4.1-Flash-1017`，社区对应的专门引擎是 **`Luce-Org/lucebox`**（`https://github.com/Luce-Org/lucebox`），配套模型仓库是 **`Lucebox/DeepSeek-V4.1-Flash-1017-ROCMFP-GGUF`**：
   - 针对 **192 GB 内存** 的专用档位是 **`DeepSeek-V4.1-Flash-1017-ROCMFP2S-MIX10-IM1017.gguf`**：路由专家总大小正好 **`164 GiB`**（前 10 层 `down` 投影为 `fp3`、其余为 `fp2s`，注意力与共享专家为 `Q8_0`），能全部常驻在 192 GB 内存里，Engram 表同样留在 SSD 上原地按需读；
   - 配套的 `DSpark` 投机草稿头专门提供了一个 192 GB 机器用的 **`4.6 GiB` 轻量版**（`DeepSeek-V4.1-Flash-1017-DSpark-draft-Q2K-Q4K.gguf`，启动参数 `--profile ds41-gorgon`）。
+
+---
+
+## 五、横向对比：家里现成的「双机 DGX Spark（2 × 128G）」跑 V4.1-Flash-1017 有多快？
+
+社区专门为 **2 台 DGX Spark（`TP=2` over CX7 200Gbps，`sm_121a`）** 做了一套开箱即用的 `vLLM + EXL3` 生产套件，配的是更高精度的 **`2.90 bpw`（主干 196.3 GiB）**：
+- **部署套件仓库**：`https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-EXL3-2x-DGX-Sparks`
+- **1017 权重仓库**：`LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw`（196.3 GiB，代码困惑度仅比 511 GB 原版高 1.8%，散文仅高 0.4%；每台 Spark 分担 **99.5 GiB** 权重 + **2.5 GiB** KV 池，支持高达 **600K** 上下文；原版第 47、48 分片的 190 GiB FP8 Engram 表走 NVMe 文件直读，不占内存）。
+
+### 双机 DGX Spark vs 192G+24G（5090 笔记本）实测速度对比
+
+| 指标 | 单机 192G RAM + 24G VRAM（5090 笔记本跑 `Xolotl`） | 双机 DGX Spark（`TP=2` 跑 `MiaAI-Lab` vLLM + EXL3） | 差异原因 |
+|---|---|---|---|
+| **主干量化档位** | `~2.4 bpw`（GSQ 混合精度，**152～162 GiB**） | **`2.90 bpw`**（EXL3 `mul1`，**196.3 GiB**，每节点 99.5 GiB） | 双机 Spark 合计 256 GB 统一内存，装得下接近 3-bit 的高精主干 |
+| **Prefill 预填充速度** | **180 ～ 320 tok/s** | **970 ～ 1,338 tok/s**（**快 3～4 倍**；100K 长文仍有 **979 tok/s**，601K 长文 **810 tok/s**） | 笔记本只有 24G 显存，Prefill 时冷专家需走 PCIe 从内存搬运；双机 Spark 的 196 GiB 主干 **100% 常驻 GPU 统一内存**，零 PCIe 搬运 |
+| **Decode 单流生成（C=1）** | **~26.8 tok/s**（4090 实测，5090 Laptop 约 **30 tok/s**） | 默认核：散文 **31.6 tok/s** / 代码 **38.8 tok/s**<br>开 `cooperative_moe`：基准 **40.2 tok/s** / 代码 **43.0 tok/s** | 两台 Spark 聚合了 `2 × 273 = 546 GB/s` 内存带宽，配合 DSpark（`k=3`）与 `sm_121a` 定制核 |
+| **Decode 双并发总吞吐（C=2）** | 单流为主 | 默认核 **42.5～45.9 tok/s**<br>开 `cooperative_moe` 达 **61.1 tok/s** | 双机 TP=2 在小并发下吞吐扩展性更好 |
+
+> **注**：社区还有 3～4 台 DGX Spark 跑 Zig 编写的 `TensorFold` 引擎 + `LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw`（240 GiB）方案（仓库 `tonyd2wild/DeepSeek-V4.1-Flash-vLLM-DGX-Spark`），单流生成可达 **90～101.8 tok/s**（代码 **134.8 tok/s**），Prefill 达 **2,215 tok/s**，但至少需要 3 台 Spark 才能装下 240 GiB 的 3.5 bpw 权重。
+
