@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#2d6a4f"/>
+    </marker>
+    <marker id="arrowDashed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#b45309"/>
+    </marker>
+  </defs>
+
+  <!-- Warm paper background -->
+  <rect width="900" height="500" fill="#f5efe0"/>
+
+  <!-- Top & bottom border lines -->
+  <line x1="45" y1="52" x2="855" y2="52" stroke="#2d6a4f" stroke-width="2.5"/>
+  <line x1="45" y1="442" x2="855" y2="442" stroke="#2d6a4f" stroke-width="2.5"/>
+
+  <!-- Header -->
+  <text x="450" y="108" text-anchor="middle" font-size="50" font-weight="bold" fill="#1a1a1a" letter-spacing="2">DeepInfer</text>
+  <text x="450" y="146" text-anchor="middle" font-size="22" font-weight="bold" fill="#2d6a4f">从散装零件到整车底盘 · DeepSeek 生产推理栈开源</text>
+  <text x="450" y="172" text-anchor="middle" font-size="14" fill="#666666">vendor/ 六大子模块 + TileKernels + Rust 协议编解码器 deepseek-recipe · No.346</text>
+
+  <!-- LEFT: Scattered Parts (2025.02 - 2026.09) -->
+  <g transform="translate(55, 198)">
+    <!-- Group label -->
+    <text x="125" y="16" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e3a8a">以前开源：散装零件（Submodule / pip）</text>
+
+    <!-- Part 1: FlashMLA -->
+    <g transform="translate(0, 30)">
+      <rect x="0" y="0" width="118" height="46" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="59" y="21" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a8a">FlashMLA</text>
+      <text x="59" y="38" text-anchor="middle" font-size="11" fill="#1e40af">CSA2 / SWA 注意力</text>
+    </g>
+
+    <!-- Part 2: DeepGEMM -->
+    <g transform="translate(132, 30)">
+      <rect x="0" y="0" width="118" height="46" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="59" y="21" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a8a">DeepGEMM</text>
+      <text x="59" y="38" text-anchor="middle" font-size="11" fill="#1e40af">FP8/FP4 矩阵乘</text>
+    </g>
+
+    <!-- Part 3: DeepEP -->
+    <g transform="translate(0, 88)">
+      <rect x="0" y="0" width="118" height="46" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="59" y="21" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a8a">DeepEP</text>
+      <text x="59" y="38" text-anchor="middle" font-size="11" fill="#1e40af">跨卡专家通信</text>
+    </g>
+
+    <!-- Part 4: DeepSelect (Newer) -->
+    <g transform="translate(132, 88)">
+      <rect x="0" y="0" width="118" height="46" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="59" y="21" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400e">DeepSelect</text>
+      <text x="59" y="38" text-anchor="middle" font-size="11" fill="#b45309">索引器极速 TopK</text>
+    </g>
+
+    <!-- Part 5: TileKernels (Wide) -->
+    <g transform="translate(0, 146)">
+      <rect x="0" y="0" width="250" height="44" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="125" y="19" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400e">TileKernels（Python + TileLang）</text>
+      <text x="125" y="36" text-anchor="middle" font-size="11" fill="#b45309">mHC 超连接 · Engram 门控 · SwiGLU 量化融合</text>
+    </g>
+  </g>
+
+  <!-- MIDDLE: Assembly Arrow & deepseek-recipe gateway -->
+  <g transform="translate(322, 232)">
+    <!-- Top gateway pill: deepseek-recipe -->
+    <rect x="6" y="0" width="148" height="58" rx="29" fill="#d8f3dc" stroke="#2d6a4f" stroke-width="2"/>
+    <text x="80" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#1b4332">deepseek-recipe</text>
+    <text x="80" y="44" text-anchor="middle" font-size="11" fill="#2d6a4f">Rust 协议与防注入分词</text>
+
+    <!-- Big assembly arrow -->
+    <line x1="0" y1="98" x2="152" y2="98" stroke="#2d6a4f" stroke-width="3.5" marker-end="url(#arrow)"/>
+    <text x="76" y="86" text-anchor="middle" font-size="13" font-weight="bold" fill="#2d6a4f">焊上同一底盘</text>
+    <text x="76" y="120" text-anchor="middle" font-size="11.5" fill="#555555">跑通完整 V4.1-Flash</text>
+  </g>
+
+  <!-- RIGHT: The Assembled Chassis (DeepInfer) -->
+  <g transform="translate(495, 198)">
+    <!-- Outer chassis frame -->
+    <rect x="0" y="0" width="350" height="202" rx="12" fill="#ffffff" stroke="#2d6a4f" stroke-width="3"/>
+    <rect x="0" y="0" width="350" height="36" rx="10" fill="#2d6a4f"/>
+    <text x="175" y="24" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">本次开源：DeepInfer 整车底盘</text>
+
+    <!-- Core Engine Modules inside chassis -->
+    <g transform="translate(16, 48)">
+      <rect x="0" y="0" width="152" height="48" rx="5" fill="#e8f5e9" stroke="#52b788" stroke-width="1.5"/>
+      <text x="76" y="20" text-anchor="middle" font-size="13" font-weight="bold" fill="#1b4332">ZOS 零开销异步调度</text>
+      <text x="76" y="38" text-anchor="middle" font-size="11" fill="#2d6a4f">csrc/engine/ (C++20)</text>
+
+      <rect x="166" y="0" width="152" height="48" rx="5" fill="#e8f5e9" stroke="#52b788" stroke-width="1.5"/>
+      <text x="242" y="20" text-anchor="middle" font-size="13" font-weight="bold" fill="#1b4332">DSpark 变长验证</text>
+      <text x="242" y="38" text-anchor="middle" font-size="11" fill="#2d6a4f">少验 30% · 吞吐 +5.4%</text>
+
+      <rect x="0" y="58" width="152" height="48" rx="5" fill="#e8f5e9" stroke="#52b788" stroke-width="1.5"/>
+      <text x="76" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#1b4332">SWA 有界回放 (140)</text>
+      <text x="76" y="96" text-anchor="middle" font-size="11" fill="#2d6a4f">Engram 进层前异步预取</text>
+
+      <rect x="166" y="58" width="152" height="48" rx="5" fill="#e8f5e9" stroke="#52b788" stroke-width="1.5"/>
+      <text x="242" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#1b4332">EPLB 冗余专家洗牌</text>
+      <text x="242" y="96" text-anchor="middle" font-size="11" fill="#2d6a4f">词元负载比 1.045–1.09</text>
+    </g>
+
+    <!-- Bottom Dual-Backend Wheels / Badges -->
+    <g transform="translate(16, 162)">
+      <rect x="0" y="0" width="152" height="28" rx="14" fill="#1e293b"/>
+      <text x="76" y="19" text-anchor="middle" font-size="12" font-weight="bold" fill="#6ee7b7">● NVIDIA SM100 (CUDA)</text>
+
+      <rect x="166" y="0" width="152" height="28" rx="14" fill="#7c2d12"/>
+      <text x="242" y="19" text-anchor="middle" font-size="12" font-weight="bold" fill="#fde68a">● 华为昇腾 950 (CANN)</text>
+    </g>
+  </g>
+
+  <!-- Bottom tagline -->
+  <text x="450" y="474" text-anchor="middle" font-size="16" fill="#444444" font-style="italic">以前开源的是单点突破的发动机和变速箱 · 这次开源的是把所有零件焊在一起的整车底盘</text>
+</svg>
