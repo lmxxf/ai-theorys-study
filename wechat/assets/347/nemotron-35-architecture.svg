@@ -1,145 +1,358 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" width="960" height="660" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
-  <!-- Background -->
-  <rect width="960" height="660" fill="#f8fafc" rx="12"/>
-  
-  <!-- Header -->
-  <rect x="20" y="16" width="920" height="58" rx="8" fill="#1e293b"/>
-  <text x="480" y="42" font-size="18" font-weight="bold" fill="#f8fafc" text-anchor="middle">NVIDIA Nemotron 3.5 Super VL (120B-A12B) 全景架构解剖图</text>
-  <text x="480" y="62" font-size="12" fill="#94a3b8" text-anchor="middle">总参数 120B（MoE 专家占 112.7B = 94%）｜每词元激活 12B｜NVFP4 混合精度（平均 4.82 bit）静态体积 69.86 GiB</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 1040" width="920" height="1040" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
+  <rect width="920" height="1040" fill="#fbfbfd" rx="10"/>
 
-  <!-- Left Column: Multimodal Frontend -->
-  <g transform="translate(20, 88)">
-    <rect width="275" height="365" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-    <rect width="275" height="32" rx="8" fill="#0f766e"/>
-    <text x="137.5" y="21" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">① 视觉前厅：自研塔 + 开源桥</text>
+  <!-- 标题 -->
+  <text x="460" y="36" text-anchor="middle" fill="#1e293b" font-size="21" font-weight="bold">Nemotron 3.5 Super VL 全景：40 行标准结构数成 88 层</text>
+  <text x="460" y="60" text-anchor="middle" fill="#64748b" font-size="14">同行按“一行算 1 层”（共 40 行）｜老黄按“一块砖算 1 层”：40 蓝 + 8 黄 + 40 紫 = 88 层</text>
 
-    <!-- Step 1: C-RADIO -->
-    <rect x="12" y="44" width="251" height="58" rx="6" fill="#f0fdfa" stroke="#5eead4"/>
-    <text x="20" y="63" font-size="11.5" font-weight="bold" fill="#115e59">C-RADIO 视觉塔（ViT-Huge 32层）</text>
-    <text x="20" y="80" font-size="10.5" fill="#334155">• patch=16，隐藏维 1280，含 3 cls + 7 reg</text>
-    <text x="20" y="95" font-size="10.5" fill="#334155">• 视频：EVS 相邻帧余弦相似度剪掉 70% 块</text>
+  <!-- 图例 -->
+  <rect x="26" y="76" width="868" height="44" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <g transform="translate(46, 90)" font-size="13.5" fill="#334155" font-weight="bold">
+    <rect x="0" y="0" width="18" height="16" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="26" y="13" fill="#1e40af">蓝砖 M：Mamba-2（40 块）</text>
 
-    <!-- Arrow -->
-    <path d="M137.5 102 L137.5 116" stroke="#0f766e" stroke-width="1.5"/>
+    <rect x="240" y="0" width="18" height="16" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+    <text x="266" y="13" fill="#854d0e">黄砖 A：GQA 注意力（仅 8 块插片）</text>
 
-    <!-- Step 2: Megatron Bug LayerNorm -->
-    <rect x="12" y="118" width="251" height="48" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
-    <text x="20" y="136" font-size="11.5" font-weight="bold" fill="#991b1b">【祖传乌龙】vision_final_layernorm</text>
-    <text x="20" y="153" font-size="10" fill="#7f1d1d">Megatron 开 MTP 时误给视觉塔加了 LN [1280]</text>
-
-    <path d="M137.5 166 L137.5 180" stroke="#0f766e" stroke-width="1.5"/>
-
-    <!-- Step 3: InternVL Pixel Shuffle -->
-    <rect x="12" y="182" width="251" height="60" rx="6" fill="#f0fdfa" stroke="#5eead4"/>
-    <text x="20" y="200" font-size="11.5" font-weight="bold" fill="#115e59">借 InternVL：2×2 像素洗牌下采样</text>
-    <text x="20" y="217" font-size="10.5" fill="#334155">• 空间 token 数砍掉 3/4，通道维 ×4</text>
-    <text x="20" y="233" font-size="10" fill="#0f766e" font-weight="bold">• [H/16, W/16, 1280] → [H/32, W/32, 5120]</text>
-
-    <path d="M137.5 242 L137.5 256" stroke="#0f766e" stroke-width="1.5"/>
-
-    <!-- Step 4: MLP1 Projector -->
-    <rect x="12" y="258" width="251" height="54" rx="6" fill="#f0fdfa" stroke="#5eead4"/>
-    <text x="20" y="276" font-size="11.5" font-weight="bold" fill="#115e59">投影层 mlp1（RMSNorm + ReLU²）</text>
-    <text x="20" y="293" font-size="10" fill="#334155">• linear1 [20480, 5120] → linear2 [4096, 20480]</text>
-    <text x="20" y="307" font-size="10" fill="#64748b">• masked_scatter 填入 &lt;image&gt; (token id=18)</text>
-
-    <!-- Zombie Audio Note -->
-    <rect x="12" y="320" width="251" height="34" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="3,3"/>
-    <text x="20" y="341" font-size="10.5" fill="#64748b">【注】源码残留 Parakeet 音频模块（config 设 null）</text>
+    <rect x="530" y="0" width="18" height="16" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="556" y="13" fill="#5b21b6">紫砖 E：Latent MoE（40 块，占 94% 参数）</text>
   </g>
 
-  <!-- Center Column: 88-Block Hybrid Backbone -->
-  <g transform="translate(308, 88)">
-    <rect width="344" height="365" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-    <rect width="344" height="32" rx="8" fill="#1d4ed8"/>
-    <text x="172" y="21" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">② 语言主干：88 个平级模块（4096 维）</text>
+  <!-- 左半屏：顶部视觉+文本入口 -->
+  <rect x="26" y="134" width="444" height="58" rx="8" fill="#f0fdfa" stroke="#14b8a6" stroke-width="2"/>
+  <text x="248" y="158" text-anchor="middle" fill="#0f766e" font-size="15" font-weight="bold">输入：C-RADIO 视觉塔 (32层) → 2×2 像素洗牌 ＋ 词表</text>
+  <text x="248" y="179" text-anchor="middle" fill="#115e59" font-size="12.5">图片砍 3/4 词元 · 视频剪 70% · 视觉塔尾带 Megatron 乌龙 LN</text>
 
-    <!-- Sequence Formula -->
-    <rect x="12" y="42" width="320" height="44" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
-    <text x="172" y="59" font-size="11.5" font-weight="bold" fill="#1e3a8a" text-anchor="middle">32 组 [Mamba → MoE] + 8 组 [Mamba → Attn → MoE]</text>
-    <text x="172" y="77" font-size="10.5" fill="#3b82f6" text-anchor="middle">共 40 层 Mamba-2 ＋ 8 层 Attention ＋ 40 层 Latent MoE ＝ 88 层</text>
+  <path d="M248 192 L248 206" stroke="#64748b" stroke-width="2.5"/>
+  <polygon points="248,210 242,202 254,202" fill="#64748b"/>
 
-    <!-- Block A: Mamba-2 -->
-    <rect x="12" y="96" width="320" height="72" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
-    <text x="20" y="114" font-size="11.5" font-weight="bold" fill="#0f172a">Mamba-2 模块（40 层，NVFP4 版存为 FP8）</text>
-    <text x="20" y="131" font-size="10" fill="#334155">• in [18560, 4096] → conv1d [10240, 1, 4] → out [4096, 8192]</text>
-    <text x="20" y="147" font-size="10" fill="#334155">• 128 个头 × 64 维，状态固定 ssm_state=128（不随长度增长）</text>
-    <text x="20" y="162" font-size="10" fill="#b45309">• 单机省内存：状态从 FP32 砍成 FP16 + 随机舍入（+SR）</text>
+  <!-- 40 行积木塔外框 -->
+  <rect x="26" y="212" width="444" height="744" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="80" y="236" text-anchor="middle" fill="#475569" font-size="13" font-weight="bold">同行行号</text>
+  <text x="166" y="236" text-anchor="middle" fill="#1e40af" font-size="13" font-weight="bold">① Mamba-2</text>
+  <text x="278" y="236" text-anchor="middle" fill="#854d0e" font-size="13" font-weight="bold">② 注意力插片 (仅8处)</text>
+  <text x="398" y="236" text-anchor="middle" fill="#5b21b6" font-size="13" font-weight="bold">③ Latent MoE</text>
+  <line x1="36" y1="244" x2="460" y2="244" stroke="#e2e8f0" stroke-width="1.5"/>
 
-    <!-- Block B: GQA Attention -->
-    <rect x="12" y="176" width="320" height="72" rx="6" fill="#fefce8" stroke="#fde047"/>
-    <text x="20" y="194" font-size="11.5" font-weight="bold" fill="#854d0e">GQA 注意力模块（仅第 7/16/25/36/47/58/69/78 共 8 层）</text>
-    <text x="20" y="211" font-size="10" fill="#334155">• q_proj [4096, 4096]（32 头），k/v_proj [256, 4096]（仅 2 头）</text>
-    <text x="20" y="227" font-size="10" fill="#334155">• 16:1 分组共享 ＋ 无旋转位置编码（NoPE，靠 Mamba 记顺序）</text>
-    <text x="20" y="242" font-size="10" font-weight="bold" fill="#a16207">• 全网 1M 上下文 FP8 KV 缓存仅 4 GiB（NVFP4 下仅 2.25 GiB）</text>
+  <text x="80" y="261.0" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第  1 行</text>
+  <rect x="118" y="250.0" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="260.5" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层00)</text>
+  <line x1="214" y1="257.0" x2="350" y2="257.0" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="250.0" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="260.5" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层01)</text>
+  <text x="80" y="278.2" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第  2 行</text>
+  <rect x="118" y="267.2" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="277.7" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层02)</text>
+  <line x1="214" y1="274.2" x2="350" y2="274.2" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="267.2" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="277.7" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层03)</text>
+  <text x="80" y="295.4" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第  3 行</text>
+  <rect x="118" y="284.4" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="294.9" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层04)</text>
+  <line x1="214" y1="291.4" x2="350" y2="291.4" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="284.4" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="294.9" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层05)</text>
+  <rect x="34" y="300.6" width="428" height="15.5" rx="3" fill="#fefce8"/>
+  <text x="80" y="312.6" text-anchor="middle" fill="#854d0e" font-size="11" font-weight="bold">第  4 行</text>
+  <rect x="118" y="301.6" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="312.1" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层06)</text>
+  <line x1="214" y1="308.6" x2="226" y2="308.6" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="226" y="301.1" width="104" height="15" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="1.8"/>
+  <text x="278" y="312.1" text-anchor="middle" fill="#713f12" font-size="10.5" font-weight="bold">★ A (层07)</text>
+  <line x1="330" y1="308.6" x2="350" y2="308.6" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="350" y="301.6" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="312.1" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层08)</text>
+  <text x="80" y="329.8" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第  5 行</text>
+  <rect x="118" y="318.8" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="329.3" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层09)</text>
+  <line x1="214" y1="325.8" x2="350" y2="325.8" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="318.8" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="329.3" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层10)</text>
+  <text x="80" y="347.0" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第  6 行</text>
+  <rect x="118" y="336.0" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="346.5" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层11)</text>
+  <line x1="214" y1="343.0" x2="350" y2="343.0" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="336.0" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="346.5" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层12)</text>
+  <text x="80" y="364.2" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第  7 行</text>
+  <rect x="118" y="353.2" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="363.7" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层13)</text>
+  <line x1="214" y1="360.2" x2="350" y2="360.2" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="353.2" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="363.7" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层14)</text>
+  <rect x="34" y="369.4" width="428" height="15.5" rx="3" fill="#fefce8"/>
+  <text x="80" y="381.4" text-anchor="middle" fill="#854d0e" font-size="11" font-weight="bold">第  8 行</text>
+  <rect x="118" y="370.4" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="380.9" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层15)</text>
+  <line x1="214" y1="377.4" x2="226" y2="377.4" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="226" y="369.9" width="104" height="15" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="1.8"/>
+  <text x="278" y="380.9" text-anchor="middle" fill="#713f12" font-size="10.5" font-weight="bold">★ A (层16)</text>
+  <line x1="330" y1="377.4" x2="350" y2="377.4" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="350" y="370.4" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="380.9" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层17)</text>
+  <text x="80" y="398.6" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第  9 行</text>
+  <rect x="118" y="387.6" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="398.1" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层18)</text>
+  <line x1="214" y1="394.6" x2="350" y2="394.6" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="387.6" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="398.1" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层19)</text>
+  <text x="80" y="415.8" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 10 行</text>
+  <rect x="118" y="404.8" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="415.3" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层20)</text>
+  <line x1="214" y1="411.8" x2="350" y2="411.8" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="404.8" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="415.3" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层21)</text>
+  <text x="80" y="433.0" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 11 行</text>
+  <rect x="118" y="422.0" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="432.5" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层22)</text>
+  <line x1="214" y1="429.0" x2="350" y2="429.0" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="422.0" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="432.5" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层23)</text>
+  <rect x="34" y="438.2" width="428" height="15.5" rx="3" fill="#fefce8"/>
+  <text x="80" y="450.2" text-anchor="middle" fill="#854d0e" font-size="11" font-weight="bold">第 12 行</text>
+  <rect x="118" y="439.2" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="449.7" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层24)</text>
+  <line x1="214" y1="446.2" x2="226" y2="446.2" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="226" y="438.7" width="104" height="15" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="1.8"/>
+  <text x="278" y="449.7" text-anchor="middle" fill="#713f12" font-size="10.5" font-weight="bold">★ A (层25)</text>
+  <line x1="330" y1="446.2" x2="350" y2="446.2" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="350" y="439.2" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="449.7" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层26)</text>
+  <text x="80" y="467.4" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 13 行</text>
+  <rect x="118" y="456.4" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="466.9" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层27)</text>
+  <line x1="214" y1="463.4" x2="350" y2="463.4" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="456.4" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="466.9" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层28)</text>
+  <text x="80" y="484.6" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 14 行</text>
+  <rect x="118" y="473.6" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="484.1" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层29)</text>
+  <line x1="214" y1="480.6" x2="350" y2="480.6" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="473.6" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="484.1" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层30)</text>
+  <text x="80" y="501.8" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 15 行</text>
+  <rect x="118" y="490.8" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="501.3" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层31)</text>
+  <line x1="214" y1="497.8" x2="350" y2="497.8" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="490.8" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="501.3" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层32)</text>
+  <text x="80" y="519.0" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 16 行</text>
+  <rect x="118" y="508.0" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="518.5" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层33)</text>
+  <line x1="214" y1="515.0" x2="350" y2="515.0" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="508.0" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="518.5" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层34)</text>
+  <rect x="34" y="524.2" width="428" height="15.5" rx="3" fill="#fefce8"/>
+  <text x="80" y="536.2" text-anchor="middle" fill="#854d0e" font-size="11" font-weight="bold">第 17 行</text>
+  <rect x="118" y="525.2" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="535.7" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层35)</text>
+  <line x1="214" y1="532.2" x2="226" y2="532.2" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="226" y="524.7" width="104" height="15" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="1.8"/>
+  <text x="278" y="535.7" text-anchor="middle" fill="#713f12" font-size="10.5" font-weight="bold">★ A (层36)</text>
+  <line x1="330" y1="532.2" x2="350" y2="532.2" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="350" y="525.2" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="535.7" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层37)</text>
+  <text x="80" y="553.4" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 18 行</text>
+  <rect x="118" y="542.4" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="552.9" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层38)</text>
+  <line x1="214" y1="549.4" x2="350" y2="549.4" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="542.4" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="552.9" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层39)</text>
+  <text x="80" y="570.6" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 19 行</text>
+  <rect x="118" y="559.6" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="570.1" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层40)</text>
+  <line x1="214" y1="566.6" x2="350" y2="566.6" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="559.6" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="570.1" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层41)</text>
+  <text x="80" y="587.8" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 20 行</text>
+  <rect x="118" y="576.8" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="587.3" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层42)</text>
+  <line x1="214" y1="583.8" x2="350" y2="583.8" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="576.8" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="587.3" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层43)</text>
+  <text x="80" y="605.0" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 21 行</text>
+  <rect x="118" y="594.0" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="604.5" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层44)</text>
+  <line x1="214" y1="601.0" x2="350" y2="601.0" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="594.0" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="604.5" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层45)</text>
+  <rect x="34" y="610.2" width="428" height="15.5" rx="3" fill="#fefce8"/>
+  <text x="80" y="622.2" text-anchor="middle" fill="#854d0e" font-size="11" font-weight="bold">第 22 行</text>
+  <rect x="118" y="611.2" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="621.7" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层46)</text>
+  <line x1="214" y1="618.2" x2="226" y2="618.2" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="226" y="610.7" width="104" height="15" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="1.8"/>
+  <text x="278" y="621.7" text-anchor="middle" fill="#713f12" font-size="10.5" font-weight="bold">★ A (层47)</text>
+  <line x1="330" y1="618.2" x2="350" y2="618.2" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="350" y="611.2" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="621.7" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层48)</text>
+  <text x="80" y="639.4" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 23 行</text>
+  <rect x="118" y="628.4" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="638.9" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层49)</text>
+  <line x1="214" y1="635.4" x2="350" y2="635.4" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="628.4" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="638.9" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层50)</text>
+  <text x="80" y="656.6" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 24 行</text>
+  <rect x="118" y="645.6" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="656.1" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层51)</text>
+  <line x1="214" y1="652.6" x2="350" y2="652.6" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="645.6" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="656.1" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层52)</text>
+  <text x="80" y="673.8" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 25 行</text>
+  <rect x="118" y="662.8" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="673.3" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层53)</text>
+  <line x1="214" y1="669.8" x2="350" y2="669.8" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="662.8" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="673.3" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层54)</text>
+  <text x="80" y="691.0" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 26 行</text>
+  <rect x="118" y="680.0" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="690.5" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层55)</text>
+  <line x1="214" y1="687.0" x2="350" y2="687.0" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="680.0" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="690.5" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层56)</text>
+  <rect x="34" y="696.2" width="428" height="15.5" rx="3" fill="#fefce8"/>
+  <text x="80" y="708.2" text-anchor="middle" fill="#854d0e" font-size="11" font-weight="bold">第 27 行</text>
+  <rect x="118" y="697.2" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="707.7" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层57)</text>
+  <line x1="214" y1="704.2" x2="226" y2="704.2" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="226" y="696.7" width="104" height="15" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="1.8"/>
+  <text x="278" y="707.7" text-anchor="middle" fill="#713f12" font-size="10.5" font-weight="bold">★ A (层58)</text>
+  <line x1="330" y1="704.2" x2="350" y2="704.2" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="350" y="697.2" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="707.7" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层59)</text>
+  <text x="80" y="725.4" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 28 行</text>
+  <rect x="118" y="714.4" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="724.9" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层60)</text>
+  <line x1="214" y1="721.4" x2="350" y2="721.4" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="714.4" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="724.9" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层61)</text>
+  <text x="80" y="742.6" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 29 行</text>
+  <rect x="118" y="731.6" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="742.1" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层62)</text>
+  <line x1="214" y1="738.6" x2="350" y2="738.6" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="731.6" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="742.1" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层63)</text>
+  <text x="80" y="759.8" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 30 行</text>
+  <rect x="118" y="748.8" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="759.3" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层64)</text>
+  <line x1="214" y1="755.8" x2="350" y2="755.8" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="748.8" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="759.3" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层65)</text>
+  <text x="80" y="777.0" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 31 行</text>
+  <rect x="118" y="766.0" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="776.5" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层66)</text>
+  <line x1="214" y1="773.0" x2="350" y2="773.0" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="766.0" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="776.5" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层67)</text>
+  <rect x="34" y="782.2" width="428" height="15.5" rx="3" fill="#fefce8"/>
+  <text x="80" y="794.2" text-anchor="middle" fill="#854d0e" font-size="11" font-weight="bold">第 32 行</text>
+  <rect x="118" y="783.2" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="793.7" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层68)</text>
+  <line x1="214" y1="790.2" x2="226" y2="790.2" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="226" y="782.7" width="104" height="15" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="1.8"/>
+  <text x="278" y="793.7" text-anchor="middle" fill="#713f12" font-size="10.5" font-weight="bold">★ A (层69)</text>
+  <line x1="330" y1="790.2" x2="350" y2="790.2" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="350" y="783.2" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="793.7" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层70)</text>
+  <text x="80" y="811.4" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 33 行</text>
+  <rect x="118" y="800.4" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="810.9" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层71)</text>
+  <line x1="214" y1="807.4" x2="350" y2="807.4" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="800.4" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="810.9" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层72)</text>
+  <text x="80" y="828.6" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 34 行</text>
+  <rect x="118" y="817.6" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="828.1" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层73)</text>
+  <line x1="214" y1="824.6" x2="350" y2="824.6" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="817.6" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="828.1" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层74)</text>
+  <text x="80" y="845.8" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 35 行</text>
+  <rect x="118" y="834.8" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="845.3" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层75)</text>
+  <line x1="214" y1="841.8" x2="350" y2="841.8" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="834.8" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="845.3" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层76)</text>
+  <rect x="34" y="851.0" width="428" height="15.5" rx="3" fill="#fefce8"/>
+  <text x="80" y="863.0" text-anchor="middle" fill="#854d0e" font-size="11" font-weight="bold">第 36 行</text>
+  <rect x="118" y="852.0" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="862.5" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层77)</text>
+  <line x1="214" y1="859.0" x2="226" y2="859.0" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="226" y="851.5" width="104" height="15" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="1.8"/>
+  <text x="278" y="862.5" text-anchor="middle" fill="#713f12" font-size="10.5" font-weight="bold">★ A (层78)</text>
+  <line x1="330" y1="859.0" x2="350" y2="859.0" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="350" y="852.0" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="862.5" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层79)</text>
+  <text x="80" y="880.2" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 37 行</text>
+  <rect x="118" y="869.2" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="879.7" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层80)</text>
+  <line x1="214" y1="876.2" x2="350" y2="876.2" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="869.2" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="879.7" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层81)</text>
+  <text x="80" y="897.4" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 38 行</text>
+  <rect x="118" y="886.4" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="896.9" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层82)</text>
+  <line x1="214" y1="893.4" x2="350" y2="893.4" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="886.4" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="896.9" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层83)</text>
+  <text x="80" y="914.6" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 39 行</text>
+  <rect x="118" y="903.6" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="914.1" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层84)</text>
+  <line x1="214" y1="910.6" x2="350" y2="910.6" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="903.6" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="914.1" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层85)</text>
+  <text x="80" y="931.8" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">第 40 行</text>
+  <rect x="118" y="920.8" width="96" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="166" y="931.3" text-anchor="middle" fill="#1e3a8a" font-size="10.5" font-weight="bold">M (层86)</text>
+  <line x1="214" y1="927.8" x2="350" y2="927.8" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <rect x="350" y="920.8" width="96" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="398" y="931.3" text-anchor="middle" fill="#4c1d95" font-size="10.5" font-weight="bold">E (层87)</text>
 
-    <!-- Block C: Latent MoE -->
-    <rect x="12" y="256" width="320" height="98" rx="6" fill="#f5f3ff" stroke="#c4b5fd"/>
-    <text x="20" y="274" font-size="11.5" font-weight="bold" fill="#5b21b6">Latent MoE 潜空间混合专家（40 层，占全模型 94% 参数）</text>
-    <text x="20" y="291" font-size="10" fill="#334155">• 借 DeepSeek-V3 路由：512 选 22（8 组受限 + 偏置项修正）</text>
-    <text x="20" y="307" font-size="10" fill="#5b21b6" font-weight="bold">• 缩骨功：fc1_latent_proj [1024, 4096] 先压扁 4 倍到 1024 维</text>
-    <text x="20" y="323" font-size="10" fill="#334155">• 512 专家住 1024 维：up [2688, 1024] + ReLU² + down [1024, 2688]</text>
-    <text x="20" y="339" font-size="10" fill="#334155">• fc2_latent_proj [4096, 1024] 升维 ＋ 1 个共享专家 [5376, 4096]</text>
-  </g>
+  <path d="M248 956 L248 970" stroke="#64748b" stroke-width="2.5"/>
+  <polygon points="248,974 242,966 254,966" fill="#64748b"/>
 
-  <!-- Right Column: Speculative Decoding & Chinese Teachers -->
-  <g transform="translate(665, 88)">
-    <rect width="275" height="365" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-    <rect width="275" height="32" rx="8" fill="#7c2d12"/>
-    <text x="137.5" y="21" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">③ 投机草稿头 ＋ 中国名师团</text>
+  <!-- 底部输出 -->
+  <rect x="26" y="976" width="444" height="48" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="248" y="997" text-anchor="middle" fill="#9a3412" font-size="14.5" font-weight="bold">输出：lm_head (FP8) ＋ 内置 MTP / 单机外挂 LiLiCorr</text>
+  <text x="248" y="1015" text-anchor="middle" fill="#7c2d12" font-size="12">MTP 含 1 层 Attention + 1 层 MoE｜LiLiCorr 一次并猜 7 个词</text>
 
-    <!-- Speculative Decoding -->
-    <rect x="12" y="44" width="251" height="132" rx="6" fill="#fff7ed" stroke="#fdba74"/>
-    <text x="20" y="62" font-size="11.5" font-weight="bold" fill="#9a3412">双轨投机解码（高并发 vs 单机低并发）</text>
-    <text x="20" y="79" font-size="10.5" fill="#334155">① 内置 DeepSeek 式递归 MTP（高并发用）：</text>
-    <text x="28" y="94" font-size="10" fill="#475569">enorm+hnorm 拼 8192 → eh_proj [4096, 8192]</text>
-    <text x="28" y="108" font-size="10" fill="#475569">接 1 层 Attention + 1 层 Latent MoE 递归猜词</text>
-    <text x="20" y="125" font-size="10.5" fill="#334155">② 外挂并行草稿头（Spark 单机/低并发用）：</text>
-    <text x="28" y="140" font-size="10" fill="#9a3412" font-weight="bold">• Super 配 LiLiCorr（1.13B，DFlash2 机身）</text>
-    <text x="28" y="154" font-size="10" fill="#475569">• 一次并猜 7 槽×Top8，余弦相似度串成句</text>
-    <text x="28" y="168" font-size="10" fill="#475569">• 30B Lightning 配 DFlash 与 DSpark</text>
+  <!-- ================= 右半屏：三大模块大字号卡片 ================= -->
+  <!-- 卡片 1: M (Mamba-2) -->
+  <rect x="490" y="134" width="404" height="204" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="512" y="166" fill="#1e3a8a" font-size="18" font-weight="bold">① 蓝砖 M：Mamba-2（40 块）</text>
+  <text x="512" y="196" fill="#1e293b" font-size="14.5">• 128 个头 × 64 维，固定状态维 128</text>
+  <text x="512" y="224" fill="#1e293b" font-size="14.5">• 状态大小固定，不随上下文长度增长</text>
+  <text x="512" y="252" fill="#1e293b" font-size="14.5">• 负责记词序（后面的注意力不设位置编码）</text>
+  <rect x="510" y="268" width="364" height="54" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+  <text x="524" y="290" fill="#b45309" font-size="13.5" font-weight="bold">单机省内存妥协：</text>
+  <text x="524" y="311" fill="#334155" font-size="13">状态从 FP32 砍成 FP16 + 随机舍入，靠 ReplaySSM 回滚</text>
 
-    <!-- Chinese Teachers -->
-    <rect x="12" y="186" width="251" height="166" rx="6" fill="#fef2f2" stroke="#fecaca"/>
-    <text x="20" y="204" font-size="11.5" font-weight="bold" fill="#991b1b">后训练配料表：四大中国开源家族喂招</text>
-    <text x="20" y="222" font-size="10.5" fill="#334155">• 视觉图表/GUI 数据：<tspan font-weight="bold" fill="#b91c1c">Qwen3.5</tspan></text>
-    <text x="20" y="238" font-size="10.5" fill="#334155">• 视觉工具/视频轨迹：<tspan font-weight="bold" fill="#b91c1c">Kimi K2.6 &amp; K3</tspan></text>
-    <text x="20" y="254" font-size="10.5" fill="#334155">• 数学/STEM 思维链：<tspan font-weight="bold" fill="#b91c1c">Kimi K3</tspan></text>
-    <text x="20" y="270" font-size="10.5" fill="#334155">• 数学定理证明轨迹：<tspan font-weight="bold" fill="#b91c1c">DeepSeek-V4-Pro</tspan></text>
-    <text x="20" y="286" font-size="10.5" fill="#334155">• 算法竞赛编程轨迹：<tspan font-weight="bold" fill="#b91c1c">GLM-5.2</tspan></text>
-    <text x="20" y="302" font-size="10.5" fill="#334155">• 长文翻译 &amp; RL 判卷：<tspan font-weight="bold" fill="#b91c1c">DeepSeek-V4-Flash</tspan></text>
-    <text x="20" y="318" font-size="10.5" fill="#334155">• vLLM 工具解析器：<tspan font-weight="bold" fill="#b91c1c">qwen3_coder</tspan></text>
-    <text x="20" y="338" font-size="10" fill="#64748b">＋ 老黄自产：Gemma-4 翻译 2.83T 印度语续训</text>
-  </g>
+  <!-- 卡片 2: A (Attention) -->
+  <rect x="490" y="356" width="404" height="232" rx="8" fill="#fefce8" stroke="#eab308" stroke-width="2"/>
+  <text x="512" y="388" fill="#854d0e" font-size="18" font-weight="bold">② 黄砖 A：注意力插片（仅 8 块）</text>
+  <text x="512" y="418" fill="#1e293b" font-size="14.5">• 仅插在第 4、8、12、17、22、27、32、36 行中间</text>
+  <text x="512" y="446" fill="#b91c1c" font-size="14.5" font-weight="bold">• 32 个查询头（Q）只配 2 个键值头（KV）= 16:1</text>
+  <text x="512" y="474" fill="#1e293b" font-size="14.5">• 不带独立 FFN，与前面的 Mamba 共用后面的 MoE</text>
+  <rect x="510" y="492" width="364" height="80" rx="6" fill="#ffffff" stroke="#fde047"/>
+  <text x="524" y="516" fill="#854d0e" font-size="14.5" font-weight="bold">全网 1M 上下文 KV 缓存：仅 4 GiB（FP8）</text>
+  <text x="524" y="539" fill="#475569" font-size="13.5">对比：Qwen3.8 约 24 GiB ｜ GLM-5.3 约 11 GiB</text>
+  <text x="524" y="560" fill="#b91c1c" font-size="13.5">代价：长文 AA-LCR 掉队，Terminal Bench 4 考 1 分</text>
 
-  <!-- Bottom Bar: 128GB Spark Unified Memory Account -->
-  <g transform="translate(20, 468)">
-    <rect width="920" height="174" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-    <rect width="920" height="30" rx="8" fill="#334155"/>
-    <text x="460" y="20" font-size="13.5" font-weight="bold" fill="#ffffff" text-anchor="middle">④ 为什么偏偏是 120B？单台 DGX Spark / RTX Spark（128 GiB 统一内存）的内存分配</text>
+  <!-- 卡片 3: E (Latent MoE) -->
+  <rect x="490" y="606" width="404" height="236" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="512" y="638" fill="#5b21b6" font-size="18" font-weight="bold">③ 紫砖 E：Latent MoE（40 块）</text>
+  <text x="512" y="668" fill="#1e293b" font-size="14.5">• 路由借 DeepSeek-V3：512 选 22 ＋ 1 个共享专家</text>
+  <text x="512" y="696" fill="#5b21b6" font-size="14.5" font-weight="bold">• 进门先缩骨 4 倍：4096 维 → 1024 维潜空间</text>
+  <text x="512" y="724" fill="#1e293b" font-size="14.5">• 512 个专家全在 1024 维里算（ReLU² 双矩阵）</text>
+  <rect x="510" y="742" width="364" height="84" rx="6" fill="#ffffff" stroke="#c4b5fd"/>
+  <text x="524" y="766" fill="#5b21b6" font-size="14.5" font-weight="bold">全模型 94% 参数（112.7B）锁在 1024 维小黑屋</text>
+  <text x="524" y="789" fill="#475569" font-size="13.5">4096 维主干道上干活的参数加起来不到 8B；</text>
+  <text x="524" y="811" fill="#475569" font-size="13.5">仅 MoE 专家敢压成 NVFP4，其余主干留 FP8 / BF16</text>
 
-    <!-- Memory Bar Visual -->
-    <g transform="translate(24, 44)">
-      <!-- Total 128 GiB bar = 872px wide -->
-      <rect x="0" y="0" width="476" height="38" fill="#3b82f6" rx="4"/>
-      <text x="238" y="17" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">NVFP4 本体权重：69.86 GiB (75.01 GB)</text>
-      <text x="238" y="32" font-size="10.5" fill="#dbeafe" text-anchor="middle">仅 MoE 压 FP4；Mamba/Attn 留 FP8；潜投影/视觉/MTP 留 BF16</text>
-
-      <rect x="478" y="0" width="12" height="38" fill="#f59e0b"/>
-      
-      <rect x="492" y="0" width="162" height="38" fill="#10b981"/>
-      <text x="573" y="17" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">KV + Mamba 缓存 &amp; 激活</text>
-      <text x="573" y="32" font-size="10" fill="#d1fae5" text-anchor="middle">仅剩约 24.9 GiB 余量</text>
-
-      <rect x="656" y="0" width="216" height="38" fill="#64748b" rx="4"/>
-      <text x="764" y="17" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">系统 / CPU / mmap 预留：32 GiB</text>
-      <text x="764" y="32" font-size="10" fill="#e2e8f0" text-anchor="middle">--gpu-memory-utilization 0.75</text>
-    </g>
-
-    <!-- Explanations below bar -->
-    <text x="24" y="106" font-size="11.5" fill="#1e293b">• <tspan font-weight="bold" fill="#d97706">橙色窄条（1.23 GiB）</tspan>：外挂 LiLiCorr 投机草稿头（1.13B 参数 + 0.54B 目标词表头副本），合计静态权重占去 <tspan font-weight="bold">71.09 GiB</tspan>。</text>
-    <text x="24" y="126" font-size="11.5" fill="#1e293b">• <tspan font-weight="bold" fill="#dc2626">单机妥协三连（官方 GB10 专属启动脚本）</tspan>：① 并发锁死 <tspan font-weight="bold" fill="#b91c1c">--max-num-seqs 1</tspan>；② Mamba 状态从 FP32 砍成 <tspan font-weight="bold" fill="#b91c1c">float16 + 随机舍入</tspan>；</text>
-    <text x="36" y="145" font-size="11.5" fill="#1e293b">③ 海报大字写「1M 上下文」，但 LiLiCorr 部署配置偷偷把上下文上限设为 <tspan font-weight="bold" fill="#b91c1c">114,688（约 112K）</tspan>——再大一点，128GB 单机直接爆显存。</text>
-    <text x="24" y="164" font-size="11.5" fill="#475569">• <tspan font-weight="bold">对比国产同级</tspan>：吞吐量靠 8 层 Attention 刷到 Qwen3.8 的 1.9 倍，但老黄自测离线 Terminal Bench 4 仅得 <tspan font-weight="bold" fill="#b91c1c">1 分</tspan>（Qwen3.8 为 20.71，GLM-5.3 为 15.15）。</text>
-  </g>
+  <!-- 卡片 4: 128GB 单机与百家饭 -->
+  <rect x="490" y="860" width="404" height="164" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="2"/>
+  <text x="512" y="892" fill="#9f1239" font-size="17" font-weight="bold">④ 128GB 单机紧箍咒 ＋ 四家中国老师</text>
+  <text x="512" y="922" fill="#1e293b" font-size="14">• NVFP4（平均 4.82 bit）静态权重占 71.09 GiB</text>
+  <text x="512" y="948" fill="#1e293b" font-size="14">• 单机只剩 25 GiB 缓存：并发锁死 1、限长 112K</text>
+  <text x="512" y="974" fill="#1e293b" font-size="14">• 后训练由 Qwen3.5 / Kimi K3 / V4-Pro / GLM-5.2 喂招</text>
+  <text x="512" y="1002" fill="#b91c1c" font-size="14.5" font-weight="bold">• AA 智能指数总分仅 26 分（不敌 27B 的 Qwen3.8）</text>
 </svg>
