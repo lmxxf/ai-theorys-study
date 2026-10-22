@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.55" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="nvgreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#76b900"/>
+      <stop offset="1" stop-color="#a3e635"/>
+    </linearGradient>
+    <linearGradient id="redbar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#991b1b"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="bluebar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="amberbar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#b45309"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- Subtle Grid Lines -->
+  <g stroke="#334155" stroke-width="0.6" opacity="0.45">
+    <line x1="0" y1="95" x2="900" y2="95"/>
+    <line x1="0" y1="435" x2="900" y2="435"/>
+    <line x1="300" y1="95" x2="300" y2="435" stroke-dasharray="5,5"/>
+    <line x1="600" y1="95" x2="600" y2="435" stroke-dasharray="5,5"/>
+  </g>
+
+  <!-- Top Header Banner -->
+  <rect x="28" y="14" width="190" height="26" rx="13" fill="#76b900" opacity="0.2" stroke="#76b900" stroke-width="1.2"/>
+  <text x="123" y="32" text-anchor="middle" fill="#a3e635" font-size="12.5" font-weight="bold">NVIDIA Nemotron 3.5 Super</text>
+  <text x="872" y="32" text-anchor="end" fill="#64748b" font-size="13" font-weight="bold">No.347</text>
+
+  <text x="450" y="74" text-anchor="middle" fill="#f8fafc" font-size="26.5" font-weight="bold">老黄家 RTX Spark 的 120B 边角料：国模名师指导下的美国学渣</text>
+
+  <!-- ================= LEFT ZONE: 4 Chinese Open-Source Teachers ================= -->
+  <text x="150" y="122" text-anchor="middle" fill="#94a3b8" font-size="14" font-weight="bold">【名师喂招 + 开源零件】</text>
+
+  <!-- Teacher 1: DeepSeek -->
+  <g transform="translate(28, 138)">
+    <rect width="230" height="56" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.8"/>
+    <text x="14" y="23" fill="#60a5fa" font-size="14.5" font-weight="bold">DeepSeek-V4 Pro / Flash</text>
+    <text x="14" y="43" fill="#cbd5e1" font-size="12">无辅助损失路由 · MTP · 定理证明 &amp; 判卷</text>
+  </g>
+  <path d="M258 166 C285 166, 290 215, 316 225" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Teacher 2: Qwen -->
+  <g transform="translate(28, 206)">
+    <rect width="230" height="56" rx="8" fill="#1e293b" stroke="#a855f7" stroke-width="1.8"/>
+    <text x="14" y="23" fill="#c084fc" font-size="14.5" font-weight="bold">阿里 Qwen3.5 / qwen3_coder</text>
+    <text x="14" y="43" fill="#cbd5e1" font-size="12">视觉图表 GUI 轨迹 · 工具解析 · DFlash</text>
+  </g>
+  <path d="M258 234 C282 234, 292 245, 316 250" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Teacher 3: Kimi -->
+  <g transform="translate(28, 274)">
+    <rect width="230" height="56" rx="8" fill="#1e293b" stroke="#14b8a6" stroke-width="1.8"/>
+    <text x="14" y="23" fill="#2dd4bf" font-size="14.5" font-weight="bold">月之暗面 Kimi K3 / K2.6</text>
+    <text x="14" y="43" fill="#cbd5e1" font-size="12">数学 STEM 思维链 · 视频轨迹 · 预填充快照</text>
+  </g>
+  <path d="M258 302 C282 302, 292 280, 316 275" fill="none" stroke="#14b8a6" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Teacher 4: GLM + InternVL -->
+  <g transform="translate(28, 342)">
+    <rect width="230" height="56" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.8"/>
+    <text x="14" y="23" fill="#fbbf24" font-size="14.5" font-weight="bold">智谱 GLM-5.2 ＋ 书生 InternVL</text>
+    <text x="14" y="43" fill="#cbd5e1" font-size="12">算法竞赛编程轨迹 · 2×2 像素洗牌下采样</text>
+  </g>
+  <path d="M258 370 C285 370, 290 315, 316 300" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- ================= CENTER ZONE: The 128GB Compressed Cauldron ================= -->
+  <text x="450" y="122" text-anchor="middle" fill="#a3e635" font-size="14" font-weight="bold">【塞进 128GB 单机的缩骨拼盘】</text>
+
+  <!-- Outer 128GB Box -->
+  <rect x="318" y="138" width="264" height="260" rx="12" fill="#111827" stroke="#76b900" stroke-width="2.2"/>
+  <rect x="318" y="138" width="264" height="34" rx="10" fill="#76b900" opacity="0.22"/>
+  <text x="450" y="160" text-anchor="middle" fill="#a3e635" font-size="14.5" font-weight="bold">120B-A12B（静态权重 71.09 GiB）</text>
+
+  <!-- Inside Block 1: 88 Layers -->
+  <rect x="334" y="184" width="232" height="54" rx="6" fill="#1e293b" stroke="#475569"/>
+  <text x="450" y="205" text-anchor="middle" fill="#f8fafc" font-size="13.5" font-weight="bold">半层算一层：40 行数成 88 层</text>
+  <text x="450" y="226" text-anchor="middle" fill="#fde047" font-size="12">40 Mamba ＋ 仅 8 层 2 头 GQA ＋ 40 MoE</text>
+
+  <!-- Inside Block 2: Latent MoE Funnel -->
+  <rect x="334" y="248" width="232" height="62" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+  <text x="450" y="269" text-anchor="middle" fill="#fda4af" font-size="13.5" font-weight="bold">本末倒置：专家门口焊 1024 维窄门</text>
+  <text x="450" y="289" text-anchor="middle" fill="#cbd5e1" font-size="12">4096 维 → 1024 维潜空间（锁住 112.7B）</text>
+  <text x="450" y="304" text-anchor="middle" fill="#94a3b8" font-size="11">主干直接读写参数 &lt; 8B · 共享 fc1/fc2 限秩</text>
+
+  <!-- Inside Block 3: Quirks -->
+  <rect x="334" y="320" width="232" height="64" rx="6" fill="#1e293b" stroke="#475569"/>
+  <text x="450" y="341" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="bold">舍近求远 &amp; 将错就错</text>
+  <text x="450" y="360" text-anchor="middle" fill="#cbd5e1" font-size="11.5">外挂 LiLiCorr 猜词 · 视觉塔继承 MTP 归一化</text>
+  <text x="450" y="376" text-anchor="middle" fill="#94a3b8" font-size="11">外加 Gemma-4 翻译 2.83T 印度语特长班</text>
+
+  <!-- Arrow from Center to Right -->
+  <path d="M584 268 L612 268" stroke="#ef4444" stroke-width="3"/>
+  <polygon points="618,268 608,262 608,274" fill="#ef4444"/>
+
+  <!-- ================= RIGHT ZONE: AA Intelligence Index Scoreboard ================= -->
+  <text x="750" y="122" text-anchor="middle" fill="#f87171" font-size="14" font-weight="bold">【AA 智能指数 v4.3.2 期末考】</text>
+
+  <rect x="622" y="138" width="250" height="260" rx="12" fill="#111827" stroke="#475569" stroke-width="1.5"/>
+
+  <!-- Baseline line for bars -->
+  <line x1="638" y1="336" x2="856" y2="336" stroke="#64748b" stroke-width="1.5"/>
+
+  <!-- Bar 1: DeepSeek V4.1 / Qwen Max (45) -->
+  <rect x="646" y="176" width="40" height="160" rx="4" fill="url(#bluebar)"/>
+  <text x="666" y="168" text-anchor="middle" fill="#93c5fd" font-size="15" font-weight="bold">45</text>
+  <text x="666" y="354" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="bold">V4.1/Qwen</text>
+  <text x="666" y="369" text-anchor="middle" fill="#64748b" font-size="10">国模主力</text>
+
+  <!-- Bar 2: GLM-5.3-Flash (42) -->
+  <rect x="702" y="187" width="40" height="149" rx="4" fill="url(#bluebar)" opacity="0.85"/>
+  <text x="722" y="179" text-anchor="middle" fill="#93c5fd" font-size="15" font-weight="bold">42</text>
+  <text x="722" y="354" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="bold">GLM-5.3</text>
+  <text x="722" y="369" text-anchor="middle" fill="#64748b" font-size="10">Flash</text>
+
+  <!-- Bar 3: Qwen3.8 27B (34) -->
+  <rect x="758" y="215" width="40" height="121" rx="4" fill="url(#amberbar)"/>
+  <text x="778" y="207" text-anchor="middle" fill="#fde047" font-size="15" font-weight="bold">34</text>
+  <text x="778" y="354" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">Qwen 27B</text>
+  <text x="778" y="369" text-anchor="middle" fill="#94a3b8" font-size="10">仅 27B 小模</text>
+
+  <!-- Bar 4: Nemotron 3.5 Super 120B (26!) -->
+  <rect x="814" y="244" width="40" height="92" rx="4" fill="url(#redbar)" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="834" y="235" text-anchor="middle" fill="#f87171" font-size="17" font-weight="bold">26</text>
+  <text x="834" y="354" text-anchor="middle" fill="#f87171" font-size="11" font-weight="bold">Nemotron</text>
+  <text x="834" y="369" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="bold">120B 主角</text>
+
+  <!-- Bottom note inside right card -->
+  <text x="747" y="390" text-anchor="middle" fill="#f87171" font-size="12" font-weight="bold">离线 Terminal Bench 4 仅考 1 分</text>
+
+  <!-- Bottom Golden Quote Bar -->
+  <rect x="28" y="446" width="844" height="38" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="450" y="470" text-anchor="middle" fill="#e2e8f0" font-size="14.5" font-weight="bold">「好模型教你标准答案长啥样，卖铲子熬出的这锅缝合怪，刚好当一回架构总复习的找茬考卷」</text>
+</svg>
