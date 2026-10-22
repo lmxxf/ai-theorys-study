@@ -15,13 +15,13 @@
     <text x="266" y="13" fill="#854d0e">黄砖 A：GQA 注意力（仅 8 块插片）</text>
 
     <rect x="530" y="0" width="18" height="16" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
-    <text x="556" y="13" fill="#5b21b6">紫砖 E：Latent MoE（40 块，占 94% 参数）</text>
+    <text x="556" y="13" fill="#5b21b6">紫砖 E：Latent MoE（40 块，约占九成参数）</text>
   </g>
 
   <!-- 左半屏：顶部视觉+文本入口 -->
   <rect x="26" y="134" width="444" height="58" rx="8" fill="#f0fdfa" stroke="#14b8a6" stroke-width="2"/>
   <text x="248" y="158" text-anchor="middle" fill="#0f766e" font-size="15" font-weight="bold">输入：C-RADIO 视觉塔 (32层) → 2×2 像素洗牌 ＋ 词表</text>
-  <text x="248" y="179" text-anchor="middle" fill="#115e59" font-size="12.5">图片砍 3/4 词元 · 视频剪 70% · 视觉塔尾带 Megatron 乌龙 LN</text>
+  <text x="248" y="179" text-anchor="middle" fill="#115e59" font-size="12.5">图片砍 3/4 词元 · 视频默认剪 70% · 视觉塔尾继承 MTP 归一化</text>
 
   <path d="M248 192 L248 206" stroke="#64748b" stroke-width="2.5"/>
   <polygon points="248,210 242,202 254,202" fill="#64748b"/>
@@ -323,36 +323,36 @@
   <text x="512" y="224" fill="#1e293b" font-size="14.5">• 状态大小固定，不随上下文长度增长</text>
   <text x="512" y="252" fill="#1e293b" font-size="14.5">• 负责记词序（后面的注意力不设位置编码）</text>
   <rect x="510" y="268" width="364" height="54" rx="6" fill="#ffffff" stroke="#93c5fd"/>
-  <text x="524" y="290" fill="#b45309" font-size="13.5" font-weight="bold">单机省内存妥协：</text>
-  <text x="524" y="311" fill="#334155" font-size="13">状态从 FP32 砍成 FP16 + 随机舍入，靠 ReplaySSM 回滚</text>
+  <text x="524" y="290" fill="#b45309" font-size="13.5" font-weight="bold">运行时状态开销优化：</text>
+  <text x="524" y="311" fill="#334155" font-size="13">SSM 状态存 FP16 + 随机舍入（80 MiB），配 ReplaySSM 回放</text>
 
   <!-- 卡片 2: A (Attention) -->
   <rect x="490" y="356" width="404" height="232" rx="8" fill="#fefce8" stroke="#eab308" stroke-width="2"/>
   <text x="512" y="388" fill="#854d0e" font-size="18" font-weight="bold">② 黄砖 A：注意力插片（仅 8 块）</text>
   <text x="512" y="418" fill="#1e293b" font-size="14.5">• 仅插在第 4、8、12、17、22、27、32、36 行中间</text>
-  <text x="512" y="446" fill="#b91c1c" font-size="14.5" font-weight="bold">• 32 个查询头（Q）只配 2 个键值头（KV）= 16:1</text>
+  <text x="512" y="446" fill="#b91c1c" font-size="14.5" font-weight="bold">• 32 个查询头（Q）共用 2 个键值头（KV）= 16:1</text>
   <text x="512" y="474" fill="#1e293b" font-size="14.5">• 不带独立 FFN，与前面的 Mamba 共用后面的 MoE</text>
   <rect x="510" y="492" width="364" height="80" rx="6" fill="#ffffff" stroke="#fde047"/>
-  <text x="524" y="516" fill="#854d0e" font-size="14.5" font-weight="bold">全网 1M 上下文 KV 缓存：仅 4 GiB（FP8）</text>
-  <text x="524" y="539" fill="#475569" font-size="13.5">对比：Qwen3.8 约 24 GiB ｜ GLM-5.3 约 11 GiB</text>
-  <text x="524" y="560" fill="#b91c1c" font-size="13.5">代价：长文 AA-LCR 掉队，Terminal Bench 4 考 1 分</text>
+  <text x="524" y="516" fill="#854d0e" font-size="14.5" font-weight="bold">1M 上下文注意力 KV：BF16 8 GiB / FP8 4 GiB</text>
+  <text x="524" y="539" fill="#475569" font-size="13.5">对比（BF16）：Qwen3.8 约 24 GiB ｜ GLM-5.3 约 11 GiB</text>
+  <text x="524" y="560" fill="#b91c1c" font-size="13.5">实测表现：长文 AA-LCR 68.62，Terminal Bench 4 仅 1 分</text>
 
   <!-- 卡片 3: E (Latent MoE) -->
   <rect x="490" y="606" width="404" height="236" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
   <text x="512" y="638" fill="#5b21b6" font-size="18" font-weight="bold">③ 紫砖 E：Latent MoE（40 块）</text>
-  <text x="512" y="668" fill="#1e293b" font-size="14.5">• 路由借 DeepSeek-V3：512 选 22 ＋ 1 个共享专家</text>
-  <text x="512" y="696" fill="#5b21b6" font-size="14.5" font-weight="bold">• 进门先缩骨 4 倍：4096 维 → 1024 维潜空间</text>
+  <text x="512" y="668" fill="#1e293b" font-size="14.5">• 无辅助损失偏置路由：直接 512 选 22 ＋ 1 共享专家</text>
+  <text x="512" y="696" fill="#5b21b6" font-size="14.5" font-weight="bold">• 进路由专家前缩骨 4 倍：4096 维 → 1024 维潜空间</text>
   <text x="512" y="724" fill="#1e293b" font-size="14.5">• 512 个专家全在 1024 维里算（ReLU² 双矩阵）</text>
   <rect x="510" y="742" width="364" height="84" rx="6" fill="#ffffff" stroke="#c4b5fd"/>
-  <text x="524" y="766" fill="#5b21b6" font-size="14.5" font-weight="bold">全模型 94% 参数（112.7B）锁在 1024 维小黑屋</text>
-  <text x="524" y="789" fill="#475569" font-size="13.5">4096 维主干道上干活的参数加起来不到 8B；</text>
-  <text x="524" y="811" fill="#475569" font-size="13.5">按行业惯例 MoE 压 NVFP4，主干敏感层留 FP8 / BF16</text>
+  <text x="524" y="766" fill="#5b21b6" font-size="14.5" font-weight="bold">超九成参数（112.7B）位于 1024 维潜空间专家</text>
+  <text x="524" y="789" fill="#475569" font-size="13.5">4096 维主干道直接读写的参数加起来不到 8B；</text>
+  <text x="524" y="811" fill="#475569" font-size="13.5">MoE 专家压 NVFP4，主干敏感层留 FP8 / BF16</text>
 
   <!-- 卡片 4: 128GB 单机与百家饭 -->
   <rect x="490" y="860" width="404" height="164" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="2"/>
-  <text x="512" y="892" fill="#9f1239" font-size="17" font-weight="bold">④ 128GB 单机紧箍咒 ＋ 四家中国老师</text>
-  <text x="512" y="922" fill="#1e293b" font-size="14">• NVFP4（平均 4.82 bit）静态权重占 71.09 GiB</text>
-  <text x="512" y="948" fill="#1e293b" font-size="14">• 单机只剩 25 GiB 缓存：Mamba 砍 FP16、限长 112K</text>
+  <text x="512" y="892" fill="#9f1239" font-size="17" font-weight="bold">④ 128GB 单机配置 ＋ 四家中国老师</text>
+  <text x="512" y="922" fill="#1e293b" font-size="14">• NVFP4 本体 + LiLiCorr 草稿头静态文件共 71.09 GiB</text>
+  <text x="512" y="948" fill="#1e293b" font-size="14">• Spark 单机余约 25 GiB 缓存（示例配置上限约 112K）</text>
   <text x="512" y="974" fill="#1e293b" font-size="14">• 后训练由 Qwen3.5 / Kimi K3 / V4-Pro / GLM-5.2 喂招</text>
   <text x="512" y="1002" fill="#b91c1c" font-size="14.5" font-weight="bold">• AA 智能指数总分仅 26 分（不敌 27B 的 Qwen3.8）</text>
 </svg>
