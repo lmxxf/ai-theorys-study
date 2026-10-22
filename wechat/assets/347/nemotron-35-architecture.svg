@@ -346,13 +346,13 @@
   <rect x="510" y="742" width="364" height="84" rx="6" fill="#ffffff" stroke="#c4b5fd"/>
   <text x="524" y="766" fill="#5b21b6" font-size="14.5" font-weight="bold">全模型 94% 参数（112.7B）锁在 1024 维小黑屋</text>
   <text x="524" y="789" fill="#475569" font-size="13.5">4096 维主干道上干活的参数加起来不到 8B；</text>
-  <text x="524" y="811" fill="#475569" font-size="13.5">仅 MoE 专家敢压成 NVFP4，其余主干留 FP8 / BF16</text>
+  <text x="524" y="811" fill="#475569" font-size="13.5">按行业惯例 MoE 压 NVFP4，主干敏感层留 FP8 / BF16</text>
 
   <!-- 卡片 4: 128GB 单机与百家饭 -->
   <rect x="490" y="860" width="404" height="164" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="2"/>
   <text x="512" y="892" fill="#9f1239" font-size="17" font-weight="bold">④ 128GB 单机紧箍咒 ＋ 四家中国老师</text>
   <text x="512" y="922" fill="#1e293b" font-size="14">• NVFP4（平均 4.82 bit）静态权重占 71.09 GiB</text>
-  <text x="512" y="948" fill="#1e293b" font-size="14">• 单机只剩 25 GiB 缓存：并发锁死 1、限长 112K</text>
+  <text x="512" y="948" fill="#1e293b" font-size="14">• 单机只剩 25 GiB 缓存：Mamba 砍 FP16、限长 112K</text>
   <text x="512" y="974" fill="#1e293b" font-size="14">• 后训练由 Qwen3.5 / Kimi K3 / V4-Pro / GLM-5.2 喂招</text>
   <text x="512" y="1002" fill="#b91c1c" font-size="14.5" font-weight="bold">• AA 智能指数总分仅 26 分（不敌 27B 的 Qwen3.8）</text>
 </svg>
