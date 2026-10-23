@@ -65,11 +65,11 @@
 
   <!-- 注意力输出：重新撑回 8192 维全宽条 -->
   <rect x="44" y="296" width="616" height="36" rx="5" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
-  <text x="352" y="319" text-anchor="middle" fill="#713f12" font-size="13.5" font-weight="bold">注意力输出 o_norm(Attn) ：128 头拼回 [ 8192 维 ]（恢复全宽）</text>
+  <text x="352" y="319" text-anchor="middle" fill="#713f12" font-size="13.5" font-weight="bold">注意力输出：128 头各经 64 维无参 o_norm → 拼回 [ 8192 维 ]（恢复全宽）</text>
 
   <!-- ================= 下半截：独立于注意力的出口 GLU 门控 ================= -->
   <rect x="28" y="380" width="824" height="172" rx="8" fill="#fdf2f8" stroke="#ec4899" stroke-width="1.8"/>
-  <text x="44" y="404" fill="#9d174d" font-size="13.5" font-weight="bold">下半截：注意力算完后，出口套一个同款 GLU 门控（两路 8192 维逐通道相乘 → 8192 维）</text>
+  <text x="44" y="404" fill="#9d174d" font-size="13.5" font-weight="bold">下半截：注意力算完后，出口套一个乘法门控单元（两路 8192 维逐通道相乘 → 8192 维）</text>
 
   <!-- 右侧旁路：从顶部输入 x 直接拉下来算 Gate [8192] -->
   <path d="M740 102 L740 416" stroke="#db2777" stroke-width="2.5" fill="none"/>
@@ -98,7 +98,7 @@
   <!-- 最终输出 8192 全宽条 -->
   <rect x="120" y="490" width="640" height="36" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
   <text x="440" y="513" text-anchor="middle" fill="#4c1d95" font-size="14" font-weight="bold">最终输出 (o_norm(Attn) ⊙ Sigmoid(Gate)) @ W_o ：[ 8192 维 ]（全宽）</text>
-  <text x="440" y="542" text-anchor="middle" fill="#64748b" font-size="12">注：下半截公式与 FFN 的 SwiGLU 完全同构，相当于把原本单层的 W_o 升级成了 (W_gate + W_o) 双矩阵 GLU</text>
+  <text x="440" y="542" text-anchor="middle" fill="#64748b" font-size="12">注：下半截与 FFN 的门控线性单元（GLU）结构相似，相当于把原本单层的 W_o 升级成了 (W_gate + W_o) 双矩阵门控</text>
 
   <!-- 底部总账一句话 -->
   <rect x="28" y="566" width="824" height="38" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>

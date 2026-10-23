@@ -13,7 +13,7 @@
     <rect x="765" y="0" width="16" height="14" rx="3" fill="#ffe4e6" stroke="#e11d48" stroke-width="1.8"/>
     <text x="787" y="11.5" fill="#9f1239">首尾 E：留 BF16</text>
   </g>
-  <text x="38" y="113" fill="#64748b" font-size="11.5">注：层号按 config.json 从 00 数到 61；每层内部含 2 道单位圆方差守恒残差门 (α² + β² ≡ 1)，全程保持主干残差流方差守恒</text>
+  <text x="38" y="113" fill="#64748b" font-size="11.5">注：层号按 config.json 从 00 数到 61；红圈示意残差门（实际每层 Attention 与 MoE 后各 1 处，共 124 处，未触发下限时 α² + β² = 1）</text>
   <rect x="22" y="132" width="456" height="54" rx="8" fill="#f0fdfa" stroke="#14b8a6" stroke-width="2"/>
   <text x="250" y="153" text-anchor="middle" fill="#0f766e" font-size="13.2" font-weight="bold">输入：词表 (1.66B) ＋ 视觉塔 (50层 1.8B) ＋ 纯卷积音频塔 (4层 0.12B)</text>
   <text x="250" y="173" text-anchor="middle" fill="#115e59" font-size="11.2">图像 2×2 洗牌压 3/4 词元 · 音频 24kHz 经 16×6×5×4 卷积 (80ms/词) · 词表带无参 RMSNorm</text>
@@ -501,42 +501,42 @@
   <text x="512" y="186" fill="#1e293b" font-size="12.8">• 从第 61 层倒数每 4 层 1 个全局层：(61 - i) % 4 == 0</text>
   <text x="512" y="210" fill="#1e293b" font-size="12.8">• 开头 00~01 层为 1 组 [S, ★G]，后 02~61 层为 15 组 [S, S, S, ★G]</text>
   <text x="512" y="234" fill="#1e40af" font-size="12.8" font-weight="bold">• 46 层滑窗 (2048)：开 RoPE (θ=50万) 负责记局部相对词序</text>
-  <text x="512" y="258" fill="#b91c1c" font-size="12.8" font-weight="bold">• 16 层全局 (1M)：设 NoPE (θ=0) + Q 放大 5.47 倍防稀释</text>
+  <text x="512" y="258" fill="#b91c1c" font-size="12.8" font-weight="bold">• 16 层全局 (1M)：设 NoPE (θ=0)｜全网 Q 统一乘 5.473 缩放</text>
   <rect x="510" y="272" width="412" height="88" rx="6" fill="#ffffff" stroke="#fde047" stroke-width="1.5"/>
   <text x="522" y="294" fill="#854d0e" font-size="13.2" font-weight="bold">1M 上下文 KV 缓存：BF16 64.36 GiB / FP8 约 32.2 GiB</text>
-  <text x="522" y="316" fill="#334155" font-size="12">• 8:1 GQA (128Q/16KV, 64维) + 出口套 GLU 门控 (gate_proj + o_proj)</text>
+  <text x="522" y="316" fill="#334155" font-size="12">• 8:1 GQA (128Q/16KV, 64维) + 出口套乘法门控 (gate_proj + o_proj)</text>
   <text x="522" y="336" fill="#334155" font-size="12">• 46 层滑窗只存 2048 词 = 368 MiB；16 层全局每层 4 GiB = 64 GiB</text>
   <text x="522" y="354" fill="#64748b" font-size="11.5">（若 62 层全开全局需 248 GiB，3:1 滑窗直接省掉四分之三）</text>
   <rect x="494" y="390" width="444" height="270" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
   <text x="512" y="418" fill="#5b21b6" font-size="16.5" font-weight="bold">② 62 块紫砖 E：4096 潜空间 MoE 与权重账</text>
   <text x="512" y="444" fill="#1e293b" font-size="12.8">• 路由在 8192 维打分：Sigmoid + 偏置，256 选 8（0 共享专家）</text>
-  <text x="512" y="468" fill="#5b21b6" font-size="12.8" font-weight="bold">• 进门砍半：8192 → 4096 潜空间（装 1000~1500 维流形留 3 倍余量）</text>
-  <text x="512" y="492" fill="#1e293b" font-size="12.8">• 单专家 SwiGLU (50.33M)，算完单过 InputScaledRMSNorm</text>
+  <text x="512" y="468" fill="#5b21b6" font-size="12.8" font-weight="bold">• 进门砍半：8192 → 4096 潜空间（相比老黄压到 1024 维温和得多）</text>
+  <text x="512" y="492" fill="#1e293b" font-size="12.8">• 单专家 SwiGLU (50.33M)，各专家输出经共享 InputScaledRMSNorm</text>
   <text x="512" y="516" fill="#1e293b" font-size="12.8">• 非嵌入总参：13.5B(A) + 4.3B(潜投影) + 798.9B(E) = 816.7B</text>
   <text x="512" y="540" fill="#1e293b" font-size="12.8">• 非嵌入激活：13.5B(A) + 4.3B(潜投影) + 25.0B(8E) = 42.8B</text>
   <rect x="510" y="554" width="412" height="92" rx="6" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.5"/>
   <text x="522" y="576" fill="#9f1239" font-size="13" font-weight="bold">为什么首尾两层（L00 / L61）的专家不压 FP4？</text>
   <text x="522" y="598" fill="#334155" font-size="12">• BF16 原版 1,644.3 GB（2TB 显存）｜NVFP4 版 533.0 GB（5.19 bit/参数）</text>
-  <text x="522" y="618" fill="#334155" font-size="12">• 实测权重：中间 60 层 MoE 残差门均值全为负 (β≈0.47，小步微调)</text>
-  <text x="522" y="638" fill="#9f1239" font-size="12" font-weight="bold">• 唯独首尾 L00/L61 残差门翻正跳变 (β=0.56/0.53)，故 512 专家留 BF16</text>
+  <text x="522" y="618" fill="#334155" font-size="12">• 实测权重：中间 60 层 MoE 残差门均值全为负 (逐维 β 均值约 0.45~0.50)</text>
+  <text x="522" y="638" fill="#9f1239" font-size="12" font-weight="bold">• 首尾 L00/L61 处进出场边界且残差门均值翻正，512 专家留 BF16 保护</text>
   <rect x="494" y="676" width="444" height="210" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
-  <text x="512" y="704" fill="#1e3a8a" font-size="16.5" font-weight="bold">③ 124 道单位圆残差门 ＋ HF 源码“百家衣”</text>
+  <text x="512" y="704" fill="#1e3a8a" font-size="16.5" font-weight="bold">③ 124 道平方和受约束残差门 ＋ HF 源码“百家衣”</text>
   <text x="512" y="730" fill="#dc2626" font-size="12.8" font-weight="bold">• 残差门 (红圈)：out = α·residual + β·x，全程 FP32 计算</text>
-  <text x="512" y="754" fill="#1e293b" font-size="12.5">  其中 β = σ(w/0.3)，α = √(σ(-w/0.3)(1+β))，恒满足 α² + β² ≡ 1</text>
-  <text x="512" y="776" fill="#1e293b" font-size="12.5">  静态单车道保方差守恒（对比 DeepSeek 四车道 mHC 与 Kimi 跨层残差）</text>
+  <text x="512" y="754" fill="#1e293b" font-size="12.5">  其中 β = σ(w/0.3)，α = √(max(σ(-w/0.3)(1+β), 1e-3))，α² + β² = 1</text>
+  <text x="512" y="776" fill="#1e293b" font-size="12.5">  静态单车道控制混合幅度（对比 DeepSeek 四车道 mHC 与 Kimi 跨层残差）</text>
   <rect x="510" y="790" width="412" height="82" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
   <text x="522" y="812" fill="#1e3a8a" font-size="13" font-weight="bold">modular_muse_spark.py 直接 import 各家现成组件：</text>
   <text x="522" y="833" fill="#334155" font-size="11.8">• DeepSeek-V3 (专家) · MiniMax-M2 (路由器) · Kimi-K2.5 (视觉注意力)</text>
   <text x="522" y="853" fill="#334155" font-size="11.8">• Qwen2.5-VL (RoPE) · GLM-4V · PaddleOCR · Gemma2/3/4 · AfMoE</text>
   <rect x="494" y="902" width="444" height="256" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="2"/>
-  <text x="512" y="930" fill="#9f1239" font-size="16.5" font-weight="bold">④ 闭源留着吃肉 ＋ 开源“防越狱模范生”</text>
+  <text x="512" y="930" fill="#9f1239" font-size="16.5" font-weight="bold">④ 闭源留着吃肉 ＋ 开放版“防越狱模范生”</text>
   <text x="512" y="956" fill="#1e293b" font-size="12.8">• 10 月闭源真旗舰 Muse Wonder：AA 考 52 / 56 分追平 GPT-6</text>
-  <text x="512" y="980" fill="#b91c1c" font-size="12.8" font-weight="bold">• 10 月开源 Muse Spark Open：拿 4 月初代底子，AA 仅 39 分</text>
-  <text x="512" y="1004" fill="#1e293b" font-size="12.8">• 代码与干活全线输 GLM-5.3 (45) / Kimi K3 (44) / Qwen3.8 (45)</text>
+  <text x="512" y="980" fill="#b91c1c" font-size="12.8" font-weight="bold">• 10 月开源 Muse Spark Open：基于 8 月上一代基座，AA 仅 39 分</text>
+  <text x="512" y="1004" fill="#1e293b" font-size="12.8">• 多项核心工程指标落后 GLM-5.3 (45) / Kimi K3 (44) / Qwen3.8</text>
   <rect x="510" y="1018" width="412" height="126" rx="6" fill="#ffffff" stroke="#fda4af" stroke-width="1.5"/>
-  <text x="522" y="1040" fill="#9f1239" font-size="13" font-weight="bold">半年“额外安全后训练”干了啥？</text>
-  <text x="522" y="1062" fill="#047857" font-size="12" font-weight="bold">• StrongREJECT v2 越狱破防率压到 0.5%（国模在 63%~66%）</text>
-  <text x="522" y="1084" fill="#334155" font-size="11.8">• README 点名拉踩 Kimi K3 网安拒答率不如自己 (99.2% vs 75.5%)</text>
-  <text x="522" y="1106" fill="#b91c1c" font-size="12" font-weight="bold">• 代价：FORTRESS 正常问题误伤拒答率飙至 17.4%（Kimi 仅 2.7%）</text>
-  <text x="522" y="1128" fill="#64748b" font-size="11.8">• 靠“一言不合就拒答不扣分”在倒扣分的 AA Omniscience 混到第一</text>
+  <text x="522" y="1040" fill="#9f1239" font-size="13" font-weight="bold">加训“额外安全后训练”的反差：</text>
+  <text x="522" y="1062" fill="#047857" font-size="12" font-weight="bold">• 内部改编 StrongREJECT v2 越狱破防率压到 0.5%（国模在 63%~67%）</text>
+  <text x="522" y="1084" fill="#334155" font-size="11.8">• 模型卡专门点名对比 Kimi K3 网安拒答率 (99.2% / 94.8% vs 75.5% / 70.2%)</text>
+  <text x="522" y="1106" fill="#b91c1c" font-size="12" font-weight="bold">• 代价：FORTRESS 无害请求误拒率达 17.4%（是 Kimi K3 2.7% 的 6.4 倍）</text>
+  <text x="522" y="1128" fill="#64748b" font-size="11.8">• 同表 AA Omniscience 考 25 分（按答对减答错计分，不确定弃答不扣分）</text>
 </svg>
