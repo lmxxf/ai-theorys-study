@@ -526,10 +526,10 @@
   <text x="512" y="516" fill="#1e293b" font-size="12.8">• 非嵌入总参：13.5B(A) + 4.3B(潜投影) + 798.9B(E) = 816.7B</text>
   <text x="512" y="540" fill="#1e293b" font-size="12.8">• 非嵌入激活：13.5B(A) + 4.3B(潜投影) + 25.0B(8E) = 42.8B</text>
   <rect x="510" y="554" width="412" height="92" rx="6" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.5"/>
-  <text x="522" y="576" fill="#9f1239" font-size="13" font-weight="bold">为什么 NVFP4 量化版重达 533 GB（5.19 bit/参数）？</text>
-  <text x="522" y="598" fill="#334155" font-size="12">• BF16 原版 1,644.3 GB（合 1,531.4 GiB，官方要求 2TB 显存）</text>
-  <text x="522" y="618" fill="#334155" font-size="12">• 因无共享专家兜底，首尾第 00、61 层的 512 个专家 (25.8B)</text>
-  <text x="522" y="638" fill="#9f1239" font-size="12" font-weight="bold">  连同全部 62 层注意力、潜投影、词表头一律留 BF16 不压 FP4</text>
+  <text x="522" y="576" fill="#9f1239" font-size="13" font-weight="bold">为什么首尾两层（L00 / L61）的专家不压 FP4？</text>
+  <text x="522" y="598" fill="#334155" font-size="12">• BF16 原版 1,644.3 GB（2TB 显存）｜NVFP4 版 533.0 GB（5.19 bit/参数）</text>
+  <text x="522" y="618" fill="#334155" font-size="12">• 实测权重：中间 60 层 MoE 残差门均值全为负 (β≈0.47，小步微调)</text>
+  <text x="522" y="638" fill="#9f1239" font-size="12" font-weight="bold">• 唯独首尾 L00/L61 残差门翻正跳变 (β=0.56/0.53)，故 512 专家留 BF16</text>
   <rect x="494" y="676" width="444" height="210" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
   <text x="512" y="704" fill="#1e3a8a" font-size="16.5" font-weight="bold">③ 124 道单位圆残差门 ＋ HF 源码“百家衣”</text>
   <text x="512" y="730" fill="#dc2626" font-size="12.8" font-weight="bold">• 残差门 (红圈)：out = α·residual + β·x，全程 FP32 计算</text>
