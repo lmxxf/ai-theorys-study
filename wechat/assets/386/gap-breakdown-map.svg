@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" style="background-color:#fafbfc; font-family:'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif;">
+  <defs>
+    <linearGradient id="hipGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="vkWinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="vkAcoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="38" text-anchor="middle" font-size="19" font-weight="bold" fill="#1e293b">同卡（RX 9070 XT）跑 71 块 DLSS 5（1080p / 640 词元）：耗时对比与差距来源拆解</text>
+  <text x="500" y="62" text-anchor="middle" font-size="13" fill="#64748b">左：整网纯 GPU 单帧耗时对比（毫秒，越短越快） ｜ 右：按算子家族拆解的核心差异来源</text>
+
+  <!-- Left Panel: Overall Frame Time Bars -->
+  <rect x="24" y="82" width="446" height="450" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="42" y="112" font-size="14.5" font-weight="bold" fill="#0f172a">1. 整网单帧纯 GPU 耗时（1920×1088，640 词元）</text>
+
+  <!-- Bar 1: 10-06 Old HIP -->
+  <text x="42" y="150" font-size="12.5" fill="#475569">我们（10月6日旧基线，未接通字节流与 W16）</text>
+  <rect x="42" y="158" width="340" height="26" rx="4" fill="#94a3b8"/>
+  <text x="390" y="176" font-size="13" font-weight="bold" fill="#475569">8.92 ms</text>
+
+  <!-- Bar 2: 10-23 Current HIP before knife1 -->
+  <text x="42" y="210" font-size="12.5" fill="#334155">我们（10月14～17日七场战役后，1088 漏开紧凑资格）</text>
+  <rect x="42" y="218" width="326" height="26" rx="4" fill="#60a5fa"/>
+  <text x="376" y="236" font-size="13" font-weight="bold" fill="#2563eb">8.55 ms</text>
+
+  <!-- Bar 3: 10-23 Current HIP + Knife 1 -->
+  <text x="42" y="270" font-size="12.5" font-weight="bold" fill="#1e3a8a">我们今天（补齐 1088 紧凑权重与字节链，153 次发射）</text>
+  <rect x="42" y="278" width="318" height="28" rx="4" fill="url(#hipGrad)"/>
+  <text x="368" y="297" font-size="13.5" font-weight="bold" fill="#1d4ed8">8.35 ms</text>
+
+  <!-- Bar 4: Mochi Locked v0.0.2.5 -->
+  <text x="42" y="332" font-size="12.5" font-weight="bold" fill="#92400e">mochizuki 旧锁版（v0.0.2.5，Windows 驱动 LLPC 编译）</text>
+  <rect x="42" y="340" width="300" height="26" rx="4" fill="url(#vkWinGrad)"/>
+  <text x="350" y="358" font-size="13" font-weight="bold" fill="#b45309">7.87 ms</text>
+
+  <!-- Bar 5: Mochi v0.0.4 Windows Default -->
+  <text x="42" y="392" font-size="12.5" fill="#92400e">mochizuki 新版自报（v0.0.4，Windows 默认 ACO Off）</text>
+  <rect x="42" y="400" width="275" height="26" rx="4" fill="#fbbf24"/>
+  <text x="325" y="418" font-size="13" font-weight="bold" fill="#b45309">7.21 ms*</text>
+
+  <!-- Bar 6: Mochi v0.0.4 ACO Mode On -->
+  <text x="42" y="452" font-size="12.5" font-weight="bold" fill="#065f46">mochizuki 新版自报（v0.0.4，注入 Linux Mesa ACO 机器码）</text>
+  <rect x="42" y="460" width="217" height="28" rx="4" fill="url(#vkAcoGrad)"/>
+  <text x="267" y="479" font-size="13.5" font-weight="bold" fill="#047857">5.70 ms*</text>
+
+  <text x="42" y="512" font-size="11" fill="#64748b">*注：前四项为本机同输入 ABBA 实测；7.21 / 5.70 ms 为作者发布表数字。</text>
+
+  <!-- Right Panel: Four Structural Gap Sources -->
+  <rect x="486" y="82" width="490" height="450" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="504" y="112" font-size="14.5" font-weight="bold" fill="#0f172a">2. 为什么他还比我们快？四块物理账本</text>
+
+  <!-- Box A -->
+  <rect x="504" y="126" width="454" height="84" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="516" y="148" font-size="13" font-weight="bold" fill="#1e40af">① C32 浅层族（约 0.22～0.25 ms）：算术精度的取舍</text>
+  <text x="516" y="169" font-size="11.5" fill="#334155">• 我们：保留原版逐步朝零截断半精度（Hrtz）与 FP32 串行归一化</text>
+  <text x="516" y="189" font-size="11.5" fill="#334155">• 他：全 FP32 多项式 + 预烘焙位置偏置 + FP16 蝶形归约，省 VALU 指令</text>
+
+  <!-- Box B -->
+  <rect x="504" y="220" width="454" height="92" rx="6" fill="#fef3c7" stroke="#fde68a" stroke-width="1"/>
+  <text x="516" y="242" font-size="13" font-weight="bold" fill="#92400e">② ViT 全局族（约 0.18～0.25 ms）：大工作组 + V 块读 + 半精度归约</text>
+  <text x="516" y="263" font-size="11.5" fill="#334155">• QKV：他用 4 波大工作组（64词元×256列）片上复用权重；LLVM 下爆寄存器</text>
+  <text x="516" y="283" font-size="11.5" fill="#334155">• Attention：他用 32-Query 减半 K/V 读取 + FP16 向量归约 + V 连续块读；</text>
+  <text x="516" y="301" font-size="11.5" fill="#334155">  我们算分母多跑 1 条 WMMA 且 V 发 16 条单字节散读（global_load_u8）</text>
+
+  <!-- Box C -->
+  <rect x="504" y="322" width="454" height="84" rx="6" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1"/>
+  <text x="516" y="344" font-size="13" font-weight="bold" fill="#6b21a8">③ 局部窗口与 C512（约 0.20～0.35 ms）：持久化巨型核 + TCHAIN</text>
+  <text x="516" y="365" font-size="11.5" fill="#334155">• 153 vs 123 次发射：他用 5114 行持久化核把 C64/128/256 连同上下采样</text>
+  <text x="516" y="385" font-size="11.5" fill="#334155">  压成单次发射，配合 C512 跨核原子计数器链（TCHAIN），省掉排空等待</text>
+
+  <!-- Box D -->
+  <rect x="504" y="416" width="454" height="98" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+  <text x="516" y="438" font-size="13" font-weight="bold" fill="#065f46">④ 编译器代差（7.21 → 5.70 ms，差 1.51 ms）：Mesa ACO vs LLVM</text>
+  <text x="516" y="459" font-size="11.5" fill="#334155">• 他在 Windows 下借 VK_KHR_pipeline_binary 空壳容器偷渡 Linux ACO 机器码</text>
+  <text x="516" y="479" font-size="11.5" fill="#334155">• ACO 在巨型核上能排 36 条并发显存预取（s_wait_loadcnt 35 起步）而不</text>
+  <text x="516" y="497" font-size="11.5" fill="#334155">  溢出寄存器；同时解锁了 Windows 驱动编译器会崩的全网 TCHAIN 0x1ff</text>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" style="background-color:#fafbfc; font-family:'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif;">
+  <!-- Title -->
+  <text x="500" y="36" text-anchor="middle" font-size="18.5" font-weight="bold" fill="#1e293b">两个关键底层机制：16 字节权重配对方向（K-pair vs N-pair）与 Windows ACO 机器码注入</text>
+
+  <!-- Top Half: K-pair vs N-pair -->
+  <rect x="24" y="56" width="952" height="225" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="44" y="84" font-size="14.5" font-weight="bold" fill="#0f172a">上篇：同样是每线程一次读 16 字节（global_load_b128），打包方向垂直</text>
+
+  <!-- Left Box: Our K-pair W16 -->
+  <rect x="44" y="98" width="445" height="168" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.2"/>
+  <text x="62" y="122" font-size="13.5" font-weight="bold" fill="#1d4ed8">我们的 W16（K-pair：沿累加维 K 配对）</text>
+  <rect x="62" y="134" width="180" height="36" rx="4" fill="#3b82f6"/>
+  <text x="152" y="157" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">低 8B：输出片 N0 · 步 K0</text>
+  <rect x="250" y="134" width="180" height="36" rx="4" fill="#1d4ed8"/>
+  <text x="340" y="157" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">高 8B：输出片 N0 · 步 K1</text>
+  <text x="62" y="194" font-size="11.5" fill="#334155">• 一次 16B 加载喂给【同一个输出累加器 N0】的连续两步 WMMA（K0 → K1）</text>
+  <text x="62" y="216" font-size="11.5" fill="#334155">• 优势：活跃累加器少（省 VGPR 寄存器，ViT Contract 砍掉 96 个 VGPR）</text>
+  <text x="62" y="238" font-size="11.5" fill="#334155">• 局限：若只算单输出片，输入激活 A[M, K] 在不同输出片之间需重复读取</text>
+
+  <!-- Right Box: Mochi N-pair -->
+  <rect x="511" y="98" width="445" height="168" rx="8" fill="#fef3c7" stroke="#fde68a" stroke-width="1.2"/>
+  <text x="529" y="122" font-size="13.5" font-weight="bold" fill="#b45309">mochizuki 的 N-pair（沿输出列维 N 配对）</text>
+  <rect x="529" y="134" width="180" height="36" rx="4" fill="#f59e0b"/>
+  <text x="619" y="157" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">低 8B：输出片 N0 · 步 K0</text>
+  <rect x="717" y="134" width="180" height="36" rx="4" fill="#d97706"/>
+  <text x="807" y="157" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">高 8B：输出片 N1 · 步 K0</text>
+  <text x="529" y="194" font-size="11.5" fill="#334155">• 一次 16B 加载同时拿到【相邻两个输出片 N0、N1】在同一 K0 步的权重</text>
+  <text x="529" y="216" font-size="11.5" fill="#334155">• 优势：读 1 份输入激活 A[M, K0]，直接同时更新 N0 和 N1 两个累加器</text>
+  <text x="529" y="238" font-size="11.5" fill="#334155">• 代价：需同时持有双倍输出累加器（每个占 8 个 VGPR），依赖编译器调度</text>
+
+  <!-- Bottom Half: Windows ACO Splice Mechanism -->
+  <rect x="24" y="298" width="952" height="218" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="44" y="326" font-size="14.5" font-weight="bold" fill="#0f172a">下篇：mochizuki 如何在 Windows 驱动里运行 Linux Mesa ACO 机器码（pal::splice）</text>
+
+  <!-- Step 1 -->
+  <rect x="44" y="346" width="272" height="148" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="58" y="370" font-size="13" font-weight="bold" fill="#334155">步骤 1：诱捕 Windows 驱动空壳</text>
+  <text x="58" y="394" font-size="11.5" fill="#475569">• 喂给 AMD Windows 驱动一个接口</text>
+  <text x="58" y="412" font-size="11.5" fill="#475569">  相同的模板着色器</text>
+  <text x="58" y="434" font-size="11.5" fill="#475569">• 用 VK_KHR_pipeline_binary 截获</text>
+  <text x="58" y="452" font-size="11.5" fill="#475569">  驱动生成的私有 PAL ELF 容器</text>
+  <text x="58" y="476" font-size="11" fill="#64748b">（拿到合法的 Windows 外壳与资源表）</text>
+
+  <!-- Arrow 1 -->
+  <path d="M 322 418 L 352 418" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <polygon points="350,412 362,418 350,424" fill="#64748b"/>
+
+  <!-- Step 2 -->
+  <rect x="368" y="346" width="276" height="148" rx="8" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1.5"/>
+  <text x="382" y="370" font-size="13" font-weight="bold" fill="#065f46">步骤 2：外科换心手术（nr_pal_binary）</text>
+  <text x="382" y="394" font-size="11.5" fill="#334155">• 按 SPIR-V 哈希从包内读取预编译</text>
+  <text x="382" y="412" font-size="11.5" fill="#334155">  的 58 个 Linux ACO 机器码（.nrp）</text>
+  <text x="382" y="434" font-size="11.5" fill="#334155">• 挖掉容器原 .text 段，塞入 ACO 机器码</text>
+  <text x="382" y="452" font-size="11.5" fill="#334155">• 头部拼接一段 SGPR 参数搬运桩代码</text>
+  <text x="382" y="476" font-size="11" fill="#047857">（修正 VGPR / LDS / FloatMode 元数据）</text>
+
+  <!-- Arrow 2 -->
+  <path d="M 650 418 L 680 418" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <polygon points="678,412 690,418 678,424" fill="#64748b"/>
+
+  <!-- Step 3 -->
+  <rect x="696" y="346" width="260" height="148" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="710" y="370" font-size="13" font-weight="bold" fill="#1e40af">步骤 3：导回驱动并开启全网链化</text>
+  <text x="710" y="394" font-size="11.5" fill="#334155">• 将换心后的二进制导回 Vulkan 管线</text>
+  <text x="710" y="412" font-size="11.5" fill="#334155">  并缓存在 dlssnr-amd\aco-cache</text>
+  <text x="710" y="434" font-size="11.5" fill="#334155">• 同时将 TCHAIN 掩码由 0x1 扩至</text>
+  <text x="710" y="452" font-size="11.5" fill="#334155">  0x1ff，启用 N-pair 与 36 路预取</text>
+  <text x="710" y="476" font-size="11.5" font-weight="bold" fill="#1d4ed8">结果：1080p 由 7.21 ms → 5.70 ms</text>
+</svg>
