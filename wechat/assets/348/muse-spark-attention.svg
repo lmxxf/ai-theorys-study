@@ -1,125 +1,106 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="900" height="650" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
-  <rect width="900" height="650" fill="#fbfbfd" rx="10"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 620" width="880" height="620" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
+  <rect width="880" height="620" fill="#fbfbfd" rx="10"/>
 
   <!-- 标题 -->
-  <text x="450" y="34" text-anchor="middle" fill="#1e293b" font-size="20" font-weight="bold">门控分组查询注意力（MuseSparkTextAttention）单层内部解剖</text>
-  <text x="450" y="56" text-anchor="middle" fill="#64748b" font-size="13.5">8:1 GQA（128 个 Q 头共用 16 个 KV 头，单头 64 维）＋ Sigmoid 输出门控支路｜单层 218.10M 参数 × 62 层 = 13.52B</text>
+  <text x="440" y="32" text-anchor="middle" fill="#1e293b" font-size="19.5" font-weight="bold">MuseSparkTextAttention 维度缩放与出口 GLU 门控流程</text>
+  <text x="440" y="53" text-anchor="middle" fill="#64748b" font-size="13">色条宽度代表向量真实维度：8192 维全宽 vs 1024 维窄条（1/8 宽）｜单层 218.1M 参数 × 62 层 = 13.52B</text>
 
-  <!-- 顶部输入 -->
-  <rect x="230" y="72" width="440" height="44" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.8"/>
-  <text x="450" y="92" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">输入隐藏状态 x [8192] → 过 CenteredRMSNorm (1 + w)</text>
-  <text x="450" y="109" text-anchor="middle" fill="#475569" font-size="11.5">一分为四：同时喂给 Q、K、V 三条注意力投影 ＋ 右侧独立 Gate 门控投影</text>
+  <!-- 顶部输入：8192 全宽条 -->
+  <rect x="120" y="68" width="640" height="34" rx="6" fill="#e2e8f0" stroke="#475569" stroke-width="1.8"/>
+  <text x="440" y="90" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">输入词元向量 x ：[ 8192 维 ]（全宽）</text>
 
-  <!-- 分叉连线 -->
-  <path d="M450 116 L450 132" stroke="#64748b" stroke-width="2"/>
-  <path d="M135 132 L765 132" stroke="#64748b" stroke-width="2"/>
-  <path d="M135 132 L135 148" stroke="#2563eb" stroke-width="2"/>
-  <polygon points="135,152 130,144 140,144" fill="#2563eb"/>
-  <path d="M355 132 L355 148" stroke="#0d9488" stroke-width="2"/>
-  <polygon points="355,152 350,144 360,144" fill="#0d9488"/>
-  <path d="M555 132 L555 148" stroke="#0d9488" stroke-width="2"/>
-  <polygon points="555,152 550,144 560,144" fill="#0d9488"/>
-  <path d="M765 132 L765 148" stroke="#db2777" stroke-width="2"/>
-  <polygon points="765,152 760,144 770,144" fill="#db2777"/>
+  <!-- ================= 上半截：标准 8:1 GQA 注意力（宽 vs 窄） ================= -->
+  <rect x="28" y="116" width="664" height="248" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="44" y="138" fill="#334155" font-size="13" font-weight="bold">上半截：8:1 GQA（K、V 压窄到 1/8）</text>
 
-  <!-- ================= 四条并行支路 ================= -->
-  <!-- 第 1 路：Q -->
-  <rect x="30" y="154" width="210" height="196" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
-  <text x="135" y="178" text-anchor="middle" fill="#1e3a8a" font-size="15" font-weight="bold">① 查询支路 Q (128头)</text>
-  <rect x="44" y="188" width="182" height="36" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
-  <text x="135" y="205" text-anchor="middle" fill="#1e40af" font-size="12.5" font-weight="bold">q_proj [8192, 8192]</text>
-  <text x="135" y="220" text-anchor="middle" fill="#64748b" font-size="11">67.11M 参数 · 切成 128 头 × 64 维</text>
+  <!-- 输入到 Q, K, V 的漏斗阴影与箭头 -->
+  <!-- Q: 保持宽 -->
+  <path d="M200 102 L200 162" stroke="#2563eb" stroke-width="2" fill="none"/>
+  <polygon points="200,166 195,158 205,158" fill="#2563eb"/>
+  <rect x="122" y="142" width="156" height="18" rx="3" fill="#ffffff"/>
+  <text x="200" y="155" text-anchor="middle" fill="#1e40af" font-size="11.5" font-weight="bold">W_q [8192 → 8192] (67.1M)</text>
 
-  <rect x="44" y="232" width="182" height="26" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2"/>
-  <text x="135" y="249" text-anchor="middle" fill="#1e293b" font-size="12">过无参 q_norm (RMSNorm)</text>
+  <!-- K: 宽变窄 1/8 漏斗 -->
+  <polygon points="396,144 504,144 470,168 430,168" fill="#ccfbf1" opacity="0.7"/>
+  <path d="M450 102 L450 162" stroke="#0d9488" stroke-width="2" fill="none"/>
+  <polygon points="450,166 445,158 455,158" fill="#0d9488"/>
+  <rect x="378" y="126" width="144" height="18" rx="3" fill="#ffffff" opacity="0.95"/>
+  <text x="450" y="139" text-anchor="middle" fill="#0f766e" font-size="11.2" font-weight="bold">W_k [8192 → 1024] (8.4M)</text>
 
-  <rect x="44" y="266" width="182" height="34" rx="5" fill="#fef2f2" stroke="#f87171" stroke-width="1.5"/>
-  <text x="135" y="282" text-anchor="middle" fill="#b91c1c" font-size="12" font-weight="bold">× qk_scale_factor (5.473)</text>
-  <text x="135" y="295" text-anchor="middle" fill="#991b1b" font-size="10.5">放大 Q 压低温度，防百万词元稀释</text>
+  <!-- V: 宽变窄 1/8 漏斗 -->
+  <polygon points="546,144 654,144 620,168 580,168" fill="#ccfbf1" opacity="0.7"/>
+  <path d="M600 102 L600 162" stroke="#0d9488" stroke-width="2" fill="none"/>
+  <polygon points="600,166 595,158 605,158" fill="#0d9488"/>
+  <rect x="528" y="126" width="144" height="18" rx="3" fill="#ffffff" opacity="0.95"/>
+  <text x="600" y="139" text-anchor="middle" fill="#0f766e" font-size="11.2" font-weight="bold">W_v [8192 → 1024] (8.4M)</text>
 
-  <rect x="44" y="308" width="182" height="32" rx="5" fill="#fefce8" stroke="#eab308" stroke-width="1.5"/>
-  <text x="135" y="323" text-anchor="middle" fill="#854d0e" font-size="11.5" font-weight="bold">46层滑窗: RoPE (θ=50万)</text>
-  <text x="135" y="336" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">16层全局: NoPE (θ=0 不旋转)</text>
+  <!-- Q 宽条 (312px 代表 8192 维) -->
+  <rect x="44" y="168" width="312" height="36" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="200" y="185" text-anchor="middle" fill="#1e3a8a" font-size="13" font-weight="bold">Q ：[ 8192 维 ]（128 头 × 64 维）</text>
+  <text x="200" y="199" text-anchor="middle" fill="#1e40af" font-size="10.5">过 q_norm × 5.473｜滑窗加 RoPE / 全局 NoPE</text>
 
-  <!-- 第 2 路：K -->
-  <rect x="255" y="154" width="200" height="196" rx="8" fill="#f0fdfa" stroke="#14b8a6" stroke-width="2"/>
-  <text x="355" y="178" text-anchor="middle" fill="#0f766e" font-size="15" font-weight="bold">② 键支路 K (仅16头)</text>
-  <rect x="269" y="188" width="172" height="36" rx="5" fill="#ffffff" stroke="#5eead4" stroke-width="1.5"/>
-  <text x="355" y="205" text-anchor="middle" fill="#0f766e" font-size="12.5" font-weight="bold">k_proj [8192, 1024]</text>
-  <text x="355" y="220" text-anchor="middle" fill="#64748b" font-size="11">8.39M 参数 · 切成 16 头 × 64 维</text>
+  <!-- K 窄条 (40px = 312/8 代表 1024 维！) -->
+  <rect x="430" y="168" width="40" height="36" rx="4" fill="#99f6e4" stroke="#0d9488" stroke-width="2"/>
+  <text x="450" y="191" text-anchor="middle" fill="#0f766e" font-size="13" font-weight="bold">K</text>
+  <text x="450" y="218" text-anchor="middle" fill="#0f766e" font-size="11.5" font-weight="bold">[1024 维] (1/8 宽)</text>
+  <text x="450" y="233" text-anchor="middle" fill="#64748b" font-size="10.5">16 头 × 64 维 (过 k_norm)</text>
 
-  <rect x="269" y="232" width="172" height="26" rx="5" fill="#ffffff" stroke="#5eead4" stroke-width="1.2"/>
-  <text x="355" y="249" text-anchor="middle" fill="#1e293b" font-size="12">过无参 k_norm (RMSNorm)</text>
+  <!-- V 窄条 (40px 代表 1024 维！) -->
+  <rect x="580" y="168" width="40" height="36" rx="4" fill="#99f6e4" stroke="#0d9488" stroke-width="2"/>
+  <text x="600" y="191" text-anchor="middle" fill="#0f766e" font-size="13" font-weight="bold">V</text>
+  <text x="600" y="218" text-anchor="middle" fill="#0f766e" font-size="11.5" font-weight="bold">[1024 维] (1/8 宽)</text>
+  <text x="600" y="233" text-anchor="middle" fill="#64748b" font-size="10.5">16 头 × 64 维 (存 KV 缓存)</text>
 
-  <rect x="269" y="266" width="172" height="34" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
-  <text x="355" y="282" text-anchor="middle" fill="#475569" font-size="11.5">每 8 个 Q 头共用 1 个 K 头</text>
-  <text x="355" y="295" text-anchor="middle" fill="#64748b" font-size="10.5">（8:1 GQA 省去 7/8 键缓存）</text>
+  <!-- 窄变宽广播膨出漏斗：从 Q(128头) 和 K,V(16头广播8倍) 汇入 8192 宽条 -->
+  <polygon points="430,242 620,242 660,296 44,296" fill="#fef9c3" opacity="0.6"/>
+  <path d="M200 204 L200 290" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="4,2" fill="none"/>
+  <polygon points="200,294 196,287 204,287" fill="#2563eb"/>
+  <path d="M450 238 L450 256 L360 290" stroke="#0d9488" stroke-width="1.8" fill="none"/>
+  <polygon points="357,292 362,285 366,292" fill="#0d9488"/>
+  <path d="M600 238 L600 256 L500 290" stroke="#0d9488" stroke-width="1.8" fill="none"/>
+  <polygon points="497,292 502,285 506,292" fill="#0d9488"/>
 
-  <rect x="269" y="308" width="172" height="32" rx="5" fill="#fefce8" stroke="#eab308" stroke-width="1.5"/>
-  <text x="355" y="323" text-anchor="middle" fill="#854d0e" font-size="11.5" font-weight="bold">46层滑窗: RoPE (θ=50万)</text>
-  <text x="355" y="336" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">16层全局: NoPE (θ=0 不旋转)</text>
+  <rect x="190" y="258" width="376" height="22" rx="4" fill="#ffffff" opacity="0.9"/>
+  <text x="378" y="274" text-anchor="middle" fill="#854d0e" font-size="12" font-weight="bold">16 个 KV 头广播 8 倍配对 128 个 Q 头：Softmax(Q @ K.T / √64) @ V</text>
 
-  <!-- 第 3 路：V -->
-  <rect x="470" y="154" width="170" height="196" rx="8" fill="#f0fdfa" stroke="#14b8a6" stroke-width="2"/>
-  <text x="555" y="178" text-anchor="middle" fill="#0f766e" font-size="15" font-weight="bold">③ 值支路 V (仅16头)</text>
-  <rect x="482" y="188" width="146" height="36" rx="5" fill="#ffffff" stroke="#5eead4" stroke-width="1.5"/>
-  <text x="555" y="205" text-anchor="middle" fill="#0f766e" font-size="12.5" font-weight="bold">v_proj [8192, 1024]</text>
-  <text x="555" y="220" text-anchor="middle" fill="#64748b" font-size="11">8.39M 参数 · 16 头 × 64 维</text>
+  <!-- 注意力输出：重新撑回 8192 维全宽条 -->
+  <rect x="44" y="296" width="616" height="36" rx="5" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+  <text x="352" y="319" text-anchor="middle" fill="#713f12" font-size="13.5" font-weight="bold">注意力输出 o_norm(Attn) ：128 头拼回 [ 8192 维 ]（恢复全宽）</text>
 
-  <rect x="482" y="242" width="146" height="90" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-dasharray="3,2"/>
-  <text x="555" y="272" text-anchor="middle" fill="#475569" font-size="12">不加 RMSNorm</text>
-  <text x="555" y="292" text-anchor="middle" fill="#475569" font-size="12">不加位置编码</text>
-  <text x="555" y="314" text-anchor="middle" fill="#0f766e" font-size="11.5" font-weight="bold">直接送入注意力加权</text>
+  <!-- ================= 下半截：独立于注意力的出口 GLU 门控 ================= -->
+  <rect x="28" y="380" width="824" height="172" rx="8" fill="#fdf2f8" stroke="#ec4899" stroke-width="1.8"/>
+  <text x="44" y="404" fill="#9d174d" font-size="13.5" font-weight="bold">下半截：注意力算完后，出口套一个同款 GLU 门控（两路 8192 维逐通道相乘 → 8192 维）</text>
 
-  <!-- 第 4 路：Gate（特色门控） -->
-  <rect x="655" y="154" width="215" height="196" rx="8" fill="#fdf2f8" stroke="#db2777" stroke-width="2"/>
-  <text x="762" y="178" text-anchor="middle" fill="#9d174d" font-size="15" font-weight="bold">④ 输出门控支路 Gate</text>
-  <rect x="669" y="188" width="187" height="40" rx="5" fill="#ffffff" stroke="#f472b6" stroke-width="1.5"/>
-  <text x="762" y="206" text-anchor="middle" fill="#be185d" font-size="12.5" font-weight="bold">gate_proj [8192, 8192]</text>
-  <text x="762" y="222" text-anchor="middle" fill="#64748b" font-size="11">67.11M 参数（与 q_proj 等大）</text>
+  <!-- 右侧旁路：从顶部输入 x 直接拉下来算 Gate [8192] -->
+  <path d="M740 102 L740 416" stroke="#db2777" stroke-width="2.5" fill="none"/>
+  <polygon points="740,420 735,412 745,412" fill="#db2777"/>
+  <rect x="700" y="210" width="156" height="44" rx="6" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+  <text x="778" y="230" text-anchor="middle" fill="#9d174d" font-size="12" font-weight="bold">旁路 W_gate (67.1M)</text>
+  <text x="778" y="246" text-anchor="middle" fill="#831843" font-size="11">[8192 → 8192] 不进注意力</text>
 
-  <rect x="669" y="242" width="187" height="44" rx="5" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
-  <text x="762" y="262" text-anchor="middle" fill="#9d174d" font-size="13" font-weight="bold">g = Sigmoid(x @ W_gate)</text>
-  <text x="762" y="279" text-anchor="middle" fill="#831843" font-size="11">生成 8192 维 (0, 1) 门控开关</text>
+  <!-- 左路 8192 与 右路 Gate 8192 对齐相乘 -->
+  <path d="M240 332 L240 416" stroke="#ca8a04" stroke-width="2.5" fill="none"/>
+  <polygon points="240,420 235,412 245,412" fill="#ca8a04"/>
 
-  <text x="762" y="312" text-anchor="middle" fill="#9d174d" font-size="11.5" font-weight="bold">★ 比传统 GQA 多出 1 张大矩阵</text>
-  <text x="762" y="330" text-anchor="middle" fill="#64748b" font-size="11">负责在 o_norm 之后按通道</text>
-  <text x="762" y="345" text-anchor="middle" fill="#64748b" font-size="11">过滤注意力输出噪声</text>
+  <rect x="44" y="422" width="360" height="34" rx="5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.8"/>
+  <text x="224" y="444" text-anchor="middle" fill="#713f12" font-size="13" font-weight="bold">o_norm(Attn) ：[ 8192 维 ]</text>
 
-  <!-- Q, K, V 汇入注意力核 -->
-  <path d="M135 350 L135 372" stroke="#2563eb" stroke-width="2"/>
-  <polygon points="135,376 130,368 140,368" fill="#2563eb"/>
-  <path d="M355 350 L355 372" stroke="#0d9488" stroke-width="2"/>
-  <polygon points="355,376 350,368 360,368" fill="#0d9488"/>
-  <path d="M555 350 L555 372" stroke="#0d9488" stroke-width="2"/>
-  <polygon points="555,376 550,368 560,368" fill="#0d9488"/>
+  <circle cx="440" cy="439" r="18" fill="#ffffff" stroke="#db2777" stroke-width="2.2"/>
+  <text x="440" y="444" text-anchor="middle" fill="#9d174d" font-size="14" font-weight="bold">⊙</text>
 
-  <!-- 注意力核心计算 + o_norm -->
-  <rect x="30" y="378" width="610" height="54" rx="8" fill="#fefce8" stroke="#eab308" stroke-width="2"/>
-  <text x="335" y="399" text-anchor="middle" fill="#713f12" font-size="13.8" font-weight="bold">分组查询注意力 Softmax(Q @ K.T / √64) @ V → 拼回 [8192] → 过无参 o_norm</text>
-  <text x="335" y="419" text-anchor="middle" fill="#854d0e" font-size="12">46 层滑窗只看最近 2048 词元（共占 368 MiB）｜16 层全局看满 1M 词元（BF16 下共占 64 GiB）</text>
+  <rect x="476" y="422" width="360" height="34" rx="5" fill="#fbcfe8" stroke="#db2777" stroke-width="1.8"/>
+  <text x="656" y="444" text-anchor="middle" fill="#831843" font-size="13" font-weight="bold">Sigmoid(x @ W_gate) ：[ 8192 维开关 ]</text>
 
-  <!-- 逐元素门控相乘汇合 -->
-  <path d="M335 432 L335 466 L416 466" stroke="#ca8a04" stroke-width="2.2" fill="none"/>
-  <polygon points="420,466 412,461 412,471" fill="#ca8a04"/>
+  <path d="M440 457 L440 484" stroke="#7c3aed" stroke-width="2.5" fill="none"/>
+  <polygon points="440,488 435,480 445,480" fill="#7c3aed"/>
+  <text x="565" y="477" fill="#5b21b6" font-size="12" font-weight="bold">右乘输出矩阵 W_o [8192, 8192] (67.1M)</text>
 
-  <path d="M762 350 L762 466 L484 466" stroke="#db2777" stroke-width="2.2" fill="none"/>
-  <polygon points="480,466 488,461 488,471" fill="#db2777"/>
+  <!-- 最终输出 8192 全宽条 -->
+  <rect x="120" y="490" width="640" height="36" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="440" y="513" text-anchor="middle" fill="#4c1d95" font-size="14" font-weight="bold">最终输出 (o_norm(Attn) ⊙ Sigmoid(Gate)) @ W_o ：[ 8192 维 ]（全宽）</text>
+  <text x="440" y="542" text-anchor="middle" fill="#64748b" font-size="12">注：下半截公式与 FFN 的 SwiGLU 完全同构，相当于把原本单层的 W_o 升级成了 (W_gate + W_o) 双矩阵 GLU</text>
 
-  <rect x="422" y="446" width="56" height="38" rx="19" fill="#fdf2f8" stroke="#db2777" stroke-width="2.2"/>
-  <text x="450" y="470" text-anchor="middle" fill="#9d174d" font-size="14" font-weight="bold">⊙ 乘</text>
-  <text x="620" y="458" text-anchor="middle" fill="#9d174d" font-size="12" font-weight="bold">attn_out = o_norm(attn) ⊙ Sigmoid(gate)</text>
-
-  <path d="M450 484 L450 502" stroke="#64748b" stroke-width="2"/>
-  <polygon points="450,506 445,498 455,498" fill="#64748b"/>
-
-  <!-- 输出投影 o_proj -->
-  <rect x="130" y="508" width="640" height="46" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
-  <text x="450" y="528" text-anchor="middle" fill="#4c1d95" font-size="13.8" font-weight="bold">⑤ 输出投影 o_proj [8192, 8192]（67.11M 参数）→ 过无参 post_attention_layernorm</text>
-  <text x="450" y="546" text-anchor="middle" fill="#5b21b6" font-size="12">输出校准为标准方差 1 的支流向量 x [8192]，送入第一道单位圆残差门 (α·residual + β·x)</text>
-
-  <!-- 底部参数总账条 -->
-  <rect x="30" y="570" width="840" height="62" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.8"/>
-  <text x="450" y="594" text-anchor="middle" fill="#1e293b" font-size="13.8" font-weight="bold">单层 5 张矩阵参数账：67.11M (Q) + 8.39M (K) + 8.39M (V) + 67.11M (Gate) + 67.11M (O) = 218.10M / 层</text>
-  <text x="450" y="618" text-anchor="middle" fill="#b91c1c" font-size="12.8" font-weight="bold">62 层合计 13.52B 参数（每词元 100% 激活；在 NVFP4 量化版中全部 62 层 self_attn 均保留 16 比特 BF16 不量化）</text>
+  <!-- 底部总账一句话 -->
+  <rect x="28" y="566" width="824" height="38" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="440" y="590" text-anchor="middle" fill="#1e293b" font-size="13.5" font-weight="bold">单层 5 张矩阵：67.1M (W_q) + 8.4M (W_k) + 8.4M (W_v) + 67.1M (W_gate) + 67.1M (W_o) = 218.1M</text>
 </svg>
