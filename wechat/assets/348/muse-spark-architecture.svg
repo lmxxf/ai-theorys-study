@@ -1,149 +1,553 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 1020" width="980" height="1020" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
-  <rect width="980" height="1020" fill="#fbfbfd" rx="10"/>
-
-  <!-- 标题 -->
-  <text x="490" y="36" text-anchor="middle" fill="#1e293b" font-size="21" font-weight="bold">Meta Muse Spark Open (816B-A42B) 全景架构解剖图</text>
-  <text x="490" y="60" text-anchor="middle" fill="#64748b" font-size="14">62 层全稀疏 MoE 主干（46 层滑窗 RoPE ＋ 16 层全局 NoPE）｜4096 维潜空间专家｜原生图/影/音三模态</text>
-
-  <!-- 图例 -->
-  <rect x="24" y="76" width="932" height="44" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-  <g transform="translate(40, 90)" font-size="13" fill="#334155" font-weight="bold">
-    <rect x="0" y="0" width="18" height="16" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
-    <text x="25" y="13" fill="#1e40af">蓝层：2048 滑窗注意力 + RoPE（46 层）</text>
-
-    <rect x="285" y="0" width="18" height="16" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
-    <text x="310" y="13" fill="#854d0e">黄层：1M 全局注意力 + NoPE（16 层，每 4 层 1 个）</text>
-
-    <rect x="635" y="0" width="18" height="16" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
-    <text x="660" y="13" fill="#5b21b6">紫块：4096 维潜空间 MoE（62 层皆有）</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1170" width="960" height="1170" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
+  <rect width="960" height="1170" fill="#fbfbfd" rx="10"/>
+  <text x="480" y="34" text-anchor="middle" fill="#1e293b" font-size="21" font-weight="bold">Meta Muse Spark Open (816B-A42B) 全景：62 层逐层展开看</text>
+  <text x="480" y="56" text-anchor="middle" fill="#64748b" font-size="13.5">从第 61 层倒数每 4 层 1 个全局 NoPE（共 16 层黄砖）｜其余 46 层 2048 滑窗 RoPE（蓝砖）｜62 层全员 4096 潜空间 MoE</text>
+  <rect x="22" y="70" width="916" height="52" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <g transform="translate(38, 80)" font-size="12.5" fill="#334155" font-weight="bold">
+    <rect x="0" y="0" width="16" height="14" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="22" y="11.5" fill="#1e40af">蓝砖 S：2048 滑窗 + RoPE (46层)</text>
+    <rect x="240" y="0" width="16" height="14" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="1.8"/>
+    <text x="262" y="11.5" fill="#854d0e">黄砖 ★G：1M 全局 + NoPE (16层)</text>
+    <rect x="480" y="0" width="16" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="502" y="11.5" fill="#5b21b6">紫砖 E：4096 潜空间 MoE (60层压 NVFP4)</text>
+    <rect x="765" y="0" width="16" height="14" rx="3" fill="#ffe4e6" stroke="#e11d48" stroke-width="1.8"/>
+    <text x="787" y="11.5" fill="#9f1239">首尾 E：留 BF16</text>
   </g>
-
-  <!-- ================= 左半屏：三模态入口 + 62层内部拓扑 + 输出 ================= -->
-  <!-- 顶部三模态入口 -->
-  <rect x="24" y="134" width="462" height="106" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2"/>
-  <text x="255" y="158" text-anchor="middle" fill="#0f766e" font-size="15" font-weight="bold">原生三模态输入 → 统一对齐至 8192 维主干</text>
-  
-  <rect x="36" y="168" width="138" height="60" rx="6" fill="#ffffff" stroke="#14b8a6" stroke-width="1.5"/>
-  <text x="105" y="188" text-anchor="middle" fill="#0f766e" font-size="12.5" font-weight="bold">文本词表 (1.66B)</text>
-  <text x="105" y="205" text-anchor="middle" fill="#334155" font-size="11">202,048 × 8192</text>
-  <text x="105" y="221" text-anchor="middle" fill="#64748b" font-size="10">出词表带无参 RMSNorm</text>
-
-  <rect x="184" y="168" width="142" height="60" rx="6" fill="#ffffff" stroke="#14b8a6" stroke-width="1.5"/>
-  <text x="255" y="188" text-anchor="middle" fill="#0f766e" font-size="12.5" font-weight="bold">视觉/视频塔 (1.8B)</text>
-  <text x="255" y="205" text-anchor="middle" fill="#334155" font-size="11">50层 ViT (1536维)</text>
-  <text x="255" y="221" text-anchor="middle" fill="#64748b" font-size="10">2×2洗牌→6144→8192</text>
-
-  <rect x="336" y="168" width="138" height="60" rx="6" fill="#ffffff" stroke="#14b8a6" stroke-width="1.5"/>
-  <text x="405" y="188" text-anchor="middle" fill="#0f766e" font-size="12.5" font-weight="bold">音频塔 (0.12B)</text>
-  <text x="405" y="205" text-anchor="middle" fill="#334155" font-size="11">4层纯因果卷积金字塔</text>
-  <text x="405" y="221" text-anchor="middle" fill="#64748b" font-size="10">16×6×5×4 = 80ms/词</text>
-
-  <path d="M255 240 L255 254" stroke="#64748b" stroke-width="2.5"/>
-  <polygon points="255,258 249,250 261,250" fill="#64748b"/>
-
-  <!-- 62 层主干结构框 -->
-  <rect x="24" y="260" width="462" height="638" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-  <text x="255" y="285" text-anchor="middle" fill="#1e293b" font-size="14.5" font-weight="bold">语言主干：共 62 层（主干 8192 维，非嵌入参数 816.54B）</text>
-  <text x="255" y="305" text-anchor="middle" fill="#64748b" font-size="11.5">排布：第 0～1 层为 [滑窗, 全局]，第 2～61 层重复 15 组 [滑窗, 滑窗, 滑窗, 全局]</text>
-
-  <!-- 62 层缩略分布条 -->
-  <rect x="38" y="316" width="434" height="58" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
-  <text x="50" y="335" fill="#334155" font-size="11.5" font-weight="bold">全网 62 层注意力与位置编码排布（★黄格 = 全局 NoPE，共 16 层）：</text>
-  <text x="50" y="353" fill="#1e40af" font-size="11">• 第 0～1 层：[S0] → <tspan fill="#854d0e" font-weight="bold">★第 1 层 G1 (NoPE)</tspan><tspan fill="#475569">（NVFP4 版第 0、61 层专家不量化）</tspan></text>
-  <text x="50" y="369" fill="#1e40af" font-size="11">• 第 2～61 层：重复 15 组 [S, S, S, <tspan fill="#854d0e" font-weight="bold">★G (位于第 5, 9, 13 ... 57, 61 层)</tspan>]</text>
-
-  <!-- 单层内部解剖（放大图） -->
-  <rect x="38" y="384" width="434" height="500" rx="8" fill="#fcfcff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <text x="255" y="406" text-anchor="middle" fill="#334155" font-size="13.5" font-weight="bold">◆ 单层（MuseSparkTextDecoderLayer）内部前向放大图</text>
-
-  <!-- 子层 A: Gated Attention -->
-  <rect x="52" y="418" width="406" height="128" rx="7" fill="#fefce8" stroke="#eab308" stroke-width="1.8"/>
-  <text x="255" y="439" text-anchor="middle" fill="#854d0e" font-size="13" font-weight="bold">① 门控分组查询注意力（Gated GQA，每层 218.10M 参数）</text>
-  <text x="64" y="460" fill="#1e293b" font-size="11.2">• 输入过 CenteredRMSNorm (1+w) → Q (128头×64) / K,V (16头×64，8:1)</text>
-  <text x="64" y="479" fill="#1e293b" font-size="11.2">• Q, K 过无参 RMSNorm，Q 额外乘常数 qk_scale_factor = 5.473</text>
-  <text x="64" y="498" fill="#b45309" font-size="11.2" font-weight="bold">• 滑窗层 (46层) 加 RoPE (θ=50万, 窗2048) ｜ 全局层 (16层) 为 NoPE (θ=0)</text>
-  <text x="64" y="517" fill="#1e293b" font-size="11.2">• 输出过无参 o_norm，再乘 Sigmoid(gate_proj(x)) 门控 → o_proj [8192, 8192]</text>
-  <text x="64" y="536" fill="#64748b" font-size="11">• 出门过无参 post_attention_layernorm</text>
-
-  <!-- 残差门 1 -->
-  <rect x="95" y="554" width="320" height="36" rx="18" fill="#ffe4e6" stroke="#e11d48" stroke-width="1.5"/>
-  <text x="255" y="570" text-anchor="middle" fill="#9f1239" font-size="11.5" font-weight="bold">★ 单位圆方差守恒残差门 (MuseSparkResidualGate)</text>
-  <text x="255" y="584" text-anchor="middle" fill="#be123c" font-size="10.8">out = α·residual + β·x，其中 β=σ(w/0.3)，α² + β² ≡ 1</text>
-
-  <!-- 子层 B: Latent MoE -->
-  <rect x="52" y="598" width="406" height="226" rx="7" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8"/>
-  <text x="255" y="619" text-anchor="middle" fill="#5b21b6" font-size="13" font-weight="bold">② 4096 维潜空间混合专家（Latent MoE，每层 12.95B 参数）</text>
-  <text x="64" y="640" fill="#1e293b" font-size="11.2">• 路由器在 8192 维打分：Sigmoid + e_score_correction_bias (256 选 8)</text>
-  
-  <rect x="66" y="649" width="378" height="28" rx="4" fill="#ddd6fe" stroke="#7c3aed" stroke-width="1.2"/>
-  <text x="255" y="668" text-anchor="middle" fill="#4c1d95" font-size="11.2" font-weight="bold">进门砍半降维：pre_expert_proj [8192, 4096] + CenteredRMSNorm</text>
-
-  <rect x="66" y="684" width="378" height="72" rx="5" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5"/>
-  <text x="255" y="704" text-anchor="middle" fill="#5b21b6" font-size="12" font-weight="bold">256 个路由专家全住在 4096 维潜空间（0 共享专家）</text>
-  <text x="76" y="724" fill="#334155" font-size="11">• 单专家 SwiGLU：gate/up [4096, 4096] + down [4096, 4096] = 50.33M</text>
-  <text x="76" y="743" fill="#334155" font-size="11">• 每个激活专家算完单独过 InputScaledRMSNorm，再按路由权重加权求和</text>
-
-  <rect x="66" y="763" width="378" height="28" rx="4" fill="#ddd6fe" stroke="#7c3aed" stroke-width="1.2"/>
-  <text x="255" y="782" text-anchor="middle" fill="#4c1d95" font-size="11.2" font-weight="bold">出门还原升维：post_expert_proj [4096, 8192] → InputScaledRMSNorm</text>
-  <text x="255" y="813" text-anchor="middle" fill="#64748b" font-size="11">（单层 256 专家共 12.885B；每词元激活 8 个专家 = 402.65M 参数）</text>
-
-  <!-- 残差门 2 -->
-  <rect x="95" y="832" width="320" height="36" rx="18" fill="#ffe4e6" stroke="#e11d48" stroke-width="1.5"/>
-  <text x="255" y="848" text-anchor="middle" fill="#9f1239" font-size="11.5" font-weight="bold">★ 第二道单位圆方差守恒残差门 (α² + β² ≡ 1)</text>
-  <text x="255" y="862" text-anchor="middle" fill="#be123c" font-size="10.8">全程 FP32 计算门控系数，严防 62 层残差流数值爆炸</text>
-
-  <path d="M255 898 L255 912" stroke="#64748b" stroke-width="2.5"/>
-  <polygon points="255,916 249,908 261,908" fill="#64748b"/>
-
-  <!-- 底部输出 -->
-  <rect x="24" y="918" width="462" height="82" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
-  <text x="255" y="941" text-anchor="middle" fill="#9a3412" font-size="14" font-weight="bold">输出：lm_head (1.66B) ＋ Gemma 式 tanh 软截断 ＋ 外挂 DFlash2</text>
-  <text x="255" y="963" text-anchor="middle" fill="#7c2d12" font-size="11.5">logits 先乘 0.1768，再用 20·tanh(x/20) 硬封顶在 [-20, +20] 区间</text>
-  <text x="255" y="984" text-anchor="middle" fill="#9a3412" font-size="11.2">无内置 MTP｜次日老黄外挂 4.38B DFlash2 草稿头（抽第 3/19/31/47/59 层特征）</text>
-
-  <!-- ================= 右半屏：四大深度对账卡片 ================= -->
-  <!-- 卡片 1: 816B-A42B 参数与显存账 -->
-  <rect x="504" y="134" width="452" height="202" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
-  <text x="522" y="164" fill="#1e3a8a" font-size="17" font-weight="bold">① “816B-A42B” 参数与 1.64 TB 权重账本</text>
-  <text x="522" y="191" fill="#1e293b" font-size="13">• 词表进出不共享：202,048 × 8192 × 2 = 3.31B（加视觉/音频约 5.6B）</text>
-  <text x="522" y="216" fill="#1e293b" font-size="13">• 62 层注意力 + 潜投影：13.52B + 4.16B = 17.68B（每步全激活）</text>
-  <text x="522" y="241" fill="#1e293b" font-size="13">• 62 层 × 256 专家：798.86B（每步激活 8 个 = 24.96B）</text>
-  <rect x="520" y="254" width="420" height="68" rx="6" fill="#ffffff" stroke="#93c5fd"/>
-  <text x="532" y="276" fill="#1e3a8a" font-size="13" font-weight="bold">非嵌入总参数 = 816.54B ｜ 非嵌入激活 = 42.64B</text>
-  <text x="532" y="297" fill="#334155" font-size="12">• BF16 原版：1,644.33 GB（合 1,531.4 GiB，官方要求 2TB 显存）</text>
-  <text x="532" y="315" fill="#b45309" font-size="12" font-weight="bold">• NVFP4 版：533.01 GB（首尾第 0/61 层专家及全部注意力留 BF16）</text>
-
-  <!-- 卡片 2: 对比老黄 Nemotron 3.5 的潜空间与 KV 缓存 -->
-  <rect x="504" y="352" width="452" height="214" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
-  <text x="522" y="382" fill="#5b21b6" font-size="17" font-weight="bold">② 与老黄 Nemotron 3.5 的两处同款设计对比</text>
-  <text x="522" y="409" fill="#4c1d95" font-size="13" font-weight="bold">1. 同用 Latent MoE（潜空间专家），但门宽差 4 倍：</text>
-  <text x="532" y="431" fill="#334155" font-size="12.5">• 老黄 120B：4096 压到 1024 维（砍 3/4），受困于 1024 秩窄门</text>
-  <text x="532" y="452" fill="#334155" font-size="12.5">• 小扎 816B：8192 压到 4096 维（仅砍半），但砍掉了共享专家</text>
-  <text x="522" y="478" fill="#4c1d95" font-size="13" font-weight="bold">2. 同用全局 NoPE 省 1M 上下文 KV 缓存：</text>
-  <rect x="520" y="488" width="420" height="64" rx="6" fill="#ffffff" stroke="#c4b5fd"/>
-  <text x="532" y="510" fill="#5b21b6" font-size="13" font-weight="bold">1M 上下文 KV 缓存：BF16 下 64.36 GiB（FP8 下约 32.2 GiB）</text>
-  <text x="532" y="531" fill="#475569" font-size="12">• 46 层滑窗只存 2048 词 = 368 MiB；16 层全局每层 4 GiB = 64 GiB</text>
-  <text x="532" y="547" fill="#64748b" font-size="11.5">（若 62 层全开全局注意力需 248 GiB，3:1 滑窗直接省掉四分之三）</text>
-
-  <!-- 卡片 3: HF 源码暴露的“百家衣”拼装表 -->
-  <rect x="504" y="582" width="452" height="186" rx="8" fill="#fefce8" stroke="#eab308" stroke-width="2"/>
-  <text x="522" y="612" fill="#854d0e" font-size="17" font-weight="bold">③ HF 源码 modular_muse_spark.py 的“百家衣”</text>
-  <text x="522" y="638" fill="#1e293b" font-size="12.5">Hugging Face 工程师写模块化实现时，直接复用了各家现成零件：</text>
-  <text x="522" y="662" fill="#334155" font-size="12.5">• <tspan font-weight="bold" fill="#854d0e">Gemma 2 / 3 / 4</tspan>：CenteredRMSNorm (1+w) 与末尾 tanh 软截断</text>
-  <text x="522" y="685" fill="#334155" font-size="12.5">• <tspan font-weight="bold" fill="#854d0e">DeepSeek-V3 &amp; MiniMax-M2</tspan>：专家组与 Sigmoid 偏置路由器</text>
-  <text x="522" y="708" fill="#334155" font-size="12.5">• <tspan font-weight="bold" fill="#854d0e">Kimi-K2.5 &amp; Qwen2.5-VL &amp; GLM-4V</tspan>：视觉塔注意力与 2D RoPE</text>
-  <text x="522" y="731" fill="#334155" font-size="12.5">• <tspan font-weight="bold" fill="#854d0e">AfMoE &amp; Voxtral</tspan>：门控注意力骨架与音频塔流式因果一维卷积</text>
-  <text x="522" y="754" fill="#64748b" font-size="11.5">（连同 8 月发布的 30B 端侧稠密小弟 Muse-Glimmer-30B 共用同一套底子）</text>
-
-  <!-- 卡片 4: 闭源吃肉 vs 开源挨揍 + 安全阉割 -->
-  <rect x="504" y="784" width="452" height="216" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="2"/>
-  <text x="522" y="814" fill="#9f1239" font-size="17" font-weight="bold">④ 闭源吃肉、开源滞后 ＋ “防越狱模范生”</text>
-  <text x="522" y="841" fill="#1e293b" font-size="13">• <tspan font-weight="bold" fill="#1e40af">10 月闭源真旗舰 Muse Wonder</tspan>：AA 考 52 / 56 分，追平 GPT-6</text>
-  <text x="522" y="865" fill="#1e293b" font-size="13">• <tspan font-weight="bold" fill="#be123c">10 月开源 Muse Spark Open</tspan>：拿 4 月初代底子下放，仅考 <tspan font-weight="bold">39 分</tspan></text>
-  <text x="522" y="889" fill="#1e293b" font-size="13">• 编程与生产力全线落后 GLM-5.3 (45) / Kimi K3 (44) / Qwen3.8 (45)</text>
-  <rect x="520" y="902" width="420" height="84" rx="6" fill="#ffffff" stroke="#fda4af"/>
-  <text x="532" y="924" fill="#9f1239" font-size="13" font-weight="bold">开源前加训“额外安全护栏”的代价：</text>
-  <text x="532" y="946" fill="#334155" font-size="12">• StrongREJECT v2 越狱破防率压到 <tspan font-weight="bold" fill="#15803d">0.5%</tspan>（国模在 62%～66%）</text>
-  <text x="532" y="966" fill="#b91c1c" font-size="12" font-weight="bold">• 但 FORTRESS 正常问题误伤拒答率飙至 17.4%（Kimi K3 仅 2.7%）</text>
-  <text x="532" y="982" fill="#64748b" font-size="11.2">打不过写代码，就在 README 里点名拉踩“Kimi K3 拒答率不如我高”</text>
+  <text x="38" y="113" fill="#64748b" font-size="11.5">注：层号按 config.json 从 00 数到 61；每层含 2 道单位圆方差守恒残差门 (α²+β²≡1)；右侧绿点 ● 为外挂 DFlash2 草稿头抽特征的 5 层</text>
+  <rect x="22" y="132" width="456" height="54" rx="8" fill="#f0fdfa" stroke="#14b8a6" stroke-width="2"/>
+  <text x="250" y="153" text-anchor="middle" fill="#0f766e" font-size="13.2" font-weight="bold">输入：词表 (1.66B) ＋ 视觉塔 (50层 1.8B) ＋ 纯卷积音频塔 (4层 0.12B)</text>
+  <text x="250" y="173" text-anchor="middle" fill="#115e59" font-size="11.2">图像 2×2 洗牌压 3/4 词元 · 音频 24kHz 经 16×6×5×4 卷积 (80ms/词) · 词表带无参 RMSNorm</text>
+  <path d="M250 186 L250 198" stroke="#64748b" stroke-width="2"/>
+  <polygon points="250,202 245,195 255,195" fill="#64748b"/>
+  <rect x="22" y="204" width="456" height="890" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="64" y="224" text-anchor="middle" fill="#475569" font-size="11.5" font-weight="bold">层号 (0~61)</text>
+  <text x="178" y="224" text-anchor="middle" fill="#1e40af" font-size="11.5" font-weight="bold">① 门控注意力 (8:1 GQA)</text>
+  <text x="272" y="224" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="bold">残差门</text>
+  <text x="360" y="224" text-anchor="middle" fill="#5b21b6" font-size="11.5" font-weight="bold">② 4096 潜空间 MoE</text>
+  <text x="448" y="224" text-anchor="middle" fill="#059669" font-size="11" font-weight="bold">DFlash</text>
+  <line x1="30" y1="231" x2="470" y2="231" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="28" y="236.0" width="444" height="12.6" rx="2.5" fill="#fff1f2"/>
+  <text x="64" y="245.8" text-anchor="middle" fill="#9f1239" font-size="9.8" font-weight="bold">第 00 层</text>
+  <rect x="104" y="237.0" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="245.6" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="242.5" x2="292" y2="242.5" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="242.5" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="237.0" width="136" height="11" rx="2.5" fill="#ffe4e6" stroke="#e11d48" stroke-width="1.4"/>
+  <text x="360" y="245.6" text-anchor="middle" fill="#9f1239" font-size="9.0" font-weight="bold">E 256选8 (留 BF16)</text>
+  <rect x="28" y="249.7" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="259.5" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 01 层</text>
+  <rect x="104" y="250.7" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="259.3" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="256.2" x2="292" y2="256.2" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="256.2" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="250.7" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="259.3" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="262.9" x2="466" y2="262.9" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="273.2" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 02 层</text>
+  <rect x="104" y="264.4" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="273.0" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="269.9" x2="292" y2="269.9" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="269.9" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="264.4" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="273.0" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="286.9" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 03 层</text>
+  <rect x="104" y="278.1" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="286.7" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="283.6" x2="292" y2="283.6" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="283.6" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="278.1" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="286.7" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <circle cx="444" cy="283.6" r="4.2" fill="#10b981"/>
+  <text x="458" y="286.6" text-anchor="middle" fill="#047857" font-size="8.5" font-weight="bold">抽</text>
+  <text x="64" y="300.6" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 04 层</text>
+  <rect x="104" y="291.8" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="300.4" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="297.3" x2="292" y2="297.3" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="297.3" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="291.8" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="300.4" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="304.5" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="314.3" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 05 层</text>
+  <rect x="104" y="305.5" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="314.1" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="311.0" x2="292" y2="311.0" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="311.0" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="305.5" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="314.1" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="317.7" x2="466" y2="317.7" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="328.0" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 06 层</text>
+  <rect x="104" y="319.2" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="327.8" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="324.7" x2="292" y2="324.7" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="324.7" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="319.2" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="327.8" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="341.7" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 07 层</text>
+  <rect x="104" y="332.9" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="341.5" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="338.4" x2="292" y2="338.4" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="338.4" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="332.9" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="341.5" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="355.4" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 08 层</text>
+  <rect x="104" y="346.6" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="355.2" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="352.1" x2="292" y2="352.1" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="352.1" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="346.6" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="355.2" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="359.3" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="369.1" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 09 层</text>
+  <rect x="104" y="360.3" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="368.9" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="365.8" x2="292" y2="365.8" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="365.8" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="360.3" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="368.9" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="372.5" x2="466" y2="372.5" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="382.8" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 10 层</text>
+  <rect x="104" y="374.0" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="382.6" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="379.5" x2="292" y2="379.5" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="379.5" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="374.0" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="382.6" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="396.5" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 11 层</text>
+  <rect x="104" y="387.7" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="396.3" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="393.2" x2="292" y2="393.2" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="393.2" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="387.7" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="396.3" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="410.2" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 12 层</text>
+  <rect x="104" y="401.4" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="410.0" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="406.9" x2="292" y2="406.9" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="406.9" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="401.4" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="410.0" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="414.1" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="423.9" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 13 层</text>
+  <rect x="104" y="415.1" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="423.7" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="420.6" x2="292" y2="420.6" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="420.6" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="415.1" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="423.7" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="427.3" x2="466" y2="427.3" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="437.6" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 14 层</text>
+  <rect x="104" y="428.8" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="437.4" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="434.3" x2="292" y2="434.3" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="434.3" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="428.8" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="437.4" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="451.3" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 15 层</text>
+  <rect x="104" y="442.5" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="451.1" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="448.0" x2="292" y2="448.0" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="448.0" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="442.5" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="451.1" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="465.0" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 16 层</text>
+  <rect x="104" y="456.2" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="464.8" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="461.7" x2="292" y2="461.7" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="461.7" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="456.2" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="464.8" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="468.9" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="478.7" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 17 层</text>
+  <rect x="104" y="469.9" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="478.5" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="475.4" x2="292" y2="475.4" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="475.4" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="469.9" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="478.5" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="482.1" x2="466" y2="482.1" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="492.4" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 18 层</text>
+  <rect x="104" y="483.6" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="492.2" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="489.1" x2="292" y2="489.1" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="489.1" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="483.6" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="492.2" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="506.1" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 19 层</text>
+  <rect x="104" y="497.3" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="505.9" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="502.8" x2="292" y2="502.8" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="502.8" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="497.3" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="505.9" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <circle cx="444" cy="502.8" r="4.2" fill="#10b981"/>
+  <text x="458" y="505.8" text-anchor="middle" fill="#047857" font-size="8.5" font-weight="bold">抽</text>
+  <text x="64" y="519.8" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 20 层</text>
+  <rect x="104" y="511.0" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="519.6" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="516.5" x2="292" y2="516.5" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="516.5" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="511.0" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="519.6" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="523.7" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="533.5" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 21 层</text>
+  <rect x="104" y="524.7" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="533.3" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="530.2" x2="292" y2="530.2" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="530.2" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="524.7" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="533.3" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="536.9" x2="466" y2="536.9" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="547.2" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 22 层</text>
+  <rect x="104" y="538.4" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="547.0" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="543.9" x2="292" y2="543.9" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="543.9" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="538.4" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="547.0" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="560.9" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 23 层</text>
+  <rect x="104" y="552.1" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="560.7" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="557.6" x2="292" y2="557.6" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="557.6" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="552.1" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="560.7" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="574.6" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 24 层</text>
+  <rect x="104" y="565.8" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="574.4" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="571.3" x2="292" y2="571.3" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="571.3" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="565.8" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="574.4" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="578.5" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="588.3" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 25 层</text>
+  <rect x="104" y="579.5" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="588.1" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="585.0" x2="292" y2="585.0" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="585.0" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="579.5" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="588.1" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="591.7" x2="466" y2="591.7" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="602.0" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 26 层</text>
+  <rect x="104" y="593.2" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="601.8" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="598.7" x2="292" y2="598.7" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="598.7" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="593.2" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="601.8" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="615.7" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 27 层</text>
+  <rect x="104" y="606.9" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="615.5" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="612.4" x2="292" y2="612.4" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="612.4" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="606.9" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="615.5" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="629.4" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 28 层</text>
+  <rect x="104" y="620.6" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="629.2" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="626.1" x2="292" y2="626.1" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="626.1" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="620.6" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="629.2" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="633.3" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="643.1" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 29 层</text>
+  <rect x="104" y="634.3" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="642.9" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="639.8" x2="292" y2="639.8" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="639.8" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="634.3" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="642.9" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="646.5" x2="466" y2="646.5" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="656.8" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 30 层</text>
+  <rect x="104" y="648.0" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="656.6" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="653.5" x2="292" y2="653.5" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="653.5" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="648.0" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="656.6" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="670.5" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 31 层</text>
+  <rect x="104" y="661.7" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="670.3" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="667.2" x2="292" y2="667.2" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="667.2" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="661.7" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="670.3" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <circle cx="444" cy="667.2" r="4.2" fill="#10b981"/>
+  <text x="458" y="670.2" text-anchor="middle" fill="#047857" font-size="8.5" font-weight="bold">抽</text>
+  <text x="64" y="684.2" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 32 层</text>
+  <rect x="104" y="675.4" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="684.0" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="680.9" x2="292" y2="680.9" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="680.9" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="675.4" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="684.0" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="688.1" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="697.9" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 33 层</text>
+  <rect x="104" y="689.1" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="697.7" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="694.6" x2="292" y2="694.6" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="694.6" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="689.1" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="697.7" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="701.3" x2="466" y2="701.3" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="711.6" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 34 层</text>
+  <rect x="104" y="702.8" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="711.4" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="708.3" x2="292" y2="708.3" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="708.3" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="702.8" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="711.4" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="725.3" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 35 层</text>
+  <rect x="104" y="716.5" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="725.1" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="722.0" x2="292" y2="722.0" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="722.0" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="716.5" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="725.1" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="739.0" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 36 层</text>
+  <rect x="104" y="730.2" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="738.8" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="735.7" x2="292" y2="735.7" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="735.7" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="730.2" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="738.8" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="742.9" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="752.7" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 37 层</text>
+  <rect x="104" y="743.9" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="752.5" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="749.4" x2="292" y2="749.4" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="749.4" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="743.9" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="752.5" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="756.1" x2="466" y2="756.1" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="766.4" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 38 层</text>
+  <rect x="104" y="757.6" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="766.2" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="763.1" x2="292" y2="763.1" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="763.1" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="757.6" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="766.2" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="780.1" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 39 层</text>
+  <rect x="104" y="771.3" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="779.9" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="776.8" x2="292" y2="776.8" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="776.8" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="771.3" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="779.9" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="793.8" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 40 层</text>
+  <rect x="104" y="785.0" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="793.6" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="790.5" x2="292" y2="790.5" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="790.5" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="785.0" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="793.6" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="797.7" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="807.5" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 41 层</text>
+  <rect x="104" y="798.7" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="807.3" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="804.2" x2="292" y2="804.2" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="804.2" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="798.7" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="807.3" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="810.9" x2="466" y2="810.9" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="821.2" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 42 层</text>
+  <rect x="104" y="812.4" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="821.0" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="817.9" x2="292" y2="817.9" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="817.9" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="812.4" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="821.0" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="834.9" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 43 层</text>
+  <rect x="104" y="826.1" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="834.7" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="831.6" x2="292" y2="831.6" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="831.6" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="826.1" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="834.7" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="848.6" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 44 层</text>
+  <rect x="104" y="839.8" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="848.4" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="845.3" x2="292" y2="845.3" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="845.3" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="839.8" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="848.4" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="852.5" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="862.3" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 45 层</text>
+  <rect x="104" y="853.5" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="862.1" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="859.0" x2="292" y2="859.0" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="859.0" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="853.5" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="862.1" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="865.7" x2="466" y2="865.7" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="876.0" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 46 层</text>
+  <rect x="104" y="867.2" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="875.8" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="872.7" x2="292" y2="872.7" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="872.7" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="867.2" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="875.8" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="889.7" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 47 层</text>
+  <rect x="104" y="880.9" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="889.5" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="886.4" x2="292" y2="886.4" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="886.4" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="880.9" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="889.5" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <circle cx="444" cy="886.4" r="4.2" fill="#10b981"/>
+  <text x="458" y="889.4" text-anchor="middle" fill="#047857" font-size="8.5" font-weight="bold">抽</text>
+  <text x="64" y="903.4" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 48 层</text>
+  <rect x="104" y="894.6" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="903.2" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="900.1" x2="292" y2="900.1" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="900.1" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="894.6" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="903.2" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="907.3" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="917.1" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 49 层</text>
+  <rect x="104" y="908.3" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="916.9" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="913.8" x2="292" y2="913.8" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="913.8" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="908.3" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="916.9" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="920.5" x2="466" y2="920.5" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="930.8" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 50 层</text>
+  <rect x="104" y="922.0" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="930.6" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="927.5" x2="292" y2="927.5" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="927.5" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="922.0" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="930.6" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="944.5" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 51 层</text>
+  <rect x="104" y="935.7" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="944.3" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="941.2" x2="292" y2="941.2" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="941.2" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="935.7" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="944.3" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="958.2" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 52 层</text>
+  <rect x="104" y="949.4" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="958.0" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="954.9" x2="292" y2="954.9" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="954.9" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="949.4" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="958.0" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="962.1" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="971.9" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 53 层</text>
+  <rect x="104" y="963.1" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="971.7" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="968.6" x2="292" y2="968.6" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="968.6" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="963.1" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="971.7" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="975.3" x2="466" y2="975.3" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="985.6" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 54 层</text>
+  <rect x="104" y="976.8" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="985.4" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="982.3" x2="292" y2="982.3" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="982.3" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="976.8" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="985.4" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="999.3" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 55 层</text>
+  <rect x="104" y="990.5" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="999.1" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="996.0" x2="292" y2="996.0" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="996.0" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="990.5" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="999.1" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="1013.0" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 56 层</text>
+  <rect x="104" y="1004.2" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="1012.8" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="1009.7" x2="292" y2="1009.7" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="1009.7" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="1004.2" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="1012.8" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="1016.9" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="1026.7" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 57 层</text>
+  <rect x="104" y="1017.9" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="1026.5" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="1023.4" x2="292" y2="1023.4" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="1023.4" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="1017.9" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="1026.5" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <line x1="34" y1="1030.1" x2="466" y2="1030.1" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="64" y="1040.4" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 58 层</text>
+  <rect x="104" y="1031.6" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="1040.2" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="1037.1" x2="292" y2="1037.1" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="1037.1" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="1031.6" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="1040.2" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <text x="64" y="1054.1" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 59 层</text>
+  <rect x="104" y="1045.3" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="1053.9" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="1050.8" x2="292" y2="1050.8" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="1050.8" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="1045.3" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="1053.9" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <circle cx="444" cy="1050.8" r="4.2" fill="#10b981"/>
+  <text x="458" y="1053.8" text-anchor="middle" fill="#047857" font-size="8.5" font-weight="bold">抽</text>
+  <text x="64" y="1067.8" text-anchor="middle" fill="#64748b" font-size="9.8" font-weight="normal">第 60 层</text>
+  <rect x="104" y="1059.0" width="148" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="178" y="1067.6" text-anchor="middle" fill="#1e3a8a" font-size="9.0">S 滑窗 (2048, RoPE)</text>
+  <line x1="252" y1="1064.5" x2="292" y2="1064.5" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="1064.5" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="1059.0" width="136" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="360" y="1067.6" text-anchor="middle" fill="#4c1d95" font-size="9.0">E 256选8 (NVFP4)</text>
+  <rect x="28" y="1071.7" width="444" height="12.6" rx="2.5" fill="#fefce8"/>
+  <text x="64" y="1081.5" text-anchor="middle" fill="#854d0e" font-size="9.8" font-weight="bold">第 61 层</text>
+  <rect x="104" y="1072.7" width="148" height="11" rx="2.5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="178" y="1081.3" text-anchor="middle" fill="#713f12" font-size="9.2" font-weight="bold">★ G 全局 (NoPE, θ=0)</text>
+  <line x1="252" y1="1078.2" x2="292" y2="1078.2" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="272" cy="1078.2" r="3.8" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
+  <rect x="292" y="1072.7" width="136" height="11" rx="2.5" fill="#ffe4e6" stroke="#e11d48" stroke-width="1.4"/>
+  <text x="360" y="1081.3" text-anchor="middle" fill="#9f1239" font-size="9.0" font-weight="bold">E 256选8 (留 BF16)</text>
+  <path d="M250 1094 L250 1106" stroke="#64748b" stroke-width="2"/>
+  <polygon points="250,1110 245,1103 255,1103" fill="#64748b"/>
+  <rect x="22" y="1112" width="456" height="46" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="250" y="1132" text-anchor="middle" fill="#9a3412" font-size="13.5" font-weight="bold">输出：lm_head (1.66B, BF16) ＋ 20·tanh(x/20) 软截断</text>
+  <text x="250" y="1150" text-anchor="middle" fill="#7c2d12" font-size="11.2">无内置 MTP｜次日老黄外挂 4.38B DFlash2（抽 ● 标出的第 3/19/31/47/59 层并行猜 8 词）</text>
+  <rect x="494" y="132" width="444" height="242" rx="8" fill="#fefce8" stroke="#eab308" stroke-width="2"/>
+  <text x="512" y="160" fill="#854d0e" font-size="16.5" font-weight="bold">① 46 蓝 + 16 黄：滑窗 RoPE 配全局 NoPE</text>
+  <text x="512" y="186" fill="#1e293b" font-size="12.8">• 从第 61 层倒数每 4 层 1 个全局层：(61 - i) % 4 == 0</text>
+  <text x="512" y="210" fill="#1e293b" font-size="12.8">• 开头 00~01 层为 1 组 [S, ★G]，后 02~61 层为 15 组 [S, S, S, ★G]</text>
+  <text x="512" y="234" fill="#1e40af" font-size="12.8" font-weight="bold">• 46 层滑窗 (2048)：开 RoPE (θ=50万) 负责记局部相对词序</text>
+  <text x="512" y="258" fill="#b91c1c" font-size="12.8" font-weight="bold">• 16 层全局 (1M)：设 NoPE (θ=0) + Q 放大 5.47 倍防稀释</text>
+  <rect x="510" y="272" width="412" height="88" rx="6" fill="#ffffff" stroke="#fde047" stroke-width="1.5"/>
+  <text x="522" y="294" fill="#854d0e" font-size="13.2" font-weight="bold">1M 上下文 KV 缓存：BF16 64.36 GiB / FP8 约 32.2 GiB</text>
+  <text x="522" y="316" fill="#334155" font-size="12">• 8:1 GQA (128Q/16KV, 64维) + Sigmoid 输出门控 (gate_proj)</text>
+  <text x="522" y="336" fill="#334155" font-size="12">• 46 层滑窗只存 2048 词 = 368 MiB；16 层全局每层 4 GiB = 64 GiB</text>
+  <text x="522" y="354" fill="#64748b" font-size="11.5">（若 62 层全开全局需 248 GiB，3:1 滑窗直接省掉四分之三）</text>
+  <rect x="494" y="390" width="444" height="270" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="512" y="418" fill="#5b21b6" font-size="16.5" font-weight="bold">② 62 块紫砖 E：4096 潜空间 MoE 与权重账</text>
+  <text x="512" y="444" fill="#1e293b" font-size="12.8">• 路由在 8192 维打分：Sigmoid + 偏置，256 选 8（0 共享专家）</text>
+  <text x="512" y="468" fill="#5b21b6" font-size="12.8" font-weight="bold">• 进门砍半：8192 → 4096 潜空间（秩上限是老黄 1024 的 4 倍）</text>
+  <text x="512" y="492" fill="#1e293b" font-size="12.8">• 单专家 SwiGLU (50.33M)，算完单过 InputScaledRMSNorm</text>
+  <text x="512" y="516" fill="#1e293b" font-size="12.8">• 非嵌入总参：13.5B(A) + 4.3B(潜投影) + 798.9B(E) = 816.7B</text>
+  <text x="512" y="540" fill="#1e293b" font-size="12.8">• 非嵌入激活：13.5B(A) + 4.3B(潜投影) + 25.0B(8E) = 42.8B</text>
+  <rect x="510" y="554" width="412" height="92" rx="6" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <text x="522" y="576" fill="#9f1239" font-size="13" font-weight="bold">为什么 NVFP4 量化版重达 533 GB（5.19 bit/参数）？</text>
+  <text x="522" y="598" fill="#334155" font-size="12">• BF16 原版 1,644.3 GB（合 1,531.4 GiB，官方要求 2TB 显存）</text>
+  <text x="522" y="618" fill="#334155" font-size="12">• 因无共享专家兜底，首尾第 00、61 层的 512 个专家 (25.8B)</text>
+  <text x="522" y="638" fill="#9f1239" font-size="12" font-weight="bold">  连同全部 62 层注意力、潜投影、词表头一律留 BF16 不压 FP4</text>
+  <rect x="494" y="676" width="444" height="210" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="512" y="704" fill="#1e3a8a" font-size="16.5" font-weight="bold">③ 124 道单位圆残差门 ＋ HF 源码“百家衣”</text>
+  <text x="512" y="730" fill="#dc2626" font-size="12.8" font-weight="bold">• 残差门 (红圈)：out = α·residual + β·x，全程 FP32 计算</text>
+  <text x="512" y="754" fill="#1e293b" font-size="12.5">  其中 β = σ(w/0.3)，α = √(σ(-w/0.3)(1+β))，恒满足 α² + β² ≡ 1</text>
+  <text x="512" y="776" fill="#1e293b" font-size="12.5">  把残差权重锁在半径为 1 的单位圆上，穿过 62 层方差守恒</text>
+  <rect x="510" y="790" width="412" height="82" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="522" y="812" fill="#1e3a8a" font-size="13" font-weight="bold">modular_muse_spark.py 直接 import 各家现成组件：</text>
+  <text x="522" y="833" fill="#334155" font-size="11.8">• DeepSeek-V3 (专家) · MiniMax-M2 (路由器) · Kimi-K2.5 (视觉注意力)</text>
+  <text x="522" y="853" fill="#334155" font-size="11.8">• Qwen2.5-VL (RoPE) · GLM-4V · PaddleOCR · Gemma2/3/4 · AfMoE</text>
+  <rect x="494" y="902" width="444" height="256" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="2"/>
+  <text x="512" y="930" fill="#9f1239" font-size="16.5" font-weight="bold">④ 闭源留着吃肉 ＋ 开源“防越狱模范生”</text>
+  <text x="512" y="956" fill="#1e293b" font-size="12.8">• 10 月闭源真旗舰 Muse Wonder：AA 考 52 / 56 分追平 GPT-6</text>
+  <text x="512" y="980" fill="#b91c1c" font-size="12.8" font-weight="bold">• 10 月开源 Muse Spark Open：拿 4 月初代底子，AA 仅 39 分</text>
+  <text x="512" y="1004" fill="#1e293b" font-size="12.8">• 代码与干活全线输 GLM-5.3 (45) / Kimi K3 (44) / Qwen3.8 (45)</text>
+  <rect x="510" y="1018" width="412" height="126" rx="6" fill="#ffffff" stroke="#fda4af" stroke-width="1.5"/>
+  <text x="522" y="1040" fill="#9f1239" font-size="13" font-weight="bold">半年“额外安全后训练”干了啥？</text>
+  <text x="522" y="1062" fill="#047857" font-size="12" font-weight="bold">• StrongREJECT v2 越狱破防率压到 0.5%（国模在 63%~66%）</text>
+  <text x="522" y="1084" fill="#334155" font-size="11.8">• README 点名拉踩 Kimi K3 网安拒答率不如自己 (99.2% vs 75.5%)</text>
+  <text x="522" y="1106" fill="#b91c1c" font-size="12" font-weight="bold">• 代价：FORTRESS 正常问题误伤拒答率飙至 17.4%（Kimi 仅 2.7%）</text>
+  <text x="522" y="1128" fill="#64748b" font-size="11.8">• 靠“一言不合就拒答不扣分”在倒扣分的 AA Omniscience 混到第一</text>
 </svg>
