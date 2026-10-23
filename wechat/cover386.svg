@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="orangeGlow" cx="0.18" cy="0.28" r="0.42">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="0.82" cy="0.75" r="0.42">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+  <rect width="900" height="500" fill="url(#orangeGlow)"/>
+  <rect width="900" height="500" fill="url(#greenGlow)"/>
+
+  <!-- faint grid -->
+  <g opacity="0.10">
+    <path d="M0 88 H900 M0 166 H900 M0 244 H900 M0 322 H900" stroke="#e5e7eb" stroke-width="1"/>
+    <path d="M90 0 V500 M180 0 V500 M270 0 V500 M360 0 V500 M450 0 V500 M540 0 V500 M630 0 V500 M720 0 V500 M810 0 V500" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+
+  <text x="450" y="42" text-anchor="middle" fill="#cbd5e1" font-size="15" letter-spacing="3">DLSS 5 逆向与 AMD RDNA 4 移植 · 逐算子深度对账</text>
+
+  <!-- ============ LEFT CARD: 硬件脾气与算术取舍 ============ -->
+  <g transform="translate(55 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">RDNA 4 硬件脾气与 C32 算术</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a2a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">WMMA 与 VALU 不重叠</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">无 TMA / 无 global_load_lds</text>
+      <text x="100" y="60" text-anchor="middle" fill="#64748b" font-size="10">每多一条转换都是帧时硬加法</text>
+    </g>
+
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="78" rx="6" fill="#0a1a1a" stroke="#2dd4bf" stroke-width="1.8"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">C32 浅层族（差 ~0.25 ms）</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">我们：逐位复刻 Hrtz 半精度截断</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fde047" font-size="10" font-weight="bold">他：全 FP32 多项式 + 偏置预烘焙</text>
+    </g>
+
+    <line x1="18" y1="210" x2="212" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="115" y="232" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">325W 功耗墙连带效应</text>
+    <text x="115" y="252" text-anchor="middle" fill="#cbd5e1" font-size="10">单块差 10 µs → 整网放大到 16 µs</text>
+    <text x="115" y="270" text-anchor="middle" fill="#94a3b8" font-size="10">冗余 VALU 拉低整卡核心频率</text>
+    <text x="115" y="288" text-anchor="middle" fill="#64748b" font-size="10">0 bit-diff 严谨合同的明码标价</text>
+  </g>
+
+  <!-- ============ MIDDLE CARD: 持久化核与 Linux ACO 嫁接 ============ -->
+  <g transform="translate(325 80)">
+    <text x="125" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">5114 行持久化核与 ACO 换心术</text>
+    <rect x="0" y="10" width="250" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="220" height="72" rx="6" fill="#2a1a0a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="110" y="22" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="bold">153 次 vs 123 次核函数发射</text>
+      <text x="110" y="42" text-anchor="middle" fill="#fbbf24" font-size="10">fswin_t.comp 单次发射跨层领活</text>
+      <text x="110" y="60" text-anchor="middle" fill="#cbd5e1" font-size="10">内置上下采样，省掉 30 次排空尾巴</text>
+    </g>
+
+    <g transform="translate(15 112)">
+      <rect x="0" y="0" width="220" height="84" rx="6" fill="#1e1035" stroke="#a855f7" stroke-width="1.8"/>
+      <text x="110" y="22" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="bold">Windows ACO Mode（-1.51 ms）</text>
+      <text x="110" y="42" text-anchor="middle" fill="#d8b4fe" font-size="10">诱捕 Windows 驱动 PAL 容器外壳</text>
+      <text x="110" y="60" text-anchor="middle" fill="#fde047" font-size="10" font-weight="bold">挖心塞入 52 个 Linux ACO 机器码</text>
+      <text x="110" y="76" text-anchor="middle" fill="#cbd5e1" font-size="10">36 路显存预取不溢出 + 解锁 TCHAIN</text>
+    </g>
+
+    <line x1="18" y1="210" x2="232" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="125" y="232" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">Mesa ACO 对官方 LLVM 降维打击</text>
+    <text x="125" y="252" text-anchor="middle" fill="#cbd5e1" font-size="10">s_wait_loadcnt 35 起步深流水调度</text>
+    <text x="125" y="270" text-anchor="middle" fill="#94a3b8" font-size="10">N-pair 输出列配对 vs K-pair W16</text>
+    <text x="125" y="288" text-anchor="middle" fill="#64748b" font-size="10">4 波 64×256 大工作组片上权重复用</text>
+  </g>
+
+  <!-- ============ RIGHT CARD: 对账顺手白捡的六阶段战果 ============ -->
+  <g transform="translate(615 80)">
+    <text x="115" y="-2" text-anchor="middle" fill="#94a3b8" font-size="13">较真对账顺手白捡的 0.45 战果</text>
+    <rect x="0" y="10" width="230" height="290" rx="6" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(15 28)">
+      <rect x="0" y="0" width="200" height="76" rx="6" fill="#0a1a2a" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="100" y="22" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="bold">补齐 1088/900/720 紧凑资格</text>
+      <text x="100" y="42" text-anchor="middle" fill="#a7f3d0" font-size="10">消除 8 次多余打包 + 省 120 MiB</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">立省 0.06～0.25 ms / 帧</text>
+    </g>
+
+    <g transform="translate(15 116)">
+      <rect x="0" y="0" width="200" height="78" rx="6" fill="#0a1a1a" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="100" y="22" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="bold">消灭 ViT 16 条单字节散读</text>
+      <text x="100" y="42" text-anchor="middle" fill="#bfdbfe" font-size="10">V/QK 改 b128 连续读写 + 成对打包</text>
+      <text x="100" y="60" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">0.5x 干进 2.99 / 4.25 / 5.49 ms</text>
+    </g>
+
+    <line x1="18" y1="210" x2="212" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="115" y="232" text-anchor="middle" fill="#fde047" font-size="11" font-weight="bold">1x 1088p 纯网追至 8.31 ms</text>
+    <text x="115" y="252" text-anchor="middle" fill="#cbd5e1" font-size="10">距锁定旧版 Mochi 仅剩 ~0.42 ms</text>
+    <text x="115" y="270" text-anchor="middle" fill="#94a3b8" font-size="10">全档 100% 逐位无损（0 bit-diff）</text>
+    <text x="115" y="288" text-anchor="middle" fill="#64748b" font-size="10">v0.45 毕业收官版正式打包交付</text>
+  </g>
+
+  <!-- ============ bottom title band ============ -->
+  <rect x="0" y="390" width="900" height="110" fill="#020617" opacity="0.88"/>
+  <rect x="0" y="390" width="900" height="6" fill="url(#titleBand)"/>
+  <text x="450" y="428" text-anchor="middle" fill="#f8fafc" font-size="25" font-weight="bold">认真学习 mochizuki 的 Vulkan 引擎：逐算子拆解差距来源</text>
+  <text x="450" y="460" text-anchor="middle" fill="#fde047" font-size="15.5">从 RDNA 4 算术互斥、持久化巨型核到 Linux ACO 机器码嫁接 · 顺手推出 0.45 收官版</text>
+  <text x="450" y="486" text-anchor="middle" fill="#94a3b8" font-size="13">DLSS 5 逆向与 AMD RDNA 4 移植系列 · 学习笔记与全网算子最终对账</text>
+</svg>

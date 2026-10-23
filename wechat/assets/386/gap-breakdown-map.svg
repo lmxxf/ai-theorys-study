@@ -32,10 +32,10 @@
   <rect x="42" y="218" width="326" height="26" rx="4" fill="#60a5fa"/>
   <text x="376" y="236" font-size="13" font-weight="bold" fill="#2563eb">8.55 ms</text>
 
-  <!-- Bar 3: 10-23 Current HIP + Knife 1 -->
-  <text x="42" y="270" font-size="12.5" font-weight="bold" fill="#1e3a8a">我们今天（补齐 1088 紧凑权重与字节链，153 次发射）</text>
-  <rect x="42" y="278" width="318" height="28" rx="4" fill="url(#hipGrad)"/>
-  <text x="368" y="297" font-size="13.5" font-weight="bold" fill="#1d4ed8">8.35 ms</text>
+  <!-- Bar 3: 10-23 Current HIP + Knife 1..5 -->
+  <text x="42" y="270" font-size="12.5" font-weight="bold" fill="#1e3a8a">我们今晚（补齐 1088 紧凑资格 + ViT V-b128 + C512 成对打包）</text>
+  <rect x="42" y="278" width="316" height="28" rx="4" fill="url(#hipGrad)"/>
+  <text x="366" y="297" font-size="13.5" font-weight="bold" fill="#1d4ed8">8.31 ms</text>
 
   <!-- Bar 4: Mochi Locked v0.0.2.5 -->
   <text x="42" y="332" font-size="12.5" font-weight="bold" fill="#92400e">mochizuki 旧锁版（v0.0.2.5，Windows 驱动 LLPC 编译）</text>
