@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" width="960" height="460" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#f1f5f9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="460" fill="url(#bg)"/>
+
+  <!-- 标题 -->
+  <text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">为什么 48 行位运算会把性能拖慢一倍？——PE 固定槽位与两条 IEEE 754 硬件算术恒等式</text>
+  <text x="480" y="50" text-anchor="middle" font-size="12" fill="#475569">nvngx_dlssnr.dll 内嵌 15 个编译好的代码包（Fatbin），每个代码包在 DLL 文件里的字节槽位上限是写死的</text>
+
+  <!-- ================= 左半：网上现有脚本 (48行位运算 -> 撑爆槽位 -> 被迫降级 O1) ================= -->
+  <g transform="translate(24, 66)">
+    <rect x="0" y="0" width="444" height="374" rx="10" fill="#ffffff" stroke="#fca5a5" stroke-width="1.8"/>
+    <rect x="0" y="0" width="444" height="34" rx="10" fill="#fef2f2"/>
+    <text x="222" y="22" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#b91c1c">① 网上 dlssnr-patcher 改法：48 行整数位运算展开</text>
+
+    <!-- 代码示意框 -->
+    <rect x="16" y="46" width="412" height="106" rx="6" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.2"/>
+    <text x="28" y="66" font-size="12" font-weight="bold" fill="#9f1239">每遇到一条 FP8 ↔ FP16 转换指令，展开成 45～48 行整数分支：</text>
+    <text x="28" y="86" font-size="11" fill="#881337">and.b32 / shr.u32 / setp.eq.u32 （判零、判 NaN、判次正规数）</text>
+    <text x="28" y="103" font-size="11" fill="#881337">bfind.u32 + sub.u32 + shl.b32 （软件逐位寻找前导 1 归一化）</text>
+    <text x="28" y="120" font-size="11" fill="#881337">setp.gt.u32 + selp.b32 （软件计算 G/R/S 舍入位向偶舍入）</text>
+    <text x="28" y="139" font-size="11.5" font-weight="bold" fill="#be123c">后果：单核上百处转换，O4 编译后机器码暴涨 3.5 倍（达 8.5 MB）</text>
+
+    <!-- 槽位对比条 -->
+    <text x="20" y="174" font-size="12" font-weight="bold" fill="#334155">DLL 原生 PE 槽位容量上限（约 2.5 MB）：</text>
+    <rect x="20" y="182" width="140" height="20" rx="4" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
+    <text x="90" y="196" text-anchor="middle" font-size="11" font-weight="bold" fill="#334155">原槽位 2.5 MB</text>
+
+    <text x="20" y="220" font-size="12" font-weight="bold" fill="#b91c1c">48 行展开后 O4 编译体积（8.5 MB，严重溢出槽位）：</text>
+    <rect x="20" y="228" width="400" height="22" rx="4" fill="#fecaca" stroke="#dc2626" stroke-width="1.5"/>
+    <line x1="160" y1="224" x2="160" y2="254" stroke="#dc2626" stroke-width="2" stroke-dasharray="3 2"/>
+    <text x="285" y="243" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#991b1b">超出 6.0 MB，塞不回 DLL 原槽位</text>
+
+    <!-- 被迫降级 O1 + 花括号漏检 -->
+    <rect x="16" y="264" width="412" height="96" rx="6" fill="#fef2f2" stroke="#f87171" stroke-width="1.2"/>
+    <text x="28" y="284" font-size="12.5" font-weight="bold" fill="#991b1b">● 为塞回槽位，被迫把主干核全部降级到 --opt-level=1 (O1)</text>
+    <text x="40" y="302" font-size="11.5" fill="#7f1d1d">关闭循环展开与指令调度 → 900p 耗时 49.89 ms，1080p 耗时 67.69 ms</text>
+    <text x="28" y="324" font-size="12.5" font-weight="bold" fill="#991b1b">● 漏查花括号向量加载 ld.global.v4.u32 {%r1352, ...}</text>
+    <text x="40" y="342" font-size="11.5" fill="#7f1d1d">把显存真特征误当成单定义常数替换 → 4K 天空打出 106 条红绿横带</text>
+  </g>
+
+  <!-- ================= 右半：本项目 ptx-patcher v0.1.0 (IEEE 754 硬件算术 -> 15/15 满血 O4) ================= -->
+  <g transform="translate(492, 66)">
+    <rect x="0" y="0" width="444" height="374" rx="10" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.8"/>
+    <rect x="0" y="0" width="444" height="34" rx="10" fill="#ecfdf5"/>
+    <text x="222" y="22" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#047857">② 本项目 ptx-patcher（v0.1.0）：借 FP16 硬件电路归一化与舍入</text>
+
+    <!-- 恒等式 1：解包 -->
+    <rect x="16" y="46" width="412" height="82" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+    <text x="26" y="65" font-size="12" font-weight="bold" fill="#065f46">恒等式 A（E4M3x2 → FP16x2 解包，仅 4 条机器指令）：</text>
+    <text x="26" y="83" font-size="11" fill="#1e293b">E4M3 偏置为 7，FP16 偏置为 15（差 8）。将 7 位指数+尾数右移 1 位对齐</text>
+    <text x="26" y="99" font-size="11" fill="#1e293b">FP16 bit[13:7] 后，直接乘上 2^8 = 256.0h，由硬件乘法器自动归一化：</text>
+    <text x="26" y="118" font-size="11" font-weight="bold" fill="#047857">prmt.b32 → shr.u32 1 → lop3（保符号）→ mul.rn.f16x2 0x5c005c00</text>
+
+    <!-- 恒等式 2：打包 -->
+    <rect x="16" y="136" width="412" height="72" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+    <text x="26" y="155" font-size="12" font-weight="bold" fill="#065f46">恒等式 B（FP16x2 → E4M3x2 次正规数向偶舍入，1 条加法）：</text>
+    <text x="26" y="173" font-size="11" fill="#1e293b">FP16 常数 2.0h (0x4000) 的末位刻度恰好是 2^-9（与 E4M3 次正规数一致）：</text>
+    <text x="26" y="194" font-size="11" font-weight="bold" fill="#047857">add.rn.f16x2 sub2, sub_in, 0x40004000; // +2.0h 硬件自动向偶舍入</text>
+
+    <!-- 槽位对比条 -->
+    <text x="20" y="228" font-size="12" font-weight="bold" fill="#047857">满血 O4 编译体积缩回 2.4 MB（刚好装进 2.5 MB 原生槽位）：</text>
+    <rect x="20" y="236" width="134" height="22" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
+    <line x1="160" y1="232" x2="160" y2="262" stroke="#475569" stroke-width="2" stroke-dasharray="3 2"/>
+    <text x="87" y="251" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">O4 仅 2.4 MB</text>
+    <text x="275" y="251" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#047857">← 15/15 代码包全部 O4 原位装入</text>
+
+    <!-- 最终收益框 -->
+    <rect x="16" y="268" width="412" height="92" rx="6" fill="#ecfdf5" stroke="#34d399" stroke-width="1.4"/>
+    <text x="28" y="289" font-size="12.5" font-weight="bold" fill="#065f46">● 15/15 代码包满血 O4 + FP16 累加 Tensor Core 全速档：</text>
+    <text x="40" y="307" font-size="11.5" font-weight="bold" fill="#047857">720p 15.83 ms（提速 2.35×）｜900p 24.47 ms｜1080p 32.04 ms</text>
+    <text x="28" y="329" font-size="12.5" font-weight="bold" fill="#065f46">● 全函数扫描剔除花括号多定义寄存器 + 保留单定义直通：</text>
+    <text x="40" y="347" font-size="11.5" fill="#065f46">有限值域 100% 零误差（0 bit-diff），4K 天空红绿变号 106 次 → 0 次</text>
+  </g>
+</svg>
