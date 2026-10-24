@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
+  <defs>
+    <linearGradient id="bg349" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffbeb"/>
+      <stop offset="0.5" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="headerTag" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="aiBase" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dbeafe"/>
+      <stop offset="1" stop-color="#bfdbfe"/>
+    </linearGradient>
+    <linearGradient id="bridgeWarm" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fef3c7"/>
+      <stop offset="1" stop-color="#fde68a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bg349)"/>
+
+  <!-- Top Header -->
+  <rect x="28" y="16" width="196" height="28" rx="14" fill="url(#headerTag)"/>
+  <text x="126" y="35" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">周末杂谈 · AI 时代的学习</text>
+  <text x="872" y="36" text-anchor="end" fill="#475569" font-size="14" font-weight="bold">No.349</text>
+
+  <!-- Main Title -->
+  <text x="450" y="76" text-anchor="middle" fill="#0f172a" font-size="25.5" font-weight="bold">以前学到「科普水平」只能吹牛，现在好像够用了？</text>
+  <line x1="28" y1="94" x2="872" y2="94" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- ================= LEFT PANEL: Cliff vs Slope & 4 Working-Memory Slots ================= -->
+  <g transform="translate(28, 108)">
+    <rect x="0" y="0" width="408" height="322" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.8"/>
+
+    <!-- Section 1: Old Era Cliff -->
+    <rect x="14" y="12" width="380" height="136" rx="8" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.5"/>
+    <rect x="24" y="20" width="150" height="22" rx="4" fill="#be123c"/>
+    <text x="99" y="35" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="bold">旧时代：全或无的断崖</text>
+    <text x="382" y="35" text-anchor="end" fill="#9f1239" font-size="11.5" font-weight="bold">只懂大概 = 嘴炮</text>
+
+    <!-- 4 Slots clogged with syntax -->
+    <text x="24" y="60" fill="#881337" font-size="11" font-weight="bold">人脑 4 槽位全交过路费：</text>
+    <rect x="158" y="46" width="54" height="20" rx="3" fill="#ffe4e6" stroke="#f43f5e" stroke-width="1.2"/>
+    <text x="185" y="60" text-anchor="middle" fill="#9f1239" font-size="10.5">配环境</text>
+    <rect x="216" y="46" width="54" height="20" rx="3" fill="#ffe4e6" stroke="#f43f5e" stroke-width="1.2"/>
+    <text x="243" y="60" text-anchor="middle" fill="#9f1239" font-size="10.5">背语法</text>
+    <rect x="274" y="46" width="54" height="20" rx="3" fill="#ffe4e6" stroke="#f43f5e" stroke-width="1.2"/>
+    <text x="301" y="60" text-anchor="middle" fill="#9f1239" font-size="10.5">记参数</text>
+    <rect x="332" y="46" width="54" height="20" rx="3" fill="#ffe4e6" stroke="#f43f5e" stroke-width="1.2"/>
+    <text x="359" y="60" text-anchor="middle" fill="#9f1239" font-size="10.5">排报错</text>
+
+    <!-- Cliff Curve Diagram -->
+    <line x1="34" y1="124" x2="374" y2="124" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="34" y1="78" x2="34" y2="124" stroke="#94a3b8" stroke-width="1.5"/>
+    <!-- Flat zero line up to 98%, then vertical cliff -->
+    <path d="M 36 121 L 332 121 L 332 84 L 368 84" fill="none" stroke="#e11d48" stroke-width="3"/>
+    <circle cx="332" cy="121" r="3.5" fill="#e11d48"/>
+    <text x="180" y="113" text-anchor="middle" fill="#be123c" font-size="11.5" font-weight="bold">宏观原理懂 50% → 写不出代码，独立产出 = 0</text>
+    <text x="350" y="79" text-anchor="middle" fill="#047857" font-size="10.5" font-weight="bold">99%手艺</text>
+    <text x="204" y="141" text-anchor="middle" fill="#64748b" font-size="11">程序性知识（语法与步骤）极其昂贵，死死卡住个人跨界</text>
+
+    <!-- Down Transition Arrow -->
+    <polygon points="204,166 196,154 212,154" fill="#0d9488"/>
+
+    <!-- Section 2: AI Era Slope -->
+    <rect x="14" y="170" width="380" height="140" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <rect x="24" y="178" width="164" height="22" rx="4" fill="#0f766e"/>
+    <text x="106" y="193" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="bold">AI 时代：科普草图直接做功</text>
+    <text x="382" y="193" text-anchor="end" fill="#0f766e" font-size="11.5" font-weight="bold">稀缺性倒挂</text>
+
+    <!-- 4 Slots freed for high-level schemas -->
+    <text x="24" y="218" fill="#065f46" font-size="11" font-weight="bold">腾出 4 槽位装高层目录：</text>
+    <rect x="160" y="204" width="72" height="20" rx="3" fill="#dcfce7" stroke="#10b981" stroke-width="1.2"/>
+    <text x="196" y="218" text-anchor="middle" fill="#065f46" font-size="10.5" font-weight="bold">显卡带宽墙</text>
+    <rect x="236" y="204" width="72" height="20" rx="3" fill="#dcfce7" stroke="#10b981" stroke-width="1.2"/>
+    <text x="272" y="218" text-anchor="middle" fill="#065f46" font-size="10.5" font-weight="bold">训练与推理</text>
+    <rect x="312" y="204" width="74" height="20" rx="3" fill="#dcfce7" stroke="#10b981" stroke-width="1.2"/>
+    <text x="349" y="218" text-anchor="middle" fill="#065f46" font-size="10.5" font-weight="bold">对照与统计</text>
+
+    <!-- Slope + AI Foundation Diagram -->
+    <path d="M 36 266 L 372 244 L 372 266 Z" fill="#a7f3d0" opacity="0.55"/>
+    <line x1="36" y1="266" x2="372" y2="244" stroke="#059669" stroke-width="2.5"/>
+    <text x="204" y="239" text-anchor="middle" fill="#065f46" font-size="11.5" font-weight="bold">概念性知识（科普级因果骨架）→ 驱动工具跨界产出</text>
+    <rect x="36" y="266" width="336" height="24" rx="4" fill="url(#aiBase)" stroke="#60a5fa" stroke-width="1.2"/>
+    <text x="204" y="282" text-anchor="middle" fill="#1e40af" font-size="11" font-weight="bold">AI 接管底层程序性手艺（语法 / 接口 / 模板 / 初步排错）</text>
+    <text x="204" y="304" text-anchor="middle" fill="#047857" font-size="11" font-weight="bold">「不用很懂，但不能不知道」——遇到瓶颈再让 AI 临时放大</text>
+  </g>
+
+  <!-- ================= RIGHT PANEL: Human Single-Plank Bridge vs AI Mosaic Tiles ================= -->
+  <g transform="translate(454, 108)">
+    <rect x="0" y="0" width="418" height="322" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.8"/>
+
+    <text x="209" y="26" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="bold">为什么不能连高层地图也甩给 AI？</text>
+    <line x1="18" y1="36" x2="400" y2="36" stroke="#e2e8f0" stroke-width="1.2"/>
+
+    <!-- Top Half: AI Mosaic Tiling (Fast but skips subtle conditions) -->
+    <rect x="16" y="44" width="386" height="128" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect x="26" y="52" width="172" height="22" rx="4" fill="#3b82f6"/>
+    <text x="112" y="67" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="bold">AI 的方式：全局并行贴瓷砖</text>
+    <text x="390" y="67" text-anchor="end" fill="#475569" font-size="11">快百倍，但易漏隐式前提</text>
+
+    <!-- Mosaic Tiles Illustration -->
+    <rect x="28" y="102" width="110" height="42" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8"/>
+    <text x="83" y="120" text-anchor="middle" fill="#1e3a8a" font-size="11.5" font-weight="bold">显眼数字瓷砖 A</text>
+    <text x="83" y="136" text-anchor="middle" fill="#1d4ed8" font-size="10.5">预算显存 614GB</text>
+
+    <!-- Tiny subtle condition skipped in the middle -->
+    <rect x="154" y="112" width="110" height="32" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,2"/>
+    <text x="209" y="126" text-anchor="middle" fill="#64748b" font-size="10.5">不起眼的前提开关</text>
+    <text x="209" y="139" text-anchor="middle" fill="#64748b" font-size="10">（卸载196B稀疏表）</text>
+
+    <rect x="280" y="102" width="110" height="42" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8"/>
+    <text x="335" y="120" text-anchor="middle" fill="#1e3a8a" font-size="11.5" font-weight="bold">显眼数字瓷砖 C</text>
+    <text x="335" y="136" text-anchor="middle" fill="#1d4ed8" font-size="10.5">384GB 装不下</text>
+
+    <!-- Curved leap arrow skipping the middle condition -->
+    <path d="M 118 100 Q 209 80 300 100" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="5,3"/>
+    <polygon points="302,101 292,96 296,105" fill="#dc2626"/>
+    <text x="209" y="86" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="bold">注意力直接跨过小开关把两块大砖贴死</text>
+    <text x="209" y="162" text-anchor="middle" fill="#475569" font-size="11">人类扁平文档里，生死条件与普通场面话穿同样的衣服</text>
+
+    <!-- Bottom Half: Human Single-Plank Bridge (Causal Chain Steering) -->
+    <rect x="16" y="182" width="386" height="126" rx="8" fill="url(#bridgeWarm)" stroke="#f59e0b" stroke-width="1.8"/>
+    <rect x="26" y="190" width="184" height="22" rx="4" fill="#b45309"/>
+    <text x="118" y="205" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="bold">人的方式：靠因果链走独木桥</text>
+    <text x="390" y="205" text-anchor="end" fill="#92400e" font-size="11" font-weight="bold">少一块木板当场察觉</text>
+
+    <!-- Single-plank causal bridge -->
+    <rect x="28" y="224" width="96" height="38" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.8"/>
+    <text x="76" y="241" text-anchor="middle" fill="#78350f" font-size="11.5" font-weight="bold">第 1 步：问题</text>
+    <text x="76" y="256" text-anchor="middle" fill="#92400e" font-size="10.5">总参数与显存</text>
+
+    <line x1="124" y1="243" x2="148" y2="243" stroke="#b45309" stroke-width="3"/>
+    <polygon points="152,243 144,238 144,248" fill="#b45309"/>
+
+    <rect x="154" y="220" width="112" height="46" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="2.2"/>
+    <text x="210" y="239" text-anchor="middle" fill="#b91c1c" font-size="12" font-weight="bold">★ 科普地图拦截</text>
+    <text x="210" y="256" text-anchor="middle" fill="#dc2626" font-size="10.5" font-weight="bold">知道稀疏表能进内存</text>
+
+    <line x1="266" y1="243" x2="290" y2="243" stroke="#b45309" stroke-width="3"/>
+    <polygon points="294,243 286,238 286,248" fill="#b45309"/>
+
+    <rect x="296" y="224" width="94" height="38" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.8"/>
+    <text x="343" y="241" text-anchor="middle" fill="#78350f" font-size="11.5" font-weight="bold">第 3 步：结论</text>
+    <text x="343" y="256" text-anchor="middle" fill="#92400e" font-size="10.5">按住 AI 重贴</text>
+
+    <text x="209" y="286" text-anchor="middle" fill="#78350f" font-size="11.5" font-weight="bold">人因记忆窄被迫一步步踩因果木板 → 恰好当 AI 的验收方向盘</text>
+    <text x="209" y="302" text-anchor="middle" fill="#92400e" font-size="10.5">（在 AI 具备伦理边界、具身智能与随机性适应力前，掌舵仍靠人）</text>
+  </g>
+
+  <!-- Bottom Summary Strip -->
+  <rect x="28" y="442" width="844" height="42" rx="10" fill="#0f172a"/>
+  <text x="450" y="468" text-anchor="middle" fill="#f8fafc" font-size="14.5" font-weight="bold">AI 搬来海量的实现细节瓷砖；人脑那四个槽位里的科普级因果地图，就是按住它的方向盘。</text>
+</svg>
