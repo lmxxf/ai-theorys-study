@@ -1,80 +1,184 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" width="960" height="460" font-family="WenQuanYi Micro Hei, Noto Sans CJK SC, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" width="800" height="900">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f8fafc"/>
-      <stop offset="1" stop-color="#f1f5f9"/>
-    </linearGradient>
+    <style>
+      .title { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 24px; font-weight: bold; fill: #1e293b; }
+      .subtitle { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 16px; fill: #64748b; }
+      .sec-title { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .label { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 16px; font-weight: bold; fill: #334155; }
+      .note { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 15px; fill: #475569; }
+      .bit-txt { font-family: 'WenQuanYi Micro Hei', 'DejaVu Sans Mono', sans-serif; font-size: 15px; font-weight: bold; fill: #ffffff; }
+      .bit-zero { font-family: 'WenQuanYi Micro Hei', 'DejaVu Sans Mono', sans-serif; font-size: 15px; font-weight: bold; fill: #64748b; }
+      .bit-idx { font-family: 'WenQuanYi Micro Hei', 'DejaVu Sans Mono', sans-serif; font-size: 13px; fill: #64748b; }
+      .code-pill { font-family: 'WenQuanYi Micro Hei', 'DejaVu Sans Mono', sans-serif; font-size: 16px; font-weight: bold; fill: #0f172a; }
+    </style>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b5cf6"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#d97706"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#059669"/>
+    </marker>
   </defs>
 
-  <rect width="960" height="460" fill="url(#bg)"/>
+  <!-- 背景 -->
+  <rect width="800" height="900" rx="18" fill="#f8fafc"/>
 
-  <!-- 标题 -->
-  <text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">为什么 48 行位运算会把性能拖慢一倍？——PE 固定槽位与两条 IEEE 754 硬件算术恒等式</text>
-  <text x="480" y="50" text-anchor="middle" font-size="12" fill="#475569">nvngx_dlssnr.dll 内嵌 15 个编译好的代码包（Fatbin），每个代码包在 DLL 文件里的字节槽位上限是写死的</text>
+  <!-- 顶部总标题 -->
+  <text x="400" y="42" text-anchor="middle" class="title">为什么 4 条硬件指令能救活满血 O4？</text>
+  <text x="400" y="68" text-anchor="middle" class="subtitle">上：DLL 固定二进制槽位限制 ｜ 下：E4M3 → FP16 比特格右移 1 位直通图</text>
 
-  <!-- ================= 左半：网上现有脚本 (48行位运算 -> 撑爆槽位 -> 被迫降级 O1) ================= -->
-  <g transform="translate(24, 66)">
-    <rect x="0" y="0" width="444" height="374" rx="10" fill="#ffffff" stroke="#fca5a5" stroke-width="1.8"/>
-    <rect x="0" y="0" width="444" height="34" rx="10" fill="#fef2f2"/>
-    <text x="222" y="22" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#b91c1c">① 网上 dlssnr-patcher 改法：48 行整数位运算展开</text>
+  <!-- ==================== 第一部分：DLL 槽位进度条对比 ==================== -->
+  <rect x="28" y="88" width="744" height="264" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="52" y="124" class="sec-title">① DLL 胖二进制槽位限制（新机器码严禁超出原槽位 2.4 MB）</text>
 
-    <!-- 代码示意框 -->
-    <rect x="16" y="46" width="412" height="106" rx="6" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.2"/>
-    <text x="28" y="66" font-size="12" font-weight="bold" fill="#9f1239">每遇到一条 FP8 ↔ FP16 转换指令，展开成 45～48 行整数分支：</text>
-    <text x="28" y="86" font-size="11" fill="#881337">and.b32 / shr.u32 / setp.eq.u32 （判零、判 NaN、判次正规数）</text>
-    <text x="28" y="103" font-size="11" fill="#881337">bfind.u32 + sub.u32 + shl.b32 （软件逐位寻找前导 1 归一化）</text>
-    <text x="28" y="120" font-size="11" fill="#881337">setp.gt.u32 + selp.b32 （软件计算 G/R/S 舍入位向偶舍入）</text>
-    <text x="28" y="139" font-size="11.5" font-weight="bold" fill="#be123c">后果：单核上百处转换，O4 编译后机器码暴涨 3.5 倍（达 8.5 MB）</text>
+  <!-- 网上改法 -->
+  <text x="52" y="160" class="label">网上改法（48 行整数位运算，开 O4）：</text>
+  <rect x="52" y="170" width="200" height="38" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
+  <rect x="52" y="175" width="668" height="28" rx="5" fill="#ef4444" opacity="0.92"/>
+  <text x="400" y="195" text-anchor="middle" class="bit-txt">膨胀至 8.5 MB（撑爆 2.4 MB 槽位！被迫降级 O1，耗时翻倍）</text>
 
-    <!-- 槽位对比条 -->
-    <text x="20" y="174" font-size="12" font-weight="bold" fill="#334155">DLL 原生 PE 槽位容量上限（约 2.5 MB）：</text>
-    <rect x="20" y="182" width="140" height="20" rx="4" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
-    <text x="90" y="196" text-anchor="middle" font-size="11" font-weight="bold" fill="#334155">原槽位 2.5 MB</text>
+  <!-- 本项目 4 条指令 -->
+  <text x="52" y="246" class="label">本项目 ptx-patcher（4 条硬件算术指令，开满血 O4）：</text>
+  <rect x="52" y="256" width="200" height="38" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
+  <rect x="52" y="261" width="196" height="28" rx="5" fill="#10b981"/>
+  <text x="150" y="281" text-anchor="middle" class="bit-txt">2.4 MB 严丝合缝</text>
+  <text x="272" y="281" class="label" fill="#059669">✓ 15/15 代码包全开满血 O4 装回原槽位（提速 2.1×～2.3×）</text>
 
-    <text x="20" y="220" font-size="12" font-weight="bold" fill="#b91c1c">48 行展开后 O4 编译体积（8.5 MB，严重溢出槽位）：</text>
-    <rect x="20" y="228" width="400" height="22" rx="4" fill="#fecaca" stroke="#dc2626" stroke-width="1.5"/>
-    <line x1="160" y1="224" x2="160" y2="254" stroke="#dc2626" stroke-width="2" stroke-dasharray="3 2"/>
-    <text x="285" y="243" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#991b1b">超出 6.0 MB，塞不回 DLL 原槽位</text>
+  <!-- 2.4MB 槽位分界竖线（标牌放在底部空白处，绝不压字） -->
+  <line x1="252" y1="164" x2="252" y2="314" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="5,4"/>
+  <rect x="167" y="314" width="170" height="26" rx="5" fill="#0f172a"/>
+  <text x="252" y="332" text-anchor="middle" class="bit-txt" font-size="13">▲ DLL 槽位上限 2.4 MB</text>
 
-    <!-- 被迫降级 O1 + 花括号漏检 -->
-    <rect x="16" y="264" width="412" height="96" rx="6" fill="#fef2f2" stroke="#f87171" stroke-width="1.2"/>
-    <text x="28" y="284" font-size="12.5" font-weight="bold" fill="#991b1b">● 为塞回槽位，被迫把主干核全部降级到 --opt-level=1 (O1)</text>
-    <text x="40" y="302" font-size="11.5" fill="#7f1d1d">关闭循环展开与指令调度 → 900p 耗时 49.89 ms，1080p 耗时 67.69 ms</text>
-    <text x="28" y="324" font-size="12.5" font-weight="bold" fill="#991b1b">● 漏查花括号向量加载 ld.global.v4.u32 {%r1352, ...}</text>
-    <text x="40" y="342" font-size="11.5" fill="#7f1d1d">把显存真特征误当成单定义常数替换 → 4K 天空打出 106 条红绿横带</text>
+  <!-- ==================== 第二部分：比特格搬家图示 ==================== -->
+  <rect x="28" y="370" width="744" height="502" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="52" y="406" class="sec-title">② 硬件解包原理：8 格比特整体右移 1 格 + 乘 256.0h</text>
+
+  <!-- 上排：FP8 (E4M3) 8 个比特格 -->
+  <text x="56" y="440" class="label">输入：8 位 FP8（E4M3，指数偏置 Bias = 7）</text>
+  <g transform="translate(56, 468)">
+    <!-- 位编号 -->
+    <text x="27" y="-8" text-anchor="middle" class="bit-idx">bit 7</text>
+    <text x="83" y="-8" text-anchor="middle" class="bit-idx">6</text>
+    <text x="139" y="-8" text-anchor="middle" class="bit-idx">5</text>
+    <text x="195" y="-8" text-anchor="middle" class="bit-idx">4</text>
+    <text x="251" y="-8" text-anchor="middle" class="bit-idx">3</text>
+    <text x="307" y="-8" text-anchor="middle" class="bit-idx">2</text>
+    <text x="363" y="-8" text-anchor="middle" class="bit-idx">1</text>
+    <text x="419" y="-8" text-anchor="middle" class="bit-idx">bit 0</text>
+
+    <!-- S (1 bit) -->
+    <rect x="0" y="0" width="52" height="44" rx="6" fill="#8b5cf6"/>
+    <text x="26" y="28" text-anchor="middle" class="bit-txt">S</text>
+
+    <!-- E3..E0 (4 bits) -->
+    <rect x="56" y="0" width="52" height="44" rx="6" fill="#2563eb"/>
+    <text x="82" y="28" text-anchor="middle" class="bit-txt">E3</text>
+    <rect x="112" y="0" width="52" height="44" rx="6" fill="#2563eb"/>
+    <text x="138" y="28" text-anchor="middle" class="bit-txt">E2</text>
+    <rect x="168" y="0" width="52" height="44" rx="6" fill="#2563eb"/>
+    <text x="194" y="28" text-anchor="middle" class="bit-txt">E1</text>
+    <rect x="224" y="0" width="52" height="44" rx="6" fill="#2563eb"/>
+    <text x="250" y="28" text-anchor="middle" class="bit-txt">E0</text>
+
+    <!-- M2..M0 (3 bits) -->
+    <rect x="280" y="0" width="52" height="44" rx="6" fill="#d97706"/>
+    <text x="306" y="28" text-anchor="middle" class="bit-txt">M2</text>
+    <rect x="336" y="0" width="52" height="44" rx="6" fill="#d97706"/>
+    <text x="362" y="28" text-anchor="middle" class="bit-txt">M1</text>
+    <rect x="392" y="0" width="52" height="44" rx="6" fill="#d97706"/>
+    <text x="418" y="28" text-anchor="middle" class="bit-txt">M0</text>
+
+    <!-- 右侧图例框 -->
+    <rect x="468" y="2" width="212" height="40" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="574" y="27" text-anchor="middle" class="note" font-weight="bold">1 符号 + 4 指数 + 3 尾数</text>
   </g>
 
-  <!-- ================= 右半：本项目 ptx-patcher v0.1.0 (IEEE 754 硬件算术 -> 15/15 满血 O4) ================= -->
-  <g transform="translate(492, 66)">
-    <rect x="0" y="0" width="444" height="374" rx="10" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.8"/>
-    <rect x="0" y="0" width="444" height="34" rx="10" fill="#ecfdf5"/>
-    <text x="222" y="22" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#047857">② 本项目 ptx-patcher（v0.1.0）：借 FP16 硬件电路归一化与舍入</text>
+  <!-- 中间映射箭头（从 y=516 直接连到 y=612 的 FP16 格顶，中间无横穿文字） -->
+  <!-- S: (56+26=82, 516) -> (56+20=76, 610) -->
+  <path d="M 82 516 L 76 608" stroke="#8b5cf6" stroke-width="2.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <!-- E3..E0: (56+82=138 -> 56+104=160), (56+250=306 -> 56+230=286) -->
+  <path d="M 138 516 L 160 608" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M 306 516 L 286 608" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <!-- M2..M0: (56+306=362 -> 56+272=328), (56+418=474 -> 56+356=412) -->
+  <path d="M 362 516 L 328 608" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M 474 516 L 412 608" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrow-orange)"/>
 
-    <!-- 恒等式 1：解包 -->
-    <rect x="16" y="46" width="412" height="82" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
-    <text x="26" y="65" font-size="12" font-weight="bold" fill="#065f46">恒等式 A（E4M3x2 → FP16x2 解包，仅 4 条机器指令）：</text>
-    <text x="26" y="83" font-size="11" fill="#1e293b">E4M3 偏置为 7，FP16 偏置为 15（差 8）。将 7 位指数+尾数右移 1 位对齐</text>
-    <text x="26" y="99" font-size="11" fill="#1e293b">FP16 bit[13:7] 后，直接乘上 2^8 = 256.0h，由硬件乘法器自动归一化：</text>
-    <text x="26" y="118" font-size="11" font-weight="bold" fill="#047857">prmt.b32 → shr.u32 1 → lop3（保符号）→ mul.rn.f16x2 0x5c005c00</text>
+  <!-- 右侧空白处放操作说明气泡（x=485..736，完全避开左侧箭头！） -->
+  <rect x="482" y="536" width="254" height="54" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="609" y="559" text-anchor="middle" class="code-pill" fill="#1d4ed8">shr.b16 整体右移 1 格</text>
+  <text x="609" y="581" text-anchor="middle" class="note" fill="#1e40af">bit 14 与低 7 位自动补 0</text>
 
-    <!-- 恒等式 2：打包 -->
-    <rect x="16" y="136" width="412" height="72" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
-    <text x="26" y="155" font-size="12" font-weight="bold" fill="#065f46">恒等式 B（FP16x2 → E4M3x2 次正规数向偶舍入，1 条加法）：</text>
-    <text x="26" y="173" font-size="11" fill="#1e293b">FP16 常数 2.0h (0x4000) 的末位刻度恰好是 2^-9（与 E4M3 次正规数一致）：</text>
-    <text x="26" y="194" font-size="11" font-weight="bold" fill="#047857">add.rn.f16x2 sub2, sub_in, 0x40004000; // +2.0h 硬件自动向偶舍入</text>
+  <!-- 下排：FP16 16 个比特格 (x=56, y=614) -->
+  <g transform="translate(56, 614)">
+    <!-- bit 15: S -->
+    <rect x="0" y="0" width="40" height="44" rx="5" fill="#8b5cf6"/>
+    <text x="20" y="28" text-anchor="middle" class="bit-txt">S</text>
+    <text x="20" y="62" text-anchor="middle" class="bit-idx">15</text>
 
-    <!-- 槽位对比条 -->
-    <text x="20" y="228" font-size="12" font-weight="bold" fill="#047857">满血 O4 编译体积缩回 2.4 MB（刚好装进 2.5 MB 原生槽位）：</text>
-    <rect x="20" y="236" width="134" height="22" rx="4" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
-    <line x1="160" y1="232" x2="160" y2="262" stroke="#475569" stroke-width="2" stroke-dasharray="3 2"/>
-    <text x="87" y="251" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">O4 仅 2.4 MB</text>
-    <text x="275" y="251" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#047857">← 15/15 代码包全部 O4 原位装入</text>
+    <!-- bit 14: 0 (补0) -->
+    <rect x="42" y="0" width="40" height="44" rx="5" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="62" y="28" text-anchor="middle" class="bit-zero">0</text>
+    <text x="62" y="62" text-anchor="middle" class="bit-idx">14</text>
 
-    <!-- 最终收益框 -->
-    <rect x="16" y="268" width="412" height="92" rx="6" fill="#ecfdf5" stroke="#34d399" stroke-width="1.4"/>
-    <text x="28" y="289" font-size="12.5" font-weight="bold" fill="#065f46">● 15/15 代码包满血 O4 + FP16 累加 Tensor Core 全速档：</text>
-    <text x="40" y="307" font-size="11.5" font-weight="bold" fill="#047857">720p 15.83 ms（提速 2.35×）｜900p 24.47 ms｜1080p 32.04 ms</text>
-    <text x="28" y="329" font-size="12.5" font-weight="bold" fill="#065f46">● 全函数扫描剔除花括号多定义寄存器 + 保留单定义直通：</text>
-    <text x="40" y="347" font-size="11.5" fill="#065f46">有限值域 100% 零误差（0 bit-diff），4K 天空红绿变号 106 次 → 0 次</text>
+    <!-- bit 13..10: E3..E0 -->
+    <rect x="84" y="0" width="40" height="44" rx="5" fill="#2563eb"/>
+    <text x="104" y="28" text-anchor="middle" class="bit-txt">E3</text>
+    <text x="104" y="62" text-anchor="middle" class="bit-idx">13</text>
+
+    <rect x="126" y="0" width="40" height="44" rx="5" fill="#2563eb"/>
+    <text x="146" y="28" text-anchor="middle" class="bit-txt">E2</text>
+    <text x="146" y="62" text-anchor="middle" class="bit-idx">12</text>
+
+    <rect x="168" y="0" width="40" height="44" rx="5" fill="#2563eb"/>
+    <text x="188" y="28" text-anchor="middle" class="bit-txt">E1</text>
+    <text x="188" y="62" text-anchor="middle" class="bit-idx">11</text>
+
+    <rect x="210" y="0" width="40" height="44" rx="5" fill="#2563eb"/>
+    <text x="230" y="28" text-anchor="middle" class="bit-txt">E0</text>
+    <text x="230" y="62" text-anchor="middle" class="bit-idx">10</text>
+
+    <!-- bit 9..7: M2..M0 -->
+    <rect x="252" y="0" width="40" height="44" rx="5" fill="#d97706"/>
+    <text x="272" y="28" text-anchor="middle" class="bit-txt">M2</text>
+    <text x="272" y="62" text-anchor="middle" class="bit-idx">9</text>
+
+    <rect x="294" y="0" width="40" height="44" rx="5" fill="#d97706"/>
+    <text x="314" y="28" text-anchor="middle" class="bit-txt">M1</text>
+    <text x="314" y="62" text-anchor="middle" class="bit-idx">8</text>
+
+    <rect x="336" y="0" width="40" height="44" rx="5" fill="#d97706"/>
+    <text x="356" y="28" text-anchor="middle" class="bit-txt">M0</text>
+    <text x="356" y="62" text-anchor="middle" class="bit-idx">7</text>
+
+    <!-- bit 6..0: 7 zeros -->
+    <rect x="378" y="0" width="40" height="44" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="398" y="28" text-anchor="middle" class="bit-zero">0</text>
+    <rect x="420" y="0" width="40" height="44" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="440" y="28" text-anchor="middle" class="bit-zero">0</text>
+    <rect x="462" y="0" width="40" height="44" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="482" y="28" text-anchor="middle" class="bit-zero">0</text>
+    <rect x="504" y="0" width="40" height="44" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="524" y="28" text-anchor="middle" class="bit-zero">0</text>
+    <rect x="546" y="0" width="40" height="44" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="566" y="28" text-anchor="middle" class="bit-zero">0</text>
+    <rect x="588" y="0" width="40" height="44" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="608" y="28" text-anchor="middle" class="bit-zero">0</text>
+    <rect x="630" y="0" width="40" height="44" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="650" y="28" text-anchor="middle" class="bit-zero">0</text>
+    <text x="524" y="62" text-anchor="middle" class="bit-idx">bit 6 .. 0（低 7 位尾数补 0）</text>
   </g>
+  <text x="56" y="704" class="label">中间态：16 位 FP16（指数偏置 Bias = 15，数值恰好缩水 2^(15-7) = 256 倍）</text>
+
+  <!-- 底部硬件乘法器一步到位 -->
+  <line x1="400" y1="714" x2="400" y2="744" stroke="#059669" stroke-width="3" marker-end="url(#arrow-green)"/>
+
+  <rect x="56" y="750" width="688" height="100" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  <text x="400" y="782" text-anchor="middle" class="code-pill" fill="#065f46">mul.rn.f16x2 %d, %d, 0x5c005c00 （硬件乘以常数 256.0h）</text>
+  <text x="400" y="810" text-anchor="middle" class="note" fill="#047857">• 正规数：FP16 硬件乘法器自动将指数 +8，还原真实数值</text>
+  <text x="400" y="834" text-anchor="middle" class="note" fill="#047857">• 次正规数（E=0）：硬件电路自动寻找前导 1 完成归一化（省去 40 行整数分支！）</text>
 </svg>
