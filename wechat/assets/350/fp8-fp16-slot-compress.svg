@@ -29,34 +29,35 @@
   <rect width="800" height="900" rx="18" fill="#f8fafc"/>
 
   <!-- 顶部总标题 -->
-  <text x="400" y="42" text-anchor="middle" class="title">为什么 4 条硬件指令能救活满血 O4？</text>
-  <text x="400" y="68" text-anchor="middle" class="subtitle">上：DLL 固定二进制槽位限制 ｜ 下：E4M3 → FP16 比特格右移 1 位直通图</text>
+  <text x="400" y="42" text-anchor="middle" class="title">为什么硬件算术转换能保住 15/15 满血 O4？</text>
+  <text x="400" y="68" text-anchor="middle" class="subtitle">上：Fatbin 压缩槽位限制（以 FB00 为例） ｜ 下：E4M3 → FP16 比特格右移 1 位直通图</text>
 
   <!-- ==================== 第一部分：DLL 槽位进度条对比 ==================== -->
   <rect x="28" y="88" width="744" height="264" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-  <text x="52" y="124" class="sec-title">① DLL 胖二进制槽位限制（新机器码严禁超出原槽位 2.4 MB）</text>
+  <text x="52" y="124" class="sec-title">① DLL 胖二进制槽位限制（以 FB00 为例，压缩后上限 842 KB）</text>
 
-  <!-- 网上改法 -->
-  <text x="52" y="160" class="label">网上改法（48 行整数位运算，开 O4）：</text>
-  <rect x="52" y="170" width="200" height="38" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
+  <!-- 上游改法 -->
+  <text x="52" y="160" class="label">上游纯整数位运算（解包 49 行 + 打包 91 行 PTX，若开 O4）：</text>
+  <rect x="52" y="170" width="340" height="38" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
   <rect x="52" y="175" width="668" height="28" rx="5" fill="#ef4444" opacity="0.92"/>
-  <text x="400" y="195" text-anchor="middle" class="bit-txt">膨胀至 8.5 MB（撑爆 2.4 MB 槽位！被迫降级 O1，耗时翻倍）</text>
+  <text x="396" y="195" text-anchor="middle" class="bit-txt">代码膨胀撑破 842 KB 槽位上限（被迫降级 O1，耗时翻倍）</text>
 
-  <!-- 本项目 4 条指令 -->
-  <text x="52" y="246" class="label">本项目 ptx-patcher（4 条硬件算术指令，开满血 O4）：</text>
-  <rect x="52" y="256" width="200" height="38" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
+  <!-- 本项目硬件算术转换 -->
+  <text x="52" y="246" class="label">本项目 ptx-patcher（解包 7 行 + 打包 29 行 PTX，开满血 O4）：</text>
+  <rect x="52" y="256" width="340" height="38" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
   <rect x="52" y="261" width="196" height="28" rx="5" fill="#10b981"/>
-  <text x="150" y="281" text-anchor="middle" class="bit-txt">2.4 MB 严丝合缝</text>
-  <text x="272" y="281" class="label" fill="#059669">✓ 15/15 代码包全开满血 O4 装回原槽位（提速 2.1×～2.3×）</text>
+  <text x="150" y="281" text-anchor="middle" class="bit-txt">压缩后仅 485 KB</text>
+  <text x="410" y="281" class="label" fill="#059669">✓ 15/15 代码包全开 O4 装回原槽位</text>
 
-  <!-- 2.4MB 槽位分界竖线（标牌放在底部空白处，绝不压字） -->
-  <line x1="252" y1="164" x2="252" y2="314" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="5,4"/>
-  <rect x="167" y="314" width="170" height="26" rx="5" fill="#0f172a"/>
-  <text x="252" y="332" text-anchor="middle" class="bit-txt" font-size="13">▲ DLL 槽位上限 2.4 MB</text>
+  <!-- 842KB 槽位分界竖线（分段绘制，不穿过中间文字行） -->
+  <line x1="392" y1="166" x2="392" y2="212" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="5,4"/>
+  <line x1="392" y1="254" x2="392" y2="314" stroke="#0f172a" stroke-width="2.5" stroke-dasharray="5,4"/>
+  <rect x="292" y="314" width="200" height="26" rx="5" fill="#0f172a"/>
+  <text x="392" y="332" text-anchor="middle" class="bit-txt" font-size="13">▲ FB00 槽位上限 842 KB</text>
 
   <!-- ==================== 第二部分：比特格搬家图示 ==================== -->
   <rect x="28" y="370" width="744" height="502" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-  <text x="52" y="406" class="sec-title">② 硬件解包原理：8 格比特整体右移 1 格 + 乘 256.0h</text>
+  <text x="52" y="406" class="sec-title">② 硬件解包原理：8 格比特右移 1 格 + 乘 256.0h（折叠为 4 条机器指令）</text>
 
   <!-- 上排：FP8 (E4M3) 8 个比特格 -->
   <text x="56" y="440" class="label">输入：8 位 FP8（E4M3，指数偏置 Bias = 7）</text>
@@ -98,20 +99,17 @@
     <text x="574" y="27" text-anchor="middle" class="note" font-weight="bold">1 符号 + 4 指数 + 3 尾数</text>
   </g>
 
-  <!-- 中间映射箭头（从 y=516 直接连到 y=612 的 FP16 格顶，中间无横穿文字） -->
-  <!-- S: (56+26=82, 516) -> (56+20=76, 610) -->
+  <!-- 中间映射箭头 -->
   <path d="M 82 516 L 76 608" stroke="#8b5cf6" stroke-width="2.5" fill="none" marker-end="url(#arrow-purple)"/>
-  <!-- E3..E0: (56+82=138 -> 56+104=160), (56+250=306 -> 56+230=286) -->
   <path d="M 138 516 L 160 608" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
   <path d="M 306 516 L 286 608" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
-  <!-- M2..M0: (56+306=362 -> 56+272=328), (56+418=474 -> 56+356=412) -->
   <path d="M 362 516 L 328 608" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrow-orange)"/>
   <path d="M 474 516 L 412 608" stroke="#d97706" stroke-width="2.5" fill="none" marker-end="url(#arrow-orange)"/>
 
-  <!-- 右侧空白处放操作说明气泡（x=485..736，完全避开左侧箭头！） -->
-  <rect x="482" y="536" width="254" height="54" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
-  <text x="609" y="559" text-anchor="middle" class="code-pill" fill="#1d4ed8">shr.b16 整体右移 1 格</text>
-  <text x="609" y="581" text-anchor="middle" class="note" fill="#1e40af">bit 14 与低 7 位自动补 0</text>
+  <!-- 右侧空白处放操作说明气泡 -->
+  <rect x="476" y="534" width="264" height="58" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="608" y="558" text-anchor="middle" class="code-pill" fill="#1d4ed8">shr.u32 + lop3.b32</text>
+  <text x="608" y="580" text-anchor="middle" class="note" fill="#1e40af">保留符号 S，指数与尾数右移 1 格</text>
 
   <!-- 下排：FP16 16 个比特格 (x=56, y=614) -->
   <g transform="translate(56, 614)">
@@ -180,5 +178,5 @@
   <rect x="56" y="750" width="688" height="100" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
   <text x="400" y="782" text-anchor="middle" class="code-pill" fill="#065f46">mul.rn.f16x2 %d, %d, 0x5c005c00 （硬件乘以常数 256.0h）</text>
   <text x="400" y="810" text-anchor="middle" class="note" fill="#047857">• 正规数：FP16 硬件乘法器自动将指数 +8，还原真实数值</text>
-  <text x="400" y="834" text-anchor="middle" class="note" fill="#047857">• 次正规数（E=0）：硬件电路自动寻找前导 1 完成归一化（省去 40 行整数分支！）</text>
+  <text x="400" y="834" text-anchor="middle" class="note" fill="#047857">• 次正规数（E=0）：硬件电路自动寻找前导 1 完成归一化（省去数十行整数分支）</text>
 </svg>
