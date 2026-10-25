@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383" width="900" height="383">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#061814"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="beamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.95"/>
+    </linearGradient>
+    <radialGradient id="glowCenter" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowRight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .chip-title { font-family: 'WenQuanYi Micro Hei', 'DejaVu Sans', sans-serif; font-size: 28px; font-weight: bold; fill: #ffffff; }
+      .chip-sub { font-family: 'WenQuanYi Micro Hei', 'DejaVu Sans Mono', sans-serif; font-size: 16px; font-weight: bold; }
+      .badge-txt { font-family: 'WenQuanYi Micro Hei', 'DejaVu Sans Mono', sans-serif; font-size: 20px; font-weight: bold; fill: #ffffff; }
+      .hero-title { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 36px; font-weight: bold; fill: #f8fafc; letter-spacing: 2px; }
+    </style>
+  </defs>
+
+  <!-- 深邃电路背景 -->
+  <rect width="900" height="383" fill="url(#bg)"/>
+
+  <!-- 背景暗网格走线 -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.6">
+    <line x1="0" y1="64" x2="900" y2="64"/>
+    <line x1="0" y1="128" x2="900" y2="128"/>
+    <line x1="0" y1="192" x2="900" y2="192"/>
+    <line x1="0" y1="256" x2="900" y2="256"/>
+    <line x1="0" y1="320" x2="900" y2="320"/>
+    <line x1="150" y1="0" x2="150" y2="383"/>
+    <line x1="300" y1="0" x2="300" y2="383"/>
+    <line x1="450" y1="0" x2="450" y2="383"/>
+    <line x1="600" y1="0" x2="600" y2="383"/>
+    <line x1="750" y1="0" x2="750" y2="383"/>
+  </g>
+
+  <!-- 光晕 -->
+  <circle cx="450" cy="215" r="170" fill="url(#glowCenter)"/>
+  <circle cx="715" cy="215" r="165" fill="url(#glowRight)"/>
+
+  <!-- 顶部极简大标题 -->
+  <text x="450" y="56" text-anchor="middle" class="hero-title">DLSS 5 跨代移植 RTX 30</text>
+
+  <!-- ==================== 左侧芯片：RTX 50 (FP8) ==================== -->
+  <g transform="translate(95, 115)">
+    <!-- 芯片引脚（上下左右） -->
+    <g fill="#64748b">
+      <rect x="24" y="-12" width="8" height="12" rx="2"/><rect x="48" y="-12" width="8" height="12" rx="2"/>
+      <rect x="72" y="-12" width="8" height="12" rx="2"/><rect x="96" y="-12" width="8" height="12" rx="2"/>
+      <rect x="120" y="-12" width="8" height="12" rx="2"/><rect x="144" y="-12" width="8" height="12" rx="2"/>
+      <rect x="24" y="180" width="8" height="12" rx="2"/><rect x="48" y="180" width="8" height="12" rx="2"/>
+      <rect x="72" y="180" width="8" height="12" rx="2"/><rect x="96" y="180" width="8" height="12" rx="2"/>
+      <rect x="120" y="180" width="8" height="12" rx="2"/><rect x="144" y="180" width="8" height="12" rx="2"/>
+      <rect x="-12" y="24" width="12" height="8" rx="2"/><rect x="-12" y="52" width="12" height="8" rx="2"/>
+      <rect x="-12" y="80" width="12" height="8" rx="2"/><rect x="-12" y="108" width="12" height="8" rx="2"/>
+      <rect x="-12" y="136" width="12" height="8" rx="2"/>
+    </g>
+    <!-- 封装基板与核心晶圆 -->
+    <rect x="0" y="0" width="180" height="180" rx="18" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="22" y="22" width="136" height="136" rx="10" fill="#0f172a" stroke="#fbbf24" stroke-width="1.5" opacity="0.95"/>
+    <text x="90" y="64" text-anchor="middle" class="chip-title" fill="#fbbf24">RTX 50</text>
+
+    <!-- 8 格紧凑 FP8 视觉块 (8 bits) -->
+    <g transform="translate(30, 86)">
+      <rect x="0" y="0" width="13" height="24" rx="2" fill="#a855f7"/>
+      <rect x="15" y="0" width="13" height="24" rx="2" fill="#3b82f6"/>
+      <rect x="30" y="0" width="13" height="24" rx="2" fill="#3b82f6"/>
+      <rect x="45" y="0" width="13" height="24" rx="2" fill="#3b82f6"/>
+      <rect x="60" y="0" width="13" height="24" rx="2" fill="#3b82f6"/>
+      <rect x="75" y="0" width="13" height="24" rx="2" fill="#f59e0b"/>
+      <rect x="90" y="0" width="13" height="24" rx="2" fill="#f59e0b"/>
+      <rect x="105" y="0" width="13" height="24" rx="2" fill="#f59e0b"/>
+    </g>
+    <text x="90" y="140" text-anchor="middle" class="chip-sub" fill="#fcd34d">FP8 (8-bit)</text>
+  </g>
+
+  <!-- ==================== 中央：几何扩维转换棱镜桥 ==================== -->
+  <!-- 从 8-bit 展开到 16-bit 的能量光束漏斗 -->
+  <polygon points="278,185 415,150 415,260 278,225" fill="url(#beamGrad)" opacity="0.22"/>
+  <polygon points="485,150 622,165 622,245 485,260" fill="url(#beamGrad)" opacity="0.28"/>
+
+  <!-- 光轨流线 -->
+  <path d="M 275 190 C 335 190, 355 162, 412 162" stroke="#f59e0b" stroke-width="3" fill="none"/>
+  <path d="M 275 205 L 412 205" stroke="#38bdf8" stroke-width="3.5" fill="none"/>
+  <path d="M 275 220 C 335 220, 355 248, 412 248" stroke="#f59e0b" stroke-width="3" fill="none"/>
+
+  <path d="M 488 162 C 545 162, 565 178, 625 178" stroke="#34d399" stroke-width="3" fill="none"/>
+  <path d="M 488 205 L 625 205" stroke="#10b981" stroke-width="4" fill="none"/>
+  <path d="M 488 248 C 545 248, 565 232, 625 232" stroke="#34d399" stroke-width="3" fill="none"/>
+
+  <!-- 中央发光六边形转换核 -->
+  <g transform="translate(450, 205)">
+    <polygon points="0,-68 59,-34 59,34 0,68 -59,34 -59,-34" fill="#0f172a" stroke="#38bdf8" stroke-width="3.5"/>
+    <polygon points="0,-56 48,-28 48,28 0,56 -48,28 -48,-28" fill="#1e293b" stroke="#10b981" stroke-width="1.5" opacity="0.9"/>
+    <text x="0" y="-8" text-anchor="middle" class="badge-txt" fill="#38bdf8">&gt;&gt; 1</text>
+    <line x1="-34" y1="4" x2="34" y2="4" stroke="#475569" stroke-width="1.5"/>
+    <text x="0" y="28" text-anchor="middle" class="badge-txt" fill="#34d399">× 256</text>
+  </g>
+
+  <!-- ==================== 右侧芯片：RTX 30 (FP16 · O4) ==================== -->
+  <g transform="translate(625, 115)">
+    <!-- 芯片发光引脚 -->
+    <g fill="#10b981">
+      <rect x="24" y="-12" width="8" height="12" rx="2"/><rect x="48" y="-12" width="8" height="12" rx="2"/>
+      <rect x="72" y="-12" width="8" height="12" rx="2"/><rect x="96" y="-12" width="8" height="12" rx="2"/>
+      <rect x="120" y="-12" width="8" height="12" rx="2"/><rect x="144" y="-12" width="8" height="12" rx="2"/>
+      <rect x="24" y="180" width="8" height="12" rx="2"/><rect x="48" y="180" width="8" height="12" rx="2"/>
+      <rect x="72" y="180" width="8" height="12" rx="2"/><rect x="96" y="180" width="8" height="12" rx="2"/>
+      <rect x="120" y="180" width="8" height="12" rx="2"/><rect x="144" y="180" width="8" height="12" rx="2"/>
+      <rect x="180" y="24" width="12" height="8" rx="2"/><rect x="180" y="52" width="12" height="8" rx="2"/>
+      <rect x="180" y="80" width="12" height="8" rx="2"/><rect x="180" y="108" width="12" height="8" rx="2"/>
+      <rect x="180" y="136" width="12" height="8" rx="2"/>
+    </g>
+    <!-- 封装基板与核心晶圆 -->
+    <rect x="0" y="0" width="180" height="180" rx="18" fill="#064e3b" stroke="#10b981" stroke-width="3.5"/>
+    <rect x="18" y="18" width="144" height="144" rx="10" fill="#091917" stroke="#34d399" stroke-width="2"/>
+    <text x="90" y="60" text-anchor="middle" class="chip-title" fill="#34d399">RTX 30</text>
+
+    <!-- 16 格展开后的 FP16 视觉块 (双排 8x2 = 16 bits) -->
+    <g transform="translate(31, 74)">
+      <!-- 高 8 位：S, 0, E3..E0, M2, M1 -->
+      <rect x="0" y="0" width="13" height="14" rx="2" fill="#a855f7"/>
+      <rect x="15" y="0" width="13" height="14" rx="2" fill="#475569"/>
+      <rect x="30" y="0" width="13" height="14" rx="2" fill="#3b82f6"/>
+      <rect x="45" y="0" width="13" height="14" rx="2" fill="#3b82f6"/>
+      <rect x="60" y="0" width="13" height="14" rx="2" fill="#3b82f6"/>
+      <rect x="75" y="0" width="13" height="14" rx="2" fill="#3b82f6"/>
+      <rect x="90" y="0" width="13" height="14" rx="2" fill="#f59e0b"/>
+      <rect x="105" y="0" width="13" height="14" rx="2" fill="#f59e0b"/>
+      <!-- 低 8 位：M0 + 7 个 0 -->
+      <rect x="0" y="18" width="13" height="14" rx="2" fill="#f59e0b"/>
+      <rect x="15" y="18" width="13" height="14" rx="2" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <rect x="30" y="18" width="13" height="14" rx="2" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <rect x="45" y="18" width="13" height="14" rx="2" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <rect x="60" y="18" width="13" height="14" rx="2" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <rect x="75" y="18" width="13" height="14" rx="2" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <rect x="90" y="18" width="13" height="14" rx="2" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+      <rect x="105" y="18" width="13" height="14" rx="2" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+    </g>
+
+    <!-- 底部满血 O4 徽章 -->
+    <rect x="28" y="118" width="124" height="30" rx="6" fill="url(#greenGrad)"/>
+    <text x="90" y="139" text-anchor="middle" class="chip-sub" fill="#06281e">FP16 · 满血 O4</text>
+  </g>
+</svg>
