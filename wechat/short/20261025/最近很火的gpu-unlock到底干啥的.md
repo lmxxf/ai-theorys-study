@@ -97,7 +97,16 @@
      因为 PyTorch / cuBLAS / FlashAttention 里的 BF16 和 FP16 矩阵乘，为了防止长序列大矩阵累加溢出，底层写死调用的全都是 **FP32 累加（`.f32.f16.f16.f32` / `.f32.bf16.bf16.f32`）**——刚好一头撞在老黄的 `SS0` 半速锁上！
      在这些重计算（Compute-bound）场景下，装上 `gpu-unlock` 直接白捡 **30%～80% 的矩阵算力**；
    - 至于大模型单并发逐字生成（Decode），因为卡在显存带宽（Memory-bound）而不在算力，解不解锁速度都差不多。
-3. **关于 RTX 40 系（Ada `sm_89`）的解锁分支**：
-   - 老黄在 RTX 40 系（如 RTX 4090 `AD102` vs 专业卡 RTX 6000 Ada）上捅了一模一样的刀子：同样用内部限速寄存器把 FP16 / BF16 / TF32 甚至 FP8 的 `.f32` 单精度累加砍了半速（4090 用 `.f16` 累加是 `330 TFLOPS`，用 `.f32` 累加直接腰斩成 `165 TFLOPS`）；
-   - 虽然 `Zagitta/gpu-unlock` 主仓本身的 `V67` 固件 payload 只适配了 RTX 30 系（`GA102/103/104/106/107`），但社区已经顺着同一套 SEC2 Booter 提权写 `FEAT_OVR_PLM` 与 `SS0` 的思路，衍生出了针对 40 系 Ada 架构的 **`JustAResearcher/gpu-unlock-ada`**（以及 Windows 下的 `TOTORONG/AD103_win_unlocker`），实测在 RTX 4090、4070 Ti Super、4060 Ti 16GB 上同样把 `.f32` 累加指令发射率翻倍解锁了！
-   - 顺便一提：因为原版 DLSS 5 在 40/50 系上用的也是 `.f16.e4m3.e4m3.f16` 半精度累加，所以哪怕在 40 系显卡上跑 DLSS 5，它原本走的也是没被老黄限速的 `.f16` 满速通道。
+3. **关于 RTX 40 系（Ada `sm_89`）的解锁分支与 `FP8 (e4m3)` 倍增实测**：
+   - 老黄在 RTX 40 系（如 RTX 4090 `AD102`、RTX 4080 SUPER `AD103`）上捅了一模一样的刀子：**只要累加器是 `.f32`（32 位单精度累加），不管输入是 `FP16`、`BF16`、`TF32` 还是 40 系新增的 `FP8 (e4m3)`，在消费级 40 系游戏卡上一律砍半！**
+   - 社区顺着同一套 SEC2 Booter（`kgspGetBinArchiveBooterLoadUcode_AD102` 通用覆盖 `AD102~AD107`）提权写 `FEAT_OVR_PLM` 与 `SS0 = 0x88888888` 的思路，衍生出了 `JustAResearcher/gpu-unlock-ada`、`TOTORONG/AD103_win_unlocker` 以及 `Zagitta/gpu-unlock` 的 PR #24 / PR #41。在 PR #41 的 RTX 4080 SUPER 实测（`mmapeak`）中，所有 `.f32` 累加通道（含 `FP8 e4m3`）全线接近翻倍：
+
+| 指令模式（RTX 4080 SUPER `AD103`） | 解锁前（Stock） | 解锁后（Unlocked） | 提升幅度 |
+| :--- | :---: | :---: | :---: |
+| **`BF16 → FP32` 累加** | `101.2 TFLOPS` | **`198.4 TFLOPS`** | **1.96×（接近倍增）** |
+| **`FP16 → FP32` 累加** | `101.5 TFLOPS` | **`202.7 TFLOPS`** | **2.00×（翻倍）** |
+| **`TF32 → FP32` 累加** | `50.6 TFLOPS` | **`99.2 TFLOPS`** | **1.96×（接近倍增）** |
+| **`FP8 (e4m3) → FP32` 累加** | `201.8 TFLOPS` | **`376.1 TFLOPS`** | **1.86×（接近倍增！）** |
+| `FP16 → FP16` 半精度累加 | `202.5 TFLOPS` | `201.8 TFLOPS` | **1.00×（出厂已是满速）** |
+
+   - 这意味着在 40 系显卡上用 FP8（`e4m3` + `.f32` 累加）跑大模型或文生图时，解锁同样能白捡近一倍的 FP8 张量算力！而 DLSS 5 在 40/50 系上用的是 `.f16.e4m3.e4m3.f16`（半精度累加），和表里最后一行 `FP16 → FP16` 一样，出厂本来就是未限速的满血通道。
