@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" width="900" height="660" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="900" height="660" fill="#fbfbfd" rx="10"/>
+
+  <!-- 标题 -->
+  <text x="450" y="32" text-anchor="middle" fill="#1e293b" font-size="20" font-weight="bold">DSpark 半自回归草稿头：怎么防止并行猜词拼出“火肉”？</text>
+  <text x="450" y="53" text-anchor="middle" fill="#64748b" font-size="13">重活儿（5 层滑窗网络）一次并行算完｜选字时查一张 256 维搭配表（防前后词不搭）＋ 6400 维置信度刹车</text>
+
+  <!-- ================= 第一步：主干 5 层抽头 + 5 层并行网络一次算出粗略意图 ================= -->
+  <rect x="24" y="68" width="852" height="74" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="44" y="92" fill="#166534" font-size="13.5" font-weight="bold">第一步（只跑 1 次 5 层小网络）：从主干 [L03, L17, L31, L45, L59] 抽头融合 → 一次并行算出后面 7 格的粗略意图</text>
+
+  <rect x="44" y="102" width="240" height="28" rx="5" fill="#ffffff" stroke="#86efac" stroke-width="1.2"/>
+  <text x="164" y="121" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="bold">上文：“今天晚饭我想吃 ＿ ＿”</text>
+
+  <path d="M 284 116 L 320 116" stroke="#16a34a" stroke-width="2"/>
+  <polygon points="324,116 317,112 317,120" fill="#16a34a"/>
+
+  <rect x="326" y="102" width="256" height="28" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="454" y="121" text-anchor="middle" fill="#14532d" font-size="12" font-weight="bold">第 1 格意图：火 (40%) / 烤 (40%)</text>
+
+  <rect x="596" y="102" width="256" height="28" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="724" y="121" text-anchor="middle" fill="#14532d" font-size="12" font-weight="bold">第 2 格意图：锅 (40%) / 肉 (40%)</text>
+
+  <!-- ================= 第二步：左（纯并行翻车） vs 右（DSpark 搭配表修正） ================= -->
+  <!-- 左框：纯并行盲猜（互不通气 -> 火肉） -->
+  <rect x="24" y="158" width="336" height="244" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.8" stroke-dasharray="5,3"/>
+  <rect x="24" y="158" width="336" height="30" rx="6" fill="#ffe4e6"/>
+  <text x="192" y="178" text-anchor="middle" fill="#9f1239" font-size="13" font-weight="bold">× 普通纯并行草稿（各猜各的、互不通气）</text>
+
+  <rect x="40" y="204" width="116" height="54" rx="6" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+  <text x="98" y="225" text-anchor="middle" fill="#be123c" font-size="11.5" font-weight="bold">第 1 格独立选</text>
+  <text x="98" y="246" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">抽中：“火”</text>
+
+  <text x="192" y="235" text-anchor="middle" fill="#e11d48" font-size="11" font-weight="bold">互不通气</text>
+
+  <rect x="228" y="204" width="116" height="54" rx="6" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+  <text x="286" y="225" text-anchor="middle" fill="#be123c" font-size="11.5" font-weight="bold">第 2 格独立选</text>
+  <text x="286" y="246" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">抽中：“肉”</text>
+
+  <path d="M 98 258 L 168 292" stroke="#e11d48" stroke-width="1.8"/>
+  <path d="M 286 258 L 216 292" stroke="#e11d48" stroke-width="1.8"/>
+
+  <rect x="56" y="296" width="272" height="44" rx="6" fill="#fecdd3" stroke="#e11d48" stroke-width="2"/>
+  <text x="192" y="324" text-anchor="middle" fill="#881337" font-size="15" font-weight="bold">拼出：“我想吃 火肉” ×</text>
+
+  <text x="192" y="364" text-anchor="middle" fill="#9f1239" font-size="11.5" font-weight="bold">第 2 格不知道第 1 格选了“火”</text>
+  <text x="192" y="384" text-anchor="middle" fill="#64748b" font-size="11">送给大模型批改时，第 2 个字当场挂掉重算</text>
+
+  <!-- 右框：DSpark 马尔可夫搭配表修正（火 -> 查表递纸条 -> 锅） -->
+  <rect x="380" y="158" width="496" height="244" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="2"/>
+  <rect x="380" y="158" width="496" height="30" rx="6" fill="#fef3c7"/>
+  <text x="628" y="178" text-anchor="middle" fill="#92400e" font-size="13.5" font-weight="bold">✓ DSpark 第二步：查“秩 256 马尔可夫搭配表”给下一格递纸条</text>
+
+  <!-- 第 1 格先掷出“火” -->
+  <rect x="398" y="204" width="118" height="54" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="457" y="225" text-anchor="middle" fill="#166534" font-size="12" font-weight="bold">① 第 1 格先选定</text>
+  <text x="457" y="246" text-anchor="middle" fill="#14532d" font-size="15" font-weight="bold">“火”</text>
+
+  <!-- 箭头向下进 W1 查表 -->
+  <path d="M 457 258 L 457 296" stroke="#d97706" stroke-width="2"/>
+  <polygon points="457,300 452,293 462,293" fill="#d97706"/>
+  <text x="457" y="282" text-anchor="middle" fill="#b45309" font-size="10.5" font-weight="bold">拿“火”的 ID 查表</text>
+
+  <!-- Markov W1 -> 256维向量 -> W2 递纸条 -->
+  <rect x="398" y="302" width="264" height="82" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="530" y="323" text-anchor="middle" fill="#92400e" font-size="12" font-weight="bold">② 极薄的前后字搭配表（Markov Head）</text>
+  <text x="530" y="343" text-anchor="middle" fill="#b45309" font-size="10.8">查 W1 [20万, 256] 取出“火”的 256 维搭配向量</text>
+  <text x="530" y="361" text-anchor="middle" fill="#b45309" font-size="10.8">再乘 W2 [256, 20万] 算出下一格加减分偏置：</text>
+  <text x="530" y="377" text-anchor="middle" fill="#047857" font-size="10.2" font-weight="bold">递纸条：【“锅、烧”大幅加分 ↑ ｜ “肉”扣分 ↓】</text>
+
+  <!-- 箭头从搭配表连向第 2 格 -->
+  <path d="M 662 340 L 760 340 L 760 264" fill="none" stroke="#d97706" stroke-width="2.2"/>
+  <polygon points="760,259 755,267 765,267" fill="#d97706"/>
+  <text x="716" y="332" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">+ 叠加搭配偏置</text>
+
+  <!-- 第 2 格收到纸条选出“锅” -->
+  <rect x="668" y="204" width="188" height="54" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="762" y="225" text-anchor="middle" fill="#166534" font-size="12" font-weight="bold">③ 第 2 格加上纸条再选</text>
+  <text x="762" y="246" text-anchor="middle" fill="#14532d" font-size="15" font-weight="bold">稳稳抽中：“锅” ✓</text>
+
+  <text x="774" y="366" text-anchor="middle" fill="#15803d" font-size="12.5" font-weight="bold">拼出：“我想吃 火锅” ✓</text>
+  <text x="774" y="384" text-anchor="middle" fill="#64748b" font-size="10">5 层网络仍只跑 1 次，查表耗时近 0</text>
+
+  <!-- ================= 第三步：6400 维置信度刹车片（没把握就提前停笔，别硬凑满 7 个） ================= -->
+  <rect x="24" y="418" width="852" height="224" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.8"/>
+  <rect x="24" y="418" width="852" height="30" rx="6" fill="#e0f2fe"/>
+  <text x="450" y="438" text-anchor="middle" fill="#0369a1" font-size="13.5" font-weight="bold">第三步（置信度头动态止损）：6144 维意图 ＋ 256 维搭配向量 = 6400 维打把握分，没把握当场停笔</text>
+
+  <!-- 左下：6400 维拼接示意 -->
+  <g transform="translate(44, 462)">
+    <rect x="0" y="0" width="290" height="96" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+    <text x="145" y="20" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="bold">为什么 confidence_head 输入是 6,400 维？</text>
+    <rect x="14" y="30" width="166" height="24" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+    <text x="97" y="46" text-anchor="middle" fill="#14532d" font-size="10.5" font-weight="bold">第一步意图特征 [6144 维]</text>
+    <rect x="184" y="30" width="92" height="24" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.2"/>
+    <text x="230" y="46" text-anchor="middle" fill="#92400e" font-size="10.5" font-weight="bold">+ 搭配 [256维]</text>
+    <text x="145" y="74" text-anchor="middle" fill="#0369a1" font-size="11" font-weight="bold">拼成 6,400 维 → 乘 [6400, 1] 算出把握分 c_k</text>
+    <text x="145" y="90" text-anchor="middle" fill="#64748b" font-size="10">代表“这格选出的字能通过大哥批改的概率”</text>
+  </g>
+
+  <!-- 右下：7 个格子逐格打分与第 6 格提前拉闸止损 -->
+  <g transform="translate(356, 462)">
+    <!-- 5 passed green slots + 2 cut-off red slots -->
+    <rect x="0" y="6" width="62" height="72" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="31" y="26" text-anchor="middle" fill="#166534" font-size="11" font-weight="bold">第 1 格</text>
+    <text x="31" y="48" text-anchor="middle" fill="#14532d" font-size="15" font-weight="bold">“火”</text>
+    <text x="31" y="68" text-anchor="middle" fill="#15803d" font-size="10" font-weight="bold">把握 0.96</text>
+
+    <rect x="70" y="6" width="62" height="72" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="101" y="26" text-anchor="middle" fill="#166534" font-size="11" font-weight="bold">第 2 格</text>
+    <text x="101" y="48" text-anchor="middle" fill="#14532d" font-size="15" font-weight="bold">“锅”</text>
+    <text x="101" y="68" text-anchor="middle" fill="#15803d" font-size="10" font-weight="bold">把握 0.94</text>
+
+    <rect x="140" y="6" width="62" height="72" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="171" y="26" text-anchor="middle" fill="#166534" font-size="11" font-weight="bold">第 3 格</text>
+    <text x="171" y="48" text-anchor="middle" fill="#14532d" font-size="15" font-weight="bold">“配”</text>
+    <text x="171" y="68" text-anchor="middle" fill="#15803d" font-size="10" font-weight="bold">把握 0.89</text>
+
+    <rect x="210" y="6" width="62" height="72" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="241" y="26" text-anchor="middle" fill="#166534" font-size="11" font-weight="bold">第 4 格</text>
+    <text x="241" y="48" text-anchor="middle" fill="#14532d" font-size="15" font-weight="bold">“冰”</text>
+    <text x="241" y="68" text-anchor="middle" fill="#15803d" font-size="10" font-weight="bold">把握 0.85</text>
+
+    <rect x="280" y="6" width="62" height="72" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="311" y="26" text-anchor="middle" fill="#166534" font-size="11" font-weight="bold">第 5 格</text>
+    <text x="311" y="48" text-anchor="middle" fill="#14532d" font-size="15" font-weight="bold">“啤”</text>
+    <text x="311" y="68" text-anchor="middle" fill="#15803d" font-size="10" font-weight="bold">把握 0.81</text>
+
+    <!-- Red Brake Line between Slot 5 and Slot 6 -->
+    <line x1="349" y1="0" x2="349" y2="86" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="4,3"/>
+    <text x="349" y="98" text-anchor="middle" fill="#dc2626" font-size="10.5" font-weight="bold">★ 刹车停笔</text>
+
+    <rect x="358" y="6" width="62" height="72" rx="6" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="3,2"/>
+    <text x="389" y="26" text-anchor="middle" fill="#9f1239" font-size="11">第 6 格</text>
+    <text x="389" y="48" text-anchor="middle" fill="#be123c" font-size="13">“？”</text>
+    <text x="389" y="68" text-anchor="middle" fill="#e11d48" font-size="10" font-weight="bold">把握 0.23</text>
+
+    <rect x="428" y="6" width="62" height="72" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,2"/>
+    <text x="459" y="26" text-anchor="middle" fill="#64748b" font-size="11">第 7 格</text>
+    <text x="459" y="48" text-anchor="middle" fill="#64748b" font-size="13">不猜了</text>
+    <text x="459" y="68" text-anchor="middle" fill="#94a3b8" font-size="10">直接省掉</text>
+  </g>
+
+  <!-- Bottom takeaway bar -->
+  <rect x="44" y="572" width="812" height="54" rx="6" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.2"/>
+  <text x="450" y="594" text-anchor="middle" fill="#0c4a6e" font-size="12.5" font-weight="bold">★ 一句话记住 DSpark：5 层小网络一次算完 7 格粗略意图 → 查 256 维搭配表防拼出“火肉” → 6400 维打分没把握就提前交卷</text>
+  <text x="450" y="614" text-anchor="middle" fill="#475569" font-size="11.5">本次只把前 5 个高把握字（“火锅配冰啤”）交上去让 428B 主模型验证，省去主模型批改第 6、7 个废词的算力浪费</text>
+</svg>
