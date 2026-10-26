@@ -637,6 +637,6 @@
   <text x="576" y="1008" fill="#9a3412" font-size="11" font-weight="bold">② 投机解码：M3 [7个串行MTP] → M3.1 [独立 5 层 DSpark]</text>
   <text x="576" y="1026" fill="#475569" font-size="10.5">   五层抽头并行猜 7 词 ＋ 秩 256 马尔可夫头 ＋ 6400 维置信度止损</text>
   <rect x="566" y="1044" width="354" height="48" rx="6" fill="#ffffff" stroke="#fdba74" stroke-width="1.5"/>
-  <text x="576" y="1064" fill="#9a3412" font-size="11" font-weight="bold">③ 跨厂积木：Gemma 零均值归一化 ＋ OpenAI 限幅 SwiGLU</text>
-  <text x="576" y="1082" fill="#475569" font-size="10.5">   use_gemma_norm (1+w) ＋ swigluoai (α=1.702, limit=7.0 防爆值)</text>
+  <text x="576" y="1064" fill="#9a3412" font-size="11" font-weight="bold">③ 训练期混合 QAT：96.7% 专家 NVFP4 ＋ 主干 MXFP8</text>
+  <text x="576" y="1082" fill="#475569" font-size="10.5">   沿用 GemmaNorm (1+w) ＋ swigluoai (α=1.702, limit=7.0)</text>
 </svg>

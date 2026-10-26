@@ -150,6 +150,6 @@
 
   <!-- 底部总对比栏：静态存储 vs 动态读取带宽 -->
   <rect x="24" y="576" width="852" height="56" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-  <text x="450" y="598" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="bold">★ 1M 上下文显存对比：静态存储需存全量（主 KV 1024 + 索引 K 128 = 1152 数/词/层，FP8 下 60 层占 67.5 GiB）</text>
-  <text x="450" y="618" text-anchor="middle" fill="#047857" font-size="12.5" font-weight="bold">★ 动态解码带宽暴省 99.8%：每步正牌 GQA 仅从 60 GiB 主 KV 中按名单捞 16 块（约 120 MiB），H800 解码提速 7.6×</text>
+  <text x="450" y="598" text-anchor="middle" fill="#1e293b" font-size="12.5" font-weight="bold">★ 1M 显存对比：静态存储需存全量（主 KV 1024 + 索引 K 128 = 1152 数/词/层，FP8 下 60 层占 67.5 GiB）</text>
+  <text x="450" y="618" text-anchor="middle" fill="#047857" font-size="12" font-weight="bold">★ 解码读取：第一棒全扫 7.5 GiB 索引 K ＋ 第二棒仅读 120 MiB 主 KV（主 KV 降 99.8%，总读取 7.62 vs 60 GiB 降 87.3%）</text>
 </svg>
