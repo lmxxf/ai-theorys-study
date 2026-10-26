@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#064e3b"/>
+    </linearGradient>
+    <linearGradient id="bar-old" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#475569"/>
+      <stop offset="1" stop-color="#64748b"/>
+    </linearGradient>
+    <linearGradient id="bar-v1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="bar-v2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#059669"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="bar-v21" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#a7f3d0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- 装饰网格线 -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.6">
+    <line x1="0" y1="90" x2="900" y2="90"/>
+    <line x1="0" y1="420" x2="900" y2="420"/>
+    <line x1="460" y1="90" x2="460" y2="420" stroke-dasharray="6,6"/>
+  </g>
+
+  <!-- 顶部标题栏 -->
+  <rect x="36" y="22" width="128" height="32" rx="6" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1.5"/>
+  <text x="100" y="44" text-anchor="middle" fill="#6ee7b7" font-size="16" font-weight="bold">DLSS 5 · RTX 30</text>
+  <text x="182" y="45" fill="#f8fafc" font-size="25" font-weight="bold">从 32 ms 砍到 12.78 ms：偶奇零洗牌与双路线对决</text>
+  <text x="864" y="44" text-anchor="end" fill="#94a3b8" font-size="16" font-weight="bold">No.353</text>
+
+  <!-- 左半区：32-bit 寄存器偶奇字节原位分组示意 -->
+  <text x="245" y="122" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="bold">内积交换律：32-bit 寄存器偶奇原位分组</text>
+  <text x="245" y="146" text-anchor="middle" fill="#94a3b8" font-size="13">0 次 SHFL 跨线程洗牌 · 0 次 PRMT 字节重排</text>
+
+  <!-- 4 字节横条 -->
+  <g transform="translate(42, 166)">
+    <rect x="0" y="0" width="96" height="44" rx="6" fill="#d97706"/>
+    <text x="48" y="27" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">byte3 (奇)</text>
+
+    <rect x="102" y="0" width="96" height="44" rx="6" fill="#2563eb"/>
+    <text x="150" y="27" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">byte2 (偶)</text>
+
+    <rect x="204" y="0" width="96" height="44" rx="6" fill="#d97706"/>
+    <text x="252" y="27" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">byte1 (奇)</text>
+
+    <rect x="306" y="0" width="96" height="44" rx="6" fill="#2563eb"/>
+    <text x="354" y="27" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">byte0 (偶)</text>
+  </g>
+
+  <!-- 偶数组与奇数组 -->
+  <rect x="42" y="232" width="402" height="72" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1.8"/>
+  <text x="60" y="258" fill="#60a5fa" font-size="15" font-weight="bold">MMA #1（偶下标 2m）：{ byte2, byte0 }</text>
+  <text x="60" y="286" fill="#cbd5e1" font-size="14">天然对齐 f16x2 高低半字 → 左移 7 位 × 256.0h</text>
+
+  <rect x="42" y="320" width="402" height="72" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="60" y="346" fill="#fbbf24" font-size="15" font-weight="bold">MMA #2（奇下标 2m+1）：{ byte3, byte1 }</text>
+  <text x="60" y="374" fill="#cbd5e1" font-size="14">天然对齐 f16x2 高低半字 → 右移 1 位 × 256.0h</text>
+
+  <!-- 右半区：1080p 阶梯跃迁 -->
+  <text x="675" y="122" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="bold">RTX 3080 Laptop (132W) 1080p 耗时</text>
+  <text x="675" y="146" text-anchor="middle" fill="#94a3b8" font-size="13">保持 254 MB 原槽位 O4 · 无损 FP8 权重</text>
+
+  <g transform="translate(486, 170)">
+    <!-- 上游 O1 -->
+    <text x="0" y="18" fill="#94a3b8" font-size="14">上游 O1 基线</text>
+    <rect x="118" y="2" width="250" height="22" rx="4" fill="url(#bar-old)"/>
+    <text x="360" y="18" text-anchor="end" fill="#ffffff" font-size="13" font-weight="bold">68.54 ms</text>
+
+    <!-- v0.1.0 -->
+    <text x="0" y="64" fill="#cbd5e1" font-size="14">v0.1.0 (满血O4)</text>
+    <rect x="118" y="48" width="118" height="22" rx="4" fill="url(#bar-v1)"/>
+    <text x="246" y="64" fill="#60a5fa" font-size="14" font-weight="bold">32.04 ms</text>
+
+    <!-- hip-port Phase 16 -->
+    <text x="0" y="110" fill="#cbd5e1" font-size="14">独立引擎 16 轮</text>
+    <rect x="118" y="94" width="116" height="22" rx="4" fill="url(#bar-v1)"/>
+    <text x="244" y="110" fill="#38bdf8" font-size="14" font-weight="bold">31.83 ms</text>
+
+    <!-- V2 -->
+    <text x="0" y="156" fill="#a7f3d0" font-size="14">V2 偶奇零洗牌</text>
+    <rect x="118" y="140" width="75" height="22" rx="4" fill="url(#bar-v2)"/>
+    <text x="203" y="156" fill="#34d399" font-size="14" font-weight="bold">20.36 ms</text>
+
+    <!-- V2.1 -->
+    <text x="0" y="204" fill="#6ee7b7" font-size="15" font-weight="bold">v0.2.0 (V2.1)</text>
+    <rect x="118" y="186" width="47" height="26" rx="5" fill="url(#bar-v21)"/>
+    <text x="175" y="205" fill="#6ee7b7" font-size="18" font-weight="bold">12.78 ms (720p 6.66 ms)</text>
+  </g>
+
+  <!-- 底部金句 -->
+  <text x="450" y="462" text-anchor="middle" fill="#cbd5e1" font-size="16">消灭 94.5% 跨线程洗牌 + 解除 .maxnreg 168 栈溢出紧箍咒 ＝ 原槽位 254 MB 再快 2.5 倍</text>
+</svg>
