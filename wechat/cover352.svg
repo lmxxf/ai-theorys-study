@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg352" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="0.5" stop-color="#f1f5f9"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="algoblue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg352)"/>
+
+  <!-- Top Header Banner -->
+  <rect x="28" y="16" width="248" height="28" rx="14" fill="url(#algoblue)"/>
+  <text x="152" y="35" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">老靳学算法 · 归一化演进全景</text>
+  <text x="872" y="36" text-anchor="end" fill="#475569" font-size="14" font-weight="bold">No.352</text>
+
+  <!-- Main Title -->
+  <text x="450" y="74" text-anchor="middle" fill="#0f172a" font-size="21" font-weight="bold">从 LayerNorm、RMSNorm 到 (1+w)：一行只改一个加号的代码在防什么？</text>
+  <line x1="28" y1="94" x2="872" y2="94" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- ================= 顶部横向演进三步卡片 ================= -->
+  <g transform="translate(28, 108)">
+    <!-- Step 1: LayerNorm -->
+    <rect x="0" y="0" width="256" height="118" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.8"/>
+    <rect x="0" y="0" width="256" height="30" rx="6" fill="#f1f5f9"/>
+    <text x="128" y="20" text-anchor="middle" fill="#334155" font-size="13.5" font-weight="bold">① LayerNorm (2016)</text>
+    <text x="128" y="50" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="bold">y = ((x - μ) / σ) ⊙ w + b</text>
+    <text x="128" y="74" text-anchor="middle" fill="#64748b" font-size="11">[2,4,6,8] → 减均值 5 → [-3,-1,1,3]</text>
+    <text x="128" y="94" text-anchor="middle" fill="#be123c" font-size="11" font-weight="bold">两趟跨通道归约 · 强行改变向量方向</text>
+
+    <path d="M 260 59 L 288 59" stroke="#0284c7" stroke-width="2.5"/>
+    <polygon points="292,59 284,54 284,64" fill="#0284c7"/>
+
+    <!-- Step 2: RMSNorm -->
+    <rect x="294" y="0" width="256" height="118" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.8"/>
+    <rect x="294" y="0" width="256" height="30" rx="6" fill="#e0f2fe"/>
+    <text x="422" y="20" text-anchor="middle" fill="#0369a1" font-size="13.5" font-weight="bold">② RMSNorm (2019)</text>
+    <text x="422" y="50" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="bold">y = (x / RMS(x)) ⊙ w   (w_0 = 1)</text>
+    <text x="422" y="74" text-anchor="middle" fill="#475569" font-size="11">省掉减均值与偏置 b · 保留原方向</text>
+    <text x="422" y="94" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">隐患：BF16 下 1.0 吞微小更新 + 衰减熄火</text>
+
+    <path d="M 554 59 L 582 59" stroke="#16a34a" stroke-width="2.5"/>
+    <polygon points="586,59 578,54 578,64" fill="#16a34a"/>
+
+    <!-- Step 3: GemmaNorm (1+w) -->
+    <rect x="588" y="0" width="256" height="118" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2.2"/>
+    <rect x="588" y="0" width="256" height="30" rx="6" fill="#dcfce7"/>
+    <text x="716" y="20" text-anchor="middle" fill="#166534" font-size="13.5" font-weight="bold">③ 零均值 GemmaNorm (1 + w)</text>
+    <text x="716" y="50" text-anchor="middle" fill="#14532d" font-size="13" font-weight="bold">y = x_norm ⊙ (1 + w)   (w_0 = 0)</text>
+    <text x="716" y="74" text-anchor="middle" fill="#166534" font-size="11" font-weight="bold">★ BF16 在 0 附近分辨率升 512 倍</text>
+    <text x="716" y="94" text-anchor="middle" fill="#047857" font-size="11" font-weight="bold">★ 权重衰减 w→0 自动退回 1 倍恒等</text>
+  </g>
+
+  <!-- ================= 下半区左：BF16 精度视觉放大镜 ================= -->
+  <g transform="translate(28, 242)">
+    <rect x="0" y="0" width="412" height="190" rx="10" fill="#ffffff" stroke="#e11d48" stroke-width="1.8"/>
+    <rect x="0" y="0" width="412" height="32" rx="8" fill="#ffe4e6"/>
+    <text x="206" y="21" text-anchor="middle" fill="#9f1239" font-size="14" font-weight="bold">为什么 BF16 下 w=1.0 会吞掉 +0.002 的梯度？</text>
+
+    <rect x="16" y="44" width="380" height="60" rx="6" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.2"/>
+    <text x="206" y="64" text-anchor="middle" fill="#be123c" font-size="12" font-weight="bold">× 普通 ×w：1.0 附近最小刻度 = 2^-7 = 0.0078125</text>
+    <text x="206" y="84" text-anchor="middle" fill="#475569" font-size="11.5">算 1.0 + 0.002 = 1.002 → 舍入回 BF16 原地变回 1.0</text>
+    <text x="206" y="99" text-anchor="middle" fill="#9f1239" font-size="10.5">（底座 1.0 霸占指数位，小于 0.0039 的单步更新全部阵亡）</text>
+
+    <rect x="16" y="114" width="380" height="62" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+    <text x="206" y="134" text-anchor="middle" fill="#166534" font-size="12" font-weight="bold">✓ 改 ×(1+w)：w 单独存 0.002，刻度 = 2^-16 ≈ 0.000015</text>
+    <text x="206" y="154" text-anchor="middle" fill="#14532d" font-size="11.5">存盘时 w 独占全部尾数位，计算时在 FP32 算 (1.0 + w)</text>
+    <text x="206" y="169" text-anchor="middle" fill="#15803d" font-size="10.5">（Gemma / Qwen3.8 / MiniMax-M3.1 纷纷换装的底层原因）</text>
+  </g>
+
+  <!-- ================= 下半区右：现代 Transformer 的新工位 ================= -->
+  <g transform="translate(460, 242)">
+    <rect x="0" y="0" width="412" height="190" rx="10" fill="#ffffff" stroke="#d97706" stroke-width="1.8"/>
+    <rect x="0" y="0" width="412" height="32" rx="8" fill="#fef3c7"/>
+    <text x="206" y="21" text-anchor="middle" fill="#92400e" font-size="14" font-weight="bold">除了改公式，归一化还长在了哪三个新位置？</text>
+
+    <rect x="16" y="42" width="380" height="42" rx="5" fill="#fffbeb" stroke="#fde68a" stroke-width="1.2"/>
+    <text x="206" y="59" text-anchor="middle" fill="#92400e" font-size="12" font-weight="bold">① 主干让路：Post-Norm → Pre-Norm → Sandwich 双保险</text>
+    <text x="206" y="76" text-anchor="middle" fill="#475569" font-size="10.8">残差主干全程免检保梯度畅通，进出支路前后各自体检控幅</text>
+
+    <rect x="16" y="92" width="380" height="42" rx="5" fill="#fffbeb" stroke="#fde68a" stroke-width="1.2"/>
+    <text x="206" y="109" text-anchor="middle" fill="#92400e" font-size="12" font-weight="bold">② 注意力笼头：逐头 QK-Norm 锁死点积上下界</text>
+    <text x="206" y="126" text-anchor="middle" fill="#475569" font-size="10.8">Q、K 点积前拉回定长球面，得分严格有界 ∈ [-√d_k, +√d_k]</text>
+
+    <rect x="16" y="142" width="380" height="36" rx="5" fill="#fae8ff" stroke="#f5d0fe" stroke-width="1.2"/>
+    <text x="206" y="164" text-anchor="middle" fill="#86198f" font-size="11.5" font-weight="bold">③ 专家出口同尺：MoE 合并前共享 Norm 防大嗓门专家霸屏</text>
+  </g>
+
+  <!-- Bottom Golden Quote Bar -->
+  <rect x="28" y="446" width="844" height="38" rx="8" fill="#1e293b"/>
+  <text x="450" y="470" text-anchor="middle" fill="#f8fafc" font-size="13.8" font-weight="bold">「把常数 1 留给公式，把宝贵的浮点尾数留给变化——好工程往往藏在一个加号里」</text>
+</svg>

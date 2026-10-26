@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="900" height="620" fill="#fbfbfd" rx="10"/>
+
+  <!-- 标题 -->
+  <text x="450" y="32" text-anchor="middle" fill="#1e293b" font-size="19.5" font-weight="bold">普通 RMSNorm (× w) vs 零均值 GemmaNorm (× (1 + w))：两处底层数值对比</text>
+  <text x="450" y="53" text-anchor="middle" fill="#64748b" font-size="13">只把公式改一个加号、初始值从 1.0 挪到 0.0，同时避开 BF16 舍入吞噬与权重衰减错位</text>
+
+  <!-- ================= 第一行：问题一（BF16 精度与最小刻度） ================= -->
+  <rect x="24" y="68" width="852" height="248" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="24" y="68" width="852" height="30" rx="6" fill="#f1f5f9"/>
+  <text x="450" y="88" text-anchor="middle" fill="#0f172a" font-size="13.5" font-weight="bold">对比一：BF16 浮点数（1 位符号 + 8 位指数 + 7 位尾数）下的微小梯度更新 Δw = +0.002</text>
+
+  <!-- 左上：普通 RMSNorm (w 初始为 1.0) -->
+  <g transform="translate(40, 110)">
+    <rect x="0" y="0" width="396" height="192" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.8" stroke-dasharray="5,3"/>
+    <text x="198" y="24" text-anchor="middle" fill="#9f1239" font-size="12.5" font-weight="bold">× 普通 RMSNorm：out = x_norm ⊙ w（w 初始 = 1.0）</text>
+    <text x="198" y="44" text-anchor="middle" fill="#be123c" font-size="11.5">在 [1.0, 2.0) 区间，BF16 相邻两数步长 = 2^-7 = 0.0078125</text>
+
+    <!-- 刻度尺示意 -->
+    <rect x="20" y="58" width="356" height="64" rx="6" fill="#ffffff" stroke="#fecdd3" stroke-width="1.2"/>
+    <line x1="48" y1="92" x2="348" y2="92" stroke="#475569" stroke-width="2"/>
+    <!-- 刻度 1.0000 -->
+    <line x1="68" y1="80" x2="68" y2="104" stroke="#0f172a" stroke-width="2.5"/>
+    <text x="68" y="116" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="bold">1.0000</text>
+    <!-- 刻度 1.0078125 -->
+    <line x1="218" y1="80" x2="218" y2="104" stroke="#0f172a" stroke-width="2.5"/>
+    <text x="218" y="116" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="bold">1.0078125</text>
+    <!-- 刻度 1.015625 -->
+    <line x1="336" y1="80" x2="336" y2="104" stroke="#64748b" stroke-width="2"/>
+    <text x="336" y="116" text-anchor="middle" fill="#64748b" font-size="10.5">1.0156</text>
+
+    <!-- 死区高亮 -->
+    <rect x="69" y="72" width="74" height="20" fill="#fecdd3" opacity="0.7"/>
+    <text x="143" y="70" text-anchor="middle" fill="#e11d48" font-size="10" font-weight="bold">小于半格 (+0.0039) 全部舍入回 1.0</text>
+
+    <!-- +0.002 落点 -->
+    <circle cx="106" cy="92" r="5" fill="#e11d48"/>
+    <path d="M 106 86 Q 87 72 72 86" fill="none" stroke="#e11d48" stroke-width="1.8"/>
+    <polygon points="70,88 73,81 77,86" fill="#e11d48"/>
+    <text x="108" y="106" fill="#be123c" font-size="10" font-weight="bold">1.002</text>
+
+    <!-- 结论框 -->
+    <rect x="20" y="132" width="356" height="48" rx="5" fill="#ffe4e6" stroke="#f43f5e" stroke-width="1.2"/>
+    <text x="198" y="152" text-anchor="middle" fill="#881337" font-size="12" font-weight="bold">算 1.0 + 0.002 = 1.002 → 存回 BF16 仍变回 1.0</text>
+    <text x="198" y="170" text-anchor="middle" fill="#9f1239" font-size="11">底座 1.0 占掉指数位，微小梯度更新被舍入吞没</text>
+  </g>
+
+  <!-- 右上：GemmaNorm (w 初始为 0.0) -->
+  <g transform="translate(464, 110)">
+    <rect x="0" y="0" width="396" height="192" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+    <text x="198" y="24" text-anchor="middle" fill="#166534" font-size="12.5" font-weight="bold">✓ 零均值 GemmaNorm：out = x_norm ⊙ (1 + w)（w 初始 = 0.0）</text>
+    <text x="198" y="44" text-anchor="middle" fill="#15803d" font-size="11.5">w 只存增量：在 0.002 附近，指数降为 -9，步长 = 2^-16 ≈ 0.000015</text>
+
+    <!-- 刻度尺示意 -->
+    <rect x="20" y="58" width="356" height="64" rx="6" fill="#ffffff" stroke="#bbf7d0" stroke-width="1.2"/>
+    <line x1="36" y1="92" x2="360" y2="92" stroke="#16a34a" stroke-width="2"/>
+    <!-- 密集细刻度 -->
+    <line x1="48" y1="85" x2="48" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="68" y1="85" x2="68" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="88" y1="85" x2="88" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="108" y1="85" x2="108" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="128" y1="85" x2="128" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="148" y1="85" x2="148" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="168" y1="82" x2="168" y2="102" stroke="#166534" stroke-width="2"/>
+    <line x1="188" y1="85" x2="188" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="208" y1="85" x2="208" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="228" y1="85" x2="228" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="248" y1="85" x2="248" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="268" y1="85" x2="268" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="288" y1="85" x2="288" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="308" y1="85" x2="308" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="328" y1="85" x2="328" y2="99" stroke="#86efac" stroke-width="1.2"/>
+    <line x1="348" y1="85" x2="348" y2="99" stroke="#86efac" stroke-width="1.2"/>
+
+    <circle cx="168" cy="92" r="5.5" fill="#16a34a"/>
+    <text x="198" y="75" text-anchor="middle" fill="#166534" font-size="10.5" font-weight="bold">刻度密度提升 512 倍（每格 0.00001526）</text>
+    <text x="168" y="116" text-anchor="middle" fill="#14532d" font-size="11" font-weight="bold">w = 0.001999（精准落格保存 ✓）</text>
+
+    <!-- 结论框 -->
+    <rect x="20" y="132" width="356" height="48" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+    <text x="198" y="152" text-anchor="middle" fill="#14532d" font-size="12" font-weight="bold">w 单独存 0.002，前向时在 FP32 算 (1.0 + w) ⊙ x_norm</text>
+    <text x="198" y="170" text-anchor="middle" fill="#166534" font-size="11">把常数 1.0 拎出参数表，BF16 全部尾数用来存微调增量</text>
+  </g>
+
+  <!-- ================= 第二行：问题二（Weight Decay 权重衰减方向） ================= -->
+  <rect x="24" y="332" width="852" height="214" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="24" y="332" width="852" height="30" rx="6" fill="#f1f5f9"/>
+  <text x="450" y="352" text-anchor="middle" fill="#0f172a" font-size="13.5" font-weight="bold">对比二：AdamW 权重衰减（Weight Decay 每步把参数 w 往 0 拉）的物理后果</text>
+
+  <!-- 左下：普通 RMSNorm 衰减后果 -->
+  <g transform="translate(40, 374)">
+    <rect x="0" y="0" width="396" height="158" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="198" y="24" text-anchor="middle" fill="#9a3412" font-size="13" font-weight="bold">× 普通 RMSNorm：w → 0 等于把整层信号掐灭</text>
+
+    <rect x="24" y="40" width="144" height="52" rx="6" fill="#ffffff" stroke="#fdba74" stroke-width="1.2"/>
+    <text x="96" y="62" text-anchor="middle" fill="#475569" font-size="11.5">参数被拉向 0：</text>
+    <text x="96" y="82" text-anchor="middle" fill="#c2410c" font-size="13.5" font-weight="bold">w → 0.0</text>
+
+    <path d="M 174 66 L 214 66" stroke="#ea580c" stroke-width="2"/>
+    <polygon points="218,66 211,62 211,70" fill="#ea580c"/>
+
+    <rect x="222" y="40" width="150" height="52" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="297" y="62" text-anchor="middle" fill="#9a3412" font-size="11.5">实际缩放倍率：</text>
+    <text x="297" y="82" text-anchor="middle" fill="#991b1b" font-size="13.5" font-weight="bold">倍率 = w → 0（熄火）</text>
+
+    <text x="198" y="118" text-anchor="middle" fill="#7c2d12" font-size="11.5" font-weight="bold">信号被压向 0，逼得训练框架专门写 if 特判</text>
+    <text x="198" y="138" text-anchor="middle" fill="#64748b" font-size="11">必须把所有 norm.weight 列入 no_decay_params 豁免名单</text>
+  </g>
+
+  <!-- 右下：GemmaNorm 衰减后果 -->
+  <g transform="translate(464, 374)">
+    <rect x="0" y="0" width="396" height="158" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.8"/>
+    <text x="198" y="24" text-anchor="middle" fill="#0369a1" font-size="13" font-weight="bold">✓ 零均值 GemmaNorm：w → 0 恰好回到 1 倍恒等缩放</text>
+
+    <rect x="24" y="40" width="144" height="52" rx="6" fill="#ffffff" stroke="#7dd3fc" stroke-width="1.2"/>
+    <text x="96" y="62" text-anchor="middle" fill="#475569" font-size="11.5">参数被拉向 0：</text>
+    <text x="96" y="82" text-anchor="middle" fill="#0369a1" font-size="13.5" font-weight="bold">w → 0.0</text>
+
+    <path d="M 174 66 L 214 66" stroke="#0284c7" stroke-width="2"/>
+    <polygon points="218,66 211,62 211,70" fill="#0284c7"/>
+
+    <rect x="222" y="40" width="150" height="52" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="297" y="62" text-anchor="middle" fill="#0c4a6e" font-size="11.5">实际缩放倍率：</text>
+    <text x="297" y="82" text-anchor="middle" fill="#047857" font-size="13.5" font-weight="bold">1 + w → 1.0（恒等 ✓）</text>
+
+    <text x="198" y="118" text-anchor="middle" fill="#0c4a6e" font-size="11.5" font-weight="bold">“没学到强特征的通道，倍率退回默认的 1.0 倍”</text>
+    <text x="198" y="138" text-anchor="middle" fill="#475569" font-size="11">正则化方向与物理意义对齐（与 LoRA 的 ΔW 初始化为 0 同构）</text>
+  </g>
+
+  <!-- 底部总结栏 -->
+  <rect x="24" y="560" width="852" height="44" rx="6" fill="#1e293b"/>
+  <text x="450" y="587" text-anchor="middle" fill="#f8fafc" font-size="13.5" font-weight="bold">★ 核心思想：把恒等基准 1.0 写进代码公式，让可学习参数 w 只负责记录“偏离基准的残差增量”</text>
+</svg>
