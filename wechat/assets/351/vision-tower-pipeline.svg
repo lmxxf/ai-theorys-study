@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="900" height="440" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="900" height="440" fill="#fbfbfd" rx="10"/>
+
+  <!-- 标题 -->
+  <text x="450" y="32" text-anchor="middle" fill="#1e293b" font-size="19.5" font-weight="bold">MiniMax-M3.1-Flash 视觉编码塔按层架构图（32 层标准 ViT ＋ 出口双转接头 · 共 0.86B）</text>
+  <text x="450" y="53" text-anchor="middle" fill="#64748b" font-size="12.5">与主流多模态大模型结构一致：3D 卷积切块 → 32 层标准 Transformer (1280维) → 出口升维与 2×2 合并 → 填入主干</text>
+
+  <!-- ================= 左栏：按层从下往上/从上往下的纵向层栈 ================= -->
+  <g transform="translate(28, 72)">
+    <rect x="0" y="0" width="380" height="344" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.8"/>
+    <rect x="0" y="0" width="380" height="30" rx="6" fill="#f1f5f9"/>
+    <text x="190" y="20" text-anchor="middle" fill="#334155" font-size="13" font-weight="bold">视觉塔纵向层栈（全程 BF16 不量化）</text>
+
+    <!-- 入口：3D Conv Patch Embedding -->
+    <rect x="20" y="42" width="340" height="38" rx="6" fill="#f0fdfa" stroke="#14b8a6" stroke-width="1.5"/>
+    <text x="190" y="59" text-anchor="middle" fill="#0f766e" font-size="12" font-weight="bold">输入切块：patch_embedding [1280, 3, 2, 14, 14]</text>
+    <text x="190" y="74" text-anchor="middle" fill="#115e59" font-size="10.5">672×672 切为 48×48 = 2,304 格 × [1280 维]</text>
+
+    <path d="M 190 80 L 190 94" stroke="#64748b" stroke-width="1.8"/>
+    <polygon points="190,98 186,91 194,91" fill="#64748b"/>
+
+    <!-- 32 Layers Stack: L00, L01, ..., L31 -->
+    <rect x="20" y="100" width="340" height="122" rx="6" fill="#faf5ff" stroke="#9333ea" stroke-width="1.8"/>
+    <text x="190" y="118" text-anchor="middle" fill="#6b21a8" font-size="12" font-weight="bold">32 层标准 ViT 编码器（Layer 00 ～ Layer 31 · 0.63B）</text>
+
+    <!-- Draw representative layers inside stack -->
+    <rect x="34" y="126" width="312" height="18" rx="3" fill="#f3e8ff" stroke="#a855f7" stroke-width="1"/>
+    <text x="190" y="139" text-anchor="middle" fill="#581c87" font-size="10.2" font-weight="bold">Layer 00 ：16 头 3D-RoPE 注意力 (6.55M) ＋ 稠密 FFN (13.11M)</text>
+
+    <rect x="34" y="148" width="312" height="18" rx="3" fill="#f3e8ff" stroke="#a855f7" stroke-width="1"/>
+    <text x="190" y="161" text-anchor="middle" fill="#581c87" font-size="10.2" font-weight="bold">Layer 01 ：16 头 3D-RoPE 注意力 (6.55M) ＋ 稠密 FFN (13.11M)</text>
+
+    <text x="190" y="181" text-anchor="middle" fill="#7e22ce" font-size="11" font-weight="bold">··· （中间重复相同结构共 29 层，每层 19.66M） ···</text>
+
+    <rect x="34" y="192" width="312" height="18" rx="3" fill="#f3e8ff" stroke="#a855f7" stroke-width="1"/>
+    <text x="190" y="205" text-anchor="middle" fill="#581c87" font-size="10.2" font-weight="bold">Layer 31 ：16 头 3D-RoPE 注意力 (6.55M) ＋ 稠密 FFN (13.11M)</text>
+
+    <path d="M 190 222 L 190 236" stroke="#9333ea" stroke-width="1.8"/>
+    <polygon points="190,240 186,233 194,233" fill="#9333ea"/>
+
+    <!-- 出口第一道 MLP -->
+    <rect x="20" y="242" width="340" height="36" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="190" y="258" text-anchor="middle" fill="#0369a1" font-size="11.5" font-weight="bold">出口转接头 ①：multi_modal_projector (45.6M)</text>
+    <text x="190" y="272" text-anchor="middle" fill="#0c4a6e" font-size="10">linear_1 [1280→6144] → GELU → linear_2 [6144→6144]（仍 2,304 格）</text>
+
+    <path d="M 190 278 L 190 292" stroke="#0284c7" stroke-width="1.8"/>
+    <polygon points="190,296 186,289 194,289" fill="#0284c7"/>
+
+    <!-- 出口第二道 MLP -->
+    <rect x="20" y="298" width="340" height="36" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="190" y="314" text-anchor="middle" fill="#166534" font-size="11.5" font-weight="bold">出口转接头 ②：patch_merge_mlp (188.7M · 2×2 四合一)</text>
+    <text x="190" y="328" text-anchor="middle" fill="#14532d" font-size="10">相邻 2×2 拼成 [24576] → 双层 MLP [24576→6144] → 缩为 576 词</text>
+  </g>
+
+  <!-- Zoom-in lines from Layer 00 to Right Panel -->
+  <path d="M 374 207 L 434 110" stroke="#9333ea" stroke-width="1.5" stroke-dasharray="4,3" fill="none"/>
+  <path d="M 374 225 L 434 378" stroke="#9333ea" stroke-width="1.5" stroke-dasharray="4,3" fill="none"/>
+
+  <!-- ================= 右栏：单层 ViT Layer (00~31) 内部标准算子结构展开 ================= -->
+  <g transform="translate(436, 72)">
+    <rect x="0" y="0" width="436" height="344" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="1.8"/>
+    <rect x="0" y="0" width="436" height="30" rx="6" fill="#f3e8ff"/>
+    <text x="218" y="20" text-anchor="middle" fill="#6b21a8" font-size="13" font-weight="bold">单层内部展开（Layer i · 标准 Pre-Norm ViT · 19.66M）</text>
+
+    <!-- Input x_l [2304, 1280] -->
+    <rect x="98" y="42" width="240" height="26" rx="5" fill="#e2e8f0" stroke="#475569" stroke-width="1.5"/>
+    <text x="218" y="59" text-anchor="middle" fill="#0f172a" font-size="11.5" font-weight="bold">层输入 x_i ：[2304, 1280]</text>
+
+    <!-- Residual bypass 1 (left wire) -->
+    <path d="M 98 55 L 48 55 L 48 169 L 196 169" fill="none" stroke="#64748b" stroke-width="1.8"/>
+    <polygon points="200,169 193,165 193,173" fill="#64748b"/>
+    <text x="40" y="115" text-anchor="end" fill="#64748b" font-size="10">残差</text>
+
+    <path d="M 218 68 L 218 82" stroke="#6b21a8" stroke-width="1.8"/>
+
+    <!-- Block 1: LayerNorm1 + 16-head Self-Attention (3D-RoPE) -->
+    <rect x="70" y="84" width="296" height="62" rx="6" fill="#faf5ff" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="218" y="102" text-anchor="middle" fill="#6b21a8" font-size="11.5" font-weight="bold">① layer_norm1 [1280] → self_attn (6.55M)</text>
+    <text x="218" y="120" text-anchor="middle" fill="#475569" font-size="10.2">q / k / v_proj [1280→1280]（16 头 × 80 维，加 3D-RoPE）</text>
+    <text x="218" y="137" text-anchor="middle" fill="#475569" font-size="10.2">Softmax(Q·K^T / √80)·V → out_proj [1280→1280]</text>
+
+    <path d="M 218 146 L 218 158" stroke="#6b21a8" stroke-width="1.8"/>
+    <circle cx="218" cy="169" r="11" fill="#ffffff" stroke="#475569" stroke-width="1.8"/>
+    <text x="218" y="173" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="bold">+</text>
+
+    <!-- Residual bypass 2 (left wire) -->
+    <path d="M 218 180 L 218 200" stroke="#6b21a8" stroke-width="1.8"/>
+    <path d="M 218 188 L 48 188 L 48 287 L 196 287" fill="none" stroke="#64748b" stroke-width="1.8"/>
+    <polygon points="200,287 193,283 193,291" fill="#64748b"/>
+    <text x="40" y="242" text-anchor="end" fill="#64748b" font-size="10">残差</text>
+
+    <!-- Block 2: LayerNorm2 + Dense MLP (1280 -> 5120 -> 1280) -->
+    <rect x="70" y="202" width="296" height="62" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="218" y="220" text-anchor="middle" fill="#0369a1" font-size="11.5" font-weight="bold">② layer_norm2 [1280] → 稠密 MLP (13.11M)</text>
+    <text x="218" y="238" text-anchor="middle" fill="#475569" font-size="10.2">fc1 [1280 → 5120]（放大 4 倍，6.55M）＋ GELU 激活</text>
+    <text x="218" y="255" text-anchor="middle" fill="#475569" font-size="10.2">fc2 [5120 → 1280]（压回 1280 维，6.55M）</text>
+
+    <path d="M 218 264 L 218 276" stroke="#0284c7" stroke-width="1.8"/>
+    <circle cx="218" cy="287" r="11" fill="#ffffff" stroke="#475569" stroke-width="1.8"/>
+    <text x="218" y="291" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="bold">+</text>
+
+    <path d="M 218 298 L 218 308" stroke="#475569" stroke-width="1.8"/>
+
+    <!-- Output x_{l+1} [2304, 1280] -->
+    <rect x="98" y="310" width="240" height="24" rx="5" fill="#e2e8f0" stroke="#475569" stroke-width="1.5"/>
+    <text x="218" y="326" text-anchor="middle" fill="#0f172a" font-size="11.5" font-weight="bold">层输出 x_{i+1} ：[2304, 1280]</text>
+  </g>
+</svg>
