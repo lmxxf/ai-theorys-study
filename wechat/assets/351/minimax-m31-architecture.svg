@@ -1,175 +1,642 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 820" width="920" height="820">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#111827"/>
-    </linearGradient>
-    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#f97316"/>
-      <stop offset="100%" stop-color="#ef4444"/>
-    </linearGradient>
-    <linearGradient id="msaGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#0284c7"/>
-      <stop offset="100%" stop-color="#0369a1"/>
-    </linearGradient>
-    <linearGradient id="moeGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#d97706"/>
-      <stop offset="100%" stop-color="#b45309"/>
-    </linearGradient>
-    <linearGradient id="dsparkGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#059669"/>
-      <stop offset="100%" stop-color="#047857"/>
-    </linearGradient>
-    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 8 5 L 0 9 z" fill="#94a3b8"/>
-    </marker>
-    <marker id="arrGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 8 5 L 0 9 z" fill="#34d399"/>
-    </marker>
-  </defs>
-
-  <rect width="920" height="820" fill="url(#bg)"/>
-
-  <!-- Title Banner -->
-  <rect x="24" y="20" width="872" height="58" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
-  <text x="460" y="45" text-anchor="middle" fill="#f8fafc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="20" font-weight="bold">MiniMax-M3.1-Flash 全景架构账本（427.05B 总参 / 23.52B 激活 · 250.1GB 原生混搭量化）</text>
-  <text x="460" y="67" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13">60 层 100% 稀疏注意力（MSA） + 前 3 层稠密 / 后 57 层 MoE + 独立 5 层 DSpark 半自回归草稿头（1.96B）</text>
-
-  <!-- Left Column: Main 60-Layer Backbone + Vision -->
-  <rect x="24" y="94" width="540" height="574" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
-  <text x="294" y="120" text-anchor="middle" fill="#38bdf8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="bold">主干网络（60 层 · hidden_size = 6144 · 1M 上下文）</text>
-
-  <!-- Input Multimodal & Embedding -->
-  <rect x="44" y="134" width="235" height="62" rx="8" fill="#0f172a" stroke="#64748b" stroke-width="1.2"/>
-  <text x="161" y="155" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">文本词表 embed_tokens</text>
-  <text x="161" y="173" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">[200064, 6144] · 1.23B (BF16)</text>
-  <text x="161" y="189" text-anchor="middle" fill="#64748b" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">与输出 lm_head 不共享权重</text>
-
-  <rect x="295" y="134" width="250" height="62" rx="8" fill="#0f172a" stroke="#a855f7" stroke-width="1.2"/>
-  <text x="420" y="155" text-anchor="middle" fill="#e9d5ff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">32 层 3D-RoPE 视觉塔 + 双投影</text>
-  <text x="420" y="173" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">1280 维 · 3D 卷积 [3,2,14,14] (BF16)</text>
-  <text x="420" y="189" text-anchor="middle" fill="#c084fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">2×2 空间合并 [24576→6144] · 0.86B</text>
-
-  <!-- Arrow up/down into Layer 0-2 -->
-  <line x1="294" y1="196" x2="294" y2="214" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
-
-  <!-- Layer 0 ~ 2: 3 Dense Layers (Now with MSA in M3.1!) -->
-  <rect x="44" y="218" width="500" height="118" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8"/>
-  <rect x="44" y="218" width="500" height="28" rx="8" fill="url(#msaGrad)"/>
-  <text x="294" y="237" text-anchor="middle" fill="#ffffff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">第 0 ~ 2 层（共 3 层）：M3.1 升级为 MSA 稀疏注意力 + 稠密 SwiGLU</text>
-
-  <rect x="58" y="254" width="228" height="72" rx="6" fill="#1e293b" stroke="#0284c7" stroke-width="1"/>
-  <text x="172" y="273" text-anchor="middle" fill="#7dd3fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">MSA 稀疏注意力（110.89M/层）</text>
-  <text x="172" y="291" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">主分支：64 Q / 4 KV (16:1 GQA)</text>
-  <text x="172" y="307" text-anchor="middle" fill="#38bdf8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">索引分支：4 Q_idx + 1 K_idx (无 V)</text>
-  <text x="172" y="321" text-anchor="middle" fill="#fbbf24" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10">★ M3 前3层为稠密，M3.1 改为全稀疏</text>
-
-  <rect x="302" y="254" width="228" height="72" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
-  <text x="416" y="273" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">稠密 FFN（226.49M/层 · MXFP8）</text>
-  <text x="416" y="291" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">intermediate_size = 12,288</text>
-  <text x="416" y="307" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">激活函数：swigluoai (α=1.702, 限幅7.0)</text>
-  <text x="416" y="321" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10">3 层稠密 FFN 合计：0.68B（全激活）</text>
-
-  <line x1="294" y1="336" x2="294" y2="354" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
-
-  <!-- Layer 3 ~ 59: 57 MoE Layers -->
-  <rect x="44" y="358" width="500" height="222" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1.8"/>
-  <rect x="44" y="358" width="500" height="28" rx="8" fill="url(#moeGrad)"/>
-  <text x="294" y="377" text-anchor="middle" fill="#ffffff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">第 3 ~ 59 层（共 57 层）：MSA 稀疏注意力 + 128 选 4 混合专家（MoE）</text>
-
-  <!-- MSA box inside Layer 3-59 -->
-  <rect x="58" y="394" width="472" height="52" rx="6" fill="#1e293b" stroke="#0284c7" stroke-width="1"/>
-  <text x="294" y="414" text-anchor="middle" fill="#7dd3fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11.5" font-weight="bold">MSA 稀疏注意力（MXFP8 · rope_theta = 1000 万 · GemmaNorm + 逐头 QK-Norm）</text>
-  <text x="294" y="434" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">每块 128 词元 · 每组选 Top-16 块（含 1 个强制局部块 = 最多算 2,048 词元）· 60 层共 6.65B</text>
-
-  <!-- MoE boxes inside Layer 3-59 -->
-  <rect x="58" y="456" width="196" height="112" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.2"/>
-  <text x="156" y="476" text-anchor="middle" fill="#6ee7b7" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">1 个常驻共享专家</text>
-  <text x="156" y="495" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">中间维 3,072 (56.62M/层)</text>
-  <text x="156" y="513" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">精度：MXFP8 (粒度 1×32)</text>
-  <text x="156" y="531" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">57 层共 3.23B（每步全激活）</text>
-  <text x="156" y="551" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10">+ Sigmoid 路由 gate (F32 不量化)</text>
-
-  <rect x="268" y="456" width="262" height="112" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
-  <text x="399" y="476" text-anchor="middle" fill="#fcd34d" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">128 个路由专家（每步激活 Top-4）</text>
-  <text x="399" y="495" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">单专家中间维 3,072 (56.62M · swigluoai)</text>
-  <text x="399" y="513" text-anchor="middle" fill="#fbbf24" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">精度：NVFP4 (group=16, 占总参 96.7%)</text>
-  <text x="399" y="531" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">57 层总参：413.12B（单层 7.25B）</text>
-  <text x="399" y="551" text-anchor="middle" fill="#fde68a" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="bold">57 层每步仅激活：12.91B（226.5M/层）</text>
-
-  <line x1="294" y1="580" x2="294" y2="598" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
-
-  <!-- Output Head -->
-  <rect x="44" y="602" width="500" height="52" rx="8" fill="#0f172a" stroke="#64748b" stroke-width="1.2"/>
-  <text x="294" y="624" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">输出层：GemmaRMSNorm [6144] → lm_head [6144, 200064]（1.23B · BF16）</text>
-  <text x="294" y="643" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">非嵌入主干：423.73B 总 / 23.52B 激活 · 含词表与视觉塔全模型共 427.05B</text>
-
-  <!-- Right Column: DSpark Sidecar Draft Model -->
-  <rect x="588" y="94" width="308" height="574" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.8"/>
-  <rect x="588" y="94" width="308" height="36" rx="10" fill="url(#dsparkGrad)"/>
-  <text x="742" y="117" text-anchor="middle" fill="#ffffff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="15" font-weight="bold">DSpark 半自回归草稿头（1.96B）</text>
-
-  <text x="742" y="148" text-anchor="middle" fill="#6ee7b7" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">取代 M3 的 7 模块串行 MTP · 独立 2.30GB</text>
-
-  <!-- Tap Arrows from Left Backbone to Right DSpark -->
-  <path d="M 544 372 L 598 188" fill="none" stroke="#34d399" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrGreen)"/>
-  <path d="M 544 440 L 598 198" fill="none" stroke="#34d399" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrGreen)"/>
-  <path d="M 544 510 L 598 208" fill="none" stroke="#34d399" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrGreen)"/>
-  <path d="M 544 565 L 598 218" fill="none" stroke="#34d399" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrGreen)"/>
-
-  <!-- Step 1: 5-Layer Feature Fusion -->
-  <rect x="604" y="164" width="276" height="84" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
-  <text x="742" y="185" text-anchor="middle" fill="#a7f3d0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">① 主干 5 层等距抽头融合 (BF16)</text>
-  <text x="742" y="205" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">抽头层号：[L03, L17, L31, L45, L59]</text>
-  <text x="742" y="223" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">5 × 6144 拼成 30,720 维长向量</text>
-  <text x="742" y="239" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">fc.weight [30720 → 6144] (188.7M)</text>
-
-  <line x1="742" y1="248" x2="742" y2="268" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrGreen)"/>
-
-  <!-- Step 2: 5-Layer Parallel Block -->
-  <rect x="604" y="272" width="276" height="114" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
-  <text x="742" y="293" text-anchor="middle" fill="#a7f3d0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">② 5 层滑窗并行主干 (Parallel Block)</text>
-  <text x="742" y="313" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">5 层纯稠密 Transformer (1.67B · MXFP8)</text>
-  <text x="742" y="331" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">注意力：sliding_window = 4096 (无MSA)</text>
-  <text x="742" y="349" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">FFN：稠密 SwiGLU (中间维 12,288)</text>
-  <text x="742" y="369" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="bold">一次前向并行产出 block_size = 7 个位置</text>
-
-  <line x1="742" y1="386" x2="742" y2="406" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrGreen)"/>
-
-  <!-- Step 3: Markov Head -->
-  <rect x="604" y="410" width="276" height="106" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
-  <text x="742" y="431" text-anchor="middle" fill="#a7f3d0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">③ 低秩马尔可夫头 (Markov Head)</text>
-  <text x="742" y="451" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">markov_rank = 256 (102.4M · BF16)</text>
-  <text x="742" y="469" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">W1 [200064, 256] × W2 [256, 200064]</text>
-  <text x="742" y="487" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">按前一采样词注入相邻词转移偏置</text>
-  <text x="742" y="505" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">解决纯并行草稿“前后词不搭”毛病</text>
-
-  <line x1="742" y1="516" x2="742" y2="536" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrGreen)"/>
-
-  <!-- Step 4: Confidence Head -->
-  <rect x="604" y="540" width="276" height="114" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
-  <text x="742" y="561" text-anchor="middle" fill="#a7f3d0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">④ 6400 维置信度头动态止损</text>
-  <text x="742" y="581" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">confidence_head.proj [6400 → 1]</text>
-  <text x="742" y="599" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">拼接 6144 主干态 + 256 马尔可夫向量</text>
-  <text x="742" y="617" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">预估每个草稿词通过主干验证的概率</text>
-  <text x="742" y="637" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="bold">低把握后缀提前截断，省去无效验证</text>
-
-  <!-- Bottom Summary Bar: 3 Key Upgrades from M3 to M3.1-Flash -->
-  <rect x="24" y="684" width="872" height="116" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
-  <text x="460" y="709" text-anchor="middle" fill="#fb923c" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="15" font-weight="bold">从 MiniMax-M3（2026.06）到 MiniMax-M3.1-Flash（2026.10）的三刀硬核手术对照</text>
-
-  <rect x="40" y="722" width="272" height="64" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>
-  <text x="176" y="742" text-anchor="middle" fill="#7dd3fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">手术一：100% 全员稀疏注意力</text>
-  <text x="176" y="761" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">M3 前 3 层保留稠密全注意力 [0,0,0,1...]</text>
-  <text x="176" y="777" text-anchor="middle" fill="#38bdf8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">M3.1 改为 60 层全稀疏 + RoPE 基频翻倍</text>
-
-  <rect x="324" y="722" width="272" height="64" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
-  <text x="460" y="742" text-anchor="middle" fill="#6ee7b7" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">手术二：换装 DeepSeek 同款 DSpark</text>
-  <text x="460" y="761" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">M3 采用 num_mtp_modules = 7 串行头</text>
-  <text x="460" y="777" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">M3.1 换为 5 层并行 + 马尔可夫 + 置信度头</text>
-
-  <rect x="608" y="722" width="272" height="64" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
-  <text x="744" y="742" text-anchor="middle" fill="#fcd34d" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">手术三：原生 QAT 混搭量化出厂</text>
-  <text x="744" y="761" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">路由专家 NVFP4 + 主干/共享专家 MXFP8</text>
-  <text x="744" y="777" text-anchor="middle" fill="#fbbf24" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">428B 全模型仅 250.1GB（平均 4.67 bit）</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1120" width="960" height="1120" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="960" height="1120" fill="#fbfbfd" rx="10"/>
+  <text x="480" y="34" text-anchor="middle" fill="#1e293b" font-size="21" font-weight="bold">MiniMax-M3.1-Flash (428B-A23B) 全景：60 层逐层展开 ＋ DSpark 五层抽头</text>
+  <text x="480" y="56" text-anchor="middle" fill="#64748b" font-size="13.5">60 层全员 MSA 稀疏注意力（蓝砖）｜前 3 层稠密 FFN（青砖）＋ 后 57 层 MoE（绿+紫砖）｜5 根绿线抽头喂入 DSpark</text>
+  <rect x="22" y="68" width="916" height="40" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <g transform="translate(36, 80)" font-size="12" fill="#334155" font-weight="bold">
+    <rect x="0" y="0" width="16" height="14" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="22" y="11.5" fill="#1e40af">MSA 稀疏注意力 (60层 MXFP8)</text>
+    <rect x="218" y="0" width="16" height="14" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="240" y="11.5" fill="#0f766e">稠密 FFN (L00~02, MXFP8)</text>
+    <rect x="424" y="0" width="16" height="14" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="446" y="11.5" fill="#15803d">1 共享专家 (MXFP8)</text>
+    <rect x="590" y="0" width="16" height="14" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="612" y="11.5" fill="#5b21b6">128 选 4 路由专家 (NVFP4)</text>
+    <rect x="786" y="0" width="16" height="14" rx="3" fill="#fef08a" stroke="#ca8a04" stroke-width="1.8"/>
+    <text x="808" y="11.5" fill="#854d0e">★ DSpark 抽头层</text>
+  </g>
+  <rect x="22" y="118" width="470" height="46" rx="8" fill="#f0fdfa" stroke="#14b8a6" stroke-width="2"/>
+  <text x="257" y="138" text-anchor="middle" fill="#0f766e" font-size="13.5" font-weight="bold">输入：embed_tokens (1.23B) ＋ 32 层 3D-RoPE 视觉塔 (0.86B)</text>
+  <text x="257" y="155" text-anchor="middle" fill="#115e59" font-size="11.2">3D 卷积 [3,2,14,14] → 2×2 空间合并 [24576→6144]（全部 BF16 不量化）</text>
+  <path d="M257 164 L257 176" stroke="#64748b" stroke-width="2"/>
+  <polygon points="257,180 252,173 262,173" fill="#64748b"/>
+  <rect x="22" y="182" width="470" height="868" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="62" y="202" text-anchor="middle" fill="#475569" font-size="11.5" font-weight="bold">层号</text>
+  <text x="172" y="202" text-anchor="middle" fill="#1e40af" font-size="11.5" font-weight="bold">① 全员 MSA (16:1)</text>
+  <text x="360" y="202" text-anchor="middle" fill="#5b21b6" font-size="11.5" font-weight="bold">② FFN：3 层稠密 → 57 层 MoE</text>
+  <line x1="30" y1="209" x2="484" y2="209" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="28" y="213.2" width="458" height="12.6" rx="2.5" fill="#f0fdfa"/>
+  <text x="62" y="222.8" text-anchor="middle" fill="#0f766e" font-size="9.6" font-weight="bold">L00</text>
+  <rect x="96" y="214.0" width="152" height="11" rx="2.5" fill="#fef08a" stroke="#0284c7" stroke-width="0.9"/>
+  <text x="172" y="222.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA 稀疏 (M3.1新改)</text>
+  <line x1="248" y1="219.5" x2="262" y2="219.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="214.0" width="216" height="11" rx="2.5" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.2"/>
+  <text x="370" y="222.6" text-anchor="middle" fill="#0f766e" font-size="8.8" font-weight="bold">稠密 SwiGLU 12288 (MXFP8)</text>
+  <rect x="28" y="227.0" width="458" height="12.6" rx="2.5" fill="#f0fdfa"/>
+  <text x="62" y="236.6" text-anchor="middle" fill="#0f766e" font-size="9.6" font-weight="bold">L01</text>
+  <rect x="96" y="227.8" width="152" height="11" rx="2.5" fill="#fef08a" stroke="#0284c7" stroke-width="0.9"/>
+  <text x="172" y="236.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA 稀疏 (M3.1新改)</text>
+  <line x1="248" y1="233.3" x2="262" y2="233.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="227.8" width="216" height="11" rx="2.5" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.2"/>
+  <text x="370" y="236.4" text-anchor="middle" fill="#0f766e" font-size="8.8" font-weight="bold">稠密 SwiGLU 12288 (MXFP8)</text>
+  <rect x="28" y="240.8" width="458" height="12.6" rx="2.5" fill="#f0fdfa"/>
+  <text x="62" y="250.4" text-anchor="middle" fill="#0f766e" font-size="9.6" font-weight="bold">L02</text>
+  <rect x="96" y="241.6" width="152" height="11" rx="2.5" fill="#fef08a" stroke="#0284c7" stroke-width="0.9"/>
+  <text x="172" y="250.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA 稀疏 (M3.1新改)</text>
+  <line x1="248" y1="247.1" x2="262" y2="247.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="241.6" width="216" height="11" rx="2.5" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.2"/>
+  <text x="370" y="250.2" text-anchor="middle" fill="#0f766e" font-size="8.8" font-weight="bold">稠密 SwiGLU 12288 (MXFP8)</text>
+  <line x1="32" y1="254.0" x2="482" y2="254.0" stroke="#0d9488" stroke-width="1.2" stroke-dasharray="4,2"/>
+  <rect x="28" y="254.6" width="458" height="12.6" rx="2.5" fill="#fefce8" stroke="#eab308" stroke-width="1"/>
+  <text x="62" y="264.2" text-anchor="middle" fill="#854d0e" font-size="9.6" font-weight="bold">★L03</text>
+  <rect x="96" y="255.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#ca8a04" stroke-width="0.9"/>
+  <text x="172" y="264.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="260.9" x2="262" y2="260.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="255.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="264.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="255.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="264.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="278.0" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L04</text>
+  <rect x="96" y="269.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="277.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="274.7" x2="262" y2="274.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="269.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="277.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="269.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="277.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="291.8" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L05</text>
+  <rect x="96" y="283.0" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="291.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="288.5" x2="262" y2="288.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="283.0" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="291.6" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="283.0" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="291.6" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="305.6" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L06</text>
+  <rect x="96" y="296.8" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="305.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="302.3" x2="262" y2="302.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="296.8" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="305.4" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="296.8" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="305.4" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="319.4" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L07</text>
+  <rect x="96" y="310.6" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="319.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="316.1" x2="262" y2="316.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="310.6" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="319.2" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="310.6" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="319.2" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="333.2" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L08</text>
+  <rect x="96" y="324.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="333.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="329.9" x2="262" y2="329.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="324.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="333.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="324.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="333.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="347.0" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L09</text>
+  <rect x="96" y="338.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="346.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="343.7" x2="262" y2="343.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="338.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="346.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="338.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="346.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="360.8" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L10</text>
+  <rect x="96" y="352.0" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="360.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="357.5" x2="262" y2="357.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="352.0" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="360.6" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="352.0" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="360.6" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="374.6" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L11</text>
+  <rect x="96" y="365.8" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="374.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="371.3" x2="262" y2="371.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="365.8" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="374.4" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="365.8" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="374.4" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="388.4" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L12</text>
+  <rect x="96" y="379.6" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="388.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="385.1" x2="262" y2="385.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="379.6" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="388.2" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="379.6" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="388.2" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="402.2" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L13</text>
+  <rect x="96" y="393.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="402.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="398.9" x2="262" y2="398.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="393.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="402.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="393.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="402.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="416.0" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L14</text>
+  <rect x="96" y="407.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="415.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="412.7" x2="262" y2="412.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="407.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="415.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="407.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="415.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="429.8" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L15</text>
+  <rect x="96" y="421.0" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="429.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="426.5" x2="262" y2="426.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="421.0" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="429.6" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="421.0" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="429.6" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="443.6" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L16</text>
+  <rect x="96" y="434.8" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="443.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="440.3" x2="262" y2="440.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="434.8" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="443.4" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="434.8" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="443.4" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <rect x="28" y="447.8" width="458" height="12.6" rx="2.5" fill="#fefce8" stroke="#eab308" stroke-width="1"/>
+  <text x="62" y="457.4" text-anchor="middle" fill="#854d0e" font-size="9.6" font-weight="bold">★L17</text>
+  <rect x="96" y="448.6" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#ca8a04" stroke-width="0.9"/>
+  <text x="172" y="457.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="454.1" x2="262" y2="454.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="448.6" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="457.2" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="448.6" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="457.2" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="471.2" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L18</text>
+  <rect x="96" y="462.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="471.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="467.9" x2="262" y2="467.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="462.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="471.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="462.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="471.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="485.0" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L19</text>
+  <rect x="96" y="476.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="484.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="481.7" x2="262" y2="481.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="476.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="484.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="476.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="484.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="498.8" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L20</text>
+  <rect x="96" y="490.0" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="498.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="495.5" x2="262" y2="495.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="490.0" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="498.6" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="490.0" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="498.6" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="512.6" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L21</text>
+  <rect x="96" y="503.8" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="512.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="509.3" x2="262" y2="509.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="503.8" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="512.4" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="503.8" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="512.4" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="526.4" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L22</text>
+  <rect x="96" y="517.6" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="526.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="523.1" x2="262" y2="523.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="517.6" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="526.2" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="517.6" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="526.2" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="540.2" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L23</text>
+  <rect x="96" y="531.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="540.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="536.9" x2="262" y2="536.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="531.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="540.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="531.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="540.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="554.0" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L24</text>
+  <rect x="96" y="545.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="553.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="550.7" x2="262" y2="550.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="545.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="553.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="545.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="553.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="567.8" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L25</text>
+  <rect x="96" y="559.0" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="567.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="564.5" x2="262" y2="564.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="559.0" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="567.6" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="559.0" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="567.6" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="581.6" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L26</text>
+  <rect x="96" y="572.8" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="581.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="578.3" x2="262" y2="578.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="572.8" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="581.4" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="572.8" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="581.4" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="595.4" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L27</text>
+  <rect x="96" y="586.6" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="595.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="592.1" x2="262" y2="592.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="586.6" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="595.2" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="586.6" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="595.2" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="609.2" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L28</text>
+  <rect x="96" y="600.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="609.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="605.9" x2="262" y2="605.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="600.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="609.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="600.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="609.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="623.0" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L29</text>
+  <rect x="96" y="614.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="622.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="619.7" x2="262" y2="619.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="614.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="622.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="614.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="622.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="636.8" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L30</text>
+  <rect x="96" y="628.0" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="636.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="633.5" x2="262" y2="633.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="628.0" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="636.6" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="628.0" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="636.6" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <rect x="28" y="641.0" width="458" height="12.6" rx="2.5" fill="#fefce8" stroke="#eab308" stroke-width="1"/>
+  <text x="62" y="650.6" text-anchor="middle" fill="#854d0e" font-size="9.6" font-weight="bold">★L31</text>
+  <rect x="96" y="641.8" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#ca8a04" stroke-width="0.9"/>
+  <text x="172" y="650.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="647.3" x2="262" y2="647.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="641.8" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="650.4" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="641.8" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="650.4" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="664.4" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L32</text>
+  <rect x="96" y="655.6" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="664.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="661.1" x2="262" y2="661.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="655.6" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="664.2" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="655.6" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="664.2" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="678.2" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L33</text>
+  <rect x="96" y="669.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="678.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="674.9" x2="262" y2="674.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="669.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="678.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="669.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="678.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="692.0" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L34</text>
+  <rect x="96" y="683.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="691.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="688.7" x2="262" y2="688.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="683.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="691.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="683.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="691.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="705.8" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L35</text>
+  <rect x="96" y="697.0" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="705.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="702.5" x2="262" y2="702.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="697.0" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="705.6" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="697.0" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="705.6" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="719.6" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L36</text>
+  <rect x="96" y="710.8" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="719.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="716.3" x2="262" y2="716.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="710.8" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="719.4" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="710.8" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="719.4" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="733.4" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L37</text>
+  <rect x="96" y="724.6" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="733.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="730.1" x2="262" y2="730.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="724.6" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="733.2" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="724.6" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="733.2" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="747.2" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L38</text>
+  <rect x="96" y="738.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="747.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="743.9" x2="262" y2="743.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="738.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="747.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="738.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="747.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="761.0" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L39</text>
+  <rect x="96" y="752.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="760.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="757.7" x2="262" y2="757.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="752.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="760.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="752.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="760.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="774.8" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L40</text>
+  <rect x="96" y="766.0" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="774.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="771.5" x2="262" y2="771.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="766.0" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="774.6" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="766.0" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="774.6" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="788.6" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L41</text>
+  <rect x="96" y="779.8" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="788.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="785.3" x2="262" y2="785.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="779.8" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="788.4" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="779.8" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="788.4" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="802.4" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L42</text>
+  <rect x="96" y="793.6" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="802.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="799.1" x2="262" y2="799.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="793.6" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="802.2" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="793.6" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="802.2" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="816.2" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L43</text>
+  <rect x="96" y="807.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="816.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="812.9" x2="262" y2="812.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="807.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="816.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="807.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="816.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="830.0" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L44</text>
+  <rect x="96" y="821.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="829.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="826.7" x2="262" y2="826.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="821.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="829.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="821.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="829.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <rect x="28" y="834.2" width="458" height="12.6" rx="2.5" fill="#fefce8" stroke="#eab308" stroke-width="1"/>
+  <text x="62" y="843.8" text-anchor="middle" fill="#854d0e" font-size="9.6" font-weight="bold">★L45</text>
+  <rect x="96" y="835.0" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#ca8a04" stroke-width="0.9"/>
+  <text x="172" y="843.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="840.5" x2="262" y2="840.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="835.0" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="843.6" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="835.0" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="843.6" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="857.6" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L46</text>
+  <rect x="96" y="848.8" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="857.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="854.3" x2="262" y2="854.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="848.8" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="857.4" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="848.8" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="857.4" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="871.4" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L47</text>
+  <rect x="96" y="862.6" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="871.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="868.1" x2="262" y2="868.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="862.6" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="871.2" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="862.6" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="871.2" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="885.2" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L48</text>
+  <rect x="96" y="876.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="885.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="881.9" x2="262" y2="881.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="876.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="885.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="876.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="885.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="899.0" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L49</text>
+  <rect x="96" y="890.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="898.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="895.7" x2="262" y2="895.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="890.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="898.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="890.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="898.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="912.8" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L50</text>
+  <rect x="96" y="904.0" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="912.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="909.5" x2="262" y2="909.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="904.0" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="912.6" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="904.0" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="912.6" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="926.6" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L51</text>
+  <rect x="96" y="917.8" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="926.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="923.3" x2="262" y2="923.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="917.8" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="926.4" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="917.8" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="926.4" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="940.4" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L52</text>
+  <rect x="96" y="931.6" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="940.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="937.1" x2="262" y2="937.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="931.6" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="940.2" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="931.6" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="940.2" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="954.2" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L53</text>
+  <rect x="96" y="945.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="954.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="950.9" x2="262" y2="950.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="945.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="954.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="945.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="954.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="968.0" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L54</text>
+  <rect x="96" y="959.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="967.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="964.7" x2="262" y2="964.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="959.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="967.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="959.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="967.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="981.8" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L55</text>
+  <rect x="96" y="973.0" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="981.6" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="978.5" x2="262" y2="978.5" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="973.0" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="981.6" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="973.0" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="981.6" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="995.6" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L56</text>
+  <rect x="96" y="986.8" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="995.4" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="992.3" x2="262" y2="992.3" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="986.8" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="995.4" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="986.8" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="995.4" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="1009.4" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L57</text>
+  <rect x="96" y="1000.6" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="1009.2" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="1006.1" x2="262" y2="1006.1" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="1000.6" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="1009.2" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="1000.6" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="1009.2" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <text x="62" y="1023.2" text-anchor="middle" fill="#64748b" font-size="9.6" font-weight="normal">L58</text>
+  <rect x="96" y="1014.4" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.9"/>
+  <text x="172" y="1023.0" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="1019.9" x2="262" y2="1019.9" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="1014.4" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="1023.0" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="1014.4" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="1023.0" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <rect x="28" y="1027.4" width="458" height="12.6" rx="2.5" fill="#fefce8" stroke="#eab308" stroke-width="1"/>
+  <text x="62" y="1037.0" text-anchor="middle" fill="#854d0e" font-size="9.6" font-weight="bold">★L59</text>
+  <rect x="96" y="1028.2" width="152" height="11" rx="2.5" fill="#dbeafe" stroke="#ca8a04" stroke-width="0.9"/>
+  <text x="172" y="1036.8" text-anchor="middle" fill="#1e3a8a" font-size="8.8">MSA (Top-16块)</text>
+  <line x1="248" y1="1033.7" x2="262" y2="1033.7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="262" y="1028.2" width="68" height="11" rx="2.5" fill="#dcfce7" stroke="#16a34a" stroke-width="0.9"/>
+  <text x="296" y="1036.8" text-anchor="middle" fill="#166534" font-size="8.5">1共享(FP8)</text>
+  <rect x="334" y="1028.2" width="144" height="11" rx="2.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.9"/>
+  <text x="406" y="1036.8" text-anchor="middle" fill="#4c1d95" font-size="8.6">128选4 (NVFP4)</text>
+  <path d="M257 1050 L257 1062" stroke="#64748b" stroke-width="2"/>
+  <polygon points="257,1066 252,1059 262,1059" fill="#64748b"/>
+  <rect x="22" y="1068" width="470" height="36" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="257" y="1091" text-anchor="middle" fill="#9a3412" font-size="13" font-weight="bold">输出：GemmaRMSNorm → lm_head [6144, 200064] (1.23B, BF16)</text>
+  <rect x="548" y="182" width="390" height="588" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <rect x="548" y="182" width="390" height="36" rx="8" fill="#dcfce7"/>
+  <text x="743" y="205" text-anchor="middle" fill="#166534" font-size="15.5" font-weight="bold">DSpark 半自回归草稿头（1.96B · 2.30GB）</text>
+  <circle cx="484" cy="260.9" r="4" fill="#eab308" stroke="#854d0e" stroke-width="1.2"/>
+  <path d="M 488 260.9 C 522 260.9, 526 254.0, 566 254.0" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="4,2"/>
+  <polygon points="570,254.0 563,250.5 563,257.5" fill="#16a34a"/>
+  <circle cx="484" cy="454.1" r="4" fill="#eab308" stroke="#854d0e" stroke-width="1.2"/>
+  <path d="M 488 454.1 C 522 454.1, 526 268.0, 566 268.0" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="4,2"/>
+  <polygon points="570,268.0 563,264.5 563,271.5" fill="#16a34a"/>
+  <circle cx="484" cy="647.3" r="4" fill="#eab308" stroke="#854d0e" stroke-width="1.2"/>
+  <path d="M 488 647.3 C 522 647.3, 526 282.0, 566 282.0" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="4,2"/>
+  <polygon points="570,282.0 563,278.5 563,285.5" fill="#16a34a"/>
+  <circle cx="484" cy="840.5" r="4" fill="#eab308" stroke="#854d0e" stroke-width="1.2"/>
+  <path d="M 488 840.5 C 522 840.5, 526 296.0, 566 296.0" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="4,2"/>
+  <polygon points="570,296.0 563,292.5 563,299.5" fill="#16a34a"/>
+  <circle cx="484" cy="1033.7" r="4" fill="#eab308" stroke="#854d0e" stroke-width="1.2"/>
+  <path d="M 488 1033.7 C 522 1033.7, 526 310.0, 566 310.0" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="4,2"/>
+  <polygon points="570,310.0 563,306.5 563,313.5" fill="#16a34a"/>
+  <rect x="572" y="236" width="136" height="90" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="580" y="244" width="120" height="12" rx="2" fill="#fef08a" stroke="#ca8a04" stroke-width="1"/>
+  <text x="640" y="253.5" text-anchor="middle" fill="#713f12" font-size="9" font-weight="bold">h_L03 [6144]</text>
+  <rect x="580" y="259" width="120" height="12" rx="2" fill="#fef08a" stroke="#ca8a04" stroke-width="1"/>
+  <text x="640" y="268.5" text-anchor="middle" fill="#713f12" font-size="9" font-weight="bold">h_L17 [6144]</text>
+  <rect x="580" y="274" width="120" height="12" rx="2" fill="#fef08a" stroke="#ca8a04" stroke-width="1"/>
+  <text x="640" y="283.5" text-anchor="middle" fill="#713f12" font-size="9" font-weight="bold">h_L31 [6144]</text>
+  <rect x="580" y="289" width="120" height="12" rx="2" fill="#fef08a" stroke="#ca8a04" stroke-width="1"/>
+  <text x="640" y="298.5" text-anchor="middle" fill="#713f12" font-size="9" font-weight="bold">h_L45 [6144]</text>
+  <rect x="580" y="304" width="120" height="12" rx="2" fill="#fef08a" stroke="#ca8a04" stroke-width="1"/>
+  <text x="640" y="313.5" text-anchor="middle" fill="#713f12" font-size="9" font-weight="bold">h_L59 [6144]</text>
+  <polygon points="708,236 780,263 780,299 708,326" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="744" y="278" text-anchor="middle" fill="#166534" font-size="10.5" font-weight="bold">fc 降维</text>
+  <text x="744" y="293" text-anchor="middle" fill="#15803d" font-size="9.5">30720→6144</text>
+  <rect x="780" y="263" width="140" height="36" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="850" y="285" text-anchor="middle" fill="#14532d" font-size="12" font-weight="bold">融合特征 [6144]</text>
+  <path d="M 743 332 L 743 352" stroke="#16a34a" stroke-width="2"/>
+  <polygon points="743,356 738,349 748,349" fill="#16a34a"/>
+  <rect x="572" y="360" width="348" height="126" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="746" y="380" text-anchor="middle" fill="#166534" font-size="12.5" font-weight="bold">① Parallel Block：5 层滑窗稠密层 (1.67B, MXFP8)</text>
+  <text x="602" y="401" text-anchor="middle" fill="#475569" font-size="9.5" font-weight="bold">草稿 L0</text>
+  <rect x="632" y="390" width="126" height="13" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="695" y="400" text-anchor="middle" fill="#1e3a8a" font-size="9">4096 滑窗 GQA</text>
+  <rect x="766" y="390" width="138" height="13" rx="2.5" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+  <text x="835" y="400" text-anchor="middle" fill="#0f766e" font-size="9">稠密 SwiGLU 12288</text>
+  <text x="602" y="418" text-anchor="middle" fill="#475569" font-size="9.5" font-weight="bold">草稿 L1</text>
+  <rect x="632" y="407" width="126" height="13" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="695" y="417" text-anchor="middle" fill="#1e3a8a" font-size="9">4096 滑窗 GQA</text>
+  <rect x="766" y="407" width="138" height="13" rx="2.5" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+  <text x="835" y="417" text-anchor="middle" fill="#0f766e" font-size="9">稠密 SwiGLU 12288</text>
+  <text x="602" y="435" text-anchor="middle" fill="#475569" font-size="9.5" font-weight="bold">草稿 L2</text>
+  <rect x="632" y="424" width="126" height="13" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="695" y="434" text-anchor="middle" fill="#1e3a8a" font-size="9">4096 滑窗 GQA</text>
+  <rect x="766" y="424" width="138" height="13" rx="2.5" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+  <text x="835" y="434" text-anchor="middle" fill="#0f766e" font-size="9">稠密 SwiGLU 12288</text>
+  <text x="602" y="452" text-anchor="middle" fill="#475569" font-size="9.5" font-weight="bold">草稿 L3</text>
+  <rect x="632" y="441" width="126" height="13" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="695" y="451" text-anchor="middle" fill="#1e3a8a" font-size="9">4096 滑窗 GQA</text>
+  <rect x="766" y="441" width="138" height="13" rx="2.5" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+  <text x="835" y="451" text-anchor="middle" fill="#0f766e" font-size="9">稠密 SwiGLU 12288</text>
+  <text x="602" y="469" text-anchor="middle" fill="#475569" font-size="9.5" font-weight="bold">草稿 L4</text>
+  <rect x="632" y="458" width="126" height="13" rx="2.5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="695" y="468" text-anchor="middle" fill="#1e3a8a" font-size="9">4096 滑窗 GQA</text>
+  <rect x="766" y="458" width="138" height="13" rx="2.5" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+  <text x="835" y="468" text-anchor="middle" fill="#0f766e" font-size="9">稠密 SwiGLU 12288</text>
+  <path d="M 743 486 L 743 506" stroke="#16a34a" stroke-width="2"/>
+  <polygon points="743,510 738,503 748,503" fill="#16a34a"/>
+  <rect x="572" y="514" width="348" height="118" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="746" y="534" text-anchor="middle" fill="#166534" font-size="12.5" font-weight="bold">② 一次并行猜 7 格 ＋ 秩 256 马尔可夫链修正</text>
+  <rect x="586" y="546" width="34" height="32" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="603" y="566" text-anchor="middle" fill="#1e293b" font-size="10.5" font-weight="bold">t1</text>
+  <path d="M 610 578 Q 626 598 640 578" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <polygon points="641,578 635,582 639,585" fill="#d97706"/>
+  <rect x="632" y="546" width="34" height="32" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="649" y="566" text-anchor="middle" fill="#1e293b" font-size="10.5" font-weight="bold">t2</text>
+  <path d="M 656 578 Q 672 598 686 578" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <polygon points="687,578 681,582 685,585" fill="#d97706"/>
+  <rect x="678" y="546" width="34" height="32" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="695" y="566" text-anchor="middle" fill="#1e293b" font-size="10.5" font-weight="bold">t3</text>
+  <path d="M 702 578 Q 718 598 732 578" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <polygon points="733,578 727,582 731,585" fill="#d97706"/>
+  <rect x="724" y="546" width="34" height="32" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="741" y="566" text-anchor="middle" fill="#1e293b" font-size="10.5" font-weight="bold">t4</text>
+  <path d="M 748 578 Q 764 598 778 578" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <polygon points="779,578 773,582 777,585" fill="#d97706"/>
+  <rect x="770" y="546" width="34" height="32" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="787" y="566" text-anchor="middle" fill="#1e293b" font-size="10.5" font-weight="bold">t5</text>
+  <path d="M 794 578 Q 810 598 824 578" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <polygon points="825,578 819,582 823,585" fill="#d97706"/>
+  <rect x="816" y="546" width="34" height="32" rx="5" fill="#fef08a" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="833" y="566" text-anchor="middle" fill="#1e293b" font-size="10.5" font-weight="bold">t6</text>
+  <path d="M 840 578 Q 856 598 870 578" fill="none" stroke="#d97706" stroke-width="1.5"/>
+  <polygon points="871,578 865,582 869,585" fill="#d97706"/>
+  <rect x="862" y="546" width="34" height="32" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="879" y="566" text-anchor="middle" fill="#1e293b" font-size="10.5" font-weight="bold">截断</text>
+  <text x="746" y="618" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">橙弧 = Markov Head：查 W1[20万,256] × W2[256,20万] 注入前词偏置</text>
+  <path d="M 743 632 L 743 652" stroke="#16a34a" stroke-width="2"/>
+  <polygon points="743,656 738,649 748,649" fill="#16a34a"/>
+  <rect x="572" y="660" width="348" height="94" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="746" y="680" text-anchor="middle" fill="#166534" font-size="12.5" font-weight="bold">③ 6400 维拼接置信度头 → 动态止损</text>
+  <rect x="590" y="690" width="180" height="22" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="680" y="705" text-anchor="middle" fill="#14532d" font-size="10.5" font-weight="bold">主干隐藏态 [6144 维]</text>
+  <rect x="772" y="690" width="64" height="22" rx="4" fill="#fef08a" stroke="#ca8a04" stroke-width="1.2"/>
+  <text x="804" y="705" text-anchor="middle" fill="#713f12" font-size="10" font-weight="bold">+ [256维]</text>
+  <path d="M 836 701 L 858 701" stroke="#334155" stroke-width="1.5"/>
+  <rect x="858" y="688" width="46" height="26" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="881" y="705" text-anchor="middle" fill="#991b1b" font-size="10.5" font-weight="bold">c_k</text>
+  <text x="746" y="738" text-anchor="middle" fill="#475569" font-size="10">6144 + 256 = 6400 维投射为通过率 c_k，低把握词 (如 t7) 提前截断不送检</text>
+  <rect x="548" y="786" width="390" height="318" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <rect x="548" y="786" width="390" height="36" rx="8" fill="#ffedd5"/>
+  <text x="743" y="809" text-anchor="middle" fill="#9a3412" font-size="15" font-weight="bold">250.1GB 三级混合量化比例 ＆ M3.1 三项改动</text>
+  <text x="566" y="842" fill="#334155" font-size="12" font-weight="bold">427.05B 参数的三级精度切分（仓库直出 250.10 GB）：</text>
+  <rect x="566" y="852" width="276" height="28" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="704" y="870" text-anchor="middle" fill="#4c1d95" font-size="11" font-weight="bold">96.7% 路由专家 (413.1B) → NVFP4</text>
+  <rect x="844" y="852" width="52" height="28" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="870" y="870" text-anchor="middle" fill="#1e3a8a" font-size="9.5" font-weight="bold">MXFP8</text>
+  <rect x="898" y="852" width="24" height="28" rx="4" fill="#fef08a" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="910" y="870" text-anchor="middle" fill="#713f12" font-size="8.5" font-weight="bold">BF</text>
+  <text x="566" y="898" fill="#64748b" font-size="10">• 紫：57×128 路由专家走 NVFP4 (group=16)｜蓝：注意力/稠密/共享专家 MXFP8</text>
+  <text x="566" y="916" fill="#64748b" font-size="10">• 黄：57 层路由器 gate (F32) ＋ 进出词表与视觉塔 (BF16) 豁免不量化</text>
+  <rect x="566" y="932" width="354" height="48" rx="6" fill="#ffffff" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="576" y="952" fill="#9a3412" font-size="11" font-weight="bold">① 注意力：M3 [前3层稠密+57层稀疏] → M3.1 [60层全稀疏]</text>
+  <text x="576" y="970" fill="#475569" font-size="10.5">   同时半维 RoPE 基频从 500 万翻倍至 1,000 万，撑满 1M 窗口</text>
+  <rect x="566" y="988" width="354" height="48" rx="6" fill="#ffffff" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="576" y="1008" fill="#9a3412" font-size="11" font-weight="bold">② 投机解码：M3 [7个串行MTP] → M3.1 [独立 5 层 DSpark]</text>
+  <text x="576" y="1026" fill="#475569" font-size="10.5">   五层抽头并行猜 7 词 ＋ 秩 256 马尔可夫头 ＋ 6400 维置信度止损</text>
+  <rect x="566" y="1044" width="354" height="48" rx="6" fill="#ffffff" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="576" y="1064" fill="#9a3412" font-size="11" font-weight="bold">③ 跨厂积木：Gemma 零均值归一化 ＋ OpenAI 限幅 SwiGLU</text>
+  <text x="576" y="1082" fill="#475569" font-size="10.5">   use_gemma_norm (1+w) ＋ swigluoai (α=1.702, limit=7.0 防爆值)</text>
 </svg>
