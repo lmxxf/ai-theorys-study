@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 640" width="880" height="640">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="idxGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="mainGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <rect width="880" height="640" fill="url(#bg2)"/>
+
+  <!-- Title -->
+  <rect x="24" y="18" width="832" height="54" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="440" y="42" text-anchor="middle" fill="#f8fafc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="19" font-weight="bold">MiniMax 稀疏注意力（MSA）单层双分支解剖（arXiv:2606.13392）</text>
+  <text x="440" y="62" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">从 1,048,576 词元（8,192 个 128-token 块）中免指数挑出 Top-16 块（2,048 词元）· 注意力计算量降 28.4×</text>
+
+  <!-- Input Hidden State X -->
+  <rect x="250" y="88" width="380" height="40" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+  <text x="440" y="113" text-anchor="middle" fill="#f1f5f9" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="bold">当前层输入隐藏状态 X [N, 6144]（经 GemmaRMSNorm）</text>
+
+  <!-- Split Arrows -->
+  <path d="M 340 128 L 220 156" fill="none" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#arrBlue)"/>
+  <path d="M 540 128 L 660 156" fill="none" stroke="#fbbf24" stroke-width="1.8" marker-end="url(#arrGold)"/>
+  <text x="242" y="146" text-anchor="middle" fill="#7dd3fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">训练时加 stopgrad(X) 隔离梯度</text>
+
+  <!-- Left Branch: Lightweight Index Branch -->
+  <rect x="24" y="160" width="400" height="366" rx="10" fill="#1e293b" stroke="#0284c7" stroke-width="1.8"/>
+  <rect x="24" y="160" width="400" height="32" rx="10" fill="url(#idxGrad)"/>
+  <text x="224" y="181" text-anchor="middle" fill="#ffffff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="bold">左路：轻量索引分支（Index Branch · 仅 3.93M/层）</text>
+
+  <rect x="40" y="204" width="176" height="68" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="128" y="224" text-anchor="middle" fill="#7dd3fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">index_q_proj [6144, 512]</text>
+  <text x="128" y="243" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">4 个索引 Q 头 × 128 维</text>
+  <text x="128" y="261" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10">对应 4 个 GQA 组各自独立挑块</text>
+
+  <rect x="232" y="204" width="176" height="68" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="320" y="224" text-anchor="middle" fill="#7dd3fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">index_k_proj [6144, 128]</text>
+  <text x="320" y="243" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">全层仅 1 个共享索引 K 头</text>
+  <text x="320" y="261" text-anchor="middle" fill="#fbbf24" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10">★ 无索引 V 头 (disable_value=1)</text>
+
+  <line x1="224" y1="272" x2="224" y2="294" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrBlue)"/>
+
+  <!-- Block Max-Pooling Scoring -->
+  <rect x="40" y="298" width="368" height="98" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="1.2"/>
+  <text x="224" y="319" text-anchor="middle" fill="#e0f2fe" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">按 128 词元切块 + 块内最大点积打分（免算 exp）</text>
+  <text x="224" y="341" text-anchor="middle" fill="#38bdf8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">M_{i, b}^{(r)} = max_{j ∈ Block_b} ( Q_i^{idx,(r)} · K_j^{idx} / √128 )</text>
+  <text x="224" y="362" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">1M 上下文切为 8,192 个块（B_k = 128），单调性允许跳过 Softmax</text>
+  <text x="224" y="381" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">直接用寄存器级 exp-free Top-K 核函数选出每组最高分块</text>
+
+  <line x1="224" y1="396" x2="224" y2="418" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrBlue)"/>
+
+  <!-- Top-16 Block Indices Output -->
+  <rect x="40" y="422" width="368" height="88" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="224" y="443" text-anchor="middle" fill="#7dd3fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">输出每组选中的块集合 I_i^{(r)}（共 k = 16 个块）</text>
+  <text x="224" y="464" text-anchor="middle" fill="#fde68a" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">15 个历史高分块 + 1 个强制保留的当前局部块 (local_block=1)</text>
+  <text x="224" y="484" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">合计至多 16 × 128 = 2,048 个可见词元（仅占 1M 的 0.2%）</text>
+  <text x="224" y="501" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10">训练期通过 KL( P_main || P_idx ) 对齐主分支组平均注意力分布</text>
+
+  <!-- Right Branch: Main GQA Branch -->
+  <rect x="456" y="160" width="400" height="366" rx="10" fill="#1e293b" stroke="#d97706" stroke-width="1.8"/>
+  <rect x="456" y="160" width="400" height="32" rx="10" fill="url(#mainGrad)"/>
+  <text x="656" y="181" text-anchor="middle" fill="#ffffff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="bold">右路：主注意力分支（Main Branch · 106.95M/层）</text>
+
+  <rect x="472" y="204" width="176" height="68" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="560" y="224" text-anchor="middle" fill="#fcd34d" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">q_proj [6144, 8192]</text>
+  <text x="560" y="243" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">64 个 Q 头 × 128 维</text>
+  <text x="560" y="261" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10">逐头 QK-Norm + 半维 RoPE (64维)</text>
+
+  <rect x="664" y="204" width="176" height="68" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="752" y="224" text-anchor="middle" fill="#fcd34d" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">k_proj / v_proj [6144, 512]</text>
+  <text x="752" y="243" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">4 个 KV 头 × 128 维 (16:1 GQA)</text>
+  <text x="752" y="261" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10">每 16 个 Q 头共享 1 个 KV 头</text>
+
+  <!-- Arrow from Left Top-16 to Right Sparse Gather -->
+  <path d="M 408 466 L 440 466 L 440 318 L 468 318" fill="none" stroke="#38bdf8" stroke-width="2.2" marker-end="url(#arrBlue)"/>
+
+  <line x1="656" y1="272" x2="656" y2="294" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrGold)"/>
+
+  <!-- Block-Sparse Attention over Selected 2048 Tokens -->
+  <rect x="472" y="298" width="368" height="118" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="656" y="320" text-anchor="middle" fill="#fef3c7" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">按组收集选中的 16 个 KV 块 → 精确 Softmax 注意力</text>
+  <text x="656" y="343" text-anchor="middle" fill="#fbbf24" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">O_i^{(h)} = Softmax( Q_i^{(h)} · K^{(r)}[I_i^{(r)}]^T / √128 ) · V^{(r)}[I_i^{(r)}]</text>
+  <text x="656" y="366" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">同组 16 个 Q 头共享同一份块索引 I_i^{(r)}，但各自用独立 Q 向量算点积</text>
+  <text x="656" y="386" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">内核采用 KV-outer 逆向组织：热门 KV 块聚合多个 Q 填满 Tensor Core</text>
+  <text x="656" y="405" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">每步复杂度从 O(N) 锁死为常数级 O(k·B_k) = 2,048 词元</text>
+
+  <line x1="656" y1="416" x2="656" y2="442" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrGold)"/>
+
+  <!-- Output Projection -->
+  <rect x="472" y="446" width="368" height="64" rx="6" fill="#0f172a" stroke="#64748b" stroke-width="1.2"/>
+  <text x="656" y="471" text-anchor="middle" fill="#f1f5f9" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">输出投影 o_proj [8192, 6144]（MXFP8）→ 残差相加</text>
+  <text x="656" y="494" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">无额外出口门控 (attention_output_gate = false)，保持单层 110.89M 极简</text>
+
+  <!-- Bottom Note: KV Cache Storage vs Bandwidth Accounting -->
+  <rect x="24" y="542" width="832" height="80" rx="10" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+  <text x="440" y="566" text-anchor="middle" fill="#f8fafc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="bold">★ 1M 上下文 KV 缓存静态容量账 vs 动态带宽账（60 层全稀疏 MSA）</text>
+  <text x="440" y="588" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">• 静态显存容量（不省）：每层每词元需存 4 个主 KV 头 (1024) + 1 个索引 K 头 (128) = 1,152 个数 → 1M 满载占 135 GiB (BF16) / 67.5 GiB (FP8)</text>
+  <text x="440" y="608" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">• 动态解码读取（暴省）：每步主分支只需从 67.5 GiB (FP8) 仓库里捞出 16 个块（2,048 词元 ≈ 120 MiB 主 KV），H800 解码实测提速 7.6×</text>
+</svg>

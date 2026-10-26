@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383" width="900" height="383">
+  <defs>
+    <linearGradient id="cbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#171124"/>
+    </linearGradient>
+    <linearGradient id="beamBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="cardOrange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="cardGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="383" fill="url(#cbg)"/>
+
+  <!-- Subtle Background Grid -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.6">
+    <line x1="0" y1="76" x2="900" y2="76"/>
+    <line x1="0" y1="152" x2="900" y2="152"/>
+    <line x1="0" y1="228" x2="900" y2="228"/>
+    <line x1="0" y1="304" x2="900" y2="304"/>
+    <line x1="180" y1="0" x2="180" y2="383"/>
+    <line x1="360" y1="0" x2="360" y2="383"/>
+    <line x1="540" y1="0" x2="540" y2="383"/>
+    <line x1="720" y1="0" x2="720" y2="383"/>
+  </g>
+
+  <!-- Left Visual: 8x8 Grid representing 1M Context Blocks, with 16 Glowing Selected Blocks (MSA) -->
+  <g transform="translate(55, 52)">
+    <rect x="-12" y="-12" width="236" height="248" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+    <!-- 6x6 visual block matrix: dim blocks vs bright selected Top-16 blocks -->
+    <!-- Row 0 -->
+    <rect x="6" y="8" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="40" y="8" width="28" height="24" rx="4" fill="#38bdf8" filter="url(#glow)"/>
+    <rect x="74" y="8" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="108" y="8" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="142" y="8" width="28" height="24" rx="4" fill="#38bdf8"/>
+    <rect x="176" y="8" width="28" height="24" rx="4" fill="#1e293b"/>
+    <!-- Row 1 -->
+    <rect x="6" y="38" width="28" height="24" rx="4" fill="#38bdf8"/>
+    <rect x="40" y="38" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="74" y="38" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="108" y="38" width="28" height="24" rx="4" fill="#38bdf8" filter="url(#glow)"/>
+    <rect x="142" y="38" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="176" y="38" width="28" height="24" rx="4" fill="#1e293b"/>
+    <!-- Row 2 -->
+    <rect x="6" y="68" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="40" y="68" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="74" y="68" width="28" height="24" rx="4" fill="#38bdf8"/>
+    <rect x="108" y="68" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="142" y="68" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="176" y="68" width="28" height="24" rx="4" fill="#38bdf8"/>
+    <!-- Row 3 -->
+    <rect x="6" y="98" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="40" y="98" width="28" height="24" rx="4" fill="#38bdf8"/>
+    <rect x="74" y="98" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="108" y="98" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="142" y="98" width="28" height="24" rx="4" fill="#38bdf8" filter="url(#glow)"/>
+    <rect x="176" y="98" width="28" height="24" rx="4" fill="#1e293b"/>
+    <!-- Row 4 -->
+    <rect x="6" y="128" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="40" y="128" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="74" y="128" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="108" y="128" width="28" height="24" rx="4" fill="#38bdf8"/>
+    <rect x="142" y="128" width="28" height="24" rx="4" fill="#1e293b"/>
+    <rect x="176" y="128" width="28" height="24" rx="4" fill="#f97316" filter="url(#glow)"/>
+
+    <text x="106" y="182" text-anchor="middle" fill="#38bdf8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="18" font-weight="bold">100% 稀疏 MSA</text>
+    <text x="106" y="206" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13">1M → Top-16 块 (2048 词)</text>
+  </g>
+
+  <!-- Center Core Hub: MiniMax M3.1 Flash 428B / A23B -->
+  <g transform="translate(342, 74)">
+    <!-- Connecting beams -->
+    <path d="M -60 100 L 10 100" stroke="#38bdf8" stroke-width="4" stroke-dasharray="6 4"/>
+    <path d="M 206 60 L 276 35" stroke="#10b981" stroke-width="3" stroke-dasharray="5 3"/>
+    <path d="M 206 100 L 276 100" stroke="#10b981" stroke-width="3" stroke-dasharray="5 3"/>
+    <path d="M 206 140 L 276 165" stroke="#10b981" stroke-width="3" stroke-dasharray="5 3"/>
+
+    <polygon points="108,0 212,56 212,164 108,220 4,164 4,56" fill="#1e293b" stroke="url(#cardOrange)" stroke-width="3.5"/>
+    <text x="108" y="68" text-anchor="middle" fill="#fb923c" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="18" font-weight="bold">MiniMax</text>
+    <text x="108" y="102" text-anchor="middle" fill="#ffffff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="26" font-weight="bold">M3.1-Flash</text>
+    <rect x="34" y="118" width="148" height="28" rx="6" fill="url(#cardOrange)"/>
+    <text x="108" y="137" text-anchor="middle" fill="#ffffff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="bold">428B · 激活 23B</text>
+    <text x="108" y="172" text-anchor="middle" fill="#fde68a" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13">MXFP8 + NVFP4</text>
+  </g>
+
+  <!-- Right Visual: DSpark 5-Tap + 7-Token Semi-Autoregressive Chain -->
+  <g transform="translate(618, 52)">
+    <rect x="0" y="-12" width="238" height="248" rx="14" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <text x="119" y="22" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="18" font-weight="bold">DSpark 草稿头</text>
+    <text x="119" y="44" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">5 层抽头 [3,17,31,45,59]</text>
+
+    <!-- 7 token blocks with Markov links -->
+    <g transform="translate(15, 64)">
+      <rect x="0" y="0" width="26" height="36" rx="5" fill="url(#cardGreen)"/>
+      <rect x="30" y="0" width="26" height="36" rx="5" fill="url(#cardGreen)"/>
+      <rect x="60" y="0" width="26" height="36" rx="5" fill="url(#cardGreen)"/>
+      <rect x="90" y="0" width="26" height="36" rx="5" fill="url(#cardGreen)"/>
+      <rect x="120" y="0" width="26" height="36" rx="5" fill="url(#cardGreen)"/>
+      <rect x="150" y="0" width="26" height="36" rx="5" fill="#065f46" stroke="#34d399" stroke-width="1.2"/>
+      <rect x="180" y="0" width="26" height="36" rx="5" fill="#1e293b" stroke="#64748b" stroke-width="1" stroke-dasharray="3 2"/>
+      <text x="13" y="23" text-anchor="middle" fill="#fff" font-family="'WenQuanYi Micro Hei', sans-serif" font-size="12" font-weight="bold">t1</text>
+      <text x="43" y="23" text-anchor="middle" fill="#fff" font-family="'WenQuanYi Micro Hei', sans-serif" font-size="12" font-weight="bold">t2</text>
+      <text x="73" y="23" text-anchor="middle" fill="#fff" font-family="'WenQuanYi Micro Hei', sans-serif" font-size="12" font-weight="bold">t3</text>
+      <text x="103" y="23" text-anchor="middle" fill="#fff" font-family="'WenQuanYi Micro Hei', sans-serif" font-size="12" font-weight="bold">t4</text>
+      <text x="133" y="23" text-anchor="middle" fill="#fff" font-family="'WenQuanYi Micro Hei', sans-serif" font-size="12" font-weight="bold">t5</text>
+      <text x="163" y="23" text-anchor="middle" fill="#a7f3d0" font-family="'WenQuanYi Micro Hei', sans-serif" font-size="12">t6</text>
+      <text x="193" y="23" text-anchor="middle" fill="#64748b" font-family="'WenQuanYi Micro Hei', sans-serif" font-size="12">×</text>
+    </g>
+
+    <rect x="20" y="118" width="198" height="34" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+    <text x="119" y="140" text-anchor="middle" fill="#a7f3d0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">Markov W1·W2 (秩 256)</text>
+
+    <rect x="20" y="164" width="198" height="34" rx="6" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+    <text x="119" y="186" text-anchor="middle" fill="#6ee7b7" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">6400 维置信度动态截断</text>
+  </g>
+
+  <!-- Bottom Banner -->
+  <rect x="43" y="316" width="814" height="44" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.2"/>
+  <text x="450" y="344" text-anchor="middle" fill="#f8fafc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="17" font-weight="bold">60 层全员稀疏注意力  ×  DeepSeek 同款半自回归投机解码  ×  250GB 原生混搭量化</text>
+</svg>

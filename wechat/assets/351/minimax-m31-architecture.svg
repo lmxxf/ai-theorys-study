@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 820" width="920" height="820">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="msaGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="moeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="dsparkGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#34d399"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="820" fill="url(#bg)"/>
+
+  <!-- Title Banner -->
+  <rect x="24" y="20" width="872" height="58" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <text x="460" y="45" text-anchor="middle" fill="#f8fafc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="20" font-weight="bold">MiniMax-M3.1-Flash 全景架构账本（427.05B 总参 / 23.52B 激活 · 250.1GB 原生混搭量化）</text>
+  <text x="460" y="67" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13">60 层 100% 稀疏注意力（MSA） + 前 3 层稠密 / 后 57 层 MoE + 独立 5 层 DSpark 半自回归草稿头（1.96B）</text>
+
+  <!-- Left Column: Main 60-Layer Backbone + Vision -->
+  <rect x="24" y="94" width="540" height="574" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="294" y="120" text-anchor="middle" fill="#38bdf8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="bold">主干网络（60 层 · hidden_size = 6144 · 1M 上下文）</text>
+
+  <!-- Input Multimodal & Embedding -->
+  <rect x="44" y="134" width="235" height="62" rx="8" fill="#0f172a" stroke="#64748b" stroke-width="1.2"/>
+  <text x="161" y="155" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">文本词表 embed_tokens</text>
+  <text x="161" y="173" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">[200064, 6144] · 1.23B (BF16)</text>
+  <text x="161" y="189" text-anchor="middle" fill="#64748b" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">与输出 lm_head 不共享权重</text>
+
+  <rect x="295" y="134" width="250" height="62" rx="8" fill="#0f172a" stroke="#a855f7" stroke-width="1.2"/>
+  <text x="420" y="155" text-anchor="middle" fill="#e9d5ff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">32 层 3D-RoPE 视觉塔 + 双投影</text>
+  <text x="420" y="173" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">1280 维 · 3D 卷积 [3,2,14,14] (BF16)</text>
+  <text x="420" y="189" text-anchor="middle" fill="#c084fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">2×2 空间合并 [24576→6144] · 0.86B</text>
+
+  <!-- Arrow up/down into Layer 0-2 -->
+  <line x1="294" y1="196" x2="294" y2="214" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Layer 0 ~ 2: 3 Dense Layers (Now with MSA in M3.1!) -->
+  <rect x="44" y="218" width="500" height="118" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8"/>
+  <rect x="44" y="218" width="500" height="28" rx="8" fill="url(#msaGrad)"/>
+  <text x="294" y="237" text-anchor="middle" fill="#ffffff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">第 0 ~ 2 层（共 3 层）：M3.1 升级为 MSA 稀疏注意力 + 稠密 SwiGLU</text>
+
+  <rect x="58" y="254" width="228" height="72" rx="6" fill="#1e293b" stroke="#0284c7" stroke-width="1"/>
+  <text x="172" y="273" text-anchor="middle" fill="#7dd3fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">MSA 稀疏注意力（110.89M/层）</text>
+  <text x="172" y="291" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">主分支：64 Q / 4 KV (16:1 GQA)</text>
+  <text x="172" y="307" text-anchor="middle" fill="#38bdf8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">索引分支：4 Q_idx + 1 K_idx (无 V)</text>
+  <text x="172" y="321" text-anchor="middle" fill="#fbbf24" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10">★ M3 前3层为稠密，M3.1 改为全稀疏</text>
+
+  <rect x="302" y="254" width="228" height="72" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+  <text x="416" y="273" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">稠密 FFN（226.49M/层 · MXFP8）</text>
+  <text x="416" y="291" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">intermediate_size = 12,288</text>
+  <text x="416" y="307" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">激活函数：swigluoai (α=1.702, 限幅7.0)</text>
+  <text x="416" y="321" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10">3 层稠密 FFN 合计：0.68B（全激活）</text>
+
+  <line x1="294" y1="336" x2="294" y2="354" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Layer 3 ~ 59: 57 MoE Layers -->
+  <rect x="44" y="358" width="500" height="222" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1.8"/>
+  <rect x="44" y="358" width="500" height="28" rx="8" fill="url(#moeGrad)"/>
+  <text x="294" y="377" text-anchor="middle" fill="#ffffff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">第 3 ~ 59 层（共 57 层）：MSA 稀疏注意力 + 128 选 4 混合专家（MoE）</text>
+
+  <!-- MSA box inside Layer 3-59 -->
+  <rect x="58" y="394" width="472" height="52" rx="6" fill="#1e293b" stroke="#0284c7" stroke-width="1"/>
+  <text x="294" y="414" text-anchor="middle" fill="#7dd3fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11.5" font-weight="bold">MSA 稀疏注意力（MXFP8 · rope_theta = 1000 万 · GemmaNorm + 逐头 QK-Norm）</text>
+  <text x="294" y="434" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">每块 128 词元 · 每组选 Top-16 块（含 1 个强制局部块 = 最多算 2,048 词元）· 60 层共 6.65B</text>
+
+  <!-- MoE boxes inside Layer 3-59 -->
+  <rect x="58" y="456" width="196" height="112" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.2"/>
+  <text x="156" y="476" text-anchor="middle" fill="#6ee7b7" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">1 个常驻共享专家</text>
+  <text x="156" y="495" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">中间维 3,072 (56.62M/层)</text>
+  <text x="156" y="513" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">精度：MXFP8 (粒度 1×32)</text>
+  <text x="156" y="531" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">57 层共 3.23B（每步全激活）</text>
+  <text x="156" y="551" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="10">+ Sigmoid 路由 gate (F32 不量化)</text>
+
+  <rect x="268" y="456" width="262" height="112" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="399" y="476" text-anchor="middle" fill="#fcd34d" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="bold">128 个路由专家（每步激活 Top-4）</text>
+  <text x="399" y="495" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">单专家中间维 3,072 (56.62M · swigluoai)</text>
+  <text x="399" y="513" text-anchor="middle" fill="#fbbf24" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">精度：NVFP4 (group=16, 占总参 96.7%)</text>
+  <text x="399" y="531" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">57 层总参：413.12B（单层 7.25B）</text>
+  <text x="399" y="551" text-anchor="middle" fill="#fde68a" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="bold">57 层每步仅激活：12.91B（226.5M/层）</text>
+
+  <line x1="294" y1="580" x2="294" y2="598" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Output Head -->
+  <rect x="44" y="602" width="500" height="52" rx="8" fill="#0f172a" stroke="#64748b" stroke-width="1.2"/>
+  <text x="294" y="624" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">输出层：GemmaRMSNorm [6144] → lm_head [6144, 200064]（1.23B · BF16）</text>
+  <text x="294" y="643" text-anchor="middle" fill="#94a3b8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">非嵌入主干：423.73B 总 / 23.52B 激活 · 含词表与视觉塔全模型共 427.05B</text>
+
+  <!-- Right Column: DSpark Sidecar Draft Model -->
+  <rect x="588" y="94" width="308" height="574" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.8"/>
+  <rect x="588" y="94" width="308" height="36" rx="10" fill="url(#dsparkGrad)"/>
+  <text x="742" y="117" text-anchor="middle" fill="#ffffff" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="15" font-weight="bold">DSpark 半自回归草稿头（1.96B）</text>
+
+  <text x="742" y="148" text-anchor="middle" fill="#6ee7b7" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">取代 M3 的 7 模块串行 MTP · 独立 2.30GB</text>
+
+  <!-- Tap Arrows from Left Backbone to Right DSpark -->
+  <path d="M 544 372 L 598 188" fill="none" stroke="#34d399" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrGreen)"/>
+  <path d="M 544 440 L 598 198" fill="none" stroke="#34d399" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrGreen)"/>
+  <path d="M 544 510 L 598 208" fill="none" stroke="#34d399" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrGreen)"/>
+  <path d="M 544 565 L 598 218" fill="none" stroke="#34d399" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrGreen)"/>
+
+  <!-- Step 1: 5-Layer Feature Fusion -->
+  <rect x="604" y="164" width="276" height="84" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+  <text x="742" y="185" text-anchor="middle" fill="#a7f3d0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">① 主干 5 层等距抽头融合 (BF16)</text>
+  <text x="742" y="205" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">抽头层号：[L03, L17, L31, L45, L59]</text>
+  <text x="742" y="223" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">5 × 6144 拼成 30,720 维长向量</text>
+  <text x="742" y="239" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">fc.weight [30720 → 6144] (188.7M)</text>
+
+  <line x1="742" y1="248" x2="742" y2="268" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrGreen)"/>
+
+  <!-- Step 2: 5-Layer Parallel Block -->
+  <rect x="604" y="272" width="276" height="114" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+  <text x="742" y="293" text-anchor="middle" fill="#a7f3d0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">② 5 层滑窗并行主干 (Parallel Block)</text>
+  <text x="742" y="313" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">5 层纯稠密 Transformer (1.67B · MXFP8)</text>
+  <text x="742" y="331" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">注意力：sliding_window = 4096 (无MSA)</text>
+  <text x="742" y="349" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">FFN：稠密 SwiGLU (中间维 12,288)</text>
+  <text x="742" y="369" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="bold">一次前向并行产出 block_size = 7 个位置</text>
+
+  <line x1="742" y1="386" x2="742" y2="406" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrGreen)"/>
+
+  <!-- Step 3: Markov Head -->
+  <rect x="604" y="410" width="276" height="106" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+  <text x="742" y="431" text-anchor="middle" fill="#a7f3d0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">③ 低秩马尔可夫头 (Markov Head)</text>
+  <text x="742" y="451" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">markov_rank = 256 (102.4M · BF16)</text>
+  <text x="742" y="469" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">W1 [200064, 256] × W2 [256, 200064]</text>
+  <text x="742" y="487" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">按前一采样词注入相邻词转移偏置</text>
+  <text x="742" y="505" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">解决纯并行草稿“前后词不搭”毛病</text>
+
+  <line x1="742" y1="516" x2="742" y2="536" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrGreen)"/>
+
+  <!-- Step 4: Confidence Head -->
+  <rect x="604" y="540" width="276" height="114" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+  <text x="742" y="561" text-anchor="middle" fill="#a7f3d0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">④ 6400 维置信度头动态止损</text>
+  <text x="742" y="581" text-anchor="middle" fill="#e2e8f0" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="12">confidence_head.proj [6400 → 1]</text>
+  <text x="742" y="599" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">拼接 6144 主干态 + 256 马尔可夫向量</text>
+  <text x="742" y="617" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">预估每个草稿词通过主干验证的概率</text>
+  <text x="742" y="637" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="bold">低把握后缀提前截断，省去无效验证</text>
+
+  <!-- Bottom Summary Bar: 3 Key Upgrades from M3 to M3.1-Flash -->
+  <rect x="24" y="684" width="872" height="116" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <text x="460" y="709" text-anchor="middle" fill="#fb923c" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="15" font-weight="bold">从 MiniMax-M3（2026.06）到 MiniMax-M3.1-Flash（2026.10）的三刀硬核手术对照</text>
+
+  <rect x="40" y="722" width="272" height="64" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>
+  <text x="176" y="742" text-anchor="middle" fill="#7dd3fc" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">手术一：100% 全员稀疏注意力</text>
+  <text x="176" y="761" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">M3 前 3 层保留稠密全注意力 [0,0,0,1...]</text>
+  <text x="176" y="777" text-anchor="middle" fill="#38bdf8" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">M3.1 改为 60 层全稀疏 + RoPE 基频翻倍</text>
+
+  <rect x="324" y="722" width="272" height="64" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+  <text x="460" y="742" text-anchor="middle" fill="#6ee7b7" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">手术二：换装 DeepSeek 同款 DSpark</text>
+  <text x="460" y="761" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">M3 采用 num_mtp_modules = 7 串行头</text>
+  <text x="460" y="777" text-anchor="middle" fill="#34d399" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">M3.1 换为 5 层并行 + 马尔可夫 + 置信度头</text>
+
+  <rect x="608" y="722" width="272" height="64" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+  <text x="744" y="742" text-anchor="middle" fill="#fcd34d" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="bold">手术三：原生 QAT 混搭量化出厂</text>
+  <text x="744" y="761" text-anchor="middle" fill="#cbd5e1" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">路由专家 NVFP4 + 主干/共享专家 MXFP8</text>
+  <text x="744" y="777" text-anchor="middle" fill="#fbbf24" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" font-size="11">428B 全模型仅 250.1GB（平均 4.67 bit）</text>
+</svg>
