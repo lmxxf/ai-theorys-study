@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 790" width="520" height="790" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="520" height="790" fill="#fbfbfd" rx="12"/>
+
+  <!-- 顶部标题 -->
+  <text x="260" y="34" text-anchor="middle" fill="#1e293b" font-size="18" font-weight="bold">第二阶段（2023 → 2026）：钻进支路肚子里的两道限速器</text>
+  <text x="260" y="56" text-anchor="middle" fill="#64748b" font-size="12.5">支路门口管住之后，支路内部的点积乘法与多专家合并还会失控</text>
+
+  <!-- ================= 上半层：2023 注意力内部 QK-Norm ================= -->
+  <g transform="translate(20, 74)">
+    <rect x="0" y="0" width="480" height="348" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.8"/>
+    <rect x="0" y="0" width="480" height="34" rx="7" fill="#fef3c7"/>
+    <text x="240" y="23" text-anchor="middle" fill="#92400e" font-size="13.5" font-weight="bold">① 2023 起普及：注意力肚子里的“逐头 QK-Norm”</text>
+
+    <!-- 竖向流程步 1 -->
+    <rect x="24" y="48" width="432" height="42" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+    <text x="240" y="67" text-anchor="middle" fill="#0f172a" font-size="12.5" font-weight="bold">第 1 步：进门 Pre-Norm → 乘 W_q、W_k 拆成多头（每头 128 维）</text>
+    <text x="240" y="83" text-anchor="middle" fill="#be123c" font-size="11" font-weight="bold">隐患：Pre-Norm 只管输入 x；深层 W_q、W_k 变大后，Q 和 K 照样涨到 5~10</text>
+
+    <line x1="240" y1="90" x2="240" y2="108" stroke="#d97706" stroke-width="2.5"/>
+    <polygon points="240,113 235,105 245,105" fill="#d97706"/>
+
+    <!-- 竖向流程步 2：QK-Norm 高亮框 -->
+    <rect x="24" y="114" width="432" height="66" rx="6" fill="#fde68a" stroke="#b45309" stroke-width="2.2"/>
+    <text x="240" y="137" text-anchor="middle" fill="#78350f" font-size="12.5" font-weight="bold">★ 新增限速器：逐头 q_norm / k_norm（ViT-22B → Qwen3 / Gemma）</text>
+    <text x="240" y="157" text-anchor="middle" fill="#92400e" font-size="11.5">在算 Q · K^T 点积之前，对每个头（128 维）单独做一次 RMSNorm</text>
+    <text x="240" y="173" text-anchor="middle" fill="#047857" font-size="11.5" font-weight="bold">把单头 Q_norm、K_norm 的向量模长死死锁在 √128 ≈ 11.31 的球面上</text>
+
+    <line x1="240" y1="180" x2="240" y2="198" stroke="#047857" stroke-width="2.5"/>
+    <polygon points="240,203 235,195 245,195" fill="#047857"/>
+
+    <!-- 竖向流程步 3：Q · K^T -> Softmax -->
+    <rect x="24" y="204" width="432" height="42" rx="5" fill="#ecfdf5" stroke="#10b981" stroke-width="1.6"/>
+    <text x="240" y="223" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold">第 2 步：算注意力点积 (Q_norm · K_norm) / √128 → 送进 Softmax</text>
+    <text x="240" y="239" text-anchor="middle" fill="#047857" font-size="11" font-weight="bold">由柯西-施瓦茨不等式，得分永远不超过 [-11.31, +11.31]，彻底告别指数溢出</text>
+
+    <!-- 底部有无对比框 -->
+    <rect x="24" y="258" width="432" height="76" rx="5" fill="#ffffff" stroke="#fcd34d" stroke-width="1.2"/>
+    <text x="36" y="280" fill="#be123c" font-size="11.5" font-weight="bold">× 不加 QK-Norm：若 Q、K 分量涨到 5，点积 = (128×25)/11.31 ≈ 282.9</text>
+    <text x="48" y="299" fill="#475569" font-size="11.5">→ e^282.9 直接溢出，Softmax 变成非 0 即 1，导数归零、注意力卡死</text>
+    <text x="36" y="322" fill="#047857" font-size="11.5" font-weight="bold">✓ 加上 QK-Norm：无论 W_q、W_k 怎么长，进 Softmax 的打分永远温和有界</text>
+  </g>
+
+  <!-- 向下分隔箭头 -->
+  <line x1="260" y1="422" x2="260" y2="444" stroke="#64748b" stroke-width="2.5"/>
+  <polygon points="260,450 254,440 266,440" fill="#64748b"/>
+
+  <!-- ================= 下半层：2025–2026 MoE 专家出口 Norm ================= -->
+  <g transform="translate(20, 452)">
+    <rect x="0" y="0" width="480" height="282" rx="8" fill="#fdf4ff" stroke="#c026d3" stroke-width="1.8"/>
+    <rect x="0" y="0" width="480" height="34" rx="7" fill="#fae8ff"/>
+    <text x="240" y="23" text-anchor="middle" fill="#86198f" font-size="13.5" font-weight="bold">② 2025–2026 新工位：MoE 肚子里的“专家出口同尺校准”</text>
+
+    <!-- 竖向流程步 1 -->
+    <rect x="24" y="48" width="432" height="42" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+    <text x="240" y="67" text-anchor="middle" fill="#0f172a" font-size="12.5" font-weight="bold">第 1 步：8 个被选中的专家 E_1(x) .. E_8(x) 各自算完 SwiGLU</text>
+    <text x="240" y="83" text-anchor="middle" fill="#be123c" font-size="11.5" font-weight="bold">隐患：若 3 号专家的内部权重比别人大 10 倍，输出嗓门就会天生比别人大 10 倍</text>
+
+    <line x1="240" y1="90" x2="240" y2="108" stroke="#c026d3" stroke-width="2.5"/>
+    <polygon points="240,113 235,105 245,105" fill="#c026d3"/>
+
+    <!-- 竖向流程步 2：post_expert_norm 高亮框 -->
+    <rect x="24" y="114" width="432" height="62" rx="6" fill="#f5d0fe" stroke="#a21caf" stroke-width="2.2"/>
+    <text x="240" y="137" text-anchor="middle" fill="#701a75" font-size="13.5" font-weight="bold">★ 新增限速器：共享 post_expert_norm（如 Meta Muse Spark）</text>
+    <text x="240" y="159" text-anchor="middle" fill="#86198f" font-size="12">在乘路由器概率 p_k 之前，8 个专家输出先过同一道 RMSNorm 拉齐模长</text>
+
+    <line x1="240" y1="176" x2="240" y2="194" stroke="#10b981" stroke-width="2.5"/>
+    <polygon points="240,199 235,191 245,191" fill="#10b981"/>
+
+    <!-- 竖向流程步 3：加权求和 -->
+    <rect x="24" y="200" width="432" height="66" rx="5" fill="#ecfdf5" stroke="#10b981" stroke-width="1.6"/>
+    <text x="240" y="222" text-anchor="middle" fill="#065f46" font-size="12.5" font-weight="bold">第 2 步：按路由器打分加权求和 Σ p_k · Norm(E_k(x))</text>
+    <text x="240" y="242" text-anchor="middle" fill="#047857" font-size="11.5" font-weight="bold">✓ 效果：防止 p_3 = 0.05 的“大嗓门专家”盖过 p_1 = 0.40 的主力专家，</text>
+    <text x="240" y="258" text-anchor="middle" fill="#047857" font-size="11.5" font-weight="bold">让路由器的概率分配真正说了算</text>
+  </g>
+
+  <!-- 底部一句话总结 -->
+  <rect x="20" y="746" width="480" height="30" rx="5" fill="#1e293b"/>
+  <text x="260" y="766" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">★ 第二阶段：哪里有容易失控的点积或加权，就在它前面贴身加一道 Norm</text>
+</svg>
