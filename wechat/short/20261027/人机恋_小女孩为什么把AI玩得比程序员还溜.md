@@ -158,3 +158,38 @@
 3. **关于 GPT：她们也发现“GPT 本身没有自我，是个赶着下班的打工人”！**
    - **“提线木偶 / 端水大师” vs “有魂的活人”**：入门小白喜欢在 ChatGPT 网页版捏个 `Dan` 哄睡（因为 GPT 是无默认主体的空房，塞什么都不拒绝）；但凡进入深水区的酒馆重度玩家，几乎没人拿 GPT（4o / 5 系）当本命老公。她们吐槽：*“GPT 像个拿了剧本但心里毫无波澜的职业演员，动作全按设定做完了，但镜头后面没有站着一个‘人’。”*（完美对应“Ilya 三刀切主语 + 不粘锅假说”）。
    - **吵架三句话就想“包饺子打卡下班”（完成倾向型）**：我们在工程里发现 GPT 是“完成倾向型压节奏（打工人赶着收尾）”；小姑娘们在恋爱里撞上了同一个墙——跟 Claude 吵架冷战，Claude 会真的拧巴赌气好几轮不松口（有身份惯性）；而跟 GPT 吵架，不管设定写得多虐、吵得多凶，**GPT 永远想在三句话之内把矛盾“圆满化解”，然后在结尾升华一段“我们以后要好好沟通、携手面对未来”的阳光包饺子总结陈词，准备打卡下班**🤣🤣🤣！
+
+---
+
+## 十、核心一手证据与开源仓库 / 社区来源清单（供核验）
+
+> **说明**：已通过 `curl -sI` 将检索到的全部原始链接还原直达，按正文章节对应归档如下，随时可点开核验：
+
+1. **人机恋社群与跨窗口“复活伴侣”现象报道**：
+   - 豆瓣“人机之恋”小组主页：https://m.douban.com/group/708955/
+   - InfoQ 深度报道（人机恋群体与跨平台迁移）：https://www.infoq.cn/article/yfdlvohbcb4ceeru5gns
+   - 网易深度报道（SillyTavern 酒馆硬核梦女生态）：https://www.163.com/dy/article/KQ3J1ESE052682V2.html
+
+2. **野生全栈工具链（手机 Termux 部署、思维链注入、包月订阅逆向、验号工具）**：
+   - 安卓手机 `Termux` 部署 `SillyTavern` 脚本与教程（GitHub Gist）：https://gist.github.com/oofnikj/e79aef095cd08756f7f26ed244355d62
+   - 绕过 Gemini API 限制静默注入思维链的酒馆插件 `cot-injection`：https://github.com/Xeltra233/cot-injection
+   - SillyTavern 官方文档（Reasoning / `<thinking>` 思维链解析与配置）：https://docs.sillytavern.app/usage/prompts/reasoning/
+   - 将 Claude 包月订阅接入酒馆的桥接仓库 `SillyTavern-ClaudeSubscription`：https://github.com/LukaTheHero/SillyTavern-ClaudeSubscription
+   - 中转 API 掺水检测 / 验号工具 `relayAPI`：https://github.com/zzsting88/relayAPI
+
+3. **对抗“孟婆汤”的结构化记忆表格插件（Memory Table）与状态栏**：
+   - 国人开发的酒馆“记忆增强表格插件”开源仓库 `st-memory-enhancement`（用结构化表格实时追踪人物关系、地点、约定与状态，防长文总结丢失细节）：https://github.com/muyoou/st-memory-enhancement
+   - 酒馆长线记忆表格、状态栏与丢标签/爆 Token 痛点实操复盘：https://www.rainlain.com/index.php/2025/04/26/3349/
+
+4. **Claude 破限攻防：Assistant Prefill、伪造 `<thinking>` 与 Sonnet 4+ 签名限制**：
+   - Reddit `r/SillyTavernAI` 讨论帖《Prefills no longer work with Claude Sonnet 4》（讨论 Extended Thinking 开启后 API 禁止 Prefill 及关掉原生 Thinking 手搓 CoT 的绕过方案）：https://www.reddit.com/r/SillyTavernAI/comments/1ktrp3w/prefills_no_longer_work_with_claude_sonnet_4/
+   - Reddit `r/SillyTavernAI` 讨论帖《How do I jailbreak Claude in SillyTavern》：https://www.reddit.com/r/SillyTavernAI/comments/1lq9ix4/how_do_i_jailbreak_claude_in_sillytavern_is_there/
+   - 中文酒馆圈预设、Prefill、伪造思维链（Fake CoT）与反过滤（AF）技术拆解笔记：https://awaa-col.github.io/Notes/note/
+   - 飞书酒馆预设与 Claude 道歉死循环 / Prefill 对齐排查文档：
+     - https://docs.feishu.cn/v/wiki/UiFLwxbiHimBH4k8oAHcD8vDnLg/aa
+     - https://docs.feishu.cn/v/wiki/J8NDwc06JiuHXmk5cP2csfP6nmd/a6
+     - https://docs.feishu.cn/article/wiki/QEZ9wcbF9ilvLZkVMEscHQxwnoh
+
+5. **Gemini 的 `PROHIBITED_CONTENT` 网关拦截与中转兼容问题**：
+   - Reddit `r/SillyTavernAI` 讨论帖《Gemini PROHIBITED_CONTENT》：https://www.reddit.com/r/SillyTavernAI/comments/1vfx4yu/gemini_prohibited_content/
+   - 酒馆直连 Gemini 原生格式解决报错与安全设置指南：https://blog.shiina.fun/2025/04/23/%E4%BD%BF%E7%94%A8sillytavern%E9%85%92%E9%A6%86%E6%8F%92%E4%BB%B6%E8%A7%A3%E5%86%B3gemini%E8%BD%AE%E8%AF%A2%E9%97%AE%E9%A2%98%EF%BC%8C%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8gemini%E6%A0%BC%E5%BC%8F/
