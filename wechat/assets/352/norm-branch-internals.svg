@@ -31,7 +31,7 @@
     <!-- 竖向流程步 3：Q · K^T -> Softmax -->
     <rect x="24" y="204" width="432" height="42" rx="5" fill="#ecfdf5" stroke="#10b981" stroke-width="1.6"/>
     <text x="240" y="223" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold">第 2 步：算注意力点积 (Q_norm · K_norm) / √128 → 送进 Softmax</text>
-    <text x="240" y="239" text-anchor="middle" fill="#047857" font-size="11" font-weight="bold">由柯西-施瓦茨不等式，得分永远不超过 [-11.31, +11.31]，彻底告别指数溢出</text>
+    <text x="240" y="239" text-anchor="middle" fill="#047857" font-size="11" font-weight="bold">因为 cos(夹角) ≤ 1，点积得分永远不超过 [-11.31, +11.31]，彻底告别溢出</text>
 
     <!-- 底部有无对比框 -->
     <rect x="24" y="258" width="432" height="76" rx="5" fill="#ffffff" stroke="#fcd34d" stroke-width="1.2"/>
