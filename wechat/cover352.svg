@@ -19,7 +19,7 @@
   <text x="872" y="36" text-anchor="end" fill="#475569" font-size="14" font-weight="bold">No.352</text>
 
   <!-- Main Title -->
-  <text x="450" y="74" text-anchor="middle" fill="#0f172a" font-size="21" font-weight="bold">从 LayerNorm、RMSNorm 到 (1+w)：一行只改一个加号的代码在防什么？</text>
+  <text x="450" y="74" text-anchor="middle" fill="#0f172a" font-size="20.5" font-weight="bold">从 LayerNorm、RMSNorm 到 GemmaNorm：一行只改一个加号的 (1+w) 在防什么？</text>
   <line x1="28" y1="94" x2="872" y2="94" stroke="#cbd5e1" stroke-width="1.5"/>
 
   <!-- ================= 顶部横向演进三步卡片 ================= -->
@@ -30,7 +30,7 @@
     <text x="128" y="20" text-anchor="middle" fill="#334155" font-size="13.5" font-weight="bold">① LayerNorm (2016)</text>
     <text x="128" y="50" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="bold">y = ((x - μ) / σ) ⊙ w + b</text>
     <text x="128" y="74" text-anchor="middle" fill="#64748b" font-size="11">[2,4,6,8] → 减均值 5 → [-3,-1,1,3]</text>
-    <text x="128" y="94" text-anchor="middle" fill="#be123c" font-size="11" font-weight="bold">两趟跨通道归约 · 强行改变向量方向</text>
+    <text x="128" y="94" text-anchor="middle" fill="#be123c" font-size="11" font-weight="bold">统计均值与方差 · 砍掉全 1 方向自由度</text>
 
     <path d="M 260 59 L 288 59" stroke="#0284c7" stroke-width="2.5"/>
     <polygon points="292,59 284,54 284,64" fill="#0284c7"/>
@@ -40,8 +40,8 @@
     <rect x="294" y="0" width="256" height="30" rx="6" fill="#e0f2fe"/>
     <text x="422" y="20" text-anchor="middle" fill="#0369a1" font-size="13.5" font-weight="bold">② RMSNorm (2019)</text>
     <text x="422" y="50" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="bold">y = (x / RMS(x)) ⊙ w   (w_0 = 1)</text>
-    <text x="422" y="74" text-anchor="middle" fill="#475569" font-size="11">省掉减均值与偏置 b · 保留原方向</text>
-    <text x="422" y="94" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">隐患：BF16 下 1.0 吞微小更新 + 衰减熄火</text>
+    <text x="422" y="74" text-anchor="middle" fill="#475569" font-size="11">省掉减均值与偏置 b · 第一步保原方向</text>
+    <text x="422" y="94" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">隐患：BF16 下 1.0 吞微小增量 + 衰减压倍率</text>
 
     <path d="M 554 59 L 582 59" stroke="#16a34a" stroke-width="2.5"/>
     <polygon points="586,59 578,54 578,64" fill="#16a34a"/>
@@ -49,7 +49,7 @@
     <!-- Step 3: GemmaNorm (1+w) -->
     <rect x="588" y="0" width="256" height="118" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2.2"/>
     <rect x="588" y="0" width="256" height="30" rx="6" fill="#dcfce7"/>
-    <text x="716" y="20" text-anchor="middle" fill="#166534" font-size="13.5" font-weight="bold">③ 零均值 GemmaNorm (1 + w)</text>
+    <text x="716" y="20" text-anchor="middle" fill="#166534" font-size="13.5" font-weight="bold">③ 零中心 GemmaNorm (1 + w)</text>
     <text x="716" y="50" text-anchor="middle" fill="#14532d" font-size="13" font-weight="bold">y = x_norm ⊙ (1 + w)   (w_0 = 0)</text>
     <text x="716" y="74" text-anchor="middle" fill="#166534" font-size="11" font-weight="bold">★ BF16 在 0 附近分辨率升 512 倍</text>
     <text x="716" y="94" text-anchor="middle" fill="#047857" font-size="11" font-weight="bold">★ 权重衰减 w→0 自动退回 1 倍恒等</text>

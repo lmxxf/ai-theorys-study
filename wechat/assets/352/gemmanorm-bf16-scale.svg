@@ -26,7 +26,7 @@
 
     <!-- 死区高亮 -->
     <rect x="75" y="72" width="95" height="20" fill="#fecdd3" opacity="0.75"/>
-    <text x="174" y="69" text-anchor="middle" fill="#e11d48" font-size="10.5" font-weight="bold">小于半格 (+0.0039) 全部被四舍五入回 1.0</text>
+    <text x="174" y="69" text-anchor="middle" fill="#e11d48" font-size="10.5" font-weight="bold">从 1.0 向上小于半格 (+0.0039) 全部舍入回 1.0</text>
 
     <!-- +0.002 落点 -->
     <circle cx="122" cy="92" r="5" fill="#e11d48"/>
@@ -36,14 +36,14 @@
 
     <!-- 结论框 -->
     <rect x="20" y="134" width="440" height="44" rx="5" fill="#ffe4e6" stroke="#f43f5e" stroke-width="1.2"/>
-    <text x="240" y="152" text-anchor="middle" fill="#881337" font-size="12" font-weight="bold">算 1.0 + 0.002 = 1.002 → 存回 BF16 当场又变回 1.0</text>
-    <text x="240" y="170" text-anchor="middle" fill="#9f1239" font-size="11">原因：底座 1.0 霸占了指数位，微小梯度直接掉进舍入死区被吞没</text>
+    <text x="240" y="152" text-anchor="middle" fill="#881337" font-size="12" font-weight="bold">算 1.0 + 0.002 = 1.002 → 存成 BF16 当场又变回 1.0</text>
+    <text x="240" y="170" text-anchor="middle" fill="#9f1239" font-size="11">原因：底座 1.0 霸占了指数位，微小增量直接掉进舍入死区被吞没</text>
   </g>
 
   <!-- 下框：GemmaNorm (w 初始为 0.0) -->
   <g transform="translate(20, 276)">
     <rect x="0" y="0" width="480" height="194" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-    <text x="240" y="24" text-anchor="middle" fill="#166534" font-size="13.5" font-weight="bold">✓ 零均值 GemmaNorm：out = x_norm ⊙ (1 + w)（w 初始 = 0.0）</text>
+    <text x="240" y="24" text-anchor="middle" fill="#166534" font-size="13.5" font-weight="bold">✓ 零中心 GemmaNorm：out = x_norm ⊙ (1 + w)（w 初始 = 0.0）</text>
     <text x="240" y="44" text-anchor="middle" fill="#15803d" font-size="11.5">w 只存增量：在 0.002 附近指数下调到 2^-9，步长 = 2^-16 ≈ 0.000015</text>
 
     <!-- 刻度尺示意 -->

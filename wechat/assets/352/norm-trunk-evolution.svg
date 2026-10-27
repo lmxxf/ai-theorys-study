@@ -40,9 +40,9 @@
     <text x="226" y="70" fill="#0f172a" font-size="13" font-weight="bold">公式：x_{l+1} = Norm(x_l + F(x_l))</text>
     <text x="226" y="98" fill="#be123c" font-size="12.5" font-weight="bold">× 收费站直接修在残差主干上</text>
     <text x="226" y="124" fill="#334155" font-size="12">• 正向看：每层合流后都拉回 1，数值很稳</text>
-    <text x="226" y="148" fill="#334155" font-size="12">• 反向要命：梯度往回传时，每退一层都要</text>
-    <text x="236" y="168" fill="#334155" font-size="12">被主干 Norm 削弱一次</text>
-    <text x="226" y="194" fill="#9f1239" font-size="12" font-weight="bold">• 后果：超过 24 层浅层就收不到梯度</text>
+    <text x="226" y="148" fill="#334155" font-size="12">• 反向麻烦：梯度往回传时，每退一层都要</text>
+    <text x="236" y="168" fill="#334155" font-size="12">穿过主干 Norm，且输出端初始梯度过大</text>
+    <text x="226" y="194" fill="#9f1239" font-size="12" font-weight="bold">• 后果：深层极易训崩，高度依赖预热</text>
   </g>
 
   <!-- 向下演化箭头 1 -->
@@ -84,7 +84,7 @@
     <text x="226" y="70" fill="#0f172a" font-size="13" font-weight="bold">公式：x_{l+1} = x_l + F(Norm(x_l))</text>
     <text x="226" y="98" fill="#0369a1" font-size="12.5" font-weight="bold">✓ 把 Norm 从主干挪到进支路门口</text>
     <text x="226" y="124" fill="#334155" font-size="12">• 优势：左侧残差主干全程零路障，梯度</text>
-    <text x="236" y="144" fill="#334155" font-size="12">沿 + 号一路恒等为 1 直通第 0 层</text>
+    <text x="236" y="144" fill="#334155" font-size="12">保留沿 + 号直达第 0 层的恒等直通项</text>
     <text x="226" y="170" fill="#b45309" font-size="12" font-weight="bold">• 新隐患：支路输出 F(·) 没限幅就直接</text>
     <text x="236" y="190" fill="#b45309" font-size="12" font-weight="bold">加回主干，60 层累加后主干方差膨胀</text>
     <text x="224" y="212" fill="#64748b" font-size="10.2">（全网末层进 lm_head 前须补一道 Final Norm）</text>

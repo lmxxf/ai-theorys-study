@@ -2,17 +2,17 @@
   <rect width="520" height="340" fill="#fbfbfd" rx="12"/>
 
   <!-- 顶部标题 -->
-  <text x="260" y="32" text-anchor="middle" fill="#1e293b" font-size="17.5" font-weight="bold">第二件事：AdamW 权重衰减（把参数 w 往 0 拉）的后果</text>
-  <text x="260" y="52" text-anchor="middle" fill="#64748b" font-size="12">优化器默认有一根弹簧把参数拉向 0.0，两种写法的物理终点完全相反</text>
+  <text x="260" y="32" text-anchor="middle" fill="#1e293b" font-size="17.5" font-weight="bold">第二件事：若对缩放参数 w 施加 AdamW 权重衰减（往 0 拉）</text>
+  <text x="260" y="52" text-anchor="middle" fill="#64748b" font-size="12">当开启权重衰减把参数拉向 0.0 时，两种写法的回归终点完全不同</text>
 
   <!-- 上行：普通 RMSNorm 衰减后果 -->
   <g transform="translate(20, 68)">
     <rect x="0" y="0" width="480" height="118" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.8"/>
-    <text x="240" y="25" text-anchor="middle" fill="#9a3412" font-size="13.5" font-weight="bold">× 普通 RMSNorm（out = x_norm ⊙ w）：信号被掐灭</text>
+    <text x="240" y="25" text-anchor="middle" fill="#9a3412" font-size="13.5" font-weight="bold">× 普通 RMSNorm（out = x_norm ⊙ w）：倍率被压向 0</text>
 
     <!-- 流程对比块 -->
     <rect x="20" y="38" width="194" height="44" rx="5" fill="#ffffff" stroke="#fdba74" stroke-width="1.4"/>
-    <text x="117" y="56" text-anchor="middle" fill="#475569" font-size="11.5">优化器把参数拉向 0</text>
+    <text x="117" y="56" text-anchor="middle" fill="#475569" font-size="11.5">权重衰减把参数拉向 0</text>
     <text x="117" y="74" text-anchor="middle" fill="#c2410c" font-size="13" font-weight="bold">w → 0.0</text>
 
     <line x1="214" y1="60" x2="254" y2="60" stroke="#ea580c" stroke-width="2.2"/>
@@ -20,15 +20,15 @@
 
     <rect x="262" y="38" width="198" height="44" rx="5" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
     <text x="361" y="56" text-anchor="middle" fill="#9a3412" font-size="11.5">通道实际缩放倍率</text>
-    <text x="361" y="74" text-anchor="middle" fill="#991b1b" font-size="13" font-weight="bold">倍率 = w → 0（整层熄火）</text>
+    <text x="361" y="74" text-anchor="middle" fill="#991b1b" font-size="13" font-weight="bold">倍率 = w → 0（压缩信号）</text>
 
-    <text x="240" y="104" text-anchor="middle" fill="#7c2d12" font-size="11.5" font-weight="bold">逼得训练框架必须写 if 特判，把所有 norm 权重塞进 no_decay 豁免名单</text>
+    <text x="240" y="104" text-anchor="middle" fill="#7c2d12" font-size="11.5" font-weight="bold">因此许多训练框架默认把一维 norm 权重放进 no_decay 豁免名单</text>
   </g>
 
   <!-- 下行：GemmaNorm 衰减后果 -->
   <g transform="translate(20, 200)">
     <rect x="0" y="0" width="480" height="118" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.8"/>
-    <text x="240" y="25" text-anchor="middle" fill="#0369a1" font-size="13.5" font-weight="bold">✓ 零均值 GemmaNorm（out = x_norm ⊙ (1 + w)）：退回恒等缩放</text>
+    <text x="240" y="25" text-anchor="middle" fill="#0369a1" font-size="13.5" font-weight="bold">✓ 零中心 GemmaNorm（out = x_norm ⊙ (1 + w)）：退回恒等缩放</text>
 
     <!-- 流程对比块 -->
     <rect x="20" y="38" width="194" height="44" rx="5" fill="#ffffff" stroke="#7dd3fc" stroke-width="1.4"/>

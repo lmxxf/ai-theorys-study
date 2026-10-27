@@ -13,7 +13,7 @@
 
     <!-- 竖向流程步 1 -->
     <rect x="24" y="48" width="432" height="42" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
-    <text x="240" y="67" text-anchor="middle" fill="#0f172a" font-size="12.5" font-weight="bold">第 1 步：进门 Pre-Norm → 乘 W_q、W_k 拆成多头（每头 128 维）</text>
+    <text x="240" y="67" text-anchor="middle" fill="#0f172a" font-size="12.5" font-weight="bold">第 1 步：进门 Pre-Norm → 乘 W_q、W_k 分成多头（每头 128 维）</text>
     <text x="240" y="83" text-anchor="middle" fill="#be123c" font-size="11" font-weight="bold">隐患：Pre-Norm 只管输入 x；深层 W_q、W_k 变大后，Q 和 K 照样涨到 5~10</text>
 
     <line x1="240" y1="90" x2="240" y2="108" stroke="#d97706" stroke-width="2.5"/>
@@ -21,9 +21,9 @@
 
     <!-- 竖向流程步 2：QK-Norm 高亮框 -->
     <rect x="24" y="114" width="432" height="66" rx="6" fill="#fde68a" stroke="#b45309" stroke-width="2.2"/>
-    <text x="240" y="137" text-anchor="middle" fill="#78350f" font-size="12.5" font-weight="bold">★ 新增限速器：逐头 q_norm / k_norm（ViT-22B → Qwen3 / Gemma）</text>
+    <text x="240" y="137" text-anchor="middle" fill="#78350f" font-size="12.5" font-weight="bold">★ 新增限速器：逐头 q_norm / k_norm（ViT-22B → Qwen3 / Gemma 3）</text>
     <text x="240" y="157" text-anchor="middle" fill="#92400e" font-size="11.5">在算 Q · K^T 点积之前，对每个头（128 维）单独做一次 RMSNorm</text>
-    <text x="240" y="173" text-anchor="middle" fill="#047857" font-size="11.5" font-weight="bold">把单头 Q_norm、K_norm 的向量模长死死锁在 √128 ≈ 11.31 的球面上</text>
+    <text x="240" y="173" text-anchor="middle" fill="#047857" font-size="11.5" font-weight="bold">初始缩放 w=1 时，把单头 Q_norm、K_norm 长度锁在 √128 ≈ 11.31 球面上</text>
 
     <line x1="240" y1="180" x2="240" y2="198" stroke="#047857" stroke-width="2.5"/>
     <polygon points="240,203 235,195 245,195" fill="#047857"/>
@@ -31,13 +31,13 @@
     <!-- 竖向流程步 3：Q · K^T -> Softmax -->
     <rect x="24" y="204" width="432" height="42" rx="5" fill="#ecfdf5" stroke="#10b981" stroke-width="1.6"/>
     <text x="240" y="223" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold">第 2 步：算注意力点积 (Q_norm · K_norm) / √128 → 送进 Softmax</text>
-    <text x="240" y="239" text-anchor="middle" fill="#047857" font-size="11" font-weight="bold">因为 cos(夹角) ≤ 1，点积得分永远不超过 [-11.31, +11.31]，彻底告别溢出</text>
+    <text x="240" y="239" text-anchor="middle" fill="#047857" font-size="11" font-weight="bold">因为 |cos(夹角)| ≤ 1，初始点积得分不超过 [-11.31, +11.31]，消除暴涨</text>
 
     <!-- 底部有无对比框 -->
     <rect x="24" y="258" width="432" height="76" rx="5" fill="#ffffff" stroke="#fcd34d" stroke-width="1.2"/>
     <text x="36" y="280" fill="#be123c" font-size="11.5" font-weight="bold">× 不加 QK-Norm：若 Q、K 分量涨到 5，点积 = (128×25)/11.31 ≈ 282.9</text>
-    <text x="48" y="299" fill="#475569" font-size="11.5">→ e^282.9 直接溢出，Softmax 变成非 0 即 1，导数归零、注意力卡死</text>
-    <text x="36" y="322" fill="#047857" font-size="11.5" font-weight="bold">✓ 加上 QK-Norm：无论 W_q、W_k 怎么长，进 Softmax 的打分永远温和有界</text>
+    <text x="48" y="299" fill="#475569" font-size="11.5">→ 分差拉开上百后，Softmax 变成非 0 即 1 的极端饱和，导数归零卡死</text>
+    <text x="36" y="322" fill="#047857" font-size="11.5" font-weight="bold">✓ 加上 QK-Norm：消掉 W_q、W_k 范数膨胀，进 Softmax 的打分保持温和有界</text>
   </g>
 
   <!-- 向下分隔箭头 -->
@@ -53,7 +53,7 @@
     <!-- 竖向流程步 1 -->
     <rect x="24" y="48" width="432" height="42" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
     <text x="240" y="67" text-anchor="middle" fill="#0f172a" font-size="12.5" font-weight="bold">第 1 步：8 个被选中的专家 E_1(x) .. E_8(x) 各自算完 SwiGLU</text>
-    <text x="240" y="83" text-anchor="middle" fill="#be123c" font-size="11.5" font-weight="bold">隐患：若 3 号专家的内部权重比别人大 10 倍，输出嗓门就会天生比别人大 10 倍</text>
+    <text x="240" y="83" text-anchor="middle" fill="#be123c" font-size="11.5" font-weight="bold">隐患：若 3 号专家的输出幅度比别人大 10 倍，输出嗓门就会天生比别人大 10 倍</text>
 
     <line x1="240" y1="90" x2="240" y2="108" stroke="#c026d3" stroke-width="2.5"/>
     <polygon points="240,113 235,105 245,105" fill="#c026d3"/>
