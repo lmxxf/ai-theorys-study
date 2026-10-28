@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 760" width="600" height="760">
+  <defs>
+    <style>
+      .title { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 19px; font-weight: bold; fill: #0f172a; }
+      .subtitle { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 13px; fill: #475569; }
+      .sec { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 14.5px; font-weight: bold; fill: #0f172a; }
+      .lbl { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 13px; font-weight: bold; fill: #1e293b; }
+      .txt { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 12.5px; fill: #334155; }
+      .small { font-family: 'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif; font-size: 11.5px; fill: #64748b; }
+      .mono { font-family: 'WenQuanYi Micro Hei', 'DejaVu Sans Mono', sans-serif; font-size: 12px; font-weight: bold; fill: #ffffff; }
+    </style>
+    <marker id="arr-down" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect width="600" height="760" rx="14" fill="#f8fafc"/>
+
+  <!-- 标题 -->
+  <text x="300" y="32" text-anchor="middle" class="title">RTX 3080 Laptop 里面长什么样：五层结构与数据规模</text>
+  <text x="300" y="54" text-anchor="middle" class="subtitle">GA104 核心（sm_86）：全卡 48 个 SM × 4 个子分区 × 32 车道 ＝ 6,144 个流处理器</text>
+
+  <!-- 第 1 & 2 层：全卡共享显存与 L2 -->
+  <rect x="20" y="70" width="560" height="36" rx="6" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="300" y="93" text-anchor="middle" class="lbl">① 显存（GDDR6） · 16 GB · 约 448 GB/s · 全卡最慢（寄存器溢出 STACK 就踢回这儿）</text>
+
+  <rect x="20" y="114" width="560" height="34" rx="6" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="300" y="136" text-anchor="middle" class="lbl" fill="#1e40af">② 二级缓存（L2 Cache） · 4 MB · 全卡 48 个 SM 共享的中转站</text>
+
+  <line x1="300" y1="148" x2="300" y2="166" stroke="#475569" stroke-width="2" marker-end="url(#arr-down)"/>
+
+  <!-- 第 3 层：展开 1 个 SM -->
+  <rect x="20" y="170" width="560" height="352" rx="10" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+  <text x="36" y="194" class="sec">③ 一个流式多处理器（SM） · 全卡共 48 个，结构完全相同</text>
+
+  <!-- SM 内的 L1 / 共享内存 -->
+  <rect x="36" y="206" width="528" height="32" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="300" y="227" text-anchor="middle" class="lbl" fill="#92400e">L1 缓存 ＋ 共享内存（Shared Memory） · 128 KB · 本 SM 内所有线程共用</text>
+
+  <!-- 4 个子分区 -->
+  <text x="36" y="258" class="lbl" fill="#0f172a">④ SM 内部切分为 4 个子分区（相当于 AMD 的 4 个 SIMD32，合用 256 KB 寄存器）：</text>
+
+  <!-- 子分区 0（重点展开） -->
+  <rect x="36" y="268" width="256" height="172" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.8"/>
+  <text x="164" y="288" text-anchor="middle" class="lbl" fill="#065f46">子分区 0（1 个张量核心 + 32 车道）</text>
+  <text x="164" y="306" text-anchor="middle" class="small" fill="#064e3b">寄存器堆：64 KB（16,384 个 32 位寄存器）</text>
+
+  <!-- Warp 槽位示意 -->
+  <rect x="48" y="316" width="232" height="26" rx="4" fill="#059669"/>
+  <text x="164" y="333" text-anchor="middle" class="mono">当前执行 Warp（32 线程同拍齐步走）</text>
+
+  <g fill="#dcfce7" stroke="#86efac">
+    <rect x="48" y="348" width="112" height="20" rx="3"/>
+    <rect x="168" y="348" width="112" height="20" rx="3"/>
+    <rect x="48" y="372" width="112" height="20" rx="3"/>
+    <rect x="168" y="372" width="112" height="20" rx="3"/>
+  </g>
+  <g class="small" fill="#166534" text-anchor="middle">
+    <text x="104" y="362">挂起 Warp 1</text>
+    <text x="224" y="362">挂起 Warp 2</text>
+    <text x="104" y="386">挂起 Warp 3</text>
+    <text x="224" y="386">挂起 Warp ...</text>
+  </g>
+  <text x="164" y="410" text-anchor="middle" class="small" fill="#065f46" font-weight="bold">↑ 共享同一块 64 KB 寄存器池</text>
+  <text x="164" y="428" text-anchor="middle" class="small" fill="#065f46">一人等数据，下一拍切另一个 Warp 顶上</text>
+
+  <!-- 子分区 1, 2, 3（简略） -->
+  <rect x="308" y="268" width="256" height="52" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="436" y="290" text-anchor="middle" class="lbl" fill="#475569">子分区 1（1 张量核心 + 64 KB 寄存器）</text>
+  <text x="436" y="308" text-anchor="middle" class="small">同样挂着多个 32 线程束（Warp）轮流执行</text>
+
+  <rect x="308" y="328" width="256" height="52" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="436" y="350" text-anchor="middle" class="lbl" fill="#475569">子分区 2（1 张量核心 + 64 KB 寄存器）</text>
+  <text x="436" y="368" text-anchor="middle" class="small">同样挂着多个 32 线程束（Warp）轮流执行</text>
+
+  <rect x="308" y="388" width="256" height="52" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="436" y="410" text-anchor="middle" class="lbl" fill="#475569">子分区 3（1 张量核心 + 64 KB 寄存器）</text>
+  <text x="436" y="428" text-anchor="middle" class="small">同样挂着多个 32 线程束（Warp）轮流执行</text>
+
+  <!-- SM 内的跨线程洗牌通道提示 -->
+  <rect x="36" y="452" width="528" height="56" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="48" y="474" class="lbl" fill="#1e40af">片上最快存储：1 个 SM 共有 65,536 个 32 位寄存器（共 256 KB，单周期访问）</text>
+  <text x="48" y="494" class="txt" fill="#1e3a8a">• 平时各线程只读自己的寄存器；调 SHFL 指令时，借用片上 32×32 交叉通道互抄</text>
+
+  <!-- 第 5 层：放大看 1 个 Warp 与 1 个线程手里的数据量 -->
+  <rect x="20" y="534" width="560" height="208" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+  <text x="36" y="558" class="sec">⑤ 放大看最底层：1 个线程手里揣着多少数据？（本文两记重锤的坐标）</text>
+
+  <!-- 三张数据量卡片 -->
+  <rect x="36" y="572" width="528" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="48" y="591" class="lbl" fill="#0f172a">• 1 条 SHFL 洗牌指令：每线程只搬 1 个寄存器 ＝ 4 字节（整束 32 线程搬 128 B）</text>
+  <text x="48" y="608" class="small">1 个 32 位寄存器正好塞 4 个 1 字节的 FP8 数，或 2 个 2 字节的 FP16 半精度数</text>
+
+  <rect x="36" y="624" width="528" height="50" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="48" y="643" class="lbl" fill="#1e40af">• 1 条矩阵乘指令（m16n8k32）：每线程交 6 个寄存器 ＝ 24 B，收回 2 个 ＝ 8 B</text>
+  <text x="48" y="662" class="txt" fill="#1e3a8a">左矩阵 A 交 4 个（16 B）+ 右矩阵 B 交 2 个（8 B）→ 旧方案每次矩阵乘要调 6 条 SHFL</text>
+
+  <rect x="36" y="682" width="528" height="48" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="48" y="701" class="lbl" fill="#991b1b">• 1 个线程的全部家当上限：硬件最多分给单线程 255 个寄存器 ＝ 1,020 字节</text>
+  <text x="48" y="720" class="txt" fill="#7f1d1d">老黄给 50 系写死 .maxnreg 168（只准用 672 B），多出的全被踢回顶层 ① 显存栈</text>
+</svg>
