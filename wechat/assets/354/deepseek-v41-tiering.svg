@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 720" width="520" height="720" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#d97706"/>
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0d9488"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="520" height="720" fill="#f8fafc" rx="10"/>
+
+  <!-- Title -->
+  <rect x="16" y="14" width="488" height="52" rx="8" fill="#0f172a"/>
+  <text x="260" y="36" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">DeepSeek-V4.1-Flash (748B) 三级存储与协同分工</text>
+  <text x="260" y="55" text-anchor="middle" fill="#94a3b8" font-size="11.5">Maya (maya-ds4) 与 Strata (strata-dsv41) 同源异构引擎</text>
+
+  <!-- Tier 1: GPU VRAM -->
+  <rect x="16" y="80" width="488" height="196" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.8"/>
+  <rect x="16" y="80" width="488" height="30" rx="8" fill="#2563eb"/>
+  <text x="28" y="100" fill="#ffffff" font-size="13.5" font-weight="bold">第 1 层 · GPU 显存（VRAM，如 24GB / 32GB 游戏卡）</text>
+  <text x="492" y="100" text-anchor="end" fill="#dbeafe" font-size="11.5">最高带宽区</text>
+
+  <!-- VRAM sub-boxes -->
+  <rect x="28" y="120" width="228" height="68" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="38" y="140" fill="#1e3a8a" font-size="12.5" font-weight="bold">1. 稠密层与注意力权重（~16.8 GB）</text>
+  <text x="38" y="158" fill="#475569" font-size="11">40 层注意力、路由器与共享模块常驻</text>
+  <text x="38" y="175" fill="#475569" font-size="11">DSpark 草稿头（8 GB）按实测收益选装</text>
+
+  <rect x="264" y="120" width="228" height="68" rx="6" fill="#ecfdf5" stroke="#34d399" stroke-width="1.5"/>
+  <text x="274" y="140" fill="#065f46" font-size="12.5" font-weight="bold">2. 全局 KV 缓存（1M 仅 ~0.89 GB）</text>
+  <text x="274" y="158" fill="#047857" font-size="11">CSA2 跨层共享 FP4 + 128 滑窗环</text>
+  <text x="274" y="175" fill="#047857" font-size="11">每词元仅 ~1.1 KB，省出显存全喂专家</text>
+
+  <rect x="28" y="196" width="464" height="68" rx="6" fill="#ffffff" stroke="#60a5fa" stroke-width="1.2"/>
+  <text x="38" y="216" fill="#1e3a8a" font-size="12.5" font-weight="bold">3. 显存热门专家池 + 每层 32 个近期驻留槽（Recent Slots）</text>
+  <text x="38" y="234" fill="#475569" font-size="11">启动时按路由画像（Expert Profile）预填最高频专家；运行中零拷贝拉上卡的</text>
+  <text x="38" y="251" fill="#475569" font-size="11">专家直接落入每层 32 个近期槽位，继续服务后续 DSpark 投机验证窗口</text>
+
+  <!-- Connector 1 -> 2 (PCIe + CPU lane) -->
+  <line x1="165" y1="322" x2="165" y2="280" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <rect x="30" y="286" width="225" height="30" rx="5" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
+  <text x="142" y="305" text-anchor="middle" fill="#1e40af" font-size="11" font-weight="bold">PCIe 零拷贝直拉 (DS4_STREAM_ZC)</text>
+
+  <line x1="355" y1="322" x2="355" y2="280" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <rect x="265" y="286" width="225" height="30" rx="5" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>
+  <text x="377" y="305" text-anchor="middle" fill="#92400e" font-size="11" font-weight="bold">CPU 算完只传激活向量（几 KB）</text>
+
+  <!-- Tier 2: System RAM -->
+  <rect x="16" y="324" width="488" height="178" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.8"/>
+  <rect x="16" y="324" width="488" height="30" rx="8" fill="#d97706"/>
+  <text x="28" y="344" fill="#ffffff" font-size="13.5" font-weight="bold">第 2 层 · 系统内存（RAM，如 64GB / 128GB / 256GB）</text>
+  <text x="492" y="344" text-anchor="end" fill="#fef3c7" font-size="11.5">主力容量池</text>
+
+  <rect x="28" y="364" width="464" height="72" rx="6" fill="#ffffff" stroke="#fcd34d" stroke-width="1.2"/>
+  <text x="38" y="384" fill="#92400e" font-size="12.5" font-weight="bold">4. 路由专家主力池（40 层 × 384 = 15,360 个专家，每词选 6 个）</text>
+  <text x="38" y="402" fill="#475569" font-size="11">Maya-XS（~1.6 bit）专家加主干共约 116 GB，128 GB 内存即可全量驻留锁页内存；</text>
+  <text x="38" y="419" fill="#475569" font-size="11">未命中显存的专家由 CPU AVX2 就地计算与 GPU PCIe 流式通道按实测耗时动态分摊</text>
+
+  <rect x="28" y="444" width="464" height="46" rx="6" fill="#ffffff" stroke="#fcd34d" stroke-width="1.2"/>
+  <text x="38" y="463" fill="#92400e" font-size="12" font-weight="bold">5. 原生视觉塔（1 GB）平时静默驻留 RAM，零显存占用</text>
+  <text x="38" y="480" fill="#475569" font-size="11">仅在读图片瞬间向首张 GPU 临时借用约 320 MB 显存，算完立刻归还专家池</text>
+
+  <!-- Connector 2 -> 3 (NVMe DMA) -->
+  <line x1="260" y1="546" x2="260" y2="506" stroke="#0d9488" stroke-width="2" marker-end="url(#arrow-teal)"/>
+  <rect x="100" y="510" width="320" height="28" rx="5" fill="#ccfbf1" stroke="#5eead4" stroke-width="1"/>
+  <text x="260" y="528" text-anchor="middle" fill="#115e59" font-size="11" font-weight="bold">按词编号提前算出地址 · NVMe 按行直读（几 KB/词）</text>
+
+  <!-- Tier 3: NVMe SSD -->
+  <rect x="16" y="548" width="488" height="156" rx="8" fill="#f0fdfa" stroke="#14b8a6" stroke-width="1.8"/>
+  <rect x="16" y="548" width="488" height="30" rx="8" fill="#0d9488"/>
+  <text x="28" y="568" fill="#ffffff" font-size="13.5" font-weight="bold">第 3 层 · 高速固态盘（NVMe SSD，约 250GB–510GB 空间）</text>
+  <text x="492" y="568" text-anchor="end" fill="#ccfbf1" font-size="11.5">冷数据与查表</text>
+
+  <rect x="28" y="588" width="464" height="54" rx="6" fill="#ffffff" stroke="#5eead4" stroke-width="1.2"/>
+  <text x="38" y="607" fill="#115e59" font-size="12.5" font-weight="bold">6. 196B Engram 词组查找表（IQ4_NL 约 111 GB / Q6_K 约 161 GB）</text>
+  <text x="38" y="626" fill="#475569" font-size="11">完全不占显存与内存；输入词元确定即知行号，进层前异步预读（Read-Ahead）</text>
+
+  <rect x="28" y="650" width="464" height="44" rx="6" fill="#ffffff" stroke="#5eead4" stroke-width="1.2"/>
+  <text x="38" y="669" fill="#115e59" font-size="12" font-weight="bold">7. 内存放不下的溢出冷专家 + 加载后自动释放页缓存（posix_fadvise）</text>
+  <text x="38" y="685" fill="#475569" font-size="11">64 GB 小内存机器靠 SSD 兜底冷专家仍可运行；防操作系统缓存双份占内存</text>
+</svg>
