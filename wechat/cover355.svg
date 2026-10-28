@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#090d16"/>
+      <stop offset="0.5" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#064e3b"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#6ee7b7"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0284c7"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- 装饰背景网格 -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.55">
+    <line x1="0" y1="86" x2="900" y2="86"/>
+    <line x1="0" y1="426" x2="900" y2="426"/>
+    <line x1="450" y1="86" x2="450" y2="426" stroke-dasharray="6,6"/>
+  </g>
+
+  <!-- 顶部标题栏 -->
+  <rect x="34" y="22" width="136" height="32" rx="6" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1.5"/>
+  <text x="102" y="44" text-anchor="middle" fill="#6ee7b7" font-size="15.5" font-weight="bold">ForgeKernel</text>
+  <text x="186" y="45" fill="#f8fafc" font-size="23.5" font-weight="bold">AI 写算子追上人类专家，凭什么和我们手撕 DLSS 5 一模一样</text>
+  <text x="866" y="44" text-anchor="end" fill="#94a3b8" font-size="16" font-weight="bold">No.355</text>
+
+  <!-- 左半区：ForgeKernel 自进化阶梯 -->
+  <text x="225" y="116" text-anchor="middle" fill="#38bdf8" font-size="17" font-weight="bold">清华 / 面壁 ForgeKernel（ICLR 2027）</text>
+  <text x="225" y="138" text-anchor="middle" fill="#94a3b8" font-size="12.5">登顶华为昇腾 CANNBench 三榜 &amp; 英伟达 SOL-ExecBench</text>
+
+  <!-- 左台阶图 -->
+  <g transform="translate(36, 158)">
+    <!-- Step 1 -->
+    <rect x="0" y="168" width="118" height="72" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+    <text x="59" y="194" text-anchor="middle" fill="#94a3b8" font-size="13" font-weight="bold">通用 Agent</text>
+    <text x="59" y="214" text-anchor="middle" fill="#cbd5e1" font-size="11.5">盲调分块大小</text>
+    <text x="59" y="230" text-anchor="middle" fill="#f87171" font-size="11">卡在初始架构</text>
+
+    <!-- Step 2 -->
+    <rect x="130" y="112" width="118" height="128" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.8"/>
+    <text x="189" y="138" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="bold">① 读硬件行为</text>
+    <text x="189" y="158" text-anchor="middle" fill="#e2e8f0" font-size="11.5">不看专家源码</text>
+    <text x="189" y="176" text-anchor="middle" fill="#cbd5e1" font-size="11">对黑盒跑 Profiler</text>
+    <text x="189" y="194" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">定架构优先课程</text>
+
+    <!-- Step 3 -->
+    <rect x="260" y="52" width="128" height="188" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    <text x="324" y="78" text-anchor="middle" fill="#6ee7b7" font-size="13.5" font-weight="bold">② 封存升格基准</text>
+    <text x="324" y="98" text-anchor="middle" fill="#a7f3d0" font-size="11.5">赢一次就换新靶子</text>
+    <text x="324" y="116" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="bold">单招多榨 +9.9%</text>
+    <line x1="274" y1="130" x2="374" y2="130" stroke="#10b981" stroke-width="1" opacity="0.5"/>
+    <text x="324" y="150" text-anchor="middle" fill="#6ee7b7" font-size="13" font-weight="bold">③ 探针认证知识库</text>
+    <text x="324" y="170" text-anchor="middle" fill="#e2e8f0" font-size="11">跨算子共享硬件规律</text>
+    <text x="324" y="190" text-anchor="middle" fill="#34d399" font-size="11.5" font-weight="bold">胜 18/22 专家库</text>
+    <text x="324" y="208" text-anchor="middle" fill="#34d399" font-size="11" font-weight="bold">昇腾 +33.1%</text>
+  </g>
+
+  <!-- 中间双向同构标记 -->
+  <circle cx="450" cy="265" r="24" fill="#0f172a" stroke="#fbbf24" stroke-width="2"/>
+  <text x="450" y="262" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="bold">100%</text>
+  <text x="450" y="277" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="bold">同构</text>
+
+  <!-- 右半区：我们手撕闭源 DLSS 5 的五级跳水 -->
+  <text x="675" y="116" text-anchor="middle" fill="#fbbf24" font-size="17" font-weight="bold">自家 RTX 3080 &amp; 9070 XT 移植 DLSS 5</text>
+  <text x="675" y="138" text-anchor="middle" fill="#94a3b8" font-size="12.5">同样面对老黄闭源 nvngx_dlssnr.dll（Sealed Binary）</text>
+
+  <g transform="translate(486, 158)">
+    <!-- 32.04ms -->
+    <rect x="0" y="0" width="380" height="46" rx="7" fill="#1e293b" stroke="#475569" stroke-width="1.4"/>
+    <text x="14" y="20" fill="#94a3b8" font-size="12.5" font-weight="bold">v0.1.0（32.04 ms）：AI 觉得无硬件 FP8 已到头</text>
+    <text x="14" y="38" fill="#38bdf8" font-size="11.5">▶ 12ms 存在性证明 + 8.33ms Roofline 升格基准，掀翻旧架构</text>
+
+    <!-- 20.36ms -->
+    <rect x="0" y="56" width="380" height="46" rx="7" fill="#1e293b" stroke="#0284c7" stroke-width="1.6"/>
+    <text x="14" y="76" fill="#38bdf8" font-size="12.5" font-weight="bold">ptx-v2（20.36 ms）：读 SASS 抓出 81,853 条 SHFL</text>
+    <text x="14" y="94" fill="#e2e8f0" font-size="11.5">▶ 内积交换律偶奇 K16 原位分组，砍掉 94.5% 跨线程洗牌</text>
+
+    <!-- 12.78ms -->
+    <rect x="0" y="112" width="380" height="46" rx="7" fill="#1e293b" stroke="#f59e0b" stroke-width="1.6"/>
+    <text x="14" y="132" fill="#fbbf24" font-size="12.5" font-weight="bold">ptx-v2.1（12.78 ms）：读资源表 REG:168 / STACK:1032B</text>
+    <text x="14" y="150" fill="#e2e8f0" font-size="11.5">▶ 解除 50 系 .maxnreg 168 紧箍咒，清掉 97% 显存栈读写</text>
+
+    <!-- 11.86ms -->
+    <rect x="0" y="168" width="380" height="72" rx="7" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    <text x="14" y="190" fill="#6ee7b7" font-size="13" font-weight="bold">ptx-v2.2（11.86 ms，达理论极限 70.2%）+ 双卡互哺</text>
+    <text x="14" y="210" fill="#e2e8f0" font-size="11.5">▶ 修 316 处 wait_group 0 伪异步 + 20 行双通道 SWAR 打包</text>
+    <text x="14" y="228" fill="#a7f3d0" font-size="11.5">▶ 经验整理成清单直接反哺 AMD RX 9070 XT（ROCm / HIP）</text>
+  </g>
+
+  <!-- 底部点睛金句 -->
+  <text x="450" y="464" text-anchor="middle" fill="#e2e8f0" font-size="15.5" font-weight="bold">不看源码看硬件体检表 · 赢一次就升一格靶子 · 生成交给硅基，造尺子留在人间</text>
+</svg>
