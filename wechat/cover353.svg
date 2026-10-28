@@ -40,7 +40,7 @@
 
   <!-- 左半区：32-bit 寄存器偶奇字节原位分组示意 -->
   <text x="245" y="122" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="bold">内积交换律：32-bit 寄存器偶奇原位分组</text>
-  <text x="245" y="146" text-anchor="middle" fill="#94a3b8" font-size="13">0 次 SHFL 跨线程洗牌 · 0 次 PRMT 字节重排</text>
+  <text x="245" y="146" text-anchor="middle" fill="#94a3b8" font-size="13">0 次 SHFL 跨线程洗牌 · 非直通源 0 次 PRMT 重排</text>
 
   <!-- 4 字节横条 -->
   <g transform="translate(42, 166)">
@@ -68,7 +68,7 @@
 
   <!-- 右半区：1080p 阶梯跃迁 -->
   <text x="675" y="122" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="bold">RTX 3080 Laptop (132W) 1080p 耗时</text>
-  <text x="675" y="146" text-anchor="middle" fill="#94a3b8" font-size="13">保持 254 MB 原槽位 O4 · 无损 FP8 权重</text>
+  <text x="675" y="146" text-anchor="middle" fill="#94a3b8" font-size="13">保持 254 MB 原槽位 O4 · 原版 FP8 权重</text>
 
   <g transform="translate(476, 174)">
     <!-- 上游 O1 -->

@@ -93,9 +93,9 @@
 
   <rect x="36" y="624" width="528" height="50" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
   <text x="48" y="643" class="lbl" fill="#1e40af">• 1 条矩阵乘指令（m16n8k32）：每线程交 6 个寄存器 ＝ 24 B，收回 2 个 ＝ 8 B</text>
-  <text x="48" y="662" class="txt" fill="#1e3a8a">左矩阵 A 交 4 个（16 B）+ 右矩阵 B 交 2 个（8 B）→ 旧方案每次矩阵乘要调 6 条 SHFL</text>
+  <text x="48" y="662" class="txt" fill="#1e3a8a">左矩阵 A 交 4 个（16 B）+ 右矩阵 B 交 2 个（8 B）→ 旧方案每个源寄存器要调 2～4 条 SHFL</text>
 
   <rect x="36" y="682" width="528" height="48" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
   <text x="48" y="701" class="lbl" fill="#991b1b">• 1 个线程的全部家当上限：硬件最多分给单线程 255 个寄存器 ＝ 1,020 字节</text>
-  <text x="48" y="720" class="txt" fill="#7f1d1d">老黄给 50 系写死 .maxnreg 168（只准用 672 B），多出的全被踢回顶层 ① 显存栈</text>
+  <text x="48" y="720" class="txt" fill="#7f1d1d">原版给 50 系写死 .maxnreg 168（只准用 672 B），多出的变量溢出到局部内存栈（第二章）</text>
 </svg>

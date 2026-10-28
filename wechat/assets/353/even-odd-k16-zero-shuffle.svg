@@ -16,15 +16,15 @@
   <rect width="860" height="630" rx="16" fill="#f8fafc"/>
 
   <!-- 顶部总标题 -->
-  <text x="430" y="38" text-anchor="middle" class="title">内部代号 ptx-v2：偶奇 K16 原位分组（0-SHFL / 0-PRMT）</text>
+  <text x="430" y="38" text-anchor="middle" class="title">内部代号 ptx-v2：偶奇 K16 原位分组（0-SHFL / 非直通源 0-PRMT）</text>
   <text x="430" y="62" text-anchor="middle" class="subtitle">32 位寄存器内偶数字节 {byte0, byte2} 与奇数字节 {byte1, byte3} 天然对齐 f16x2 高低半字</text>
 
   <!-- 主体框 -->
   <rect x="24" y="80" width="812" height="530" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-  <text x="46" y="112" class="sec-title">为什么按“偶下标 + 奇下标”分组能省掉全网 94.5% 的跨线程洗牌（SHFL）？</text>
+  <text x="46" y="112" class="sec-title">为什么按“偶下标 + 奇下标”分组能省掉 94.5% 的静态跨线程洗牌（SHFL）？</text>
 
   <!-- 原版 32 位寄存器 -->
-  <text x="46" y="140" class="label">每个线程 t 持有的 32 位 FP8 寄存器 REG（A 与 B 在同一线程内的 4 个 K 下标完全一致）：</text>
+  <text x="46" y="140" class="label">每个线程 t 持有的对应位置 32 位 FP8 寄存器 REG（A 与 B 对应位置的 4 个 K 下标一致）：</text>
   <g transform="translate(46, 170)">
     <!-- bit 范围标注 -->
     <text x="92" y="-8" text-anchor="middle" class="small">bit 31 .. 24（奇 m=1）</text>
@@ -53,8 +53,8 @@
   <text x="64" y="308" class="note" fill="#7f1d1d">导致每条指令只用到本线程 2 个字节，被迫跨线程借：</text>
 
   <rect x="64" y="324" width="314" height="82" rx="8" fill="#ffffff" stroke="#f87171"/>
-  <text x="221" y="348" text-anchor="middle" class="code-txt" fill="#b91c1c">每次 MMA 需 9 个临时寄存器 +</text>
-  <text x="221" y="370" text-anchor="middle" class="code-txt" fill="#b91c1c">跨线程 shfl.sync.idx.b32 × 6 条</text>
+  <text x="221" y="348" text-anchor="middle" class="code-txt" fill="#b91c1c">每个源寄存器需调 2～4 条 shfl.sync.idx.b32</text>
+  <text x="221" y="370" text-anchor="middle" class="code-txt" fill="#b91c1c">外加大量洗牌临时寄存器</text>
   <text x="221" y="392" text-anchor="middle" class="small" fill="#991b1b">加上 selp 条件选择与 prmt.b32 字节重排</text>
 
   <rect x="64" y="420" width="314" height="112" rx="8" fill="#fee2e2"/>

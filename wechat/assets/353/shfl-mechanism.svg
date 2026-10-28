@@ -143,6 +143,6 @@
   <rect x="32" y="676" width="454" height="108" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
   <text x="46" y="700" class="lbl" fill="#991b1b">你看，上面 16 个数（0..15）一个不少，全换了座位：</text>
   <text x="46" y="722" class="txt" fill="#7f1d1d">• 第 1 条 SHFL 分完 t0.a 和 t1.a（0..7），第 2 条 SHFL 分完 t2.a 和 t3.a（8..15）</text>
-  <text x="46" y="742" class="txt" fill="#7f1d1d">• 左矩阵 A 和右矩阵 B 每次矩阵乘都要连调 6 条 SHFL，全网攒出 81,853 条</text>
+  <text x="46" y="742" class="txt" fill="#7f1d1d">• 每个源寄存器需调 2～4 条 SHFL，主干 7 个代码包静态累积出 81,853 条</text>
   <text x="46" y="766" class="lbl" fill="#065f46">→ 新方案 ptx-v2：每人原地拆自己手里的数，1 条 SHFL 都不用调！</text>
 </svg>
