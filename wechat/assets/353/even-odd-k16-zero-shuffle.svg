@@ -17,7 +17,7 @@
 
   <!-- 顶部总标题 -->
   <text x="430" y="38" text-anchor="middle" class="title">偶奇 K16 原位分组（0-SHFL / 0-PRMT）与 1080p 耗时演进</text>
-  <text x="430" y="62" text-anchor="middle" class="subtitle">上：32 位寄存器内偶奇字节天然对齐 f16x2 双通道 ｜ 下：RTX 3080 Laptop (132W) 五阶段实测</text>
+  <text x="430" y="62" text-anchor="middle" class="subtitle">上：32 位寄存器内偶奇字节天然对齐 f16x2 双通道 ｜ 下：RTX 3080 Laptop (132W) 四阶段实测</text>
 
   <!-- ==================== 第一部分：偶奇字节原位分组 ==================== -->
   <rect x="24" y="80" width="812" height="496" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
@@ -65,7 +65,7 @@
 
   <!-- 新方案（右侧蓝绿框） -->
   <rect x="414" y="234" width="398" height="320" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.8"/>
-  <text x="432" y="262" class="label" fill="#065f46">✓ 新方案（V2）：利用内积求和交换律原位分组</text>
+  <text x="432" y="262" class="label" fill="#065f46">✓ 新方案（ptx-v2）：利用内积求和交换律原位分组</text>
   <text x="432" y="286" class="note" fill="#064e3b">∑ A[i,k]·B[k,j] = ∑(偶下标 2m) + ∑(奇下标 2m+1)</text>
 
   <!-- 偶数通道框 -->
@@ -86,34 +86,29 @@
   <text x="699" y="483" text-anchor="middle" class="bit-txt">低16位: FP16(byte1)</text>
   <text x="613" y="520" text-anchor="middle" class="code-txt" fill="#b45309">掩码 + 右移 1 位 + 乘 256.0h（0 SHFL, 0 PRMT）</text>
 
-  <!-- ==================== 第二部分：五阶段性能对比 ==================== -->
+  <!-- ==================== 第二部分：四阶段性能对比 ==================== -->
   <rect x="24" y="594" width="812" height="322" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-  <text x="46" y="628" class="sec-title">② RTX 3080 Laptop（132W，31 块新模型）1080p 单帧耗时五阶段演进</text>
+  <text x="46" y="628" class="sec-title">② RTX 3080 Laptop（132W，31 块新模型）1080p 单帧耗时四阶段演进</text>
 
   <!-- 行 1：上游 O1 -->
-  <text x="46" y="668" class="label">① 上游位运算改法（O1）</text>
-  <rect x="292" y="649" width="360" height="26" rx="5" fill="#94a3b8"/>
-  <text x="662" y="668" class="label" fill="#475569">68.54 ms（基线 1.00×）</text>
+  <text x="46" y="674" class="label">① 上游位运算改法（O1）</text>
+  <rect x="292" y="655" width="360" height="28" rx="5" fill="#94a3b8"/>
+  <text x="662" y="674" class="label" fill="#475569">68.54 ms（基线 1.00×）</text>
 
   <!-- 行 2：v0.1.0 -->
-  <text x="46" y="714" class="label">② 本项目 v0.1.0（满血 O4）</text>
-  <rect x="292" y="695" width="168" height="26" rx="5" fill="#60a5fa"/>
-  <text x="470" y="714" class="label" fill="#1d4ed8">32.04 ms（720p 15.83 ms / 900p 24.47 ms）</text>
+  <text x="46" y="730" class="label">② 本项目 v0.1.0（满血 O4）</text>
+  <rect x="292" y="711" width="168" height="28" rx="5" fill="#60a5fa"/>
+  <text x="470" y="730" class="label" fill="#1d4ed8">32.04 ms（720p 15.83 ms / 900p 24.47 ms）</text>
 
-  <!-- 行 3：hip-port Phase 14/16 -->
-  <text x="46" y="760" class="label">③ 独立引擎 hip-port（16 轮）</text>
-  <rect x="292" y="741" width="167" height="26" rx="5" fill="#38bdf8"/>
-  <text x="469" y="760" class="label" fill="#0369a1">31.83 ms（720p 14.15 ms / 900p 23.72 ms）</text>
+  <!-- 行 3：ptx-v2 -->
+  <text x="46" y="786" class="label">③ 内部代号 ptx-v2（零洗牌）</text>
+  <rect x="292" y="767" width="107" height="28" rx="5" fill="#34d399"/>
+  <text x="409" y="786" class="label" fill="#047857">20.36 ms（720p 10.19 ms / 900p 15.27 ms）</text>
 
-  <!-- 行 4：ptx-patcher V2 -->
-  <text x="46" y="806" class="label">④ ptx-patcher V2（零洗牌）</text>
-  <rect x="292" y="787" width="107" height="26" rx="5" fill="#34d399"/>
-  <text x="409" y="806" class="label" fill="#047857">20.36 ms（720p 10.19 ms / 900p 15.27 ms）</text>
-
-  <!-- 行 5：ptx-patcher V2.1 -->
-  <text x="46" y="852" class="label" fill="#065f46">⑤ v0.2.0 V2.1（放宽 maxnreg）</text>
-  <rect x="292" y="833" width="67" height="26" rx="5" fill="#059669"/>
-  <text x="369" y="852" class="label" fill="#065f46">12.78 ms（720p 6.66 ms / 900p 9.70 ms，提速 5.36×）</text>
+  <!-- 行 4：ptx-v2.1 -->
+  <text x="46" y="842" class="label" fill="#065f46">④ v0.2.0 ptx-v2.1（放宽 maxnreg）</text>
+  <rect x="292" y="823" width="67" height="28" rx="5" fill="#059669"/>
+  <text x="369" y="842" class="label" fill="#065f46">12.78 ms（720p 6.66 ms / 900p 9.70 ms，提速 5.36×）</text>
 
   <!-- 底部总结条 -->
   <rect x="46" y="874" width="768" height="28" rx="6" fill="#ecfdf5"/>

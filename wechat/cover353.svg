@@ -35,7 +35,7 @@
   <!-- 顶部标题栏 -->
   <rect x="36" y="22" width="128" height="32" rx="6" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1.5"/>
   <text x="100" y="44" text-anchor="middle" fill="#6ee7b7" font-size="16" font-weight="bold">DLSS 5 · RTX 30</text>
-  <text x="182" y="45" fill="#f8fafc" font-size="25" font-weight="bold">从 32 ms 砍到 12.78 ms：偶奇零洗牌与双路线对决</text>
+  <text x="182" y="45" fill="#f8fafc" font-size="25" font-weight="bold">从 32 ms 砍到 12.78 ms：偶奇零洗牌与解除紧箍咒</text>
   <text x="864" y="44" text-anchor="end" fill="#94a3b8" font-size="16" font-weight="bold">No.353</text>
 
   <!-- 左半区：32-bit 寄存器偶奇字节原位分组示意 -->
@@ -70,31 +70,26 @@
   <text x="675" y="122" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="bold">RTX 3080 Laptop (132W) 1080p 耗时</text>
   <text x="675" y="146" text-anchor="middle" fill="#94a3b8" font-size="13">保持 254 MB 原槽位 O4 · 无损 FP8 权重</text>
 
-  <g transform="translate(486, 170)">
+  <g transform="translate(476, 174)">
     <!-- 上游 O1 -->
-    <text x="0" y="18" fill="#94a3b8" font-size="14">上游 O1 基线</text>
-    <rect x="118" y="2" width="250" height="22" rx="4" fill="url(#bar-old)"/>
-    <text x="360" y="18" text-anchor="end" fill="#ffffff" font-size="13" font-weight="bold">68.54 ms</text>
+    <text x="0" y="20" fill="#94a3b8" font-size="14">上游 O1 基线</text>
+    <rect x="132" y="3" width="242" height="24" rx="4" fill="url(#bar-old)"/>
+    <text x="366" y="20" text-anchor="end" fill="#ffffff" font-size="13" font-weight="bold">68.54 ms</text>
 
     <!-- v0.1.0 -->
-    <text x="0" y="64" fill="#cbd5e1" font-size="14">v0.1.0 (满血O4)</text>
-    <rect x="118" y="48" width="118" height="22" rx="4" fill="url(#bar-v1)"/>
-    <text x="246" y="64" fill="#60a5fa" font-size="14" font-weight="bold">32.04 ms</text>
+    <text x="0" y="76" fill="#cbd5e1" font-size="14">v0.1.0 (满血O4)</text>
+    <rect x="132" y="59" width="114" height="24" rx="4" fill="url(#bar-v1)"/>
+    <text x="256" y="76" fill="#60a5fa" font-size="14" font-weight="bold">32.04 ms</text>
 
-    <!-- hip-port Phase 16 -->
-    <text x="0" y="110" fill="#cbd5e1" font-size="14">独立引擎 16 轮</text>
-    <rect x="118" y="94" width="116" height="22" rx="4" fill="url(#bar-v1)"/>
-    <text x="244" y="110" fill="#38bdf8" font-size="14" font-weight="bold">31.83 ms</text>
+    <!-- ptx-v2 -->
+    <text x="0" y="132" fill="#a7f3d0" font-size="14">ptx-v2 零洗牌</text>
+    <rect x="132" y="115" width="72" height="24" rx="4" fill="url(#bar-v2)"/>
+    <text x="214" y="132" fill="#34d399" font-size="14" font-weight="bold">20.36 ms</text>
 
-    <!-- V2 -->
-    <text x="0" y="156" fill="#a7f3d0" font-size="14">V2 偶奇零洗牌</text>
-    <rect x="118" y="140" width="75" height="22" rx="4" fill="url(#bar-v2)"/>
-    <text x="203" y="156" fill="#34d399" font-size="14" font-weight="bold">20.36 ms</text>
-
-    <!-- V2.1 -->
-    <text x="0" y="204" fill="#6ee7b7" font-size="15" font-weight="bold">v0.2.0 (V2.1)</text>
-    <rect x="118" y="186" width="47" height="26" rx="5" fill="url(#bar-v21)"/>
-    <text x="175" y="205" fill="#6ee7b7" font-size="18" font-weight="bold">12.78 ms (720p 6.66 ms)</text>
+    <!-- ptx-v2.1 -->
+    <text x="0" y="190" fill="#6ee7b7" font-size="14.5" font-weight="bold">v0.2.0 (ptx-v2.1)</text>
+    <rect x="132" y="171" width="46" height="26" rx="5" fill="url(#bar-v21)"/>
+    <text x="186" y="190" fill="#6ee7b7" font-size="16.5" font-weight="bold">12.78 ms (720p 6.66 ms)</text>
   </g>
 
   <!-- 底部金句 -->
