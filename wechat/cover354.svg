@@ -24,7 +24,7 @@
   <rect x="40" y="24" width="128" height="28" rx="14" fill="#065f46" stroke="#10b981" stroke-width="1.2"/>
   <text x="104" y="43" text-anchor="middle" fill="#a7f3d0" font-size="13" font-weight="bold">Maya × Strata</text>
   <text x="184" y="44" fill="#f8fafc" font-size="22" font-weight="bold">128G 内存跑 DeepSeek-V4.1-Flash：统一内存还是独立显卡？</text>
-  <text x="40" y="76" fill="#94a3b8" font-size="14.5">独显高速显存保热区 + 128G 内存兜冷区（28～44 tok/s），靠 0.89GB 的 1M KV 缓存反超统一内存（17～23 tok/s）</text>
+  <text x="40" y="76" fill="#94a3b8" font-size="14.5">独显高速显存保热区 + 128G 内存装专家（26～44 tok/s），靠不到 1GB 的 1M 全局 KV 守住单卡显存</text>
 
   <!-- Left Panel: Strata <-> Maya Two-Way Evolution & 3-Tier Split -->
   <rect x="40" y="112" width="385" height="306" rx="12" fill="#111c33" stroke="#334155" stroke-width="1.5"/>
@@ -48,13 +48,13 @@
   <!-- 3 Tiers inside Left Panel -->
   <rect x="64" y="226" width="336" height="50" rx="7" fill="#172554" stroke="#3b82f6" stroke-width="1.2"/>
   <text x="78" y="247" fill="#93c5fd" font-size="13" font-weight="bold">GPU 显存</text>
-  <text x="155" y="247" fill="#e2e8f0" font-size="12">16.8GB 稠密层 + 热门专家 + 0.89GB KV</text>
-  <text x="78" y="266" fill="#60a5fa" font-size="11">单张 4090 / 5090 解码达 31～44 tok/s</text>
+  <text x="155" y="247" fill="#e2e8f0" font-size="12">稠密层 + 热门专家 + 0.87GiB 全局 KV</text>
+  <text x="78" y="266" fill="#60a5fa" font-size="11">单张 3090 / 4090 配大内存解码达 26～44 tok/s</text>
 
   <rect x="64" y="286" width="336" height="50" rx="7" fill="#3b2506" stroke="#f59e0b" stroke-width="1.2"/>
   <text x="78" y="307" fill="#fcd34d" font-size="13" font-weight="bold">系统内存</text>
-  <text x="148" y="307" fill="#e2e8f0" font-size="11.5">15,360 个专家（1.6～2 bit 约 116～138GB）</text>
-  <text x="78" y="326" fill="#fbbf24" font-size="11">CPU AVX2 就地算 + PCIe 零拷贝直拉上卡</text>
+  <text x="148" y="307" fill="#e2e8f0" font-size="11.5">15,360 个专家（主包约 115～178GB）</text>
+  <text x="78" y="326" fill="#fbbf24" font-size="11">CPU AVX2 就地算 + GPU 搬运核直读锁页内存</text>
 
   <rect x="64" y="346" width="336" height="50" rx="7" fill="#063932" stroke="#14b8a6" stroke-width="1.2"/>
   <text x="78" y="367" fill="#5eead4" font-size="13" font-weight="bold">NVMe 盘</text>
@@ -69,25 +69,25 @@
   <!-- Max bar width = 240px for 67.5 GiB (1 GiB = 3.55px), x_start = 575 -->
   <text x="465" y="180" fill="#cbd5e1" font-size="12.5" font-weight="bold">MiniMax-M3.1</text>
   <rect x="575" y="163" width="240" height="24" rx="4" fill="#ef4444"/>
-  <text x="807" y="180" text-anchor="end" fill="#ffffff" font-size="12" font-weight="bold">67.5 GiB</text>
+  <text x="807" y="180" text-anchor="end" fill="#ffffff" font-size="12" font-weight="bold">67.5 GiB (FP8)</text>
 
   <text x="465" y="218" fill="#cbd5e1" font-size="12.5" font-weight="bold">Muse-Spark</text>
   <rect x="575" y="201" width="114" height="24" rx="4" fill="#f97316"/>
-  <text x="697" y="218" fill="#fdba74" font-size="12" font-weight="bold">32.2 GiB</text>
+  <text x="697" y="218" fill="#fdba74" font-size="12" font-weight="bold">32.2 GiB (FP8)</text>
 
   <text x="465" y="256" fill="#cbd5e1" font-size="12.5" font-weight="bold">Qwen3.8-Next</text>
   <rect x="575" y="239" width="85" height="24" rx="4" fill="#f59e0b"/>
-  <text x="668" y="256" fill="#fde68a" font-size="12" font-weight="bold">24.0 GiB</text>
+  <text x="668" y="256" fill="#fde68a" font-size="11.5" font-weight="bold">24 GiB (BF16) / 12 (FP8)</text>
 
   <text x="465" y="294" fill="#cbd5e1" font-size="12.5" font-weight="bold">GLM-5.3-Flash</text>
   <rect x="575" y="277" width="39" height="24" rx="4" fill="#eab308"/>
-  <text x="622" y="294" fill="#fef08a" font-size="12" font-weight="bold">11.0 GiB</text>
+  <text x="622" y="294" fill="#fef08a" font-size="11.5" font-weight="bold">11 GiB (BF16) / 5.5 (FP8)</text>
 
   <!-- DeepSeek highlight box -->
   <rect x="458" y="314" width="388" height="84" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.8"/>
   <text x="472" y="342" fill="#ecfdf5" font-size="14" font-weight="bold">DeepSeek-V4.1</text>
   <rect x="575" y="325" width="6" height="24" rx="2" fill="#34d399"/>
-  <text x="590" y="342" fill="#6ee7b7" font-size="15" font-weight="bold">0.89 GiB（不到 1 GB）</text>
+  <text x="590" y="342" fill="#6ee7b7" font-size="14" font-weight="bold">0.87 GiB / 890 MB（Maya 预留 1.1 GiB）</text>
   <text x="472" y="368" fill="#a7f3d0" font-size="11.5">• 前 20 层编码器 CED + 第二代压缩稀疏注意力 CSA2（FP4）</text>
   <text x="472" y="386" fill="#a7f3d0" font-size="11.5">• 哪怕拉满百万上下文，显存依然稳稳留给高频专家</text>
 

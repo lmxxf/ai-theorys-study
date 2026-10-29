@@ -27,24 +27,24 @@
 
   <!-- VRAM sub-boxes -->
   <rect x="28" y="120" width="228" height="68" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2"/>
-  <text x="38" y="140" fill="#1e3a8a" font-size="12.5" font-weight="bold">1. 稠密层与注意力权重（~16.8 GB）</text>
-  <text x="38" y="158" fill="#475569" font-size="11">40 层注意力、路由器与共享模块常驻</text>
-  <text x="38" y="175" fill="#475569" font-size="11">DSpark 草稿头（8 GB）按实测收益选装</text>
+  <text x="38" y="140" fill="#1e3a8a" font-size="12" font-weight="bold">1. 稠密与注意力层（BF16 约 16.8GB）</text>
+  <text x="38" y="158" fill="#475569" font-size="10.5">Maya-XS/S 压为 Q8_0 更省；DSpark</text>
+  <text x="38" y="175" fill="#475569" font-size="10.5">草稿头（XS 4.3GB / S 8GB）按需选装</text>
 
   <rect x="264" y="120" width="228" height="68" rx="6" fill="#ecfdf5" stroke="#34d399" stroke-width="1.5"/>
-  <text x="274" y="140" fill="#065f46" font-size="12.5" font-weight="bold">2. 全局 KV 缓存（1M 仅 ~0.89 GB）</text>
-  <text x="274" y="158" fill="#047857" font-size="11">CSA2 跨层共享 FP4 + 128 滑窗环</text>
-  <text x="274" y="175" fill="#047857" font-size="11">每词元仅 ~1.1 KB，省出显存全喂专家</text>
+  <text x="274" y="140" fill="#065f46" font-size="12" font-weight="bold">2. 全局 KV 缓存（1M 仅约 0.87GiB）</text>
+  <text x="274" y="158" fill="#047857" font-size="10.5">官方 890B/词；Maya 按 1,126B/词预留</text>
+  <text x="274" y="175" fill="#047857" font-size="10.5">单卡 1M 约 1.1GiB（256K 仅 282MiB）</text>
 
   <rect x="28" y="196" width="464" height="68" rx="6" fill="#ffffff" stroke="#60a5fa" stroke-width="1.2"/>
   <text x="38" y="216" fill="#1e3a8a" font-size="12.5" font-weight="bold">3. 显存热门专家池 + 每层 32 个近期驻留槽（Recent Slots）</text>
-  <text x="38" y="234" fill="#475569" font-size="11">启动时按路由画像（Expert Profile）预填最高频专家；运行中零拷贝拉上卡的</text>
-  <text x="38" y="251" fill="#475569" font-size="11">专家直接落入每层 32 个近期槽位，继续服务后续 DSpark 投机验证窗口</text>
+  <text x="38" y="234" fill="#475569" font-size="11">启动时按路由画像（Expert Profile）预填高频专家；运行中 GPU 搬运核拉上卡</text>
+  <text x="38" y="251" fill="#475569" font-size="11">的专家落入每层 32 个近期槽位，继续服务后续 DSpark 投机验证窗口</text>
 
   <!-- Connector 1 -> 2 (PCIe + CPU lane) -->
   <line x1="165" y1="322" x2="165" y2="280" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue)"/>
   <rect x="30" y="286" width="225" height="30" rx="5" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
-  <text x="142" y="305" text-anchor="middle" fill="#1e40af" font-size="11" font-weight="bold">PCIe 零拷贝直拉 (DS4_STREAM_ZC)</text>
+  <text x="142" y="305" text-anchor="middle" fill="#1e40af" font-size="11" font-weight="bold">GPU 搬运核直读锁页内存 (DS4_STREAM_ZC)</text>
 
   <line x1="355" y1="322" x2="355" y2="280" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-amber)"/>
   <rect x="265" y="286" width="225" height="30" rx="5" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>
@@ -57,13 +57,13 @@
   <text x="492" y="344" text-anchor="end" fill="#fef3c7" font-size="11.5">主力容量池</text>
 
   <rect x="28" y="364" width="464" height="72" rx="6" fill="#ffffff" stroke="#fcd34d" stroke-width="1.2"/>
-  <text x="38" y="384" fill="#92400e" font-size="12.5" font-weight="bold">4. 路由专家主力池（40 层 × 384 = 15,360 个专家，每词选 6 个）</text>
-  <text x="38" y="402" fill="#475569" font-size="11">Maya-XS（~1.6 bit）专家加主干共约 116 GB，128 GB 内存即可全量驻留锁页内存；</text>
-  <text x="38" y="419" fill="#475569" font-size="11">未命中显存的专家由 CPU AVX2 就地计算与 GPU PCIe 流式通道按实测耗时动态分摊</text>
+  <text x="38" y="384" fill="#92400e" font-size="12.5" font-weight="bold">4. 路由专家主力池（40 层 × 384 = 15,360 个路由专家，每词选 6 个）</text>
+  <text x="38" y="402" fill="#475569" font-size="11">Maya-XS（~1.6 bit）主包共 115.3 GB，配 24GB 独显时 101 GB 专家可全驻 128GB</text>
+  <text x="38" y="419" fill="#475569" font-size="11">锁页内存；未命中显存的专家由 CPU AVX2 就地计算与 GPU 流式拉取按实测耗时分摊</text>
 
   <rect x="28" y="444" width="464" height="46" rx="6" fill="#ffffff" stroke="#fcd34d" stroke-width="1.2"/>
-  <text x="38" y="463" fill="#92400e" font-size="12" font-weight="bold">5. 原生视觉塔（1 GB）平时静默驻留 RAM，零显存占用</text>
-  <text x="38" y="480" fill="#475569" font-size="11">仅在读图片瞬间向首张 GPU 临时借用约 320 MB 显存，算完立刻归还专家池</text>
+  <text x="38" y="463" fill="#92400e" font-size="12" font-weight="bold">5. 原生视觉塔（约 0.97 GB）权重驻留 RAM，按需借还显存（v1.1.31+）</text>
+  <text x="38" y="480" fill="#475569" font-size="11">v1.1.31 起两张图片之间自动释放约 320 MB 显存工作区，仅在读图时临时借用</text>
 
   <!-- Connector 2 -> 3 (NVMe DMA) -->
   <line x1="260" y1="546" x2="260" y2="506" stroke="#0d9488" stroke-width="2" marker-end="url(#arrow-teal)"/>

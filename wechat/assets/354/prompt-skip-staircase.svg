@@ -24,7 +24,7 @@
 
   <!-- X-axis labels (Token positions) -->
   <text x="86" y="100" fill="#475569" font-size="11" font-weight="bold">词元 1（提示词开头）</text>
-  <text x="275" y="100" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">倒数第 2,560 词</text>
+  <text x="275" y="100" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">倒数第 2,668 词</text>
   <text x="415" y="100" text-anchor="middle" fill="#047857" font-size="11" font-weight="bold">倒数 128 词</text>
   <text x="492" y="100" text-anchor="end" fill="#0f172a" font-size="11" font-weight="bold">末尾 N</text>
 
@@ -58,29 +58,24 @@
   <text x="178" y="335" text-anchor="middle" fill="#475569" font-size="10">• 滑动窗口传不到末尾 N</text>
   <text x="178" y="352" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="bold">→ 注意力与 MoE 全跳过</text>
 
-  <!-- Right Staircase Zone (x=260 to 488, y=230 to 410) -->
-  <!-- Background of staircase box -->
-  <rect x="260" y="230" width="228" height="180" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <!-- Right Staircase Zone (x=260 to 488, y=230 to 410): Actual kept rectangle 2668 tokens + theoretical staircase cone -->
+  <rect x="260" y="230" width="228" height="180" rx="5" fill="#fef9c3" stroke="#eab308" stroke-width="1.5"/>
+  <text x="342" y="398" text-anchor="middle" fill="#a16207" font-size="9" font-weight="bold">源码保留矩形区（尾部 2,668 词）</text>
 
-  <!-- Staircase steps (5 visual steps representing 20 layers) -->
-  <!-- Step 1: Layer 21 (top, widest: x=260 to 488, width=228 -> 2560 tokens) -->
-  <rect x="260" y="230" width="228" height="36" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
-  <text x="266" y="252" fill="#92400e" font-size="10" font-weight="bold">第 21 层：倒数 2,560 词</text>
+  <!-- Staircase steps (theoretical dependency cone) -->
+  <rect x="260" y="230" width="228" height="36" fill="#fde68a" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="265" y="252" fill="#92400e" font-size="9.5" font-weight="bold">第 21 层：倒数 2,668 词</text>
 
-  <!-- Step 2: Layer 25 (x=290 to 488) -->
-  <rect x="290" y="266" width="198" height="36" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
-  <text x="296" y="288" fill="#92400e" font-size="10">第 25 层：倒数 2,048 词</text>
+  <rect x="290" y="266" width="198" height="36" fill="#fde68a" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="295" y="288" fill="#92400e" font-size="9.5">第 25 层：倒数 2,160 词</text>
 
-  <!-- Step 3: Layer 30 (x=320 to 488) -->
-  <rect x="320" y="302" width="168" height="36" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
-  <text x="325" y="324" fill="#92400e" font-size="9.5">第 30 层：倒数 1,408 词</text>
+  <rect x="320" y="302" width="168" height="36" fill="#fde68a" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="324" y="324" fill="#92400e" font-size="9">第 30 层：倒数 1,525 词</text>
 
-  <!-- Step 4: Layer 39 (x=352 to 488) -->
-  <rect x="352" y="338" width="136" height="36" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
-  <text x="356" y="360" fill="#92400e" font-size="9.5">第 39 层: 256 词</text>
+  <rect x="352" y="338" width="136" height="36" fill="#fde68a" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="356" y="360" fill="#92400e" font-size="9">第 39 层：255 词</text>
 
-  <!-- Step 5: Layer 40 (bottom, narrowest: x=428 to 488 -> last 128 tokens) -->
-  <rect x="428" y="374" width="60" height="36" fill="#fde68a" stroke="#d97706" stroke-width="1.5"/>
+  <rect x="428" y="374" width="60" height="36" fill="#fcd34d" stroke="#d97706" stroke-width="1.5"/>
   <text x="458" y="396" text-anchor="middle" fill="#78350f" font-size="9.5" font-weight="bold">第40层</text>
 
   <!-- Overlay Pillar: Last 128 tokens across all 20 layers (Bounded Replay mode) -->
@@ -90,18 +85,18 @@
 
   <!-- Bottom dimension arrow under staircase -->
   <line x1="486" y1="424" x2="262" y2="424" stroke="#d97706" stroke-width="1.8" marker-end="url(#arr-red)"/>
-  <text x="292" y="443" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">每往上一层窗口多看 128 词 → 倒推 20 层最多退到倒数 20×128 = 2,560 词</text>
+  <text x="292" y="443" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">20 层窗口跨层传递上界：20×(128−1)+128 = 2,668 词（近似 20×128 = 2,560）</text>
 
   <!-- Two Mode Explanation Cards at the Bottom -->
   <rect x="16" y="468" width="238" height="166" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
   <rect x="16" y="468" width="238" height="28" rx="8" fill="#d97706"/>
-  <text x="135" y="487" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">模式 1 · 精确阶梯倒推（Maya 默认）</text>
-  <text x="26" y="514" fill="#78350f" font-size="10.5" font-weight="bold">• 对应黄色阶梯（PROMPT_SKIP=1）：</text>
-  <text x="32" y="532" fill="#475569" font-size="10.5">为保证第 40 层最后 128 个词完全精确，</text>
-  <text x="32" y="549" fill="#475569" font-size="10.5">第 39 层需算倒数 256 词……倒推 20 层</text>
-  <text x="32" y="566" fill="#475569" font-size="10.5">至第 21 层需算倒数 2,560 词（留余量</text>
-  <text x="32" y="583" fill="#475569" font-size="10.5">取 ~2,700 词），再往前的词全部免算。</text>
-  <text x="26" y="618" fill="#b45309" font-size="11" font-weight="bold">效果：输出与跑满 40 层 100% 逐字一致</text>
+  <text x="135" y="487" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">模式 1 · 完整传递窗口（Maya 默认）</text>
+  <text x="26" y="514" fill="#78350f" font-size="10.5" font-weight="bold">• 对应黄色区域（PROMPT_SKIP=1）：</text>
+  <text x="32" y="532" fill="#475569" font-size="10.5">理论依赖如阶梯每层外扩 127 词；源码</text>
+  <text x="32" y="549" fill="#475569" font-size="10.5">按 keep = 20×127+128 = 2,668 词统一</text>
+  <text x="32" y="566" fill="#475569" font-size="10.5">保留尾部矩形区（输入 ≥3,692 词触发），</text>
+  <text x="32" y="583" fill="#475569" font-size="10.5">排在倒数 2,668 词之前的历史全部免算。</text>
+  <text x="26" y="618" fill="#b45309" font-size="11" font-weight="bold">效果：除专家累加次序外与跑满 40 层一致</text>
 
   <rect x="266" y="468" width="238" height="166" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
   <rect x="266" y="468" width="238" height="28" rx="8" fill="#059669"/>
@@ -111,5 +106,5 @@
   <text x="282" y="549" fill="#475569" font-size="10.5">都只算最后 128 个词元，用来填满每层</text>
   <text x="282" y="566" fill="#475569" font-size="10.5">那 128 个窗口槽位（20 层合起来正好是</text>
   <text x="282" y="583" fill="#475569" font-size="10.5">20 层 × 128 = 2,560 个窗口 KV 向量）。</text>
-  <text x="276" y="618" fill="#047857" font-size="11" font-weight="bold">效果：预填充计算量直接砍掉近一半</text>
+  <text x="276" y="618" fill="#047857" font-size="11" font-weight="bold">效果：计算最省（有轻微近似偏差）</text>
 </svg>

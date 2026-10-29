@@ -33,45 +33,45 @@
   <rect x="150" y="180" width="151" height="28" rx="4" fill="#f97316"/>
   <text x="307" y="199" fill="#c2410c" font-size="12" font-weight="bold">32.2 GiB (FP8)</text>
 
-  <!-- Row 3: Qwen3.8-Flash-Next (24.0 GiB) -> width = 113px -->
+  <!-- Row 3: Qwen3.8-Flash-Next (24.0 GiB BF16 / 12.0 GiB FP8) -> width = 113px -->
   <text x="28" y="250" fill="#1e293b" font-size="12" font-weight="bold">Qwen3.8-Next</text>
   <text x="28" y="265" fill="#64748b" font-size="10.5">176B · GDN+注意力</text>
   <rect x="150" y="234" width="113" height="28" rx="4" fill="#f59e0b"/>
-  <text x="270" y="253" fill="#b45309" font-size="12" font-weight="bold">~24.0 GiB</text>
+  <text x="270" y="253" fill="#b45309" font-size="11.5" font-weight="bold">24.0 GiB (BF16) / 12 GiB (FP8)</text>
 
-  <!-- Row 4: GLM-5.3-Flash (11.0 GiB) -> width = 52px -->
+  <!-- Row 4: GLM-5.3-Flash (11.0 GiB BF16 / 5.5 GiB FP8) -> width = 52px -->
   <text x="28" y="304" fill="#1e293b" font-size="12" font-weight="bold">GLM-5.3-Flash</text>
   <text x="28" y="319" fill="#64748b" font-size="10.5">321B · KDA+稀疏 MLA</text>
   <rect x="150" y="288" width="52" height="28" rx="4" fill="#eab308"/>
-  <text x="209" y="307" fill="#854d0e" font-size="12" font-weight="bold">~11.0 GiB (长文需卸回内存)</text>
+  <text x="209" y="307" fill="#854d0e" font-size="11.5" font-weight="bold">11.0 GiB (BF16) / 5.5 GiB (FP8)</text>
 
-  <!-- Row 5: DeepSeek-V4.1-Flash (0.89 GiB) -> width = 6px -->
+  <!-- Row 5: DeepSeek-V4.1-Flash (0.87 GiB / 890 MB) -> width = 6px -->
   <rect x="22" y="334" width="476" height="46" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
   <text x="28" y="354" fill="#065f46" font-size="12.5" font-weight="bold">DeepSeek-V4.1</text>
   <text x="28" y="370" fill="#047857" font-size="10.5">748B · CED + CSA2</text>
   <rect x="150" y="343" width="7" height="28" rx="2" fill="#059669"/>
-  <text x="165" y="362" fill="#065f46" font-size="12.5" font-weight="bold">0.89 GiB（含引擎环仅 ~1.1 GB，差 12～75 倍）</text>
+  <text x="165" y="362" fill="#065f46" font-size="12" font-weight="bold">0.87 GiB / 890 MB（FP4 全局；Maya 预留 1.1 GiB）</text>
 
   <!-- Bottom Comparison Cards: Static Weights vs Dynamic KV -->
   <rect x="16" y="424" width="238" height="180" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
   <rect x="16" y="424" width="238" height="28" rx="8" fill="#d97706"/>
-  <text x="135" y="443" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">专家权重虽胖：可以按层轮流住</text>
-  <text x="28" y="472" fill="#78350f" font-size="11.5" font-weight="bold">• 40 层总重 116~179 GB 驻内存：</text>
-  <text x="36" y="490" fill="#475569" font-size="11">196B 词表留 SSD，专家全装进内存条</text>
-  <text x="28" y="514" fill="#78350f" font-size="11.5" font-weight="bold">• 单层 384 个专家仅 2.9~4.5 GB：</text>
-  <text x="36" y="532" fill="#475569" font-size="11">哪怕多用户一起做预填充，也是一层一</text>
-  <text x="36" y="549" fill="#475569" font-size="11">层搬进显存算完即换，显存只需留出三</text>
-  <text x="36" y="566" fill="#475569" font-size="11">四 GB 周转空间就能跑通全套 40 层</text>
-  <text x="28" y="590" fill="#b45309" font-size="11" font-weight="bold">本质：权重可分期周转，且多用户共用</text>
+  <text x="135" y="443" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">专家权重虽胖：可以按层流式周转</text>
+  <text x="28" y="472" fill="#78350f" font-size="11.5" font-weight="bold">• 主包 115～178 GB 主体驻内存：</text>
+  <text x="36" y="490" fill="#475569" font-size="11">196B 词表留 SSD，冷专家装进内存条</text>
+  <text x="28" y="514" fill="#78350f" font-size="11.5" font-weight="bold">• 按层/按专家组借槽周转：</text>
+  <text x="36" y="532" fill="#475569" font-size="11">长文预填充时按层向显存专家池借用</text>
+  <text x="36" y="549" fill="#475569" font-size="11">临时缓冲算完即换（40 层平均每层不</text>
+  <text x="36" y="566" fill="#475569" font-size="11">到 3～4.5 GB），无需全量常驻显存</text>
+  <text x="28" y="590" fill="#b45309" font-size="11" font-weight="bold">本质：静态权重可按层周转且多路共用</text>
 
   <rect x="266" y="424" width="238" height="180" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
   <rect x="266" y="424" width="238" height="28" rx="8" fill="#059669"/>
-  <text x="385" y="443" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">KV 缓存不能分期：每个用户独占</text>
-  <text x="278" y="472" fill="#065f46" font-size="11.5" font-weight="bold">• 别人跑长文（11~67.5 GiB/人）：</text>
-  <text x="286" y="490" fill="#475569" font-size="11">无法多用户共享；1 个长会话就挤死显</text>
-  <text x="286" y="507" fill="#475569" font-size="11">存，连单层专家周转的 4 GB 都腾不出</text>
-  <text x="278" y="531" fill="#065f46" font-size="11.5" font-weight="bold">• DeepSeek 跑长文（~1.1 GB/1M）：</text>
-  <text x="286" y="549" fill="#475569" font-size="11">256K 仅 280 MB/人；就算 4 个用户</text>
-  <text x="286" y="566" fill="#475569" font-size="11">一起并发，显存照样宽裕够专家周转</text>
-  <text x="278" y="590" fill="#047857" font-size="11" font-weight="bold">本质：只要 KV 小，单卡显存就永远够用</text>
+  <text x="385" y="443" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">KV 缓存随上下文与并发线性增长</text>
+  <text x="278" y="472" fill="#065f46" font-size="11.5" font-weight="bold">• 其它模型长文（5.5～67.5 GiB）：</text>
+  <text x="286" y="490" fill="#475569" font-size="11">上下文拉长后大批吞噬显存，挤走显存</text>
+  <text x="286" y="507" fill="#475569" font-size="11">里的热门专家，或被迫把 KV 卸回内存</text>
+  <text x="278" y="531" fill="#065f46" font-size="11.5" font-weight="bold">• DeepSeek 跑长文（~1.1 GiB/1M）：</text>
+  <text x="286" y="549" fill="#475569" font-size="11">256K 仅预留 282 MiB/路；多路并发</text>
+  <text x="286" y="566" fill="#475569" font-size="11">（v1.1.34+）下显存照样宽裕留给专家</text>
+  <text x="278" y="590" fill="#047857" font-size="11" font-weight="bold">本质：只要 KV 小，单卡显存就宽裕够用</text>
 </svg>
