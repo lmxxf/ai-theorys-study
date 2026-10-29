@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 650" width="520" height="650" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#2563eb"/>
+    </marker>
+    <pattern id="skip-hatch" width="12" height="12" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#cbd5e1" stroke-width="2" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="520" height="650" fill="#f8fafc" rx="10"/>
+
+  <!-- Header -->
+  <rect x="16" y="14" width="488" height="52" rx="8" fill="#0f172a"/>
+  <text x="260" y="36" text-anchor="middle" fill="#ffffff" font-size="14.5" font-weight="bold">长提示词预填充（Prefill）：为什么后 20 层前半程能集体翘班？</text>
+  <text x="260" y="55" text-anchor="middle" fill="#94a3b8" font-size="11.5">横轴：输入提示词从早到晚的词元位置（如 10,000 词） ｜ 纵轴：第 1 至 40 层</text>
+
+  <!-- Main Grid Card -->
+  <rect x="16" y="78" width="488" height="378" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- X-axis labels (Token positions) -->
+  <text x="86" y="100" fill="#475569" font-size="11" font-weight="bold">词元 1（提示词开头）</text>
+  <text x="275" y="100" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">倒数第 2,560 词</text>
+  <text x="415" y="100" text-anchor="middle" fill="#047857" font-size="11" font-weight="bold">倒数 128 词</text>
+  <text x="492" y="100" text-anchor="end" fill="#0f172a" font-size="11" font-weight="bold">末尾 N</text>
+
+  <!-- Top Half: Layers 1 to 20 (Encoder) + Layer 21 Projection -->
+  <text x="26" y="145" fill="#1e3a8a" font-size="12" font-weight="bold">第 1～20 层</text>
+  <text x="26" y="162" fill="#475569" font-size="10.5">（编码器）</text>
+  <rect x="96" y="112" width="392" height="72" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="292" y="143" text-anchor="middle" fill="#1e3a8a" font-size="12.5" font-weight="bold">全长 100% 正常计算（跑满注意力与 MoE 专家）</text>
+  <text x="292" y="164" text-anchor="middle" fill="#1e40af" font-size="11">产出第 3、9、15 层共 3 份全局 KV，末层输出交给第 21 层</text>
+
+  <!-- Layer 21 Global KV Projection Bar -->
+  <text x="26" y="205" fill="#065f46" font-size="11.5" font-weight="bold">第 21 层投影</text>
+  <rect x="96" y="190" width="392" height="24" rx="4" fill="#d1fae5" stroke="#10b981" stroke-width="1.2"/>
+  <text x="292" y="206" text-anchor="middle" fill="#065f46" font-size="11" font-weight="bold">仅做一次轻量线性投影 → 产出后 20 层共用的第 4 份全局 KV（齐活）</text>
+
+  <!-- Divider Line -->
+  <line x1="24" y1="222" x2="492" y2="222" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Bottom Half: Layers 21 to 40 (Decoder) -->
+  <text x="22" y="265" fill="#9a3412" font-size="11.5" font-weight="bold">第 21～40 层</text>
+  <text x="22" y="282" fill="#475569" font-size="10.5">（解码器）</text>
+  <text x="22" y="302" fill="#64748b" font-size="10">共 20 层</text>
+  <text x="22" y="317" fill="#64748b" font-size="10">每层窗口</text>
+  <text x="22" y="332" fill="#64748b" font-size="10">只看 128 词</text>
+
+  <!-- Left Skipped Zone (x=96 to 260, y=230 to 410) -->
+  <rect x="96" y="230" width="164" height="180" rx="5" fill="url(#skip-hatch)" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <rect x="104" y="276" width="148" height="86" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="178" y="298" text-anchor="middle" fill="#dc2626" font-size="12" font-weight="bold">前半程集体翘班免算区</text>
+  <text x="178" y="318" text-anchor="middle" fill="#475569" font-size="10">• 不再产出任何全局 KV</text>
+  <text x="178" y="335" text-anchor="middle" fill="#475569" font-size="10">• 滑动窗口传不到末尾 N</text>
+  <text x="178" y="352" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="bold">→ 注意力与 MoE 全跳过</text>
+
+  <!-- Right Staircase Zone (x=260 to 488, y=230 to 410) -->
+  <!-- Background of staircase box -->
+  <rect x="260" y="230" width="228" height="180" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- Staircase steps (5 visual steps representing 20 layers) -->
+  <!-- Step 1: Layer 21 (top, widest: x=260 to 488, width=228 -> 2560 tokens) -->
+  <rect x="260" y="230" width="228" height="36" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="266" y="252" fill="#92400e" font-size="10" font-weight="bold">第 21 层：倒数 2,560 词</text>
+
+  <!-- Step 2: Layer 25 (x=290 to 488) -->
+  <rect x="290" y="266" width="198" height="36" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="296" y="288" fill="#92400e" font-size="10">第 25 层：倒数 2,048 词</text>
+
+  <!-- Step 3: Layer 30 (x=320 to 488) -->
+  <rect x="320" y="302" width="168" height="36" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="325" y="324" fill="#92400e" font-size="9.5">第 30 层：倒数 1,408 词</text>
+
+  <!-- Step 4: Layer 39 (x=352 to 488) -->
+  <rect x="352" y="338" width="136" height="36" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="356" y="360" fill="#92400e" font-size="9.5">第 39 层: 256 词</text>
+
+  <!-- Step 5: Layer 40 (bottom, narrowest: x=428 to 488 -> last 128 tokens) -->
+  <rect x="428" y="374" width="60" height="36" fill="#fde68a" stroke="#d97706" stroke-width="1.5"/>
+  <text x="458" y="396" text-anchor="middle" fill="#78350f" font-size="9.5" font-weight="bold">第40层</text>
+
+  <!-- Overlay Pillar: Last 128 tokens across all 20 layers (Bounded Replay mode) -->
+  <rect x="428" y="230" width="60" height="180" fill="#10b981" fill-opacity="0.18" stroke="#059669" stroke-width="2" stroke-dasharray="4 2"/>
+  <text x="458" y="246" text-anchor="middle" fill="#065f46" font-size="9.5" font-weight="bold">最后128词</text>
+  <text x="458" y="260" text-anchor="middle" fill="#065f46" font-size="9">（有界回放）</text>
+
+  <!-- Bottom dimension arrow under staircase -->
+  <line x1="486" y1="424" x2="262" y2="424" stroke="#d97706" stroke-width="1.8" marker-end="url(#arr-red)"/>
+  <text x="292" y="443" text-anchor="middle" fill="#b45309" font-size="11" font-weight="bold">每往上一层窗口多看 128 词 → 倒推 20 层最多退到倒数 20×128 = 2,560 词</text>
+
+  <!-- Two Mode Explanation Cards at the Bottom -->
+  <rect x="16" y="468" width="238" height="166" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="16" y="468" width="238" height="28" rx="8" fill="#d97706"/>
+  <text x="135" y="487" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">模式 1 · 精确阶梯倒推（Maya 默认）</text>
+  <text x="26" y="514" fill="#78350f" font-size="10.5" font-weight="bold">• 对应黄色阶梯（PROMPT_SKIP=1）：</text>
+  <text x="32" y="532" fill="#475569" font-size="10.5">为保证第 40 层最后 128 个词完全精确，</text>
+  <text x="32" y="549" fill="#475569" font-size="10.5">第 39 层需算倒数 256 词……倒推 20 层</text>
+  <text x="32" y="566" fill="#475569" font-size="10.5">至第 21 层需算倒数 2,560 词（留余量</text>
+  <text x="32" y="583" fill="#475569" font-size="10.5">取 ~2,700 词），再往前的词全部免算。</text>
+  <text x="26" y="618" fill="#b45309" font-size="11" font-weight="bold">效果：输出与跑满 40 层 100% 逐字一致</text>
+
+  <rect x="266" y="468" width="238" height="166" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="266" y="468" width="238" height="28" rx="8" fill="#059669"/>
+  <text x="385" y="487" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">模式 2 · 官方有界回放（只算绿柱子）</text>
+  <text x="276" y="514" fill="#065f46" font-size="10.5" font-weight="bold">• 对应右侧绿虚线柱（PROMPT_SKIP=2）：</text>
+  <text x="282" y="532" fill="#475569" font-size="10.5">干脆放弃跨层阶梯传递，后 20 层每一层</text>
+  <text x="282" y="549" fill="#475569" font-size="10.5">都只算最后 128 个词元，用来填满每层</text>
+  <text x="282" y="566" fill="#475569" font-size="10.5">那 128 个窗口槽位（20 层合起来正好是</text>
+  <text x="282" y="583" fill="#475569" font-size="10.5">20 层 × 128 = 2,560 个窗口 KV 向量）。</text>
+  <text x="276" y="618" fill="#047857" font-size="11" font-weight="bold">效果：预填充计算量直接砍掉近一半</text>
+</svg>

@@ -23,8 +23,8 @@
   <!-- Top Header -->
   <rect x="40" y="24" width="128" height="28" rx="14" fill="#065f46" stroke="#10b981" stroke-width="1.2"/>
   <text x="104" y="43" text-anchor="middle" fill="#a7f3d0" font-size="13" font-weight="bold">Maya × Strata</text>
-  <text x="184" y="44" fill="#f8fafc" font-size="24" font-weight="bold">单卡跑 748B 的 DeepSeek-V4.1-Flash</text>
-  <text x="40" y="76" fill="#94a3b8" font-size="15">权重胖一点插内存条就能装下；1M 上下文仅 0.89 GB 的 KV 缓存，才是单卡真正的命门</text>
+  <text x="184" y="44" fill="#f8fafc" font-size="22" font-weight="bold">128G 内存跑 DeepSeek-V4.1-Flash：统一内存还是独立显卡？</text>
+  <text x="40" y="76" fill="#94a3b8" font-size="14.5">独显高速显存保热区 + 128G 内存兜冷区（28～44 tok/s），靠 0.89GB 的 1M KV 缓存反超统一内存（17～23 tok/s）</text>
 
   <!-- Left Panel: Strata <-> Maya Two-Way Evolution & 3-Tier Split -->
   <rect x="40" y="112" width="385" height="306" rx="12" fill="#111c33" stroke="#334155" stroke-width="1.5"/>
