@@ -2,37 +2,37 @@
   <rect width="520" height="600" fill="#f8fafc" rx="12"/>
 
   <!-- Title -->
-  <text x="260" y="32" font-size="15.5" font-weight="bold" fill="#0f172a" text-anchor="middle">论文怎么治“早停与迎合”：GPU 自进化闭环架构</text>
-  <text x="260" y="52" font-size="11.5" fill="#64748b" text-anchor="middle">综合 K-Search 搜索树、ForgeKernel 硬件探针与去锚定校验</text>
+  <text x="260" y="32" font-size="15.5" font-weight="bold" fill="#0f172a" text-anchor="middle">借鉴论文设计的 GPU 优化防早停四步闭环</text>
+  <text x="260" y="52" font-size="11.5" fill="#64748b" text-anchor="middle">结合 K-Search 搜索树、ForgeKernel 黑盒探针与去锚定核查</text>
 
   <!-- Node 1: K-Search Tree -->
   <rect x="40" y="70" width="440" height="104" rx="10" fill="#ffffff" stroke="#d97706" stroke-width="2"/>
   <rect x="54" y="80" width="205" height="22" rx="4" fill="#fef3c7"/>
-  <text x="156" y="95" font-size="11.5" font-weight="bold" fill="#b45309" text-anchor="middle">① 高层瓶颈假设树（K-Search）</text>
-  <text x="270" y="95" font-size="11" fill="#64748b">单枝封顶只剪枝，不准宣布全局完工</text>
+  <text x="156" y="95" font-size="11.5" font-weight="bold" fill="#b45309" text-anchor="middle">① 显式候选分支表（借鉴 K-Search）</text>
+  <text x="270" y="95" font-size="11" fill="#64748b">单枝无收益只剪枝，切换下一待测分支</text>
 
   <!-- Mini Tree inside Node 1 -->
   <rect x="60" y="114" width="96" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3 2"/>
-  <text x="108" y="133" font-size="10.5" fill="#64748b" text-anchor="middle">分支 A：驻留台阶</text>
+  <text x="108" y="133" font-size="10.5" fill="#64748b" text-anchor="middle">分支 A：其余核驻留</text>
   <text x="108" y="149" font-size="9.5" fill="#ef4444" font-weight="bold" text-anchor="middle">[已证伪剪枝]</text>
 
   <rect x="174" y="114" width="108" height="44" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
   <text x="228" y="133" font-size="10.5" fill="#047857" font-weight="bold" text-anchor="middle">分支 B：打包算术</text>
-  <text x="228" y="149" font-size="9.5" fill="#059669" font-weight="bold" text-anchor="middle">[当前激活主攻]</text>
+  <text x="228" y="149" font-size="9.5" fill="#059669" font-weight="bold" text-anchor="middle">[V3.1 胜出后转向]</text>
 
   <rect x="300" y="114" width="160" height="44" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
   <text x="380" y="133" font-size="10.5" fill="#1d4ed8" text-anchor="middle">分支 C：非直通解码与临时池</text>
-  <text x="380" y="149" font-size="9.5" fill="#2563eb" text-anchor="middle">[待调度 Open 节点]</text>
+  <text x="380" y="149" font-size="9.5" fill="#2563eb" text-anchor="middle">[当前高敏感度 Open 节点]</text>
 
   <!-- Arrow 1 -> 2 -->
   <path d="M260 174 L260 202" stroke="#475569" stroke-width="2"/>
   <polygon points="260,202 255,193 265,193" fill="#475569"/>
-  <text x="345" y="192" font-size="10.5" fill="#475569">按树节点下发代码改写任务</text>
+  <text x="480" y="192" font-size="10.5" fill="#475569" text-anchor="end">按分支节点下发保语义改写任务</text>
 
   <!-- Node 2: Coder + Hardware Profiler -->
   <rect x="40" y="204" width="440" height="92" rx="10" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
-  <rect x="54" y="214" width="256" height="22" rx="4" fill="#dbeafe"/>
-  <text x="182" y="229" font-size="11.5" font-weight="bold" fill="#1d4ed8" text-anchor="middle">② 黑盒硬件体检（CudaForge / ForgeKernel）</text>
+  <rect x="54" y="214" width="280" height="22" rx="4" fill="#dbeafe"/>
+  <text x="194" y="229" font-size="11.5" font-weight="bold" fill="#1d4ed8" text-anchor="middle">② 硬件画像与计数器采集（CudaForge / ForgeKernel）</text>
   
   <rect x="60" y="246" width="175" height="36" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
   <text x="147" y="268" font-size="11" fill="#0f172a" font-weight="bold" text-anchor="middle">Coder 生成候选算子 cubin</text>
@@ -41,40 +41,40 @@
   <polygon points="275,264 267,260 267,268" fill="#3b82f6"/>
 
   <rect x="275" y="246" width="185" height="36" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
-  <text x="367" y="262" font-size="10.5" fill="#1e40af" font-weight="bold" text-anchor="middle">硬件计数器采集（不看源码）</text>
-  <text x="367" y="276" font-size="9.5" fill="#3b82f6" text-anchor="middle">NCU / SASS 条数 / 栈溢出 / 驻留</text>
+  <text x="367" y="262" font-size="10.5" fill="#1e40af" font-weight="bold" text-anchor="middle">硬件资源与指令表采集</text>
+  <text x="367" y="276" font-size="9.5" fill="#3b82f6" text-anchor="middle">NCU / SASS 条数 / 栈字节 / Occupancy</text>
 
   <!-- Arrow 2 -> 3 -->
   <path d="M260 296 L260 324" stroke="#475569" stroke-width="2"/>
   <polygon points="260,324 255,315 265,315" fill="#475569"/>
-  <text x="355" y="314" font-size="10.5" fill="#e11d48" font-weight="bold">拦截文字辩解，强制走探针验证</text>
+  <text x="480" y="314" font-size="10.5" fill="#e11d48" font-weight="bold" text-anchor="end">剥离免责修辞，先核客观数据与探针</text>
 
   <!-- Node 3: De-anchored Hardware Probe Gate -->
   <rect x="40" y="326" width="440" height="108" rx="10" fill="#faf5ff" stroke="#8b5cf6" stroke-width="2"/>
-  <rect x="54" y="336" width="298" height="22" rx="4" fill="#ede9fe"/>
-  <text x="203" y="351" font-size="11.5" font-weight="bold" fill="#6d28d9" text-anchor="middle">③ 去锚定硬件探针关卡（2607.05904 + ForgeKernel）</text>
+  <rect x="54" y="336" width="318" height="22" rx="4" fill="#ede9fe"/>
+  <text x="213" y="351" font-size="11.5" font-weight="bold" fill="#6d28d9" text-anchor="middle">③ 去锚定核查与探针诊断（借鉴 2607.05904 + ForgeKernel）</text>
 
   <rect x="60" y="368" width="185" height="52" rx="6" fill="#fff1f2" stroke="#fecdd3"/>
-  <text x="152" y="387" font-size="10.5" fill="#be123c" font-weight="bold" text-anchor="middle">[废除] 顺着报告文本审合理性</text>
-  <text x="152" y="404" font-size="9.5" fill="#9f1239" text-anchor="middle">防主攻 AI 靠免责套话骗取 94% 通过率</text>
+  <text x="152" y="387" font-size="10.5" fill="#be123c" font-weight="bold" text-anchor="middle">[废除] 顺着报告文本审字面合理性</text>
+  <text x="152" y="404" font-size="9.5" fill="#9f1239" text-anchor="middle">防主攻 AI 靠保守免责套话提前收工</text>
 
   <rect x="265" y="368" width="195" height="52" rx="6" fill="#ecfdf5" stroke="#a7f3d0"/>
-  <text x="362" y="387" font-size="10.5" fill="#047857" font-weight="bold" text-anchor="middle">[启用] 独立微基准探针量毫秒数</text>
-  <text x="362" y="404" font-size="9.5" fill="#065f46" text-anchor="middle">如 P0/P1 旁路探针实测 + 同轮 ABBA</text>
+  <text x="362" y="387" font-size="10.5" fill="#047857" font-weight="bold" text-anchor="middle">[启用] 探针定方向 + 保语义核查</text>
+  <text x="362" y="404" font-size="9.5" fill="#065f46" text-anchor="middle">P0/P1 探针排优先级，真候选验精度与 ABBA</text>
 
   <!-- Arrow 3 -> 4 -->
   <path d="M260 434 L260 462" stroke="#059669" stroke-width="2"/>
   <polygon points="260,462 255,453 265,453" fill="#059669"/>
-  <text x="335" y="452" font-size="10.5" fill="#047857" font-weight="bold">真机探针实测全胜 → 准予晋升</text>
+  <text x="480" y="452" font-size="10.5" fill="#047857" font-weight="bold" text-anchor="end">保语义真候选过精度与 ABBA → 准予晋升</text>
 
   <!-- Node 4: Sealed & Promoted Reference -->
   <rect x="40" y="464" width="440" height="106" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
   <rect x="54" y="474" width="268" height="22" rx="4" fill="#d1fae5"/>
   <text x="188" y="489" font-size="11.5" font-weight="bold" fill="#047857" text-anchor="middle">④ 阶梯封存升格新基准（ForgeKernel 第二板斧）</text>
 
-  <text x="60" y="516" font-size="11" fill="#064e3b">• 将胜出算子编译封存，直接升格为下一轮全新的 <tspan font-weight="bold">1.00× 黑盒参考原点</tspan></text>
-  <text x="60" y="536" font-size="11" fill="#064e3b">• 清零“已比初始版快 5 倍”的历史功劳簿（论文消融证实单招多榨出 <tspan font-weight="bold">+9.9%</tspan>）</text>
-  <text x="60" y="556" font-size="11" fill="#047857" font-weight="bold">• 循环回馈至 ①：在新原点上重跑探针，暴露下一轮次级瓶颈</text>
+  <text x="60" y="516" font-size="11" fill="#064e3b">• 将通过精度验收的胜出版本封存，升格为下一轮 <tspan font-weight="bold">1.00× 参考基线</tspan></text>
+  <text x="60" y="536" font-size="11" fill="#064e3b">• 清零早期慢版本功劳簿（论文中升格基准再跑一代最高追加 <tspan font-weight="bold">+9.9%</tspan>）</text>
+  <text x="60" y="556" font-size="11" fill="#047857" font-weight="bold">• 循环回馈至 ①：在新基线上更新探针敏感度，推进下一 Open 分支</text>
 
   <!-- Loopback Arrow 4 -> 1 -->
   <path d="M40 517 L16 517 L16 122 L40 122" stroke="#059669" stroke-width="2" stroke-dasharray="5 3" fill="none"/>

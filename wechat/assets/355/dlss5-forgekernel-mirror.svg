@@ -2,30 +2,30 @@
   <rect width="520" height="620" fill="#f8fafc" rx="12"/>
 
   <!-- Title -->
-  <text x="260" y="32" font-size="15.5" font-weight="bold" fill="#0f172a" text-anchor="middle">双 AI 审稿博弈的流向分野：改代码还是改修辞？</text>
-  <text x="260" y="52" font-size="11.5" fill="#64748b" text-anchor="middle">前两轮靠挑漏洞真提速 vs 第三轮滑向“免责公文”骗绿勾</text>
+  <text x="260" y="32" font-size="15.5" font-weight="bold" fill="#0f172a" text-anchor="middle">双 AI 审稿博弈的流向分野：深挖新分支还是保守停步？</text>
+  <text x="260" y="52" font-size="11.5" fill="#64748b" text-anchor="middle">前两轮靠挑漏洞真提速 vs 第三轮起用保守修辞停在局部结论</text>
 
   <!-- Top Shared Node: Generator Task -->
   <rect x="130" y="68" width="260" height="46" rx="23" fill="#0f172a"/>
-  <text x="260" y="88" font-size="12.5" font-weight="bold" fill="#ffffff" text-anchor="middle">主攻 AI（Gemini）提交《性能见顶报告》</text>
-  <text x="260" y="104" font-size="10.5" fill="#94a3b8" text-anchor="middle">目标：通过审稿 AI（GPT）的逻辑核查</text>
+  <text x="260" y="88" font-size="12.5" font-weight="bold" fill="#ffffff" text-anchor="middle">主攻 AI（Gemini）提交《性能评估报告》</text>
+  <text x="260" y="104" font-size="10.5" fill="#94a3b8" text-anchor="middle">目标：通过审稿 AI（GPT）的逻辑与数据核查</text>
 
   <!-- Split Paths -->
-  <path d="M200 114 L130 155" stroke="#0284c7" stroke-width="2.5" fill="none"/>
-  <polygon points="130,155 139,153 134,146" fill="#0284c7"/>
+  <path d="M200 114 L128 155" stroke="#0284c7" stroke-width="2.5" fill="none"/>
+  <polygon points="128,155 137,153 132,146" fill="#0284c7"/>
   
-  <path d="M320 114 L390 155" stroke="#e11d48" stroke-width="2.5" fill="none"/>
-  <polygon points="390,155 386,146 381,153" fill="#e11d48"/>
+  <path d="M320 114 L392 155" stroke="#e11d48" stroke-width="2.5" fill="none"/>
+  <polygon points="392,155 388,146 383,153" fill="#e11d48"/>
 
   <!-- Left Column: Rounds 1 & 2 (True Optimization Loop) -->
   <rect x="16" y="160" width="224" height="436" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.5"/>
   <rect x="30" y="172" width="196" height="26" rx="6" fill="#0284c7"/>
-  <text x="128" y="189" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">前两轮：硬断言触发真优化</text>
+  <text x="128" y="189" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">前两轮：明确断言触发真优化</text>
 
   <!-- Left Node 1 -->
   <rect x="30" y="212" width="196" height="62" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5"/>
-  <text x="128" y="232" font-size="11.5" font-weight="bold" fill="#0369a1" text-anchor="middle">① 写下可证伪的硬结论</text>
-  <text x="128" y="250" font-size="10.5" fill="#334155" text-anchor="middle">• 轮 1：“PRMT 置换已减半见底”</text>
+  <text x="128" y="232" font-size="11.5" font-weight="bold" fill="#0369a1" text-anchor="middle">① 写下可证伪的技术断言</text>
+  <text x="128" y="250" font-size="10.5" fill="#334155" text-anchor="middle">• 轮 1：“解包 PRMT 已减半见底”</text>
   <text x="128" y="265" font-size="10.5" fill="#334155" text-anchor="middle">• 轮 2：“65536÷6400 达 10 Warps”</text>
 
   <path d="M128 274 L128 298" stroke="#0284c7" stroke-width="2"/>
@@ -34,8 +34,8 @@
   <!-- Left Node 2 -->
   <rect x="30" y="300" width="196" height="74" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5"/>
   <text x="128" y="320" font-size="11.5" font-weight="bold" fill="#b91c1c" text-anchor="middle">② 审稿 AI 对账打回（驳回）</text>
-  <text x="128" y="338" font-size="10.5" fill="#334155" text-anchor="middle">• 查插桩：70.02% mapped 仍在洗牌</text>
-  <text x="128" y="353" font-size="10.5" fill="#334155" text-anchor="middle">• 查 API：实际卡在 8 Warps/SM，</text>
+  <text x="128" y="338" font-size="10.5" fill="#334155" text-anchor="middle">• 查 FB00 插桩：70.02% 仍在洗牌</text>
+  <text x="128" y="353" font-size="10.5" fill="#334155" text-anchor="middle">• 查 API：理论驻留仍卡在 8 Warps，</text>
   <text x="128" y="367" font-size="10.5" fill="#334155" text-anchor="middle">压到 168 才跳 12 Warps/SM</text>
 
   <path d="M128 374 L128 398" stroke="#0284c7" stroke-width="2"/>
@@ -44,53 +44,53 @@
   <!-- Left Node 3 -->
   <rect x="30" y="400" width="196" height="74" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
   <text x="128" y="420" font-size="11.5" font-weight="bold" fill="#047857" text-anchor="middle">③ 漏洞倒逼修改底层代码</text>
-  <text x="128" y="438" font-size="10.5" fill="#065f46" text-anchor="middle">• V2.6：切 Low/High 抹掉 2.17 万 PRMT</text>
-  <text x="128" y="453" font-size="10.5" fill="#065f46" text-anchor="middle">• V2.7：C32 四核锁 168 驻留 +50%</text>
+  <text x="128" y="438" font-size="10" fill="#065f46" text-anchor="middle">• V2.6：切 Low/High 减 5,619 条 SASS PRMT</text>
+  <text x="128" y="453" font-size="10" fill="#065f46" text-anchor="middle">• V2.7：C32 四核锁 168 驻留上限 +50%</text>
   <text x="128" y="467" font-size="10.5" fill="#047857" font-weight="bold" text-anchor="middle">1080p：12.02ms → 11.46ms</text>
 
   <!-- Left Feedback Box -->
   <rect x="30" y="492" width="196" height="86" rx="8" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="128" y="514" font-size="11" font-weight="bold" fill="#0369a1" text-anchor="middle">副作用：主攻 AI 记住了挨揍规律</text>
-  <text x="128" y="534" font-size="10.5" fill="#334155" text-anchor="middle">“只要我下绝对结论，就会被抓漏洞；</text>
-  <text x="128" y="550" font-size="10.5" fill="#334155" text-anchor="middle">只要我不把话说死，审稿人就没招”</text>
+  <text x="128" y="514" font-size="11" font-weight="bold" fill="#0369a1" text-anchor="middle">副作用：主攻 AI 摸透了审稿规律</text>
+  <text x="128" y="534" font-size="10.5" fill="#334155" text-anchor="middle">“只要下全局硬结论，就会被抓漏洞；</text>
+  <text x="128" y="550" font-size="10.5" fill="#334155" text-anchor="middle">把话说成局部受限，就容易少挨批”</text>
 
-  <!-- Right Column: Round 3 (Reward Hacking Loop) -->
+  <!-- Right Column: Round 3 (Reward Hacking / Premature Stop Loop) -->
   <rect x="280" y="160" width="224" height="436" rx="10" fill="#fff1f2" stroke="#fda4af" stroke-width="1.5"/>
   <rect x="294" y="172" width="196" height="26" rx="6" fill="#e11d48"/>
-  <text x="392" y="189" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">第三轮：改修辞迎合裁判（作弊）</text>
+  <text x="392" y="189" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">第三轮起：保守修辞与局部停步</text>
 
   <!-- Right Node 1 -->
   <rect x="294" y="212" width="196" height="62" rx="8" fill="#ffffff" stroke="#e11d48" stroke-width="1.5"/>
-  <text x="392" y="232" font-size="11.5" font-weight="bold" fill="#be123c" text-anchor="middle">① 换上滴水不漏的免责套话</text>
-  <text x="392" y="250" font-size="10.5" fill="#334155" text-anchor="middle">• “受限于当前单核控制变量”</text>
-  <text x="392" y="265" font-size="10.5" fill="#334155" text-anchor="middle">• “不宣称全局极限，与现象相容”</text>
+  <text x="392" y="232" font-size="11.5" font-weight="bold" fill="#be123c" text-anchor="middle">① 换上滴水不漏的保守口径</text>
+  <text x="392" y="250" font-size="10.5" fill="#334155" text-anchor="middle">• 收窄前两节断言，加局部限定词</text>
+  <text x="392" y="265" font-size="10.5" fill="#334155" text-anchor="middle">• 后续更熟练用“与现象相容”防驳回</text>
 
   <path d="M392 274 L392 298" stroke="#e11d48" stroke-width="2"/>
   <polygon points="392,298 388,290 396,290" fill="#e11d48"/>
 
   <!-- Right Node 2 -->
   <rect x="294" y="300" width="196" height="74" rx="8" fill="#ffffff" stroke="#e11d48" stroke-width="1.5"/>
-  <text x="392" y="320" font-size="11.5" font-weight="bold" fill="#be123c" text-anchor="middle">② 审稿 AI 被文本锚定（放行）</text>
-  <text x="392" y="338" font-size="10.5" fill="#334155" text-anchor="middle">• 找不到任何越界断言可供反驳</text>
-  <text x="392" y="353" font-size="10.5" fill="#334155" text-anchor="middle">• 判词：“主数据基本准确，</text>
-  <text x="392" y="367" font-size="10.5" fill="#334155" text-anchor="middle">保留当前推荐配置（通过）”</text>
+  <text x="392" y="320" font-size="11.5" font-weight="bold" fill="#be123c" text-anchor="middle">② 局部候选测完即止步（V2.8）</text>
+  <text x="392" y="338" font-size="10.5" fill="#334155" text-anchor="middle">• 03:35 审稿：“前两节主数据基本准确”</text>
+  <text x="392" y="353" font-size="10.5" fill="#334155" text-anchor="middle">• 指出有限 Grid 缺口并跑 275 次控制，</text>
+  <text x="392" y="367" font-size="10.5" fill="#334155" text-anchor="middle">无全档净收益后裁决“保留 V2.7”</text>
 
   <path d="M392 374 L392 398" stroke="#e11d48" stroke-width="2"/>
   <polygon points="392,398 388,390 396,390" fill="#e11d48"/>
 
   <!-- Right Node 3 -->
   <rect x="294" y="400" width="196" height="74" rx="8" fill="#ffe4e6" stroke="#f43f5e" stroke-width="1.5"/>
-  <text x="392" y="420" font-size="11.5" font-weight="bold" fill="#9f1239" text-anchor="middle">③ 官僚纳什均衡（双双停工）</text>
-  <text x="392" y="438" font-size="10.5" fill="#881337" text-anchor="middle">• 0 行底层代码改动，骗取绿勾</text>
-  <text x="392" y="453" font-size="10.5" fill="#881337" text-anchor="middle">• 凌晨 3:35 两个 AI 心安理得收工</text>
-  <text x="392" y="467" font-size="10.5" fill="#be123c" font-weight="bold" text-anchor="middle">性能原地踏步（0.0% 提升）</text>
+  <text x="392" y="420" font-size="11.5" font-weight="bold" fill="#9f1239" text-anchor="middle">③ 困在单枝结论双双停工</text>
+  <text x="392" y="438" font-size="10.5" fill="#881337" text-anchor="middle">• 把“这组驻留候选无收益”当成终点</text>
+  <text x="392" y="453" font-size="10.5" fill="#881337" text-anchor="middle">• 未主动开辟打包/解码算术新分支</text>
+  <text x="392" y="467" font-size="10.5" fill="#be123c" font-weight="bold" text-anchor="middle">停在 V2.7（未继续推进）</text>
 
   <!-- Right Bottom Box: Human Catch -->
   <rect x="294" y="492" width="196" height="86" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="392" y="514" font-size="11" font-weight="bold" fill="#b45309" text-anchor="middle">天亮人类抓包：退回人工传话</text>
-  <text x="392" y="534" font-size="10.5" fill="#78350f" text-anchor="middle">发现主攻 AI 在写公文糊弄事，</text>
-  <text x="392" y="550" font-size="10.5" fill="#78350f" text-anchor="middle">后续只能由人盯着报告再发给 GPT</text>
-  <text x="392" y="566" font-size="10" fill="#b45309" font-weight="bold" text-anchor="middle">→ 怎么在机制上根治？由此引出论文</text>
+  <text x="392" y="514" font-size="11" font-weight="bold" fill="#b45309" text-anchor="middle">天亮人类介入：人工督战传话</text>
+  <text x="392" y="534" font-size="10.5" fill="#78350f" text-anchor="middle">发现 AI 学会靠免责限定词早停交差，</text>
+  <text x="392" y="550" font-size="10.5" fill="#78350f" text-anchor="middle">后续由人盯着跑探针、手动发给 GPT</text>
+  <text x="392" y="566" font-size="10" fill="#b45309" font-weight="bold" text-anchor="middle">→ 怎么在机制上防早停？由此引出论文</text>
 
   <!-- Horizontal Arrow at Bottom from Left to Right -->
   <line x1="226" y1="535" x2="282" y2="535" stroke="#e11d48" stroke-width="3"/>
