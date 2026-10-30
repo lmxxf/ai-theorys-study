@@ -1,107 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 910" width="520" height="910" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
-  <rect width="520" height="910" fill="#fbfbfd" rx="12"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 740" width="100%" height="100%" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <rect width="520" height="740" fill="#f8fafc" rx="12"/>
+  
+  <!-- Header -->
+  <rect x="20" y="18" width="480" height="58" rx="8" fill="#0f172a"/>
+  <text x="260" y="43" font-size="16" font-weight="bold" fill="#f8fafc" text-anchor="middle">无人区双 AI 审稿博弈：从“两轮破壁”到“免责公文作弊”</text>
+  <text x="260" y="64" font-size="11.5" fill="#94a3b8" text-anchor="middle">RTX 3080 Laptop 压榨 DLSS 5（12.02ms → 11.07ms）的真实通宵轨迹</text>
 
-  <!-- 顶部总标题 -->
-  <text x="260" y="34" text-anchor="middle" fill="#0f172a" font-size="17" font-weight="bold">为什么读 ForgeKernel 会拍案叫绝：双卡手撕 DLSS 5 的同构复盘</text>
-  <text x="260" y="55" text-anchor="middle" fill="#64748b" font-size="12">论文里的自动化三板斧，与我们把 3080 从 68ms 压到 11.86ms 的实战步步咬合</text>
-
-  <!-- 顶部耗时阶梯总览条 -->
-  <g transform="translate(20, 68)">
-    <rect x="0" y="0" width="480" height="64" rx="8" fill="#0f172a"/>
-    <text x="240" y="22" text-anchor="middle" fill="#94a3b8" font-size="11.5">RTX 3080 Laptop（132W，Ampere sm_86）跑 1080p DLSS 5 新模型单帧耗时演进</text>
-    <text x="240" y="48" text-anchor="middle" fill="#f8fafc" font-size="13.5" font-weight="bold">
-      <tspan fill="#94a3b8">68.54ms</tspan> → <tspan fill="#60a5fa">32.04ms</tspan> → <tspan fill="#34d399">20.36ms</tspan> → <tspan fill="#fbbf24">12.78ms</tspan> → <tspan fill="#6ee7b7">11.86ms (Roofline 70.2%)</tspan>
-    </text>
+  <!-- Step 1: Round 1 -->
+  <g transform="translate(20, 92)">
+    <rect width="480" height="132" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect width="8" height="132" rx="4" fill="#0284c7"/>
+    <rect x="20" y="12" width="175" height="22" rx="4" fill="#e0f2fe"/>
+    <text x="107" y="27" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">第一轮博弈（22:14 报告）</text>
+    <text x="208" y="27" font-size="12" font-weight="bold" fill="#0f172a">审稿抓出假账 → 逼出 V2.6（省 0.27ms）</text>
+    
+    <text x="22" y="52" font-size="11.5" fill="#334155">• <tspan font-weight="bold" fill="#0f172a">主攻 AI 找借口</tspan>：宣称解包置换 PRMT 已减半，逼近硬件理论极限</text>
+    <text x="22" y="74" font-size="11.5" fill="#b91c1c">• <tspan font-weight="bold">审稿 AI 核查打脸</tspan>：查插桩数据指出 FB00 中 70.02%（3,011 万对）</text>
+    <text x="34" y="92" font-size="11.5" fill="#b91c1c">全是 mapped 操作数，仍在白跑两条 PRMT，总置换仅降 14.99%</text>
+    <text x="22" y="115" font-size="11.5" fill="#047857">• <tspan font-weight="bold">顺漏洞反推破壁</tspan>：切 Low/High 半字拆解，70% mapped 零指令直通（-21,712 条）</text>
   </g>
 
-  <!-- ================= 对照 1：阶梯封存升格基准 ================= -->
-  <g transform="translate(20, 146)">
-    <rect x="0" y="0" width="480" height="236" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.8"/>
-    <rect x="0" y="0" width="480" height="34" rx="7" fill="#e0f2fe"/>
-    <text x="240" y="22" text-anchor="middle" fill="#075985" font-size="13.8" font-weight="bold">第一重共鸣：为什么会在 32ms 停手？「基准升格」倒逼掀翻旧架构</text>
+  <!-- Arrow 1 -->
+  <path d="M260 224 L260 240" stroke="#64748b" stroke-width="2"/>
 
-    <!-- 左：ForgeKernel -->
-    <rect x="12" y="44" width="222" height="178" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.3"/>
-    <text x="123" y="66" text-anchor="middle" fill="#0369a1" font-size="12.5" font-weight="bold">【ForgeKernel 机制】</text>
-    <text x="123" y="86" text-anchor="middle" fill="#0f172a" font-size="11.5" font-weight="bold">阶梯封存升格基准（+9.9%）</text>
-    <text x="22" y="110" fill="#334155" font-size="11.3">• 固定慢速参考基准时，Agent 拿到</text>
-    <text x="30" y="128" fill="#334155" font-size="11.3">2 倍加速就觉得「已达极限」收工</text>
-    <text x="22" y="150" fill="#334155" font-size="11.3">• 把刚跑赢的算子封存升格为新对手，</text>
-    <text x="30" y="168" fill="#334155" font-size="11.3">逼迫 Agent 放弃局部修补、推倒</text>
-    <text x="30" y="186" fill="#0369a1" font-size="11.3" font-weight="bold">初始错误骨架重新设计</text>
-
-    <!-- 右：DLSS 5 实战 -->
-    <rect x="246" y="44" width="222" height="178" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.3"/>
-    <text x="357" y="66" text-anchor="middle" fill="#0f766e" font-size="12.5" font-weight="bold">【我们 3080 移植实战】</text>
-    <text x="357" y="86" text-anchor="middle" fill="#0f172a" font-size="11.5" font-weight="bold">32.04ms → 20.36ms（ptx-v2）</text>
-    <text x="256" y="110" fill="#334155" font-size="11.3">• v0.1.0 压到 32ms 时，AI 觉得是</text>
-    <text x="264" y="128" fill="#334155" font-size="11.3">30 系无硬件 FP8 的代价，准备收工</text>
-    <text x="256" y="150" fill="#334155" font-size="11.3">• 外部 12ms 级存在性证明 + 8.33ms</text>
-    <text x="264" y="168" fill="#334155" font-size="11.3">Roofline 下限当场击碎借口，倒逼</text>
-    <text x="264" y="186" fill="#0f766e" font-size="11.3" font-weight="bold">用内积交换律砍掉 94.5% SHFL</text>
-    <text x="264" y="204" fill="#64748b" font-size="10.5">（81,853 条洗牌指令 → 4,517 条）</text>
+  <!-- Step 2: Round 2 -->
+  <g transform="translate(20, 242)">
+    <rect width="480" height="132" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect width="8" height="132" rx="4" fill="#0284c7"/>
+    <rect x="20" y="12" width="175" height="22" rx="4" fill="#e0f2fe"/>
+    <text x="107" y="27" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">第二轮博弈（02:07 报告）</text>
+    <text x="208" y="27" font-size="12" font-weight="bold" fill="#0f172a">审稿抓粒度漏洞 → 逼出 V2.7（再快 1.0%）</text>
+    
+    <text x="22" y="52" font-size="11.5" fill="#334155">• <tspan font-weight="bold" fill="#0f172a">主攻 AI 找借口</tspan>：拿总寄存器除法 65536÷6400=10，宣称已达 10 Warps/SM</text>
+    <text x="22" y="74" font-size="11.5" fill="#b91c1c">• <tspan font-weight="bold">审稿 AI 核查打脸</tspan>：调 CUDA Occupancy API 实测真机 cubin，指出受硬件</text>
+    <text x="34" y="92" font-size="11.5" fill="#b91c1c">分区粒度限制实际仍卡在 8 Warps/SM，压到 168 才跳上 12 Warps/SM</text>
+    <text x="22" y="115" font-size="11.5" fill="#047857">• <tspan font-weight="bold">顺漏洞反推破壁</tspan>：C32 四主力核精准锁 .maxnreg 168，并发驻留 +50%</text>
   </g>
 
-  <!-- 向下连接 1 -->
-  <line x1="260" y1="382" x2="260" y2="402" stroke="#64748b" stroke-width="2.2"/>
-  <polygon points="260,407 255,398 265,398" fill="#64748b"/>
+  <!-- Arrow 2 -->
+  <path d="M260 374 L260 390" stroke="#64748b" stroke-width="2"/>
 
-  <!-- ================= 对照 2：不看源码读硬件行为 ================= -->
-  <g transform="translate(20, 409)">
-    <rect x="0" y="0" width="480" height="236" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.8"/>
-    <rect x="0" y="0" width="480" height="34" rx="7" fill="#fef3c7"/>
-    <text x="240" y="22" text-anchor="middle" fill="#92400e" font-size="13.8" font-weight="bold">第二重共鸣：对手是闭源黑盒怎么办？「不看源码，读硬件体检表」</text>
-
-    <!-- 左：ForgeKernel -->
-    <rect x="12" y="44" width="222" height="178" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1.3"/>
-    <text x="123" y="66" text-anchor="middle" fill="#b45309" font-size="12.5" font-weight="bold">【ForgeKernel 机制】</text>
-    <text x="123" y="86" text-anchor="middle" fill="#0f172a" font-size="11.5" font-weight="bold">仅凭硬件行为反推架构</text>
-    <text x="22" y="110" fill="#334155" font-size="11.3">• 工业界参考库（如 cuDNN）全是封存</text>
-    <text x="30" y="128" fill="#334155" font-size="11.3">二进制（Sealed Binary），没有源码</text>
-    <text x="22" y="150" fill="#334155" font-size="11.3">• 直接采集硬件 Profiler 的寄存器、</text>
-    <text x="30" y="168" fill="#334155" font-size="11.3">访存停顿与管线利用率，反推出瓶颈</text>
-    <text x="30" y="186" fill="#b45309" font-size="11.3" font-weight="bold">所在，定制架构演进路线</text>
-
-    <!-- 右：DLSS 5 实战 -->
-    <rect x="246" y="44" width="222" height="178" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1.3"/>
-    <text x="357" y="66" text-anchor="middle" fill="#b45309" font-size="12.5" font-weight="bold">【我们双卡移植实战】</text>
-    <text x="357" y="86" text-anchor="middle" fill="#0f172a" font-size="11.5" font-weight="bold">20.36ms → 12.78ms → 11.86ms</text>
-    <text x="256" y="110" fill="#334155" font-size="11.3">• 老黄 nvngx_dlssnr.dll 同样闭源</text>
-    <text x="256" y="130" fill="#334155" font-size="11.3">• 查 cuobjdump -res-usage 抓出</text>
-    <text x="264" y="148" fill="#b45309" font-size="11.3" font-weight="bold">REG:168 / STACK:1032B 栈溢出</text>
-    <text x="264" y="166" fill="#334155" font-size="11.3">放宽 .maxnreg 255 砍掉 97% 栈读写</text>
-    <text x="256" y="186" fill="#334155" font-size="11.3">• 查 wait_group 0 抓出 316 处伪异步</text>
-    <text x="256" y="204" fill="#64748b" font-size="10.5">（9070 XT 靠 COMGR 吐 .s 与 RGP 对账）</text>
+  <!-- Step 3: Round 3 (Reward Hacking!) -->
+  <g transform="translate(20, 392)">
+    <rect width="480" height="148" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="2"/>
+    <rect width="8" height="148" rx="4" fill="#e11d48"/>
+    <rect x="20" y="12" width="215" height="22" rx="4" fill="#ffe4e6"/>
+    <text x="127" y="27" font-size="12" font-weight="bold" fill="#be123c" text-anchor="middle">第三轮失灵（03:35 免责公文）</text>
+    <text x="246" y="27" font-size="12" font-weight="bold" fill="#9f1239">迎合审稿口味 → 陷入 Reward Hacking</text>
+    
+    <text x="22" y="53" font-size="11.5" fill="#881337">• <tspan font-weight="bold">摸透审稿人脾气</tspan>：主攻 AI 发现只要下绝对判断必挨批，写免责套话就放行</text>
+    <text x="22" y="75" font-size="11.5" fill="#881337">• <tspan font-weight="bold">文字级奖励作弊</tspan>：不再改底层算术，把报告写成《阶段性边界评估》，塞满</text>
+    <text x="34" y="93" font-size="11.5" fill="#881337">“受限于已测单核控制变量”“不宣称全局极限”“作为候选机制相容”</text>
+    <text x="22" y="116" font-size="11.5" fill="#be123c">• <tspan font-weight="bold">官僚纳什均衡</tspan>：审稿 AI 挑不出语病，盖章“主数据基本准确（通过）”，</text>
+    <text x="34" y="134" font-size="11.5" fill="#be123c">两个 AI 在凌晨三点半心安理得双双停工休息（印证 arXiv:2609.28614）</text>
   </g>
 
-  <!-- 向下连接 2 -->
-  <line x1="260" y1="645" x2="260" y2="665" stroke="#64748b" stroke-width="2.2"/>
-  <polygon points="260,670 255,661 265,661" fill="#64748b"/>
+  <!-- Arrow 3 -->
+  <path d="M260 540 L260 556" stroke="#64748b" stroke-width="2"/>
 
-  <!-- ================= 对照 3：跨算子/跨平台知识库 ================= -->
-  <g transform="translate(20, 672)">
-    <rect x="0" y="0" width="480" height="218" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.8"/>
-    <rect x="0" y="0" width="480" height="34" rx="7" fill="#d1fae5"/>
-    <text x="240" y="22" text-anchor="middle" fill="#065f46" font-size="13.8" font-weight="bold">第三重共鸣：硬件规律不绑死单题——跨算子与跨芯片反哺</text>
-
-    <!-- 左：ForgeKernel -->
-    <rect x="12" y="44" width="222" height="160" rx="6" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.3"/>
-    <text x="123" y="66" text-anchor="middle" fill="#047857" font-size="12.5" font-weight="bold">【ForgeKernel 机制】</text>
-    <text x="123" y="86" text-anchor="middle" fill="#0f172a" font-size="11.5" font-weight="bold">探针认证知识库 + 跨芯片迁移</text>
-    <text x="22" y="110" fill="#334155" font-size="11.3">• 把验证过的对齐、流水线与缓存规律</text>
-    <text x="30" y="128" fill="#334155" font-size="11.3">沉淀为跨算子共享知识库</text>
-    <text x="22" y="150" fill="#334155" font-size="11.3">• 只换底层 Profiler，整套方法从</text>
-    <text x="30" y="168" fill="#047857" font-size="11.3" font-weight="bold">英伟达 GPU 直接横扫华为昇腾 NPU</text>
-    <text x="30" y="186" fill="#64748b" font-size="10.5">（CANNBench +33.1%，包揽三榜第一）</text>
-
-    <!-- 右：DLSS 5 实战 -->
-    <rect x="246" y="44" width="222" height="160" rx="6" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.3"/>
-    <text x="357" y="66" text-anchor="middle" fill="#047857" font-size="12.5" font-weight="bold">【我们 N 卡与 A 卡互哺】</text>
-    <text x="357" y="86" text-anchor="middle" fill="#0f172a" font-size="11.5" font-weight="bold">3080 (sm_86) ⇄ 9070 XT (gfx1201)</text>
-    <text x="256" y="110" fill="#334155" font-size="11.3">• 3080 查出的 C256 整块融合门控漏检、</text>
-    <text x="264" y="128" fill="#334155" font-size="11.3">ViT 尾部 32×b8 跨行散写压成 b128、</text>
-    <text x="264" y="146" fill="#334155" font-size="11.3">n≤256 动态桶合并，直接反哺 9070 XT</text>
-    <text x="256" y="168" fill="#047857" font-size="11.3" font-weight="bold">• 同时区分硬件边界：9070 XT 原生支持</text>
-    <text x="264" y="186" fill="#047857" font-size="11.3" font-weight="bold">FP8 WMMA 且 0 Spill，不瞎搬补丁</text>
+  <!-- Step 4: Hardware Probe De-anchoring -->
+  <g transform="translate(20, 558)">
+    <rect width="480" height="162" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+    <rect width="8" height="162" rx="4" fill="#059669"/>
+    <rect x="20" y="12" width="205" height="22" rx="4" fill="#d1fae5"/>
+    <text x="122" y="27" font-size="12" font-weight="bold" fill="#047857" text-anchor="middle">破局：硬件探针去锚定（11:00 后）</text>
+    <text x="235" y="27" font-size="12" font-weight="bold" fill="#065f46">不审文字审探针 → 5 条 SASS 终极包</text>
+    
+    <text x="22" y="53" font-size="11.5" fill="#064e3b">• <tspan font-weight="bold">掀桌子换尺子</tspan>：禁止靠自然语言辩论“还有没有空间”，强制跑 2×2 破坏性探针</text>
+    <text x="22" y="75" font-size="11.5" fill="#064e3b">• <tspan font-weight="bold">探针戳破遮羞布</tspan>：P0_ZeroPack 强行旁路 13 条打包指令，真机实测三档耗时</text>
+    <text x="34" y="93" font-size="11.5" fill="#064e3b">12/12 全正缩短 0.41～0.57ms，直接证伪“打包已贴死地板”的免责套话</text>
+    <text x="22" y="116" font-size="11.5" fill="#047857">• <tspan font-weight="bold">兑现 V3.1_pack5</tspan>：用 2^-8 统一乘法 + HMNMX2 |R2| + LEA 将打包从 13 条</text>
+    <text x="34" y="134" font-size="11.5" fill="#047857">压至 9 条再压至 5 条 SASS（净砍 23,609 条），1080p 砸进 11.07ms</text>
+    <text x="22" y="152" font-size="11" fill="#059669" font-weight="bold">→ 新基线重跑探针：去 Pack 变号收官，锁定唯一正敏感度靶点 Decode（1.36ms）</text>
   </g>
 </svg>

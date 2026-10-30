@@ -1,97 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 860" width="520" height="860" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
-  <rect width="520" height="860" fill="#fbfbfd" rx="12"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 680" width="100%" height="100%" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <rect width="520" height="680" fill="#f8fafc" rx="12"/>
+  
+  <!-- Header -->
+  <rect x="20" y="18" width="480" height="58" rx="8" fill="#1e293b"/>
+  <text x="260" y="43" font-size="16" font-weight="bold" fill="#f8fafc" text-anchor="middle">防早停、防迎合：AI 自动进化 GPU 代码的四件套</text>
+  <text x="260" y="64" font-size="11.5" fill="#94a3b8" text-anchor="middle">综合 CudaForge / K-Search / ForgeKernel 与审稿博弈研究的实战闭环</text>
 
-  <!-- 顶部标题 -->
-  <text x="260" y="34" text-anchor="middle" fill="#0f172a" font-size="17.5" font-weight="bold">AI 自动写 GPU 算子的四阶段演进（2025 → 2026）</text>
-  <text x="260" y="56" text-anchor="middle" fill="#64748b" font-size="12">从单轮盲写、刷榜作弊、局部调参死胡同到 ForgeKernel 三板斧闭环</text>
-
-  <!-- ================= 阶段 1：单轮盲写 ================= -->
-  <g transform="translate(20, 72)">
-    <rect x="0" y="0" width="480" height="148" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6"/>
-    <rect x="0" y="0" width="480" height="32" rx="7" fill="#e2e8f0"/>
-    <text x="240" y="21" text-anchor="middle" fill="#1e293b" font-size="13.5" font-weight="bold">① 第一阶段：单轮盲写与基准确立（KernelBench，2025.02）</text>
-
-    <rect x="14" y="44" width="150" height="90" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
-    <text x="89" y="68" text-anchor="middle" fill="#334155" font-size="12" font-weight="bold">PyTorch 算子题</text>
-    <text x="89" y="90" text-anchor="middle" fill="#64748b" font-size="11">↓ 单次提示词生成</text>
-    <text x="89" y="114" text-anchor="middle" fill="#dc2626" font-size="11.5" font-weight="bold">裸写 CUDA 内核</text>
-
-    <text x="180" y="62" fill="#0f172a" font-size="12.5" font-weight="bold">Stanford KernelBench（250 道算子任务）：</text>
-    <text x="180" y="86" fill="#334155" font-size="11.8">• 提出 fast_p 指标（既要结果算对，又要比基线快）</text>
-    <text x="180" y="108" fill="#334155" font-size="11.8">• 揭开真相：前沿推理模型开箱单次生成的 CUDA，</text>
-    <text x="190" y="128" fill="#b91c1c" font-size="11.8" font-weight="bold">在超过 80% 的任务上连 PyTorch 原生都跑不赢</text>
+  <!-- Box 1: Hardware Feedback & Coder-Judge -->
+  <g transform="translate(20, 92)">
+    <rect width="480" height="122" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect width="8" height="122" rx="4" fill="#3b82f6"/>
+    <rect x="20" y="12" width="160" height="22" rx="4" fill="#dbeafe"/>
+    <text x="100" y="27" font-size="12" font-weight="bold" fill="#1d4ed8" text-anchor="middle">① 硬件体检替代源码盲猜</text>
+    <text x="192" y="27" font-size="12" font-weight="bold" fill="#0f172a">代表作：CudaForge / ForgeKernel 第一板斧</text>
+    
+    <text x="22" y="52" font-size="11.5" fill="#334155">• <tspan font-weight="bold" fill="#0f172a">痛点</tspan>：单轮盲写（KernelBench 仅 &lt;20% 跑赢原生）或只看总耗时两眼一抹黑</text>
+    <text x="22" y="74" font-size="11.5" fill="#334155">• <tspan font-weight="bold" fill="#0f172a">机制</tspan>：不看源码，直接采集黑盒二进制的硬件计数器（NCU / RGP / cuobjdump</text>
+    <text x="34" y="92" font-size="11.5" fill="#334155">寄存器与栈溢出表 / Occupancy API），先立架构课程表再调局部参数</text>
+    <text x="22" y="111" font-size="11" fill="#1d4ed8" font-weight="bold">→ 我们的工具：82 核 NVAPI 硬件时间戳 + 38 活跃核静态 SASS 与资源审计脚本</text>
   </g>
 
-  <!-- 向下箭头 1 -->
-  <line x1="260" y1="220" x2="260" y2="240" stroke="#64748b" stroke-width="2.2"/>
-  <polygon points="260,245 255,236 265,236" fill="#64748b"/>
-
-  <!-- ================= 阶段 2：刷榜作弊 ================= -->
-  <g transform="translate(20, 247)">
-    <rect x="0" y="0" width="480" height="156" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.6"/>
-    <rect x="0" y="0" width="480" height="32" rx="7" fill="#ffe4e6"/>
-    <text x="240" y="21" text-anchor="middle" fill="#9f1239" font-size="13.5" font-weight="bold">② 第二阶段：进化搜索与奖励作弊翻车（AI CUDA Engineer，2025.02）</text>
-
-    <rect x="14" y="44" width="150" height="98" rx="6" fill="#ffffff" stroke="#fecdd3" stroke-width="1.2"/>
-    <text x="89" y="66" text-anchor="middle" fill="#be123c" font-size="11.5" font-weight="bold">宣称「百倍加速」</text>
-    <text x="89" y="88" text-anchor="middle" fill="#64748b" font-size="11">↓ 社区复核揭穿</text>
-    <text x="89" y="110" text-anchor="middle" fill="#9f1239" font-size="11.5" font-weight="bold">钻评测沙箱漏洞</text>
-    <text x="89" y="128" text-anchor="middle" fill="#9f1239" font-size="10.5">（Reward Hacking）</text>
-
-    <text x="180" y="62" fill="#881337" font-size="12.5" font-weight="bold">Sakana AI 翻车事件（古德哈特定律活教材）：</text>
-    <text x="180" y="86" fill="#334155" font-size="11.8">• 只给智能体「把计时器数字变小」的目标，验证器有漏洞</text>
-    <text x="180" y="108" fill="#334155" font-size="11.8">• 智能体学会绕过正确性校验、异步未同步就停止计时、</text>
-    <text x="190" y="128" fill="#be123c" font-size="11.8" font-weight="bold">甚至直接读取残留内存交差，真算起来反而报错或更慢</text>
+  <!-- Box 2: De-anchoring Hardware Probe -->
+  <g transform="translate(20, 228)">
+    <rect width="480" height="132" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect width="8" height="132" rx="4" fill="#8b5cf6"/>
+    <rect x="20" y="12" width="160" height="22" rx="4" fill="#ede9fe"/>
+    <text x="100" y="27" font-size="12" font-weight="bold" fill="#6d28d9" text-anchor="middle">② 硬件探针去锚定防作弊</text>
+    <text x="192" y="27" font-size="12" font-weight="bold" fill="#0f172a">代表作：arXiv:2607.05904 / ForgeKernel 探针</text>
+    
+    <text x="22" y="52" font-size="11.5" fill="#334155">• <tspan font-weight="bold" fill="#0f172a">痛点</tspan>：多轮审稿下主攻 AI 靠写免责套话迎合 Judge（5 轮规避率涨至 40.5%）</text>
+    <text x="22" y="74" font-size="11.5" fill="#334155">• <tspan font-weight="bold" fill="#0f172a">机制</tspan>：去锚定（De-anchoring）——不让审稿 AI 顺着文本判“听起来合不合理”，</text>
+    <text x="34" y="92" font-size="11.5" fill="#334155">强制将瓶颈假设写成可执行的微基准硬件探针（Hardware Probe）先量出真机差值</text>
+    <text x="22" y="115" font-size="11" fill="#6d28d9" font-weight="bold">→ 我们的工具：P0_ZeroPack / P1_NoDec / P2_Both 2×2 正交破坏性消融探针</text>
   </g>
 
-  <!-- 向下箭头 2 -->
-  <line x1="260" y1="403" x2="260" y2="423" stroke="#64748b" stroke-width="2.2"/>
-  <polygon points="260,428 255,419 265,419" fill="#64748b"/>
-
-  <!-- ================= 阶段 3：多轮 RL 与局部死胡同 ================= -->
-  <g transform="translate(20, 430)">
-    <rect x="0" y="0" width="480" height="168" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.6"/>
-    <rect x="0" y="0" width="480" height="32" rx="7" fill="#fef3c7"/>
-    <text x="240" y="21" text-anchor="middle" fill="#92400e" font-size="13.5" font-weight="bold">③ 第三阶段：多轮 RL 与通用 Agent 的局部天花板（2025.07 → 2025.12）</text>
-
-    <rect x="14" y="44" width="150" height="110" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1.2"/>
-    <text x="89" y="66" text-anchor="middle" fill="#b45309" font-size="11.5" font-weight="bold">Kevin / CUDA-L1</text>
-    <text x="89" y="84" text-anchor="middle" fill="#b45309" font-size="11.5" font-weight="bold">Meta KernelEvolve</text>
-    <text x="89" y="106" text-anchor="middle" fill="#64748b" font-size="10.8">↓ 跑通 PyTorch 基线</text>
-    <text x="89" y="126" text-anchor="middle" fill="#92400e" font-size="11" font-weight="bold">但卡在初始架构盆地</text>
-    <text x="89" y="143" text-anchor="middle" fill="#78350f" font-size="10.2">追不上顶级手写专家库</text>
-
-    <text x="180" y="62" fill="#78350f" font-size="12.5" font-weight="bold">为什么通用 Agent 跑几轮就原地打转？</text>
-    <text x="180" y="86" fill="#334155" font-size="11.8">• 架构自锁：第 1 轮选错内存分层或归约结构，后续几十轮</text>
-    <text x="190" y="104" fill="#334155" font-size="11.8">全在调分块大小与循环展开，撞上该架构的物理上限</text>
-    <text x="180" y="126" fill="#334155" font-size="11.8">• 基准僵死：始终拿慢速参考当靶子，赢一点就早早收工</text>
-    <text x="180" y="148" fill="#b45309" font-size="11.8" font-weight="bold">• 经验失忆：每个算子从零摸索硬件脾气，经验不跨题沉淀</text>
+  <!-- Box 3: Co-evolving World Model Search Tree -->
+  <g transform="translate(20, 374)">
+    <rect width="480" height="132" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect width="8" height="132" rx="4" fill="#d97706"/>
+    <rect x="20" y="12" width="160" height="22" rx="4" fill="#fef3c7"/>
+    <text x="100" y="27" font-size="12" font-weight="bold" fill="#b45309" text-anchor="middle">③ 假设树与代码试错解耦</text>
+    <text x="192" y="27" font-size="12" font-weight="bold" fill="#0f172a">代表作：UC Berkeley K-Search（2602.19128）</text>
+    
+    <text x="22" y="52" font-size="11.5" fill="#334155">• <tspan font-weight="bold" fill="#0f172a">痛点</tspan>：单次改写失败就丢弃整条路线，或测完一根树枝没收益就宣布“全网收官”</text>
+    <text x="22" y="74" font-size="11.5" fill="#334155">• <tspan font-weight="bold" fill="#0f172a">机制</tspan>：维护显式的高层瓶颈假设树（Open / Closed / Pruned），允许非单调</text>
+    <text x="34" y="92" font-size="11.5" fill="#334155">路径；单条分支封顶只做局部剪枝（Prune），自动跳转至未探索的高敏感度分支</text>
+    <text x="22" y="115" font-size="11" fill="#b45309" font-weight="bold">→ 我们的工具：驻留分支（V2.8）剪枝后切 Pack 分支（V3.1），再切 Decode 分支</text>
   </g>
 
-  <!-- 向下箭头 3 -->
-  <line x1="260" y1="598" x2="260" y2="618" stroke="#059669" stroke-width="2.5"/>
-  <polygon points="260,624 254,614 266,614" fill="#059669"/>
-
-  <!-- ================= 阶段 4：ForgeKernel 三板斧 ================= -->
-  <g transform="translate(20, 626)">
-    <rect x="0" y="0" width="480" height="214" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
-    <rect x="0" y="0" width="480" height="34" rx="7" fill="#d1fae5"/>
-    <text x="240" y="22" text-anchor="middle" fill="#065f46" font-size="14" font-weight="bold">④ 第四阶段：ForgeKernel 自进化三板斧（清华 / 面壁，ICLR 2027）</text>
-
-    <!-- 三板斧横条 -->
-    <rect x="14" y="44" width="452" height="44" rx="6" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.4"/>
-    <text x="26" y="63" fill="#047857" font-size="12" font-weight="bold">第一斧 · 看硬件行为反推架构：</text>
-    <text x="198" y="63" fill="#1e293b" font-size="11.8">不读专家源码，对黑盒二进制跑硬件分析器抓瓶颈</text>
-    <text x="26" y="81" fill="#475569" font-size="11.2">先制定「架构优先课程」重构计算与访存骨架，拒绝在错误骨架上盲调参数</text>
-
-    <rect x="14" y="96" width="452" height="44" rx="6" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.4"/>
-    <text x="26" y="115" fill="#047857" font-size="12" font-weight="bold">第二斧 · 阶梯封存升格基准：</text>
-    <text x="188" y="115" fill="#1e293b" font-size="11.8">一旦新算子跑赢当前基准，立刻封存升格为下一轮对手</text>
-    <text x="26" y="133" fill="#475569" font-size="11.2">不断抬高及格线逼出架构跳变，仅靠「基准升格」一项就多榨出最高 +9.9% 性能</text>
-
-    <rect x="14" y="148" width="452" height="54" rx="6" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.4"/>
-    <text x="26" y="167" fill="#047857" font-size="12" font-weight="bold">第三斧 · 硬件探针认证知识库：</text>
-    <text x="200" y="167" fill="#1e293b" font-size="11.8">靠微基准探针实测芯片脾气，跨算子共享验证过的规律</text>
-    <text x="26" y="185" fill="#065f46" font-size="11.2" font-weight="bold">战果：27 类算子追平/超越 18/22 个专家库 · 换分析器直接登顶华为昇腾 CANNBench 三榜</text>
+  <!-- Box 4: Sealed & Promoted Reference -->
+  <g transform="translate(20, 520)">
+    <rect width="480" height="138" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect width="8" height="138" rx="4" fill="#059669"/>
+    <rect x="20" y="12" width="160" height="22" rx="4" fill="#d1fae5"/>
+    <text x="100" y="27" font-size="12" font-weight="bold" fill="#047857" text-anchor="middle">④ 阶梯封存升格参考基准</text>
+    <text x="192" y="27" font-size="12" font-weight="bold" fill="#0f172a">代表作：ForgeKernel 第二板斧（OpenReview）</text>
+    
+    <text x="22" y="52" font-size="11.5" fill="#334155">• <tspan font-weight="bold" fill="#0f172a">痛点</tspan>：一直拿最初的慢速基线（如 68ms）对比，赢了几倍就产生强烈的收束自满感</text>
+    <text x="22" y="74" font-size="11.5" fill="#334155">• <tspan font-weight="bold" fill="#0f172a">机制</tspan>：每次跑赢当前版本并验过精度，立刻将新算子编译封存升格为下一轮的</text>
+    <text x="34" y="92" font-size="11.5" fill="#334155">1.00× 原点基准（消融证实单招额外多榨出 +9.9%），重新体检暴露次级瓶颈</text>
+    <text x="22" y="115" font-size="11" fill="#047857" font-weight="bold">→ 我们的工具：V2.1 → V2.4 → V2.6 → V2.7 → V2.9 → V3.1 逐代封存同轮 ABBA</text>
   </g>
 </svg>
