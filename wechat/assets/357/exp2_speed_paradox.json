@@ -1,0 +1,174 @@
+{
+  "N4096_K4096": {
+    "M=1": {
+      "fp16_cublas_us": 84.99,
+      "w4_gemv_decode_us": 83.97,
+      "act_quant_int8_overhead_us": 369.66,
+      "triton_w4a16_us": 169.98,
+      "triton_w4a8_kernel_only_us": 105.47,
+      "triton_w4a8_with_actquant_us": 162.82,
+      "cublas_int8_mm_us": 48.13,
+      "speedup_w4gemv_vs_fp16": 1.01,
+      "speedup_w4a8_full_vs_fp16": 0.52,
+      "speedup_w4a16_vs_fp16": 0.5
+    },
+    "M=8": {
+      "fp16_cublas_us": 96.26,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 119.81,
+      "triton_w4a16_us": 160.77,
+      "triton_w4a8_kernel_only_us": 102.4,
+      "triton_w4a8_with_actquant_us": 321.54,
+      "cublas_int8_mm_us": 53.25,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 0.3,
+      "speedup_w4a16_vs_fp16": 0.6
+    },
+    "M=16": {
+      "fp16_cublas_us": 111.62,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 113.66,
+      "triton_w4a16_us": 158.72,
+      "triton_w4a8_kernel_only_us": 102.4,
+      "triton_w4a8_with_actquant_us": 435.2,
+      "cublas_int8_mm_us": 48.13,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 0.26,
+      "speedup_w4a16_vs_fp16": 0.7
+    },
+    "M=32": {
+      "fp16_cublas_us": 93.18,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 116.74,
+      "triton_w4a16_us": 176.13,
+      "triton_w4a8_kernel_only_us": 110.59,
+      "triton_w4a8_with_actquant_us": 168.96,
+      "cublas_int8_mm_us": 88.06,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 0.55,
+      "speedup_w4a16_vs_fp16": 0.53
+    },
+    "M=64": {
+      "fp16_cublas_us": 115.71,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 125.95,
+      "triton_w4a16_us": 207.87,
+      "triton_w4a8_kernel_only_us": 121.86,
+      "triton_w4a8_with_actquant_us": 171.01,
+      "cublas_int8_mm_us": 50.18,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 0.68,
+      "speedup_w4a16_vs_fp16": 0.56
+    },
+    "M=256": {
+      "fp16_cublas_us": 249.86,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 118.78,
+      "triton_w4a16_us": 520.19,
+      "triton_w4a8_kernel_only_us": 289.79,
+      "triton_w4a8_with_actquant_us": 351.23,
+      "cublas_int8_mm_us": 86.02,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 0.71,
+      "speedup_w4a16_vs_fp16": 0.48
+    },
+    "M=1024": {
+      "fp16_cublas_us": 976.9,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 247.81,
+      "triton_w4a16_us": 1942.53,
+      "triton_w4a8_kernel_only_us": 1095.68,
+      "triton_w4a8_with_actquant_us": 1335.3,
+      "cublas_int8_mm_us": 316.42,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 0.73,
+      "speedup_w4a16_vs_fp16": 0.5
+    }
+  },
+  "N11008_K4096": {
+    "M=1": {
+      "fp16_cublas_us": 238.59,
+      "w4_gemv_decode_us": 132.1,
+      "act_quant_int8_overhead_us": 118.05,
+      "triton_w4a16_us": 290.82,
+      "triton_w4a8_kernel_only_us": 160.77,
+      "triton_w4a8_with_actquant_us": 188.42,
+      "cublas_int8_mm_us": 115.71,
+      "speedup_w4gemv_vs_fp16": 1.81,
+      "speedup_w4a8_full_vs_fp16": 1.27,
+      "speedup_w4a16_vs_fp16": 0.82
+    },
+    "M=8": {
+      "fp16_cublas_us": 228.35,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 139.26,
+      "triton_w4a16_us": 266.24,
+      "triton_w4a8_kernel_only_us": 154.62,
+      "triton_w4a8_with_actquant_us": 189.44,
+      "cublas_int8_mm_us": 116.74,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 1.21,
+      "speedup_w4a16_vs_fp16": 0.86
+    },
+    "M=16": {
+      "fp16_cublas_us": 230.4,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 123.94,
+      "triton_w4a16_us": 263.17,
+      "triton_w4a8_kernel_only_us": 154.62,
+      "triton_w4a8_with_actquant_us": 194.56,
+      "cublas_int8_mm_us": 116.74,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 1.18,
+      "speedup_w4a16_vs_fp16": 0.88
+    },
+    "M=32": {
+      "fp16_cublas_us": 223.23,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 111.62,
+      "triton_w4a16_us": 279.55,
+      "triton_w4a8_kernel_only_us": 177.15,
+      "triton_w4a8_with_actquant_us": 226.3,
+      "cublas_int8_mm_us": 117.76,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 0.99,
+      "speedup_w4a16_vs_fp16": 0.8
+    },
+    "M=64": {
+      "fp16_cublas_us": 299.01,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 113.66,
+      "triton_w4a16_us": 379.9,
+      "triton_w4a8_kernel_only_us": 238.59,
+      "triton_w4a8_with_actquant_us": 285.7,
+      "cublas_int8_mm_us": 122.88,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 1.05,
+      "speedup_w4a16_vs_fp16": 0.79
+    },
+    "M=256": {
+      "fp16_cublas_us": 643.07,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 118.78,
+      "triton_w4a16_us": 1306.62,
+      "triton_w4a8_kernel_only_us": 756.74,
+      "triton_w4a8_with_actquant_us": 804.86,
+      "cublas_int8_mm_us": 242.69,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 0.8,
+      "speedup_w4a16_vs_fp16": 0.49
+    },
+    "M=1024": {
+      "fp16_cublas_us": 2595.84,
+      "w4_gemv_decode_us": null,
+      "act_quant_int8_overhead_us": 246.78,
+      "triton_w4a16_us": 5201.92,
+      "triton_w4a8_kernel_only_us": 2977.79,
+      "triton_w4a8_with_actquant_us": 3181.57,
+      "cublas_int8_mm_us": 904.19,
+      "speedup_w4gemv_vs_fp16": null,
+      "speedup_w4a8_full_vs_fp16": 0.82,
+      "speedup_w4a16_vs_fp16": 0.5
+    }
+  }
+}
