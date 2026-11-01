@@ -29,7 +29,7 @@
   <text x="131" y="54" font-size="14" font-weight="bold" fill="#38bdf8" text-anchor="middle">AI 量化 · 剖析与实测</text>
 
   <text x="48" y="102" font-size="31" font-weight="bold" fill="#f8fafc">老显卡没有 FP4？把浮点乘以 2 塞进 INT8</text>
-  <text x="48" y="136" font-size="18" fill="#94a3b8">剖析并实测 secemp 的 HINT4 方案：从 71 条反汇编指令到 M=8 速度破案</text>
+  <text x="48" y="136" font-size="18" fill="#94a3b8">剖析并实测 secemp 的 HINT4 方案：从 71 条反汇编指令到 M=8 速度拆解</text>
 
   <!-- Left Card: The Math Trick (FP4 x 2 -> INT8) -->
   <rect x="48" y="162" width="388" height="284" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" opacity="0.95"/>
@@ -56,24 +56,24 @@
   <!-- Right Card: The Speed & Reality Audit -->
   <rect x="464" y="162" width="388" height="284" rx="12" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5" opacity="0.95"/>
   <rect x="464" y="162" width="388" height="38" rx="12" fill="#78350f"/>
-  <text x="482" y="187" font-size="16" font-weight="bold" fill="#fde68a">② 速度破案与实测：RTX 3080 分段账本</text>
+  <text x="482" y="187" font-size="16" font-weight="bold" fill="#fde68a">② 速度拆解与实测：RTX 3080 分段账本</text>
 
   <!-- M=1 Bar -->
-  <text x="482" y="224" font-size="13" font-weight="bold" fill="#4ade80">• M=1 单字解码（快 1.77×）：压根没调 Tensor Core</text>
+  <text x="482" y="224" font-size="13" font-weight="bold" fill="#4ade80">• M=1 单字解码（快 1.74×）：压根没调 Tensor Core</text>
   <rect x="482" y="233" width="265" height="18" rx="4" fill="#475569"/>
-  <text x="755" y="247" font-size="12" fill="#cbd5e1">FP16: 233μs</text>
-  <rect x="482" y="255" width="150" height="18" rx="4" fill="#10b981"/>
-  <text x="640" y="269" font-size="12" font-weight="bold" fill="#6ee7b7">4-bit GEMV: 132μs (纯省带宽)</text>
+  <text x="755" y="247" font-size="12" fill="#cbd5e1">FP16: 230μs</text>
+  <rect x="482" y="255" width="152" height="18" rx="4" fill="#10b981"/>
+  <text x="642" y="269" font-size="12" font-weight="bold" fill="#6ee7b7">4-bit GEMV: 132μs (纯省带宽)</text>
 
   <!-- M>=8 Bar -->
-  <text x="482" y="298" font-size="13" font-weight="bold" fill="#f87171">• M ≥ 8 调起内核后（0.40× ~ 0.70×）：全线反输 FP16</text>
+  <text x="482" y="298" font-size="13" font-weight="bold" fill="#f87171">• M ≥ 8 调起内核后（0.40× ~ 0.71×）：全线反输 FP16</text>
   <rect x="482" y="308" width="160" height="22" rx="4" fill="#3b82f6"/>
-  <text x="650" y="324" font-size="12" font-weight="bold" fill="#93c5fd">FP16 cuBLAS: 229μs (复用权重)</text>
+  <text x="650" y="324" font-size="12" font-weight="bold" fill="#93c5fd">FP16 cuBLAS: 228μs (复用权重)</text>
 
   <rect x="482" y="335" width="98" height="22" rx="4" fill="#f59e0b"/>
   <text x="531" y="350" font-size="10.5" font-weight="bold" fill="#0f172a" text-anchor="middle">A:激活量化 6μs</text>
   <rect x="582" y="335" width="252" height="22" rx="4" fill="#ef4444"/>
-  <text x="708" y="350" font-size="10.5" font-weight="bold" fill="#ffffff" text-anchor="middle">B:双网格解包+每32数出锅 322μs (总328μs)</text>
+  <text x="708" y="350" font-size="10.5" font-weight="bold" fill="#ffffff" text-anchor="middle">B:双网格+倍率+出锅 315μs (总322μs)</text>
 
   <!-- Bottom Verdict Box -->
   <rect x="482" y="370" width="352" height="58" rx="6" fill="#1e1b4b" stroke="#818cf8" stroke-width="1"/>
