@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 510" width="520" height="510" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="520" height="510" fill="#f8fafc" rx="12"/>
+  <text x="260" y="32" font-size="13.5" font-weight="bold" fill="#0f172a" text-anchor="middle">为什么算 X^T × X（海森矩阵）？一口气算出“背锅汇率”的分子与分母</text>
+  <text x="260" y="52" font-size="11" fill="#64748b" text-anchor="middle">把激活矩阵 X 行列颠倒（转置 X^T）再乘自己，自动分辨“同进同退”与“八字不合”</text>
+
+  <!-- Box 1: Case A (Correlated -> 40 / 8 = 5x) -->
+  <rect x="20" y="68" width="480" height="206" fill="#ffffff" stroke="#86efac" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="68" width="480" height="28" fill="#dcfce7" rx="8"/>
+  <text x="34" y="87" font-size="12.5" font-weight="bold" fill="#166534">① 情况 A（两通道同进同退）：词 1 为 (10, +2)，词 2 也为 (10, +2)</text>
+
+  <!-- Matrix X^T -->
+  <text x="88" y="116" font-size="10.5" font-weight="bold" fill="#475569" text-anchor="middle">转置矩阵 X^T</text>
+  <text x="88" y="130" font-size="9.5" fill="#64748b" text-anchor="middle">（每行 1 个通道）</text>
+  <path d="M 48 140 L 42 140 L 42 204 L 48 204" fill="none" stroke="#334155" stroke-width="2"/>
+  <path d="M 128 140 L 134 140 L 134 204 L 128 204" fill="none" stroke="#334155" stroke-width="2"/>
+  <text x="36" y="164" font-size="10" font-weight="bold" fill="#0369a1" text-anchor="end">x1</text>
+  <text x="36" y="192" font-size="10" font-weight="bold" fill="#6d28d9" text-anchor="end">x2</text>
+  <rect x="48" y="146" width="36" height="24" fill="#e0f2fe" rx="4"/>
+  <text x="66" y="162" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">10</text>
+  <rect x="90" y="146" width="36" height="24" fill="#e0f2fe" rx="4"/>
+  <text x="108" y="162" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">10</text>
+  <rect x="48" y="176" width="36" height="24" fill="#f3e8ff" rx="4"/>
+  <text x="66" y="192" font-size="12" font-weight="bold" fill="#6d28d9" text-anchor="middle">+2</text>
+  <rect x="90" y="176" width="36" height="24" fill="#f3e8ff" rx="4"/>
+  <text x="108" y="192" font-size="12" font-weight="bold" fill="#6d28d9" text-anchor="middle">+2</text>
+
+  <!-- Multiply sign -->
+  <text x="150" y="178" font-size="16" font-weight="bold" fill="#475569" text-anchor="middle">×</text>
+
+  <!-- Matrix X -->
+  <text x="210" y="116" font-size="10.5" font-weight="bold" fill="#475569" text-anchor="middle">原矩阵 X</text>
+  <text x="210" y="130" font-size="9.5" fill="#64748b" text-anchor="middle">（每行 1 个词）</text>
+  <path d="M 170 140 L 164 140 L 164 204 L 170 204" fill="none" stroke="#334155" stroke-width="2"/>
+  <path d="M 250 140 L 256 140 L 256 204 L 250 204" fill="none" stroke="#334155" stroke-width="2"/>
+  <rect x="170" y="146" width="36" height="24" fill="#e0f2fe" rx="4"/>
+  <text x="188" y="162" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">10</text>
+  <rect x="212" y="146" width="36" height="24" fill="#f3e8ff" rx="4"/>
+  <text x="230" y="162" font-size="12" font-weight="bold" fill="#6d28d9" text-anchor="middle">+2</text>
+  <rect x="170" y="176" width="36" height="24" fill="#e0f2fe" rx="4"/>
+  <text x="188" y="192" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">10</text>
+  <rect x="212" y="176" width="36" height="24" fill="#f3e8ff" rx="4"/>
+  <text x="230" y="192" font-size="12" font-weight="bold" fill="#6d28d9" text-anchor="middle">+2</text>
+
+  <!-- Equals sign -->
+  <text x="274" y="178" font-size="16" font-weight="bold" fill="#475569" text-anchor="middle">=</text>
+
+  <!-- Result Matrix H = X^T X -->
+  <text x="388" y="116" font-size="10.5" font-weight="bold" fill="#166534" text-anchor="middle">海森矩阵 H = X^T × X</text>
+  <text x="388" y="130" font-size="9.5" fill="#15803d" text-anchor="middle">（右上角分子 ÷ 右下角分母 = 汇率）</text>
+  <path d="M 296 140 L 290 140 L 290 204 L 296 204" fill="none" stroke="#334155" stroke-width="2"/>
+  <path d="M 480 140 L 486 140 L 486 204 L 480 204" fill="none" stroke="#334155" stroke-width="2"/>
+
+  <!-- H[1,1] -->
+  <rect x="296" y="146" width="86" height="24" fill="#f1f5f9" rx="4"/>
+  <text x="339" y="162" font-size="10.5" fill="#475569" text-anchor="middle">Σx1² = 200</text>
+
+  <!-- H[1,2] Numerator highlighted -->
+  <rect x="388" y="146" width="90" height="24" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" rx="4"/>
+  <text x="433" y="162" font-size="10.5" font-weight="bold" fill="#166534" text-anchor="middle">分子 Σx1x2 = 40</text>
+
+  <!-- H[2,1] -->
+  <rect x="296" y="176" width="86" height="24" fill="#f1f5f9" rx="4"/>
+  <text x="339" y="192" font-size="10.5" fill="#475569" text-anchor="middle">Σx2x1 = 40</text>
+
+  <!-- H[2,2] Denominator highlighted -->
+  <rect x="388" y="176" width="90" height="24" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5" rx="4"/>
+  <text x="433" y="192" font-size="10.5" font-weight="bold" fill="#854d0e" text-anchor="middle">分母 Σx2² = 8</text>
+
+  <!-- Verdict A -->
+  <rect x="36" y="218" width="448" height="42" fill="#f0fdf4" stroke="#86efac" rx="6"/>
+  <text x="260" y="236" font-size="11" font-weight="bold" fill="#166534" text-anchor="middle">分子 = 10×2 + 10×2 = 40  │  分母 = 2×2 + 2×2 = 8</text>
+  <text x="260" y="253" font-size="11.5" font-weight="bold" fill="#15803d" text-anchor="middle">→ 背锅汇率 = 分子 40 ÷ 分母 8 = 5 倍（与单字手算 10 ÷ 2 = 5 倍完全一致）</text>
+
+  <!-- Box 2: Case B (Uncorrelated -> 0 / 8 = 0x) -->
+  <rect x="20" y="288" width="480" height="204" fill="#ffffff" stroke="#fca5a5" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="288" width="480" height="28" fill="#fee2e2" rx="8"/>
+  <text x="34" y="307" font-size="12.5" font-weight="bold" fill="#991b1b">② 情况 B（两通道一正一负）：词 1 为 (10, +2)，词 2 变为 (10, -2)</text>
+
+  <!-- Matrix X^T -->
+  <path d="M 48 352 L 42 352 L 42 416 L 48 416" fill="none" stroke="#334155" stroke-width="2"/>
+  <path d="M 128 352 L 134 352 L 134 416 L 128 416" fill="none" stroke="#334155" stroke-width="2"/>
+  <text x="88" y="340" font-size="10.5" font-weight="bold" fill="#475569" text-anchor="middle">转置矩阵 X^T</text>
+  <text x="36" y="376" font-size="10" font-weight="bold" fill="#0369a1" text-anchor="end">x1</text>
+  <text x="36" y="404" font-size="10" font-weight="bold" fill="#6d28d9" text-anchor="end">x2</text>
+  <rect x="48" y="358" width="36" height="24" fill="#e0f2fe" rx="4"/>
+  <text x="66" y="374" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">10</text>
+  <rect x="90" y="358" width="36" height="24" fill="#e0f2fe" rx="4"/>
+  <text x="108" y="374" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">10</text>
+  <rect x="48" y="388" width="36" height="24" fill="#f3e8ff" rx="4"/>
+  <text x="66" y="404" font-size="12" font-weight="bold" fill="#6d28d9" text-anchor="middle">+2</text>
+  <rect x="90" y="388" width="36" height="24" fill="#fee2e2" stroke="#ef4444" rx="4"/>
+  <text x="108" y="404" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">-2</text>
+
+  <text x="150" y="390" font-size="16" font-weight="bold" fill="#475569" text-anchor="middle">×</text>
+
+  <!-- Matrix X -->
+  <path d="M 170 352 L 164 352 L 164 416 L 170 416" fill="none" stroke="#334155" stroke-width="2"/>
+  <path d="M 250 352 L 256 352 L 256 416 L 250 416" fill="none" stroke="#334155" stroke-width="2"/>
+  <text x="210" y="340" font-size="10.5" font-weight="bold" fill="#475569" text-anchor="middle">原矩阵 X</text>
+  <rect x="170" y="358" width="36" height="24" fill="#e0f2fe" rx="4"/>
+  <text x="188" y="374" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">10</text>
+  <rect x="212" y="358" width="36" height="24" fill="#f3e8ff" rx="4"/>
+  <text x="230" y="374" font-size="12" font-weight="bold" fill="#6d28d9" text-anchor="middle">+2</text>
+  <rect x="170" y="388" width="36" height="24" fill="#e0f2fe" rx="4"/>
+  <text x="188" y="404" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">10</text>
+  <rect x="212" y="388" width="36" height="24" fill="#fee2e2" stroke="#ef4444" rx="4"/>
+  <text x="230" y="404" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">-2</text>
+
+  <text x="274" y="390" font-size="16" font-weight="bold" fill="#475569" text-anchor="middle">=</text>
+
+  <!-- Result Matrix H = X^T X -->
+  <text x="388" y="340" font-size="10.5" font-weight="bold" fill="#991b1b" text-anchor="middle">海森矩阵 H = X^T × X</text>
+  <path d="M 296 352 L 290 352 L 290 416 L 296 416" fill="none" stroke="#334155" stroke-width="2"/>
+  <path d="M 480 352 L 486 352 L 486 416 L 480 416" fill="none" stroke="#334155" stroke-width="2"/>
+
+  <rect x="296" y="358" width="86" height="24" fill="#f1f5f9" rx="4"/>
+  <text x="339" y="374" font-size="10.5" fill="#475569" text-anchor="middle">Σx1² = 200</text>
+
+  <rect x="388" y="358" width="90" height="24" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" rx="4"/>
+  <text x="433" y="374" font-size="10.5" font-weight="bold" fill="#991b1b" text-anchor="middle">分子 Σx1x2 = 0</text>
+
+  <rect x="296" y="388" width="86" height="24" fill="#f1f5f9" rx="4"/>
+  <text x="339" y="404" font-size="10.5" fill="#475569" text-anchor="middle">Σx2x1 = 0</text>
+
+  <rect x="388" y="388" width="90" height="24" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5" rx="4"/>
+  <text x="433" y="404" font-size="10.5" font-weight="bold" fill="#854d0e" text-anchor="middle">分母 Σx2² = 8</text>
+
+  <!-- Verdict B -->
+  <rect x="36" y="430" width="448" height="44" fill="#fef2f2" stroke="#fca5a5" rx="6"/>
+  <text x="260" y="448" font-size="11" font-weight="bold" fill="#991b1b" text-anchor="middle">分子 = 10×(+2) + 10×(-2) = 20 - 20 = 0（正负抵消） │  分母 = 2² + (-2)² = 8</text>
+  <text x="260" y="466" font-size="11.5" font-weight="bold" fill="#dc2626" text-anchor="middle">→ 背锅汇率 = 分子 0 ÷ 分母 8 = 0 倍（自动识别两通道不相关，拒绝乱背锅）</text>
+</svg>
