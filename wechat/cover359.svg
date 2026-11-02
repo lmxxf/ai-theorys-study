@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg359" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.55" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <marker id="c-blue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="c-green" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#34d399"/>
+    </marker>
+    <marker id="c-red" markerWidth="6.5" markerHeight="6.5" refX="5.5" refY="3.25" orient="auto">
+      <path d="M0 0 L6.5 3.25 L0 6.5 z" fill="#f87171"/>
+    </marker>
+    <marker id="c-amber" markerWidth="6.5" markerHeight="6.5" refX="5.5" refY="3.25" orient="auto">
+      <path d="M0 0 L6.5 3.25 L0 6.5 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="c-purple" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#c084fc"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg359)"/>
+
+  <!-- Header -->
+  <rect x="44" y="28" width="216" height="30" rx="15" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="152" y="48" font-size="14" font-weight="bold" fill="#93c5fd" text-anchor="middle">老靳学线代 · 第四期 · No.359</text>
+
+  <text x="44" y="96" font-size="31" font-weight="bold" fill="#f8fafc">基与坐标变换：东西没动，说法变了</text>
+  <text x="44" y="126" font-size="16" fill="#94a3b8">换一套基础方向词汇表（换基）摊平量化尖峰，打一束垂直光（投影）切出注意力子空间与去拒绝余项</text>
+
+  <!-- Left Visual Panel: Change of Basis -->
+  <rect x="44" y="148" width="392" height="284" rx="12" fill="#0f172a" fill-opacity="0.7" stroke="#334155" stroke-width="1.5"/>
+  <text x="64" y="178" font-size="17" font-weight="bold" fill="#38bdf8">话题 1：换基（Change of Basis）</text>
+  <text x="64" y="200" font-size="12.5" fill="#94a3b8">同一个向量 x，在默认网格与斜向网格下的两张身份证</text>
+
+  <!-- Origin at (120, 355), scale = 46px -->
+  <g stroke="#1e293b" stroke-width="1">
+    <line x1="80" y1="355" x2="310" y2="355"/>
+    <line x1="80" y1="309" x2="310" y2="309"/>
+    <line x1="80" y1="263" x2="310" y2="263"/>
+    <line x1="120" y1="230" x2="120" y2="410"/>
+    <line x1="166" y1="230" x2="166" y2="410"/>
+    <line x1="212" y1="230" x2="212" y2="410"/>
+    <line x1="258" y1="230" x2="258" y2="410"/>
+  </g>
+  <!-- Standard path: 3*e1 + 1*e2 -->
+  <polyline points="120,355 258,355 258,309" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="190" y="374" font-size="11.5" fill="#38bdf8" text-anchor="middle">默认基：3×(1,0) + 1×(0,1) → (3, 1)</text>
+
+  <!-- New basis path: 2*b1 to (212,263), + 1*b2 to (258,309) -->
+  <polyline points="120,355 212,263 258,309" fill="none" stroke="#34d399" stroke-width="2" stroke-dasharray="5 3"/>
+  <line x1="120" y1="355" x2="166" y2="309" stroke="#34d399" stroke-width="2.6" marker-end="url(#c-green)"/>
+  <line x1="120" y1="355" x2="166" y2="401" stroke="#34d399" stroke-width="2.6" marker-end="url(#c-green)"/>
+  <text x="150" y="256" font-size="11.5" font-weight="bold" fill="#34d399">斜向基：2×(1,1) + 1×(1,-1) → (2, 1)</text>
+  <text x="180" y="406" font-size="11" fill="#34d399">b₂=(1,-1)</text>
+
+  <!-- Vector x -->
+  <line x1="120" y1="355" x2="258" y2="309" stroke="#f87171" stroke-width="3" marker-end="url(#c-red)"/>
+  <circle cx="120" cy="355" r="3.5" fill="#f8fafc"/>
+  <circle cx="258" cy="309" r="4" fill="#f87171"/>
+  <text x="268" y="313" font-size="13" font-weight="bold" fill="#f87171">向量 x 不动</text>
+  <text x="268" y="333" font-size="11.5" fill="#cbd5e1">Hadamard 旋转量化</text>
+  <text x="268" y="350" font-size="11.5" fill="#cbd5e1">靠换基摊平离群尖峰</text>
+
+  <!-- Right Visual Panel: Orthogonal Projection -->
+  <rect x="464" y="148" width="392" height="284" rx="12" fill="#0f172a" fill-opacity="0.7" stroke="#334155" stroke-width="1.5"/>
+  <text x="484" y="178" font-size="17" font-weight="bold" fill="#fbbf24">话题 2：投影（Projection）</text>
+  <text x="484" y="200" font-size="12.5" fill="#94a3b8">把 x=(3,4) 切成顺方向的影子 p 与严格垂直的余项 r</text>
+
+  <!-- Origin at (520, 395), scale = 40px -->
+  <!-- Line u=(1,1) from (505,410) to (685,230) -->
+  <line x1="505" y1="410" x2="685" y2="230" stroke="#475569" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- p = (3.5, 3.5) -> (520+140=660, 395-140=255) -->
+  <!-- x = (3, 4) -> (520+120=640, 395-160=235) -->
+  <polyline points="653,262 646,255 653,248" fill="none" stroke="#c084fc" stroke-width="1.5"/>
+  <line x1="520" y1="395" x2="660" y2="255" stroke="#fbbf24" stroke-width="3.2" marker-end="url(#c-amber)"/>
+  <line x1="660" y1="255" x2="640" y2="235" stroke="#c084fc" stroke-width="2.4" stroke-dasharray="4 2" marker-end="url(#c-purple)"/>
+  <line x1="520" y1="395" x2="640" y2="235" stroke="#f87171" stroke-width="2.8" marker-end="url(#c-red)"/>
+  <line x1="520" y1="395" x2="560" y2="355" stroke="#38bdf8" stroke-width="2.6" marker-end="url(#c-blue)"/>
+
+  <circle cx="520" cy="395" r="3.5" fill="#f8fafc"/>
+  <text x="538" y="232" font-size="12.5" font-weight="bold" fill="#f87171">x = (3, 4)</text>
+  <text x="668" y="264" font-size="12.5" font-weight="bold" fill="#fbbf24">影子 p = (3.5, 3.5)</text>
+  <text x="656" y="234" font-size="12" font-weight="bold" fill="#c084fc">垂直余项 r = (-0.5, 0.5)</text>
+
+  <text x="668" y="304" font-size="11.5" fill="#e2e8f0">• 只留影子 p：多头注意力</text>
+  <text x="668" y="322" font-size="11.5" fill="#94a3b8">  从 4096 维读 64 维子空间</text>
+  <text x="668" y="350" font-size="11.5" fill="#e2e8f0">• 剪掉影子只留 r = x - p：</text>
+  <text x="668" y="368" font-size="11.5" fill="#94a3b8">  抹除拒绝方向（r · u = 0）</text>
+
+  <!-- Footer -->
+  <text x="450" y="468" font-size="15" font-weight="bold" fill="#fde047" text-anchor="middle">「向量是空间里那根不动的箭头，坐标只是它借某一套基穿上的外衣。」</text>
+</svg>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 610" width="520" height="610" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="520" height="610" fill="#f8fafc" rx="12"/>
+  <text x="260" y="34" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">正交投影（Projection）：打一束垂直光，把向量切成两半</text>
+  <text x="260" y="54" font-size="11.5" fill="#64748b" text-anchor="middle">手算 x = (3, 4) 在方向 u = (1, 1) 上的影子 p = (3.5, 3.5) 与垂直余项 r = (-0.5, 0.5)</text>
+
+  <defs>
+    <marker id="p-slate" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="p-blue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#0284c7"/>
+    </marker>
+    <marker id="p-red" markerWidth="6.5" markerHeight="6.5" refX="5.5" refY="3.25" orient="auto">
+      <path d="M0 0 L6.5 3.25 L0 6.5 z" fill="#dc2626"/>
+    </marker>
+    <marker id="p-amber" markerWidth="6.5" markerHeight="6.5" refX="5.5" refY="3.25" orient="auto">
+      <path d="M0 0 L6.5 3.25 L0 6.5 z" fill="#d97706"/>
+    </marker>
+    <marker id="p-purple" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+
+  <!-- Panel 1: 2D Geometric Diagram -->
+  <rect x="20" y="70" width="480" height="310" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="70" width="480" height="32" fill="#fef3c7" rx="8"/>
+  <text x="32" y="91" font-size="12.2" font-weight="bold" fill="#92400e">① 几何画面：任何向量 x = 顺着目标方向的影子 p + 垂直于目标方向的余项 r</text>
+
+  <!-- Coordinate System: Origin at (80, 330), scale = 50px per unit -->
+  <g stroke="#f1f5f9" stroke-width="1">
+    <line x1="130" y1="105" x2="130" y2="350"/>
+    <line x1="180" y1="105" x2="180" y2="350"/>
+    <line x1="230" y1="105" x2="230" y2="350"/>
+    <line x1="280" y1="105" x2="280" y2="350"/>
+    <line x1="60" y1="280" x2="315" y2="280"/>
+    <line x1="60" y1="230" x2="315" y2="230"/>
+    <line x1="60" y1="180" x2="315" y2="180"/>
+    <line x1="60" y1="130" x2="315" y2="130"/>
+  </g>
+  <line x1="60" y1="330" x2="315" y2="330" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#p-slate)"/>
+  <line x1="80" y1="350" x2="80" y2="105" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#p-slate)"/>
+
+  <!-- Direction line span(u) along (1,1): from (65,345) to (300,110) -->
+  <line x1="65" y1="345" x2="300" y2="110" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="275" y="118" font-size="11" fill="#64748b">方向直线 u=(1,1)</text>
+
+  <!-- Right-angle symbol at p=(3.5, 3.5) -> screen (255, 155) -->
+  <polyline points="247,163 239,155 247,147" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+
+  <!-- Projection vector p = (3.5, 3.5) -> (255, 155) -->
+  <line x1="80" y1="330" x2="255" y2="155" stroke="#d97706" stroke-width="3" marker-end="url(#p-amber)"/>
+
+  <!-- Direction vector u = (1, 1) -> (130, 280) -->
+  <line x1="80" y1="330" x2="130" y2="280" stroke="#0284c7" stroke-width="2.8" marker-end="url(#p-blue)"/>
+  <text x="136" y="290" font-size="11.5" font-weight="bold" fill="#0369a1">u=(1,1)</text>
+
+  <!-- Residual vector r = x - p = (-0.5, 0.5): from p=(255,155) to x=(230,130) -->
+  <line x1="255" y1="155" x2="230" y2="130" stroke="#7c3aed" stroke-width="2.2" stroke-dasharray="4 2" marker-end="url(#p-purple)"/>
+
+  <!-- Original vector x = (3, 4) -> (230, 130) -->
+  <line x1="80" y1="330" x2="230" y2="130" stroke="#dc2626" stroke-width="2.8" marker-end="url(#p-red)"/>
+
+  <circle cx="80" cy="330" r="3.5" fill="#0f172a"/>
+  <circle cx="230" cy="130" r="3.8" fill="#dc2626"/>
+  <circle cx="255" cy="155" r="3.8" fill="#d97706"/>
+
+  <text x="134" y="122" font-size="12" font-weight="bold" fill="#dc2626">原向量 x = (3, 4)</text>
+  <text x="262" y="166" font-size="12" font-weight="bold" fill="#b45309">影子 p = (3.5, 3.5)</text>
+  <text x="252" y="138" font-size="11.5" font-weight="bold" fill="#6d28d9">垂直余项 r = (-0.5, 0.5)</text>
+
+  <!-- Formula Card on Right -->
+  <rect x="322" y="176" width="166" height="190" fill="#fffbeb" stroke="#fde68a" rx="6"/>
+  <text x="332" y="198" font-size="12" font-weight="bold" fill="#92400e">五分钟手算三步曲：</text>
+  <text x="332" y="220" font-size="11" fill="#334155">1. 点积 x·u = 3+4 = 7</text>
+  <text x="332" y="238" font-size="11" fill="#334155">   模方 u·u = 1+1 = 2</text>
+  <text x="332" y="260" font-size="11" font-weight="bold" fill="#b45309">2. 影子 p = (7/2) × u</text>
+  <text x="332" y="278" font-size="11" font-weight="bold" fill="#b45309">         = (3.5, 3.5)</text>
+  <text x="332" y="300" font-size="11" font-weight="bold" fill="#6d28d9">3. 余项 r = x - p</text>
+  <text x="332" y="318" font-size="11" font-weight="bold" fill="#6d28d9">         = (-0.5, 0.5)</text>
+  <text x="332" y="342" font-size="10.5" fill="#475569">验算垂直：r · u</text>
+  <text x="332" y="356" font-size="10.5" font-weight="bold" fill="#15803d">= -0.5×1 + 0.5×1 = 0</text>
+
+  <!-- Panel 2: AI Applications -->
+  <rect x="20" y="394" width="480" height="198" fill="#0f172a" rx="8"/>
+  <text x="36" y="422" font-size="13" font-weight="bold" fill="#38bdf8">② 这一刀在大模型里的两个直接化身：</text>
+
+  <rect x="36" y="434" width="448" height="68" fill="#1e293b" stroke="#334155" rx="6"/>
+  <text x="48" y="454" font-size="12" font-weight="bold" fill="#fbbf24">化身 A：只留影子 p（多头注意力读取 &amp; 可解释性探针）</text>
+  <text x="48" y="474" font-size="11" fill="#e2e8f0">• 残差流 4096 维混着万物，单头乘 [4096, 64] 就是把向量投影到 64 维子空间，</text>
+  <text x="48" y="492" font-size="11" fill="#94a3b8">  只取这个头关心的“影子 p”，把其余 4032 维无关余项 r 统统滤掉。</text>
+
+  <rect x="36" y="512" width="448" height="68" fill="#1e293b" stroke="#334155" rx="6"/>
+  <text x="48" y="532" font-size="12" font-weight="bold" fill="#a78bfa">化身 B：剪掉影子 p、只留垂直余项 r（131 期 Abliteration 去拒绝手术）</text>
+  <text x="48" y="552" font-size="11" fill="#e2e8f0">• 找到“拒绝方向”单位向量 û，执行 r = x - (x · û) û，恰好把拒绝影子 p 减成 0，</text>
+  <text x="48" y="570" font-size="11" fill="#94a3b8">  留下的余项 r 与拒绝方向严格垂直（点积为 0），其他知识毫发无伤。</text>
+</svg>

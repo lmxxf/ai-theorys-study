@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 620" width="520" height="620" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="520" height="620" fill="#f8fafc" rx="12"/>
+  <text x="260" y="34" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">换基（Change of Basis）：同一个向量，两套坐标系</text>
+  <text x="260" y="54" font-size="11.5" fill="#64748b" text-anchor="middle">向量客观位置半毫米没挪，换一套“基础方向词汇表”，坐标数字就全变了</text>
+
+  <defs>
+    <marker id="arr-slate" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#64748b"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#0284c7"/>
+    </marker>
+    <marker id="arr-green" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-red" markerWidth="6.5" markerHeight="6.5" refX="5.5" refY="3.25" orient="auto">
+      <path d="M0 0 L6.5 3.25 L0 6.5 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Panel 1: Standard Basis -->
+  <rect x="20" y="70" width="480" height="245" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="70" width="480" height="32" fill="#e0f2fe" rx="8"/>
+  <text x="34" y="91" font-size="13" font-weight="bold" fill="#0369a1">① 默认标准基：e₁ = (1, 0) 往东，e₂ = (0, 1) 往北 → 坐标是 (3, 1)</text>
+
+  <!-- Coordinate System 1: Origin at (75, 240), scale = 48px per unit -->
+  <!-- Grid lines -->
+  <g stroke="#e2e8f0" stroke-width="1">
+    <line x1="75" y1="120" x2="75" y2="280"/>
+    <line x1="123" y1="120" x2="123" y2="280"/>
+    <line x1="171" y1="120" x2="171" y2="280"/>
+    <line x1="219" y1="120" x2="219" y2="280"/>
+    <line x1="267" y1="120" x2="267" y2="280"/>
+    <line x1="48" y1="240" x2="290" y2="240"/>
+    <line x1="48" y1="192" x2="290" y2="192"/>
+    <line x1="48" y1="144" x2="290" y2="144"/>
+  </g>
+  <!-- Axes -->
+  <line x1="48" y1="240" x2="290" y2="240" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr-slate)"/>
+  <line x1="75" y1="280" x2="75" y2="120" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr-slate)"/>
+
+  <!-- Basis vectors e1=(1,0)->(123,240), e2=(0,1)->(75,192) -->
+  <line x1="75" y1="240" x2="123" y2="240" stroke="#0284c7" stroke-width="2.8" marker-end="url(#arr-blue)"/>
+  <line x1="75" y1="240" x2="75" y2="192" stroke="#0284c7" stroke-width="2.8" marker-end="url(#arr-blue)"/>
+  <text x="100" y="258" font-size="11" font-weight="bold" fill="#0369a1" text-anchor="middle">e₁=(1,0)</text>
+  <text x="54" y="216" font-size="11" font-weight="bold" fill="#0369a1" text-anchor="middle">e₂</text>
+
+  <!-- Step path: 3*e1 to (219,240), then + 1*e2 to (219,192) -->
+  <line x1="75" y1="240" x2="219" y2="240" stroke="#0284c7" stroke-width="2" stroke-dasharray="5 3"/>
+  <line x1="219" y1="240" x2="219" y2="192" stroke="#0284c7" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="164" y="256" font-size="11" fill="#0369a1">往东 3 步：3 × e₁</text>
+  <text x="226" y="220" font-size="11" fill="#0369a1">往北 1 步：1 × e₂</text>
+
+  <!-- Target vector x=(3,1) -> (219, 192) -->
+  <line x1="75" y1="240" x2="219" y2="192" stroke="#dc2626" stroke-width="2.8" marker-end="url(#arr-red)"/>
+  <circle cx="75" cy="240" r="3.5" fill="#0f172a"/>
+  <circle cx="219" cy="192" r="3.8" fill="#dc2626"/>
+  <text x="226" y="184" font-size="12" font-weight="bold" fill="#dc2626">目标向量 x</text>
+
+  <!-- Explanation box on right -->
+  <rect x="330" y="114" width="158" height="184" fill="#f0f9ff" stroke="#bae6fd" rx="6"/>
+  <text x="340" y="136" font-size="12" font-weight="bold" fill="#0369a1">默认菜单点菜：</text>
+  <text x="340" y="158" font-size="11.5" fill="#334155">x = 3 × (1, 0)</text>
+  <text x="340" y="176" font-size="11.5" fill="#334155">  + 1 × (0, 1)</text>
+  <text x="340" y="202" font-size="12" font-weight="bold" fill="#dc2626">坐标 = (3, 1)</text>
+  <text x="340" y="228" font-size="10.8" fill="#475569">• 第 1 通道 = 3（偏大）</text>
+  <text x="340" y="246" font-size="10.8" fill="#475569">• 第 2 通道 = 1（偏小）</text>
+  <text x="340" y="268" font-size="10.5" fill="#64748b">（好比默认通道里出现</text>
+  <text x="340" y="284" font-size="10.5" fill="#64748b">  一高一低的尖峰）</text>
+
+  <!-- Panel 2: Rotated / New Basis -->
+  <rect x="20" y="328" width="480" height="274" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="328" width="480" height="32" fill="#dcfce7" rx="8"/>
+  <text x="34" y="349" font-size="13" font-weight="bold" fill="#166534">② 换到斜向新基：b₁ = (1, 1) 东北，b₂ = (1, -1) 东南 → 坐标变成 (2, 1)</text>
+
+  <!-- Coordinate System 2: Origin at (75, 490), scale = 48px per unit -->
+  <g stroke="#f1f5f9" stroke-width="1">
+    <line x1="75" y1="375" x2="75" y2="555"/>
+    <line x1="123" y1="375" x2="123" y2="555"/>
+    <line x1="171" y1="375" x2="171" y2="555"/>
+    <line x1="219" y1="375" x2="219" y2="555"/>
+    <line x1="48" y1="490" x2="290" y2="490"/>
+    <line x1="48" y1="442" x2="290" y2="442"/>
+    <line x1="48" y1="394" x2="290" y2="394"/>
+    <line x1="48" y1="538" x2="290" y2="538"/>
+  </g>
+  <line x1="48" y1="490" x2="290" y2="490" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="75" y1="555" x2="75" y2="375" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- New basis vectors: b1=(1,1)->(123,442), b2=(1,-1)->(123,538) -->
+  <!-- Step path: 2*b1 = (2,2)->(171,394), then + 1*b2 = (3,1)->(219,442) -->
+  <line x1="75" y1="490" x2="171" y2="394" stroke="#059669" stroke-width="2" stroke-dasharray="5 3"/>
+  <line x1="171" y1="394" x2="219" y2="442" stroke="#059669" stroke-width="2" stroke-dasharray="5 3"/>
+  <circle cx="171" cy="394" r="3" fill="#059669"/>
+  <text x="108" y="388" font-size="11" font-weight="bold" fill="#047857" text-anchor="middle">东北 2 步：2×b₁</text>
+  <text x="238" y="412" font-size="11" font-weight="bold" fill="#047857" text-anchor="middle">东南 1 步：+1×b₂</text>
+
+  <!-- Basis vectors b1 and b2 -->
+  <line x1="75" y1="490" x2="123" y2="442" stroke="#059669" stroke-width="2.8" marker-end="url(#arr-green)"/>
+  <line x1="75" y1="490" x2="123" y2="538" stroke="#059669" stroke-width="2.8" marker-end="url(#arr-green)"/>
+  <text x="128" y="454" font-size="11" font-weight="bold" fill="#166534">b₁=(1,1)</text>
+  <text x="128" y="542" font-size="11" font-weight="bold" fill="#166534">b₂=(1,-1)</text>
+
+  <!-- Same target vector x -> (219, 442) -->
+  <line x1="75" y1="490" x2="219" y2="442" stroke="#dc2626" stroke-width="2.8" marker-end="url(#arr-red)"/>
+  <circle cx="75" cy="490" r="3.5" fill="#0f172a"/>
+  <circle cx="219" cy="442" r="3.8" fill="#dc2626"/>
+  <text x="226" y="446" font-size="12" font-weight="bold" fill="#dc2626">同一个向量 x</text>
+
+  <!-- Explanation box on right -->
+  <rect x="330" y="370" width="158" height="216" fill="#f0fdf4" stroke="#86efac" rx="6"/>
+  <text x="340" y="392" font-size="12" font-weight="bold" fill="#166534">新菜单点菜：</text>
+  <text x="340" y="414" font-size="11.5" fill="#334155">x = 2 × (1, 1)</text>
+  <text x="340" y="432" font-size="11.5" fill="#334155">  + 1 × (1, -1)</text>
+  <text x="340" y="458" font-size="12" font-weight="bold" fill="#15803d">新坐标 = (2, 1)</text>
+  <text x="340" y="484" font-size="10.8" fill="#334155">• 红色箭头位置没变，</text>
+  <text x="340" y="502" font-size="10.8" fill="#334155">  只是换了参考方向</text>
+  <text x="340" y="524" font-size="10.8" font-weight="bold" fill="#b45309">• 工程锚点（357 期）：</text>
+  <text x="340" y="542" font-size="10.5" fill="#475569">  Hadamard 旋转量化就</text>
+  <text x="340" y="558" font-size="10.5" fill="#475569">  是换到斜基，把单通道</text>
+  <text x="340" y="574" font-size="10.5" fill="#475569">  尖峰平摊给所有邻居</text>
+</svg>
