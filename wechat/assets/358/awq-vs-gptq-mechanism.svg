@@ -22,9 +22,9 @@
   <text x="48" y="249" font-size="10.8" font-weight="bold" fill="#15803d">② 激活缩小后相乘：(100 ÷ 2) × 0.75 = 50 × 0.75 = 37.5  →  误差从 10.0 降到 2.5</text>
 
   <rect x="36" y="274" width="448" height="60" fill="#f1f5f9" stroke="#94a3b8" rx="6"/>
-  <text x="48" y="294" font-size="11" font-weight="bold" fill="#0f172a">【问】为什么不干脆把这 1% 权重单独留成 FP16？</text>
-  <text x="48" y="313" font-size="10.5" fill="#334155">因为 99% 的 4-bit 里夹杂 1% 的 16-bit 会打乱内存对齐、卡死 GPU 张量核心；乘 s 后全员</text>
-  <text x="48" y="328" font-size="10.5" fill="#334155">仍是整整齐齐的 4-bit，缩放因子 s 还能顺手融进上一层归一化层里，推理零额外开销。</text>
+  <text x="48" y="294" font-size="11" font-weight="bold" fill="#0f172a">【问】为什么不能等累加器出锅再除以 2，非要提前把对面激活值除以 2？</text>
+  <text x="48" y="313" font-size="10.5" fill="#334155">因为 128 个通道里只有第 1 个乘了 2、其余 127 个没乘，进锅混加在一起就分不开了；</text>
+  <text x="48" y="328" font-size="10.5" fill="#334155">把 ÷2 提前融进上一层归一化参数里，进锅前刚好抵消，且算子无需额外做逐列除法。</text>
 
   <!-- Box 2: GPTQ -->
   <rect x="20" y="364" width="480" height="286" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
