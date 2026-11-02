@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.55" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#090d16"/>
+    </linearGradient>
+    <pattern id="hatch" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#f87171" stroke-width="3"/>
+    </pattern>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#4ade80"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- Header Badge & Title -->
+  <rect x="44" y="30" width="186" height="30" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1.2" rx="15"/>
+  <text x="137" y="50" font-size="13.5" font-weight="bold" fill="#93c5fd" text-anchor="middle">AI 量化 · No.358</text>
+
+  <text x="44" y="96" font-size="29" font-weight="bold" fill="#f8fafc">不训练模型，喂 128 句话进去到底干了啥？</text>
+  <text x="44" y="130" font-size="17" fill="#94a3b8">手算并实测 AWQ 与 GPTQ 的「校准集 X 光片」：从 1% 大激活通道到海森矩阵木工找平</text>
+
+  <!-- Left Visual Panel: X-Ray of W vs X -->
+  <rect x="44" y="154" width="388" height="276" fill="#111827" stroke="#334155" stroke-width="1.5" rx="12"/>
+  <rect x="44" y="154" width="388" height="36" fill="#1e293b" rx="12"/>
+  <text x="62" y="177" font-size="14.5" font-weight="bold" fill="#38bdf8">① 校准集 X 光片：权重 W 很平，激活 X 藏着大尖峰</text>
+
+  <!-- Flat W bars -->
+  <text x="64" y="212" font-size="12" font-weight="bold" fill="#94a3b8">静态权重 W（各通道高矮差不多，277 号反而仅 0.33×）：</text>
+  <line x1="64" y1="256" x2="408" y2="256" stroke="#475569" stroke-width="1.5"/>
+  <rect x="78" y="234" width="28" height="22" fill="#475569" rx="2"/>
+  <rect x="116" y="232" width="28" height="24" fill="#475569" rx="2"/>
+  <rect x="154" y="235" width="28" height="21" fill="#475569" rx="2"/>
+  <rect x="192" y="248" width="28" height="8" fill="#f59e0b" rx="2"/>
+  <text x="206" y="241" font-size="10" font-weight="bold" fill="#fbbf24" text-anchor="middle">0.33×</text>
+  <rect x="230" y="233" width="28" height="23" fill="#475569" rx="2"/>
+  <rect x="268" y="231" width="28" height="25" fill="#475569" rx="2"/>
+  <rect x="306" y="234" width="28" height="22" fill="#475569" rx="2"/>
+  <rect x="344" y="233" width="28" height="23" fill="#475569" rx="2"/>
+
+  <!-- Spiky X bars -->
+  <text x="64" y="286" font-size="12" font-weight="bold" fill="#fca5a5">输入激活 X（1% 大激活通道高达 33.4×，平方能量 745×）：</text>
+  <line x1="64" y1="398" x2="408" y2="398" stroke="#475569" stroke-width="1.5"/>
+  <rect x="78" y="388" width="28" height="10" fill="#64748b" rx="2"/>
+  <rect x="116" y="387" width="28" height="11" fill="#64748b" rx="2"/>
+  <rect x="154" y="389" width="28" height="9" fill="#64748b" rx="2"/>
+  <rect x="192" y="312" width="28" height="86" fill="#ef4444" stroke="#fca5a5" stroke-width="1.2" rx="3"/>
+  <text x="206" y="305" font-size="11" font-weight="bold" fill="#f87171" text-anchor="middle">277号 (33.4×)</text>
+  <rect x="230" y="388" width="28" height="10" fill="#64748b" rx="2"/>
+  <rect x="268" y="362" width="28" height="36" fill="#f97316" rx="2"/>
+  <text x="282" y="356" font-size="10.5" font-weight="bold" fill="#fb923c" text-anchor="middle">62号 (11.1×)</text>
+  <rect x="306" y="388" width="28" height="10" fill="#64748b" rx="2"/>
+  <rect x="344" y="387" width="28" height="11" fill="#64748b" rx="2"/>
+
+  <text x="238" y="418" font-size="11.5" font-weight="bold" fill="#fde047" text-anchor="middle">直接四舍五入（RTN）：1% 通道占了过半单通道平方误差</text>
+
+  <!-- Right Visual Panel: AWQ vs GPTQ & SNR Paradox -->
+  <rect x="456" y="154" width="400" height="276" fill="#111827" stroke="#334155" stroke-width="1.5" rx="12"/>
+  <rect x="456" y="154" width="400" height="36" fill="#1e293b" rx="12"/>
+  <text x="474" y="177" font-size="14.5" font-weight="bold" fill="#4ade80">② AWQ 缩放防弹衣 vs GPTQ 海森矩阵木工找平</text>
+
+  <!-- Mini visual of GPTQ area compensation -->
+  <line x1="484" y1="306" x2="720" y2="306" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="496" y="286" width="116" height="20" fill="url(#hatch)" stroke="#f87171" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <text x="554" y="278" font-size="11" font-weight="bold" fill="#f87171" text-anchor="middle">w1 砍成 0（亏 4.0 分）</text>
+  <text x="554" y="324" font-size="11" fill="#94a3b8" text-anchor="middle">第 1 列：x1 = 10</text>
+
+  <path d="M 554 264 C 554 212, 642 212, 666 238" fill="none" stroke="#4ade80" stroke-width="2.5" marker-end="url(#arr-green)"/>
+  <text x="576" y="208" font-size="11" font-weight="bold" fill="#4ade80" text-anchor="middle">按 X^T×X 汇率补 +4.0 分</text>
+
+  <rect x="656" y="280" width="38" height="26" fill="#8b5cf6" stroke="#c4b5fd" stroke-width="1.2"/>
+  <rect x="656" y="228" width="38" height="52" fill="#22c55e" stroke="#86efac" stroke-width="1.2"/>
+  <text x="675" y="220" font-size="11.5" font-weight="bold" fill="#4ade80" text-anchor="middle">w2: 1→3</text>
+  <text x="675" y="324" font-size="11" fill="#94a3b8" text-anchor="middle">第 2 列：x2 = 2</text>
+
+  <rect x="730" y="232" width="108" height="74" fill="#052e16" stroke="#22c55e" stroke-width="1.5" rx="8"/>
+  <text x="784" y="256" font-size="12" font-weight="bold" fill="#86efac" text-anchor="middle">GPTQ 总输出</text>
+  <text x="784" y="280" font-size="16" font-weight="bold" fill="#4ade80" text-anchor="middle">2 × 3 = 6.0</text>
+  <text x="784" y="297" font-size="10.5" fill="#bbf7d0" text-anchor="middle">零误差找平</text>
+
+  <!-- Bottom SNR Paradox Box inside Right Panel -->
+  <rect x="474" y="340" width="364" height="74" fill="#0f172a" stroke="#475569" stroke-width="1.2" rx="8"/>
+  <text x="656" y="362" font-size="12" font-weight="bold" fill="#38bdf8" text-anchor="middle">Qwen3-0.6B（4-bit g=128）权重 SNR vs 输出 SNR 倒挂：</text>
+  <text x="656" y="383" font-size="11.5" fill="#fca5a5" text-anchor="middle">• RTN 免校准：权重 SNR 18.28 dB（最高） → 输出 19.09 dB（PPL 85.10）</text>
+  <text x="656" y="403" font-size="11.5" font-weight="bold" fill="#4ade80" text-anchor="middle">• GPTQ 找平：权重 SNR 15.03 dB（最低） → 输出 35.47 dB（PPL 66.30）</text>
+
+  <!-- Footer Quote -->
+  <text x="450" y="468" font-size="14" font-weight="bold" fill="#cbd5e1" text-anchor="middle">「单看静态权重越是寸步不让的傻瓜舍入，乘上真实输入后反而偏得最远；唯有让次要参数替主干背锅，层输出才能严丝合缝」</text>
+</svg>

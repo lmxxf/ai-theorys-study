@@ -191,9 +191,9 @@ def main():
     model = AutoModelForCausalLM.from_pretrained(model_id, dtype=torch.bfloat16, local_files_only=True).to(DEVICE)
     model.eval()
 
-    # 16 diverse calibration passages (simulating the standard calibration set)
+    # 16 diverse calibration passages (strictly disjoint from eval_texts)
     calib_texts = [
-        "In computer architecture, floating-point representation trades precision for dynamic range, whereas integer arithmetic provides uniform step sizes across the representable interval.",
+        "Modern microprocessors employ superscalar out-of-order execution pipelines, branch target buffers, and non-blocking caches to maximize instruction-level parallelism.",
         "Post-training quantization compresses neural network weights from 16-bit floating-point to 4-bit integers without backpropagation or gradient updates.",
         "Activation-aware weight quantization observes that a small fraction of input channels carry significantly larger activation magnitudes across all tokens.",
         "Optimal Brain Surgeon and GPTQ use the inverse Hessian matrix of layer inputs to compensate quantization rounding errors across correlated weight columns.",
@@ -332,6 +332,8 @@ def main():
     x_rep = layer_inputs[rep_layer]["mlp_in"]
     w_rep = model.model.layers[rep_layer].mlp.up_proj.weight.data.float()
     act_ch = x_rep.abs().mean(dim=0)
+    h_diag_rep = (x_rep ** 2).mean(dim=0)
+    h_diag_med = h_diag_rep.median().item()
     w_ch = w_rep.abs().mean(dim=0)
     top5_vals, top5_idx = torch.topk(act_ch, k=5)
     rep_detail = {
@@ -339,12 +341,14 @@ def main():
         "input_type": "mlp_in (up_proj / gate_proj)",
         "num_channels": x_rep.shape[1],
         "median_act_abs": round(act_ch.median().item(), 4),
+        "median_hessian_diag": round(h_diag_med, 4),
         "top5_channels": [
             {
                 "ch_idx": int(idx.item()),
                 "act_abs_mean": round(val.item(), 4),
                 "ratio_to_median": round(val.item() / act_ch.median().item(), 2),
-                "hessian_ratio_to_median": round((val.item() / act_ch.median().item()) ** 2, 1),
+                "ratio_sq_to_median": round((val.item() / act_ch.median().item()) ** 2, 1),
+                "hessian_diag_ratio_to_median": round((h_diag_rep[idx].item() / h_diag_med), 1),
                 "weight_abs_mean": round(w_ch[idx].item(), 5),
                 "weight_ratio_to_median": round(w_ch[idx].item() / w_ch.median().item(), 2),
             }
@@ -448,6 +452,7 @@ def main():
     }
 
     configs = [
+        ("w4_g16_rtn", "rtn", 4, 16),
         ("w4_g128_rtn", "rtn", 4, 128),
         ("w4_g128_awq_top1_x2", "awq_top1_x2", 4, 128),
         ("w4_g128_awq", "awq", 4, 128),

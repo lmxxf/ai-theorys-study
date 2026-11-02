@@ -21,7 +21,7 @@ SVG1 = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 630" width="5
   <rect x="20" y="72" width="480" height="32" fill="#dcfce7" rx="8"/>
   <text x="34" y="93" font-size="13" font-weight="bold" fill="#166534">① 只看权重矩阵 W：被优化器揉得像镜面一样平（看不出谁重要）</text>
 
-  <text x="36" y="122" font-size="11" fill="#334155">• 预训练全程开着 AdamW 权重衰减，全网 28 层各通道权重均值高度均匀：</text>
+  <text x="36" y="122" font-size="11" fill="#334155">• 实测 Qwen3-0.6B 全网 28 层静态权重矩阵，各通道平均幅度非常平缓：</text>
   <rect x="36" y="134" width="448" height="68" fill="#f0fdf4" stroke="#86efac" rx="6"/>
   <text x="48" y="154" font-size="11" font-weight="bold" fill="#15803d">普通通道权重均值（中位数）：</text>
   <rect x="220" y="142" width="110" height="16" fill="#22c55e" rx="3"/>
@@ -52,23 +52,23 @@ SVG1 = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 630" width="5
 
   <text x="48" y="382" font-size="11" font-weight="bold" fill="#b91c1c">第 62 号大激活通道：</text>
   <rect x="162" y="370" width="84" height="16" fill="#ef4444" rx="2"/>
-  <text x="254" y="382" font-size="11" font-weight="bold" fill="#991b1b">6.10（中位数的 11.20×，平方重要性 125.6×）</text>
+  <text x="254" y="382" font-size="11" font-weight="bold" fill="#991b1b">6.05（中位数的 11.13×，二阶能量 105.3×）</text>
 
   <text x="48" y="406" font-size="11" font-weight="bold" fill="#7f1d1d">第 277 号大激活通道：</text>
   <rect x="162" y="394" width="210" height="16" fill="#dc2626" rx="2"/>
-  <text x="380" y="406" font-size="11" font-weight="bold" fill="#7f1d1d">18.30（33.63×）</text>
+  <text x="380" y="406" font-size="11" font-weight="bold" fill="#7f1d1d">18.17（33.42×）</text>
 
-  <text x="48" y="430" font-size="11" font-weight="bold" fill="#991b1b">→ 277 号通道的海森对角线重要性（X²）：高达普通通道中位数的 1,131.2 倍</text>
+  <text x="48" y="430" font-size="11" font-weight="bold" fill="#991b1b">→ 277 号通道的二阶能量 mean(X²)：高达普通通道中位数的 744.7 倍</text>
 
-  <text x="36" y="464" font-size="10.5" fill="#334155">• 全网 28 层平均：attn_in 最大通道为中位数的 34.0×，mlp_in 为 36.2×，down_in 峰值达 337.5×。</text>
-  <text x="36" y="483" font-size="10.5" fill="#334155">• 为什么 277 号通道权重反而小（0.33×）？正因为输入常年达 18.3，训练时权重被迫压小防爆炸。</text>
+  <text x="36" y="464" font-size="10.5" fill="#334155">• 全网 28 层平均：attn_in 最大通道为中位数的 34.0×，mlp_in 为 35.9×，down_in 峰值达 334.9×。</text>
+  <text x="36" y="483" font-size="10.5" fill="#334155">• 为什么 277 号通道权重反而小（0.33×）？正因为输入常年达 18.2，训练时权重被压小防输出过大。</text>
 
   <!-- Box 3: Bottom Verdict -->
   <rect x="20" y="512" width="480" height="98" fill="#0f172a" rx="8"/>
   <text x="260" y="537" font-size="13" font-weight="bold" fill="#f87171" text-anchor="middle">③ 免校准直接四舍五入（RTN）的灾难账单：</text>
   <text x="260" y="560" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">输出误差 = 激活值 X × 权重舍入误差 ΔW</text>
   <text x="260" y="582" font-size="11" font-weight="bold" fill="#fde047" text-anchor="middle">实测在 q/k/v 与 gate/up 层中，仅占 1%（10 个）的大激活值通道，</text>
-  <text x="260" y="600" font-size="11" font-weight="bold" fill="#fde047" text-anchor="middle">乘上巨大激活值后，竟贡献了整层超过一半（50.7% 至 51.4%）的输出误差能量</text>
+  <text x="260" y="600" font-size="11" font-weight="bold" fill="#fde047" text-anchor="middle">乘上巨大激活值后，竟占了整层单通道误差平方和的一半以上（50.6% 至 51.0%）</text>
 </svg>
 """
 
@@ -207,23 +207,23 @@ SVG3 = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 600" width="5
 
   <!-- Row 2: 4-bit AWQ top1% x2 -->
   <text x="34" y="178" font-size="11" font-weight="bold" fill="#b45309">② AWQ 前1%×2</text>
-  <rect x="142" y="164" width="135" height="18" fill="#f59e0b" rx="3"/>
-  <text x="283" y="178" font-size="11" font-weight="bold" fill="#b45309">80.13</text>
-  <text x="356" y="178" font-size="10.5" fill="#475569">18.10 → 20.08 dB</text>
+  <rect x="142" y="164" width="136" height="18" fill="#f59e0b" rx="3"/>
+  <text x="284" y="178" font-size="11" font-weight="bold" fill="#b45309">80.53</text>
+  <text x="356" y="178" font-size="10.5" fill="#475569">18.11 → 20.09 dB</text>
 
   <!-- Row 3: 4-bit AWQ full -->
-  <text x="34" y="210" font-size="11" font-weight="bold" fill="#0369a1">③ AWQ 完整版</text>
-  <rect x="142" y="196" width="128" height="18" fill="#0ea5e9" rx="3"/>
-  <text x="276" y="210" font-size="11" font-weight="bold" fill="#0369a1">75.82</text>
-  <text x="356" y="210" font-size="10.5" fill="#475569">17.85 → 20.97 dB</text>
+  <text x="34" y="210" font-size="11" font-weight="bold" fill="#0369a1">③ AWQ 搜索α</text>
+  <rect x="142" y="196" width="120" height="18" fill="#0ea5e9" rx="3"/>
+  <text x="268" y="210" font-size="11" font-weight="bold" fill="#0369a1">70.76</text>
+  <text x="356" y="210" font-size="10.5" fill="#475569">17.82 → 20.95 dB</text>
 
   <!-- Row 4: 4-bit GPTQ -->
   <text x="34" y="242" font-size="11" font-weight="bold" fill="#15803d">④ GPTQ 找平</text>
-  <rect x="142" y="228" width="102" height="18" fill="#22c55e" rx="3"/>
-  <text x="250" y="242" font-size="11" font-weight="bold" fill="#15803d">60.50</text>
-  <text x="356" y="242" font-size="10.5" font-weight="bold" fill="#15803d">15.03 → 35.46 dB</text>
+  <rect x="142" y="228" width="112" height="18" fill="#22c55e" rx="3"/>
+  <text x="260" y="242" font-size="11" font-weight="bold" fill="#15803d">66.30</text>
+  <text x="356" y="242" font-size="10.5" font-weight="bold" fill="#15803d">15.03 → 35.47 dB</text>
 
-  <text x="260" y="292" font-size="10" fill="#334155" text-anchor="middle">• 倒挂现象：GPTQ 权重本身 SNR 最低（15.03 dB），但乘上激活 X 后输出 SNR 飙至 35.46 dB</text>
+  <text x="260" y="292" font-size="10" fill="#334155" text-anchor="middle">• 倒挂现象：GPTQ 权重本身 SNR 最低（15.03 dB），但乘上激活 X 后输出 SNR 飙至 35.47 dB</text>
 
   <!-- Box 2: 3-bit (g=128) — exact same layout! -->
   <rect x="20" y="316" width="480" height="266" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
@@ -244,26 +244,26 @@ SVG3 = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 600" width="5
 
   <!-- Row 2: 3-bit AWQ top1% x2 -->
   <text x="34" y="428" font-size="11" font-weight="bold" fill="#b45309">② AWQ 前1%×2</text>
-  <rect x="142" y="414" width="76" height="18" fill="#f59e0b" rx="3"/>
-  <text x="224" y="428" font-size="11" font-weight="bold" fill="#b45309">558.95</text>
+  <rect x="142" y="414" width="80" height="18" fill="#f59e0b" rx="3"/>
+  <text x="228" y="428" font-size="11" font-weight="bold" fill="#b45309">616.35</text>
   <text x="356" y="428" font-size="10.5" fill="#475569">10.78 → 12.83 dB</text>
 
   <!-- Row 3: 3-bit AWQ full -->
-  <text x="34" y="460" font-size="11" font-weight="bold" fill="#0369a1">③ AWQ 完整版</text>
-  <rect x="142" y="446" width="52" height="18" fill="#0ea5e9" rx="3"/>
-  <text x="200" y="460" font-size="11" font-weight="bold" fill="#0369a1">346.62</text>
-  <text x="356" y="460" font-size="10.5" fill="#475569">10.51 → 13.65 dB</text>
+  <text x="34" y="460" font-size="11" font-weight="bold" fill="#0369a1">③ AWQ 搜索α</text>
+  <rect x="142" y="446" width="58" height="18" fill="#0ea5e9" rx="3"/>
+  <text x="206" y="460" font-size="11" font-weight="bold" fill="#0369a1">426.69</text>
+  <text x="356" y="460" font-size="10.5" fill="#475569">10.54 → 13.64 dB</text>
 
   <!-- Row 4: 3-bit GPTQ -->
   <text x="34" y="492" font-size="11" font-weight="bold" fill="#15803d">④ GPTQ 找平</text>
-  <rect x="142" y="478" width="30" height="18" fill="#22c55e" rx="3"/>
-  <text x="178" y="492" font-size="11" font-weight="bold" fill="#15803d">188.93</text>
+  <rect x="142" y="478" width="36" height="18" fill="#22c55e" rx="3"/>
+  <text x="184" y="492" font-size="11" font-weight="bold" fill="#15803d">235.78</text>
   <text x="356" y="492" font-size="10.5" font-weight="bold" fill="#15803d"> 7.75 → 28.15 dB</text>
 
   <!-- Summary footer bar -->
   <rect x="34" y="514" width="452" height="54" fill="#0f172a" rx="6"/>
-  <text x="260" y="535" font-size="10.2" font-weight="bold" fill="#fde047" text-anchor="middle">总结：AWQ 是 2023 年早期省事方案，压模型快（3.5s vs 44.5s）但精度上限一般（75.82）</text>
-  <text x="260" y="554" font-size="10.2" fill="#cbd5e1" text-anchor="middle">GPTQ 靠海森矩阵让后排权重替前排背锅，4-bit 逼近 BF16（60.50），3-bit 比 RTN 低 10 倍</text>
+  <text x="260" y="535" font-size="10.2" font-weight="bold" fill="#fde047" text-anchor="middle">总结：AWQ 通道缩放原型速度快（3.6s vs 40.6s），但缩放倍率受同组邻居尺子制约（70.76）</text>
+  <text x="260" y="554" font-size="10.2" fill="#cbd5e1" text-anchor="middle">GPTQ 靠海森矩阵让后排权重替前排背锅，4-bit 达 66.30（追平 g=16），3-bit 较 RTN 降 87%</text>
 </svg>
 """
 
