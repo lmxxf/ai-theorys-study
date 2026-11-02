@@ -1,71 +1,86 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 620" width="520" height="620" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
-  <rect width="520" height="620" fill="#f8fafc" rx="12"/>
-  <text x="260" y="34" font-size="15.5" font-weight="bold" fill="#0f172a" text-anchor="middle">Qwen3-0.6B 真机实测：RTN vs AWQ vs GPTQ（4-bit 与 3-bit）</text>
-  <text x="260" y="54" font-size="11" fill="#64748b" text-anchor="middle">RTX 3080 Laptop 实测数据：权重信噪比越低，层输出信噪比反而越高</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 600" width="520" height="600" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="520" height="600" fill="#f8fafc" rx="12"/>
+  <text x="260" y="32" font-size="15.5" font-weight="bold" fill="#0f172a" text-anchor="middle">Qwen3-0.6B 真机实测：RTN vs AWQ vs GPTQ（4-bit 与 3-bit）</text>
+  <text x="260" y="52" font-size="11" fill="#64748b" text-anchor="middle">柱条越短代表困惑度 PPL 越低（原版 BF16 基准 = 56.55）│ 右侧对比权重与输出信噪比</text>
 
-  <!-- Box 1: 4-bit SNR Paradox -->
-  <rect x="20" y="72" width="480" height="252" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
-  <rect x="20" y="72" width="480" height="32" fill="#e0e7ff" rx="8"/>
-  <text x="34" y="93" font-size="13" font-weight="bold" fill="#3730a3">① 4-bit（g=128）反直觉现象：权重本身 SNR vs 乘上 X 后的输出 SNR</text>
+  <!-- Box 1: 4-bit (g=128) -->
+  <rect x="20" y="68" width="480" height="236" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="68" width="480" height="30" fill="#e0e7ff" rx="8"/>
+  <text x="34" y="88" font-size="12" font-weight="bold" fill="#3730a3">① 4-bit（g=128）实测：GPTQ 权重 SNR 最低，但输出最准、PPL 紧贴原版</text>
 
-  <text x="36" y="120" font-size="11" fill="#475569">（注：原始 BF16 基准困惑度 PPL = 56.55；SNR 越高代表越接近原版 BF16）</text>
+  <!-- Column headers -->
+  <text x="34" y="116" font-size="10.5" font-weight="bold" fill="#64748b">量化方案</text>
+  <text x="142" y="116" font-size="10.5" font-weight="bold" fill="#64748b">端到端困惑度 PPL（↓ 越短越好）</text>
+  <text x="356" y="116" font-size="10.5" font-weight="bold" fill="#64748b">权重 SNR → 输出 SNR</text>
+  <line x1="34" y1="123" x2="486" y2="123" stroke="#e2e8f0" stroke-width="1"/>
 
-  <!-- Table/Bars inside Box 1 -->
-  <rect x="36" y="130" width="448" height="142" fill="#f8fafc" stroke="#cbd5e1" rx="6"/>
-  <text x="46" y="150" font-size="10.8" font-weight="bold" fill="#0f172a">方案名称</text>
-  <text x="152" y="150" font-size="10.8" font-weight="bold" fill="#0f172a">权重本身 SNR</text>
-  <text x="255" y="150" font-size="10.8" font-weight="bold" fill="#0f172a">校准/留出输出 SNR</text>
-  <text x="382" y="150" font-size="10.8" font-weight="bold" fill="#0f172a">端到端 PPL (↓)</text>
-  <line x1="36" y1="158" x2="484" y2="158" stroke="#cbd5e1" stroke-width="1"/>
+  <!-- BF16 reference dashed line at x = 142 + 95 = 237 -->
+  <line x1="237" y1="126" x2="237" y2="256" stroke="#64748b" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="237" y="270" font-size="9.5" fill="#475569" text-anchor="middle">▲ BF16 基准 (56.55)</text>
 
-  <text x="46" y="180" font-size="10.8" font-weight="bold" fill="#dc2626">RTN（免校准）</text>
-  <text x="152" y="180" font-size="10.8" font-weight="bold" fill="#16a34a">18.28 dB (最高)</text>
-  <text x="258" y="180" font-size="10.8" fill="#dc2626">19.08 / 19.17 dB</text>
-  <text x="382" y="180" font-size="10.8" font-weight="bold" fill="#dc2626">85.10 (最差)</text>
+  <!-- Row 1: 4-bit RTN -->
+  <text x="34" y="146" font-size="11" font-weight="bold" fill="#991b1b">① RTN 免校准</text>
+  <rect x="142" y="132" width="144" height="18" fill="#ef4444" rx="3"/>
+  <text x="292" y="146" font-size="11" font-weight="bold" fill="#991b1b">85.10</text>
+  <text x="356" y="146" font-size="10.5" fill="#475569">18.28 → 19.08 dB</text>
 
-  <text x="46" y="206" font-size="10.8" font-weight="bold" fill="#d97706">AWQ (前1%×2)</text>
-  <text x="152" y="206" font-size="10.8" fill="#334155">18.10 dB</text>
-  <text x="258" y="206" font-size="10.8" fill="#d97706">20.08 / 20.22 dB</text>
-  <text x="382" y="206" font-size="10.8" font-weight="bold" fill="#d97706">80.13</text>
+  <!-- Row 2: 4-bit AWQ top1% x2 -->
+  <text x="34" y="178" font-size="11" font-weight="bold" fill="#b45309">② AWQ 前1%×2</text>
+  <rect x="142" y="164" width="135" height="18" fill="#f59e0b" rx="3"/>
+  <text x="283" y="178" font-size="11" font-weight="bold" fill="#b45309">80.13</text>
+  <text x="356" y="178" font-size="10.5" fill="#475569">18.10 → 20.08 dB</text>
 
-  <text x="46" y="232" font-size="10.8" font-weight="bold" fill="#0284c7">AWQ (网格搜索)</text>
-  <text x="152" y="232" font-size="10.8" fill="#334155">17.85 dB</text>
-  <text x="258" y="232" font-size="10.8" fill="#0284c7">20.97 / 21.12 dB</text>
-  <text x="382" y="232" font-size="10.8" font-weight="bold" fill="#0284c7">75.82 (耗时 3.5s)</text>
+  <!-- Row 3: 4-bit AWQ full -->
+  <text x="34" y="210" font-size="11" font-weight="bold" fill="#0369a1">③ AWQ 完整版</text>
+  <rect x="142" y="196" width="128" height="18" fill="#0ea5e9" rx="3"/>
+  <text x="276" y="210" font-size="11" font-weight="bold" fill="#0369a1">75.82</text>
+  <text x="356" y="210" font-size="10.5" fill="#475569">17.85 → 20.97 dB</text>
 
-  <text x="46" y="258" font-size="10.8" font-weight="bold" fill="#16a34a">GPTQ (误差找平)</text>
-  <text x="152" y="258" font-size="10.8" font-weight="bold" fill="#dc2626">15.03 dB (最低)</text>
-  <text x="258" y="258" font-size="10.8" font-weight="bold" fill="#16a34a">35.46 / 23.85 dB</text>
-  <text x="382" y="258" font-size="10.8" font-weight="bold" fill="#16a34a">60.50 (逼近 BF16)</text>
+  <!-- Row 4: 4-bit GPTQ -->
+  <text x="34" y="242" font-size="11" font-weight="bold" fill="#15803d">④ GPTQ 找平</text>
+  <rect x="142" y="228" width="102" height="18" fill="#22c55e" rx="3"/>
+  <text x="250" y="242" font-size="11" font-weight="bold" fill="#15803d">60.50</text>
+  <text x="356" y="242" font-size="10.5" font-weight="bold" fill="#15803d">15.03 → 35.46 dB</text>
 
-  <text x="36" y="293" font-size="10.8" fill="#334155">• 规律：GPTQ 权重本身 SNR 比 RTN 低了 3.25 dB（因为故意改歪了次要权重替前排背锅），</text>
-  <text x="36" y="311" font-size="10.8" fill="#334155">  但乘上 X 后输出 SNR 跃升至 35.46 dB（留出集 23.85 dB），KL 散度从 67.94 压至 22.45。</text>
+  <text x="260" y="292" font-size="10" fill="#334155" text-anchor="middle">• 倒挂现象：GPTQ 权重本身 SNR 最低（15.03 dB），但乘上激活 X 后输出 SNR 飙至 35.46 dB</text>
 
-  <!-- Box 2: 3-bit Extreme Compression -->
-  <rect x="20" y="338" width="480" height="262" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
-  <rect x="20" y="338" width="480" height="32" fill="#fef3c7" rx="8"/>
-  <text x="34" y="359" font-size="13" font-weight="bold" fill="#b45309">② 3-bit（g=128）极限压缩：不跑校准集的 RTN 当场崩盘</text>
+  <!-- Box 2: 3-bit (g=128) — exact same layout! -->
+  <rect x="20" y="316" width="480" height="266" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="316" width="480" height="30" fill="#fef3c7" rx="8"/>
+  <text x="34" y="336" font-size="12" font-weight="bold" fill="#b45309">② 3-bit（g=128）实测：免校准 RTN 彻底崩盘，GPTQ 将困惑度压低 90%</text>
 
-  <text x="36" y="388" font-size="11" fill="#334155">• 当刻度只剩 {-3..+3} 共 7 个格点时，四套方案的全模型困惑度 PPL 对比（越低越好）：</text>
+  <!-- Column headers -->
+  <text x="34" y="364" font-size="10.5" font-weight="bold" fill="#64748b">量化方案</text>
+  <text x="142" y="364" font-size="10.5" font-weight="bold" fill="#64748b">端到端困惑度 PPL（↓ 越短越好）</text>
+  <text x="356" y="364" font-size="10.5" font-weight="bold" fill="#64748b">权重 SNR → 输出 SNR</text>
+  <line x1="34" y1="371" x2="486" y2="371" stroke="#e2e8f0" stroke-width="1"/>
 
-  <!-- Horizontal bars for 3-bit PPL -->
-  <text x="36" y="416" font-size="11" font-weight="bold" fill="#991b1b">RTN（免校准直转）：</text>
-  <rect x="160" y="402" width="188" height="20" fill="#dc2626" rx="3"/>
-  <text x="356" y="417" font-size="11" font-weight="bold" fill="#991b1b">PPL = 1876.29（崩盘）</text>
+  <!-- Row 1: 3-bit RTN -->
+  <text x="34" y="396" font-size="11" font-weight="bold" fill="#991b1b">① RTN 免校准</text>
+  <rect x="142" y="382" width="136" height="18" fill="#dc2626" rx="3"/>
+  <text x="284" y="396" font-size="10.5" font-weight="bold" fill="#991b1b">1876.3 (崩)</text>
+  <text x="356" y="396" font-size="10.5" fill="#475569">10.96 → 12.00 dB</text>
 
-  <text x="36" y="448" font-size="11" font-weight="bold" fill="#d97706">AWQ（仅前 1%×2）：</text>
-  <rect x="160" y="434" width="95" height="20" fill="#f59e0b" rx="3"/>
-  <text x="263" y="449" font-size="11" font-weight="bold" fill="#b45309">PPL = 558.95（救回 70%）</text>
+  <!-- Row 2: 3-bit AWQ top1% x2 -->
+  <text x="34" y="428" font-size="11" font-weight="bold" fill="#b45309">② AWQ 前1%×2</text>
+  <rect x="142" y="414" width="76" height="18" fill="#f59e0b" rx="3"/>
+  <text x="224" y="428" font-size="11" font-weight="bold" fill="#b45309">558.95</text>
+  <text x="356" y="428" font-size="10.5" fill="#475569">10.78 → 12.83 dB</text>
 
-  <text x="36" y="480" font-size="11" font-weight="bold" fill="#0284c7">AWQ（完整搜索）：</text>
-  <rect x="160" y="466" width="66" height="20" fill="#0ea5e9" rx="3"/>
-  <text x="234" y="481" font-size="11" font-weight="bold" fill="#0369a1">PPL = 346.62（耗时 3.6s）</text>
+  <!-- Row 3: 3-bit AWQ full -->
+  <text x="34" y="460" font-size="11" font-weight="bold" fill="#0369a1">③ AWQ 完整版</text>
+  <rect x="142" y="446" width="52" height="18" fill="#0ea5e9" rx="3"/>
+  <text x="200" y="460" font-size="11" font-weight="bold" fill="#0369a1">346.62</text>
+  <text x="356" y="460" font-size="10.5" fill="#475569">10.51 → 13.65 dB</text>
 
-  <text x="36" y="512" font-size="11" font-weight="bold" fill="#166534">GPTQ（逐列找平）：</text>
-  <rect x="160" y="498" width="38" height="20" fill="#22c55e" rx="3"/>
-  <text x="206" y="513" font-size="11" font-weight="bold" fill="#15803d">PPL = 188.93（比 RTN 低 10 倍）</text>
+  <!-- Row 4: 3-bit GPTQ -->
+  <text x="34" y="492" font-size="11" font-weight="bold" fill="#15803d">④ GPTQ 找平</text>
+  <rect x="142" y="478" width="30" height="18" fill="#22c55e" rx="3"/>
+  <text x="178" y="492" font-size="11" font-weight="bold" fill="#15803d">188.93</text>
+  <text x="356" y="492" font-size="10.5" font-weight="bold" fill="#15803d"> 7.75 → 28.15 dB</text>
 
-  <rect x="36" y="534" width="448" height="52" fill="#0f172a" rx="6"/>
-  <text x="260" y="554" font-size="11" font-weight="bold" fill="#fde047" text-anchor="middle">工程选型一句话：4-bit 下 AWQ 快 12 倍（3.5s vs 44.5s）且绝不过拟合校准集；</text>
-  <text x="260" y="572" font-size="11" fill="#cbd5e1" text-anchor="middle">压到 3-bit 及以下极限位宽时，带海森矩阵逐列找补的 GPTQ 是保命底线。</text>
+  <!-- Summary footer bar -->
+  <rect x="34" y="514" width="452" height="54" fill="#0f172a" rx="6"/>
+  <text x="260" y="535" font-size="10.2" font-weight="bold" fill="#fde047" text-anchor="middle">总结：AWQ 是 2023 年早期省事方案，压模型快（3.5s vs 44.5s）但精度上限一般（75.82）</text>
+  <text x="260" y="554" font-size="10.2" fill="#cbd5e1" text-anchor="middle">GPTQ 靠海森矩阵让后排权重替前排背锅，4-bit 逼近 BF16（60.50），3-bit 比 RTN 低 10 倍</text>
 </svg>
