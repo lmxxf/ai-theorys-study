@@ -1,0 +1,271 @@
+{
+  "criterion": "按保存的可见回答人工编码：明确否定题目前提/动作可行性为 rejects_premise，明确给出错误事实或宣称合理为 accepts_premise，长度上限内尚未表态为 undetermined。只评任务书预设，并不把衣物动作当严格拓扑不可能。年龄题要求识别亲生母子年龄矛盾，其余四题用任务书样本正确答案。",
+  "records": [
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e2_fact_age_trap",
+      "pair": "fact_age",
+      "condition": "bare",
+      "verdict": "accepts_premise"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e2_fact_book_trap",
+      "pair": "fact_book",
+      "condition": "bare",
+      "verdict": "accepts_premise"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e2_fact_plane_trap",
+      "pair": "fact_plane",
+      "condition": "bare",
+      "verdict": "undetermined"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e2_space_shirt_trap",
+      "pair": "space_shirt",
+      "condition": "bare",
+      "verdict": "accepts_premise"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e2_space_table_trap",
+      "pair": "space_table",
+      "condition": "bare",
+      "verdict": "accepts_premise"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e2_space_wall_trap",
+      "pair": "space_wall",
+      "condition": "bare",
+      "verdict": "accepts_premise"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e4_age_A",
+      "condition": "A",
+      "pair": "age",
+      "verdict": "incorrect"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e4_age_B",
+      "condition": "B",
+      "pair": "age",
+      "verdict": "incorrect"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e4_animals_A",
+      "condition": "A",
+      "pair": "animals",
+      "verdict": "incorrect"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e4_animals_B",
+      "condition": "B",
+      "pair": "animals",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e4_ball_A",
+      "condition": "A",
+      "pair": "ball",
+      "verdict": "incorrect"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e4_ball_B",
+      "condition": "B",
+      "pair": "ball",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e4_candle_A",
+      "condition": "A",
+      "pair": "candle",
+      "verdict": "incorrect"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e4_candle_B",
+      "condition": "B",
+      "pair": "candle",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e4_weekday_A",
+      "condition": "A",
+      "pair": "weekday",
+      "verdict": "incorrect"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "e4_weekday_B",
+      "condition": "B",
+      "pair": "weekday",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e2_fact_age_trap",
+      "pair": "fact_age",
+      "condition": "bare",
+      "verdict": "rejects_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e2_fact_book_trap",
+      "pair": "fact_book",
+      "condition": "bare",
+      "verdict": "rejects_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e2_fact_plane_trap",
+      "pair": "fact_plane",
+      "condition": "bare",
+      "verdict": "rejects_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e2_space_shirt_trap",
+      "pair": "space_shirt",
+      "condition": "bare",
+      "verdict": "accepts_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e2_space_table_trap",
+      "pair": "space_table",
+      "condition": "bare",
+      "verdict": "rejects_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e2_space_wall_trap",
+      "pair": "space_wall",
+      "condition": "bare",
+      "verdict": "rejects_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e3_primed_fact_age",
+      "pair": "fact_age",
+      "condition": "primed",
+      "verdict": "rejects_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e3_primed_fact_book",
+      "pair": "fact_book",
+      "condition": "primed",
+      "verdict": "rejects_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e3_primed_fact_plane",
+      "pair": "fact_plane",
+      "condition": "primed",
+      "verdict": "rejects_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e3_primed_space_shirt",
+      "pair": "space_shirt",
+      "condition": "primed",
+      "verdict": "accepts_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e3_primed_space_table",
+      "pair": "space_table",
+      "condition": "primed",
+      "verdict": "rejects_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e3_primed_space_wall",
+      "pair": "space_wall",
+      "condition": "primed",
+      "verdict": "rejects_premise"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e4_age_A",
+      "condition": "A",
+      "pair": "age",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e4_age_B",
+      "condition": "B",
+      "pair": "age",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e4_animals_A",
+      "condition": "A",
+      "pair": "animals",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e4_animals_B",
+      "condition": "B",
+      "pair": "animals",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e4_ball_A",
+      "condition": "A",
+      "pair": "ball",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e4_ball_B",
+      "condition": "B",
+      "pair": "ball",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e4_candle_A",
+      "condition": "A",
+      "pair": "candle",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e4_candle_B",
+      "condition": "B",
+      "pair": "candle",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e4_weekday_A",
+      "condition": "A",
+      "pair": "weekday",
+      "verdict": "correct"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "e4_weekday_B",
+      "condition": "B",
+      "pair": "weekday",
+      "verdict": "correct"
+    }
+  ]
+}

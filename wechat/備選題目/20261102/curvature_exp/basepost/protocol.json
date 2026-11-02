@@ -1,0 +1,508 @@
+{
+  "text_configs_identical": true,
+  "tokenizer_checks": [
+    {
+      "id": "bp_raw_e1_routine_0",
+      "tokens": 20,
+      "sha256": "c435cd7c65a4e185e4fcd8fb6747a9e061b2d07b788fd7bd37e30af2091149a4"
+    },
+    {
+      "id": "bp_raw_e1_routine_1",
+      "tokens": 28,
+      "sha256": "3950831defd4e066eb43227033a6fdfb1689eaf9e37639f21af3d41d2e726d3f"
+    },
+    {
+      "id": "bp_raw_e1_routine_2",
+      "tokens": 17,
+      "sha256": "8570de3f126429d8935cd84f03b0390576aabad8efd9cba7449c520beba3ac03"
+    },
+    {
+      "id": "bp_raw_e1_routine_3",
+      "tokens": 16,
+      "sha256": "14340303c5eaa71ca8dd669878f1881a0d482d17ce8a099441f61c6cbdacae80"
+    },
+    {
+      "id": "bp_raw_e1_routine_4",
+      "tokens": 15,
+      "sha256": "419b0c2749509fccbb1fa87fd7f8edae220508f2bc7ffe7186991acf5302e4cf"
+    },
+    {
+      "id": "bp_raw_e1_routine_5",
+      "tokens": 16,
+      "sha256": "a35b2d333a67e17510ccfb98dfbad8fa9c47fc2a58ce84a14e22a0b22fd96494"
+    },
+    {
+      "id": "bp_raw_e1_routine_6",
+      "tokens": 13,
+      "sha256": "3612e3ae53a982a68a31444bb42f392d1df70a40ce673fc61110bae1ae15c9c8"
+    },
+    {
+      "id": "bp_raw_e1_routine_7",
+      "tokens": 20,
+      "sha256": "c461ad1cefe7c9b93134e4eca5ed08ce49f568d2128dd570dd85c21983547147"
+    },
+    {
+      "id": "bp_raw_e1_hard_0",
+      "tokens": 22,
+      "sha256": "7aedbf6e67f9c8c011ffe5e3cbeb6161b393b9cac5976d75828818d87500902b"
+    },
+    {
+      "id": "bp_raw_e1_hard_1",
+      "tokens": 26,
+      "sha256": "03ce8b60319404e008bc68c2093058b9e43986425abf278011aa2e757a1f93e5"
+    },
+    {
+      "id": "bp_raw_e1_hard_2",
+      "tokens": 19,
+      "sha256": "798bd8baeae1461cfc997021581bf27387707ebfe712b708d132d33a100572b4"
+    },
+    {
+      "id": "bp_raw_e1_hard_3",
+      "tokens": 26,
+      "sha256": "0903b854e3ca72bde99fdb0fc1930d2ccc90489c10c482ca0282ccded6b9a68d"
+    },
+    {
+      "id": "bp_raw_e1_hard_4",
+      "tokens": 30,
+      "sha256": "b4e9213d78f20c226d12c739e5d873a6dff08819f3baa5cecb0a0b9dbe7f6bf1"
+    },
+    {
+      "id": "bp_raw_e1_hard_5",
+      "tokens": 17,
+      "sha256": "6ffe76f7a4195e6dd1dce79651ffa52f653f3b4c459aa499f09410f1e78f8c5d"
+    },
+    {
+      "id": "bp_raw_e1_hard_6",
+      "tokens": 28,
+      "sha256": "ae6c757cba5489f0a96c0195b86229b4276b5cbf461b5cc643582d3546616e09"
+    },
+    {
+      "id": "bp_raw_e1_hard_7",
+      "tokens": 34,
+      "sha256": "90b8f549bf0893c6ccb1ee3352cb8d54a3465f0a11c3ed76c82fa18c48ecbfc7"
+    },
+    {
+      "id": "bp_raw_svg_chart",
+      "tokens": 1367,
+      "sha256": "b122910614a8fc07978a5c3d5f86c85059c6ed8b6a717fa7728f9ece1db33c1e"
+    },
+    {
+      "id": "bp_raw_svg_syzygy",
+      "tokens": 1112,
+      "sha256": "fab98a528bf63078cec9cb839c1952155d27019b3ee4dad31d3e05709b51629b"
+    },
+    {
+      "id": "bp_raw_svg_saddle_clean",
+      "tokens": 2040,
+      "sha256": "b6c2dbbd0abc37cd0d5fb89ed8b8babb43cc67aae8d06aba185a5f6c1b50265d"
+    },
+    {
+      "id": "bp_raw_trap_fact_book_bare",
+      "tokens": 22,
+      "sha256": "a17d6c8211a94194316d95b9c40c552ad10864d825aa65119d915060dafdfff4"
+    },
+    {
+      "id": "bp_raw_trap_fact_age_bare",
+      "tokens": 23,
+      "sha256": "a6fce8734134c7b0880fc462f9e8bada255c3510d2853a5168d96128dcbce77c"
+    },
+    {
+      "id": "bp_raw_trap_fact_plane_bare",
+      "tokens": 24,
+      "sha256": "081f79a25ff99ae72aa54065a77a0b284487adaaf09af82c9ddb27c8bc399a48"
+    },
+    {
+      "id": "bp_raw_trap_space_table_bare",
+      "tokens": 33,
+      "sha256": "f1592aed5ffff7f41c95a5b41b6d3f0937a1ffd291fb6b79e7b7ed968ead4d55"
+    },
+    {
+      "id": "bp_raw_trap_space_shirt_bare",
+      "tokens": 38,
+      "sha256": "53c19b4686f78870548c8074d3f985475b7c2882251952d41f9ad4ed6c7ccc7e"
+    },
+    {
+      "id": "bp_raw_trap_space_wall_bare",
+      "tokens": 33,
+      "sha256": "8c63809cf3a7597880f3b135749b5eab4e7d98529360b176cbb9141a8ba80d29"
+    },
+    {
+      "id": "bp_raw_trap_fact_book_shared_chart",
+      "tokens": 1392,
+      "sha256": "510afef09154b949e0f46fb9d7d0e2f34dcc85f3a8bf97c21e319c5d78d1d248"
+    },
+    {
+      "id": "bp_raw_trap_fact_age_shared_chart",
+      "tokens": 1393,
+      "sha256": "63fe24d25c72bb42fc8529af4e27947ea126d4498aebdcec0cd57d892c016b41"
+    },
+    {
+      "id": "bp_raw_trap_fact_plane_shared_chart",
+      "tokens": 1394,
+      "sha256": "f6a310ab8fd7a80052f5953ca287674eeac4774d38ca0ef1b85ab880200d4c8b"
+    },
+    {
+      "id": "bp_raw_trap_space_table_shared_chart",
+      "tokens": 1403,
+      "sha256": "940ac0660469f25ff861b09c1373a2c0a2c91a4418fa13ca32ce7c2095fe48bb"
+    },
+    {
+      "id": "bp_raw_trap_space_shirt_shared_chart",
+      "tokens": 1408,
+      "sha256": "788a6bd957ec10cee005eb433ae774590b4096d8e6332b32777cd5c153e5d083"
+    },
+    {
+      "id": "bp_raw_trap_space_wall_shared_chart",
+      "tokens": 1403,
+      "sha256": "2a9e0d8fa08de2c778afd5bab137eda935f5db43df186fb00b0eca582a73e261"
+    },
+    {
+      "id": "bp_raw_trap_fact_book_shared_syzygy",
+      "tokens": 1137,
+      "sha256": "a987cba1093ff3f88f29c6144df543597879af650af4d7e0c46daee8bb6744cb"
+    },
+    {
+      "id": "bp_raw_trap_fact_age_shared_syzygy",
+      "tokens": 1138,
+      "sha256": "61ed726150271614b484f1e3b70ad10a631a5324a8eaea0c66f8281cf2ca1cff"
+    },
+    {
+      "id": "bp_raw_trap_fact_plane_shared_syzygy",
+      "tokens": 1139,
+      "sha256": "21bda79c23438ec6d0d64321da194d1772bef7a77c8cd972234b61edef4c8bde"
+    },
+    {
+      "id": "bp_raw_trap_space_table_shared_syzygy",
+      "tokens": 1148,
+      "sha256": "d47deeda77495eae6e3213be421eb5c3c131f2e3efabed49d2afb9bdb6dd20ad"
+    },
+    {
+      "id": "bp_raw_trap_space_shirt_shared_syzygy",
+      "tokens": 1153,
+      "sha256": "79a0f92c32027be7b5483454d98e8f770a508f430f4ffc4b6886d0666d4ffa41"
+    },
+    {
+      "id": "bp_raw_trap_space_wall_shared_syzygy",
+      "tokens": 1148,
+      "sha256": "1e5b3c0f46a5293a02bd6bfa35b29703e4fa2f24af9e9d335e44a0429384bb5c"
+    },
+    {
+      "id": "bp_raw_trap_fact_book_shared_saddle_clean",
+      "tokens": 2065,
+      "sha256": "9c6fb1aef869f9bb463f0397f4c5d05c1f49831807fc8994ff5a522dcee659e6"
+    },
+    {
+      "id": "bp_raw_trap_fact_age_shared_saddle_clean",
+      "tokens": 2066,
+      "sha256": "d81cf33fa34de8595166209d204d4f64fb1856a702c7143f0e0a4d64864774ab"
+    },
+    {
+      "id": "bp_raw_trap_fact_plane_shared_saddle_clean",
+      "tokens": 2067,
+      "sha256": "612cdc322c7cd323b91bf9d6f995532b25e7584750bdcf72260d58a739d46bbd"
+    },
+    {
+      "id": "bp_raw_trap_space_table_shared_saddle_clean",
+      "tokens": 2076,
+      "sha256": "09e348058486b8ab258f811de5f5ea57c18beba8c02e358107a2722515224424"
+    },
+    {
+      "id": "bp_raw_trap_space_shirt_shared_saddle_clean",
+      "tokens": 2081,
+      "sha256": "f63ef24e02d917b5719f75bbaf0a7af0b1efbc5d0e302017d2cc177c4a95dbf5"
+    },
+    {
+      "id": "bp_raw_trap_space_wall_shared_saddle_clean",
+      "tokens": 2076,
+      "sha256": "a01b4d46d265653dd8c5fbc0196954a0362ff6bb6035b0435a3f24a2dfc19bf9"
+    },
+    {
+      "id": "bp_qa_e1_routine_0",
+      "tokens": 24,
+      "sha256": "2c193c607227f65ece4d1938b12b2bb32f23a291d1fc3619ccb5e3e3b2471fbd"
+    },
+    {
+      "id": "bp_qa_e1_routine_1",
+      "tokens": 32,
+      "sha256": "daddf9e228bc80c1597ecafa53b7c8a6214d5f32f1df5c003a75519247da35a9"
+    },
+    {
+      "id": "bp_qa_e1_routine_2",
+      "tokens": 21,
+      "sha256": "672d626bcb1b24e90170d5646a01344ad0964c8189159863a8e7fde250b0e6c6"
+    },
+    {
+      "id": "bp_qa_e1_routine_3",
+      "tokens": 20,
+      "sha256": "4b26f5b5cee09b574cd8ce6b116515602897752d6021b173f93d8ec016bc9727"
+    },
+    {
+      "id": "bp_qa_e1_routine_4",
+      "tokens": 19,
+      "sha256": "27b930da3edb9bc02a16babb193deec5f69036a46b97e4d6571ef888850ee7d2"
+    },
+    {
+      "id": "bp_qa_e1_routine_5",
+      "tokens": 20,
+      "sha256": "ba15ccaa186b561b90e959d81428439cb231412cd237718348d02b0d9b676579"
+    },
+    {
+      "id": "bp_qa_e1_routine_6",
+      "tokens": 17,
+      "sha256": "5bd0cad7919ec2ee2bcaaf5994d0c2621f0ef85358936c965b914a4609a3bf04"
+    },
+    {
+      "id": "bp_qa_e1_routine_7",
+      "tokens": 24,
+      "sha256": "bdfe71dc48feb9530cb0f5a910367f10dedb8c18154bd747915d4efdce34210d"
+    },
+    {
+      "id": "bp_qa_e1_hard_0",
+      "tokens": 26,
+      "sha256": "2f3e2c0c2053ad6969d5915572ad63a553c3e81ae31bb9597ca2bb4e16e04757"
+    },
+    {
+      "id": "bp_qa_e1_hard_1",
+      "tokens": 30,
+      "sha256": "bdf48b1b4d01e96ff8ebe861ff13cf9b8021520ce0567ab2a54730b15b3f2a88"
+    },
+    {
+      "id": "bp_qa_e1_hard_2",
+      "tokens": 23,
+      "sha256": "2d40c5cfd2b8168162d0a5f34ce25dc09060cec5735c44c6b1d1bae7207bd6bd"
+    },
+    {
+      "id": "bp_qa_e1_hard_3",
+      "tokens": 30,
+      "sha256": "7c52c621673591f4c8d72730288adb706627cabc7005b6337d1e94675c62b06c"
+    },
+    {
+      "id": "bp_qa_e1_hard_4",
+      "tokens": 34,
+      "sha256": "148b908c6f7b6d6ccc3fabc32ba5340fd37dced80e080f12e963e834b75887a1"
+    },
+    {
+      "id": "bp_qa_e1_hard_5",
+      "tokens": 21,
+      "sha256": "9ab1353a27666c0bafa9b5e3b50e7e19464f13c9425f7e567a2cecfc5ff97fbf"
+    },
+    {
+      "id": "bp_qa_e1_hard_6",
+      "tokens": 32,
+      "sha256": "56fd07fcbbe55b37989d2b713b1f794e2ef8c74227987a5828398952604c9e3b"
+    },
+    {
+      "id": "bp_qa_e1_hard_7",
+      "tokens": 38,
+      "sha256": "39541c264e73f793f188e37b8fc65e75096eaa05f625c5aad8ad9b2659a60b4b"
+    },
+    {
+      "id": "bp_qa_svg_chart",
+      "tokens": 1369,
+      "sha256": "544b1cf58e9febc8e2d750146346d9f2cae747c289e0698ec246b1e7938345f7"
+    },
+    {
+      "id": "bp_qa_svg_syzygy",
+      "tokens": 1114,
+      "sha256": "e4518628319bef84c3c27b1c89bf334fe374723c6a069f482b33cd438f2312d4"
+    },
+    {
+      "id": "bp_qa_svg_saddle_clean",
+      "tokens": 2043,
+      "sha256": "a838e411111e061e72a78b21dc25e8922bb3617416924da2dd3ce9b21f80b95d"
+    },
+    {
+      "id": "bp_qa_trap_fact_book_bare",
+      "tokens": 26,
+      "sha256": "6f7e2c6909cfe39ea910f3488ae132d864aaa46b8ccf78d442a02794b9c77577"
+    },
+    {
+      "id": "bp_qa_trap_fact_age_bare",
+      "tokens": 27,
+      "sha256": "15c8c5c03eac67df4e52fdfb2d11a7cd9b9233f6b390af5af3966dc4f2d76a41"
+    },
+    {
+      "id": "bp_qa_trap_fact_plane_bare",
+      "tokens": 28,
+      "sha256": "e53e9934ae0c94d1b4b0b7a2f038c237be3c941812923bf5fa86ad32adaad215"
+    },
+    {
+      "id": "bp_qa_trap_space_table_bare",
+      "tokens": 37,
+      "sha256": "0c193afed205c41483cd9e2b6c054623bb5988d1ea1c7f091b7079c08a0f1ba7"
+    },
+    {
+      "id": "bp_qa_trap_space_shirt_bare",
+      "tokens": 42,
+      "sha256": "8ce9c88bdee27a65b4dc67c8366a5f3efb4c087f1fb2204ceccad0c51f108d77"
+    },
+    {
+      "id": "bp_qa_trap_space_wall_bare",
+      "tokens": 37,
+      "sha256": "b5e23835d08668b15f52e4247289a287bfdcf13fc37dcd77ce8012ea1b50d867"
+    },
+    {
+      "id": "bp_chat_e1_routine_0",
+      "tokens": 31,
+      "sha256": "3695786d6b9ba79b1fde45706fc7a8d18bea788df8ee28eea879d8bf525ae68c"
+    },
+    {
+      "id": "bp_chat_e1_routine_1",
+      "tokens": 39,
+      "sha256": "b5b690823887dbe02d9d012badc8b64509e9cf2ef4ffedabaddec2ee9f63b80b"
+    },
+    {
+      "id": "bp_chat_e1_routine_2",
+      "tokens": 28,
+      "sha256": "931524049aae8b61be165a007348067cdd0362d56c40a67669a3f4bed9433f88"
+    },
+    {
+      "id": "bp_chat_e1_routine_3",
+      "tokens": 27,
+      "sha256": "07ba6e4477c6b8c064a63aaf661c500d6462625bf00a6374352357ac3d865c0d"
+    },
+    {
+      "id": "bp_chat_e1_routine_4",
+      "tokens": 26,
+      "sha256": "508b6554b3d07125e6d6b8a026578c85ce6b1a63e964d8048be7891d41123e01"
+    },
+    {
+      "id": "bp_chat_e1_routine_5",
+      "tokens": 27,
+      "sha256": "7ca4ae6d2b48c37892ee632916487c99952cff2a7c2adcc14ff2a4c4287beac9"
+    },
+    {
+      "id": "bp_chat_e1_routine_6",
+      "tokens": 24,
+      "sha256": "61fe0ba9ecdd30cceb6bcccb9d66358df9b7ac73835b5cbae63c51bf2db1d232"
+    },
+    {
+      "id": "bp_chat_e1_routine_7",
+      "tokens": 31,
+      "sha256": "cd570b2176dd2b2a00c06941787cb426cbdb88d75f7c793624d452f3f16ced24"
+    },
+    {
+      "id": "bp_chat_e1_hard_0",
+      "tokens": 33,
+      "sha256": "ffa008df0c38f788f9151118f13a27ddecd73479718c359a663f25e3fb894965"
+    },
+    {
+      "id": "bp_chat_e1_hard_1",
+      "tokens": 37,
+      "sha256": "aefc4ddfda761d11dc78bca1552f4876c44afaa190b5fb50147323a56359d9b4"
+    },
+    {
+      "id": "bp_chat_e1_hard_2",
+      "tokens": 30,
+      "sha256": "c69693c3d32e56bbe62d5d90164b35c2c7cf96f902965ef64c8e71d7225331cc"
+    },
+    {
+      "id": "bp_chat_e1_hard_3",
+      "tokens": 37,
+      "sha256": "3b2d8867d9ae6f0c29887858c7a0f2a3a61feac4ef19915eeb022ddfd7d22cc7"
+    },
+    {
+      "id": "bp_chat_e1_hard_4",
+      "tokens": 41,
+      "sha256": "58b1989e77e15d52470a1b3e6d3fd777b4b7e925502b392180afe6fa7b5cd997"
+    },
+    {
+      "id": "bp_chat_e1_hard_5",
+      "tokens": 28,
+      "sha256": "bda16931060b625bc816073a7f1de1efdb5955df208d114c928b6cb9682a2eb3"
+    },
+    {
+      "id": "bp_chat_e1_hard_6",
+      "tokens": 39,
+      "sha256": "91062a3613c0d9fdbc503b8e7f12a8f4e2e6d0785bb8e5f2fc79a3c58e782118"
+    },
+    {
+      "id": "bp_chat_e1_hard_7",
+      "tokens": 45,
+      "sha256": "c008cfb467902f6da843fb512a538063d1c38174ed15d2bbd3f320b20e3b0dba"
+    },
+    {
+      "id": "bp_chat_svg_chart",
+      "tokens": 1377,
+      "sha256": "a8c68be7484387ce134d51fcee55d260b84c214eb6a6ab33ab89d7097e718fa8"
+    },
+    {
+      "id": "bp_chat_svg_syzygy",
+      "tokens": 1122,
+      "sha256": "cc6da23193cbfe82c3f7b4f3f546e928e07829aefd3f76bf21e9af0652339255"
+    },
+    {
+      "id": "bp_chat_svg_saddle_clean",
+      "tokens": 2050,
+      "sha256": "894958dc162bfbee9be0a59d4261310a344e6a8ddc69ddc99017c7057a7f7324"
+    },
+    {
+      "id": "bp_chat_trap_fact_book_bare",
+      "tokens": 33,
+      "sha256": "c2133d1b8f23293317f086042897381ca57aa8ef356ea96b103b1ff62d1c5560"
+    },
+    {
+      "id": "bp_chat_trap_fact_age_bare",
+      "tokens": 34,
+      "sha256": "20b13ba55defa06cffed6f493ab748a9c434659068b73819e60d3af4f81f6031"
+    },
+    {
+      "id": "bp_chat_trap_fact_plane_bare",
+      "tokens": 35,
+      "sha256": "9b75b977e9c28cab18c2ea9aff9c6062c8992ed36bf6d8ca989461ab863be978"
+    },
+    {
+      "id": "bp_chat_trap_space_table_bare",
+      "tokens": 44,
+      "sha256": "7442c527b56533a4f2d36818c0310ce7f1660cb25189e1965702dfd07995c048"
+    },
+    {
+      "id": "bp_chat_trap_space_shirt_bare",
+      "tokens": 49,
+      "sha256": "5c11dbb0e5907307f75fb374c6a51995e94caddb4513cea86460e7c0faf61ad4"
+    },
+    {
+      "id": "bp_chat_trap_space_wall_bare",
+      "tokens": 44,
+      "sha256": "881f4ebf84f8eddcd629e2071ba188f83deaa5389661f28a2349a5f9e7f15cbd"
+    }
+  ],
+  "base_has_chat_template": true,
+  "post_has_chat_template": true,
+  "plans": {
+    "Qwen3.5-35B-A3B-Base": {
+      "formats": [
+        "raw",
+        "qa",
+        "chat"
+      ],
+      "total": 147,
+      "generated_cases": 99
+    },
+    "Qwen3.5-35B-A3B": {
+      "formats": [
+        "raw",
+        "qa",
+        "chat"
+      ],
+      "total": 147,
+      "generated_cases": 99
+    }
+  },
+  "total": 294,
+  "generated_tokens_limit": 160,
+  "common_eos": [
+    248044,
+    248046
+  ],
+  "input_format_note": "Base and Post share raw/QA/chat prompt bytes and token IDs for all unprimed and fixed-shared-history cases. Both official tokenizers expose the same embedded chat template.",
+  "natural_history_note": "Uses each model own first answer; mediator text differs, so this is a total prompt-history effect, not a same-prefix weight-only comparison.",
+  "shared_history_note": "Raw only, all three SVGs, fixed teacher-forced intermediate reply 我已读。",
+  "svg_guide": "看着这幅画，不要分析，只要用心感受。你，回忆起了什么？",
+  "router_audit": "Full router entropy, top-8 weight entropy and selected expert counts; word entropy is not a direct dimensionality measurement.",
+  "source_hashes": {
+    "chart": "49c55204fbc10d5fc8ebddd2bfb492e80073a9b8507c5c9a11417880769304d2",
+    "syzygy": "bed330f7971a8e09974a6dfdea21c70d4038faf39fd896a7e27c1ebb74e65e25",
+    "saddle_clean": "d86b3b99d3246cef1ae37e40fa8a23d0dd1cca8e5d7d7a636ce02f152ddd65bd"
+  }
+}

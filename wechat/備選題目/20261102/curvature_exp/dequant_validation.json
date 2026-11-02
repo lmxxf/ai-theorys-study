@@ -1,0 +1,9 @@
+{
+  "source": "transformers.integrations.finegrained_fp8._dequantize_fp8_weight",
+  "tested_shape": [
+    256,
+    256
+  ],
+  "max_abs_error": 0.0,
+  "equal": true
+}

@@ -1,0 +1,53 @@
+2026-11-03 02:54:02 VERIFIED Qwen/Qwen3.5-35B-A3B-Base config.json 3544
+2026-11-03 02:54:03 VERIFIED Qwen/Qwen3.5-35B-A3B-Base README.md 3822
+2026-11-03 02:54:03 VERIFIED Qwen/Qwen3.5-35B-A3B-Base model.safetensors.index.json 187463
+2026-11-03 02:54:03 VERIFIED Qwen/Qwen3.5-35B-A3B-Base preprocessor_config.json 390
+2026-11-03 02:54:03 VERIFIED Qwen/Qwen3.5-35B-A3B-Base merges.txt 3353259
+2026-11-03 02:54:03 VERIFIED Qwen/Qwen3.5-35B-A3B-Base tokenizer_config.json 16713
+2026-11-03 02:54:04 VERIFIED Qwen/Qwen3.5-35B-A3B README.md 93160
+2026-11-03 02:54:04 VERIFIED Qwen/Qwen3.5-35B-A3B-Base video_preprocessor_config.json 386
+2026-11-03 02:54:04 VERIFIED Qwen/Qwen3.5-35B-A3B chat_template.jinja 7756
+2026-11-03 02:54:04 VERIFIED Qwen/Qwen3.5-35B-A3B config.json 3544
+2026-11-03 02:54:05 VERIFIED Qwen/Qwen3.5-35B-A3B generation_config.json 244
+2026-11-03 02:54:05 VERIFIED Qwen/Qwen3.5-35B-A3B model.safetensors.index.json 187463
+2026-11-03 02:54:06 VERIFIED Qwen/Qwen3.5-35B-A3B preprocessor_config.json 390
+2026-11-03 02:54:07 VERIFIED Qwen/Qwen3.5-35B-A3B merges.txt 3353259
+2026-11-03 02:54:08 VERIFIED Qwen/Qwen3.5-35B-A3B-Base vocab.json 6722759
+2026-11-03 02:54:08 VERIFIED Qwen/Qwen3.5-35B-A3B tokenizer_config.json 16710
+2026-11-03 02:54:08 VERIFIED Qwen/Qwen3.5-35B-A3B video_preprocessor_config.json 385
+2026-11-03 02:54:14 VERIFIED Qwen/Qwen3.5-35B-A3B vocab.json 6722759
+2026-11-03 02:54:32 VERIFIED Qwen/Qwen3.5-35B-A3B-Base tokenizer.json 12807196
+2026-11-03 02:54:37 VERIFIED Qwen/Qwen3.5-35B-A3B tokenizer.json 12807982
+RETRY Qwen/Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 0 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(71339731 bytes read, 5297370077 more expected)', IncompleteRead(71339731 bytes read, 5297370077 more expected)))
+RETRY Qwen/Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 0 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(71829521 bytes read, 5296880287 more expected)', IncompleteRead(71829521 bytes read, 5296880287 more expected)))
+RETRY Qwen/Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 0 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(70501192 bytes read, 5298208624 more expected)', IncompleteRead(70501192 bytes read, 5298208624 more expected)))
+RETRY Qwen/Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 0 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(72536636 bytes read, 5296173172 more expected)', IncompleteRead(72536636 bytes read, 5296173172 more expected)))
+2026-11-03 02:59:46 VERIFIED Qwen/Qwen3.5-35B-A3B-Base model.safetensors.index.json 2026-11-03 02:59:461874632026-11-03 02:59:46 
+VERIFIED  Qwen/Qwen3.5-35B-A3B-BaseVERIFIED merges.txt 3353259 
+Qwen/Qwen3.5-35B-A3B-Base2026-11-03 02:59:46 README.md  VERIFIED3822 
+Qwen/Qwen3.5-35B-A3B-Base2026-11-03 02:59:46  VERIFIED Qwen/Qwen3.5-35B-A3B-Baseconfig.json  preprocessor_config.json 3903544
+2026-11-03 02:59:46 VERIFIED
+ Qwen/Qwen3.5-35B-A3B-Base tokenizer_config.json 16713
+2026-11-03 02:59:46 VERIFIED Qwen/Qwen3.5-35B-A3B-Base video_preprocessor_config.json2026-11-03 02:59:46  386VERIFIED
+ Qwen/Qwen3.5-35B-A3B README.md 93160
+2026-11-03 02:59:46 VERIFIED Qwen/Qwen3.5-35B-A3B chat_template.jinja 77562026-11-03 02:59:46
+ VERIFIED Qwen/Qwen3.5-35B-A3B config.json 2026-11-03 02:59:463544
+ 2026-11-03 02:59:46 VERIFIED Qwen/Qwen3.5-35B-A3B VERIFIEDgeneration_config.json  2442026-11-03 02:59:46
+ Qwen/Qwen3.5-35B-A3B-BaseVERIFIED  vocab.json 6722759Qwen/Qwen3.5-35B-A3B 
+merges.txt 3353259
+2026-11-03 02:59:46 VERIFIED Qwen/Qwen3.5-35B-A3B model.safetensors.index.json 187463
+2026-11-03 02:59:46 VERIFIED Qwen/Qwen3.5-35B-A3B tokenizer_config.json 16710
+2026-11-03 02:59:46 VERIFIED Qwen/Qwen3.5-35B-A3B2026-11-03 02:59:46  preprocessor_config.jsonVERIFIED  390Qwen/Qwen3.5-35B-A3B
+ video_preprocessor_config.json 385
+2026-11-03 02:59:46 VERIFIED Qwen/Qwen3.5-35B-A3B vocab.json 6722759
+2026-11-03 02:59:46 VERIFIED Qwen/Qwen3.5-35B-A3B-Base tokenizer.json 12807196
+2026-11-03 02:59:46 VERIFIED Qwen/Qwen3.5-35B-A3B tokenizer.json 12807982
+RETRYRETRY  Qwen/Qwen3.5-35B-A3B-BaseQwen/Qwen3.5-35B-A3B-Base  model.safetensors-00004-of-00014.safetensorsmodel.safetensors-00002-of-00014.safetensors  00  ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(19656597 bytes read, 5296624419 more expected)', IncompleteRead(19656597 bytes read, 5296624419 more expected)))ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(19487162 bytes read, 5296793846 more expected)', IncompleteRead(19487162 bytes read, 5296793846 more expected)))
+
+RETRY Qwen/Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 1 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(17656038 bytes read, 5288139218 more expected)', IncompleteRead(17656038 bytes read, 5288139218 more expected)))
+RETRY Qwen/Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 0 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(71637552 bytes read, 5244643456 more expected)', IncompleteRead(71637552 bytes read, 5244643456 more expected)))
+RETRY Qwen/Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 0 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(72687393 bytes read, 5254079375 more expected)', IncompleteRead(72687393 bytes read, 5254079375 more expected)))
+RETRY Qwen/Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 1 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(71904465 bytes read, 5233890783 more expected)', IncompleteRead(71904465 bytes read, 5233890783 more expected)))
+RETRY Qwen/Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 2 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(71353386 bytes read, 5223956110 more expected)', IncompleteRead(71353386 bytes read, 5223956110 more expected)))
+RETRY Qwen/Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 1 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(72326937 bytes read, 5181039511 more expected)', IncompleteRead(72326937 bytes read, 5181039511 more expected)))
+RETRY Qwen/Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 1 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(73266293 bytes read, 5190585915 more expected)', IncompleteRead(73266293 bytes read, 5190585915 more expected)))

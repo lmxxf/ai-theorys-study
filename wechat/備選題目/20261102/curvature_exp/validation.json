@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "case_counts": {
+    "Qwen3-0.6B": 40,
+    "Qwen3.8-27B-FP8": 46
+  },
+  "total": 86,
+  "checks": [
+    "expected model/layer/case counts",
+    "unique case IDs",
+    "token spans and generation lengths",
+    "geometry and entropy ranges",
+    "logit lens lengths",
+    "hook/final-output equality",
+    "finite summaries"
+  ]
+}

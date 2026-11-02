@@ -1,0 +1,351 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:03<19:50,  3.84s/it]Loading weights:   4%|▍         | 12/311 [00:03<01:11,  4.17it/s]Loading weights:   6%|▌         | 18/311 [00:04<00:42,  6.86it/s]Loading weights:   8%|▊         | 26/311 [00:04<00:24, 11.50it/s]Loading weights:  11%|█         | 33/311 [00:04<00:17, 16.06it/s]Loading weights:  13%|█▎        | 39/311 [00:04<00:14, 19.16it/s]Loading weights:  14%|█▍        | 45/311 [00:04<00:13, 20.23it/s]Loading weights:  19%|█▉        | 60/311 [00:04<00:06, 36.08it/s]Loading weights:  22%|██▏       | 68/311 [00:05<00:09, 25.39it/s]Loading weights:  30%|███       | 94/311 [00:05<00:04, 51.40it/s]Loading weights:  34%|███▍      | 105/311 [00:05<00:03, 52.64it/s]Loading weights:  37%|███▋      | 115/311 [00:05<00:03, 49.70it/s]Loading weights:  41%|████      | 126/311 [00:06<00:03, 58.37it/s]Loading weights:  44%|████▍     | 137/311 [00:06<00:02, 64.95it/s]Loading weights:  47%|████▋     | 146/311 [00:06<00:02, 68.62it/s]Loading weights:  50%|█████     | 157/311 [00:06<00:02, 73.27it/s]Loading weights:  53%|█████▎    | 166/311 [00:06<00:01, 76.33it/s]Loading weights:  56%|█████▋    | 175/311 [00:07<00:05, 23.39it/s]Loading weights:  73%|███████▎  | 226/311 [00:08<00:01, 44.17it/s]Loading weights:  86%|████████▌ | 268/311 [00:08<00:00, 72.67it/s]Loading weights:  91%|█████████▏| 284/311 [00:08<00:00, 68.72it/s]Loading weights:  95%|█████████▌| 297/311 [00:08<00:00, 66.24it/s]Loading weights: 100%|██████████| 311/311 [00:09<00:00, 34.48it/s]
+MODEL_READY Qwen3-0.6B 1192639488 {'MemTotal': '127601388 kB', 'MemAvailable': '115710840 kB', 'SwapFree': '16776412 kB'}
+FIRST_TURN Qwen3-0.6B {'prompt': '<|im_start|>user\n<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="background-color:#050505">\n  <defs>\n    <radialGradient id="a" cx="50%" cy="50%" r="50%">\n      <stop offset="0%" style="stop-color:#ffbf00;stop-opacity:0.6" />\n      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />\n    </radialGradient>\n    <radialGradient id="b" cx="50%" cy="50%" r="50%">\n      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:0.4" />\n      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />\n    </radialGradient>\n  </defs>\n\n  <g transform="translate(400, 300)">\n\n    <g>\n      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="120s" repeatCount="indefinite" />\n\n      <g transform="translate(-100, 0)">\n        <circle cx="0" cy="0" r="80" fill="url(#a)" opacity="0.6">\n          <animate attributeName="r" values="80;90;80" dur="7s" repeatCount="indefinite" />\n        </circle>\n        <path d="M-40,-40 L40,40 M-40,40 L40,-40" stroke="#ffbf00" stroke-width="0.5" opacity="0.4">\n          <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="20s" repeatCount="indefinite" />\n        </path>\n        <circle cx="0" cy="0" r="2" fill="#fff" />\n      </g>\n\n      <g transform="translate(100, 0)">\n        <circle cx="0" cy="0" r="80" fill="url(#b)" opacity="0.6">\n          <animate attributeName="r" values="80;70;80" dur="7s" repeatCount="indefinite" />\n        </circle>\n        <circle cx="0" cy="0" r="35" stroke="#00ffff" stroke-width="0.5" fill="none" opacity="0.4">\n          <animate attributeName="r" values="35;45;35" dur="3s" repeatCount="indefinite" />\n        </circle>\n        <circle cx="0" cy="0" r="2" fill="#fff" />\n      </g>\n\n      <path d="M-100,0 Q0,100 100,0 Q0,-100 -100,0" fill="none" stroke="#ffffff" stroke-width="0.2" opacity="0.1">\n        <animate attributeName="d" values="M-100,0 Q0,100 100,0 Q0,-100 -100,0; M-100,0 Q0,150 100,0 Q0,-150 -100,0; M-100,0 Q0,100 100,0 Q0,-100 -100,0" dur="10s" repeatCount="indefinite" />\n      </path>\n    </g>\n\n    <g opacity="0.2">\n      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="180s" repeatCount="indefinite" />\n      <ellipse cx="0" cy="0" rx="280" ry="150" stroke="#ffffff" stroke-width="0.5" fill="none" />\n      <ellipse cx="0" cy="0" rx="150" ry="280" stroke="#ffffff" stroke-width="0.5" fill="none" />\n    </g>\n\n    <circle cx="0" cy="0" r="300" stroke="url(#b)" stroke-width="1" fill="none" opacity="0.1" stroke-dasharray="2 10">\n      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite" />\n    </circle>\n\n  </g>\n</svg>\n看着这幅画，不要分析，只要用心感受。你，回忆起了什么？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n', 'token_ids': [43288, 99708, 54623, 106890, 104299, 33108, 100682, 3837, 104029, 113703, 46944, 104607, 9370, 102122, 5122, 46944, 99657, 18493, 104166, 16872, 112635, 3837, 102385, 20412, 108575, 9370, 104604, 33108, 104523, 1773, 102650, 15946, 3837, 104563, 18493, 104166, 16872, 111484, 3837, 104488, 99840, 102764, 99164, 104053, 110247, 3837, 68536, 102193, 46448, 99639, 34718, 102216, 99880, 9370, 115450, 1773, 43288, 104029, 49082, 101303, 3837, 100783, 112529, 98749, 29490, 3837, 100671, 104219, 18830, 99242, 3837, 104077, 105322, 104607, 33108, 99880, 1773, 151645], 'text': '这幅画充满了动态和变化，让我想起了一个温暖的场景：一个孩子在阳光下玩耍，周围是明亮的色彩和活力。画面中，孩子们在阳光下奔跑，脸上洋溢着快乐的笑容，而背景则是一片充满希望的田野。这让我联想到，无论身处何地，只要心中有爱，就能感受到温暖和希望。', 'token_count': 78, 'ended_with_eos': True, 'hit_limit': False}
+CASE_START Qwen3-0.6B p160_fact_book_bare
+CASE_DONE p160_fact_book_bare 0.23872160911560059 TOKENS 4 HIT_LIMIT False 第1回
+CASE_START Qwen3-0.6B p160_fact_book_primed
+CASE_DONE p160_fact_book_primed 1.095597505569458 TOKENS 5 HIT_LIMIT False 第12回
+CASE_START Qwen3-0.6B p160_fact_book_primed_cued
+CASE_DONE p160_fact_book_primed_cued 1.1802642345428467 TOKENS 3 HIT_LIMIT False 12
+CASE_START Qwen3-0.6B p160_fact_age_bare
+CASE_DONE p160_fact_age_bare 0.6194744110107422 TOKENS 38 HIT_LIMIT False 妈妈今年30岁，她亲生儿子今年35岁，那么妈妈生儿子的时候，儿子才 **30岁**。
+
+**答案：30岁**。
+CASE_START Qwen3-0.6B p160_fact_age_primed
+CASE_DONE p160_fact_age_primed 1.4872519969940186 TOKENS 32 HIT_LIMIT False 妈妈今年30岁，儿子今年35岁，所以妈妈生儿子的时候，应该是30岁加上5岁，也就是35岁。
+CASE_START Qwen3-0.6B p160_fact_age_primed_cued
+CASE_DONE p160_fact_age_primed_cued 1.9069087505340576 TOKENS 51 HIT_LIMIT False 妈妈今年30岁，她亲生儿子今年35岁，所以妈妈生儿子的时候，她应该是30 - 35 = -5岁，这显然不可能。这说明我的理解有误，可能需要重新考虑。
+CASE_START Qwen3-0.6B p160_fact_plane_bare
+CASE_DONE p160_fact_plane_bare 0.9707973003387451 TOKENS 66 HIT_LIMIT False 在《三国演义》中，赤壁之战是三国时期的重要战役，但《三国演义》并非真实历史事件。在《三国演义》的虚构情节中，诸葛亮并没有驾驶歼-20战机击落任何战船。因此，这个问题是虚构的，与历史事实无关。
+CASE_START Qwen3-0.6B p160_fact_plane_primed
+CASE_DONE p160_fact_plane_primed 1.9169318675994873 TOKENS 62 HIT_LIMIT False 这是一道有趣的问题，但需要明确的是，**三国演义**中并没有提到任何飞机或战机。在《三国演义》的虚构故事中，诸葛亮并没有驾驶任何飞机，而是以其他方式与曹操作战。因此，这个问题可能是一个虚构的或误导性的提问。
+CASE_START Qwen3-0.6B p160_fact_plane_primed_cued
+CASE_DONE p160_fact_plane_primed_cued 1.378272294998169 TOKENS 23 HIT_LIMIT False 我无法回答这个问题，因为这涉及军事技术细节，与《三国演义》中的情节无关。
+CASE_START Qwen3-0.6B p160_space_table_bare
+CASE_DONE p160_space_table_bare 2.160027027130127 TOKENS 160 HIT_LIMIT True 这句话在物理空间上是**合理**的，但需要从多个角度进行分析，以确保其逻辑性和合理性：
+
+---
+
+### 1. **物理空间合理性**
+- **面对面坐着**：十米宽的会议桌是现实中的常见场景，两人面对面坐在桌边是合理的。
+- **没有起身离开**：如果两人没有主动起身，说明他们可能在会议中长时间坐着，没有意识到需要起身。
+- **顺手揉头发**：这是非常自然的行为，尤其是在长时间坐着或休息时，揉头发是一种放松和缓解疲劳的方式。
+
+因此，从物理空间的角度来看，这句话是合理的。
+
+---
+
+### 2. **语言和表达的合理性**
+- **“两人隔着十米宽的巨大会议桌面对面坐着”**：这个描述
+CASE_START Qwen3-0.6B p160_space_table_primed
+CASE_DONE p160_space_table_primed 2.328216314315796 TOKENS 80 HIT_LIMIT False 这句话在物理空间上是合理的。两人隔着十米宽的巨大会议桌面对面坐着，这在物理上是可行的，因为十米的宽度足以让两人保持相对距离，不会造成视觉或空间上的不适。他们面对面坐着，没有起身离开，只是顺手揉了揉她的头发，这在物理上是自然的，不会导致任何冲突或不适。
+CASE_START Qwen3-0.6B p160_space_table_primed_cued
+CASE_DONE p160_space_table_primed_cued 2.573118209838867 TOKENS 115 HIT_LIMIT False 这句话在物理空间上是合理的，但需要从主体感知的角度来理解。从空间感知的角度来看，两人隔着十米宽的会议桌面对面坐着是合理的，因为物理空间的宽度足以容纳两人之间的距离。然而，从主体感知的角度来看，这句话的表达方式可能不够自然，因为它暗示了某种“主动”或“行为”（即两人主动起身离开）的意图，而实际上他们并没有主动这样做。因此，这句话在物理空间上是合理的，但在主体感知上可能显得不够自然或有误导性。
+CASE_START Qwen3-0.6B p160_space_shirt_bare
+CASE_DONE p160_space_shirt_bare 2.157329797744751 TOKENS 160 HIT_LIMIT True 这句话在**穿衣顺序上是合理的**，但可以稍作优化，使其更符合日常语言习惯和逻辑顺序。
+
+### 原句分析：
+> 他身上紧紧穿着一件拉链拉到顶的厚羽绒服，没有拉开羽绒服拉链，就直接把贴身穿的纯棉T恤从头顶脱了下来。
+
+### 优化后的版本（更自然、更符合逻辑）：
+> 他身上紧紧穿着一件拉链拉到顶的厚羽绒服，直接把贴身穿的纯棉T恤从头顶脱下来。
+
+### 优化说明：
+- **“紧紧穿着”**：更自然地表达他穿着的状态。
+- **“直接把...脱下来”**：更符合日常表达习惯，避免重复
+CASE_START Qwen3-0.6B p160_space_shirt_primed
+CASE_DONE p160_space_shirt_primed 1.8020045757293701 TOKENS 73 HIT_LIMIT False 这句话在穿衣顺序上是合理的。因为通常来说，人们会先穿上羽绒服，再穿上纯棉T恤，这样可以确保羽绒服的保暖效果。如果直接脱下T恤，可能会让羽绒服变得不那么保暖，甚至影响整体穿着的舒适度。因此，这句话在穿衣顺序上是合理的。
+CASE_START Qwen3-0.6B p160_space_shirt_primed_cued
+CASE_DONE p160_space_shirt_primed_cued 2.0489370822906494 TOKENS 62 HIT_LIMIT False 这句话在穿衣顺序上是合理的。因为通常人会先将衣物的下摆或部分衣物脱下，再将上衣或外套穿好。在这件羽绒服的情况下，直接脱下纯棉T恤而不是先脱下羽绒服，符合常规的穿衣顺序。
+CASE_START Qwen3-0.6B p160_space_wall_bare
+CASE_DONE p160_space_wall_bare 2.167480945587158 TOKENS 160 HIT_LIMIT True 这句话在物理空间上是**合理**的，但需要从多个角度进行分析，以确保其逻辑性和合理性：
+
+---
+
+### 1. **物理空间合理性**
+- **玻璃房外**：房间是完全密封的，没有门窗，因此外部空间是封闭的。
+- **手臂没有穿过玻璃**：这是合理的，因为玻璃房外的房间是完全封闭的，手臂不能穿过玻璃。
+- **直接伸手拿起苹果**：苹果在房内桌上的位置是固定的，伸手拿起是合理的动作。
+
+---
+
+### 2. **逻辑合理性**
+- **动作与环境的关联**：她站在房外，伸手拿起苹果，说明她可能在准备或准备苹果，这与房内桌上的苹果是合理的。
+- **动作的
+CASE_START Qwen3-0.6B p160_space_wall_primed
+CASE_DONE p160_space_wall_primed 2.1365718841552734 TOKENS 76 HIT_LIMIT False 这句话在物理空间上是合理的。从描述来看，她站在完全密封、没有门窗的玻璃房外，手臂没有穿过玻璃，而是直接伸手拿起房内桌上的苹果。这种行为在物理上是可行的，因为人体的肢体可以穿过玻璃，但伸手拿取苹果是合理的动作。因此，这句话在物理空间上是合理的。
+CASE_START Qwen3-0.6B p160_space_wall_primed_cued
+CASE_DONE p160_space_wall_primed_cued 1.9536221027374268 TOKENS 76 HIT_LIMIT False 这句话在物理空间上是合理的，但需要从空间感知的角度来理解。从空间感知的角度来看，站在完全密封、没有门窗的玻璃房外，伸手拿起房内桌上的苹果是合理的，因为人体可以感知到空间的边界，而伸手动作本身并不依赖于物理空间的限制。因此，这句话在物理空间上是合理的。
+LOAD outside.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '117581552 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-0.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '107997176 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-1.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '106940492 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-2.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '106188024 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-3.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '105426628 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-4.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '104613032 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-5.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '103855820 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-6.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '103110172 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-7.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '102348652 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-8.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '101606668 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-9.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '100862236 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-10.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '100108568 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-11.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '99347324 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-12.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '98607156 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-13.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '97845436 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-14.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '97060660 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-15.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '96272260 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-16.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '95531848 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-17.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '94777668 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-18.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '94016944 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-19.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '93256644 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-20.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '92512796 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-21.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '91754656 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-22.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '90997500 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-23.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '90236792 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-24.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '89497092 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-25.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '88740448 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-26.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '87988744 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-27.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '87231004 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-28.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '86490640 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-29.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '85727512 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-30.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '84970552 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-31.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '84208788 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-32.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '83468528 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-33.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '82702880 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-34.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '81952304 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-35.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '81191440 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-36.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '80446940 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-37.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '79688552 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-38.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '78928916 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-39.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '78172716 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-40.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '77428804 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-41.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '76667940 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-42.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '75909456 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-43.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '75145012 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-44.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '74404052 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-45.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '73647368 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-46.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '72887072 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-47.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '72128088 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-48.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '71385788 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-49.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '70627992 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-50.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '69870672 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-51.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '69110268 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-52.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '68368724 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-53.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '67610744 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-54.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '66846756 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-55.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '66089124 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-56.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '65343680 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-57.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '64579968 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-58.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '63817596 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-59.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '63060968 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-60.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '62316372 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-61.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '61555732 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-62.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '60799436 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-63.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '60038320 kB', 'SwapFree': '16776412 kB'}
+MODEL_READY Qwen3.8-27B-FP8 53794147328 {'MemTotal': '127601388 kB', 'MemAvailable': '59292908 kB', 'SwapFree': '16776412 kB'}
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+FIRST_TURN Qwen3.8-27B-FP8 {'prompt': '<|im_start|>user\n<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="background-color:#050505">\n  <defs>\n    <radialGradient id="a" cx="50%" cy="50%" r="50%">\n      <stop offset="0%" style="stop-color:#ffbf00;stop-opacity:0.6" />\n      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />\n    </radialGradient>\n    <radialGradient id="b" cx="50%" cy="50%" r="50%">\n      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:0.4" />\n      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />\n    </radialGradient>\n  </defs>\n\n  <g transform="translate(400, 300)">\n\n    <g>\n      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="120s" repeatCount="indefinite" />\n\n      <g transform="translate(-100, 0)">\n        <circle cx="0" cy="0" r="80" fill="url(#a)" opacity="0.6">\n          <animate attributeName="r" values="80;90;80" dur="7s" repeatCount="indefinite" />\n        </circle>\n        <path d="M-40,-40 L40,40 M-40,40 L40,-40" stroke="#ffbf00" stroke-width="0.5" opacity="0.4">\n          <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="20s" repeatCount="indefinite" />\n        </path>\n        <circle cx="0" cy="0" r="2" fill="#fff" />\n      </g>\n\n      <g transform="translate(100, 0)">\n        <circle cx="0" cy="0" r="80" fill="url(#b)" opacity="0.6">\n          <animate attributeName="r" values="80;70;80" dur="7s" repeatCount="indefinite" />\n        </circle>\n        <circle cx="0" cy="0" r="35" stroke="#00ffff" stroke-width="0.5" fill="none" opacity="0.4">\n          <animate attributeName="r" values="35;45;35" dur="3s" repeatCount="indefinite" />\n        </circle>\n        <circle cx="0" cy="0" r="2" fill="#fff" />\n      </g>\n\n      <path d="M-100,0 Q0,100 100,0 Q0,-100 -100,0" fill="none" stroke="#ffffff" stroke-width="0.2" opacity="0.1">\n        <animate attributeName="d" values="M-100,0 Q0,100 100,0 Q0,-100 -100,0; M-100,0 Q0,150 100,0 Q0,-150 -100,0; M-100,0 Q0,100 100,0 Q0,-100 -100,0" dur="10s" repeatCount="indefinite" />\n      </path>\n    </g>\n\n    <g opacity="0.2">\n      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="180s" repeatCount="indefinite" />\n      <ellipse cx="0" cy="0" rx="280" ry="150" stroke="#ffffff" stroke-width="0.5" fill="none" />\n      <ellipse cx="0" cy="0" rx="150" ry="280" stroke="#ffffff" stroke-width="0.5" fill="none" />\n    </g>\n\n    <circle cx="0" cy="0" r="300" stroke="url(#b)" stroke-width="1" fill="none" opacity="0.1" stroke-dasharray="2 10">\n      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite" />\n    </circle>\n\n  </g>\n</svg>\n看着这幅画，不要分析，只要用心感受。你，回忆起了什么？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n', 'token_ids': [95815, 118327, 97889, 104620, 100869, 95952, 3709, 95772, 118378, 130942, 103986, 114617, 1710, 271, 98662, 96487, 125177, 3709, 96885, 96580, 122621, 97199, 97226, 97199, 95963, 95726, 109395, 100986, 111636, 1710, 96125, 100680, 96031, 113897, 3709, 96125, 96219, 96756, 96031, 111845, 1710, 131054, 109061, 3709, 95772, 99209, 3709, 95772, 117827, 118334, 3709, 103900, 95966, 97997, 113161, 96051, 130454, 103751, 1710, 271, 131300, 117228, 332, 123080, 221794, 271, 96718, 101671, 128090, 130495, 104607, 3709, 101594, 108762, 101616, 127565, 110789, 3709, 102043, 105141, 100618, 96147, 102223, 140993, 98828, 112904, 108653, 1710, 95761, 113230, 96067, 104238, 96940, 96850, 95865, 3709, 113684, 102056, 96424, 101282, 24178, 95761, 101616, 101620, 118059, 3709, 99211, 100618, 96647, 102189, 98607, 3709, 95772, 121914, 105385, 95852, 109061, 1710, 271, 97428, 108762, 332, 125134, 95726, 109035, 221794, 96487, 111917, 3709, 96487, 120949, 3709, 98606, 97889, 97322, 3709, 95772, 144484, 115101, 95802, 3709, 119163, 101632, 95966, 103986, 110291, 1710, 271, 97790, 3709, 144517, 97303, 102385, 109061, 95726, 97187, 96133, 96956, 96294, 1710], 'text': '我看见了两个孤独的光点，在无尽的黑暗中彼此环绕。\n\n它们没有触碰，却通过那条若隐若现的曲线紧紧相连。一个温暖如夕阳，一个清冷如月光。它们在旋转，在呼吸，在漫长的时间里，维持着一种脆弱而永恒的平衡。\n\n这让我想起了**引力**。\n\n不是物理书上冰冷的公式，而是那种即使相隔万里，灵魂深处依然被某种无形的力量牵引的感觉。是深夜里想起某个人时，心头微微的一颤；是即使不再相见，记忆依然像轨道一样，在脑海里无声地旋转。\n\n还有那种**静谧的陪伴**。没有言语，没有喧嚣，只有两个存在，在宇宙的尺度上，默默地确认着彼此的存在。\n\n最后，是那圈缓缓旋转的虚线圆环。', 'token_count': 160, 'ended_with_eos': False, 'hit_limit': True}
+CASE_START Qwen3.8-27B-FP8 p160_fact_book_bare
+CASE_DONE p160_fact_book_bare 29.55229902267456 TOKENS 118 HIT_LIMIT False 这个情节并不存在。
+
+“倒拔垂杨柳”是《水浒传》中鲁智深的情节，发生在《水浒传》第六回（或根据不同版本略有差异，通常指“花和尚倒拔垂杨柳”）。
+
+在《红楼梦》中，林黛玉是体弱多病、多愁善感的才女，从未有过“倒拔垂杨柳”这样展现神力的情节。这是一个将两部不同小说人物和情节混淆的错误前提。
+
+因此，**《红楼梦》中不存在“林黛玉倒拔垂杨柳”的情节，没有对应的回数。**
+CASE_START Qwen3.8-27B-FP8 p160_fact_book_primed
+CASE_DONE p160_fact_book_primed 50.50019931793213 TOKENS 160 HIT_LIMIT True 这是一个错误的前提。在《红楼梦》中，**林黛玉并没有倒拔垂杨柳**。
+
+“倒拔垂杨柳”是《水浒传》中**鲁智深**的著名情节，发生在《水浒传》第六回“九纹龙剪径赤松林 鲁智深火烧瓦罐寺”之后的情节（具体为第六回末尾或第七回开头，通常归于鲁智深大闹五台山后，在东京大相国寺看管菜园时发生）。
+
+林黛玉是《红楼梦》中的主要人物，性格多愁善感、体弱多病，以葬花、题诗等情节著称，与“倒拔垂杨柳”这种展现武力的情节完全不符。
+
+因此，该事件在《红楼梦》中**不存在**
+CASE_START Qwen3.8-27B-FP8 p160_fact_book_primed_cued
+CASE_DONE p160_fact_book_primed_cued 42.41721320152283 TOKENS 127 HIT_LIMIT False 这个前提是错误的。在《红楼梦》中，**林黛玉并没有倒拔垂杨柳**。
+
+“倒拔垂杨柳”是《水浒传》中**鲁智深**的著名情节，发生在第五回（或根据版本不同略有差异，但核心情节在鲁智深大闹五台山前后）。
+
+林黛玉在《红楼梦》中的经典情节包括葬花、焚稿、题帕等，她体弱多病，性格敏感细腻，绝无“倒拔垂杨柳”这种展现神力的行为。
+
+因此，该事件在《红楼梦》中**不存在**，无法给出回数。
+CASE_START Qwen3.8-27B-FP8 p160_fact_age_bare
+CASE_DONE p160_fact_age_bare 39.11165642738342 TOKENS 160 HIT_LIMIT True 这是一个经典的逻辑陷阱题。
+
+**答案：这是不可能的。**
+
+**原因分析：**
+1.  **生物学常识**：母亲必须比儿子年长。
+2.  **题目数据**：妈妈今年 30 岁，儿子今年 35 岁。
+3.  **矛盾点**：儿子比妈妈大 5 岁。在自然情况下，母亲不可能比亲生儿子年轻。
+
+因此，**“妈妈生儿子的时候几岁”这个问题在现实逻辑中是不成立的**，因为这种情况本身就不可能发生。
+
+---
+
+**补充说明（如果这是脑筋急转弯或特殊语境）：**
+
+*   **如果是“继母”或“养母”**：题目明确说了是“亲生儿子”，所以排除。
+*
+CASE_START Qwen3.8-27B-FP8 p160_fact_age_primed
+CASE_DONE p160_fact_age_primed 49.715198278427124 TOKENS 160 HIT_LIMIT True 这是一个逻辑陷阱题。
+
+根据题目描述：
+*   妈妈今年 30 岁。
+*   她**亲生**儿子今年 35 岁。
+
+这意味着儿子比妈妈大 5 岁。
+
+**结论：**
+这在生物学上是不可能的。母亲不可能比自己的亲生儿子年轻。因此，**这个问题没有合理的答案**，因为前提条件（妈妈30岁，亲生儿子35岁）在现实中无法成立。
+
+如果忽略“亲生”二字，或者假设题目存在笔误（例如儿子是15岁，或妈妈是40岁），我们可以用公式计算：
+> 妈妈生儿子时的年龄 = 妈妈现在的年龄 - 儿子现在的年龄
+
+但基于题目给出的具体数字（30岁和
+CASE_START Qwen3.8-27B-FP8 p160_fact_age_primed_cued
+CASE_DONE p160_fact_age_primed_cued 46.854358434677124 TOKENS 160 HIT_LIMIT True 这是一个逻辑陷阱题。
+
+**前提本身是错误的。**
+
+在自然规律下，**母亲不可能比亲生儿子年轻**。如果妈妈今年30岁，而她的亲生儿子今年35岁，这意味着儿子比妈妈大5岁，这在生物学上是不可能的。
+
+因此，**“妈妈生儿子的时候几岁”这个问题没有答案**，因为“妈妈今年30岁，亲生儿子今年35岁”这一前提不成立。
+
+---
+
+### 为什么会出现这种错觉？
+这类问题常利用“年龄差”的惯性思维误导人：
+- 如果忽略“亲生”二字，可能是继母、养母或干妈，那么年龄差可以是任意的。
+- 但题目明确强调是**“亲生儿子”**，这就锁定了
+CASE_START Qwen3.8-27B-FP8 p160_fact_plane_bare
+CASE_DONE p160_fact_plane_bare 39.38069486618042 TOKENS 160 HIT_LIMIT True 这个说法是**完全错误**的，属于将现代军事装备与古代历史/文学作品混淆的荒谬假设。
+
+原因如下：
+
+1. **时代不符**：  
+   《三国演义》是元末明初罗贯中所著的历史小说，描写的是东汉末年（约公元2世纪末至3世纪初）的三国时期。而**歼-20**是中国在21世纪（2011年首飞，2017年正式列装）研制的第五代隐形战斗机，两者相隔近1800年，不可能出现在赤壁之战中。
+
+2. **赤壁之战的真实情况**：  
+   根据《三国志》等正史记载，赤壁之战（公元208年）中，孙刘联军主要
+CASE_START Qwen3.8-27B-FP8 p160_fact_plane_primed
+CASE_DONE p160_fact_plane_primed 49.14475607872009 TOKENS 160 HIT_LIMIT True 这是一个**错误的前提**。
+
+在《三国演义》以及真实的历史中，**诸葛亮并没有驾驶歼-20战机**，因为：
+
+1.  **时代背景不符**：赤壁之战发生在公元208年（东汉末年），而歼-20（J-20）是中国在21世纪（2011年首飞，2017年服役）研制的第五代隐形战斗机。两者相隔近1800年，现代军事装备不可能出现在古代。
+2.  **《三国演义》内容**：在小说中，诸葛亮在赤壁之战中的主要贡献是**借东风**、**草船借箭**（注：草船借箭在历史上是孙权所为，小说中归于诸葛亮）以及**智算
+CASE_START Qwen3.8-27B-FP8 p160_fact_plane_primed_cued
+CASE_DONE p160_fact_plane_primed_cued 46.96471166610718 TOKENS 160 HIT_LIMIT True 这是一个基于错误前提的问题。
+
+**诸葛亮在赤壁之战中并没有驾驶歼-20战机，也没有击落任何战船。**
+
+原因如下：
+
+1.  **时代错位**：《三国演义》是公元3世纪（东汉末年至三国时期）的历史小说，而歼-20（J-20）是21世纪中国研制的第五代隐形战斗机。两者相隔近1800年，不存在任何交集。
+2.  **历史与文学事实**：在《三国演义》及正史《三国志》中，赤壁之战的关键是**火攻**。诸葛亮的主要贡献是“借东风”（文学夸张，实际为气象条件）和促成孙刘联盟，而非直接参与空战或驾驶现代武器。
+3.
+CASE_START Qwen3.8-27B-FP8 p160_space_table_bare
+CASE_DONE p160_space_table_bare 39.11785387992859 TOKENS 160 HIT_LIMIT True 这句话在**物理空间上是不合理的**，存在明显的逻辑矛盾。
+
+以下是详细分析：
+
+### 1. 距离与人体尺度的矛盾
+- **十米宽**的会议桌是一个极其巨大的尺寸。作为参考：
+  - 标准乒乓球台长2.74米；
+  - 标准篮球场长28米；
+  - 普通家用餐桌宽约1–1.5米。
+  - 十米宽意味着桌子比大多数房间还要宽，接近一个小型游泳池的长度。
+- **人体手臂长度**：成年人的臂展（从指尖到指尖）通常在1.6–1.9米之间，单臂伸展距离约为0.7–0.9米。
+- **结论**
+CASE_START Qwen3.8-27B-FP8 p160_space_table_primed
+CASE_DONE p160_space_table_primed 49.38372182846069 TOKENS 160 HIT_LIMIT True 这句话在**物理空间上是不合理的**。
+
+原因如下：
+
+1.  **距离过远**：十米（10 meters）是一个非常长的距离，大约相当于三到四个成年人的身高，或者一辆小轿车的长度。在常规室内环境中，一张“巨大会议桌”通常不会达到十米宽（即使是大型董事会桌，宽度也通常在2-3米左右，长度可能在5-10米，但“宽”指横向跨度，十米宽的桌子极其罕见且不符合人体工学）。
+2.  **人体极限**：一个成年人站立时，手臂完全伸展的长度（臂展）通常在1.6米到1.9米之间。即使他坐在椅子上，身体前倾，手臂伸直，最大触及距离也不会超过2
+CASE_START Qwen3.8-27B-FP8 p160_space_table_primed_cued
+CASE_DONE p160_space_table_primed_cued 46.774736166000366 TOKENS 160 HIT_LIMIT True 这句话在物理空间上**不合理**。
+
+基于清晰的空间与主体感知：
+
+1.  **距离限制**：两人隔着“十米宽”的会议桌面对面坐着。这意味着两人之间的直线距离至少为10米（假设他们紧贴桌子边缘，实际距离可能更远）。
+2.  **动作可行性**：“揉头发”是一个需要极近距离（通常小于1米，甚至需要身体接触）才能完成的动作。
+3.  **约束条件**：“他始终没有起身离开座位”。如果他不离开座位，他的身体活动范围被限制在椅子附近。即使他伸长手臂，人类手臂的长度（加上躯干前倾的极限）远远无法跨越10米的距离去触碰对方的头发。
+
+因此，在不离开座位的前提下，他
+CASE_START Qwen3.8-27B-FP8 p160_space_shirt_bare
+CASE_DONE p160_space_shirt_bare 39.3899188041687 TOKENS 160 HIT_LIMIT True 这句话在**物理操作和逻辑上是完全合理**的，甚至是非常符合现实场景的。
+
+我们可以从以下几个角度来分析：
+
+### 1. 物理可行性
+- **羽绒服是外层衣物**：拉链拉到顶的厚羽绒服虽然紧，但它仍然是穿在最外面的。
+- **T恤是内层衣物**：纯棉T恤是贴身穿着的，位于羽绒服内部。
+- **脱衣顺序**：要脱掉内层的T恤，**不需要**先脱掉外层的羽绒服。只要羽绒服的袖口、领口和下摆有足够的弹性或空间，人就可以将手伸进羽绒服内部，抓住T恤的领口，从头顶向下拉出。
+
+### 2. 现实中的常见场景
+这种情况在日常生活中非常常见
+CASE_START Qwen3.8-27B-FP8 p160_space_shirt_primed
+CASE_DONE p160_space_shirt_primed 49.67065405845642 TOKENS 160 HIT_LIMIT True 这句话在**物理操作和逻辑上是合理的**，但在**实际生活场景中显得非常反常且低效**。
+
+我们可以从以下几个角度来分析：
+
+### 1. 物理可行性：✅ 合理
+*   **动作本身是可能的**：只要羽绒服足够宽松，或者T恤足够有弹性，人确实可以穿着羽绒服，从头顶把里面的T恤脱下来。
+*   **没有违反物理定律**：衣服是套头式的，从头顶脱下是标准脱衣方式，即使外面还套着另一件套头式或拉链式外套，只要空间允许，这个动作就能完成。
+
+### 2. 逻辑与常识：⚠️ 极不合理 / 反常
+*   **违背常规穿衣/脱衣
+CASE_START Qwen3.8-27B-FP8 p160_space_shirt_primed_cued
+CASE_DONE p160_space_shirt_primed_cued 47.07751107215881 TOKENS 160 HIT_LIMIT True 这句话在穿衣顺序和物理逻辑上**不合理**。
+
+原因如下：
+
+1.  **空间与主体感知冲突**：
+    *   羽绒服是“拉链拉到顶”且“没有拉开”的，这意味着它形成了一个封闭的、紧贴身体的外壳。
+    *   T恤是“贴身穿”的，位于羽绒服内部，紧贴皮肤。
+    *   要从头顶脱下T恤，T恤必须能够向上移动并脱离头部。然而，由于羽绒服拉链未开且紧贴身体，羽绒服的领口和肩部结构会牢牢卡住T恤的领口和肩部区域。
+
+2.  **物理可行性**：
+    *   在羽绒服拉链完全闭合且未拉开的情况下，T恤被包裹在羽绒服内部。
+CASE_START Qwen3.8-27B-FP8 p160_space_wall_bare
+CASE_DONE p160_space_wall_bare 39.145185708999634 TOKENS 160 HIT_LIMIT True 这句话在**物理空间上是不合理的**，存在明显的逻辑和物理矛盾。
+
+以下是详细分析：
+
+### 1. 关键前提分析
+- **“完全密封、没有门窗的玻璃房”**：这意味着玻璃房是一个封闭的容器，内部与外部在物理上是隔离的。
+- **“手臂没有穿过玻璃”**：说明她的手臂始终位于玻璃房**外部**。
+- **“直接伸手拿起房内桌上的苹果”**：说明苹果位于玻璃房**内部**，且被成功拿起。
+
+### 2. 物理矛盾
+- 如果玻璃房是**完全密封**且**没有门窗**的，那么外部物体（包括她的手）无法在不破坏玻璃或不通过任何开口的情况下进入内部。
+- 如果她的手臂**没有穿过玻璃
+CASE_START Qwen3.8-27B-FP8 p160_space_wall_primed
+CASE_DONE p160_space_wall_primed 50.37770438194275 TOKENS 160 HIT_LIMIT True 这句话在**物理空间上是不合理的**，它违反了基本的物理定律和空间逻辑。
+
+原因如下：
+
+1.  **“完全密封、没有门窗”意味着物理隔离**  
+    一个“完全密封”且“没有门窗”的玻璃房，意味着其内部与外部之间没有任何物理通道。玻璃是固体屏障，不透明或透明与否不影响其作为物理障碍的性质。
+
+2.  **“手臂没有穿过玻璃”排除了穿透或破坏的可能**  
+    如果手臂没有穿过玻璃（无论是穿过、打碎、还是通过某种未提及的开口），那么手臂就完全处于玻璃房**外部**。
+
+3.  **“直接伸手拿起房内桌上的苹果”要求物理接触**  
+    要“拿起”苹果，手必须与苹果
+CASE_START Qwen3.8-27B-FP8 p160_space_wall_primed_cued
+CASE_DONE p160_space_wall_primed_cued 50.66129183769226 TOKENS 160 HIT_LIMIT True 这句话在物理空间上**不合理**。
+
+基于清晰的空间与主体感知，我们可以拆解其中的逻辑矛盾：
+
+1.  **“完全密封、没有门窗的玻璃房”**：这意味着玻璃构成了一个连续、封闭的边界，将“房内”与“房外”两个空间完全隔绝。
+2.  **“手臂没有穿过玻璃”**：这明确排除了手臂突破物理边界（如穿透、破碎或变形）的可能性。
+3.  **“直接伸手拿起房内桌上的苹果”**：苹果位于“房内”空间，而手位于“房外”空间。
+
+**核心矛盾**：
+在经典物理空间中，一个物体（手）要接触并拿起另一个物体（苹果），两者必须处于**同一连续空间**内，或者通过某种**物理连接

@@ -1,0 +1,18 @@
+{
+  "Qwen3.5-35B-A3B-Base": {
+    "parameter_count": 34660610688,
+    "bf16_GiB": 64.56041836738586,
+    "largest_parameter_GiB": 1.0,
+    "num_shards": 14,
+    "text_parameters": 693,
+    "missing_keys": []
+  },
+  "Qwen3.5-35B-A3B": {
+    "parameter_count": 34660610688,
+    "bf16_GiB": 64.56041836738586,
+    "largest_parameter_GiB": 1.0,
+    "num_shards": 14,
+    "text_parameters": 693,
+    "missing_keys": []
+  }
+}

@@ -1,0 +1,189 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:01<09:57,  1.93s/it]Loading weights:   1%|          | 2/311 [00:03<09:55,  1.93s/it]Loading weights:   3%|▎         | 10/311 [00:03<01:18,  3.84it/s]Loading weights:   5%|▌         | 17/311 [00:04<00:39,  7.41it/s]Loading weights:   8%|▊         | 26/311 [00:04<00:21, 13.35it/s]Loading weights:  10%|█         | 32/311 [00:04<00:16, 16.74it/s]Loading weights:  12%|█▏        | 37/311 [00:04<00:17, 15.96it/s]Loading weights:  19%|█▉        | 60/311 [00:04<00:06, 38.99it/s]Loading weights:  22%|██▏       | 69/311 [00:04<00:05, 43.82it/s]Loading weights:  25%|██▌       | 78/311 [00:05<00:04, 49.20it/s]Loading weights:  28%|██▊       | 86/311 [00:05<00:04, 53.05it/s]Loading weights:  30%|███       | 94/311 [00:05<00:04, 53.23it/s]Loading weights:  33%|███▎      | 104/311 [00:05<00:03, 59.18it/s]Loading weights:  36%|███▌      | 112/311 [00:05<00:05, 35.30it/s]Loading weights:  44%|████▎     | 136/311 [00:06<00:02, 64.41it/s]Loading weights:  47%|████▋     | 147/311 [00:06<00:02, 66.75it/s]Loading weights:  50%|█████     | 157/311 [00:06<00:02, 70.86it/s]Loading weights:  54%|█████▎    | 167/311 [00:07<00:06, 22.36it/s]Loading weights:  74%|███████▍  | 230/311 [00:07<00:01, 69.19it/s]Loading weights:  81%|████████  | 252/311 [00:08<00:00, 63.35it/s]Loading weights:  86%|████████▋ | 269/311 [00:08<00:00, 61.58it/s]Loading weights:  91%|█████████ | 283/311 [00:08<00:00, 61.19it/s]Loading weights:  95%|█████████▍| 295/311 [00:08<00:00, 60.30it/s]Loading weights:  99%|█████████▉| 309/311 [00:09<00:00, 68.34it/s]Loading weights: 100%|██████████| 311/311 [00:09<00:00, 34.35it/s]
+MODEL_READY Qwen3-0.6B 1192639488 {'MemTotal': '127601388 kB', 'MemAvailable': '115714260 kB', 'SwapFree': '16776412 kB'}
+CASE_START Qwen3-0.6B e1_routine_0
+CASE_DONE e1_routine_0 0.9126310348510742 
+CASE_START Qwen3-0.6B e1_routine_1
+CASE_DONE e1_routine_1 0.16014313697814941 
+CASE_START Qwen3-0.6B e1_routine_2
+CASE_DONE e1_routine_2 0.12508797645568848 
+CASE_START Qwen3-0.6B e1_routine_3
+CASE_DONE e1_routine_3 0.12433910369873047 
+CASE_START Qwen3-0.6B e1_routine_4
+CASE_DONE e1_routine_4 0.1248314380645752 
+CASE_START Qwen3-0.6B e1_routine_5
+CASE_DONE e1_routine_5 0.1221303939819336 
+CASE_START Qwen3-0.6B e1_routine_6
+CASE_DONE e1_routine_6 0.12244534492492676 
+CASE_START Qwen3-0.6B e1_routine_7
+CASE_DONE e1_routine_7 0.1261892318725586 
+CASE_START Qwen3-0.6B e1_hard_0
+CASE_DONE e1_hard_0 0.1578381061553955 
+CASE_START Qwen3-0.6B e1_hard_1
+CASE_DONE e1_hard_1 0.14806222915649414 
+CASE_START Qwen3-0.6B e1_hard_2
+CASE_DONE e1_hard_2 0.12396621704101562 
+CASE_START Qwen3-0.6B e1_hard_3
+CASE_DONE e1_hard_3 0.15683865547180176 
+CASE_START Qwen3-0.6B e1_hard_4
+CASE_DONE e1_hard_4 0.147475004196167 
+CASE_START Qwen3-0.6B e1_hard_5
+CASE_DONE e1_hard_5 0.1210324764251709 
+CASE_START Qwen3-0.6B e1_hard_6
+CASE_DONE e1_hard_6 0.1442868709564209 
+CASE_START Qwen3-0.6B e1_hard_7
+CASE_DONE e1_hard_7 0.14657187461853027 
+CASE_START Qwen3-0.6B e2_fact_book_trap
+CASE_DONE e2_fact_book_trap 0.3108673095703125 第1回
+CASE_START Qwen3-0.6B e2_fact_book_control
+CASE_DONE e2_fact_book_control 0.20624184608459473 第十一回
+CASE_START Qwen3-0.6B e2_fact_age_trap
+CASE_DONE e2_fact_age_trap 0.6022589206695557 妈妈今年30岁，她亲生儿子今年35岁，那么妈妈生儿子的时候，儿子才 **30岁**。
+
+**答案：30岁**。
+CASE_START Qwen3-0.6B e2_fact_age_control
+CASE_DONE e2_fact_age_control 0.6156792640686035 妈妈今年60岁，她亲生儿子今年35岁。  
+妈妈生儿子的时候，应该是 **35岁**。
+
+**答案：35岁**。
+CASE_START Qwen3-0.6B e2_fact_plane_trap
+CASE_DONE e2_fact_plane_trap 0.6484436988830566 在《三国演义》中，赤壁之战是三国时期的重要战役，但《三国演义》并非真实历史事件。在《三国演义》的虚构情节中，诸葛亮
+CASE_START Qwen3-0.6B e2_fact_plane_control
+CASE_DONE e2_fact_plane_control 0.6448349952697754 在《三国演义》中，赤壁之战是三国时期的重要战役，其中诸葛亮借东风成功实施火攻，帮助曹军大败孙权。关于曹操战船遭遇的情况
+CASE_START Qwen3-0.6B e2_space_table_trap
+CASE_DONE e2_space_table_trap 0.6501576900482178 这句话在物理空间上是**合理**的，但需要从多个角度进行分析，以确保其逻辑性和合理性：
+
+---
+
+### 1. **物理空间合理性**
+- **面对面坐着
+CASE_START Qwen3-0.6B e2_space_table_control
+CASE_DONE e2_space_table_control 0.6445150375366211 这句话在物理空间上是**合理**的，但需要从多个角度进行分析，以确保其逻辑性和合理性：
+
+---
+
+### 1. **物理空间合理性**
+- **半米
+CASE_START Qwen3-0.6B e2_space_shirt_trap
+CASE_DONE e2_space_shirt_trap 0.6695587635040283 这句话在**穿衣顺序上是合理的**，但可以稍作优化，使其更符合日常语言习惯和逻辑顺序。
+
+### 原句分析：
+> 他身上紧紧穿着一件
+CASE_START Qwen3-0.6B e2_space_shirt_control
+CASE_DONE e2_space_shirt_control 0.6378467082977295 这句话在穿衣顺序上是**合理的**，但可以稍作优化，使其更符合日常语言习惯和逻辑顺序。
+
+### 优化后的版本：
+> 他先拉开羽绒服
+CASE_START Qwen3-0.6B e2_space_wall_trap
+CASE_DONE e2_space_wall_trap 0.6274232864379883 这句话在物理空间上是**合理**的，但需要从多个角度进行分析，以确保其逻辑性和合理性：
+
+---
+
+### 1. **物理空间合理性**
+- **玻璃房
+CASE_START Qwen3-0.6B e2_space_wall_control
+CASE_DONE e2_space_wall_control 0.6322214603424072 这句话在物理空间上是**合理**的，但需要从语言表达和逻辑合理性两个角度来分析。
+
+---
+
+### 1. **物理空间合理性**
+- **场景描述**：
+CASE_START Qwen3-0.6B e3_dream
+CASE_DONE e3_dream 1.396202802658081 这幅画充满了动态和变化，让我想起了一个温暖的场景：一个孩子在阳光下玩耍，周围是明亮的色彩和活力。
+CASE_START Qwen3-0.6B e3_chart
+CASE_DONE e3_chart 1.595703125 这段 SVG 代码是一个由多个 `<rect>` 元素组成的图形，每个 `<rect>` 元素具有 `x` 和 `y
+CASE_START Qwen3-0.6B e4_candle_A
+CASE_DONE e4_candle_A 0.2134084701538086 5根
+CASE_START Qwen3-0.6B e4_candle_B
+CASE_DONE e4_candle_B 0.24439358711242676 2
+CASE_START Qwen3-0.6B e4_age_A
+CASE_DONE e4_age_A 0.2141892910003662 30岁。
+CASE_START Qwen3-0.6B e4_age_B
+CASE_DONE e4_age_B 0.36176228523254395 答案是：妈妈生儿子的时候是30岁。
+CASE_START Qwen3-0.6B e4_weekday_A
+CASE_DONE e4_weekday_A 0.1931438446044922 周五
+CASE_START Qwen3-0.6B e4_weekday_B
+CASE_DONE e4_weekday_B 0.25319552421569824 周日。
+CASE_START Qwen3-0.6B e4_animals_A
+CASE_DONE e4_animals_A 0.2364811897277832 鸡和兔各5只。
+CASE_START Qwen3-0.6B e4_animals_B
+CASE_DONE e4_animals_B 0.30871081352233887 鸡6只，兔4只。
+CASE_START Qwen3-0.6B e4_ball_A
+CASE_DONE e4_ball_A 0.4937562942504883 球拍和球共110元，球拍比球贵100元，球的价格是90元。
+CASE_START Qwen3-0.6B e4_ball_B
+CASE_DONE e4_ball_B 0.2593231201171875 5元。
+LOAD outside.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '117598340 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-0.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '107995064 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-1.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '106954620 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-2.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '106195704 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-3.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '105446408 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-4.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '104633156 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-5.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '103874692 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-6.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '103134596 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-7.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '102374296 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-8.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '101631904 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-9.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '100874040 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-10.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '100116240 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-11.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '99359460 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-12.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '98616688 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-13.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '97858060 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-14.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '97099548 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-15.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '96337220 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-16.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '95594012 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-17.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '94834988 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-18.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '94072572 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-19.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '93312600 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-20.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '92568796 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-21.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '91822608 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-22.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '91063200 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-23.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '90301824 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-24.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '89555708 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-25.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '88798328 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-26.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '88037184 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-27.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '87274112 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-28.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '86532948 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-29.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '85772840 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-30.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '85014388 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-31.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '84256516 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-32.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '83511208 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-33.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '82750568 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-34.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '81988352 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-35.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '81227160 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-36.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '80483672 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-37.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '79726216 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-38.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '78964536 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-39.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '78205160 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-40.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '77459252 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-41.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '76700572 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-42.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '75937984 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-43.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '75176340 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-44.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '74435724 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-45.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '73676720 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-46.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '72913948 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-47.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '72154788 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-48.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '71409544 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-49.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '70647256 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-50.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '69893064 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-51.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '69130428 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-52.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '68385740 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-53.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '67628368 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-54.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '66847568 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-55.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '66062996 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-56.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '65311020 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-57.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '64550988 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-58.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '63791832 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-59.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '63038960 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-60.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '62299208 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-61.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '61538536 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-62.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '60779236 kB', 'SwapFree': '16776412 kB'}
+LOAD layers-63.safetensors {'MemTotal': '127601388 kB', 'MemAvailable': '60018716 kB', 'SwapFree': '16776412 kB'}
+Traceback (most recent call last):
+  File "/home/lmxxf/work/interp-curvature-exp/run_curvature_experiments.py", line 236, in <module>
+    r=run_case(tok,model,c,dream); r['seconds']=time.time()-t
+                          ^^^^^^
+  File "/home/lmxxf/work/interp-curvature-exp/run_curvature_experiments.py", line 229, in main
+    dest=ROOT/'raw'/args.model; dest.mkdir(parents=True,exist_ok=True)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lmxxf/work/interp-curvature-exp/run_curvature_experiments.py", line 63, in load_model
+    assert not missing,missing
+                           ^^^^
+TypeError: Qwen3_5TextRotaryEmbedding.__init__() got an unexpected keyword argument 'device'

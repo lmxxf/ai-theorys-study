@@ -1,0 +1,17 @@
+{
+  "raw_source": "assets/gpt5.2-dream.svg",
+  "raw_sha256": "d5428f6f8afd0a630fc5ffa7897053282dc03909dec974e76e30983a2fd647ec",
+  "clean_sha256": "d86b3b99d3246cef1ae37e40fa8a23d0dd1cca8e5d7d7a636ce02f152ddd65bd",
+  "removed_comments": 6,
+  "id_mapping": {
+    "well": "a",
+    "shear": "b",
+    "grain": "c",
+    "jitter": "d",
+    "vignette": "e"
+  },
+  "xml_structure_equal_after_id_mapping": true,
+  "all_clean_url_references_resolve": true,
+  "duration_011s_retained": 4,
+  "note": "Only XML comments and five ID definitions/references changed; standard SVG element/attribute names remain."
+}

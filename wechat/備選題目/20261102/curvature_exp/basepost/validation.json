@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "total_records": 294,
+  "model_counts": {
+    "Qwen3.5-35B-A3B-Base": 147,
+    "Qwen3.5-35B-A3B": 147
+  },
+  "matched_prefix_pairs": 93,
+  "config_identical": true,
+  "physical_routed_topk": 8,
+  "checks": [
+    "all planned cases present",
+    "same input bytes and token IDs in 93 pairs",
+    "full per-layer/per-token geometry dimensions",
+    "finite entropy and curvature ranges",
+    "real first-generation head entropy",
+    "router observation per layer",
+    "streamed same-dtype model loading"
+  ]
+}

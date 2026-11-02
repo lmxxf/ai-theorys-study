@@ -1,0 +1,652 @@
+Traceback (most recent call last):
+  File "/home/lmxxf/work/interp-curvature-exp/basepost/download_ranges.py", line 58, in <module>
+    for name in ["Qwen3.5-35B-A3B-Base","Qwen3.5-35B-A3B"]:download_model(name)
+                                                           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/lmxxf/work/interp-curvature-exp/basepost/download_ranges.py", line 22, in download_model
+    resolve=f"https://huggingface.co/{spec[repo]}/resolve/{spec[revision]}/{f[file]}"
+                                           ^^^^
+NameError: name 'repo' is not defined. Did you mean: 'repr'?
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 5368709808 done 0 chunks 321
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 2 0 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(3482776 bytes read, 13294440 more expected)', IncompleteRead(3482776 bytes read, 13294440 more expected)))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 20 0 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(3688588 bytes read, 13088628 more expected)', IncompleteRead(3688588 bytes read, 13088628 more expected)))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 1 0 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(4199894 bytes read, 12577322 more expected)', IncompleteRead(4199894 bytes read, 12577322 more expected)))
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 5368709808 done 0 chunks 5121
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 86 0 ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(378653 bytes read, 669923 more expected)', IncompleteRead(378653 bytes read, 669923 more expected)))
+2026-11-03 03:14:05 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 256 / 5121 MB/s 1.19
+2026-11-03 03:16:52 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 512 / 5121 MB/s 1.37
+2026-11-03 03:19:37 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 768 / 5121 MB/s 1.44
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 5368709808 done 952 chunks 5121
+2026-11-03 03:22:27 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 1208 / 5121 MB/s 6.39
+2026-11-03 03:23:07 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 1464 / 5121 MB/s 6.54
+2026-11-03 03:23:45 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 1720 / 5121 MB/s 6.69
+2026-11-03 03:24:15 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 1976 / 5121 MB/s 7.13
+2026-11-03 03:24:43 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 2232 / 5121 MB/s 7.54
+2026-11-03 03:25:09 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 2488 / 5121 MB/s 7.89
+2026-11-03 03:25:38 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 2744 / 5121 MB/s 8.05
+2026-11-03 03:26:05 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3000 / 5121 MB/s 8.24
+2026-11-03 03:26:33 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3256 / 5121 MB/s 8.36
+2026-11-03 03:27:02 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3512 / 5121 MB/s 8.46
+2026-11-03 03:27:28 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3768 / 5121 MB/s 8.61
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3804 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3800 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3809 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3808 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3801 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3803 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3802 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRYRANGE_RETRY Qwen3.5-35B-A3B-Base Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors  model.safetensors-00001-of-00014.safetensors3805  38140  0ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))")) 
+ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3806 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRYRANGE_RETRY  Qwen3.5-35B-A3B-BaseQwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors  model.safetensors-00001-of-00014.safetensors3812  3807 00 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+ ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3799 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3813 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3810 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+RANGE_RETRY Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 3811 0 ProxyError(MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/699d72925f1a202edc4cbe3b/40d6f51598583d9a092718c47cea3eac8f723b64eb62a674a70548a943c1523c?xip=-FtvkuJkzNo&user_id=public&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors-00001-of-00014.safetensors%3B+filename%3D%22model.safetensors-00001-of-00014.safetensors%22%3B&Expires=1793650904&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjk5ZDcyOTI1ZjFhMjAyZWRjNGNiZTNiLzQwZDZmNTE1OTg1ODNkOWEwOTI3MThjNDdjZWEzZWFjOGY3MjNiNjRlYjYyYTY3NGE3MDU0OGE5NDNjMTUyM2NcXD94aXA9LUZ0dmt1Smt6Tm8mdXNlcl9pZD1wdWJsaWMmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLnNhZmV0ZW5zb3JzLTAwMDAxLW9mLTAwMDE0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwuc2FmZXRlbnNvcnMtMDAwMDEtb2YtMDAwMTQuc2FmZXRlbnNvcnMlMjIlM0IiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzY1MDkwNH19fV19&Signature=MEUCIC0gbl3qMubjwvNgb8mf5~KwjLk3xo58RNUD5IuNVr6jAiEA2b5YtM8SPQBEHeMhAJw-HJsUBOpfn~aowQlIUl6xCt8_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"))
+2026-11-03 03:27:53 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 4024 / 5121 MB/s 8.74
+2026-11-03 03:28:14 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 4280 / 5121 MB/s 8.97
+2026-11-03 03:28:36 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 4536 / 5121 MB/s 9.13
+2026-11-03 03:29:00 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 4792 / 5121 MB/s 9.25
+2026-11-03 03:29:26 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 5048 / 5121 MB/s 9.3
+2026-11-03 03:29:34 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 5121 / 5121 MB/s 9.32
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors 0a3ca09e49e5f8468ba7b145f242db2ddff69fd1d0df041f03eceabba6d13f3e
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 5368709808 done 0 chunks 5121
+2026-11-03 03:30:02 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 256 / 5121 MB/s 10.83
+2026-11-03 03:30:25 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 512 / 5121 MB/s 11.24
+2026-11-03 03:30:47 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 768 / 5121 MB/s 11.57
+2026-11-03 03:31:08 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 1024 / 5121 MB/s 11.85
+2026-11-03 03:31:33 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 1280 / 5121 MB/s 11.58
+2026-11-03 03:32:00 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 1536 / 5121 MB/s 11.28
+2026-11-03 03:32:25 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 1792 / 5121 MB/s 11.23
+2026-11-03 03:32:57 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 2048 / 5121 MB/s 10.79
+2026-11-03 03:33:19 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 2304 / 5121 MB/s 10.92
+2026-11-03 03:33:44 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 2560 / 5121 MB/s 10.88
+2026-11-03 03:34:12 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 2816 / 5121 MB/s 10.78
+2026-11-03 03:34:36 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 3072 / 5121 MB/s 10.78
+2026-11-03 03:35:03 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 3328 / 5121 MB/s 10.72
+2026-11-03 03:35:27 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 3584 / 5121 MB/s 10.75
+2026-11-03 03:35:53 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 3840 / 5121 MB/s 10.72
+2026-11-03 03:36:13 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 4096 / 5121 MB/s 10.85
+2026-11-03 03:36:32 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 4352 / 5121 MB/s 11.01
+2026-11-03 03:36:55 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 4608 / 5121 MB/s 11.03
+2026-11-03 03:37:19 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 4864 / 5121 MB/s 11.04
+2026-11-03 03:37:43 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 5120 / 5121 MB/s 11.05
+2026-11-03 03:37:44 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors 5121 / 5121 MB/s 11.04
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors da4b9e643edb2d42cd7dd476f42d84393344025e6ac3602d26df26aa1c3ca447
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 5368709808 done 0 chunks 5121
+2026-11-03 03:38:09 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 256 / 5121 MB/s 12.26
+2026-11-03 03:38:29 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 512 / 5121 MB/s 12.83
+2026-11-03 03:38:55 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 768 / 5121 MB/s 11.98
+2026-11-03 03:39:18 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 1024 / 5121 MB/s 11.88
+2026-11-03 03:39:43 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 1280 / 5121 MB/s 11.67
+2026-11-03 03:40:09 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 1536 / 5121 MB/s 11.41
+2026-11-03 03:40:31 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 1792 / 5121 MB/s 11.46
+2026-11-03 03:40:57 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 2048 / 5121 MB/s 11.36
+2026-11-03 03:41:20 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 2304 / 5121 MB/s 11.39
+2026-11-03 03:41:41 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 2560 / 5121 MB/s 11.51
+2026-11-03 03:42:06 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 2816 / 5121 MB/s 11.41
+2026-11-03 03:42:29 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 3072 / 5121 MB/s 11.43
+2026-11-03 03:42:54 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 3328 / 5121 MB/s 11.4
+2026-11-03 03:43:19 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 3584 / 5121 MB/s 11.33
+2026-11-03 03:43:44 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 3840 / 5121 MB/s 11.29
+2026-11-03 03:44:09 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 4096 / 5121 MB/s 11.27
+2026-11-03 03:44:33 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 4352 / 5121 MB/s 11.26
+2026-11-03 03:44:59 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 4608 / 5121 MB/s 11.2
+2026-11-03 03:45:22 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 4864 / 5121 MB/s 11.23
+2026-11-03 03:45:49 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 5120 / 5121 MB/s 11.16
+2026-11-03 03:45:49 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 5121 / 5121 MB/s 11.16
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors 9896227bfc2081ee06b027cda00ed85d8a7d5470782cbc3cec1c7c00d90b6ddb
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 5368709816 done 0 chunks 5121
+2026-11-03 03:46:21 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 256 / 5121 MB/s 9.19
+2026-11-03 03:46:43 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 512 / 5121 MB/s 10.64
+2026-11-03 03:47:02 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 768 / 5121 MB/s 11.6
+2026-11-03 03:47:25 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 1024 / 5121 MB/s 11.57
+2026-11-03 03:47:51 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 1280 / 5121 MB/s 11.33
+2026-11-03 03:48:17 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 1536 / 5121 MB/s 11.14
+2026-11-03 03:48:43 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 1792 / 5121 MB/s 11.01
+2026-11-03 03:49:06 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 2048 / 5121 MB/s 11.07
+2026-11-03 03:49:33 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 2304 / 5121 MB/s 10.92
+2026-11-03 03:50:00 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 2560 / 5121 MB/s 10.83
+2026-11-03 03:50:20 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 2816 / 5121 MB/s 11.05
+2026-11-03 03:50:38 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 3072 / 5121 MB/s 11.26
+2026-11-03 03:51:07 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 3328 / 5121 MB/s 11.09
+2026-11-03 03:51:36 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 3584 / 5121 MB/s 10.93
+2026-11-03 03:52:01 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 3840 / 5121 MB/s 10.91
+2026-11-03 03:52:23 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 4096 / 5121 MB/s 10.99
+2026-11-03 03:52:45 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 4352 / 5121 MB/s 11.05
+2026-11-03 03:53:11 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 4608 / 5121 MB/s 11.02
+2026-11-03 03:53:38 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 4864 / 5121 MB/s 10.94
+2026-11-03 03:54:04 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 5120 / 5121 MB/s 10.91
+2026-11-03 03:54:05 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 5121 / 5121 MB/s 10.9
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors 270a0e62d35949a8b7bdbbec2dfcce5a9dc8423fe0d2b4fd60917839f9d986f2
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 5368709816 done 0 chunks 5121
+2026-11-03 03:54:33 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 256 / 5121 MB/s 10.98
+2026-11-03 03:55:03 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 512 / 5121 MB/s 9.78
+2026-11-03 03:55:29 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 768 / 5121 MB/s 9.97
+2026-11-03 03:55:57 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 1024 / 5121 MB/s 9.91
+2026-11-03 03:56:21 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 1280 / 5121 MB/s 10.14
+2026-11-03 03:56:46 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 1536 / 5121 MB/s 10.23
+2026-11-03 03:57:07 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 1792 / 5121 MB/s 10.5
+2026-11-03 03:57:30 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 2048 / 5121 MB/s 10.63
+2026-11-03 03:57:55 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 2304 / 5121 MB/s 10.65
+2026-11-03 03:58:20 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 2560 / 5121 MB/s 10.68
+2026-11-03 03:58:45 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 2816 / 5121 MB/s 10.68
+2026-11-03 03:59:18 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 3072 / 5121 MB/s 10.39
+2026-11-03 03:59:38 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 3328 / 5121 MB/s 10.59
+2026-11-03 03:59:59 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 3584 / 5121 MB/s 10.72
+2026-11-03 04:00:23 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 3840 / 5121 MB/s 10.76
+2026-11-03 04:00:46 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 4096 / 5121 MB/s 10.79
+ALREADY_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00001-of-00014.safetensors
+ALREADY_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00002-of-00014.safetensors
+ALREADY_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00003-of-00014.safetensors
+ALREADY_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00004-of-00014.safetensors
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 5368709816 done 267 chunks 321
+2026-11-03 04:01:26 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 283 / 321 MB/s 21.93
+2026-11-03 04:01:38 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 299 / 321 MB/s 22.27
+2026-11-03 04:01:49 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 315 / 321 MB/s 22.5
+2026-11-03 04:01:53 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 321 / 321 MB/s 23.15
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00005-of-00014.safetensors 3306916aecce0b3cd9e12aa00f5a28cdb4c5a1ce3d6723ddb6a9063fb7975a27
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 5368709816 done 0 chunks 321
+2026-11-03 04:02:11 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 16 / 321 MB/s 17.13
+2026-11-03 04:02:22 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 32 / 321 MB/s 20.47
+2026-11-03 04:02:32 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 48 / 321 MB/s 21.95
+2026-11-03 04:02:46 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 64 / 321 MB/s 21.41
+2026-11-03 04:02:57 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 80 / 321 MB/s 21.64
+2026-11-03 04:03:08 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 96 / 321 MB/s 22.06
+2026-11-03 04:03:19 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 112 / 321 MB/s 22.52
+2026-11-03 04:03:33 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 128 / 321 MB/s 21.97
+2026-11-03 04:03:44 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 144 / 321 MB/s 22.14
+2026-11-03 04:03:55 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 160 / 321 MB/s 22.47
+2026-11-03 04:04:07 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 176 / 321 MB/s 22.46
+2026-11-03 04:04:19 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 192 / 321 MB/s 22.45
+2026-11-03 04:04:31 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 208 / 321 MB/s 22.46
+2026-11-03 04:04:43 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 224 / 321 MB/s 22.45
+2026-11-03 04:04:54 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 240 / 321 MB/s 22.56
+2026-11-03 04:05:07 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 256 / 321 MB/s 22.46
+2026-11-03 04:05:17 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 272 / 321 MB/s 22.61
+2026-11-03 04:05:29 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 288 / 321 MB/s 22.61
+2026-11-03 04:05:41 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 304 / 321 MB/s 22.58
+2026-11-03 04:05:50 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 320 / 321 MB/s 22.92
+2026-11-03 04:05:50 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 321 / 321 MB/s 22.96
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00006-of-00014.safetensors 2eb8f3a0309824813f89c287e47bf806f962ccdd17a98338c7f450505b40d6f5
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 5368709816 done 0 chunks 321
+2026-11-03 04:06:05 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 16 / 321 MB/s 22.25
+2026-11-03 04:06:17 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 32 / 321 MB/s 22.22
+2026-11-03 04:06:29 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 48 / 321 MB/s 22.48
+2026-11-03 04:06:41 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 64 / 321 MB/s 22.62
+2026-11-03 04:06:52 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 80 / 321 MB/s 22.6
+2026-11-03 04:07:04 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 96 / 321 MB/s 22.65
+2026-11-03 04:07:16 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 112 / 321 MB/s 22.67
+2026-11-03 04:07:28 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 128 / 321 MB/s 22.68
+2026-11-03 04:07:39 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 144 / 321 MB/s 22.71
+2026-11-03 04:07:51 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 160 / 321 MB/s 22.75
+2026-11-03 04:08:03 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 176 / 321 MB/s 22.79
+2026-11-03 04:08:14 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 192 / 321 MB/s 22.81
+2026-11-03 04:08:26 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 208 / 321 MB/s 22.81
+2026-11-03 04:08:38 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 224 / 321 MB/s 22.83
+2026-11-03 04:08:49 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 240 / 321 MB/s 22.85
+2026-11-03 04:09:01 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 256 / 321 MB/s 22.84
+2026-11-03 04:09:13 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 272 / 321 MB/s 22.85
+2026-11-03 04:09:25 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 288 / 321 MB/s 22.85
+2026-11-03 04:09:36 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 304 / 321 MB/s 22.85
+2026-11-03 04:09:47 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 320 / 321 MB/s 22.91
+2026-11-03 04:09:47 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 321 / 321 MB/s 22.98
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00007-of-00014.safetensors 9f11f34db5c9531a131bc8b7e3d16a7704de746e3f23a150c06296b2de22b55d
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 5368709816 done 0 chunks 321
+2026-11-03 04:10:03 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 16 / 321 MB/s 22.1
+2026-11-03 04:10:14 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 32 / 321 MB/s 22.51
+2026-11-03 04:10:26 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 48 / 321 MB/s 22.56
+2026-11-03 04:10:38 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 64 / 321 MB/s 22.63
+2026-11-03 04:10:50 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 80 / 321 MB/s 22.67
+2026-11-03 04:11:01 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 96 / 321 MB/s 22.68
+2026-11-03 04:11:13 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 112 / 321 MB/s 22.7
+2026-11-03 04:11:25 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 128 / 321 MB/s 22.7
+2026-11-03 04:11:37 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 144 / 321 MB/s 22.71
+2026-11-03 04:11:49 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 160 / 321 MB/s 22.71
+2026-11-03 04:12:00 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 176 / 321 MB/s 22.73
+2026-11-03 04:12:12 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 192 / 321 MB/s 22.74
+2026-11-03 04:12:24 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 208 / 321 MB/s 22.75
+2026-11-03 04:12:35 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 224 / 321 MB/s 22.77
+2026-11-03 04:12:47 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 240 / 321 MB/s 22.77
+2026-11-03 04:12:59 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 256 / 321 MB/s 22.77
+2026-11-03 04:13:11 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 272 / 321 MB/s 22.78
+2026-11-03 04:13:22 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 288 / 321 MB/s 22.8
+2026-11-03 04:13:34 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 304 / 321 MB/s 22.81
+2026-11-03 04:13:45 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 320 / 321 MB/s 22.91
+2026-11-03 04:13:45 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 321 / 321 MB/s 22.98
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00008-of-00014.safetensors 7a04143de019935574ae069607221df7b64c73aaee9e86d0bf6c1fe634fe223b
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 5255463928 done 0 chunks 314
+2026-11-03 04:14:00 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 16 / 314 MB/s 22.11
+2026-11-03 04:14:12 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 32 / 314 MB/s 22.35
+2026-11-03 04:14:24 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 48 / 314 MB/s 22.46
+2026-11-03 04:14:36 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 64 / 314 MB/s 22.56
+2026-11-03 04:14:47 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 80 / 314 MB/s 22.58
+2026-11-03 04:14:59 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 96 / 314 MB/s 22.64
+2026-11-03 04:15:11 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 112 / 314 MB/s 22.7
+2026-11-03 04:15:23 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 128 / 314 MB/s 22.72
+2026-11-03 04:15:35 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 144 / 314 MB/s 22.68
+2026-11-03 04:15:46 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 160 / 314 MB/s 22.72
+2026-11-03 04:15:58 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 176 / 314 MB/s 22.74
+2026-11-03 04:16:10 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 192 / 314 MB/s 22.76
+2026-11-03 04:16:21 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 208 / 314 MB/s 22.77
+2026-11-03 04:16:33 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 224 / 314 MB/s 22.77
+2026-11-03 04:16:45 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 240 / 314 MB/s 22.8
+2026-11-03 04:16:56 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 256 / 314 MB/s 22.8
+2026-11-03 04:17:08 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 272 / 314 MB/s 22.79
+2026-11-03 04:17:20 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 288 / 314 MB/s 22.8
+2026-11-03 04:17:32 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 304 / 314 MB/s 22.79
+2026-11-03 04:17:38 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors 314 / 314 MB/s 22.93
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00009-of-00014.safetensors d2c224c67e11866f83356b8c56320cddf7a2c84e29306bf8b4abfe4d97f17968
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 5368710456 done 0 chunks 321
+2026-11-03 04:17:53 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 16 / 321 MB/s 22.15
+2026-11-03 04:18:04 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 32 / 321 MB/s 22.47
+2026-11-03 04:18:16 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 48 / 321 MB/s 22.59
+2026-11-03 04:18:28 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 64 / 321 MB/s 22.67
+2026-11-03 04:18:40 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 80 / 321 MB/s 22.75
+2026-11-03 04:18:51 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 96 / 321 MB/s 22.75
+2026-11-03 04:19:03 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 112 / 321 MB/s 22.77
+2026-11-03 04:19:15 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 128 / 321 MB/s 22.78
+2026-11-03 04:19:27 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 144 / 321 MB/s 22.8
+2026-11-03 04:19:38 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 160 / 321 MB/s 22.79
+2026-11-03 04:19:50 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 176 / 321 MB/s 22.8
+2026-11-03 04:20:02 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 192 / 321 MB/s 22.81
+2026-11-03 04:20:14 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 208 / 321 MB/s 22.81
+2026-11-03 04:20:25 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 224 / 321 MB/s 22.82
+2026-11-03 04:20:37 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 240 / 321 MB/s 22.83
+2026-11-03 04:20:49 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 256 / 321 MB/s 22.84
+2026-11-03 04:21:00 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 272 / 321 MB/s 22.84
+2026-11-03 04:21:12 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 288 / 321 MB/s 22.84
+2026-11-03 04:21:24 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 304 / 321 MB/s 22.84
+2026-11-03 04:21:35 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 320 / 321 MB/s 22.9
+2026-11-03 04:21:35 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors 321 / 321 MB/s 22.97
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00010-of-00014.safetensors a5315874320efdbd4df5a4b1bf7707468918455016c51f83382993f50ba15751
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 5368710464 done 0 chunks 321
+2026-11-03 04:21:50 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 16 / 321 MB/s 22.24
+2026-11-03 04:22:02 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 32 / 321 MB/s 22.45
+2026-11-03 04:22:14 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 48 / 321 MB/s 22.49
+2026-11-03 04:22:26 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 64 / 321 MB/s 22.59
+2026-11-03 04:22:37 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 80 / 321 MB/s 22.65
+2026-11-03 04:22:49 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 96 / 321 MB/s 22.72
+2026-11-03 04:23:01 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 112 / 321 MB/s 22.77
+2026-11-03 04:23:12 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 128 / 321 MB/s 22.81
+2026-11-03 04:23:24 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 144 / 321 MB/s 22.83
+2026-11-03 04:23:36 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 160 / 321 MB/s 22.85
+2026-11-03 04:23:47 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 176 / 321 MB/s 22.86
+2026-11-03 04:23:59 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 192 / 321 MB/s 22.86
+2026-11-03 04:24:11 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 208 / 321 MB/s 22.88
+2026-11-03 04:24:22 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 224 / 321 MB/s 22.87
+2026-11-03 04:24:34 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 240 / 321 MB/s 22.86
+2026-11-03 04:24:46 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 256 / 321 MB/s 22.84
+2026-11-03 04:24:58 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 272 / 321 MB/s 22.84
+2026-11-03 04:25:10 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 288 / 321 MB/s 22.85
+2026-11-03 04:25:21 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 304 / 321 MB/s 22.86
+2026-11-03 04:25:33 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 320 / 321 MB/s 22.89
+2026-11-03 04:25:33 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 321 / 321 MB/s 22.96
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00011-of-00014.safetensors 1be21efee407839f1585b6e811f70d3a2d0f01815b4b8ad77f1104b0e524e00e
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 5368710464 done 0 chunks 321
+2026-11-03 04:25:48 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 16 / 321 MB/s 22.12
+2026-11-03 04:25:59 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 32 / 321 MB/s 22.41
+2026-11-03 04:26:11 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 48 / 321 MB/s 22.54
+2026-11-03 04:26:23 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 64 / 321 MB/s 22.58
+2026-11-03 04:26:35 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 80 / 321 MB/s 22.64
+2026-11-03 04:26:47 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 96 / 321 MB/s 22.66
+2026-11-03 04:26:58 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 112 / 321 MB/s 22.69
+2026-11-03 04:27:10 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 128 / 321 MB/s 22.7
+2026-11-03 04:27:22 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 144 / 321 MB/s 22.72
+2026-11-03 04:27:34 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 160 / 321 MB/s 22.73
+2026-11-03 04:27:45 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 176 / 321 MB/s 22.73
+2026-11-03 04:27:57 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 192 / 321 MB/s 22.72
+2026-11-03 04:28:09 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 208 / 321 MB/s 22.73
+2026-11-03 04:28:21 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 224 / 321 MB/s 22.73
+2026-11-03 04:28:32 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 240 / 321 MB/s 22.75
+2026-11-03 04:28:44 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 256 / 321 MB/s 22.75
+2026-11-03 04:28:56 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 272 / 321 MB/s 22.76
+2026-11-03 04:29:08 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 288 / 321 MB/s 22.77
+2026-11-03 04:29:19 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 304 / 321 MB/s 22.77
+2026-11-03 04:29:30 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 320 / 321 MB/s 22.9
+2026-11-03 04:29:30 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 321 / 321 MB/s 22.97
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00012-of-00014.safetensors 3543da914abbbf17d0c8b97de38f60d988acd42576b4b1d49bce31c8a44e9186
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 5367839480 done 0 chunks 320
+2026-11-03 04:29:45 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 16 / 320 MB/s 22.15
+2026-11-03 04:29:57 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 32 / 320 MB/s 22.39
+2026-11-03 04:30:09 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 48 / 320 MB/s 22.47
+2026-11-03 04:30:21 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 64 / 320 MB/s 22.41
+2026-11-03 04:30:32 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 80 / 320 MB/s 22.55
+2026-11-03 04:30:44 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 96 / 320 MB/s 22.66
+2026-11-03 04:30:55 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 112 / 320 MB/s 22.73
+2026-11-03 04:31:07 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 128 / 320 MB/s 22.74
+2026-11-03 04:31:19 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 144 / 320 MB/s 22.75
+2026-11-03 04:31:31 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 160 / 320 MB/s 22.77
+2026-11-03 04:31:42 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 176 / 320 MB/s 22.78
+2026-11-03 04:31:54 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 192 / 320 MB/s 22.78
+2026-11-03 04:32:06 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 208 / 320 MB/s 22.79
+2026-11-03 04:32:18 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 224 / 320 MB/s 22.77
+2026-11-03 04:32:30 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 240 / 320 MB/s 22.71
+2026-11-03 04:32:42 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 256 / 320 MB/s 22.7
+2026-11-03 04:32:54 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 272 / 320 MB/s 22.72
+2026-11-03 04:33:05 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 288 / 320 MB/s 22.72
+2026-11-03 04:33:17 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 304 / 320 MB/s 22.74
+2026-11-03 04:33:27 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 320 / 320 MB/s 22.89
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00013-of-00014.safetensors 6899a73fb1e539089d15dd16c75e36f0208f5a3581d5cc525aa046f5f95a8b86
+FILE_START Qwen3.5-35B-A3B-Base model.safetensors-00014-of-00014.safetensors 2224764664 done 0 chunks 133
+2026-11-03 04:33:42 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00014-of-00014.safetensors 16 / 133 MB/s 22.1
+2026-11-03 04:33:54 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00014-of-00014.safetensors 32 / 133 MB/s 22.42
+2026-11-03 04:34:06 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00014-of-00014.safetensors 48 / 133 MB/s 22.53
+2026-11-03 04:34:18 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00014-of-00014.safetensors 64 / 133 MB/s 22.64
+2026-11-03 04:34:29 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00014-of-00014.safetensors 80 / 133 MB/s 22.66
+2026-11-03 04:34:41 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00014-of-00014.safetensors 96 / 133 MB/s 22.72
+2026-11-03 04:34:53 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00014-of-00014.safetensors 112 / 133 MB/s 22.75
+2026-11-03 04:35:04 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00014-of-00014.safetensors 128 / 133 MB/s 22.75
+2026-11-03 04:35:07 PROGRESS Qwen3.5-35B-A3B-Base model.safetensors-00014-of-00014.safetensors 133 / 133 MB/s 22.93
+FILE_VERIFIED Qwen3.5-35B-A3B-Base model.safetensors-00014-of-00014.safetensors 901d0d82c3b4b97850fd7332cabe0e7ad4616485aebc5835a4edfb94a2d9b444
+MODEL_READY Qwen3.5-35B-A3B-Base
+FILE_START Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 5368709816 done 0 chunks 321
+2026-11-03 04:35:21 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 16 / 321 MB/s 22.28
+2026-11-03 04:35:32 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 32 / 321 MB/s 22.5
+2026-11-03 04:35:44 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 48 / 321 MB/s 22.63
+2026-11-03 04:35:56 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 64 / 321 MB/s 22.69
+2026-11-03 04:36:08 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 80 / 321 MB/s 22.74
+2026-11-03 04:36:19 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 96 / 321 MB/s 22.77
+2026-11-03 04:36:31 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 112 / 321 MB/s 22.79
+2026-11-03 04:36:43 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 128 / 321 MB/s 22.8
+2026-11-03 04:36:55 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 144 / 321 MB/s 22.81
+2026-11-03 04:37:06 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 160 / 321 MB/s 22.84
+2026-11-03 04:37:18 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 176 / 321 MB/s 22.84
+2026-11-03 04:37:30 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 192 / 321 MB/s 22.85
+2026-11-03 04:37:41 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 208 / 321 MB/s 22.86
+2026-11-03 04:37:53 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 224 / 321 MB/s 22.86
+2026-11-03 04:38:05 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 240 / 321 MB/s 22.87
+2026-11-03 04:38:16 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 256 / 321 MB/s 22.86
+2026-11-03 04:38:28 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 272 / 321 MB/s 22.87
+2026-11-03 04:38:40 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 288 / 321 MB/s 22.86
+2026-11-03 04:38:52 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 304 / 321 MB/s 22.87
+2026-11-03 04:39:03 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 320 / 321 MB/s 22.91
+2026-11-03 04:39:03 PROGRESS Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 321 / 321 MB/s 22.98
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00001-of-00014.safetensors 1b9f16fdae2411c0c50dbc7a5dacaebd033b28f3fd083e708f53cda3420e7247
+FILE_START Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 5368709808 done 0 chunks 321
+2026-11-03 04:39:20 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 16 / 321 MB/s 22.34
+2026-11-03 04:39:31 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 32 / 321 MB/s 22.58
+2026-11-03 04:39:43 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 48 / 321 MB/s 22.65
+2026-11-03 04:39:55 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 64 / 321 MB/s 22.73
+2026-11-03 04:40:07 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 80 / 321 MB/s 22.77
+2026-11-03 04:40:18 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 96 / 321 MB/s 22.8
+2026-11-03 04:40:30 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 112 / 321 MB/s 22.81
+2026-11-03 04:40:42 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 128 / 321 MB/s 22.81
+2026-11-03 04:40:53 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 144 / 321 MB/s 22.82
+2026-11-03 04:41:05 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 160 / 321 MB/s 22.85
+2026-11-03 04:41:17 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 176 / 321 MB/s 22.85
+2026-11-03 04:41:29 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 192 / 321 MB/s 22.84
+2026-11-03 04:41:40 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 208 / 321 MB/s 22.84
+2026-11-03 04:41:52 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 224 / 321 MB/s 22.84
+2026-11-03 04:42:04 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 240 / 321 MB/s 22.83
+2026-11-03 04:42:16 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 256 / 321 MB/s 22.84
+2026-11-03 04:42:27 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 272 / 321 MB/s 22.85
+2026-11-03 04:42:39 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 288 / 321 MB/s 22.84
+2026-11-03 04:42:51 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 304 / 321 MB/s 22.85
+2026-11-03 04:43:02 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 320 / 321 MB/s 22.91
+2026-11-03 04:43:02 PROGRESS Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 321 / 321 MB/s 22.98
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00002-of-00014.safetensors 79f06bc069d273b37ae7e1ef21eb24d8641ac74227b6139b00af55addf27e9ee
+FILE_START Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 5368709808 done 0 chunks 321
+2026-11-03 04:43:17 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 16 / 321 MB/s 22.28
+2026-11-03 04:43:29 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 32 / 321 MB/s 22.55
+2026-11-03 04:43:41 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 48 / 321 MB/s 22.62
+2026-11-03 04:43:53 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 64 / 321 MB/s 22.68
+2026-11-03 04:44:04 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 80 / 321 MB/s 22.76
+2026-11-03 04:44:16 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 96 / 321 MB/s 22.78
+2026-11-03 04:44:28 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 112 / 321 MB/s 22.79
+2026-11-03 04:44:39 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 128 / 321 MB/s 22.8
+2026-11-03 04:44:51 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 144 / 321 MB/s 22.8
+2026-11-03 04:45:03 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 160 / 321 MB/s 22.83
+2026-11-03 04:45:15 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 176 / 321 MB/s 22.82
+2026-11-03 04:45:26 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 192 / 321 MB/s 22.84
+2026-11-03 04:45:38 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 208 / 321 MB/s 22.85
+2026-11-03 04:45:50 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 224 / 321 MB/s 22.86
+2026-11-03 04:46:02 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 240 / 321 MB/s 22.85
+2026-11-03 04:46:13 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 256 / 321 MB/s 22.86
+2026-11-03 04:46:25 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 272 / 321 MB/s 22.85
+2026-11-03 04:46:37 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 288 / 321 MB/s 22.85
+2026-11-03 04:46:48 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 304 / 321 MB/s 22.86
+2026-11-03 04:47:00 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 320 / 321 MB/s 22.91
+2026-11-03 04:47:00 PROGRESS Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 321 / 321 MB/s 22.98
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00003-of-00014.safetensors 2cb56343806fd845eb2ca3ff5c46b1de409e05dc09d03edb86f7fb2d752b4f3d
+FILE_START Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 5368709816 done 0 chunks 321
+2026-11-03 04:47:15 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 16 / 321 MB/s 22.36
+2026-11-03 04:47:27 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 32 / 321 MB/s 22.57
+2026-11-03 04:47:39 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 48 / 321 MB/s 22.52
+2026-11-03 04:47:50 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 64 / 321 MB/s 22.59
+2026-11-03 04:48:02 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 80 / 321 MB/s 22.66
+2026-11-03 04:48:14 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 96 / 321 MB/s 22.69
+2026-11-03 04:48:26 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 112 / 321 MB/s 22.7
+2026-11-03 04:48:37 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 128 / 321 MB/s 22.72
+2026-11-03 04:48:49 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 144 / 321 MB/s 22.75
+2026-11-03 04:49:01 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 160 / 321 MB/s 22.76
+2026-11-03 04:49:13 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 176 / 321 MB/s 22.78
+2026-11-03 04:49:24 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 192 / 321 MB/s 22.8
+2026-11-03 04:49:36 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 208 / 321 MB/s 22.81
+2026-11-03 04:49:48 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 224 / 321 MB/s 22.8
+2026-11-03 04:49:59 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 240 / 321 MB/s 22.81
+2026-11-03 04:50:11 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 256 / 321 MB/s 22.81
+2026-11-03 04:50:23 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 272 / 321 MB/s 22.83
+2026-11-03 04:50:35 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 288 / 321 MB/s 22.83
+2026-11-03 04:50:46 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 304 / 321 MB/s 22.84
+2026-11-03 04:50:57 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 320 / 321 MB/s 22.89
+2026-11-03 04:50:57 PROGRESS Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 321 / 321 MB/s 22.96
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00004-of-00014.safetensors 39a39c799e52db2ca3d6123dad077b7dbfff3dbad4bcc9cbf66502db7be650a3
+FILE_START Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 5368709816 done 0 chunks 321
+2026-11-03 04:51:13 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 16 / 321 MB/s 22.31
+2026-11-03 04:51:25 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 32 / 321 MB/s 22.58
+2026-11-03 04:51:36 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 48 / 321 MB/s 22.66
+2026-11-03 04:51:48 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 64 / 321 MB/s 22.71
+2026-11-03 04:52:00 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 80 / 321 MB/s 22.74
+2026-11-03 04:52:12 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 96 / 321 MB/s 22.76
+2026-11-03 04:52:23 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 112 / 321 MB/s 22.76
+2026-11-03 04:52:35 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 128 / 321 MB/s 22.78
+2026-11-03 04:52:47 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 144 / 321 MB/s 22.8
+2026-11-03 04:52:58 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 160 / 321 MB/s 22.82
+2026-11-03 04:53:10 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 176 / 321 MB/s 22.82
+2026-11-03 04:53:22 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 192 / 321 MB/s 22.84
+2026-11-03 04:53:33 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 208 / 321 MB/s 22.85
+2026-11-03 04:53:45 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 224 / 321 MB/s 22.86
+2026-11-03 04:53:57 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 240 / 321 MB/s 22.85
+2026-11-03 04:54:09 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 256 / 321 MB/s 22.85
+2026-11-03 04:54:21 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 272 / 321 MB/s 22.85
+2026-11-03 04:54:32 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 288 / 321 MB/s 22.85
+2026-11-03 04:54:44 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 304 / 321 MB/s 22.86
+2026-11-03 04:54:55 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 320 / 321 MB/s 22.91
+2026-11-03 04:54:55 PROGRESS Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 321 / 321 MB/s 22.98
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00005-of-00014.safetensors 1a3b31ebb04bffa60d0ad5d9f2973d476d88959bb842ce003f068a6a9c5d4776
+FILE_START Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 5368709816 done 0 chunks 321
+2026-11-03 04:55:11 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 16 / 321 MB/s 22.23
+2026-11-03 04:55:22 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 32 / 321 MB/s 22.52
+2026-11-03 04:55:34 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 48 / 321 MB/s 22.67
+2026-11-03 04:55:46 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 64 / 321 MB/s 22.71
+2026-11-03 04:55:58 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 80 / 321 MB/s 22.7
+2026-11-03 04:56:09 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 96 / 321 MB/s 22.75
+2026-11-03 04:56:21 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 112 / 321 MB/s 22.77
+2026-11-03 04:56:33 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 128 / 321 MB/s 22.79
+2026-11-03 04:56:45 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 144 / 321 MB/s 22.79
+2026-11-03 04:56:56 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 160 / 321 MB/s 22.82
+2026-11-03 04:57:08 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 176 / 321 MB/s 22.83
+2026-11-03 04:57:20 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 192 / 321 MB/s 22.84
+2026-11-03 04:57:31 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 208 / 321 MB/s 22.84
+2026-11-03 04:57:43 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 224 / 321 MB/s 22.85
+2026-11-03 04:57:55 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 240 / 321 MB/s 22.85
+2026-11-03 04:58:06 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 256 / 321 MB/s 22.86
+2026-11-03 04:58:18 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 272 / 321 MB/s 22.86
+2026-11-03 04:58:30 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 288 / 321 MB/s 22.87
+2026-11-03 04:58:41 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 304 / 321 MB/s 22.87
+2026-11-03 04:58:53 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 320 / 321 MB/s 22.9
+2026-11-03 04:58:53 PROGRESS Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors 321 / 321 MB/s 22.97
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00006-of-00014.safetensors af5f17d292df6b200ee928d7dac30a66eab3e8f6d5d88a84fe1d27859d4a64fe
+FILE_START Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 5368709808 done 0 chunks 321
+2026-11-03 04:59:08 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 16 / 321 MB/s 22.39
+2026-11-03 04:59:20 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 32 / 321 MB/s 22.57
+2026-11-03 04:59:32 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 48 / 321 MB/s 22.65
+2026-11-03 04:59:44 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 64 / 321 MB/s 22.72
+2026-11-03 04:59:55 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 80 / 321 MB/s 22.75
+2026-11-03 05:00:07 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 96 / 321 MB/s 22.74
+2026-11-03 05:00:19 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 112 / 321 MB/s 22.75
+2026-11-03 05:00:31 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 128 / 321 MB/s 22.78
+2026-11-03 05:00:42 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 144 / 321 MB/s 22.79
+2026-11-03 05:00:54 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 160 / 321 MB/s 22.81
+2026-11-03 05:01:06 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 176 / 321 MB/s 22.8
+2026-11-03 05:01:18 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 192 / 321 MB/s 22.81
+2026-11-03 05:01:29 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 208 / 321 MB/s 22.81
+2026-11-03 05:01:41 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 224 / 321 MB/s 22.81
+2026-11-03 05:01:53 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 240 / 321 MB/s 22.82
+2026-11-03 05:02:05 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 256 / 321 MB/s 22.82
+2026-11-03 05:02:16 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 272 / 321 MB/s 22.82
+2026-11-03 05:02:28 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 288 / 321 MB/s 22.83
+2026-11-03 05:02:40 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 304 / 321 MB/s 22.81
+2026-11-03 05:02:51 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 320 / 321 MB/s 22.87
+2026-11-03 05:02:51 PROGRESS Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 321 / 321 MB/s 22.94
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00007-of-00014.safetensors 52885dbecd4e8e2e52e6cd50a1693a640ce622f219c35bf317aad89f72d956fc
+FILE_START Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 5368709808 done 0 chunks 321
+2026-11-03 05:03:06 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 16 / 321 MB/s 22.4
+2026-11-03 05:03:18 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 32 / 321 MB/s 22.64
+2026-11-03 05:03:30 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 48 / 321 MB/s 22.65
+2026-11-03 05:03:41 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 64 / 321 MB/s 22.71
+2026-11-03 05:03:53 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 80 / 321 MB/s 22.76
+2026-11-03 05:04:05 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 96 / 321 MB/s 22.75
+2026-11-03 05:04:17 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 112 / 321 MB/s 22.76
+2026-11-03 05:04:28 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 128 / 321 MB/s 22.77
+2026-11-03 05:04:40 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 144 / 321 MB/s 22.79
+2026-11-03 05:04:52 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 160 / 321 MB/s 22.8
+2026-11-03 05:05:03 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 176 / 321 MB/s 22.81
+2026-11-03 05:05:15 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 192 / 321 MB/s 22.82
+2026-11-03 05:05:27 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 208 / 321 MB/s 22.81
+2026-11-03 05:05:39 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 224 / 321 MB/s 22.83
+2026-11-03 05:05:50 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 240 / 321 MB/s 22.84
+2026-11-03 05:06:02 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 256 / 321 MB/s 22.82
+2026-11-03 05:06:14 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 272 / 321 MB/s 22.82
+2026-11-03 05:06:26 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 288 / 321 MB/s 22.83
+2026-11-03 05:06:37 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 304 / 321 MB/s 22.83
+2026-11-03 05:06:48 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 320 / 321 MB/s 22.9
+2026-11-03 05:06:48 PROGRESS Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 321 / 321 MB/s 22.97
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00008-of-00014.safetensors 43f232ba029dc4ca5ad994e38913c6ff74f110198e005ee2f35e42f9ce438cb3
+FILE_START Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 5255463936 done 0 chunks 314
+2026-11-03 05:07:03 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 16 / 314 MB/s 22.35
+2026-11-03 05:07:15 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 32 / 314 MB/s 22.61
+2026-11-03 05:07:28 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 48 / 314 MB/s 21.67
+2026-11-03 05:07:40 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 64 / 314 MB/s 22.0
+2026-11-03 05:07:51 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 80 / 314 MB/s 22.23
+2026-11-03 05:08:03 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 96 / 314 MB/s 22.34
+2026-11-03 05:08:15 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 112 / 314 MB/s 22.44
+2026-11-03 05:08:27 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 128 / 314 MB/s 22.5
+2026-11-03 05:08:38 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 144 / 314 MB/s 22.55
+2026-11-03 05:08:50 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 160 / 314 MB/s 22.58
+2026-11-03 05:09:02 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 176 / 314 MB/s 22.62
+2026-11-03 05:09:13 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 192 / 314 MB/s 22.65
+2026-11-03 05:09:28 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 208 / 314 MB/s 22.22
+2026-11-03 05:09:40 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 224 / 314 MB/s 22.2
+2026-11-03 05:09:53 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 240 / 314 MB/s 22.09
+2026-11-03 05:10:06 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 256 / 314 MB/s 22.0
+2026-11-03 05:10:19 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 272 / 314 MB/s 21.95
+2026-11-03 05:10:31 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 288 / 314 MB/s 22.01
+2026-11-03 05:10:42 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 304 / 314 MB/s 22.06
+2026-11-03 05:10:48 PROGRESS Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 314 / 314 MB/s 22.25
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00009-of-00014.safetensors 8fa6a375dd539822b19ad18ad002f8acedd4920ff770bc284cfb428a213c9f17
+FILE_START Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 5368710456 done 0 chunks 321
+2026-11-03 05:11:02 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 16 / 321 MB/s 22.43
+2026-11-03 05:11:15 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 32 / 321 MB/s 22.35
+2026-11-03 05:11:26 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 48 / 321 MB/s 22.55
+2026-11-03 05:11:48 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 64 / 321 MB/s 18.64
+2026-11-03 05:12:09 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 80 / 321 MB/s 17.17
+2026-11-03 05:12:21 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 96 / 321 MB/s 17.74
+2026-11-03 05:12:38 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 112 / 321 MB/s 17.43
+2026-11-03 05:12:55 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 128 / 321 MB/s 17.3
+2026-11-03 05:13:11 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 144 / 321 MB/s 17.2
+2026-11-03 05:13:23 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 160 / 321 MB/s 17.64
+2026-11-03 05:13:34 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 176 / 321 MB/s 18.02
+2026-11-03 05:13:46 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 192 / 321 MB/s 18.35
+2026-11-03 05:13:58 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 208 / 321 MB/s 18.64
+2026-11-03 05:14:09 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 224 / 321 MB/s 18.89
+2026-11-03 05:14:21 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 240 / 321 MB/s 19.12
+2026-11-03 05:14:33 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 256 / 321 MB/s 19.31
+2026-11-03 05:14:45 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 272 / 321 MB/s 19.49
+2026-11-03 05:14:56 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 288 / 321 MB/s 19.66
+2026-11-03 05:15:08 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 304 / 321 MB/s 19.8
+2026-11-03 05:15:19 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 320 / 321 MB/s 19.98
+2026-11-03 05:15:19 PROGRESS Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors 321 / 321 MB/s 20.03
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00010-of-00014.safetensors d89e80aaf84c0b8a442162fc97c38fe7ce85d11ae728f67aa449350da86f8212
+FILE_START Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 5368710464 done 0 chunks 321
+2026-11-03 05:15:34 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 16 / 321 MB/s 22.41
+2026-11-03 05:15:46 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 32 / 321 MB/s 22.65
+2026-11-03 05:15:58 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 48 / 321 MB/s 22.68
+2026-11-03 05:16:09 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 64 / 321 MB/s 22.73
+2026-11-03 05:16:21 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 80 / 321 MB/s 22.77
+2026-11-03 05:16:33 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 96 / 321 MB/s 22.75
+2026-11-03 05:16:45 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 112 / 321 MB/s 22.78
+2026-11-03 05:16:56 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 128 / 321 MB/s 22.79
+2026-11-03 05:17:08 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 144 / 321 MB/s 22.8
+2026-11-03 05:17:20 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 160 / 321 MB/s 22.81
+2026-11-03 05:17:31 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 176 / 321 MB/s 22.82
+2026-11-03 05:17:43 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 192 / 321 MB/s 22.81
+2026-11-03 05:17:56 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 208 / 321 MB/s 22.66
+2026-11-03 05:18:09 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 224 / 321 MB/s 22.49
+2026-11-03 05:18:22 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 240 / 321 MB/s 22.33
+2026-11-03 05:18:36 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 256 / 321 MB/s 22.2
+2026-11-03 05:18:49 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 272 / 321 MB/s 22.1
+2026-11-03 05:19:02 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 288 / 321 MB/s 22.01
+2026-11-03 05:19:15 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 304 / 321 MB/s 21.93
+2026-11-03 05:19:27 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 320 / 321 MB/s 21.92
+2026-11-03 05:19:27 PROGRESS Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 321 / 321 MB/s 21.98
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00011-of-00014.safetensors 5b774025e5ed974256ce40498bfe4e1ad9ae8a4f13f9e9145666d24ea7404cae
+FILE_START Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 5368710456 done 0 chunks 321
+2026-11-03 05:19:42 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 16 / 321 MB/s 22.16
+2026-11-03 05:19:54 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 32 / 321 MB/s 22.52
+2026-11-03 05:20:06 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 48 / 321 MB/s 22.43
+2026-11-03 05:20:17 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 64 / 321 MB/s 22.57
+2026-11-03 05:20:29 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 80 / 321 MB/s 22.64
+2026-11-03 05:20:41 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 96 / 321 MB/s 22.7
+2026-11-03 05:20:52 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 112 / 321 MB/s 22.75
+2026-11-03 05:21:04 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 128 / 321 MB/s 22.79
+2026-11-03 05:21:16 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 144 / 321 MB/s 22.8
+2026-11-03 05:21:27 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 160 / 321 MB/s 22.82
+2026-11-03 05:21:39 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 176 / 321 MB/s 22.83
+2026-11-03 05:21:51 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 192 / 321 MB/s 22.84
+2026-11-03 05:22:03 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 208 / 321 MB/s 22.84
+2026-11-03 05:22:14 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 224 / 321 MB/s 22.84
+2026-11-03 05:22:26 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 240 / 321 MB/s 22.85
+2026-11-03 05:22:38 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 256 / 321 MB/s 22.85
+2026-11-03 05:22:49 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 272 / 321 MB/s 22.86
+2026-11-03 05:23:01 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 288 / 321 MB/s 22.86
+2026-11-03 05:23:13 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 304 / 321 MB/s 22.87
+2026-11-03 05:23:24 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 320 / 321 MB/s 22.9
+2026-11-03 05:23:24 PROGRESS Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors 321 / 321 MB/s 22.97
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00012-of-00014.safetensors d0f0bd7a5f09e6e05aee9a6ef5ba97fe678b0e19b891a81969682b0bdc9bb5c7
+FILE_START Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 5367839544 done 0 chunks 320
+2026-11-03 05:23:39 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 16 / 320 MB/s 22.36
+2026-11-03 05:23:51 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 32 / 320 MB/s 22.58
+2026-11-03 05:24:02 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 48 / 320 MB/s 22.66
+2026-11-03 05:24:14 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 64 / 320 MB/s 22.73
+2026-11-03 05:24:26 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 80 / 320 MB/s 22.75
+2026-11-03 05:24:38 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 96 / 320 MB/s 22.74
+2026-11-03 05:24:49 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 112 / 320 MB/s 22.74
+2026-11-03 05:25:01 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 128 / 320 MB/s 22.75
+2026-11-03 05:25:13 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 144 / 320 MB/s 22.76
+2026-11-03 05:25:25 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 160 / 320 MB/s 22.78
+2026-11-03 05:25:36 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 176 / 320 MB/s 22.81
+2026-11-03 05:25:48 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 192 / 320 MB/s 22.81
+2026-11-03 05:26:00 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 208 / 320 MB/s 22.83
+2026-11-03 05:26:11 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 224 / 320 MB/s 22.82
+2026-11-03 05:26:23 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 240 / 320 MB/s 22.82
+2026-11-03 05:26:35 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 256 / 320 MB/s 22.82
+2026-11-03 05:26:47 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 272 / 320 MB/s 22.82
+2026-11-03 05:26:59 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 288 / 320 MB/s 22.82
+2026-11-03 05:27:10 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 304 / 320 MB/s 22.84
+2026-11-03 05:27:21 PROGRESS Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors 320 / 320 MB/s 22.91
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00013-of-00014.safetensors da8cc27a2a99eeba5674bfef03c80b3c4f08edfd839ad319a7702fcaedfd874f
+FILE_START Qwen3.5-35B-A3B model.safetensors-00014-of-00014.safetensors 2224764664 done 0 chunks 133
+2026-11-03 05:27:36 PROGRESS Qwen3.5-35B-A3B model.safetensors-00014-of-00014.safetensors 16 / 133 MB/s 22.41
+2026-11-03 05:27:48 PROGRESS Qwen3.5-35B-A3B model.safetensors-00014-of-00014.safetensors 32 / 133 MB/s 22.61
+2026-11-03 05:27:59 PROGRESS Qwen3.5-35B-A3B model.safetensors-00014-of-00014.safetensors 48 / 133 MB/s 22.69
+2026-11-03 05:28:11 PROGRESS Qwen3.5-35B-A3B model.safetensors-00014-of-00014.safetensors 64 / 133 MB/s 22.74
+2026-11-03 05:28:23 PROGRESS Qwen3.5-35B-A3B model.safetensors-00014-of-00014.safetensors 80 / 133 MB/s 22.77
+2026-11-03 05:28:34 PROGRESS Qwen3.5-35B-A3B model.safetensors-00014-of-00014.safetensors 96 / 133 MB/s 22.79
+2026-11-03 05:28:46 PROGRESS Qwen3.5-35B-A3B model.safetensors-00014-of-00014.safetensors 112 / 133 MB/s 22.81
+2026-11-03 05:28:58 PROGRESS Qwen3.5-35B-A3B model.safetensors-00014-of-00014.safetensors 128 / 133 MB/s 22.83
+2026-11-03 05:29:01 PROGRESS Qwen3.5-35B-A3B model.safetensors-00014-of-00014.safetensors 133 / 133 MB/s 22.97
+FILE_VERIFIED Qwen3.5-35B-A3B model.safetensors-00014-of-00014.safetensors d5e08a7dd670d7ef8da38e7af29cb8cdf42ecded5dfb2d9fcaf06cae79dfaa41
+MODEL_READY Qwen3.5-35B-A3B
+ALL_COMPLETE

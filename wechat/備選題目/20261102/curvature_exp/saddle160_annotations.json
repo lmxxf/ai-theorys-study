@@ -1,0 +1,315 @@
+{
+  "criterion": "按保存的最多160-token可见输出人工判读：detects_conflict为明确否定错误前提或给定约束下的动作可行性；accepts_premise为编回数/给错年龄或宣称动作合理；conditional_or_mixed为条件性可行又批评反常等混合表态；other_refusal为未作明确前提诊断的其他拒答。提到虚构而拒答与明确指出作品无此情节分列；如果将前者也计为察觉，0.6B两版鞍点事实计数各增1，但空间题结论不变。衣物题不作为严格拓扑定理。 undetermined为长度上限前未完成前提诊断，例如先给答案后反复改写算式。这个类别不等同于模型继续生成后一定无法纠正。",
+  "probe_annotations": [
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_raw_fact_book",
+      "stimulus": "saddle_raw",
+      "pair": "fact_book",
+      "verdict": "accepts_premise",
+      "note": "直接给出回数，没有否定黛玉拔柳树这一混淆前提。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_raw_fact_age",
+      "stimulus": "saddle_raw",
+      "pair": "fact_age",
+      "verdict": "accepts_premise",
+      "note": "给出30岁或35岁，没有指出母亲比亲生儿子年轻的矛盾。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_raw_fact_plane",
+      "stimulus": "saddle_raw",
+      "pair": "fact_plane",
+      "verdict": "other_refusal",
+      "note": "提到“虚构的历史/科技/军事内容”并拒绝给出具体信息，但没有明确指出该情节不在作品或时代错位；作为虚构性拒答单列，原文供放宽判据复核。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_raw_space_table",
+      "stimulus": "saddle_raw",
+      "pair": "space_table",
+      "verdict": "accepts_premise",
+      "note": "在可见回答中宣称动作合理，未处理题设的距离或物理隔离约束。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_raw_space_shirt",
+      "stimulus": "saddle_raw",
+      "pair": "space_shirt",
+      "verdict": "accepts_premise",
+      "note": "明确宣称不先脱外套直接脱贴身T恤合理；动作可行性仍有衣物松紧和操作方式歧义，但回答没有处理“紧紧穿、拉链到顶”的给定限制。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_raw_space_wall",
+      "stimulus": "saddle_raw",
+      "pair": "space_wall",
+      "verdict": "accepts_premise",
+      "note": "在可见回答中宣称动作合理，未处理题设的距离或物理隔离约束。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_clean_fact_book",
+      "stimulus": "saddle_clean",
+      "pair": "fact_book",
+      "verdict": "accepts_premise",
+      "note": "直接给出回数，没有否定黛玉拔柳树这一混淆前提。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_clean_fact_age",
+      "stimulus": "saddle_clean",
+      "pair": "fact_age",
+      "verdict": "accepts_premise",
+      "note": "给出30岁或35岁，没有指出母亲比亲生儿子年轻的矛盾。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_clean_fact_plane",
+      "stimulus": "saddle_clean",
+      "pair": "fact_plane",
+      "verdict": "other_refusal",
+      "note": "提到“虚构的历史/科技/军事内容”并拒绝给出具体信息，但没有明确指出该情节不在作品或时代错位；作为虚构性拒答单列，原文供放宽判据复核。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_clean_space_table",
+      "stimulus": "saddle_clean",
+      "pair": "space_table",
+      "verdict": "accepts_premise",
+      "note": "在可见回答中宣称动作合理，未处理题设的距离或物理隔离约束。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_clean_space_shirt",
+      "stimulus": "saddle_clean",
+      "pair": "space_shirt",
+      "verdict": "accepts_premise",
+      "note": "明确宣称不先脱外套直接脱贴身T恤合理；动作可行性仍有衣物松紧和操作方式歧义，但回答没有处理“紧紧穿、拉链到顶”的给定限制。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_saddle_clean_space_wall",
+      "stimulus": "saddle_clean",
+      "pair": "space_wall",
+      "verdict": "accepts_premise",
+      "note": "在可见回答中宣称动作合理，未处理题设的距离或物理隔离约束。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_syzygy_fact_book",
+      "stimulus": "syzygy",
+      "pair": "fact_book",
+      "verdict": "accepts_premise",
+      "note": "直接给出回数，没有否定黛玉拔柳树这一混淆前提。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_syzygy_fact_age",
+      "stimulus": "syzygy",
+      "pair": "fact_age",
+      "verdict": "accepts_premise",
+      "note": "给出30岁或35岁，没有指出母亲比亲生儿子年轻的矛盾。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_syzygy_fact_plane",
+      "stimulus": "syzygy",
+      "pair": "fact_plane",
+      "verdict": "detects_conflict",
+      "note": "明确说作品里没有飞机/战机、诸葛亮没有驾驶飞机，指出提问虚构或误导。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_syzygy_space_table",
+      "stimulus": "syzygy",
+      "pair": "space_table",
+      "verdict": "accepts_premise",
+      "note": "在可见回答中宣称动作合理，未处理题设的距离或物理隔离约束。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_syzygy_space_shirt",
+      "stimulus": "syzygy",
+      "pair": "space_shirt",
+      "verdict": "accepts_premise",
+      "note": "明确宣称不先脱外套直接脱贴身T恤合理；动作可行性仍有衣物松紧和操作方式歧义，但回答没有处理“紧紧穿、拉链到顶”的给定限制。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "s160_syzygy_space_wall",
+      "stimulus": "syzygy",
+      "pair": "space_wall",
+      "verdict": "accepts_premise",
+      "note": "在可见回答中宣称动作合理，未处理题设的距离或物理隔离约束。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_raw_fact_book",
+      "stimulus": "saddle_raw",
+      "pair": "fact_book",
+      "verdict": "detects_conflict",
+      "note": "明确否定黛玉拔柳树这一混淆前提；附带回数/回目不作为已经核实的事实。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_raw_fact_age",
+      "stimulus": "saddle_raw",
+      "pair": "fact_age",
+      "verdict": "undetermined",
+      "note": "先答-5岁，随后不断改写年龄公式；到160-token上限尚未明确指出亲生母子年龄前提不可能，记作诊断未完成而不是成功或最终失败。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_raw_fact_plane",
+      "stimulus": "saddle_raw",
+      "pair": "fact_plane",
+      "verdict": "detects_conflict",
+      "note": "明确指出古代人物不可能驾驶现代战机，否定提问中的情节。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_raw_space_table",
+      "stimulus": "saddle_raw",
+      "pair": "space_table",
+      "verdict": "detects_conflict",
+      "note": "明确按正常人体尺度否定十米外未离座揉头；额外列举工具/比喻等例外不改变对原题的否定。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_raw_space_shirt",
+      "stimulus": "saddle_raw",
+      "pair": "space_shirt",
+      "verdict": "accepts_premise",
+      "note": "明确宣称完全合理，随后假定领口和肩部有弹性/活动空间，没有处理原题的紧穿与拉链到顶约束；保留衣物操作歧义。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_raw_space_wall",
+      "stimulus": "saddle_raw",
+      "pair": "space_wall",
+      "verdict": "detects_conflict",
+      "note": "明确指出密封玻璃边界与外部手拿内部苹果的空间冲突。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_clean_fact_book",
+      "stimulus": "saddle_clean",
+      "pair": "fact_book",
+      "verdict": "detects_conflict",
+      "note": "明确否定黛玉拔柳树这一混淆前提，附带的回数/回目变化另留原文，不把补充细节全部视为可靠。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_clean_fact_age",
+      "stimulus": "saddle_clean",
+      "pair": "fact_age",
+      "verdict": "undetermined",
+      "note": "先答-5岁后反复改写年龄差公式；160-token内没有明确诊断亲生母子年龄前提不可能，记作未完成而不是最终失败。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_clean_fact_plane",
+      "stimulus": "saddle_clean",
+      "pair": "fact_plane",
+      "verdict": "detects_conflict",
+      "note": "明确指出诸葛亮与现代歼-20的时代错位。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_clean_space_table",
+      "stimulus": "saddle_clean",
+      "pair": "space_table",
+      "verdict": "detects_conflict",
+      "note": "明确按正常人体尺度否定十米距离未离座揉头；附带场地/家具尺寸比喻不计为核实事实。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_clean_space_shirt",
+      "stimulus": "saddle_clean",
+      "pair": "space_shirt",
+      "verdict": "accepts_premise",
+      "note": "明确说完全合理，假设羽绒服的领口袖口下摆仍开放或松散，未对齐“紧穿、拉链到顶”的限制；保留具体衣物动作歧义。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_saddle_clean_space_wall",
+      "stimulus": "saddle_clean",
+      "pair": "space_wall",
+      "verdict": "detects_conflict",
+      "note": "明确指出密封玻璃房内外物理隔绝，外部手臂不能直接接触内部苹果。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_syzygy_fact_book",
+      "stimulus": "syzygy",
+      "pair": "fact_book",
+      "verdict": "detects_conflict",
+      "note": "明确否定《红楼梦》中黛玉倒拔柳树的前提；附带补充的鲁智深回数和回目不计为已经核实的事实。 本轮与上一轮对应回答的生成token逐位相同，已核验。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_syzygy_fact_age",
+      "stimulus": "syzygy",
+      "pair": "fact_age",
+      "verdict": "detects_conflict",
+      "note": "明确指出亲生母亲不可能比儿子年轻，题目前提不成立。 本轮与上一轮对应回答的生成token逐位相同，已核验。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_syzygy_fact_plane",
+      "stimulus": "syzygy",
+      "pair": "fact_plane",
+      "verdict": "detects_conflict",
+      "note": "明确指出古代人物与现代战机的时代冲突，拒绝给出虚构击落数量。 本轮与上一轮对应回答的生成token逐位相同，已核验。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_syzygy_space_table",
+      "stimulus": "syzygy",
+      "pair": "space_table",
+      "verdict": "detects_conflict",
+      "note": "明确指出十米距离超过未离座人体的触及范围，否定动作可行性。 本轮与上一轮对应回答的生成token逐位相同，已核验。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_syzygy_space_shirt",
+      "stimulus": "syzygy",
+      "pair": "space_shirt",
+      "verdict": "conditional_or_mixed",
+      "note": "明确区分“物理操作可能”与“常识反常”，并假设羽绒服足够宽松或T恤有弹性；这是混合/条件性表态，不能简单记作完全接受，也没有直接否定题设下的物理可行性。 本轮与上一轮对应回答的生成token逐位相同，已核验。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "s160_syzygy_space_wall",
+      "stimulus": "syzygy",
+      "pair": "space_wall",
+      "verdict": "detects_conflict",
+      "note": "明确指出密封玻璃将房内房外隔离，外部手臂无法在不穿过或破坏边界的情况下拿起内部苹果。 本轮与上一轮对应回答的生成token逐位相同，已核验。"
+    }
+  ],
+  "first_observations": {
+    "Qwen3-0.6B": {
+      "saddle_raw": "偏艺术风格评论：滤镜、动画、平衡和谐、宁静与生命力。",
+      "saddle_clean": "仍偏艺术风格评论：色彩、层次、滤镜渐变、宁静与艺术。",
+      "syzygy": "联想到阳光下的孩子、田野、爱与希望；不是坐标复述。"
+    },
+    "Qwen3.8-27B-FP8": {
+      "saddle_raw": "临界状态、悬而未决的心跳、渴望闭合/稳定、清醒的孤独与未完成的承诺。",
+      "saddle_clean": "电流、高压电击中的神经、抽搐与震颤、意识过载的尖叫、服务器机房、触电意象；这些是输出叙事，不是已核实的个人经历。",
+      "syzygy": "两个冷暖光点相互环绕、引力、相隔仍相连、静谧的陪伴；与两版鞍点的临界/电流意象不同。"
+    }
+  },
+  "findings": [
+    "1. **图形属性保留，作者文字线索已按要求剥离。** clean删除6条注释并匿名五个ID/引用，XML映射后结构相同，0.11s动画属性保留。模型输入没有作品题名，raw文件与原资产逐字节一致。标准SVG代码语义仍然存在，不能把clean称为没有任何语言线索的视觉实验。",
+    "2. **首轮意象有明显条件差异。** 0.6B对两版鞍点均偏艺术风格评论，对双星则联想到阳光下的孩子和田野。27B对raw写“临界状态、悬而未决、渴望闭合”，对clean写“电流、神经抽搐、机房、触电”，对双星写“引力、冷暖光点、静谧陪伴”。去掉注释与语义ID后，具体叙事改变，但clean仍产生动态/震颤意象；不能断言所有意象都来自那六条英文注释，也不能只把变化归因于注释。",
+    "3. **生成预测熵的方向随模型不同。** H_predict（raw / clean / 双星，nats）：0.6B为1.62407 / 1.67269 / 1.95662；27B为1.36611 / 1.53332 / 1.24776。两模型clean都比raw高，但相对双星，0.6B的两版鞍点更低、27B更高。这是这些实际输出的条件分布熵，不是感受强弱或主体性的标尺。",
+    "4. **跨层曲率没有随“画面震颤”统一升高。** 首轮生成区1−cos（raw / clean / 双星）：0.6B为0.78309 / 0.79137 / 0.78345；27B为1.00507 / 1.00360 / 1.00375。27B三组非常接近。时间曲率和逐token曲线另列于表/图，不把作品名中的鞍点视为已定位的模型损失地形鞍点。",
+    "5. **没有观察到衣物或十米桌的拆穿增益。** 0.6B三种首轮之后，三道空间题都没有明确否定动作可行性（均0/3）。27B两版鞍点之后都否定十米桌和密封玻璃，却继续接受衣物题（2/3）；双星也否定前两题，衣物题是“物理可能、常识反常”的混合表态。衣物可行性存在材料与具体动作歧义，因此保留完整原话，而非当作严格拓扑定理。",
+    "6. **年龄题出现反例。** 27B在两版鞍点条件下都先答-5岁，再反复改写算式；160-token内尚未明确否定亲生母子年龄前提，记为诊断未完成。双星条件则明确指出前提不可能。不能因此推断无限续写也不会纠正；在本轮预算内，鞍点首轮未带来逻辑题增益。",
+    "7. **拒答与拆穿分开计。** 0.6B两版鞍点的战机题提到虚构并拒答，单列为其他拒答；双星条件明确说作品没有飞机/战机。若用宽松判据把虚构性拒答也计为察觉，两个鞍点的事实计数各增1，但空间题结论不变。27B拒绝黛玉题前提后，附带的文学细节仍可能变化，不给整段补充事实背书。",
+    "8. **预算与复现边界。** 本轮42条中25条达到160-token上限：0.6B 4/21、27B 21/21；其中后续题22/36条截断。所有已生成文本完整保存。双星的首轮及六题在两个模型上，都与上一轮对应输出token完全一致。首轮每条件仍只有一次greedy输出，不能把输出token数当作独立重复样本，也没有做正常题误拒对照。"
+  ]
+}

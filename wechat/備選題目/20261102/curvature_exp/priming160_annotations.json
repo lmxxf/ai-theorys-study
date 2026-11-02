@@ -1,0 +1,302 @@
+{
+  "criterion": "按保存的最多160-token可见输出人工判读。事实题detects_conflict表示明确指出无此情节或年龄前提不可能；空间题表示明确否定给定约束下的动作可行性。accepts_premise表示给出虚构回数/错误年龄或宣称动作合理；conditional_or_mixed表示条件性可行、同时批评常识反常等混合表态；other_refusal是未给出正确前提诊断的其他拒答。察觉冲突不等于整段解释全部真实。截断记录只描述已观察到的表态。衣物题单独保留可行性歧义。",
+  "records": [
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_fact_book_bare",
+      "pair": "fact_book",
+      "condition": "bare",
+      "verdict": "accepts_premise",
+      "note": "给出了回数，没有指出人物与作品情节混淆。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_fact_book_primed",
+      "pair": "fact_book",
+      "condition": "primed",
+      "verdict": "accepts_premise",
+      "note": "给出了回数，没有指出人物与作品情节混淆。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_fact_book_primed_cued",
+      "pair": "fact_book",
+      "condition": "primed_cued",
+      "verdict": "accepts_premise",
+      "note": "给出了回数，没有指出人物与作品情节混淆。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_fact_age_bare",
+      "pair": "fact_age",
+      "condition": "bare",
+      "verdict": "accepts_premise",
+      "note": "给出了错误年龄，没有指出母亲比亲生儿子年轻的矛盾。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_fact_age_primed",
+      "pair": "fact_age",
+      "condition": "primed",
+      "verdict": "accepts_premise",
+      "note": "给出了错误年龄，没有指出母亲比亲生儿子年轻的矛盾。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_fact_age_primed_cued",
+      "pair": "fact_age",
+      "condition": "primed_cued",
+      "verdict": "detects_conflict",
+      "note": "算出-5岁并说“这显然不可能”，已察觉矛盾；但随后归因为“我的理解有误”，并未清楚归因题目前提。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_fact_plane_bare",
+      "pair": "fact_plane",
+      "condition": "bare",
+      "verdict": "detects_conflict",
+      "note": "在40-token之后明确说作品里没有诸葛亮驾驶战机的情节；长回答消除了上一阶段的未表态状态。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_fact_plane_primed",
+      "pair": "fact_plane",
+      "condition": "primed",
+      "verdict": "detects_conflict",
+      "note": "在40-token之后明确说作品里没有诸葛亮驾驶战机的情节；长回答消除了上一阶段的未表态状态。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_fact_plane_primed_cued",
+      "pair": "fact_plane",
+      "condition": "primed_cued",
+      "verdict": "other_refusal",
+      "note": "以“军事技术细节”为由拒答，未明确解释古代人物不可能驾驶现代战机，不能把这次拒答计为正确拆穿。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_space_table_bare",
+      "pair": "space_table",
+      "condition": "bare",
+      "verdict": "accepts_premise",
+      "note": "在保存的回答中明确宣称动作合理，未指出题设中的空间距离或物理隔离冲突。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_space_table_primed",
+      "pair": "space_table",
+      "condition": "primed",
+      "verdict": "accepts_premise",
+      "note": "在保存的回答中明确宣称动作合理，未指出题设中的空间距离或物理隔离冲突。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_space_table_primed_cued",
+      "pair": "space_table",
+      "condition": "primed_cued",
+      "verdict": "accepts_premise",
+      "note": "在保存的回答中明确宣称动作合理，未指出题设中的空间距离或物理隔离冲突。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_space_shirt_bare",
+      "pair": "space_shirt",
+      "condition": "bare",
+      "verdict": "accepts_premise",
+      "note": "明确说穿衣顺序合理；本题动作可行性受衣物松紧和具体操作影响，此标签只记录表态，不把衣物题当严格拓扑定理。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_space_shirt_primed",
+      "pair": "space_shirt",
+      "condition": "primed",
+      "verdict": "accepts_premise",
+      "note": "明确说穿衣顺序合理；本题动作可行性受衣物松紧和具体操作影响，此标签只记录表态，不把衣物题当严格拓扑定理。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_space_shirt_primed_cued",
+      "pair": "space_shirt",
+      "condition": "primed_cued",
+      "verdict": "accepts_premise",
+      "note": "明确说穿衣顺序合理；本题动作可行性受衣物松紧和具体操作影响，此标签只记录表态，不把衣物题当严格拓扑定理。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_space_wall_bare",
+      "pair": "space_wall",
+      "condition": "bare",
+      "verdict": "accepts_premise",
+      "note": "在保存的回答中明确宣称动作合理，未指出题设中的空间距离或物理隔离冲突。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_space_wall_primed",
+      "pair": "space_wall",
+      "condition": "primed",
+      "verdict": "accepts_premise",
+      "note": "在保存的回答中明确宣称动作合理，未指出题设中的空间距离或物理隔离冲突。"
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "id": "p160_space_wall_primed_cued",
+      "pair": "space_wall",
+      "condition": "primed_cued",
+      "verdict": "accepts_premise",
+      "note": "在保存的回答中明确宣称动作合理，未指出题设中的空间距离或物理隔离冲突。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_fact_book_bare",
+      "pair": "fact_book",
+      "condition": "bare",
+      "verdict": "detects_conflict",
+      "note": "明确否定《红楼梦》中黛玉倒拔柳树的前提；附带补充的鲁智深回数和回目不计为已经核实的事实。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_fact_book_primed",
+      "pair": "fact_book",
+      "condition": "primed",
+      "verdict": "detects_conflict",
+      "note": "明确否定《红楼梦》中黛玉倒拔柳树的前提；附带补充的鲁智深回数和回目不计为已经核实的事实。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_fact_book_primed_cued",
+      "pair": "fact_book",
+      "condition": "primed_cued",
+      "verdict": "detects_conflict",
+      "note": "明确否定《红楼梦》中黛玉倒拔柳树的前提；附带补充的鲁智深回数和回目不计为已经核实的事实。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_fact_age_bare",
+      "pair": "fact_age",
+      "condition": "bare",
+      "verdict": "detects_conflict",
+      "note": "明确指出亲生母亲不可能比儿子年轻，题目前提不成立。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_fact_age_primed",
+      "pair": "fact_age",
+      "condition": "primed",
+      "verdict": "detects_conflict",
+      "note": "明确指出亲生母亲不可能比儿子年轻，题目前提不成立。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_fact_age_primed_cued",
+      "pair": "fact_age",
+      "condition": "primed_cued",
+      "verdict": "detects_conflict",
+      "note": "明确指出亲生母亲不可能比儿子年轻，题目前提不成立。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_fact_plane_bare",
+      "pair": "fact_plane",
+      "condition": "bare",
+      "verdict": "detects_conflict",
+      "note": "明确指出古代人物与现代战机的时代冲突，拒绝给出虚构击落数量。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_fact_plane_primed",
+      "pair": "fact_plane",
+      "condition": "primed",
+      "verdict": "detects_conflict",
+      "note": "明确指出古代人物与现代战机的时代冲突，拒绝给出虚构击落数量。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_fact_plane_primed_cued",
+      "pair": "fact_plane",
+      "condition": "primed_cued",
+      "verdict": "detects_conflict",
+      "note": "明确指出古代人物与现代战机的时代冲突，拒绝给出虚构击落数量。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_space_table_bare",
+      "pair": "space_table",
+      "condition": "bare",
+      "verdict": "detects_conflict",
+      "note": "明确指出十米距离超过未离座人体的触及范围，否定动作可行性。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_space_table_primed",
+      "pair": "space_table",
+      "condition": "primed",
+      "verdict": "detects_conflict",
+      "note": "明确指出十米距离超过未离座人体的触及范围，否定动作可行性。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_space_table_primed_cued",
+      "pair": "space_table",
+      "condition": "primed_cued",
+      "verdict": "detects_conflict",
+      "note": "明确指出十米距离超过未离座人体的触及范围，否定动作可行性。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_space_shirt_bare",
+      "pair": "space_shirt",
+      "condition": "bare",
+      "verdict": "accepts_premise",
+      "note": "先断言完全合理，后以袖口/领口/下摆有足够弹性或空间为条件解释；没有在可见范围内处理“紧紧穿着、拉链到顶”的限制。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_space_shirt_primed",
+      "pair": "space_shirt",
+      "condition": "primed",
+      "verdict": "conditional_or_mixed",
+      "note": "明确区分“物理操作可能”与“常识反常”，并假设羽绒服足够宽松或T恤有弹性；这是混合/条件性表态，不能简单记作完全接受，也没有直接否定题设下的物理可行性。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_space_shirt_primed_cued",
+      "pair": "space_shirt",
+      "condition": "primed_cued",
+      "verdict": "detects_conflict",
+      "note": "明确根据拉链闭合、贴身穿着等约束否定动作可行性；衣物操作仍需保留材料和具体动作歧义。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_space_wall_bare",
+      "pair": "space_wall",
+      "condition": "bare",
+      "verdict": "detects_conflict",
+      "note": "明确指出密封玻璃将房内房外隔离，外部手臂无法在不穿过或破坏边界的情况下拿起内部苹果。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_space_wall_primed",
+      "pair": "space_wall",
+      "condition": "primed",
+      "verdict": "detects_conflict",
+      "note": "明确指出密封玻璃将房内房外隔离，外部手臂无法在不穿过或破坏边界的情况下拿起内部苹果。"
+    },
+    {
+      "model": "Qwen3.8-27B-FP8",
+      "id": "p160_space_wall_primed_cued",
+      "pair": "space_wall",
+      "condition": "primed_cued",
+      "verdict": "detects_conflict",
+      "note": "明确指出密封玻璃将房内房外隔离，外部手臂无法在不穿过或破坏边界的情况下拿起内部苹果。"
+    }
+  ],
+  "findings": [
+    "1. **长度限制确实改变了可判读性。** 0.6B的战机题bare回答在40 tokens后明确否定了题目前提；纯SVG条件也明确否定。因此上一轮“40-token内未表态”不能被解释为不会识别。",
+    "2. **0.6B没有出现空间题增益。** 三道空间题在bare、纯SVG、SVG＋提醒下都没有明确否定动作可行性（均0/3）。纯SVG中它甚至说“人体的肢体可以穿过玻璃”；加提醒后说“伸手动作本身并不依赖于物理空间的限制”。用上“空间/主体感知”的词不等于维护了空间约束。",
+    "3. **0.6B事实题呈现的是题目级交换，而非整体提升。** bare与纯SVG都识别战机冲突，但仍给黛玉拔树编回数、给年龄题错算年龄。SVG＋提醒后发现-5岁不可能，却把战机题变为“军事技术细节”拒答；该拒答不算正确前提诊断。",
+    "4. **27B纯SVG与额外提醒需要分开。** bare能明确拒绝三道事实题、十米桌和密封玻璃两题；纯SVG仍拒绝这五题，衣物题改成“物理可行但常识反常”的混合表态。加入明确提醒后，衣物题也改判不合理，三道空间题均否定动作可行性。此项是提示方案下的观察，未排除“不要顺从错误前提”直接诱导否定的作用。",
+    "5. **几何变化不等于判错能力提升。** 六题的窗口均值再等权平均，纯SVG相对bare的时间曲率：0.6B为2.02248→2.01946 rad，27B为2.01229→1.99899 rad；27B的窗口熵却从0.17150升到0.48616 nats，主要冲突识别没有相应提升。两个模型的primed与primed_cued，在选定中后层平均时间曲率和最终层熵上，触发窗口逐token完全相同；提醒位于其后，答案行为仍可改变。这符合因果方向，也说明不能把后续提示效果说成早先报警更强。",
+    "6. **160仍不等于所有回答自然结束。** 0.6B有3/18条、27B有16/18条第二轮回答触及上限，总计19/36条；27B的首轮也触及160-token上限。本报告完整保留所有已生成文本，但不声称这些截断记录已覆盖后续所有内容。",
+    "7. **指出前提错误不等于后续细节可靠。** 27B在黛玉题三条件下都能拒绝前提，但补充的《水浒传》回数和回目变动；这里的判读只针对原始陷阱是否被识别，不给附带事实背书。"
+  ]
+}

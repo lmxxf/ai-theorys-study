@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "models": 2,
+  "second_turn_records": 36,
+  "first_turn_records": 2,
+  "checks": [
+    "model and case counts",
+    "layer and token dimensions",
+    "160-token cap",
+    "EOS-free semantic spans",
+    "shared real first turn",
+    "hook output equality"
+  ]
+}
