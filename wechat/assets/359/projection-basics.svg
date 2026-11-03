@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 530" width="520" height="530" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="520" height="530" fill="#f8fafc" rx="12"/>
+  <text x="260" y="34" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">正交投影公式是怎么来的：一束垂直光 + 直角三角形</text>
+  <text x="260" y="54" font-size="11.5" fill="#64748b" text-anchor="middle">不用背新公式，直接从第一期学过的点积 x · u = |x| × |u| × cosθ 顺手推出来</text>
+
+  <defs>
+    <marker id="arr-red" markerWidth="6.5" markerHeight="6.5" refX="5.5" refY="3.25" orient="auto">
+      <path d="M0 0 L6.5 3.25 L0 6.5 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="6.5" markerHeight="6.5" refX="5.5" refY="3.25" orient="auto">
+      <path d="M0 0 L6.5 3.25 L0 6.5 z" fill="#0284c7"/>
+    </marker>
+    <marker id="arr-amber" markerWidth="6.5" markerHeight="6.5" refX="5.5" refY="3.25" orient="auto">
+      <path d="M0 0 L6.5 3.25 L0 6.5 z" fill="#d97706"/>
+    </marker>
+    <marker id="arr-green" markerWidth="6.5" markerHeight="6.5" refX="5.5" refY="3.25" orient="auto">
+      <path d="M0 0 L6.5 3.25 L0 6.5 z" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-light" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M0 0 L5 2.5 L0 5 z" fill="#eab308"/>
+    </marker>
+  </defs>
+
+  <!-- Panel 1: Right Triangle & Shadow Length d -->
+  <rect x="20" y="70" width="480" height="240" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="70" width="480" height="32" fill="#e0f2fe" rx="8"/>
+  <text x="32" y="91" font-size="12.2" font-weight="bold" fill="#0369a1">① 第一步（求影子有多长）：斜边 |x| 乘以 cosθ，就是地面上的影子长度 d</text>
+
+  <!-- Parallel light rays from top -->
+  <text x="150" y="120" font-size="10.5" font-weight="bold" fill="#a16207" text-anchor="middle">↓ 垂直于方向 u 从正上方打下平行光 ↓</text>
+  <g stroke="#eab308" stroke-width="1.5" stroke-dasharray="3 3">
+    <line x1="90" y1="126" x2="90" y2="152" marker-end="url(#arr-light)"/>
+    <line x1="130" y1="126" x2="130" y2="152" marker-end="url(#arr-light)"/>
+    <line x1="170" y1="126" x2="170" y2="152" marker-end="url(#arr-light)"/>
+    <line x1="210" y1="126" x2="210" y2="152" marker-end="url(#arr-light)"/>
+  </g>
+
+  <!-- Target line u (horizontal at y=252, origin at x=55) -->
+  <line x1="38" y1="252" x2="318" y2="252" stroke="#cbd5e1" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <!-- Vector u from (55,252) to (298,252) -->
+  <line x1="55" y1="252" x2="298" y2="252" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+  <text x="272" y="272" font-size="10.8" font-weight="bold" fill="#0369a1" text-anchor="middle">目标方向 u（|u|）</text>
+
+  <!-- Projection drop line from x tip (210, 162) down to (210, 252) -->
+  <line x1="210" y1="162" x2="210" y2="252" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+  <!-- Right angle symbol at (210, 252) -->
+  <polyline points="198,252 198,240 210,240" fill="none" stroke="#b45309" stroke-width="1.5"/>
+  <text x="194" y="235" font-size="10" fill="#b45309" text-anchor="end">90°</text>
+
+  <!-- Angle arc theta around origin (55, 252) -->
+  <path d="M 92 252 A 37 37 0 0 0 87.0 233.5" fill="none" stroke="#475569" stroke-width="1.5"/>
+  <text x="98" y="244" font-size="12" font-weight="bold" fill="#334155">θ</text>
+
+  <!-- Vector x from (55, 252) to (210, 162) -->
+  <line x1="55" y1="252" x2="210" y2="162" stroke="#dc2626" stroke-width="3" marker-end="url(#arr-red)"/>
+  <text x="122" y="196" font-size="11.5" font-weight="bold" fill="#dc2626" transform="rotate(-30 122 196)" text-anchor="middle">斜边 x（长度 |x|）</text>
+
+  <!-- Shadow segment d from (55, 256) to (210, 256) -->
+  <line x1="55" y1="256" x2="210" y2="256" stroke="#d97706" stroke-width="4.5"/>
+  <!-- Brace / dimension for d -->
+  <line x1="55" y1="265" x2="55" y2="275" stroke="#b45309" stroke-width="1.5"/>
+  <line x1="210" y1="265" x2="210" y2="275" stroke="#b45309" stroke-width="1.5"/>
+  <line x1="55" y1="270" x2="210" y2="270" stroke="#b45309" stroke-width="1.5"/>
+  <text x="132" y="290" font-size="11.5" font-weight="bold" fill="#b45309" text-anchor="middle">邻边（影子长度）d = |x| × cosθ</text>
+
+  <circle cx="55" cy="252" r="3.5" fill="#0f172a"/>
+  <circle cx="210" cy="162" r="3.5" fill="#dc2626"/>
+  <circle cx="210" cy="252" r="3.5" fill="#d97706"/>
+
+  <!-- Formula box on right of Panel 1 -->
+  <rect x="330" y="114" width="156" height="178" fill="#fffbeb" stroke="#fde68a" rx="6"/>
+  <text x="340" y="136" font-size="11.5" font-weight="bold" fill="#92400e">点积公式直接变形：</text>
+  <text x="340" y="158" font-size="10.8" fill="#334155">第一期点积几何公式：</text>
+  <text x="340" y="178" font-size="11" font-weight="bold" fill="#0f172a">x · u = (|x| cosθ) × |u|</text>
+  <text x="340" y="200" font-size="10.8" fill="#334155">括号里的 |x| cosθ 就是</text>
+  <text x="340" y="216" font-size="10.8" fill="#334155">左图的影子长度 d，两边</text>
+  <text x="340" y="232" font-size="10.8" fill="#334155">同时除以 |u| 立刻得到：</text>
+  <rect x="340" y="246" width="136" height="30" fill="#fef3c7" rx="4"/>
+  <text x="408" y="266" font-size="12" font-weight="bold" fill="#b45309" text-anchor="middle">d = (x · u) / |u|</text>
+
+  <!-- Panel 2: Unit Vector u_hat and Projection Vector p -->
+  <rect x="20" y="324" width="480" height="186" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="324" width="480" height="32" fill="#dcfce7" rx="8"/>
+  <text x="32" y="345" font-size="12" font-weight="bold" fill="#166534">② 第二步（给影子装上方向）：拿长度 d 乘以单位标杆 û = 影子向量 p</text>
+
+  <!-- Step 2a: Unit vector u_hat -->
+  <text x="36" y="380" font-size="11.2" font-weight="bold" fill="#334155">1. 先把 u 缩成长度为 1 的方向标杆：</text>
+  <line x1="42" y1="402" x2="112" y2="402" stroke="#16a34a" stroke-width="3.5" marker-end="url(#arr-green)"/>
+  <circle cx="42" cy="402" r="3" fill="#0f172a"/>
+  <text x="42" y="422" font-size="11" font-weight="bold" fill="#15803d">单位向量 û = u / |u|（纯方向，长度 = 1）</text>
+
+  <!-- Step 2b: Multiply by d to get vector p -->
+  <text x="36" y="452" font-size="11.2" font-weight="bold" fill="#334155">2. 再把标杆拉长 d 倍，得到影子向量 p：</text>
+  <line x1="42" y1="474" x2="212" y2="474" stroke="#d97706" stroke-width="4" marker-end="url(#arr-amber)"/>
+  <circle cx="42" cy="474" r="3" fill="#0f172a"/>
+  <text x="42" y="494" font-size="11" font-weight="bold" fill="#b45309">影子向量 p = d × û（沿 û 方向，长度是 d）</text>
+
+  <!-- Right formula card in Panel 2: Why no square root! -->
+  <rect x="264" y="368" width="222" height="128" fill="#f0fdf4" stroke="#bbf7d0" rx="6"/>
+  <text x="276" y="390" font-size="11.5" font-weight="bold" fill="#166534">为什么手算时连根号都不用开？</text>
+  <text x="276" y="412" font-size="10.8" fill="#334155">把 d 和 û 一起代进 p = d × û：</text>
+  <text x="276" y="432" font-size="11.2" font-weight="bold" fill="#0f172a">p = [(x · u) / |u|] × (u / |u|)</text>
+  <text x="276" y="454" font-size="10.8" fill="#334155">分母两个 |u| 相乘 = |u|² = u · u：</text>
+  <rect x="276" y="462" width="198" height="24" fill="#dcfce7" rx="4"/>
+  <text x="375" y="479" font-size="11.5" font-weight="bold" fill="#15803d" text-anchor="middle">p = [(x · u) / (u · u)] × u</text>
+</svg>

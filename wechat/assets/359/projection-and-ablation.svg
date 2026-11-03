@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 610" width="520" height="610" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
-  <rect width="520" height="610" fill="#f8fafc" rx="12"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 396" width="520" height="396" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="520" height="396" fill="#f8fafc" rx="12"/>
   <text x="260" y="34" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">正交投影（Projection）：打一束垂直光，把向量切成两半</text>
   <text x="260" y="54" font-size="11.5" fill="#64748b" text-anchor="middle">手算 x = (3, 4) 在方向 u = (1, 1) 上的影子 p = (3.5, 3.5) 与垂直余项 r = (-0.5, 0.5)</text>
 
@@ -21,10 +21,10 @@
     </marker>
   </defs>
 
-  <!-- Panel 1: 2D Geometric Diagram -->
-  <rect x="20" y="70" width="480" height="310" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <!-- 2D Geometric Diagram -->
+  <rect x="20" y="70" width="480" height="308" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
   <rect x="20" y="70" width="480" height="32" fill="#fef3c7" rx="8"/>
-  <text x="32" y="91" font-size="12.2" font-weight="bold" fill="#92400e">① 几何画面：任何向量 x = 顺着目标方向的影子 p + 垂直于目标方向的余项 r</text>
+  <text x="32" y="91" font-size="12.2" font-weight="bold" fill="#92400e">几何分解：任何向量 x = 顺着目标方向的影子 p + 垂直于目标方向的余项 r</text>
 
   <!-- Coordinate System: Origin at (80, 330), scale = 50px per unit -->
   <g stroke="#f1f5f9" stroke-width="1">
@@ -79,18 +79,4 @@
   <text x="332" y="318" font-size="11" font-weight="bold" fill="#6d28d9">         = (-0.5, 0.5)</text>
   <text x="332" y="342" font-size="10.5" fill="#475569">验算垂直：r · u</text>
   <text x="332" y="356" font-size="10.5" font-weight="bold" fill="#15803d">= -0.5×1 + 0.5×1 = 0</text>
-
-  <!-- Panel 2: AI Applications -->
-  <rect x="20" y="394" width="480" height="198" fill="#0f172a" rx="8"/>
-  <text x="36" y="422" font-size="13" font-weight="bold" fill="#38bdf8">② 这一刀在大模型里的两个直接化身：</text>
-
-  <rect x="36" y="434" width="448" height="68" fill="#1e293b" stroke="#334155" rx="6"/>
-  <text x="48" y="454" font-size="12" font-weight="bold" fill="#fbbf24">化身 A：只留影子 p（多头注意力读取 &amp; 可解释性探针）</text>
-  <text x="48" y="474" font-size="11" fill="#e2e8f0">• 残差流 4096 维混着万物，单头乘 [4096, 64] 就是把向量投影到 64 维子空间，</text>
-  <text x="48" y="492" font-size="11" fill="#94a3b8">  只取这个头关心的“影子 p”，把其余 4032 维无关余项 r 统统滤掉。</text>
-
-  <rect x="36" y="512" width="448" height="68" fill="#1e293b" stroke="#334155" rx="6"/>
-  <text x="48" y="532" font-size="12" font-weight="bold" fill="#a78bfa">化身 B：剪掉影子 p、只留垂直余项 r（131 期 Abliteration 去拒绝手术）</text>
-  <text x="48" y="552" font-size="11" fill="#e2e8f0">• 找到“拒绝方向”单位向量 û，执行 r = x - (x · û) û，恰好把拒绝影子 p 减成 0，</text>
-  <text x="48" y="570" font-size="11" fill="#94a3b8">  留下的余项 r 与拒绝方向严格垂直（点积为 0），其他知识毫发无伤。</text>
 </svg>
