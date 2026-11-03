@@ -1,0 +1,15 @@
+{
+  "model": "/home/lmxxf/work/models/Qwen3-0.6B",
+  "device": "NVIDIA GB10",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "budget": 1024,
+  "batch": 8,
+  "seed": 360,
+  "do_sample": false,
+  "thinking": true,
+  "development": 8,
+  "heldout": 32,
+  "selection": "TF transfer select alpha maximizing normal_delta - repeat_delta; no generation scores used",
+  "script_sha256": "d5ef79ccf1c2213cf69fabafa6040e6fa5a6ba8c52870f4292d4ed01ea37039c"
+}

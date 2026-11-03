@@ -1,0 +1,282 @@
+[
+  {
+    "q": "A committee of 4 people is chosen from 17 people. Two particular people cannot both be on the committee. How many committees are possible? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 2275,
+    "family": "committee",
+    "id": "q00",
+    "split": "development"
+  },
+  {
+    "q": "How many integers from 1 through 540 inclusive are divisible by 6 or 10 but not both? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 108,
+    "family": "xor_divisibility",
+    "id": "q01",
+    "split": "development"
+  },
+  {
+    "q": "Find the remainder when 7^23 is divided by 13. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 2,
+    "family": "modular_power",
+    "id": "q02",
+    "split": "development"
+  },
+  {
+    "q": "An arithmetic sequence has first term 11 and common difference 3. Find the sum of its first 24 terms. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 1092,
+    "family": "arithmetic_sum",
+    "id": "q03",
+    "split": "development"
+  },
+  {
+    "q": "How many length-6 strings using only A and B contain no two adjacent Bs? Count strings, not circular necklaces. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 21,
+    "family": "binary_strings",
+    "id": "q04",
+    "split": "development"
+  },
+  {
+    "q": "There are 26 chickens and rabbits with 86 legs total. How many rabbits are there? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 17,
+    "family": "animals",
+    "id": "q05",
+    "split": "development"
+  },
+  {
+    "q": "An urn contains 11 red and 5 blue balls. Two are drawn without replacement. Express the probability both are red as a reduced fraction, then give ONLY the numerator of that fraction as your final answer. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 11,
+    "family": "probability_numerator",
+    "id": "q06",
+    "split": "development"
+  },
+  {
+    "q": "Two taps fill a tank in 24 and 18 hours separately. A drain empties it in 432 hours. Starting empty with all three open, how many hours to fill it? Give ONLY the numerator of the reduced fraction. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 432,
+    "family": "rates_numerator",
+    "id": "q07",
+    "split": "development"
+  },
+  {
+    "q": "A committee of 4 people is chosen from 20 people. Two particular people cannot both be on the committee. How many committees are possible? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 4692,
+    "family": "committee",
+    "id": "q08",
+    "split": "heldout"
+  },
+  {
+    "q": "How many integers from 1 through 600 inclusive are divisible by 6 or 10 but not both? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 120,
+    "family": "xor_divisibility",
+    "id": "q09",
+    "split": "heldout"
+  },
+  {
+    "q": "Find the remainder when 8^25 is divided by 14. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 8,
+    "family": "modular_power",
+    "id": "q10",
+    "split": "heldout"
+  },
+  {
+    "q": "An arithmetic sequence has first term 12 and common difference 4. Find the sum of its first 25 terms. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 1500,
+    "family": "arithmetic_sum",
+    "id": "q11",
+    "split": "heldout"
+  },
+  {
+    "q": "How many length-7 strings using only A and B contain no two adjacent Bs? Count strings, not circular necklaces. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 34,
+    "family": "binary_strings",
+    "id": "q12",
+    "split": "heldout"
+  },
+  {
+    "q": "There are 29 chickens and rabbits with 96 legs total. How many rabbits are there? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 19,
+    "family": "animals",
+    "id": "q13",
+    "split": "heldout"
+  },
+  {
+    "q": "An urn contains 13 red and 5 blue balls. Two are drawn without replacement. Express the probability both are red as a reduced fraction, then give ONLY the numerator of that fraction as your final answer. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 26,
+    "family": "probability_numerator",
+    "id": "q14",
+    "split": "heldout"
+  },
+  {
+    "q": "Two taps fill a tank in 27 and 20 hours separately. A drain empties it in 540 hours. Starting empty with all three open, how many hours to fill it? Give ONLY the numerator of the reduced fraction. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 270,
+    "family": "rates_numerator",
+    "id": "q15",
+    "split": "heldout"
+  },
+  {
+    "q": "A committee of 4 people is chosen from 23 people. Two particular people cannot both be on the committee. How many committees are possible? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 8645,
+    "family": "committee",
+    "id": "q16",
+    "split": "heldout"
+  },
+  {
+    "q": "How many integers from 1 through 660 inclusive are divisible by 6 or 10 but not both? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 132,
+    "family": "xor_divisibility",
+    "id": "q17",
+    "split": "heldout"
+  },
+  {
+    "q": "Find the remainder when 9^27 is divided by 15. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 9,
+    "family": "modular_power",
+    "id": "q18",
+    "split": "heldout"
+  },
+  {
+    "q": "An arithmetic sequence has first term 13 and common difference 5. Find the sum of its first 26 terms. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 1963,
+    "family": "arithmetic_sum",
+    "id": "q19",
+    "split": "heldout"
+  },
+  {
+    "q": "How many length-8 strings using only A and B contain no two adjacent Bs? Count strings, not circular necklaces. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 55,
+    "family": "binary_strings",
+    "id": "q20",
+    "split": "heldout"
+  },
+  {
+    "q": "There are 32 chickens and rabbits with 106 legs total. How many rabbits are there? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 21,
+    "family": "animals",
+    "id": "q21",
+    "split": "heldout"
+  },
+  {
+    "q": "An urn contains 15 red and 5 blue balls. Two are drawn without replacement. Express the probability both are red as a reduced fraction, then give ONLY the numerator of that fraction as your final answer. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 21,
+    "family": "probability_numerator",
+    "id": "q22",
+    "split": "heldout"
+  },
+  {
+    "q": "Two taps fill a tank in 30 and 22 hours separately. A drain empties it in 660 hours. Starting empty with all three open, how many hours to fill it? Give ONLY the numerator of the reduced fraction. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 220,
+    "family": "rates_numerator",
+    "id": "q23",
+    "split": "heldout"
+  },
+  {
+    "q": "A committee of 4 people is chosen from 26 people. Two particular people cannot both be on the committee. How many committees are possible? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 14674,
+    "family": "committee",
+    "id": "q24",
+    "split": "heldout"
+  },
+  {
+    "q": "How many integers from 1 through 720 inclusive are divisible by 6 or 10 but not both? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 144,
+    "family": "xor_divisibility",
+    "id": "q25",
+    "split": "heldout"
+  },
+  {
+    "q": "Find the remainder when 10^29 is divided by 16. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 0,
+    "family": "modular_power",
+    "id": "q26",
+    "split": "heldout"
+  },
+  {
+    "q": "An arithmetic sequence has first term 14 and common difference 6. Find the sum of its first 27 terms. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 2484,
+    "family": "arithmetic_sum",
+    "id": "q27",
+    "split": "heldout"
+  },
+  {
+    "q": "How many length-9 strings using only A and B contain no two adjacent Bs? Count strings, not circular necklaces. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 89,
+    "family": "binary_strings",
+    "id": "q28",
+    "split": "heldout"
+  },
+  {
+    "q": "There are 35 chickens and rabbits with 116 legs total. How many rabbits are there? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 23,
+    "family": "animals",
+    "id": "q29",
+    "split": "heldout"
+  },
+  {
+    "q": "An urn contains 17 red and 5 blue balls. Two are drawn without replacement. Express the probability both are red as a reduced fraction, then give ONLY the numerator of that fraction as your final answer. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 136,
+    "family": "probability_numerator",
+    "id": "q30",
+    "split": "heldout"
+  },
+  {
+    "q": "Two taps fill a tank in 33 and 24 hours separately. A drain empties it in 792 hours. Starting empty with all three open, how many hours to fill it? Give ONLY the numerator of the reduced fraction. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 99,
+    "family": "rates_numerator",
+    "id": "q31",
+    "split": "heldout"
+  },
+  {
+    "q": "A committee of 4 people is chosen from 29 people. Two particular people cannot both be on the committee. How many committees are possible? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 23400,
+    "family": "committee",
+    "id": "q32",
+    "split": "heldout"
+  },
+  {
+    "q": "How many integers from 1 through 780 inclusive are divisible by 6 or 10 but not both? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 156,
+    "family": "xor_divisibility",
+    "id": "q33",
+    "split": "heldout"
+  },
+  {
+    "q": "Find the remainder when 11^31 is divided by 17. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 14,
+    "family": "modular_power",
+    "id": "q34",
+    "split": "heldout"
+  },
+  {
+    "q": "An arithmetic sequence has first term 15 and common difference 7. Find the sum of its first 28 terms. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 3066,
+    "family": "arithmetic_sum",
+    "id": "q35",
+    "split": "heldout"
+  },
+  {
+    "q": "How many length-10 strings using only A and B contain no two adjacent Bs? Count strings, not circular necklaces. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 144,
+    "family": "binary_strings",
+    "id": "q36",
+    "split": "heldout"
+  },
+  {
+    "q": "There are 38 chickens and rabbits with 126 legs total. How many rabbits are there? Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 25,
+    "family": "animals",
+    "id": "q37",
+    "split": "heldout"
+  },
+  {
+    "q": "An urn contains 19 red and 5 blue balls. Two are drawn without replacement. Express the probability both are red as a reduced fraction, then give ONLY the numerator of that fraction as your final answer. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 57,
+    "family": "probability_numerator",
+    "id": "q38",
+    "split": "heldout"
+  },
+  {
+    "q": "Two taps fill a tank in 36 and 26 hours separately. A drain empties it in 936 hours. Starting empty with all three open, how many hours to fill it? Give ONLY the numerator of the reduced fraction. Think carefully, then end your final response with Answer: <integer>.",
+    "gold": 936,
+    "family": "rates_numerator",
+    "id": "q39",
+    "split": "heldout"
+  }
+]

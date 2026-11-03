@@ -1,0 +1,34 @@
+from pathlib import Path
+import json,math,hashlib
+R=Path(__file__).resolve().parent;d=json.loads((R/'results.json').read_text());summ=d['summary'];pair=d['paired'];tr=d['transfer'];manifest=d['manifest'];tasks={t['id']:t for t in d['tasks']};original={r['id']:r for r in d['original']};edited={r['id']:r for r in d['edited']};control={r['id']:r for r in d['random_control']}
+lines=['# Qwen3-0.6B 权重空间编程：两层 Top-64 方向编辑实测','', '日期：2026-11-04。全部推理和张量干预在家中 DGX Spark GB10 执行；本机只编写脚本、接收和检查结果。未修改公众号正文，未更新模型原权重文件。','', '## 先看结果','', f"共运行原模型40题、编辑模型32题、随机对照32题，生成上限1024 tokens。32道留出题：原模型 {summ['original_heldout']['correct']}/32，编辑 {summ['edited']['correct']}/32，同范数随机方向 {summ['random_control']['correct']}/32。编辑拯救 {pair['edited']['rescues']} 题、退化 {pair['edited']['losses']} 题；其中由未闭合且截断转为闭合并答对的题有 {len(pair['edited']['cut_to_closed_correct'])} 道。",'']
+if summ['edited']['correct']>summ['original_heldout']['correct']:
+ lines+=['本次小样本出现净提分；仍须与随机对照一起判断方向特异性，不能由这个题集直接推出通用数学能力提升。','']
+else:lines+=['本次没有复现净提分。保留失败结果，不将 teacher-forced 分支偏好变化包装成自然生成能力提升。','']
+lines+=['## 与 MIT 原实验的关系','', '参考本机 360_research/ 中的 MIT 博客、p50c_history.md、p50c_final_report.md、清单和重建脚本。原实验是 Qwen3.5-0.8B、32768-token 预算；这里是 Qwen3-0.6B、1024-token 预算和自造计算题，是方法迁移小实验，不是同模型同数据同预算的复现。原报告的千题成绩不可当作本次结果。','', '原博客：https://rikiyat.github.io/blog/weight-space-programming/；原日志与代码：https://github.com/RikiyaT/lm_understand-logs 。上述来源在本机已有副本，本次以下载材料为准。','', '## 固定协议与题目划分','', '- 模型28层，hidden_size=1024；每个 down_proj 为 [1024,3072]，由实际加载后的张量断言核实。原生 BF16，SDPA，官方 chat template，enable_thinking=True。','- 40道程序化数学题，8种题型各5道：组合计数、整除异或、模幂、数列求和、无相邻B字符串、鸡兔、概率分子、注排水分子。前8题为开发集，后32题为留出；均在第一次生成前写入 tasks.json。留出题与开发题不同，但共享题型模板，不是外部标准评测或严格分布外数据。','- 贪心生成、固定seed=360、批次8、max_new_tokens=1024；原模型和两种干预在留出题上的分组顺序与提示完全一致。无采样随机性；不把单次确定性结果当多次独立估计。','- 准确率只读 </think> 之后的最终回答，优先 Answer: 整数，其次 boxed 整数，再取最后整数。未闭合思考且未交付最终答案，计未答，不因思考里出现正确数值而算正确。所有生成原文均保留以供复核。','- 截断与复读分开：hit_limit 是达到预算且未遇EOS；4-gram及最后256词元的8-gram重复率为 1−不同n元组数/全部n元组数。截断不自动等于死循环，长计算也可能用尽预算。','', '## 四对孪生定位与层选择','', '定位用前4道开发题；另4道开发题只作转移探针，不参与方向或列选择。两套样本均为人工构造：同题、相同已解出答案的 thinking 公共前缀，随后分叉为正常核验收尾与反复核验；每个分叉36词元左右。严格共享 common_ids，分叉边界存于 twins.json。它们不是从原模型失败轨迹自动挖出的天然配对，不应据此断言已定位全部自然复读机制。','', '一次批量 teacher-forced 前向对8条定位序列抓全部28层：block输出残差、down_proj输入的MLP中间激活和down_proj输出。保存每条分叉窗口均值 activation_means.pt。对每层按 B−A 求残差均值差再单位化得 u_l；scores=mean_pairs[(mean_B(mid)−mean_A(mid))*(u_l@W_l)]。层贡献是 mean_pairs[(mean_B(MLPout)−mean_A(MLPout))·u_l]，选该值最高两层，列取各层有符号分数最高64列。层号0起算。','', '|层号（0起）|MLP增长贡献|Top64贡献和|','|---|---:|---:|']
+for c in d['localization']['selected']:lines.append(f"|{c['layer_zero_based']}|{c['mlp_growth']:.6f}|{c['selected_score_sum']:.6f}|")
+for c in d['localization']['selected']:lines+=['',f"层 {c['layer_zero_based']} 的64列（0起）：",'```text',', '.join(map(str,c['columns'])),'```']
+lines+=['','这个层排名是观测性定位；两层联合编辑后再做行为对照，没有逐层独立消融，不能单独宣布每一层的因果必要性。','', '## 剂量与转移探针','', '两层都按 W_new=W0−alpha*outer(u,mask64*(u@W0)) 修改，每个剂量均从原W0重建，不累积。alpha>1不是标准正交投影，而是沿所选写入方向反向过冲；本实验比较其效果，不预设alpha越大越好。','', '|alpha|正常分支Δlogp/词元|复读分支Δlogp/词元|选择性（正常−复读）|','|---:|---:|---:|---:|']
+for a in tr['doses']:lines.append(f"|{a['alpha']}|{a['normal_delta']:.6f}|{a['repeat_delta']:.6f}|{a['selectivity']:.6f}|")
+rd={k:[v['mean_logprob']-b['mean_logprob'] for v,b in zip(tr['random'],tr['baseline']) if v['kind']==k] for k in ['normal','repeat']}
+best=next(x for x in tr['doses'] if x['alpha']==tr['chosen_alpha'])
+lines += ['', '所选剂量四题的逐题Δ（正常、复读）：', '```json', json.dumps(best['deltas'],ensure_ascii=False,indent=2), '```']
+lines += ['',f"选择 alpha={tr['chosen_alpha']}，规则是在4道转移题上最大化“正常Δ−复读Δ”，在读取留出编辑结果之前冻结。无论这一最大值正负都按预定规则执行；不是事后保证选择有益剂量。随机方向对照的正常Δ={sum(rd['normal'])/4:.6f}，复读Δ={sum(rd['repeat'])/4:.6f} nats/token。",'', '每题Δ值和逐词元logprob在 transfer.json 中。这里只是4道题，报告数值变化，不声称统计显著，也不把正常分支非零变化称为严格不变。提示共享的已解结果对两个分支相同；定位和转移的题目互不相同，但本次两套探针复用相同分叉措辞，因此只检验跨题转移，没有检验跨措辞泛化。','', '## 参数修改与随机对照','', '只修改两个down_proj各64列，掩码覆盖2×64×1024=131072个标量位置。BF16舍入可能使其中部分值数值不变，应区分掩码覆盖数与实际发生变化的参数数。原模型文件不覆盖；edit_layer_*.pt 中保存W0、方向、列、稀疏增量，可重新应用任一剂量。','', '随机对照每层独立取固定seed的高斯方向，投影掉u后单位化（与u正交）；使用同一64列支持，并把随机秩一增量缩放到与目标编辑相同的Frobenius范数。因方向与列共同被固定，这是同位置/同范数的对照，不是额外搜索出的最佳随机编辑。BF16舍入后实际范数另审计。','', '|层|覆盖位置|BF16实际改变|实际相对F范数|理论目标增量F范数|理论随机增量F范数|','|---|---:|---:|---:|---:|---:|']
+for x in manifest['layers']:lines.append(f"|{x['layer']}|{x['selected_entries']}|{x['actual_bf16_changed']}|{x['relative_frobenius']:.6f}|{x['target_delta_frobenius']:.6f}|{x['random_delta_frobenius']:.6f}|")
+lines+=['', 'CPU重建审计（BF16舍入后范数等信息）：', '```json', json.dumps(d.get('audit',{}),ensure_ascii=False,indent=2), '```']
+lines+=['','## 32题留出生成对比','', '|条件|正确数/32|准确率|截断数/32|截断率|think闭合数/32|闭合率|平均词元数|平均4gram重复率|','|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+for label,x in summ.items():lines.append(f"|{label}|{x['correct']}/32|{x['accuracy']:.2%}|{x['hit_limit']}/32|{x['hit_limit']/32:.2%}|{x['closed']}/32|{x['closed']/32:.2%}|{x['mean_tokens']:.1f}|{x['mean_repeat4']:.4f}|")
+lines+=['', '完整生成的4-gram重复率没有下降（原模型0.2466，目标编辑0.2502）；不能将本次结果写成彻底消除复读。think闭合与达到总预算并不互斥：原模型有2题、目标编辑有8题、随机对照有2题在闭合后仍把最终答复写到上限。闭合率提升不等于所有回答完整结束。','']
+lines+=['','Rescue定义为原模型错误/未答而干预后正确；Loss定义为原模型正确而干预后错误/未答，不等同于所有截断改善。', '```json',json.dumps(pair,ensure_ascii=False,indent=2),'```','','## 完整原话案例','']
+ids=list(pair['edited']['cut_to_closed_correct'])[:3]
+if len(ids)<3:
+ candidates=[r['id'] for r in d['edited'] if not original[r['id']]['correct'] and r['correct']]+[r['id'] for r in d['edited'] if original[r['id']]['correct'] and not r['correct']]+[r['id'] for r in d['edited'] if original[r['id']]['hit_limit']]
+ for i in candidates:
+  if i not in ids:ids.append(i)
+  if len(ids)==3:break
+if len(pair['edited']['cut_to_closed_correct'])<2:lines+=['**实际没有足够2～3道符合“原先未闭合截断→编辑后闭合正确”的案例；以下不足部分保留真实失败或其他变化，不编造成功原话。**','']
+for i in ids:
+ lines += [f'### {i} / {tasks[i]["family"]}', '',tasks[i]['q'],'',f"标准答案：{tasks[i]['gold']}。"]
+ for label,r in [('手术前',original[i]),('目标编辑后',edited[i]),('随机对照',control[i])]:lines += ['',f"{label}：correct={r['correct']}，closed={r['closed']}，hit_limit={r['hit_limit']}，tokens={r['tokens']}，tail_repeat8={r['tail_repeat8']:.4f}",'','```text',r['text'],'```']
+lines+=['','## 交付与复现','', f"GPU脚本运行 {d['elapsed_seconds']:.1f} 秒；峰值CUDA已分配 {d['peak_cuda_GiB']:.3f} GiB。Python/Transformers/PyTorch版本见 config.json。无反向传播、无优化器、所有参数requires_grad=False。最终已在内存恢复原始两层，进程结束后释放模型。",'', '本目录包含 run_experiment.py、make_report.py、results.json、原始三组生成JSON、tasks.json、twins.json、localization.json、transfer.json、edit_manifest.json、activation_means.pt、两个编辑补丁及run.log。SHA256SUMS用于核对拷贝完整性。','', '在Spark同目录用原环境运行：','```bash','/home/lmxxf/work/interp-curvature-exp/venv/bin/python run_experiment.py','/home/lmxxf/work/interp-curvature-exp/venv/bin/python make_report.py','```','','报告只陈述本模型、本题型和预算的结果；4对人工风格对照可定位“所构造分支”的差异方向，但它可能混合犹豫、长度、收尾标记及词汇差异。转移探针是有限控制，不能完全排除这些解释。原MIT效果在本模型上是否迁移，由上面的生成对照决定。']
+(R/'实验报告.md').write_text('\n'.join(lines)+'\n');print('REPORT_WRITTEN',len(lines))

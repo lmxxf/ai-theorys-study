@@ -1,0 +1,29 @@
+{
+  "alpha": 6,
+  "layers": [
+    {
+      "layer": 19,
+      "selected_entries": 65536,
+      "actual_bf16_changed": 65262,
+      "frobenius": 3.5865182876586914,
+      "relative_frobenius": 0.07633692771196365,
+      "target_delta_frobenius": 3.586674928665161,
+      "random_delta_frobenius": 3.5866756439208984,
+      "random_dot_u": 1.3969838619232178e-08,
+      "edited_sha256": "7801fd83e53a6f59b982c37ad38c58a920ccdd0f1c3a5abafb7c07a2a4caa571"
+    },
+    {
+      "layer": 21,
+      "selected_entries": 65536,
+      "actual_bf16_changed": 64848,
+      "frobenius": 2.861328125,
+      "relative_frobenius": 0.05342046916484833,
+      "target_delta_frobenius": 2.861252784729004,
+      "random_delta_frobenius": 2.861255168914795,
+      "random_dot_u": -4.656612873077393e-10,
+      "edited_sha256": "88ad6589bb3185e0f0b925a2185edb53dd1b8f480815934d8d781619da0c5cec"
+    }
+  ],
+  "selected_entries": 131072,
+  "formula": "W0 - alpha outer(u, mask64 * (u @ W0))"
+}

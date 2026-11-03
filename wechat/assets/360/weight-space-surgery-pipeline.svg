@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 600" width="520" height="600" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="520" height="600" fill="#f8fafc" rx="12"/>
+  <text x="260" y="34" font-size="15.5" font-weight="bold" fill="#0f172a" text-anchor="middle">扒开“权重空间编程”底裤：131,072 个权重是怎么改的？</text>
+  <text x="260" y="54" font-size="11.2" fill="#64748b" text-anchor="middle">本质是 358 期“灌数据照 X 光” + 359 期“正交投影方向消融”的自动化组合拳</text>
+
+  <defs>
+    <marker id="arr-dark" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#475569"/>
+    </marker>
+    <marker id="arr-red" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-green" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1: Minimal Pairs -->
+  <rect x="20" y="70" width="480" height="156" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="70" width="480" height="30" fill="#e0f2fe" rx="8"/>
+  <text x="32" y="90" font-size="12.2" font-weight="bold" fill="#0369a1">① 第一步（造同题孪生分支）：消掉题目内容噪音，单独抠出“复读方向 u”</text>
+
+  <!-- Shared prefix box -->
+  <rect x="34" y="112" width="176" height="98" fill="#f1f5f9" stroke="#94a3b8" rx="6"/>
+  <text x="44" y="132" font-size="11" font-weight="bold" fill="#334155">同一道题 + 相同已解出前缀</text>
+  <text x="44" y="152" font-size="10.2" fill="#475569">例：算周薪 10+8+20=38h</text>
+  <text x="44" y="168" font-size="10.2" fill="#475569">&lt;think&gt; 前两天 18 小时，</text>
+  <text x="44" y="184" font-size="10.2" fill="#475569">加剩余 20 得 38 小时...</text>
+  <text x="44" y="200" font-size="10" font-weight="bold" fill="#0284c7">（前缀 100% 相同，相减抵消）</text>
+
+  <!-- Branch A & B -->
+  <line x1="210" y1="142" x2="234" y2="132" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arr-green)"/>
+  <line x1="210" y1="178" x2="234" y2="188" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arr-red)"/>
+
+  <rect x="238" y="108" width="248" height="48" fill="#f0fdf4" stroke="#86efac" rx="5"/>
+  <text x="248" y="126" font-size="10.8" font-weight="bold" fill="#166534">偶数分支 A（最后 36 词元：正常验算收尾）</text>
+  <text x="248" y="144" font-size="10" fill="#15803d">"38*20=760. 200+160+400=760, 单位一致..."</text>
+
+  <rect x="238" y="164" width="248" height="50" fill="#fef2f2" stroke="#fca5a5" rx="5"/>
+  <text x="248" y="182" font-size="10.8" font-weight="bold" fill="#991b1b">奇数分支 B（最后 36 词元：车轱辘话复读）</text>
+  <text x="248" y="200" font-size="10" fill="#b91c1c">"但20是总数吗？不是。但20是总数吗？不是..."</text>
+
+  <!-- Arrow down -->
+  <line x1="260" y1="226" x2="260" y2="244" stroke="#475569" stroke-width="2" marker-end="url(#arr-dark)"/>
+
+  <!-- Step 2: Locate Layer & Top-64 Columns -->
+  <rect x="20" y="248" width="480" height="156" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="248" width="480" height="30" fill="#fef3c7" rx="8"/>
+  <text x="32" y="268" font-size="12.2" font-weight="bold" fill="#92400e">② 第二步（定位罪魁祸首列）：只挑 2 个层里的 Top-64 列，保护其余 98.2%</text>
+
+  <rect x="34" y="288" width="212" height="102" fill="#fffbeb" stroke="#fde68a" rx="6"/>
+  <text x="44" y="308" font-size="11" font-weight="bold" fill="#92400e">1. 算单位复读方向 u（1024 维）：</text>
+  <text x="44" y="326" font-size="10.5" fill="#334155">diff = mean(H_复读 - H_正常)</text>
+  <text x="44" y="344" font-size="10.5" font-weight="bold" fill="#b45309">u = diff / ||diff||</text>
+  <text x="44" y="366" font-size="10.2" fill="#475569">4 道不同题求平均，题目特征</text>
+  <text x="44" y="380" font-size="10.2" fill="#475569">正负抵消，只剩纯“复读状态”</text>
+
+  <rect x="260" y="288" width="226" height="102" fill="#f8fafc" stroke="#cbd5e1" rx="6"/>
+  <text x="270" y="308" font-size="11" font-weight="bold" fill="#0f172a">2. 给每层 down_proj 各列打分：</text>
+  <text x="270" y="326" font-size="10.5" font-weight="bold" fill="#0369a1">score = (激活差 dm) × (u @ W)</text>
+  <text x="270" y="346" font-size="10.2" fill="#334155">• 锁定放大最强的 2 个层（如 L15/L19）</text>
+  <text x="270" y="362" font-size="10.2" fill="#334155">• 每层只挑前 64 列（mask_64）：</text>
+  <text x="270" y="380" font-size="10.5" font-weight="bold" fill="#dc2626">  2 层 × 64 列 × 1024 维 = 131,072</text>
+
+  <!-- Arrow down -->
+  <line x1="260" y1="404" x2="260" y2="422" stroke="#475569" stroke-width="2" marker-end="url(#arr-dark)"/>
+
+  <!-- Step 3: 6x Over-Ablation Formula -->
+  <rect x="20" y="426" width="480" height="154" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="20" y="426" width="480" height="30" fill="#dcfce7" rx="8"/>
+  <text x="32" y="446" font-size="12.2" font-weight="bold" fill="#166534">③ 第三步（359 期投影手术的 6 倍加强版）：把 64 列改成反向刹车片</text>
+
+  <rect x="36" y="466" width="448" height="36" fill="#0f172a" rx="6"/>
+  <text x="260" y="489" font-size="13" font-weight="bold" fill="#fde047" text-anchor="middle">W_new = W_0 - 6 × outer( u,  mask_64 ⊙ (u @ W_0) )</text>
+
+  <text x="36" y="524" font-size="10.5" fill="#334155">• <tspan font-weight="bold" fill="#0f172a">为什么和 359 期 Abliteration 一模一样？</tspan> outer(u, u @ W_0) 就是各列在 u 上的投影影子</text>
+  <text x="36" y="544" font-size="10.5" fill="#334155">• <tspan font-weight="bold" fill="#15803d">为什么要乘 6（减去 6 倍影子）？</tspan> 因为只改了 64 列（不到 2%），其余 98% 的列还会漏出</text>
+  <text x="36" y="562" font-size="10.5" fill="#334155">  复读信号；减去 6 倍等于把这 64 列翻成 <tspan font-weight="bold" fill="#dc2626">-5 倍反向阻尼器</tspan>，在推理时主动踩刹车抵消复读</text>
+</svg>
