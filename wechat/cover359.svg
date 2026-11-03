@@ -29,7 +29,7 @@
   <text x="152" y="48" font-size="14" font-weight="bold" fill="#93c5fd" text-anchor="middle">老靳学线代 · 第四期 · No.359</text>
 
   <text x="44" y="96" font-size="31" font-weight="bold" fill="#f8fafc">基与坐标变换：东西没动，说法变了</text>
-  <text x="44" y="126" font-size="16" fill="#94a3b8">换一套基础方向词汇表（换基）摊平量化尖峰，打一束垂直光（投影）切出注意力子空间与去拒绝余项</text>
+  <text x="44" y="126" font-size="16" fill="#94a3b8">换一套基础方向词汇表（换基）摊平量化尖峰，打一束垂直光（投影）做线性探针与定向消融手术</text>
 
   <!-- Left Visual Panel: Change of Basis -->
   <rect x="44" y="148" width="392" height="284" rx="12" fill="#0f172a" fill-opacity="0.7" stroke="#334155" stroke-width="1.5"/>
@@ -86,10 +86,10 @@
   <text x="668" y="264" font-size="12.5" font-weight="bold" fill="#fbbf24">影子 p = (3.5, 3.5)</text>
   <text x="656" y="234" font-size="12" font-weight="bold" fill="#c084fc">垂直余项 r = (-0.5, 0.5)</text>
 
-  <text x="668" y="304" font-size="11.5" fill="#e2e8f0">• 只留影子 p：多头注意力</text>
-  <text x="668" y="322" font-size="11.5" fill="#94a3b8">  从 4096 维读 64 维子空间</text>
+  <text x="668" y="304" font-size="11.5" fill="#e2e8f0">• 量取影子 p：情绪线性探针</text>
+  <text x="668" y="322" font-size="11.5" fill="#94a3b8">  读出残差流在 u 方向的分量</text>
   <text x="668" y="350" font-size="11.5" fill="#e2e8f0">• 剪掉影子只留 r = x - p：</text>
-  <text x="668" y="368" font-size="11.5" fill="#94a3b8">  抹除拒绝方向（r · u = 0）</text>
+  <text x="668" y="368" font-size="11.5" fill="#94a3b8">  消融拒绝方向（r · u = 0）</text>
 
   <!-- Footer -->
   <text x="450" y="468" font-size="15" font-weight="bold" fill="#fde047" text-anchor="middle">「向量是空间里那根不动的箭头，坐标只是它借某一套基穿上的外衣。」</text>
