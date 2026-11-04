@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 620" width="520" height="620" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect width="520" height="620" fill="#f8fafc" rx="12"/>
+  <text x="260" y="32" font-size="15" font-weight="bold" fill="#0f172a" text-anchor="middle">网传“手写权重榜单”全还原：手填矩阵下标 vs 直接写策略代码</text>
+  <text x="260" y="52" font-size="10.8" fill="#64748b" text-anchor="middle">MIT 实验 5 扩展横评（3 个 10×10 小游戏，Index = mean of 100·q/(1+q)，追平 PPO 500M 得 50.0 分）</text>
+
+  <!-- Panel 1: Writing Weights Index -->
+  <rect x="18" y="66" width="484" height="248" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="18" y="66" width="484" height="30" fill="#fef3c7" rx="8"/>
+  <text x="26" y="86" font-size="11" font-weight="bold" fill="#92400e">① 上半张：Writing Weights Index（禁用工具，纯文本心算并手填 20,486 个权重）</text>
+
+  <!-- Baseline dashed line at 50.0 (y = 240 - 50*1.8 = 150) -->
+  <line x1="30" y1="150" x2="490" y2="150" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="486" y="145" font-size="9.5" fill="#64748b" text-anchor="end">PPO 500M 基准线 (50.0)</text>
+
+  <!-- Bars for Writing Weights Index (base y=240, scale 1.8px per point) -->
+  <!-- 1. GPT-6 Astra: 60.7 -> h=109, y=131 -->
+  <rect x="32" y="131" width="26" height="109" fill="#1e293b" rx="3"/>
+  <text x="45" y="126" font-size="9.5" font-weight="bold" fill="#0f172a" text-anchor="middle">60.7</text>
+  <text x="45" y="256" font-size="8.5" fill="#334155" transform="rotate(-40 45 256)" text-anchor="end">GPT-6 Astra</text>
+
+  <!-- 2. Gemini 4 Carbon: 57.7 -> h=104, y=136 -->
+  <rect x="67" y="136" width="26" height="104" fill="#16a34a" rx="3"/>
+  <text x="80" y="131" font-size="9.5" font-weight="bold" fill="#15803d" text-anchor="middle">57.7</text>
+  <text x="80" y="256" font-size="8.5" fill="#334155" transform="rotate(-40 80 256)" text-anchor="end">Gemini 4 Carbon</text>
+
+  <!-- 3. Claude Opus 5.5: 51.2 -> h=92, y=148 -->
+  <rect x="102" y="148" width="26" height="92" fill="#c2410c" rx="3"/>
+  <text x="115" y="143" font-size="9.5" font-weight="bold" fill="#9a3412" text-anchor="middle">51.2</text>
+  <text x="115" y="256" font-size="8.5" fill="#334155" transform="rotate(-40 115 256)" text-anchor="end">Claude Opus 5.5</text>
+
+  <!-- 4. PPO 500M: 50.0 -> h=90, y=150 -->
+  <rect x="137" y="150" width="26" height="90" fill="#94a3b8" rx="3"/>
+  <text x="150" y="145" font-size="9.5" font-weight="bold" fill="#475569" text-anchor="middle">50.0</text>
+  <text x="150" y="256" font-size="8.5" fill="#64748b" transform="rotate(-40 150 256)" text-anchor="end">PPO 500M</text>
+
+  <!-- 5. Gemini 4 Argon: 36.0 -> h=65, y=175 -->
+  <rect x="172" y="175" width="26" height="65" fill="#4ade80" rx="3"/>
+  <text x="185" y="170" font-size="9.5" font-weight="bold" fill="#15803d" text-anchor="middle">36.0</text>
+  <text x="185" y="256" font-size="8.5" fill="#334155" transform="rotate(-40 185 256)" text-anchor="end">Gemini 4 Argon</text>
+
+  <!-- 6. Kimi K3.1 Pro: 29.8 -> h=54, y=186 -->
+  <rect x="207" y="186" width="26" height="54" fill="#0284c7" rx="3"/>
+  <text x="220" y="181" font-size="9.5" font-weight="bold" fill="#0369a1" text-anchor="middle">29.8</text>
+  <text x="220" y="256" font-size="8.5" fill="#334155" transform="rotate(-40 220 256)" text-anchor="end">Kimi K3.1 Pro</text>
+
+  <!-- 7. PPO 100M: 25.2 -> h=45, y=195 -->
+  <rect x="242" y="195" width="26" height="45" fill="#cbd5e1" rx="3"/>
+  <text x="255" y="190" font-size="9.5" fill="#64748b" text-anchor="middle">25.2</text>
+  <text x="255" y="256" font-size="8.5" fill="#64748b" transform="rotate(-40 255 256)" text-anchor="end">PPO 100M</text>
+
+  <!-- 8. Qwen3.8 2.4T: 12.5 -> h=23, y=217 -->
+  <rect x="277" y="217" width="26" height="23" fill="#7c3aed" rx="3"/>
+  <text x="290" y="212" font-size="9.5" font-weight="bold" fill="#6d28d9" text-anchor="middle">12.5</text>
+  <text x="290" y="256" font-size="8.5" fill="#334155" transform="rotate(-40 290 256)" text-anchor="end">Qwen3.8 2.4T</text>
+
+  <!-- 9. DeepSeek V4.1 Flash: 10.0 -> h=18, y=222 -->
+  <rect x="312" y="222" width="26" height="18" fill="#2563eb" rx="3"/>
+  <text x="325" y="217" font-size="9.5" font-weight="bold" fill="#1d4ed8" text-anchor="middle">10.0</text>
+  <text x="325" y="256" font-size="8.5" fill="#334155" transform="rotate(-40 325 256)" text-anchor="end">DS V4.1 Flash</text>
+
+  <!-- 10. GLM-5.3: 6.2 -> h=11, y=229 -->
+  <rect x="347" y="229" width="26" height="11" fill="#0ea5e9" rx="2"/>
+  <text x="360" y="224" font-size="9" fill="#0369a1" text-anchor="middle">6.2</text>
+  <text x="360" y="256" font-size="8.5" fill="#334155" transform="rotate(-40 360 256)" text-anchor="end">GLM-5.3</text>
+
+  <!-- 11. Mistral Large 4: 2.6 -> h=5, y=235 -->
+  <rect x="382" y="235" width="26" height="5" fill="#f97316" rx="2"/>
+  <text x="395" y="230" font-size="9" fill="#c2410c" text-anchor="middle">2.6</text>
+  <text x="395" y="256" font-size="8.5" fill="#334155" transform="rotate(-40 395 256)" text-anchor="end">Mistral Large 4</text>
+
+  <!-- 12. MiniMax M3.1 Flash: 0.2 -->
+  <rect x="417" y="239" width="26" height="2" fill="#ec4899"/>
+  <text x="430" y="234" font-size="9" fill="#be185d" text-anchor="middle">0.2</text>
+  <text x="430" y="256" font-size="8.5" fill="#334155" transform="rotate(-40 430 256)" text-anchor="end">MiniMax M3.1</text>
+
+  <!-- 13. Step 5 Preview: 0.1 -->
+  <rect x="452" y="239" width="26" height="2" fill="#06b6d4"/>
+  <text x="465" y="234" font-size="9" fill="#0e7490" text-anchor="middle">0.1</text>
+  <text x="465" y="256" font-size="8.5" fill="#334155" transform="rotate(-40 465 256)" text-anchor="end">Step 5 Preview</text>
+
+  <line x1="28" y1="240" x2="490" y2="240" stroke="#cbd5e1" stroke-width="1.2"/>
+
+  <!-- Panel 2: Writing Policy Index -->
+  <rect x="18" y="326" width="484" height="276" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
+  <rect x="18" y="326" width="484" height="30" fill="#dcfce7" rx="8"/>
+  <text x="26" y="346" font-size="11" font-weight="bold" fill="#166534">② 下半张：Writing Policy Index（同样 3 个游戏，直接写 Python 策略代码，不填权重）</text>
+
+  <!-- Baseline dashed line at 50.0 (y = 505 - 50*1.6 = 425) -->
+  <line x1="30" y1="425" x2="490" y2="425" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Bars for Writing Policy Index (base y=505, scale 1.6px per point) -->
+  <!-- 1. GPT-6 Astra: 85.0 -> h=136, y=369 -->
+  <rect x="32" y="369" width="26" height="136" fill="#1e293b" rx="3"/>
+  <text x="45" y="364" font-size="9.5" font-weight="bold" fill="#0f172a" text-anchor="middle">85.0</text>
+  <text x="45" y="521" font-size="8.5" fill="#334155" transform="rotate(-40 45 521)" text-anchor="end">GPT-6 Astra</text>
+
+  <!-- 2. Gemini 4 Argon: 70.4 -> h=113, y=392 -->
+  <rect x="67" y="392" width="26" height="113" fill="#4ade80" rx="3"/>
+  <text x="80" y="387" font-size="9.5" font-weight="bold" fill="#15803d" text-anchor="middle">70.4</text>
+  <text x="80" y="521" font-size="8.5" font-weight="bold" fill="#15803d" transform="rotate(-40 80 521)" text-anchor="end">Gemini 4 Argon</text>
+
+  <!-- 3. Gemini 4 Carbon: 68.6 -> h=110, y=395 -->
+  <rect x="102" y="395" width="26" height="110" fill="#16a34a" rx="3"/>
+  <text x="115" y="390" font-size="9.5" font-weight="bold" fill="#15803d" text-anchor="middle">68.6</text>
+  <text x="115" y="521" font-size="8.5" fill="#334155" transform="rotate(-40 115 521)" text-anchor="end">Gemini 4 Carbon</text>
+
+  <!-- 4. Claude Opus 5.5: 61.6 -> h=99, y=406 -->
+  <rect x="137" y="406" width="26" height="99" fill="#c2410c" rx="3"/>
+  <text x="150" y="401" font-size="9.5" font-weight="bold" fill="#9a3412" text-anchor="middle">61.6</text>
+  <text x="150" y="521" font-size="8.5" fill="#334155" transform="rotate(-40 150 521)" text-anchor="end">Claude Opus 5.5</text>
+
+  <!-- 5. PPO 500M: 50.0 -> h=80, y=425 -->
+  <rect x="172" y="425" width="26" height="80" fill="#94a3b8" rx="3"/>
+  <text x="185" y="420" font-size="9.5" fill="#475569" text-anchor="middle">50.0</text>
+  <text x="185" y="521" font-size="8.5" fill="#64748b" transform="rotate(-40 185 521)" text-anchor="end">PPO 500M</text>
+
+  <!-- 6. Kimi K3.1 Pro: 49.8 -> h=80, y=425 -->
+  <rect x="207" y="425" width="26" height="80" fill="#0284c7" rx="3"/>
+  <text x="220" y="420" font-size="9.5" font-weight="bold" fill="#0369a1" text-anchor="middle">49.8</text>
+  <text x="220" y="521" font-size="8.5" fill="#334155" transform="rotate(-40 220 521)" text-anchor="end">Kimi K3.1 Pro</text>
+
+  <!-- 7. GLM-5.3: 45.2 -> h=72, y=433 -->
+  <rect x="242" y="433" width="26" height="72" fill="#0ea5e9" rx="3"/>
+  <text x="255" y="428" font-size="9.5" font-weight="bold" fill="#0369a1" text-anchor="middle">45.2</text>
+  <text x="255" y="521" font-size="8.5" fill="#334155" transform="rotate(-40 255 521)" text-anchor="end">GLM-5.3</text>
+
+  <!-- 8. Mistral Large 4: 37.1 -> h=59, y=446 -->
+  <rect x="277" y="446" width="26" height="59" fill="#f97316" rx="3"/>
+  <text x="290" y="441" font-size="9.5" font-weight="bold" fill="#c2410c" text-anchor="middle">37.1</text>
+  <text x="290" y="521" font-size="8.5" fill="#334155" transform="rotate(-40 290 521)" text-anchor="end">Mistral Large 4</text>
+
+  <!-- 9. Qwen3.8 2.4T: 36.8 -> h=59, y=446 -->
+  <rect x="312" y="446" width="26" height="59" fill="#7c3aed" rx="3"/>
+  <text x="325" y="441" font-size="9.5" font-weight="bold" fill="#6d28d9" text-anchor="middle">36.8</text>
+  <text x="325" y="521" font-size="8.5" fill="#334155" transform="rotate(-40 325 521)" text-anchor="end">Qwen3.8 2.4T</text>
+
+  <!-- 10. Step 5 Preview: 34.8 -> h=56, y=449 -->
+  <rect x="347" y="449" width="26" height="56" fill="#06b6d4" rx="3"/>
+  <text x="360" y="444" font-size="9.5" font-weight="bold" fill="#0e7490" text-anchor="middle">34.8</text>
+  <text x="360" y="521" font-size="8.5" fill="#334155" transform="rotate(-40 360 521)" text-anchor="end">Step 5 Preview</text>
+
+  <!-- 11. DeepSeek V4.1 Flash: 31.6 -> h=51, y=454 -->
+  <rect x="382" y="454" width="26" height="51" fill="#2563eb" rx="3"/>
+  <text x="395" y="449" font-size="9.5" font-weight="bold" fill="#1d4ed8" text-anchor="middle">31.6</text>
+  <text x="395" y="521" font-size="8.5" fill="#334155" transform="rotate(-40 395 521)" text-anchor="end">DS V4.1 Flash</text>
+
+  <!-- 12. MiniMax M3.1 Flash: 26.7 -> h=43, y=462 -->
+  <rect x="417" y="462" width="26" height="43" fill="#ec4899" rx="3"/>
+  <text x="430" y="457" font-size="9.5" font-weight="bold" fill="#be185d" text-anchor="middle">26.7</text>
+  <text x="430" y="521" font-size="8.5" fill="#334155" transform="rotate(-40 430 521)" text-anchor="end">MiniMax M3.1</text>
+
+  <!-- 13. PPO 100M: 25.2 -> h=40, y=465 -->
+  <rect x="452" y="465" width="26" height="40" fill="#cbd5e1" rx="3"/>
+  <text x="465" y="460" font-size="9.5" fill="#64748b" text-anchor="middle">25.2</text>
+  <text x="465" y="521" font-size="8.5" fill="#64748b" transform="rotate(-40 465 521)" text-anchor="end">PPO 100M</text>
+
+  <line x1="28" y1="505" x2="490" y2="505" stroke="#cbd5e1" stroke-width="1.2"/>
+
+  <!-- Bottom Takeaway Callout -->
+  <rect x="28" y="564" width="464" height="28" fill="#f0fdf4" stroke="#bbf7d0" rx="5"/>
+  <text x="260" y="582" font-size="9.3" font-weight="bold" fill="#166534" text-anchor="middle">真相：所有模型都会写策略（图②全员过关），图①考的只是“不开计算器心算 600 维数组下标不串行”</text>
+</svg>
