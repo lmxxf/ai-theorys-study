@@ -6,7 +6,7 @@
   <!-- Panel 1: Writing Weights Index -->
   <rect x="18" y="66" width="484" height="248" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" rx="8"/>
   <rect x="18" y="66" width="484" height="30" fill="#fef3c7" rx="8"/>
-  <text x="26" y="86" font-size="11" font-weight="bold" fill="#92400e">① 上半张：Writing Weights Index（禁用工具，纯文本心算并手填 20,486 个权重）</text>
+  <text x="26" y="86" font-size="10.8" font-weight="bold" fill="#92400e">① 上半张：Writing Weights Index（禁用工具，纯文本写出 20,486 参数网络的稀疏权重）</text>
 
   <!-- Baseline dashed line at 50.0 (y = 240 - 50*1.8 = 150) -->
   <line x1="30" y1="150" x2="490" y2="150" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3"/>
