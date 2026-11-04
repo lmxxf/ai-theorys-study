@@ -20,17 +20,17 @@
   <text x="172" y="48" font-size="14" font-weight="bold" fill="#a5b4fc" text-anchor="middle">AI 可解释性与权重手术 · No.360</text>
 
   <text x="44" y="94" font-size="30" font-weight="bold" fill="#f8fafc">改 0.016% 权重让数学暴涨 6 倍？</text>
-  <text x="44" y="126" font-size="16" fill="#94a3b8">扒开 MIT「权重空间编程」源码底裤，并在自家 Qwen3-0.6B 上复现 131,072 参数消融手术</text>
+  <text x="44" y="126" font-size="16" fill="#94a3b8">扒开 MIT「权重空间编程」底裤：我们只改 1,024 个权重，让 Qwen3-0.6B 从 9.4% 飙到 68.8%</text>
 
   <!-- Left Card: The Myth vs The Formula -->
   <rect x="44" y="148" width="400" height="284" rx="12" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1.5"/>
-  <text x="64" y="178" font-size="16.5" font-weight="bold" fill="#38bdf8">① 剥开神话：哪有什么肉眼手搓 8 亿浮点数</text>
+  <text x="64" y="178" font-size="16.5" font-weight="bold" fill="#38bdf8">① 剥开神话：万级注意力上限与 359 期投影手术</text>
 
   <!-- Minimal Pair Illustration -->
   <rect x="64" y="194" width="360" height="68" rx="6" fill="#1e293b" stroke="#475569"/>
-  <text x="76" y="214" font-size="12" font-weight="bold" fill="#e2e8f0">第一步：4 对“同题同前缀”孪生分支相减（358 期照 X 光）</text>
-  <text x="76" y="234" font-size="11" fill="#34d399">• 分支 A（正常收尾）："...38×20=760, 200+160+400=760"</text>
-  <text x="76" y="252" font-size="11" fill="#f87171">• 分支 B（复读卡死）："...但20是总数吗？不是。但20是总数吗？"</text>
+  <text x="76" y="214" font-size="12" font-weight="bold" fill="#e2e8f0">第一步：同题接两条尾巴相减（358 期给激活照 X 光）</text>
+  <text x="76" y="234" font-size="11" fill="#34d399">• 尾巴 A（正常收尾）："...38×20=760, 200+160+400=760"</text>
+  <text x="76" y="252" font-size="11" fill="#f87171">• 尾巴 B（复读卡死）："...但20是总数吗？不是。但20是总数吗？"</text>
 
   <!-- Formula Box -->
   <rect x="64" y="274" width="360" height="72" rx="6" fill="#172554" stroke="#3b82f6"/>
@@ -40,33 +40,33 @@
 
   <!-- Negative Control -->
   <rect x="64" y="358" width="360" height="58" rx="6" fill="#2e1065" stroke="#7c3aed"/>
-  <text x="76" y="378" font-size="12" font-weight="bold" fill="#ddd6fe">第三步：原博客末尾藏着的失败对照（Gemma 3 270M）</text>
+  <text x="76" y="378" font-size="12" font-weight="bold" fill="#ddd6fe">第三步：原报告末尾藏着的失败对照（Gemma 3 270M）</text>
   <text x="76" y="398" font-size="11" fill="#c4b5fd">不复读的模型改 50 轮：6.8% → 7.0%（搬走绊脚石 ≠ 传授新数学）</text>
 
   <!-- Right Card: Trajectory & Our Qwen3-0.6B Reproduction -->
   <rect x="464" y="148" width="392" height="284" rx="12" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1.5"/>
-  <text x="484" y="178" font-size="16.5" font-weight="bold" fill="#fbbf24">② 自家 Qwen3-0.6B 实测：切掉强迫症复读环</text>
+  <text x="484" y="178" font-size="16.5" font-weight="bold" fill="#fbbf24">② 自家 Qwen3-0.6B 两刀实测：9.4% → 68.8%</text>
 
   <!-- Visual loop vs straight exit -->
   <rect x="484" y="194" width="352" height="118" rx="6" fill="#1e293b"/>
   <!-- Before: Spiral loop hitting wall -->
-  <text x="496" y="216" font-size="11.5" font-weight="bold" fill="#f87171">手术前（90.6% 撞上限被腰斩）：算出 2484 后原地转圈</text>
+  <text x="496" y="216" font-size="11.5" font-weight="bold" fill="#f87171">手术前（90.6% 撞上限被腰斩）：算出得数后原地怀疑人生</text>
   <path d="M 505 242 L 590 242 C 620 242, 620 222, 600 222 C 580 222, 580 248, 615 248 C 645 248, 645 222, 625 222 C 605 222, 605 248, 640 248 L 690 248" fill="none" stroke="#f87171" stroke-width="2.2" marker-end="url(#m-red)"/>
   <line x1="696" y1="226" x2="696" y2="256" stroke="#ef4444" stroke-width="3"/>
   <text x="706" y="245" font-size="11" font-weight="bold" fill="#f87171">撞上限 0 分</text>
 
   <!-- After: Clean exit -->
-  <text x="496" y="278" font-size="11.5" font-weight="bold" fill="#34d399">手术后（切掉 L19/L21 各 64 列）：算完直接闭合 &lt;/think&gt;</text>
+  <text x="496" y="278" font-size="11.5" font-weight="bold" fill="#34d399">第二刀（只改 1,024 权重）：首词闭合 &lt;/think&gt; 直接进正文</text>
   <line x1="505" y1="296" x2="685" y2="296" stroke="#34d399" stroke-width="2.8" marker-end="url(#m-green)"/>
   <rect x="696" y="283" width="124" height="22" rx="4" fill="#065f46" stroke="#34d399"/>
-  <text x="758" y="298" font-size="11" font-weight="bold" fill="#ecfdf5" text-anchor="middle">\boxed{2484} 满分</text>
+  <text x="758" y="298" font-size="11" font-weight="bold" fill="#ecfdf5" text-anchor="middle">68.75% 暴涨 7.3 倍</text>
 
   <!-- Stats comparison -->
   <rect x="484" y="324" width="352" height="92" rx="6" fill="#064e3b" fill-opacity="0.45" stroke="#059669"/>
-  <text x="498" y="346" font-size="12" font-weight="bold" fill="#6ee7b7">DGX Spark 实测 Qwen3-0.6B（L19 + L21, α = 6）：</text>
-  <text x="496" y="368" font-size="11" fill="#e2e8f0">• 转移探针复读分支 Δlogp：<tspan font-weight="bold" fill="#f87171">-0.688 nats/tok</tspan>（正常分支 -0.002）</text>
-  <text x="496" y="388" font-size="11" fill="#e2e8f0">• &lt;/think&gt; 正常闭合率：<tspan font-weight="bold" fill="#34d399">15.6% → 46.9%</tspan>（翻 3 倍，随机对照 9.4%）</text>
-  <text x="496" y="408" font-size="11" fill="#e2e8f0">• 留出集答题准确率：<tspan font-weight="bold" fill="#fbbf24">9.38% → 18.75%</tspan>（翻 2 倍，随机对照 3.12%）</text>
+  <text x="496" y="346" font-size="12" font-weight="bold" fill="#6ee7b7">DGX Spark 实测 Qwen3-0.6B（GPT-6.1-Sol low 操刀）：</text>
+  <text x="496" y="368" font-size="11" fill="#e2e8f0">• 原模型（enable_thinking=True）：<tspan font-weight="bold" fill="#f87171">9.38%（3/32）</tspan></text>
+  <text x="496" y="388" font-size="11" fill="#e2e8f0">• 第一刀（复刻 MIT 改 131,072 权重）：<tspan font-weight="bold" fill="#38bdf8">18.75%（6/32，翻 2 倍）</tspan></text>
+  <text x="496" y="408" font-size="11" fill="#e2e8f0">• 第二刀（只改 1,024 权重闭合思考）：<tspan font-weight="bold" fill="#fbbf24">68.75%（22/32，涨 7.3 倍）</tspan></text>
 
   <!-- Footer -->
   <text x="450" y="468" font-size="15" font-weight="bold" fill="#fde047" text-anchor="middle">「修改权重可以搬走挡住原有能力的绊脚石，但无法凭空塞进模型原本没有的功力。」</text>

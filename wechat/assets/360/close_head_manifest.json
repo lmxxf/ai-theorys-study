@@ -1,0 +1,25 @@
+{
+  "formula": "W_head_new = W_head + gain * outer(one_hot(close_token), u)",
+  "close_token_id": 151668,
+  "gain": 0.11762743443250656,
+  "rank": 1,
+  "covered_weights": 1024,
+  "actual_changed": 1020,
+  "was_tied": true,
+  "untied_output_copy": true,
+  "development_top1_close": 8,
+  "development_n": 8,
+  "normal_projection_max_abs": 3.802776336669922e-05,
+  "entry_projections": [
+    137.5877227783203,
+    138.09400939941406,
+    139.71630859375,
+    140.50469970703125,
+    138.1366424560547,
+    138.14804077148438,
+    139.71812438964844,
+    137.61715698242188
+  ],
+  "edit_relative_row_norm": 0.2988867461681366,
+  "selection": "8 development entry states, direction orthogonal to 24 normal-answer states; gain makes close token top1 with +5 logit margin on development entries; no heldout tuning"
+}

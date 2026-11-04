@@ -1,0 +1,11 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:02<11:14,  2.18s/it]Loading weights:   1%|          | 2/311 [00:04<11:09,  2.17s/it]Loading weights:   2%|▏         | 5/311 [00:04<03:24,  1.50it/s]Loading weights:   6%|▋         | 20/311 [00:05<00:45,  6.36it/s]Loading weights:  19%|█▉        | 60/311 [00:08<00:23, 10.79it/s]Loading weights:  20%|█▉        | 62/311 [00:08<00:24, 10.08it/s]Loading weights:  73%|███████▎  | 226/311 [00:09<00:01, 54.43it/s]Loading weights:  84%|████████▍ | 262/311 [00:09<00:00, 64.94it/s]Loading weights:  88%|████████▊ | 275/311 [00:10<00:00, 50.09it/s]Loading weights: 100%|██████████| 311/311 [00:10<00:00, 29.53it/s]
+no_think_A 8 correct 7 elapsed 24
+no_think_A 16 correct 11 elapsed 37
+no_think_A 24 correct 15 elapsed 50
+no_think_A 32 correct 19 elapsed 78
+no_think_B 8 correct 7 elapsed 90
+no_think_B 16 correct 12 elapsed 117
+no_think_B 24 correct 17 elapsed 127
+no_think_B 32 correct 22 elapsed 146
+COMPLETE {'Original': {'n': 32, 'correct': 3, 'accuracy': 0.09375, 'hit_limit': 29, 'closed': 5, 'mean_tokens': 999.8125, 'mean_repeat4': 0.24662437471260204}, 'Edited': {'n': 32, 'correct': 6, 'accuracy': 0.1875, 'hit_limit': 25, 'closed': 15, 'mean_tokens': 979.25, 'mean_repeat4': 0.25022983505126684}, 'A': {'n': 32, 'correct': 19, 'accuracy': 0.59375, 'hit_limit': 1, 'closed': 32, 'mean_tokens': 422.4375, 'mean_repeat4': 0.2442173596845155, 'close_at_first_token': 0, 'multiple_close_tokens': 0}, 'B': {'n': 32, 'correct': 22, 'accuracy': 0.6875, 'hit_limit': 1, 'closed': 32, 'mean_tokens': 407.625, 'mean_repeat4': 0.23727138396467334, 'close_at_first_token': 32, 'multiple_close_tokens': 0}}
