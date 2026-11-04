@@ -9,32 +9,32 @@
   <text x="32" y="90" font-size="12" font-weight="bold" fill="#0369a1">① 第一刀（复刻 MIT 切 L19/L21 各 64 列）：正常推理不动，复读概率暴跌</text>
 
   <!-- Table header -->
-  <rect x="34" y="108" width="452" height="24" fill="#f1f5f9" rx="4"/>
-  <text x="72" y="124" font-size="10.8" font-weight="bold" fill="#334155" text-anchor="middle">消融倍数 α</text>
-  <text x="195" y="124" font-size="10.8" font-weight="bold" fill="#166534" text-anchor="middle">正常收尾分支 Δlogp/词元</text>
-  <text x="328" y="124" font-size="10.8" font-weight="bold" fill="#991b1b" text-anchor="middle">复读分支 Δlogp/词元</text>
-  <text x="436" y="124" font-size="10.8" font-weight="bold" fill="#0369a1" text-anchor="middle">净选择性</text>
+  <rect x="28" y="108" width="464" height="24" fill="#f1f5f9" rx="4"/>
+  <text x="86" y="124" font-size="10.8" font-weight="bold" fill="#334155" text-anchor="middle">消融倍数 α</text>
+  <text x="208" y="124" font-size="10.8" font-weight="bold" fill="#166534" text-anchor="middle">正常收尾分支 Δlogp/词元</text>
+  <text x="336" y="124" font-size="10.8" font-weight="bold" fill="#991b1b" text-anchor="middle">复读分支 Δlogp/词元</text>
+  <text x="442" y="124" font-size="10.8" font-weight="bold" fill="#0369a1" text-anchor="middle">净选择性</text>
 
-  <text x="72" y="148" font-size="10.8" fill="#334155" text-anchor="middle">α = 1（标准投影）</text>
-  <text x="195" y="148" font-size="10.8" fill="#15803d" text-anchor="middle">+0.0038</text>
-  <text x="328" y="148" font-size="10.8" fill="#b91c1c" text-anchor="middle">-0.0173</text>
-  <text x="436" y="148" font-size="10.8" fill="#334155" text-anchor="middle">0.0212</text>
+  <text x="86" y="148" font-size="10.8" fill="#334155" text-anchor="middle">α = 1（标准投影）</text>
+  <text x="208" y="148" font-size="10.8" fill="#15803d" text-anchor="middle">+0.0038</text>
+  <text x="336" y="148" font-size="10.8" fill="#b91c1c" text-anchor="middle">-0.0173</text>
+  <text x="442" y="148" font-size="10.8" fill="#334155" text-anchor="middle">0.0212</text>
 
-  <text x="72" y="170" font-size="10.8" fill="#334155" text-anchor="middle">α = 2</text>
-  <text x="195" y="170" font-size="10.8" fill="#15803d" text-anchor="middle">+0.0048</text>
-  <text x="328" y="170" font-size="10.8" fill="#b91c1c" text-anchor="middle">-0.0826</text>
-  <text x="436" y="170" font-size="10.8" fill="#334155" text-anchor="middle">0.0873</text>
+  <text x="86" y="170" font-size="10.8" fill="#334155" text-anchor="middle">α = 2</text>
+  <text x="208" y="170" font-size="10.8" fill="#15803d" text-anchor="middle">+0.0048</text>
+  <text x="336" y="170" font-size="10.8" fill="#b91c1c" text-anchor="middle">-0.0826</text>
+  <text x="442" y="170" font-size="10.8" fill="#334155" text-anchor="middle">0.0873</text>
 
-  <text x="72" y="192" font-size="10.8" fill="#334155" text-anchor="middle">α = 4</text>
-  <text x="195" y="192" font-size="10.8" fill="#15803d" text-anchor="middle">+0.0048</text>
-  <text x="328" y="192" font-size="10.8" font-weight="bold" fill="#dc2626" text-anchor="middle">-0.3497</text>
-  <text x="436" y="192" font-size="10.8" font-weight="bold" fill="#0369a1" text-anchor="middle">0.3545</text>
+  <text x="86" y="192" font-size="10.8" fill="#334155" text-anchor="middle">α = 4</text>
+  <text x="208" y="192" font-size="10.8" fill="#15803d" text-anchor="middle">+0.0048</text>
+  <text x="336" y="192" font-size="10.8" font-weight="bold" fill="#dc2626" text-anchor="middle">-0.3497</text>
+  <text x="442" y="192" font-size="10.8" font-weight="bold" fill="#0369a1" text-anchor="middle">0.3545</text>
 
-  <rect x="34" y="202" width="452" height="24" fill="#fef3c7" rx="4"/>
-  <text x="72" y="218" font-size="10.8" font-weight="bold" fill="#92400e" text-anchor="middle">α = 6（锁定手术）</text>
-  <text x="195" y="218" font-size="10.8" font-weight="bold" fill="#15803d" text-anchor="middle">-0.0017（几乎未动）</text>
-  <text x="328" y="218" font-size="10.8" font-weight="bold" fill="#dc2626" text-anchor="middle">-0.6882（暴跌）</text>
-  <text x="436" y="218" font-size="10.8" font-weight="bold" fill="#92400e" text-anchor="middle">0.6866</text>
+  <rect x="28" y="202" width="464" height="24" fill="#fef3c7" rx="4"/>
+  <text x="86" y="218" font-size="10.8" font-weight="bold" fill="#92400e" text-anchor="middle">α = 6（锁定手术）</text>
+  <text x="208" y="218" font-size="10.8" font-weight="bold" fill="#15803d" text-anchor="middle">-0.0017（几乎未动）</text>
+  <text x="336" y="218" font-size="10.8" font-weight="bold" fill="#dc2626" text-anchor="middle">-0.6882（暴跌）</text>
+  <text x="442" y="218" font-size="10.8" font-weight="bold" fill="#92400e" text-anchor="middle">0.6866</text>
 
   <text x="260" y="248" font-size="9.5" fill="#64748b" text-anchor="middle">对照：同位置同范数随机正交方向（Random Control）正常 Δ = +0.0109，复读 Δ = +0.0082（毫无抑制）</text>
 
