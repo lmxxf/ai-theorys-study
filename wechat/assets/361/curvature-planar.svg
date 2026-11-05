@@ -25,7 +25,7 @@
 
   <!-- Shaded 2D Plane (Tabletop) -->
   <polygon points="36,222 456,222 504,68 84,68" fill="#0f2942" fill-opacity="0.45" stroke="#0284c7" stroke-width="1.4" stroke-dasharray="6 4"/>
-  <text x="490" y="214" fill="#38bdf8" font-size="12" text-anchor="end">拐弯所在的二维桌面 (Planar)</text>
+  <text x="490" y="214" fill="#38bdf8" font-size="12" text-anchor="end">最近两步构成的二维桌面 (Planar 局部平面)</text>
 
   <!-- Step 1: x0=(0,0) to x1=(1,0) [White solid] -->
   <line x1="86" y1="194" x2="248" y2="194" stroke="#f8fafc" stroke-width="3.5" marker-end="url(#arrWhite)"/>

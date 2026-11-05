@@ -1,26 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 310" width="540" height="310" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 270" width="540" height="270" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
   <defs>
-    <linearGradient id="panelBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#141d30"/>
-      <stop offset="100%" stop-color="#0d1320"/>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131b2e"/>
+      <stop offset="100%" stop-color="#0d1322"/>
     </linearGradient>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444"/>
+    </marker>
   </defs>
 
-  <rect x="0" y="0" width="540" height="310" fill="#0b0f19"/>
+  <rect x="0" y="0" width="540" height="270" fill="#0b0f19"/>
+  <rect x="16" y="16" width="508" height="238" rx="12" fill="url(#cardBg)" stroke="#f59e0b" stroke-width="1.8"/>
 
-  <rect x="16" y="16" width="508" height="278" rx="12" fill="url(#panelBg)" stroke="#f59e0b" stroke-width="1.8"/>
-  <text x="34" y="48" fill="#f59e0b" font-size="16.5" font-weight="bold">细节三：0.6B 小模型在常规算术题 vs 前提矛盾题的反差</text>
+  <text x="270" y="46" fill="#f8fafc" font-size="17" font-weight="bold" text-anchor="middle">0.6B 小模型撞车现场：小刹车挡不住“填数字”大惯性</text>
 
-  <!-- Subbox A -->
-  <rect x="34" y="64" width="472" height="94" rx="8" fill="#0c1e2c" stroke="#0284c7" stroke-width="1.2"/>
-  <text x="46" y="88" fill="#7dd3fc" font-size="13.5" font-weight="bold">✓ 其余 4 道常规算术题（鸡兔 / 球拍 / 蜡烛 / 星期）：</text>
-  <text x="46" y="114" fill="#6ee7b7" font-size="13">• 给定括号推演说明后，0.6B 从直出 0/4 翻盘为 4/4 全对，答案区熵显著下降</text>
-  <text x="46" y="140" fill="#cbd5e1" font-size="12.5">• 说明数字答案能够顺畅填入「答案是：【数字】」的表层完成轨道</text>
+  <!-- Left Small Brake Force (Bracket Refutation) -->
+  <rect x="34" y="76" width="166" height="54" rx="8" fill="#071f18" stroke="#10b981" stroke-width="1.5"/>
+  <text x="117" y="98" fill="#6ee7b7" font-size="13" font-weight="bold" text-anchor="middle">括号里的小刹车</text>
+  <text x="117" y="118" fill="#a7f3d0" font-size="12.5" text-anchor="middle">“前提不可能成立”</text>
+  <line x1="202" y1="103" x2="246" y2="103" stroke="#10b981" stroke-width="3" marker-end="url(#arrGreen)"/>
 
-  <!-- Subbox B -->
-  <rect x="34" y="168" width="472" height="112" rx="8" fill="#231215" stroke="#be123c" stroke-width="1.2"/>
-  <text x="46" y="192" fill="#fda4af" font-size="13.5" font-weight="bold">× 母子年龄前提矛盾题（括号内已喂入“前提不可能成立”）：</text>
-  <text x="46" y="216" fill="#fde68a" font-size="12.2">• 否定与填空相撞：曲率 1.878→1.924 rad ↑，熵 0.315→0.510 nats ↑</text>
-  <text x="46" y="242" fill="#f8fafc" font-size="14" font-weight="bold">• 实测结巴输出：“答案是：答案是：妈妈生儿子的时候是30岁。”</text>
-  <text x="46" y="266" fill="#fda4af" font-size="12.5">• 另一组算出 30-35=-5 岁后不敢否定题目，自责：“这说明我的理解有误”</text>
+  <!-- Right Giant Inertia Force (Surface Number Slot) -->
+  <rect x="330" y="72" width="176" height="62" rx="8" fill="#231215" stroke="#ef4444" stroke-width="2"/>
+  <text x="418" y="96" fill="#fca5a5" font-size="13.5" font-weight="bold" text-anchor="middle">题干的填空大惯性</text>
+  <text x="418" y="118" fill="#fda4af" font-size="13" font-weight="bold" text-anchor="middle">“几岁？→ 必填【数字】”</text>
+  <line x1="328" y1="103" x2="282" y2="103" stroke="#ef4444" stroke-width="5" marker-end="url(#arrRed)"/>
+
+  <!-- Center Collision Spark -->
+  <circle cx="264" cy="103" r="16" fill="#f59e0b" opacity="0.85"/>
+  <text x="264" y="108" fill="#0b0f19" font-size="13" font-weight="bold" text-anchor="middle">撞！</text>
+  <text x="264" y="142" fill="#fde68a" font-size="12.5" font-weight="bold" text-anchor="middle">曲率与犹豫度双双反跳 ↑</text>
+
+  <!-- Bottom Output Result -->
+  <line x1="264" y1="150" x2="264" y2="176" stroke="#ef4444" stroke-width="3" marker-end="url(#arrRed)"/>
+  <rect x="50" y="182" width="440" height="52" rx="8" fill="#1f1218" stroke="#be123c" stroke-width="1.5"/>
+  <text x="270" y="204" fill="#fda4af" font-size="13" text-anchor="middle">结巴一下，填空惯性照样获胜：</text>
+  <text x="270" y="224" fill="#f8fafc" font-size="15" font-weight="bold" text-anchor="middle">“答案是：答案是：妈妈生儿子的时候是30岁。”</text>
 </svg>
