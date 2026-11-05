@@ -16,24 +16,24 @@
   <!-- Bar 1: Theoretical 120° Baseline -->
   <text x="34" y="102" fill="#94a3b8" font-size="13" font-weight="bold">高维随机本底</text>
   <rect x="132" y="86" width="216" height="22" rx="4" fill="#334155"/>
-  <text x="358" y="102" fill="#cbd5e1" font-size="13" font-weight="bold">120.0° (2.09 rad)</text>
+  <text x="358" y="102" fill="#cbd5e1" font-size="13.5" font-weight="bold">120.0°</text>
 
   <!-- Bar 2: Bracket Interior (111.0° -> 200px) -->
   <text x="34" y="142" fill="#fcd34d" font-size="13" font-weight="bold">B 括号草稿内</text>
   <rect x="132" y="126" width="200" height="22" rx="4" fill="#f59e0b"/>
-  <text x="342" y="142" fill="#fde68a" font-size="13" font-weight="bold">111.0° (1.94 rad)</text>
+  <text x="342" y="142" fill="#fde68a" font-size="13.5" font-weight="bold">111.0°</text>
 
   <!-- Bar 3: Condition A Direct Answer (110.0° -> 198px) -->
   <text x="34" y="182" fill="#fda4af" font-size="13" font-weight="bold">A 无草稿直出</text>
   <rect x="132" y="166" width="198" height="22" rx="4" fill="#ef4444"/>
-  <text x="340" y="182" fill="#fca5a5" font-size="13" font-weight="bold">110.0° (1.92 rad)</text>
+  <text x="340" y="182" fill="#fca5a5" font-size="13.5" font-weight="bold">110.0°</text>
 
   <!-- Bar 4: Condition B Answer Zone (107.4° -> 193px) -->
   <text x="34" y="222" fill="#6ee7b7" font-size="13" font-weight="bold">B 出括号答案区</text>
   <rect x="132" y="206" width="193" height="22" rx="4" fill="#10b981"/>
   <!-- Tiny delta highlight (5px) -->
   <rect x="325" y="206" width="5" height="22" fill="#fde047"/>
-  <text x="340" y="222" fill="#6ee7b7" font-size="13" font-weight="bold">107.4° (-2.6° / 5题全降)</text>
+  <text x="340" y="222" fill="#6ee7b7" font-size="13.5" font-weight="bold">107.4° (-2.6° / 5题全降)</text>
 
   <!-- Bottom note -->
   <rect x="34" y="240" width="472" height="32" rx="6" fill="#091520" stroke="#1e293b" stroke-width="1"/>

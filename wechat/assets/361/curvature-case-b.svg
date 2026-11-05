@@ -18,7 +18,7 @@
   <rect x="0" y="0" width="540" height="270" fill="#0b0f19"/>
 
   <rect x="16" y="16" width="508" height="238" rx="12" fill="url(#cardBg)" stroke="#f59e0b" stroke-width="1.8"/>
-  <text x="36" y="48" fill="#f59e0b" font-size="17" font-weight="bold">情况 B：90° 急转弯与 180° 折返（高曲率 → 高熵犹豫）</text>
+  <text x="36" y="48" fill="#f59e0b" font-size="16.5" font-weight="bold">情况 B：90° 急转弯与 180° 折返（高曲率 → 高熵不确定）</text>
   <text x="36" y="74" fill="#cbd5e1" font-size="14">手算坐标：x_1=(1,0) → x_2=(2,0) → x_3=(2,1) 突然向北拐</text>
 
   <!-- Bent Vector Line -->
@@ -46,6 +46,6 @@
   <text x="350" y="114" fill="#fca5a5" font-size="14" font-weight="bold">v_2=(0,1)</text>
 
   <rect x="36" y="190" width="468" height="52" rx="8" fill="#231412" stroke="#9a3412" stroke-width="1.2"/>
-  <text x="50" y="212" fill="#fed7aa" font-size="13.5">点积 v_1 · v_2 = 1×0 + 0×1 = 0 → 转角 c_1 = 90° (1.57 rad)</text>
-  <text x="50" y="232" fill="#f8fafc" font-size="13.5" font-weight="bold">若下一步往南折返 (0,-1)，则转角为 180° (π ≈ 3.14 rad)</text>
+  <text x="50" y="212" fill="#fed7aa" font-size="13.5">点积 v_1 · v_2 = 1×0 + 0×1 = 0 → 转角 c_1 = 90°（直角急弯）</text>
+  <text x="50" y="232" fill="#f8fafc" font-size="13.5" font-weight="bold">若下一步往南折返 (0,-1)，则转角为 180°（完全反向）</text>
 </svg>
