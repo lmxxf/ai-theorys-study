@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 270" width="540" height="270" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131b2e"/>
+      <stop offset="100%" stop-color="#0d1322"/>
+    </linearGradient>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="540" height="270" fill="#0b0f19"/>
+
+  <rect x="16" y="16" width="508" height="238" rx="12" fill="url(#cardBg)" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="36" y="48" fill="#f59e0b" font-size="17" font-weight="bold">情况 B：90° 急转弯与 180° 折返（高曲率 → 高熵犹豫）</text>
+  <text x="36" y="74" fill="#cbd5e1" font-size="14">手算坐标：x_1=(1,0) → x_2=(2,0) → x_3=(2,1) 突然向北拐</text>
+
+  <!-- Bent Vector Line -->
+  <line x1="78" y1="156" x2="195" y2="156" stroke="#10b981" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+  <line x1="209" y1="156" x2="326" y2="156" stroke="#f59e0b" stroke-width="3.5" marker-end="url(#arrowAmber)"/>
+  <!-- Dashed extension -->
+  <line x1="334" y1="156" x2="450" y2="156" stroke="#64748b" stroke-width="1.8" stroke-dasharray="5 5"/>
+  <!-- 90 deg turn up -->
+  <line x1="334" y1="150" x2="334" y2="92" stroke="#ef4444" stroke-width="3.5" marker-end="url(#arrowRed)"/>
+
+  <!-- Right angle arc -->
+  <path d="M 360 156 A 26 26 0 0 0 334 130" fill="none" stroke="#f87171" stroke-width="2.5"/>
+  <text x="372" y="142" fill="#fca5a5" font-size="15" font-weight="bold">c_1 = 90°</text>
+
+  <circle cx="72" cy="156" r="6" fill="#10b981"/>
+  <circle cx="202" cy="156" r="6" fill="#10b981"/>
+  <circle cx="334" cy="156" r="6" fill="#f59e0b"/>
+  <circle cx="334" cy="86" r="6" fill="#ef4444"/>
+
+  <text x="72" y="180" fill="#e2e8f0" font-size="14" text-anchor="middle">x_0</text>
+  <text x="202" y="180" fill="#e2e8f0" font-size="14" text-anchor="middle">x_1</text>
+  <text x="334" y="180" fill="#fde68a" font-size="14" text-anchor="middle">x_2=(2,0)</text>
+  <text x="316" y="92" fill="#fca5a5" font-size="14" text-anchor="end">x_3=(2,1)</text>
+  <text x="268" y="144" fill="#fde68a" font-size="14" font-weight="bold" text-anchor="middle">v_1=(1,0)</text>
+  <text x="350" y="114" fill="#fca5a5" font-size="14" font-weight="bold">v_2=(0,1)</text>
+
+  <rect x="36" y="190" width="468" height="52" rx="8" fill="#231412" stroke="#9a3412" stroke-width="1.2"/>
+  <text x="50" y="212" fill="#fed7aa" font-size="13.5">点积 v_1 · v_2 = 1×0 + 0×1 = 0 → 转角 c_1 = 90° (1.57 rad)</text>
+  <text x="50" y="232" fill="#f8fafc" font-size="13.5" font-weight="bold">若下一步往南折返 (0,-1)，则转角为 180° (π ≈ 3.14 rad)</text>
+</svg>

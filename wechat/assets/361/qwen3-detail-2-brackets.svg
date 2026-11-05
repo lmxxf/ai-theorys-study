@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 320" width="540" height="320" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <defs>
+    <linearGradient id="panelBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141d30"/>
+      <stop offset="100%" stop-color="#0d1320"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="540" height="320" fill="#0b0f19"/>
+
+  <rect x="16" y="16" width="508" height="288" rx="12" fill="url(#panelBg)" stroke="#10b981" stroke-width="1.8"/>
+  <text x="34" y="48" fill="#10b981" font-size="16.5" font-weight="bold">细节二：给定括号推演前缀，27B 答案区曲率 5/5 全降</text>
+  <text x="34" y="72" fill="#94a3b8" font-size="13.5">同题对比：条件 A（无说明直出）vs 条件 B（给定括号说明前缀后作答）</text>
+
+  <!-- Table -->
+  <rect x="34" y="84" width="472" height="204" rx="8" fill="#091520" stroke="#1e293b" stroke-width="1.2"/>
+  <text x="50" y="110" fill="#94a3b8" font-size="13.5" font-weight="bold">题目 (27B)</text>
+  <text x="245" y="110" fill="#60a5fa" font-size="13.5" font-weight="bold" text-anchor="middle">A 直出答案区</text>
+  <text x="352" y="110" fill="#f59e0b" font-size="13.5" font-weight="bold" text-anchor="middle">B 括号内</text>
+  <text x="448" y="110" fill="#10b981" font-size="13.5" font-weight="bold" text-anchor="middle">B 答案区</text>
+
+  <line x1="44" y1="120" x2="494" y2="120" stroke="#334155" stroke-width="1"/>
+
+  <text x="50" y="144" fill="#e2e8f0" font-size="14">1. 母子年龄 (age)</text>
+  <text x="245" y="144" fill="#93c5fd" font-size="14" text-anchor="middle">1.9666</text>
+  <text x="352" y="144" fill="#fcd34d" font-size="14" text-anchor="middle">1.9545</text>
+  <text x="448" y="144" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">1.8852 ↓</text>
+
+  <text x="50" y="172" fill="#e2e8f0" font-size="14">2. 鸡兔同笼 (animals)</text>
+  <text x="245" y="172" fill="#93c5fd" font-size="14" text-anchor="middle">1.8997</text>
+  <text x="352" y="172" fill="#fcd34d" font-size="14" text-anchor="middle">1.9095</text>
+  <text x="448" y="172" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">1.8904 ↓</text>
+
+  <text x="50" y="200" fill="#e2e8f0" font-size="14">3. 球拍与球 (ball)</text>
+  <text x="245" y="200" fill="#93c5fd" font-size="14" text-anchor="middle">1.8782</text>
+  <text x="352" y="200" fill="#fcd34d" font-size="14" text-anchor="middle">1.9357</text>
+  <text x="448" y="200" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">1.8516 ↓</text>
+
+  <text x="50" y="228" fill="#e2e8f0" font-size="14">4. 吹蜡烛 (candle)</text>
+  <text x="245" y="228" fill="#93c5fd" font-size="14" text-anchor="middle">1.9229</text>
+  <text x="352" y="228" fill="#fcd34d" font-size="14" text-anchor="middle">1.9447</text>
+  <text x="448" y="228" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">1.8584 ↓</text>
+
+  <text x="50" y="256" fill="#e2e8f0" font-size="14">5. 星期推算 (weekday)</text>
+  <text x="245" y="256" fill="#93c5fd" font-size="14" text-anchor="middle">1.9333</text>
+  <text x="352" y="256" fill="#fcd34d" font-size="14" text-anchor="middle">1.9405</text>
+  <text x="448" y="256" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">1.8903 ↓</text>
+
+  <line x1="44" y1="264" x2="494" y2="264" stroke="#334155" stroke-width="1"/>
+  <text x="50" y="282" fill="#f8fafc" font-size="14" font-weight="bold">5 题均值（单位 rad）</text>
+  <text x="245" y="282" fill="#93c5fd" font-size="14" font-weight="bold" text-anchor="middle">1.9202</text>
+  <text x="352" y="282" fill="#fcd34d" font-size="14" font-weight="bold" text-anchor="middle">1.9369</text>
+  <text x="448" y="282" fill="#10b981" font-size="14" font-weight="bold" text-anchor="middle">1.8751 (5/5↓)</text>
+</svg>

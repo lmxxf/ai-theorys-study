@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 250" width="540" height="250" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131b2e"/>
+      <stop offset="100%" stop-color="#0d1322"/>
+    </linearGradient>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="540" height="250" fill="#0b0f19"/>
+
+  <rect x="16" y="16" width="508" height="218" rx="12" fill="url(#cardBg)" stroke="#10b981" stroke-width="1.8"/>
+  <text x="36" y="48" fill="#10b981" font-size="17" font-weight="bold">情况 A：顺畅直行（零曲率 c_i = 0° → 低熵高确定）</text>
+  <text x="36" y="74" fill="#cbd5e1" font-size="14">手算坐标：x_0=(0,0) → x_1=(1,0) → x_2=(2,0) → x_3=(3,0)</text>
+
+  <!-- Straight Vector Line -->
+  <line x1="68" y1="126" x2="180" y2="126" stroke="#10b981" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+  <line x1="194" y1="126" x2="306" y2="126" stroke="#10b981" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+  <line x1="320" y1="126" x2="432" y2="126" stroke="#10b981" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+
+  <circle cx="62" cy="126" r="6" fill="#10b981"/>
+  <circle cx="188" cy="126" r="6" fill="#10b981"/>
+  <circle cx="314" cy="126" r="6" fill="#10b981"/>
+  <circle cx="440" cy="126" r="6" fill="#10b981"/>
+
+  <text x="62" y="152" fill="#e2e8f0" font-size="14" text-anchor="middle">x_0</text>
+  <text x="188" y="152" fill="#e2e8f0" font-size="14" text-anchor="middle">x_1</text>
+  <text x="314" y="152" fill="#e2e8f0" font-size="14" text-anchor="middle">x_2</text>
+  <text x="440" y="152" fill="#e2e8f0" font-size="14" text-anchor="middle">x_3</text>
+
+  <text x="125" y="108" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">v_0 = (1, 0)</text>
+  <text x="251" y="108" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">v_1 = (1, 0)</text>
+  <text x="377" y="108" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">v_2 = (1, 0)</text>
+
+  <rect x="36" y="166" width="468" height="54" rx="8" fill="#09191f" stroke="#065f46" stroke-width="1.2"/>
+  <text x="50" y="188" fill="#a7f3d0" font-size="13.5">相邻两步完全同向：点积 v_1 · v_2 = 1×1 + 0×0 = 1</text>
+  <text x="50" y="210" fill="#f8fafc" font-size="13.5" font-weight="bold">转角 c_1 = arccos(1) = 0°（0 弧度，笔直滑行）</text>
+</svg>

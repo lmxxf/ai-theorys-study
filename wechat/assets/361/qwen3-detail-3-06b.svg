@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 310" width="540" height="310" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <defs>
+    <linearGradient id="panelBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141d30"/>
+      <stop offset="100%" stop-color="#0d1320"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="540" height="310" fill="#0b0f19"/>
+
+  <rect x="16" y="16" width="508" height="278" rx="12" fill="url(#panelBg)" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="34" y="48" fill="#f59e0b" font-size="16.5" font-weight="bold">细节三：0.6B 小模型在常规算术题 vs 前提矛盾题的反差</text>
+
+  <!-- Subbox A -->
+  <rect x="34" y="64" width="472" height="94" rx="8" fill="#0c1e2c" stroke="#0284c7" stroke-width="1.2"/>
+  <text x="46" y="88" fill="#7dd3fc" font-size="13.5" font-weight="bold">✓ 其余 4 道常规算术题（鸡兔 / 球拍 / 蜡烛 / 星期）：</text>
+  <text x="46" y="114" fill="#6ee7b7" font-size="13">• 给定括号推演说明后，0.6B 从直出 0/4 翻盘为 4/4 全对，答案区熵显著下降</text>
+  <text x="46" y="140" fill="#cbd5e1" font-size="12.5">• 说明数字答案能够顺畅填入「答案是：【数字】」的表层完成轨道</text>
+
+  <!-- Subbox B -->
+  <rect x="34" y="168" width="472" height="112" rx="8" fill="#231215" stroke="#be123c" stroke-width="1.2"/>
+  <text x="46" y="192" fill="#fda4af" font-size="13.5" font-weight="bold">× 母子年龄前提矛盾题（括号内已喂入“前提不可能成立”）：</text>
+  <text x="46" y="216" fill="#fde68a" font-size="12.2">• 否定与填空相撞：曲率 1.878→1.924 rad ↑，熵 0.315→0.510 nats ↑</text>
+  <text x="46" y="242" fill="#f8fafc" font-size="14" font-weight="bold">• 实测结巴输出：“答案是：答案是：妈妈生儿子的时候是30岁。”</text>
+  <text x="46" y="266" fill="#fda4af" font-size="12.5">• 另一组算出 30-35=-5 岁后不敢否定题目，自责：“这说明我的理解有误”</text>
+</svg>

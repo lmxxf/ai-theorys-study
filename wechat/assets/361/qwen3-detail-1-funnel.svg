@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 340" width="540" height="340" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <defs>
+    <linearGradient id="panelBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141d30"/>
+      <stop offset="100%" stop-color="#0d1320"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="540" height="340" fill="#0b0f19"/>
+
+  <rect x="16" y="16" width="508" height="308" rx="12" fill="url(#panelBg)" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="34" y="48" fill="#38bdf8" font-size="16.5" font-weight="bold">细节一：读题熵接近，低熵收敛发生在角色标签漏斗</text>
+  <text x="34" y="72" fill="#94a3b8" font-size="13.5">Qwen3.5-35B-A3B 纯预训练 (Base) vs 后训练 (Post) 同前缀对比</text>
+
+  <!-- Group 1 -->
+  <text x="102" y="100" fill="#cbd5e1" font-size="13.5" font-weight="bold" text-anchor="middle">读题均熵 H_input</text>
+  <rect x="52" y="134" width="44" height="44" rx="4" fill="#64748b"/>
+  <text x="74" y="126" fill="#e2e8f0" font-size="13.5" text-anchor="middle">2.00</text>
+  <text x="74" y="194" fill="#94a3b8" font-size="12.5" text-anchor="middle">Base</text>
+
+  <rect x="106" y="136" width="44" height="42" rx="4" fill="#38bdf8"/>
+  <text x="128" y="128" fill="#7dd3fc" font-size="13.5" text-anchor="middle">1.90</text>
+  <text x="128" y="194" fill="#7dd3fc" font-size="12.5" text-anchor="middle">Post</text>
+  <text x="102" y="214" fill="#10b981" font-size="12.5" text-anchor="middle">读题保持高位</text>
+
+  <!-- Group 2 -->
+  <text x="268" y="100" fill="#cbd5e1" font-size="13.5" font-weight="bold" text-anchor="middle">无标签开口 H_next</text>
+  <rect x="218" y="112" width="44" height="66" rx="4" fill="#64748b"/>
+  <text x="240" y="134" fill="#f8fafc" font-size="13" font-weight="bold" text-anchor="middle">4.24</text>
+  <text x="240" y="194" fill="#94a3b8" font-size="12.5" text-anchor="middle">Base</text>
+
+  <rect x="272" y="111" width="44" height="67" rx="4" fill="#38bdf8"/>
+  <text x="294" y="134" fill="#0b0f19" font-size="13" font-weight="bold" text-anchor="middle">4.26</text>
+  <text x="294" y="194" fill="#7dd3fc" font-size="12.5" text-anchor="middle">Post</text>
+  <text x="268" y="214" fill="#10b981" font-size="12.5" text-anchor="middle">裸续写完全一致</text>
+
+  <!-- Group 3 -->
+  <text x="434" y="100" fill="#fde68a" font-size="13.5" font-weight="bold" text-anchor="middle">assistant 开口熵</text>
+  <rect x="384" y="124" width="44" height="54" rx="4" fill="#64748b"/>
+  <text x="406" y="117" fill="#e2e8f0" font-size="13.5" text-anchor="middle">3.40</text>
+  <text x="406" y="194" fill="#94a3b8" font-size="12.5" text-anchor="middle">Base</text>
+
+  <rect x="438" y="164" width="44" height="14" rx="3" fill="#ef4444"/>
+  <text x="466" y="154" fill="#fca5a5" font-size="12.5" font-weight="bold" text-anchor="middle">0.72(难0.48)</text>
+  <text x="460" y="194" fill="#fca5a5" font-size="12.5" text-anchor="middle">Post</text>
+  <text x="434" y="214" fill="#ef4444" font-size="12.5" font-weight="bold" text-anchor="middle">骤降 83% 锁起手式</text>
+
+  <!-- Summary Subbox -->
+  <rect x="34" y="226" width="472" height="84" rx="8" fill="#0f172a" stroke="#475569" stroke-width="1.2"/>
+  <text x="46" y="250" fill="#fde68a" font-size="12.5" font-weight="bold">• 高维几何本底：连续三点共享中间点 b，位移余弦期望 -1/2 对应 120°</text>
+  <text x="46" y="274" fill="#6ee7b7" font-size="12.2" font-weight="bold">• 抑制复读：4-gram 重复率从 Base qa 的 40.69% 压至 Post chat 的 2.81%</text>
+  <text x="46" y="298" fill="#cbd5e1" font-size="12.5">• 底层 256 专家 MoE 路由熵并无对应暴跌，保持在 4.89 ~ 4.97 nats 高位</text>
+</svg>
