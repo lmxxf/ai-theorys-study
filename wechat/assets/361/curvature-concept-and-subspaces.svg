@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 580" width="800" height="580" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 940" width="540" height="940" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
   <defs>
     <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#131b2e"/>
@@ -22,112 +22,107 @@
   </defs>
 
   <!-- Explicit Solid Background -->
-  <rect x="0" y="0" width="800" height="580" fill="#0b0f19"/>
+  <rect x="0" y="0" width="540" height="940" fill="#0b0f19"/>
 
   <!-- Title -->
-  <text x="400" y="34" fill="#f8fafc" font-size="19" font-weight="bold" text-anchor="middle">五分钟看懂：残差流“时间轨迹曲率”与中层局部平面扰动</text>
-  <text x="400" y="56" fill="#94a3b8" font-size="12" text-anchor="middle">固定在神经网络同一层 L 内，顺着词元时间轴 x_0 → x_1 → x_2 → x_3 测量连续位移向量的转角大小</text>
+  <text x="270" y="38" fill="#f8fafc" font-size="20" font-weight="bold" text-anchor="middle">五分钟手算：残差流“时间轨迹曲率”</text>
+  <text x="270" y="64" fill="#94a3b8" font-size="14" text-anchor="middle">固定在同一层 L 内，测连续词元位移向量的转角大小</text>
 
-  <!-- Left Card: Straight Trajectory (Low Curvature) -->
-  <rect x="24" y="74" width="366" height="226" rx="10" fill="url(#cardBg)" stroke="#10b981" stroke-width="1.5"/>
-  <text x="38" y="102" fill="#10b981" font-size="13.5" font-weight="bold">① 情况 A：顺畅直行（低曲率 c_i = 0° → 低熵高确定）</text>
-  <text x="38" y="122" fill="#cbd5e1" font-size="12">手算坐标：x_0=(0,0) → x_1=(1,0) → x_2=(2,0) → x_3=(3,0)</text>
+  <!-- Card 1: Straight Trajectory (Low Curvature) -->
+  <rect x="20" y="84" width="500" height="236" rx="12" fill="url(#cardBg)" stroke="#10b981" stroke-width="1.8"/>
+  <text x="38" y="116" fill="#10b981" font-size="17" font-weight="bold">① 情况 A：顺畅直行（c_i = 0° → 低熵高确定）</text>
+  <text x="38" y="142" fill="#cbd5e1" font-size="14">手算坐标：x_0=(0,0) → x_1=(1,0) → x_2=(2,0) → x_3=(3,0)</text>
 
   <!-- Straight Vector Line -->
-  <line x1="60" y1="185" x2="140" y2="185" stroke="#10b981" stroke-width="3" marker-end="url(#arrowGreen)"/>
-  <line x1="150" y1="185" x2="230" y2="185" stroke="#10b981" stroke-width="3" marker-end="url(#arrowGreen)"/>
-  <line x1="240" y1="185" x2="320" y2="185" stroke="#10b981" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <line x1="68" y1="196" x2="180" y2="196" stroke="#10b981" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+  <line x1="194" y1="196" x2="306" y2="196" stroke="#10b981" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+  <line x1="320" y1="196" x2="432" y2="196" stroke="#10b981" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
 
-  <circle cx="55" cy="185" r="5" fill="#10b981"/>
-  <circle cx="145" cy="185" r="5" fill="#10b981"/>
-  <circle cx="235" cy="185" r="5" fill="#10b981"/>
-  <circle cx="325" cy="185" r="5" fill="#10b981"/>
+  <circle cx="62" cy="196" r="6" fill="#10b981"/>
+  <circle cx="188" cy="196" r="6" fill="#10b981"/>
+  <circle cx="314" cy="196" r="6" fill="#10b981"/>
+  <circle cx="440" cy="196" r="6" fill="#10b981"/>
 
-  <text x="55" y="210" fill="#e2e8f0" font-size="12" text-anchor="middle">x_0</text>
-  <text x="145" y="210" fill="#e2e8f0" font-size="12" text-anchor="middle">x_1</text>
-  <text x="235" y="210" fill="#e2e8f0" font-size="12" text-anchor="middle">x_2</text>
-  <text x="325" y="210" fill="#e2e8f0" font-size="12" text-anchor="middle">x_3</text>
+  <text x="62" y="224" fill="#e2e8f0" font-size="14" text-anchor="middle">x_0</text>
+  <text x="188" y="224" fill="#e2e8f0" font-size="14" text-anchor="middle">x_1</text>
+  <text x="314" y="224" fill="#e2e8f0" font-size="14" text-anchor="middle">x_2</text>
+  <text x="440" y="224" fill="#e2e8f0" font-size="14" text-anchor="middle">x_3</text>
 
-  <text x="100" y="170" fill="#6ee7b7" font-size="12" text-anchor="middle">v_0 = (1, 0)</text>
-  <text x="190" y="170" fill="#6ee7b7" font-size="12" text-anchor="middle">v_1 = (1, 0)</text>
-  <text x="280" y="170" fill="#6ee7b7" font-size="12" text-anchor="middle">v_2 = (1, 0)</text>
+  <text x="125" y="178" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">v_0 = (1, 0)</text>
+  <text x="251" y="178" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">v_1 = (1, 0)</text>
+  <text x="377" y="178" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">v_2 = (1, 0)</text>
 
-  <rect x="38" y="232" width="338" height="52" rx="6" fill="#09191f" stroke="#065f46" stroke-width="1"/>
-  <text x="48" y="252" fill="#a7f3d0" font-size="11.5">相邻两步方向完全相同：v_1 · v_2 = 1×1 + 0×0 = 1</text>
-  <text x="48" y="272" fill="#f8fafc" font-size="11.5" font-weight="bold">转角 c_1 = arccos(1) = 0°（0 弧度，笔直滑行）</text>
+  <rect x="38" y="242" width="464" height="62" rx="8" fill="#09191f" stroke="#065f46" stroke-width="1.2"/>
+  <text x="52" y="266" fill="#a7f3d0" font-size="14">相邻两步同向：点积 v_1 · v_2 = 1×1 + 0×0 = 1</text>
+  <text x="52" y="290" fill="#f8fafc" font-size="14" font-weight="bold">转角 c_1 = arccos(1) = 0°（0 弧度，笔直滑行）</text>
 
-  <!-- Right Card: Sharp Turn Trajectory (High Curvature) -->
-  <rect x="410" y="74" width="366" height="226" rx="10" fill="url(#cardBg)" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="424" y="102" fill="#f59e0b" font-size="13.5" font-weight="bold">② 情况 B：90° 急转弯（高曲率 c_i = 90° → 高熵犹豫）</text>
-  <text x="424" y="122" fill="#cbd5e1" font-size="12">手算坐标：x_1=(1,0) → x_2=(2,0) → x_3=(2,1) 突然向北拐</text>
+  <!-- Card 2: Sharp Turn Trajectory (High Curvature) -->
+  <rect x="20" y="338" width="500" height="256" rx="12" fill="url(#cardBg)" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="38" y="370" fill="#f59e0b" font-size="17" font-weight="bold">② 情况 B：90° 急转弯（c_i = 90° → 高熵犹豫）</text>
+  <text x="38" y="396" fill="#cbd5e1" font-size="14">手算坐标：x_1=(1,0) → x_2=(2,0) → x_3=(2,1) 突然向北拐</text>
 
   <!-- Bent Vector Line -->
-  <line x1="460" y1="205" x2="545" y2="205" stroke="#10b981" stroke-width="3" marker-end="url(#arrowGreen)"/>
-  <line x1="555" y1="205" x2="635" y2="205" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrowAmber)"/>
-  <!-- Dashed extension of v_1 -->
-  <line x1="640" y1="205" x2="725" y2="205" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <line x1="78" y1="482" x2="195" y2="482" stroke="#10b981" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+  <line x1="209" y1="482" x2="326" y2="482" stroke="#f59e0b" stroke-width="3.5" marker-end="url(#arrowAmber)"/>
+  <!-- Dashed extension -->
+  <line x1="334" y1="482" x2="450" y2="482" stroke="#64748b" stroke-width="1.8" stroke-dasharray="5 5"/>
   <!-- 90 deg turn up -->
-  <line x1="640" y1="200" x2="640" y2="142" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <line x1="334" y1="476" x2="334" y2="416" stroke="#ef4444" stroke-width="3.5" marker-end="url(#arrowRed)"/>
 
   <!-- Right angle arc -->
-  <path d="M 662 205 A 22 22 0 0 0 640 183" fill="none" stroke="#f87171" stroke-width="2"/>
-  <text x="688" y="190" fill="#fca5a5" font-size="12" font-weight="bold">c_1 = 90°</text>
+  <path d="M 360 482 A 26 26 0 0 0 334 456" fill="none" stroke="#f87171" stroke-width="2.5"/>
+  <text x="372" y="468" fill="#fca5a5" font-size="15" font-weight="bold">c_1 = 90°</text>
 
-  <circle cx="455" cy="205" r="5" fill="#10b981"/>
-  <circle cx="550" cy="205" r="5" fill="#10b981"/>
-  <circle cx="640" cy="205" r="5" fill="#f59e0b"/>
-  <circle cx="640" cy="136" r="5" fill="#ef4444"/>
+  <circle cx="72" cy="482" r="6" fill="#10b981"/>
+  <circle cx="202" cy="482" r="6" fill="#10b981"/>
+  <circle cx="334" cy="482" r="6" fill="#f59e0b"/>
+  <circle cx="334" cy="410" r="6" fill="#ef4444"/>
 
-  <text x="455" y="224" fill="#e2e8f0" font-size="12" text-anchor="middle">x_0</text>
-  <text x="550" y="224" fill="#e2e8f0" font-size="12" text-anchor="middle">x_1</text>
-  <text x="640" y="224" fill="#fde68a" font-size="12" text-anchor="middle">x_2=(2,0)</text>
-  <text x="625" y="140" fill="#fca5a5" font-size="12" text-anchor="end">x_3=(2,1)</text>
-  <text x="595" y="194" fill="#fde68a" font-size="12" text-anchor="middle">v_1=(1,0)</text>
-  <text x="676" y="160" fill="#fca5a5" font-size="12">v_2=(0,1)</text>
+  <text x="72" y="506" fill="#e2e8f0" font-size="14" text-anchor="middle">x_0</text>
+  <text x="202" y="506" fill="#e2e8f0" font-size="14" text-anchor="middle">x_1</text>
+  <text x="334" y="506" fill="#fde68a" font-size="14" text-anchor="middle">x_2=(2,0)</text>
+  <text x="316" y="416" fill="#fca5a5" font-size="14" text-anchor="end">x_3=(2,1)</text>
+  <text x="268" y="470" fill="#fde68a" font-size="14" font-weight="bold" text-anchor="middle">v_1=(1,0)</text>
+  <text x="350" y="438" fill="#fca5a5" font-size="14" font-weight="bold">v_2=(0,1)</text>
 
-  <rect x="424" y="232" width="338" height="52" rx="6" fill="#231412" stroke="#9a3412" stroke-width="1"/>
-  <text x="434" y="252" fill="#fed7aa" font-size="11.5">点积 v_1 · v_2 = 1×0 + 0×1 = 0 → c_1 = 90° (1.57 rad)</text>
-  <text x="434" y="272" fill="#f8fafc" font-size="11" font-weight="bold">论文曲率 C_j = 最近 5 个状态 3 个转角均值 (c_j-4+c_j-3+c_j-2)/3</text>
+  <rect x="38" y="518" width="464" height="62" rx="8" fill="#231412" stroke="#9a3412" stroke-width="1.2"/>
+  <text x="52" y="542" fill="#fed7aa" font-size="14">点积 v_1 · v_2 = 1×0 + 0×1 = 0 → 转角 c_1 = 90° (1.57 rad)</text>
+  <text x="52" y="566" fill="#f8fafc" font-size="14" font-weight="bold">论文曲率 C_j = 最近 5 个状态 3 个转角的均值</text>
 
-  <!-- Bottom Card: Planar Intervention vs Orthogonal Perturbation -->
-  <rect x="24" y="318" width="752" height="242" rx="10" fill="url(#cardBg)" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="42" y="346" fill="#38bdf8" font-size="14.5" font-weight="bold">③ 论文图 4 的“中层因果干预”设想：局部轨迹平面推力（Planar）与额外正交对照</text>
+  <!-- Card 3: Planar Intervention vs Orthogonal -->
+  <rect x="20" y="612" width="500" height="308" rx="12" fill="url(#cardBg)" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="38" y="644" fill="#38bdf8" font-size="17" font-weight="bold">③ 论文图 4 设想：中层局部轨迹平面推力（Planar）</text>
 
   <!-- Shaded 2D Plane -->
-  <polygon points="55,515 345,515 405,390 115,390" fill="#0f2942" fill-opacity="0.55" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="5 3"/>
-  <text x="230" y="542" fill="#7dd3fc" font-size="11.5" text-anchor="middle">由最近两段位移 v_(k-2), v_(k-1)（经 x_(k-2) → x_(k-1) → x_k）张成的二维局部平面</text>
+  <polygon points="55,795 395,795 455,685 115,685" fill="#0f2942" fill-opacity="0.55" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="6 4"/>
 
-  <!-- Trajectory inside plane -->
-  <circle cx="105" cy="488" r="5" fill="#94a3b8"/>
-  <text x="100" y="508" fill="#cbd5e1" font-size="11.5" text-anchor="middle">x_(k-2)</text>
+  <circle cx="115" cy="772" r="6" fill="#94a3b8"/>
+  <text x="115" y="790" fill="#cbd5e1" font-size="13.5" text-anchor="middle">x_(k-2)</text>
 
-  <circle cx="225" cy="452" r="5" fill="#94a3b8"/>
-  <text x="258" y="468" fill="#cbd5e1" font-size="11.5">x_(k-1)</text>
+  <circle cx="240" cy="740" r="6" fill="#94a3b8"/>
+  <text x="240" y="762" fill="#cbd5e1" font-size="13.5" text-anchor="middle">x_(k-1)</text>
 
-  <circle cx="330" cy="410" r="6" fill="#38bdf8"/>
-  <text x="366" y="414" fill="#38bdf8" font-size="11.5" font-weight="bold">当前点 x_k</text>
+  <circle cx="355" cy="702" r="7" fill="#38bdf8"/>
+  <text x="405" y="707" fill="#38bdf8" font-size="14" font-weight="bold">当前点 x_k</text>
 
-  <line x1="110" y1="486" x2="217" y2="454" stroke="#cbd5e1" stroke-width="2.5" marker-end="url(#arrowGray)"/>
-  <line x1="231" y1="449" x2="323" y2="413" stroke="#cbd5e1" stroke-width="2.5" marker-end="url(#arrowGray)"/>
+  <line x1="122" y1="770" x2="231" y2="742" stroke="#cbd5e1" stroke-width="3" marker-end="url(#arrowGray)"/>
+  <line x1="247" y1="738" x2="346" y2="705" stroke="#cbd5e1" stroke-width="3" marker-end="url(#arrowGray)"/>
 
-  <!-- Planar straighten arrow at x_k -->
-  <line x1="330" y1="410" x2="365" y2="395" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
-  <text x="342" y="384" fill="#6ee7b7" font-size="11.5" font-weight="bold" text-anchor="middle">+δ 拉直 (ΔC &lt; 0)</text>
+  <!-- Planar straighten arrow -->
+  <line x1="355" y1="702" x2="395" y2="682" stroke="#10b981" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <text x="385" y="672" fill="#6ee7b7" font-size="13.5" font-weight="bold" text-anchor="middle">+δ 拉直 (ΔC &lt; 0)</text>
 
-  <!-- Planar bend arrow at x_k -->
-  <line x1="330" y1="410" x2="305" y2="450" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrowRed)"/>
-  <text x="292" y="468" fill="#fca5a5" font-size="11.5" font-weight="bold" text-anchor="middle">+δ 掰弯 (ΔC &gt; 0)</text>
+  <!-- Planar bend arrow -->
+  <line x1="355" y1="702" x2="328" y2="746" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <text x="330" y="768" fill="#fca5a5" font-size="13.5" font-weight="bold" text-anchor="middle">+δ 掰弯 (ΔC &gt; 0)</text>
 
-  <!-- Orthogonal vertical arrow at x_k -->
-  <line x1="330" y1="410" x2="275" y2="372" stroke="#d8b4fe" stroke-width="2.2" stroke-dasharray="3 3" marker-end="url(#arrowCyan)"/>
-  <text x="210" y="370" fill="#d8b4fe" font-size="11" text-anchor="middle">额外严格正交对照（ΔC 恒定）</text>
+  <!-- Orthogonal vertical arrow -->
+  <line x1="355" y1="702" x2="290" y2="664" stroke="#d8b4fe" stroke-width="2.5" stroke-dasharray="4 4" marker-end="url(#arrowCyan)"/>
+  <text x="205" y="670" fill="#d8b4fe" font-size="13.5" text-anchor="middle">垂直正交对照（ΔC 恒定）</text>
 
-  <!-- Right side explanation box -->
-  <rect x="428" y="366" width="330" height="172" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
-  <text x="442" y="392" fill="#f8fafc" font-size="12.5" font-weight="bold">论文五类子空间对比（幅度 ||δ|| = 0.2 ||v_k||）：</text>
-  <text x="442" y="416" fill="#cbd5e1" font-size="11.5">• Full（全空间随机）/ Random2（随机二维平面）</text>
-  <text x="442" y="438" fill="#cbd5e1" font-size="11.5">• Activation PCA：沿该层全局激活前 2 主成分推</text>
-  <text x="442" y="460" fill="#fde68a" font-size="11.5">• Trajectory PCA：沿单句位移序列前 2 主成分推</text>
-  <text x="442" y="482" fill="#7dd3fc" font-size="11.5">• Planar：顺着最近两步构成的拐弯平面推拉</text>
-  <text x="442" y="514" fill="#fca5a5" font-size="11.5" font-weight="bold">[注] 实测：Trajectory 未复现正效应，Planar 挑位置</text>
+  <!-- Summary Box inside Card 3 -->
+  <rect x="38" y="810" width="464" height="94" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+  <text x="52" y="834" fill="#7dd3fc" font-size="14" font-weight="bold">• Planar：顺着最近两步 v_(k-2), v_(k-1) 构成的拐弯平面推拉</text>
+  <text x="52" y="860" fill="#cbd5e1" font-size="13.5">• Full / Random2 / Activation PCA：全空间或全局主成分方向</text>
+  <text x="52" y="886" fill="#fca5a5" font-size="14" font-weight="bold">• 实测：Trajectory PCA 未复现正效应，Planar 效应高度挑位置</text>
 </svg>
