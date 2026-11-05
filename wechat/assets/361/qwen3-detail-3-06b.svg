@@ -32,7 +32,7 @@
   <!-- Center Collision Spark -->
   <circle cx="264" cy="103" r="16" fill="#f59e0b" opacity="0.85"/>
   <text x="264" y="108" fill="#0b0f19" font-size="13" font-weight="bold" text-anchor="middle">撞！</text>
-  <text x="264" y="142" fill="#fde68a" font-size="12.5" font-weight="bold" text-anchor="middle">预测熵 H 飙升 62% (0.31→0.51)，转角仅微动 2.6°</text>
+  <text x="264" y="142" fill="#fde68a" font-size="12" font-weight="bold" text-anchor="middle">窗口预测熵 H 飙升 62% (0.315→0.510 nats)，转角仅微动 2.6°</text>
 
   <!-- Bottom Output Result -->
   <line x1="264" y1="150" x2="264" y2="176" stroke="#ef4444" stroke-width="3" marker-end="url(#arrRed)"/>

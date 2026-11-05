@@ -10,7 +10,7 @@
   <rect x="16" y="16" width="508" height="268" rx="12" fill="url(#cardBg)" stroke="#38bdf8" stroke-width="1.8"/>
 
   <text x="270" y="46" fill="#f8fafc" font-size="16.5" font-weight="bold" text-anchor="middle">27B 答案区转角实测：方向 5/5 全降，但只变小了 2.6°</text>
-  <text x="270" y="68" fill="#94a3b8" font-size="13" text-anchor="middle">95% 以上刻度被 110°~120° 高维几何本底占满，推理只拨动两三度</text>
+  <text x="270" y="68" fill="#94a3b8" font-size="13" text-anchor="middle">对比 120° 高维随机基线，预填充括号草稿后答案区平均转角仅微变 2.6°</text>
 
   <!-- Full-scale 0° to 120° Ruler Comparison (1° = 1.8px, 120° = 216px) -->
   <!-- Bar 1: Theoretical 120° Baseline -->
@@ -37,5 +37,5 @@
 
   <!-- Bottom note -->
   <rect x="34" y="240" width="472" height="32" rx="6" fill="#091520" stroke="#1e293b" stroke-width="1"/>
-  <text x="270" y="261" fill="#fde68a" font-size="12.5" font-weight="bold" text-anchor="middle">★ 黄色窄条即 2.6° 差值（MIT 跨 22 层也仅变 6.6°）：绝非变成 0° 直线</text>
+  <text x="270" y="261" fill="#fde68a" font-size="12.5" font-weight="bold" text-anchor="middle">★ 黄色窄条即 2.6° 差值（MIT 跨层均值最大也仅差 6.7°~6.8°）：绝非 0° 直线</text>
 </svg>

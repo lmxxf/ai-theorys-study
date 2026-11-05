@@ -57,7 +57,7 @@
 
   <!-- 3. PURPLE: Orthogonal out-of-plane push from x2 -->
   <line x1="258" y1="90" x2="295" y2="56" stroke="#d8b4fe" stroke-width="2.5" stroke-dasharray="3 3" marker-end="url(#arrPurple)"/>
-  <text x="395" y="60" fill="#d8b4fe" font-size="12.5" font-weight="bold" text-anchor="middle">紫虚线：往桌面外空中乱推</text>
+  <text x="395" y="60" fill="#d8b4fe" font-size="12.5" font-weight="bold" text-anchor="middle">紫虚线：脱离拐弯桌面随机推</text>
 
   <!-- Nodes for x0, x1, x2 -->
   <circle cx="80" cy="194" r="6" fill="#f8fafc"/>
@@ -73,5 +73,5 @@
   <rect x="34" y="234" width="472" height="86" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
   <text x="48" y="256" fill="#f8fafc" font-size="13">• <tspan font-weight="bold">白色实线</tspan>：原来的两步轨迹 (0,0)→(1,0)→(1,1)，原本拐了 90° 直角弯</text>
   <text x="46" y="280" fill="#6ee7b7" font-size="12.2">• <tspan font-weight="bold">绿色（拉直）</tspan>：往东加 δ 到 (2,1)，转角缩为 45°；<tspan fill="#fca5a5" font-weight="bold">红色（掰弯）</tspan>：扩为 135°</text>
-  <text x="48" y="304" fill="#d8b4fe" font-size="13">• <tspan font-weight="bold">紫色虚线（对照组 Full 等）</tspan>：脱离桌面往空中乱推，几乎改不动折角</text>
+  <text x="48" y="304" fill="#d8b4fe" font-size="13">• <tspan font-weight="bold">紫色虚线（对照组 Full 等）</tspan>：脱离当前拐弯桌面随机乱推（几何示意）</text>
 </svg>
