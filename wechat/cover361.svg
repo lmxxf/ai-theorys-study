@@ -5,8 +5,7 @@
       <stop offset="100%" stop-color="#070b14" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glowRight" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#00ffff" stop-opacity="0.35"/>
-      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.18"/>
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/>
       <stop offset="100%" stop-color="#070b14" stop-opacity="0"/>
     </radialGradient>
     <marker id="arrRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -53,7 +52,7 @@
   <!-- Angle arcs -->
   <path d="M 178 238 A 28 28 0 0 0 168 214" fill="none" stroke="#fde047" stroke-width="2.5"/>
   <path d="M 200 170 A 26 26 0 0 0 242 162" fill="none" stroke="#fde047" stroke-width="2.5"/>
-  <text x="220" y="116" fill="#fde047" font-size="15.5" font-weight="bold" text-anchor="middle">c_i = arccos(v̂_i · v̂_i+1)</text>
+  <text x="220" y="116" fill="#fde047" font-size="14.5" font-weight="bold" text-anchor="middle">cos(c_i) = (v_i · v_i+1) / (||v_i|| ||v_i+1||)</text>
 
   <circle cx="65" cy="260" r="6" fill="#94a3b8"/>
   <circle cx="150" cy="244" r="7" fill="#38bdf8"/>
@@ -64,25 +63,23 @@
   <rect x="55" y="302" width="340" height="44" rx="8" fill="#1f1218" stroke="#be123c" stroke-width="1.2"/>
   <text x="225" y="329" fill="#fda4af" font-size="14.5" font-weight="bold" text-anchor="middle">0.6B 读完否定前提仍吐出：「答案是：30岁」</text>
 
-  <!-- Right Visual: 27B / 35B Vortex Attractor & Straightened Trajectory -->
+  <!-- Right Visual: 27B / 35B Funnel & Straightened Trajectory -->
   <circle cx="675" cy="190" r="165" fill="url(#glowRight)"/>
-  <text x="675" y="46" fill="#6ee7b7" font-size="17.5" font-weight="bold" text-anchor="middle">27B / 35B：喉咙漏斗与答案区曲率全降</text>
+  <text x="675" y="46" fill="#6ee7b7" font-size="17.5" font-weight="bold" text-anchor="middle">27B / 35B：首词熵漏斗与答案区曲率拉直</text>
 
-  <!-- Two-body orbit rings -->
-  <ellipse cx="675" cy="175" rx="135" ry="62" fill="none" stroke="#38bdf8" stroke-width="1.2" opacity="0.45" transform="rotate(-16 675 175)"/>
-  <ellipse cx="675" cy="175" rx="135" ry="62" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.45" transform="rotate(16 675 175)"/>
+  <!-- Funnel & Straightened Trajectory Graphic -->
+  <polygon points="525,115 625,152 625,188 525,225" fill="#1e293b" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="572" y="175" fill="#7dd3fc" font-size="13" font-weight="bold" text-anchor="middle">4.26 → 0.72</text>
+  <text x="572" y="102" fill="#cbd5e1" font-size="12.5" text-anchor="middle">assistant 首词漏斗</text>
 
-  <!-- Two glowing cores -->
-  <circle cx="620" cy="172" r="16" fill="#f59e0b" opacity="0.85"/>
-  <circle cx="620" cy="172" r="4" fill="#ffffff"/>
-  <circle cx="730" cy="172" r="16" fill="#00ffff" opacity="0.85"/>
-  <circle cx="730" cy="172" r="4" fill="#ffffff"/>
-  <path d="M 620 172 Q 675 125 730 172 Q 675 219 620 172" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.6"/>
-
-  <!-- Straightened arrow emerging from vortex -->
-  <line x1="515" y1="265" x2="830" y2="265" stroke="#10b981" stroke-width="4" marker-end="url(#arrGreen)"/>
-  <text x="675" y="252" fill="#a7f3d0" font-size="13.5" font-weight="bold" text-anchor="middle">（给定括号说明前缀）→ 答案区曲率 5/5 全降 (-0.045 rad)</text>
+  <!-- Straightened arrow emerging from funnel -->
+  <line x1="628" y1="170" x2="825" y2="170" stroke="#10b981" stroke-width="4.5" marker-end="url(#arrGreen)"/>
+  <circle cx="675" cy="170" r="6" fill="#10b981"/>
+  <circle cx="735" cy="170" r="6" fill="#10b981"/>
+  <circle cx="795" cy="170" r="6" fill="#10b981"/>
+  <text x="730" y="148" fill="#a7f3d0" font-size="13.5" font-weight="bold" text-anchor="middle">答案区轨迹拉直</text>
+  <text x="675" y="256" fill="#a7f3d0" font-size="13.5" font-weight="bold" text-anchor="middle">（给定括号说明前缀）→ 答案区曲率 5/5 全降 (-0.045 rad)</text>
 
   <rect x="505" y="302" width="340" height="44" rx="8" fill="#092222" stroke="#10b981" stroke-width="1.2"/>
-  <text x="675" y="329" fill="#6ee7b7" font-size="14.5" font-weight="bold" text-anchor="middle">836 条真机记录：角色漏斗与 2.83× 冲突熵涨</text>
+  <text x="675" y="329" fill="#6ee7b7" font-size="14.5" font-weight="bold" text-anchor="middle">DGX Spark 复现：120° 几何本底与同题配对</text>
 </svg>
