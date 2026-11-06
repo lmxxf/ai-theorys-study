@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 355" width="540" height="355" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <rect x="0" y="0" width="540" height="355" fill="#ffffff"/>
+
+  <text x="20" y="32" fill="#111827" font-size="15" font-weight="bold">从 1% 脱水肉末到 55% 至 67% 真红烧牛肉：10折交叉验证 R²</text>
+  <line x1="20" y1="44" x2="520" y2="44" stroke="#e5e7eb" stroke-width="1.5"/>
+
+  <!-- Legend Box at Top -->
+  <rect x="20" y="54" width="500" height="58" rx="5" fill="#f8fafc"/>
+  <rect x="32" y="64" width="10" height="10" rx="2" fill="#9ca3af"/>
+  <text x="48" y="73" fill="#374151" font-size="11.5">台阶 1：MIT 平直弦（单层 0.85% 至 1.84%，全层拼合也仅 1.61% 至 2.18%）</text>
+  <rect x="32" y="81" width="10" height="10" rx="2" fill="#3b82f6"/>
+  <text x="48" y="90" fill="#1d4ed8" font-size="11.5" font-weight="bold">台阶 2：单层流形表皮特征（转角+真曲率+快慢+方向多寡，跃升至 23.1% 至 41.1%）</text>
+  <rect x="32" y="98" width="10" height="10" rx="2" fill="#059669"/>
+  <text x="48" y="107" fill="#065f46" font-size="11.5" font-weight="bold">台阶 3：全层流形表皮大合体（冲上 54.8% 至 67.4%，严格按整篇文档分组 10 折验证）</text>
+
+  <!-- Chart Grid: Y=292 (0%), Y=220 (30%), Y=148 (60%), 1% = 2.4px -->
+  <line x1="48" y1="292" x2="514" y2="292" stroke="#9ca3af" stroke-width="1.5"/>
+  <line x1="48" y1="220" x2="514" y2="220" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="48" y1="148" x2="514" y2="148" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="42" y="296" fill="#6b7280" font-size="11" text-anchor="end">0%</text>
+  <text x="42" y="224" fill="#6b7280" font-size="11" text-anchor="end">30%</text>
+  <text x="42" y="152" fill="#6b7280" font-size="11" text-anchor="end">60%</text>
+
+  <!-- Group 1: GPT-2 XL (x ~ 125) -->
+  <!-- MIT All Layers: 1.61% -> h=4px -->
+  <rect x="74" y="288" width="32" height="4" rx="1" fill="#9ca3af"/>
+  <text x="90" y="282" fill="#4b5563" font-size="11" font-weight="bold" text-anchor="middle">1.6%</text>
+  <!-- Single Layer Surface: 23.13% -> h=56px -->
+  <rect x="112" y="236" width="32" height="56" rx="2" fill="#3b82f6"/>
+  <text x="128" y="230" fill="#1d4ed8" font-size="11" font-weight="bold" text-anchor="middle">23.1%</text>
+  <!-- Multi Layer Full Surface: 54.78% -> h=131px -->
+  <rect x="150" y="161" width="32" height="131" rx="2" fill="#059669"/>
+  <text x="166" y="154" fill="#065f46" font-size="11.5" font-weight="bold" text-anchor="middle">54.8%</text>
+  <text x="128" y="312" fill="#111827" font-size="13" font-weight="bold" text-anchor="middle">GPT-2 XL (48层)</text>
+  <text x="128" y="329" fill="#059669" font-size="11.5" font-weight="bold" text-anchor="middle">r = 0.740 (涨34倍)</text>
+
+  <!-- Group 2: Qwen3-0.6B (x ~ 285) -->
+  <!-- MIT All Layers: 2.18% -> h=5px -->
+  <rect x="234" y="287" width="32" height="5" rx="1" fill="#9ca3af"/>
+  <text x="250" y="281" fill="#4b5563" font-size="11" font-weight="bold" text-anchor="middle">2.2%</text>
+  <!-- Single Layer Surface: 33.74% -> h=81px -->
+  <rect x="272" y="211" width="32" height="81" rx="2" fill="#3b82f6"/>
+  <text x="288" y="205" fill="#1d4ed8" font-size="11" font-weight="bold" text-anchor="middle">33.7%</text>
+  <!-- Multi Layer Full Surface: 58.49% -> h=140px -->
+  <rect x="310" y="152" width="32" height="140" rx="2" fill="#059669"/>
+  <text x="326" y="145" fill="#065f46" font-size="11.5" font-weight="bold" text-anchor="middle">58.5%</text>
+  <text x="288" y="312" fill="#111827" font-size="13" font-weight="bold" text-anchor="middle">Qwen3-0.6B (28层)</text>
+  <text x="288" y="329" fill="#059669" font-size="11.5" font-weight="bold" text-anchor="middle">r = 0.765 (短句62.3%)</text>
+
+  <!-- Group 3: Pythia-2.8B (x ~ 445) -->
+  <!-- MIT All Layers: 2.18% -> h=5px -->
+  <rect x="394" y="287" width="32" height="5" rx="1" fill="#9ca3af"/>
+  <text x="410" y="281" fill="#4b5563" font-size="11" font-weight="bold" text-anchor="middle">2.2%</text>
+  <!-- Single Layer Surface: 41.05% -> h=99px -->
+  <rect x="432" y="193" width="32" height="99" rx="2" fill="#3b82f6"/>
+  <text x="448" y="187" fill="#1d4ed8" font-size="11" font-weight="bold" text-anchor="middle">41.1%</text>
+  <!-- Multi Layer Full Surface: 67.35% -> h=162px -->
+  <rect x="470" y="130" width="32" height="162" rx="2" fill="#059669"/>
+  <text x="486" y="128" fill="#065f46" font-size="11.5" font-weight="bold" text-anchor="middle">67.4%</text>
+  <text x="448" y="312" fill="#111827" font-size="13" font-weight="bold" text-anchor="middle">Pythia-2.8B (32层)</text>
+  <text x="448" y="329" fill="#059669" font-size="11.5" font-weight="bold" text-anchor="middle">r = 0.821 (涨31倍)</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 315" width="540" height="315" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <rect x="0" y="0" width="540" height="315" fill="#ffffff"/>
+
+  <text x="20" y="32" fill="#111827" font-size="15" font-weight="bold">为什么 MIT 只测出 1%？一正一负两个量在平直弦里抵消了</text>
+  <line x1="20" y1="44" x2="520" y2="44" stroke="#e5e7eb" stroke-width="1.5"/>
+
+  <!-- Top Formula Banner -->
+  <rect x="20" y="56" width="500" height="44" rx="6" fill="#f8fafc"/>
+  <rect x="20" y="56" width="4" height="44" rx="2" fill="#2563eb"/>
+  <text x="34" y="83" fill="#111827" font-size="12.5" font-weight="bold">MIT 平直弦 c_flat = 表皮真转角 θ_surf (正相关 ↑) + 球皮向心折角 Δθ (负相关 ↓)</text>
+
+  <!-- Left Box: Surface True Angle -->
+  <rect x="20" y="112" width="242" height="114" rx="6" fill="#f0fdf4"/>
+  <rect x="20" y="112" width="4" height="114" rx="2" fill="#059669"/>
+  <text x="34" y="136" fill="#065f46" font-size="13.5" font-weight="bold">1. 流形表皮真转角 θ_surf</text>
+  <text x="34" y="158" fill="#374151" font-size="11.5">在球面切平面上的真实方向改变</text>
+  <text x="34" y="180" fill="#059669" font-size="12" font-weight="bold">与预测熵 H 正相关 (r = +0.12 至 +0.14)</text>
+  <text x="34" y="200" fill="#047857" font-size="11.5">真拐弯越大 → 下一步越拿不准</text>
+  <text x="34" y="217" fill="#4b5563" font-size="11">去均值锥后约 97.7°，贴近 90° 正交基线</text>
+
+  <!-- Right Box: Extrinsic Normal Bias -->
+  <rect x="278" y="112" width="242" height="114" rx="6" fill="#fef2f2"/>
+  <rect x="278" y="112" width="4" height="114" rx="2" fill="#dc2626"/>
+  <text x="292" y="136" fill="#991b1b" font-size="13.5" font-weight="bold">2. 球皮向心折角 Δθ_extrinsic</text>
+  <text x="292" y="158" fill="#374151" font-size="11.5">平直弦扎进球肚子带来的法向弯曲底色</text>
+  <text x="292" y="180" fill="#dc2626" font-size="12" font-weight="bold">与预测熵 H 负相关 (最高 r = -0.341)</text>
+  <text x="292" y="200" fill="#b91c1c" font-size="11.5">原因：正比于球面步长 (越笃定步长越大)</text>
+  <text x="292" y="217" fill="#4b5563" font-size="11">Pythia r=-0.178 · Qwen3 r=-0.341 (11.7%)</text>
+
+  <!-- Bottom Result Box: Cancellation -->
+  <rect x="20" y="238" width="500" height="64" rx="6" fill="#fffbeb"/>
+  <rect x="20" y="238" width="4" height="64" rx="2" fill="#d97706"/>
+  <text x="34" y="262" fill="#92400e" font-size="13" font-weight="bold">正负相抵现场（近 8 万个 LAMBADA 词位置实测）：</text>
+  <text x="34" y="285" fill="#374151" font-size="11.5">正相关的「表皮真转弯」与负相关的「向心折角」混加在一起，只剩 0.25% 至 1.16% 肉末</text>
+</svg>
