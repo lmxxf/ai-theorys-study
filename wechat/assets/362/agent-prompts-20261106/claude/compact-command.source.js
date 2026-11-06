@@ -1,0 +1,1 @@
+r G_o={type:"local",name:"compact",description:"Free up context by summarizing the conversation so far",isEnabled:()=>!Le(process.env.DISABLE_COMPACT),supportsNonInteractive:!0,argumentHint:"<optional custom summarization instructions>",thinClientDispatch:"post-text",load:()=>import("/$bunfs/root/chunk-8vpkewhx.js")},$yt=G_o;function nLt(){let e=new Map;return{bind:(n,r,s)=>{e.se

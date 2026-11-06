@@ -1,0 +1,218 @@
+{
+  "product": "Claude Code",
+  "version": "2.1.311",
+  "binary": "/home/lmxxf/.local/share/claude/versions/2.1.311",
+  "binary_sha256": "86dc1fcc69498159eaf15f446613e847010f9036bfbbdffd4c49350be8489ada",
+  "binary_size": 293776752,
+  "offset_units": "zero-based bytes in installed binary; ends exclusive",
+  "ranges": [
+    {
+      "file": "compact-builders.source.js",
+      "source": "/home/lmxxf/.local/share/claude/versions/2.1.311",
+      "offset": 250532787,
+      "offset_hex": "0xeeed3b3",
+      "end_exclusive": 250550147,
+      "length": 17360,
+      "sha256": "3c5cfc6febf7e341a7f153f1375656fc70522538c384ea0c621fb49d7eff1288"
+    },
+    {
+      "file": "sdk-legacy.source.js",
+      "source": "/home/lmxxf/.local/share/claude/versions/2.1.311",
+      "offset": 243772566,
+      "offset_hex": "0xe87ac96",
+      "end_exclusive": 243773899,
+      "length": 1333,
+      "sha256": "4a5ea836001f65d028a44083044a8060749da84bf1e1670e3a2400f93b05fe27"
+    },
+    {
+      "file": "new-init.source.js",
+      "source": "/home/lmxxf/.local/share/claude/versions/2.1.311",
+      "offset": 250148103,
+      "offset_hex": "0xee8f507",
+      "end_exclusive": 250170000,
+      "length": 21897,
+      "sha256": "116c5ff1fe640eb4d6c815b5f31f9326b04551747073e98c6ebff45674f5e4da"
+    },
+    {
+      "file": "compact-command.source.js",
+      "source": "/home/lmxxf/.local/share/claude/versions/2.1.311",
+      "offset": 249244248,
+      "offset_hex": "0xedb2a58",
+      "end_exclusive": 249244630,
+      "length": 382,
+      "sha256": "3acf31f96404043784fa22724e05aa40185fc7101a57e5945a52a5cd30f2190a"
+    },
+    {
+      "file": "compact-selection.source.js",
+      "source": "/home/lmxxf/.local/share/claude/versions/2.1.311",
+      "offset": 250553383,
+      "offset_hex": "0xeef2427",
+      "end_exclusive": 250554900,
+      "length": 1517,
+      "sha256": "4e2e9073d6e3310b36959763d9e6a6192536d5ec8f25d196b6b9a214e76f21ea"
+    },
+    {
+      "file": "threshold.source.js",
+      "source": "/home/lmxxf/.local/share/claude/versions/2.1.311",
+      "offset": 249994624,
+      "offset_hex": "0xee69d80",
+      "end_exclusive": 250003000,
+      "length": 8376,
+      "sha256": "e3c81255169c2e7d74282fc4509874786c6d36ac363e59165964a7cda930f813"
+    },
+    {
+      "file": "compact-execution.source.js",
+      "source": "/home/lmxxf/.local/share/claude/versions/2.1.311",
+      "offset": 250843000,
+      "offset_hex": "0xef38f78",
+      "end_exclusive": 250860000,
+      "length": 17000,
+      "sha256": "ea3395c20d73eb665d4277b2d1053bc7c1206b590eb2b575ae7dc6b37094cb09"
+    },
+    {
+      "file": "restore-wrapper.source.js",
+      "source": "/home/lmxxf/.local/share/claude/versions/2.1.311",
+      "offset": 250550287,
+      "offset_hex": "0xeef180f",
+      "end_exclusive": 250553000,
+      "length": 2713,
+      "sha256": "a538acda4949f324c1bcbb97c64ffa312752522b0c5a0b4f64311fe2edccaf3b"
+    },
+    {
+      "file": "auto-failure.source.js",
+      "source": "/home/lmxxf/.local/share/claude/versions/2.1.311",
+      "offset": 250871867,
+      "offset_hex": "0xef4003b",
+      "end_exclusive": 250876000,
+      "length": 4133,
+      "sha256": "a8b9efbcf1f32821e40d481e21c6148c7cd50acb722049d9eadf3b2041f8072e"
+    },
+    {
+      "file": "compact-settings.source.js",
+      "source": "/home/lmxxf/.local/share/claude/versions/2.1.311",
+      "offset": 248135000,
+      "offset_hex": "0xeca3d58",
+      "end_exclusive": 248136000,
+      "length": 1000,
+      "sha256": "0b10b614fbc638b79b6c034469f62786880613f40719d9c31bf9b5a8ae20f2e4"
+    }
+  ],
+  "anchors": {
+    "function NJ(": {
+      "offset": 250549998,
+      "hex": "0xeef16ee"
+    },
+    "function Uen(": {
+      "offset": 250549856,
+      "hex": "0xeef1660"
+    },
+    "function HJ(": {
+      "offset": 250553531,
+      "hex": "0xeef24bb"
+    },
+    "function G3e(": {
+      "offset": 250855717,
+      "hex": "0xef3c125"
+    },
+    "function Con(": {
+      "offset": 250855915,
+      "hex": "0xef3c1eb"
+    },
+    "function iQ(": {
+      "offset": 249994624,
+      "hex": "0xee69d80"
+    },
+    "function US(": {
+      "offset": 249997688,
+      "hex": "0xee6a978"
+    },
+    "function UQ(": {
+      "offset": 250000828,
+      "hex": "0xee6b5bc"
+    },
+    "name:\"compact\"": {
+      "offset": 249244268,
+      "hex": "0xedb2a6c"
+    },
+    "name:\"autocompact\"": {
+      "offset": 250140715,
+      "hex": "0xee8d82b"
+    },
+    "name:\"skills\"": {
+      "offset": 250183586,
+      "hex": "0xee97fa2"
+    },
+    "name:\"learn\"": {
+      "offset": -1,
+      "hex": null
+    },
+    "## Phase 6: Suggest and create skills": {
+      "offset": 250163107,
+      "hex": "0xee92fa3"
+    },
+    "skill-creator@claude-plugins-official": {
+      "offset": 250169613,
+      "hex": "0xee9490d"
+    },
+    "This session is being continued from a previous conversation": {
+      "offset": 243651860,
+      "hex": "0xe85d514"
+    }
+  },
+  "plugin_source": "/home/lmxxf/.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator",
+  "plugin_is_separate_from_binary": true,
+  "files": {
+    "compact-variants.zh.md": "395dabaafdf7e4b6c3ba41918284ba2064255b86ace8e9d72d8a4a4b3a7d8b1b",
+    "compact-command.source.js": "3acf31f96404043784fa22724e05aa40185fc7101a57e5945a52a5cd30f2190a",
+    "compact-short.txt": "3a39e291107eba8193396d676bd7937c998ccdb08d4f139b812e2756c1d81fec",
+    "extract.py": "9d52b7694326fde68b2f336d0f74c10ffca75432f4a87d1576d51d8938dc2d72",
+    "compact-control.txt": "63e2bfb4ded280d5057a66d8a034ef352a73960d97d955b990e78f04f0db1fb0",
+    "compact-no_scratchpad.txt": "bb8cc7be494a07f49f4bee68eb71d71a0814a67faf0f1eafb76e832bf0bd1960",
+    "compact-no_scratchpad_capped.txt": "25722d036789f3d41a28d1e97961a7cb9991c48ab53caf3278f87c1e25e44c4b",
+    "sdk-legacy.txt": "b277261f2c3e47f803e2fecbc08ac2caf102e37aa5e3926041f7563c30380b94",
+    "compact-no_scratchpad_keep_asks.txt": "0ff2edcf71034b7f3c45fbb9a9d8ce0d51c04c28034068d97363ed97b8dc0254",
+    "threshold.source.js": "e3c81255169c2e7d74282fc4509874786c6d36ac363e59165964a7cda930f813",
+    "compact-selection.source.js": "4e2e9073d6e3310b36959763d9e6a6192536d5ec8f25d196b6b9a214e76f21ea",
+    "compact-settings.source.js": "0b10b614fbc638b79b6c034469f62786880613f40719d9c31bf9b5a8ae20f2e4",
+    "restore-wrapper.source.js": "a538acda4949f324c1bcbb97c64ffa312752522b0c5a0b4f64311fe2edccaf3b",
+    "anti_spoof.txt": "857ac34d384c6791dd7ca729de6bee4202d1a1223f829d02190dbbb124520dc9",
+    "new-init-skill.zh.txt": "b041bd595f5e6d6dbb9556777fac88e6e63528750b8b4559c5834b5debc7d78a",
+    "partial_from.txt": "60a9bf190c7f46dd0257d0680254d0c251a60553ac4631167008d5f7078d0f6e",
+    "compact-builders.source.js": "3c5cfc6febf7e341a7f153f1375656fc70522538c384ea0c621fb49d7eff1288",
+    "new-init.source.js": "116c5ff1fe640eb4d6c815b5f31f9326b04551747073e98c6ebff45674f5e4da",
+    "resumeGuidance.txt": "f4623a4468dcb1bde4a7b570a322e843eaba7f2543081445a7d48d03bef06921",
+    "new-init.txt": "92679fac28098fb5d1382a422f526b83345a85d81bb33dec68c4dc1c2fe9090c",
+    "security.txt": "1bcd53b11c7eb38990e4388f36b16d936953f3e0e4892d8b8b8d71c717bcfcf3",
+    "partial_up_to.txt": "258757adb30cf8999d2ddd06ff8a453a2207b11b7b780cbc7d2a363e01041621",
+    "compact-lean.txt": "485fec950208af82841d1b5804057bcc2d94ba59e0384c3432026cb8834cf35e",
+    "sdk-legacy.source.js": "4a5ea836001f65d028a44083044a8060749da84bf1e1670e3a2400f93b05fe27",
+    "compact-capped.txt": "00f2ba349b42763c428c85c8c2c34cd459e110e7888d382c703f88214374c87a",
+    "compact-execution.source.js": "ea3395c20d73eb665d4277b2d1053bc7c1206b590eb2b575ae7dc6b37094cb09",
+    "build_document.py": "01b36f1fdf85bcecd21ce722428c6f18cf4646ce7b93678d3f4f6396a7e699e9",
+    "compact-short_v2.txt": "0fccd83285964e488bc34b6b3c9b1a5eadd756cdbed45ae1001c143ddc65daa5",
+    "compact-control.zh.txt": "8d6f54e90ce50225395211041da4a162685167f7e2b8ebe3471ed6e5c259f984",
+    "skill-creator.zh.md": "248541ef04f236bbd1a1dbea51501ff7c39300cb882a853419534992410dbef0",
+    "auto-failure.source.js": "a8b9efbcf1f32821e40d481e21c6148c7cd50acb722049d9eadf3b2041f8072e",
+    "official-skill-creator/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "official-skill-creator/README.md": "6692d88192f72ac3b4a56d048b43f5f9751178a6b3d1716128927748a90d0924",
+    "official-skill-creator/skills/skill-creator/LICENSE.txt": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+    "official-skill-creator/skills/skill-creator/SKILL.md": "dcd4803e61e913e6fc27294184cd3a71f09f5e924ff20c8a9a20173e7b3c2bcf",
+    "official-skill-creator/skills/skill-creator/agents/grader.md": "57134da0c1a4eea33fbd74a1c9c44aa814f07d6bc64de303edb586f941e5d21a",
+    "official-skill-creator/skills/skill-creator/agents/comparator.md": "fe1fc9787c495d864c5d6eada47396478572325fde1b33a96d78bf4b849b7a3e",
+    "official-skill-creator/skills/skill-creator/agents/analyzer.md": "bf68f4cac5a56c673a928c2e6d619586c5b93ea364026ab37547772cb45a663a",
+    "official-skill-creator/skills/skill-creator/eval-viewer/viewer.html": "a53213426ee1100441d701a3a0d49cda7a842f992d2c36463f4d3cc0258575fa",
+    "official-skill-creator/skills/skill-creator/eval-viewer/generate_review.py": "fc9d1b9243fe5ab6012ebd579bd76d0035de1b79fd3b969de114defab26478fb",
+    "official-skill-creator/skills/skill-creator/assets/eval_review.html": "ce477dcc74dc1c0d1d3352646a79167b5a63634e936b1019160025065974e452",
+    "official-skill-creator/skills/skill-creator/references/schemas.md": "8e8876180a8989b406a4d3edddf875b04cdfd5805cc8616686d552b11ce4455f",
+    "official-skill-creator/skills/skill-creator/scripts/run_loop.py": "7bd6f674203168520517eec94c55f493c0d154339b061b4d7c0f0dad187d0f21",
+    "official-skill-creator/skills/skill-creator/scripts/utils.py": "3af8ae62c40c73ab712207436a0d9a981e845f25c5a7040229eb189cc8e45bb1",
+    "official-skill-creator/skills/skill-creator/scripts/quick_validate.py": "67cf5703402013936c8fb75ad6a1afecd8841d45cc5e606b634eb05825fde365",
+    "official-skill-creator/skills/skill-creator/scripts/generate_report.py": "13df7118a3c50c83c4c3250a606d5f2b20b25a3d44cbc392b3d669ec75281453",
+    "official-skill-creator/skills/skill-creator/scripts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "official-skill-creator/skills/skill-creator/scripts/run_eval.py": "43e3b8f80dbf69c343967ba77e268fae991d9fa3ed68b32a0ff02532cd48657f",
+    "official-skill-creator/skills/skill-creator/scripts/improve_description.py": "87d864570220b699fac52da309d2d6efdb060647bfebc74f768128e646accf80",
+    "official-skill-creator/skills/skill-creator/scripts/aggregate_benchmark.py": "123ef128ea5ccc01a4b1ac212ef5567f21e9c13d3d240609780beeb3200c49aa",
+    "official-skill-creator/skills/skill-creator/scripts/package_skill.py": "1a33059b0db1ef73375d46d513e5ea81369d2e8838c970597b0d52ddef8d1c0f",
+    "official-skill-creator/.claude-plugin/plugin.json": "658debd3e0bef690d15e948f0fbebb569eb172111f5e816b226537c911d75069"
+  }
+}
