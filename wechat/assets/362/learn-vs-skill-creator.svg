@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360" width="540" height="360" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131b2e"/>
+      <stop offset="100%" stop-color="#0d1322"/>
+    </linearGradient>
+    <marker id="arrCyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="540" height="360" fill="#0b0f19"/>
+
+  <rect x="16" y="16" width="508" height="328" rx="12" fill="url(#cardBg)" stroke="#10b981" stroke-width="1.8"/>
+  <text x="34" y="46" fill="#6ee7b7" font-size="16.5" font-weight="bold">「学经验」的两大流派：agy 的 /learn vs 三家同源 skill-creator</text>
+
+  <!-- Left Branch: agy /learn -->
+  <rect x="32" y="68" width="228" height="256" rx="10" fill="#0f2922" stroke="#10b981" stroke-width="1.8"/>
+  <text x="146" y="96" fill="#6ee7b7" font-size="15" font-weight="bold" text-anchor="middle">流派 A：Google agy /learn</text>
+  <text x="146" y="118" fill="#a7f3d0" font-size="12.5" text-anchor="middle">（从当前对话纠错里提炼增量）</text>
+
+  <rect x="46" y="134" width="200" height="46" rx="6" fill="#131b2e" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="146" y="154" fill="#7dd3fc" font-size="12.5" font-weight="bold" text-anchor="middle">1. 抓关键变化 (Pivotal Change)</text>
+  <text x="146" y="172" fill="#cbd5e1" font-size="11.5" text-anchor="middle">对比失败尝试 vs 成功解法</text>
+
+  <rect x="46" y="192" width="200" height="46" rx="6" fill="#131b2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="146" y="212" fill="#fde68a" font-size="12.5" font-weight="bold" text-anchor="middle">2. 分流 Rule 与 Skill + 优先改旧</text>
+  <text x="146" y="230" fill="#cbd5e1" font-size="11.5" text-anchor="middle">通用护栏进 AGENTS.md，流程进 Skill</text>
+
+  <rect x="46" y="250" width="200" height="56" rx="6" fill="#131b2e" stroke="#10b981" stroke-width="1.2"/>
+  <text x="146" y="272" fill="#6ee7b7" font-size="12.5" font-weight="bold" text-anchor="middle">3. 先交 learning_proposal.md</text>
+  <text x="146" y="292" fill="#cbd5e1" font-size="11.5" text-anchor="middle">严禁直接改配置，等人类点批准</text>
+
+  <!-- Right Branch: skill-creator -->
+  <rect x="280" y="68" width="228" height="256" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="394" y="96" fill="#38bdf8" font-size="15" font-weight="bold" text-anchor="middle">流派 B：三家 skill-creator</text>
+  <text x="394" y="118" fill="#cbd5e1" font-size="12.5" text-anchor="middle">（打包三级渐进加载的预制菜）</text>
+
+  <rect x="290" y="134" width="208" height="52" rx="6" fill="#131b2e" stroke="#64748b" stroke-width="1.2"/>
+  <text x="394" y="154" fill="#e2e8f0" font-size="11.5" font-weight="bold" text-anchor="middle">1.0 静态脚手架 (Codex / WorkBuddy)</text>
+  <text x="394" y="174" fill="#94a3b8" font-size="11.5" text-anchor="middle">同源模板 (rotate_pdf / big-query)</text>
+
+  <rect x="290" y="198" width="208" height="52" rx="6" fill="#131b2e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="394" y="218" fill="#fde68a" font-size="11.5" font-weight="bold" text-anchor="middle">2.0 评测进化版 (Claude 官方插件)</text>
+  <text x="394" y="238" fill="#cbd5e1" font-size="11.5" text-anchor="middle">并行跑 With-Skill vs Baseline 对照</text>
+
+  <rect x="290" y="262" width="208" height="44" rx="6" fill="#1f1218" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="394" y="282" fill="#fca5a5" font-size="11.5" font-weight="bold" text-anchor="middle">Pushy 描述 + 6:4 训练测试集刷分</text>
+  <text x="394" y="298" fill="#fda4af" font-size="11.5" text-anchor="middle">专治 Claude「有技能却懒得调」</text>
+</svg>

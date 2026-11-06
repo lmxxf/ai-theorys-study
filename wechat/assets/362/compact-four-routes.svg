@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 380" width="540" height="380" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131b2e"/>
+      <stop offset="100%" stop-color="#0d1322"/>
+    </linearGradient>
+    <marker id="arrAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444"/>
+    </marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="540" height="380" fill="#0b0f19"/>
+
+  <rect x="16" y="16" width="508" height="348" rx="12" fill="url(#cardBg)" stroke="#38bdf8" stroke-width="1.8"/>
+  <text x="34" y="46" fill="#38bdf8" font-size="16.5" font-weight="bold">四家 /compact 压缩路线：谁在直接总结，谁在先拿剪刀剪？</text>
+
+  <!-- Row 1: agy & Claude -->
+  <rect x="32" y="66" width="476" height="76" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="48" y="92" fill="#fde68a" font-size="14.5" font-weight="bold">① 详尽工单派：Google agy (7节) &amp; Claude control (9节)</text>
+  <text x="48" y="114" fill="#cbd5e1" font-size="12.5">完整历史 → 单次无工具 LLM 总结 → 枚举代码/报错/全部用户消息</text>
+  <text x="48" y="132" fill="#fda4af" font-size="12">隐患：agy 要求穷举具体报错原文；Claude 特加「禁把伪 user: 算用户」补丁</text>
+
+  <!-- Row 2: OpenAI Codex -->
+  <rect x="32" y="156" width="476" height="76" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="48" y="182" fill="#6ee7b7" font-size="14.5" font-weight="bold">② 极简与远端派：OpenAI Codex (0.166.0) &amp; Claude lean 臂</text>
+  <text x="48" y="204" fill="#cbd5e1" font-size="12.5">Codex 本地仅 9 行 (426B) / 远端保留 AGENTS.md + 加密 compaction 块</text>
+  <text x="48" y="222" fill="#a7f3d0" font-size="12">Claude lean 臂：细节只留文件/日志指针，自动重读最近 5 个文件</text>
+
+  <!-- Row 3: Tencent WorkBuddy -->
+  <rect x="32" y="246" width="476" height="100" rx="8" fill="#1f1218" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="48" y="272" fill="#fca5a5" font-size="14.5" font-weight="bold">③ 先剪刀后催眠派：腾讯 WorkBuddyAI (5.9.4 消息前路径)</text>
+  <text x="48" y="294" fill="#e2e8f0" font-size="12.5">Step 1 (确定性删减)：删掉工具输出/思考/代码内容 → 换 &lt;omitted /&gt;</text>
+  <text x="48" y="314" fill="#fde047" font-size="12.5">Step 2 (15% 闸门)：若 ≤ 预算 15% 直接交卷 (0 LLM)；否则调 LLM 二压</text>
+  <text x="48" y="334" fill="#fda4af" font-size="12" font-weight="bold">乌龙：二压模板写死「All tasks described below are already completed」</text>
+</svg>
