@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 370" width="560" height="370" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <rect x="0" y="0" width="560" height="370" fill="#ffffff"/>
+
+  <text x="20" y="34" fill="#111827" font-size="16.5" font-weight="bold">告别纯软件之后的真实处境：两堵墙、一座主航道与一口口吃饭</text>
+  <line x1="20" y1="46" x2="540" y2="46" stroke="#e5e7eb" stroke-width="1.5"/>
+
+  <!-- Item 1 -->
+  <rect x="20" y="60" width="520" height="68" rx="6" fill="#f8fafc"/>
+  <rect x="20" y="60" width="4" height="68" rx="2" fill="#64748b"/>
+  <text x="36" y="82" fill="#111827" font-size="14" font-weight="bold">1. 物理 / 生物制药（AI for Science）：隔行如隔山，不知从哪开始</text>
+  <text x="36" y="102" fill="#374151" font-size="12">能看穿评测题底层是 Python 字符串切分与调包，但脑子里没有学科底图，</text>
+  <text x="36" y="119" fill="#475569" font-size="12">不知道什么分子结构值得算、什么物理约束是真卡点——连第一个问题都问不出</text>
+
+  <!-- Item 2 -->
+  <rect x="20" y="138" width="520" height="68" rx="6" fill="#fffbeb"/>
+  <rect x="20" y="138" width="4" height="68" rx="2" fill="#d97706"/>
+  <text x="36" y="160" fill="#111827" font-size="14" font-weight="bold">2. 机器人（具身智能）：前范式大雾期，技术路线晦暗不明</text>
+  <text x="36" y="180" fill="#374151" font-size="12">VLA、世界模型、传统控制 RL 混战，构型与数据标准未定；满地分叉野路子，</text>
+  <text x="36" y="197" fill="#b45309" font-size="12">90% 分支过两年可能作废，站在大雾里很难判断学哪块才算不白费力气的投入</text>
+
+  <!-- Item 3 -->
+  <rect x="20" y="216" width="520" height="62" rx="6" fill="#f0fdf4"/>
+  <rect x="20" y="216" width="4" height="62" rx="2" fill="#059669"/>
+  <text x="36" y="238" fill="#111827" font-size="14" font-weight="bold">3. 对比大语言模型（LLM）：主航道已收敛，每一块砖都砌在同一座楼上</text>
+  <text x="36" y="259" fill="#065f46" font-size="12">自回归 Transformer 骨架已定，今天搞懂的点积、正交投影、MLA、流形曲率全能攒下</text>
+
+  <!-- Item 4 -->
+  <rect x="20" y="288" width="520" height="68" rx="6" fill="#eff6ff"/>
+  <rect x="20" y="288" width="4" height="68" rx="2" fill="#2563eb"/>
+  <text x="36" y="310" fill="#1e3a8a" font-size="14" font-weight="bold">4. 夹缝期最踏实的活法：饭要一口口吃，带着 AI 直接啃各领域杰出论文</text>
+  <text x="36" y="331" fill="#1e40af" font-size="12">科普级认知也得一点点学；今天不必死磕二手教材，直接拿杰出论文让 AI 掰开讲透</text>
+  <text x="36" y="348" fill="#1d4ed8" font-size="12" font-weight="bold">细节与黑话，对可疑结论当场让 AI 写代码跑实验验真伪——攒下拿不走的坐标</text>
+</svg>

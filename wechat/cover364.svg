@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="0.55" stop-color="#111827"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="amberGlow" cx="0.22" cy="0.48" r="0.38">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#0b1120" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cyanGlow" cx="0.78" cy="0.52" r="0.42">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="500" fill="url(#bgGrad)"/>
+  <rect x="0" y="0" width="900" height="500" fill="url(#amberGlow)"/>
+  <rect x="0" y="0" width="900" height="500" fill="url(#cyanGlow)"/>
+
+  <!-- Subtle background grid -->
+  <g stroke="#1e293b" stroke-width="0.7" opacity="0.55">
+    <line x1="0" y1="95" x2="900" y2="95"/>
+    <line x1="0" y1="190" x2="900" y2="190"/>
+    <line x1="0" y1="285" x2="900" y2="285"/>
+    <line x1="0" y1="380" x2="900" y2="380"/>
+    <line x1="180" y1="0" x2="180" y2="500"/>
+    <line x1="360" y1="0" x2="360" y2="500"/>
+    <line x1="540" y1="0" x2="540" y2="500"/>
+    <line x1="720" y1="0" x2="720" y2="500"/>
+  </g>
+
+  <!-- Header -->
+  <text x="450" y="46" fill="#f8fafc" font-size="25" font-weight="bold" text-anchor="middle">使用 AI，相当程度是和旧技能的告别</text>
+  <text x="450" y="76" fill="#94a3b8" font-size="14.5" text-anchor="middle">当「写个软件」的执念被一次性脚本消解，跨界高墙与路线大雾前该如何一口口吃饭？</text>
+
+  <!-- Left Zone: Fading Old Paradigm (Software & CRUD Cage) -->
+  <g transform="translate(42, 108)">
+    <rect x="0" y="0" width="350" height="310" rx="14" fill="#171923" stroke="#78350f" stroke-width="1.8" stroke-dasharray="6 4"/>
+    <text x="175" y="34" fill="#fbbf24" font-size="17" font-weight="bold" text-anchor="middle">正在退场的旧手艺与旧执念</text>
+    <text x="175" y="56" fill="#9ca3af" font-size="12.5" text-anchor="middle">以程序员旧能力思考 AI · 困在屏幕前的想象力</text>
+
+    <!-- Terminal Quota Meter -->
+    <rect x="24" y="74" width="302" height="58" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+    <text x="38" y="96" fill="#e2e8f0" font-size="12.5" font-weight="bold">$200 订阅周额度还剩 60% · 脑子一片空白</text>
+    <rect x="38" y="106" width="274" height="12" rx="6" fill="#1e293b"/>
+    <rect x="38" y="106" width="164" height="12" rx="6" fill="#f59e0b"/>
+    <text x="212" y="116" fill="#fde68a" font-size="10.5" font-weight="bold">60% Remaining</text>
+
+    <!-- Old/New Three Apps -->
+    <rect x="24" y="146" width="302" height="70" rx="8" fill="#1c1917" stroke="#57534e" stroke-width="1.2"/>
+    <text x="38" y="168" fill="#fcd34d" font-size="13" font-weight="bold">独立开发「老三样」→「新三样」</text>
+    <text x="38" y="188" fill="#d6d3d1" font-size="12">番茄钟 / 记账本 / 笔记  →  套壳聊天 / PDF总结 / 翻译</text>
+    <text x="38" y="206" fill="#a8a29e" font-size="11.5">只敢捏「表结构闭眼能建出来」的 CRUD 软柿子</text>
+
+    <!-- Agent Bureaucracy -->
+    <rect x="24" y="228" width="302" height="66" rx="8" fill="#1f1218" stroke="#881337" stroke-width="1.2"/>
+    <text x="38" y="250" fill="#fda4af" font-size="13" font-weight="bold">Agent 壳子里的旧官僚病</text>
+    <text x="38" y="270" fill="#fecdd3" font-size="12">7节/9节死板工单 · 齐活林/许清楚/寇豆码纸帽子传话</text>
+    <text x="38" y="286" fill="#f43f5e" font-size="11.5">传统「按钮软件」正被 AI 一次性脚本跑完即扔消解</text>
+  </g>
+
+  <!-- Center Bridge Arrow -->
+  <line x1="402" y1="263" x2="466" y2="263" stroke="#38bdf8" stroke-width="3.5" marker-end="url(#arrowCyan)"/>
+  <text x="434" y="248" fill="#7dd3fc" font-size="12" font-weight="bold" text-anchor="middle">放下执念</text>
+  <text x="434" y="286" fill="#94a3b8" font-size="11.5" text-anchor="middle">换一把刀</text>
+
+  <!-- Right Zone: The Real Mountains, Fog & Spoon-by-Spoon Learning -->
+  <g transform="translate(478, 108)">
+    <rect x="0" y="0" width="380" height="310" rx="14" fill="#0f172a" stroke="#0284c7" stroke-width="2"/>
+    <text x="190" y="34" fill="#38bdf8" font-size="17" font-weight="bold" text-anchor="middle">走出纯软件后的高墙、大雾与破局</text>
+    <text x="190" y="56" fill="#94a3b8" font-size="12.5" text-anchor="middle">拒绝「一人颠覆百业」爽文 · 饭要一口一口吃</text>
+
+    <!-- Two Obstacles: Mountain & Fog -->
+    <rect x="22" y="74" width="162" height="86" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.2"/>
+    <text x="103" y="96" fill="#f8fafc" font-size="13" font-weight="bold" text-anchor="middle">物理 / 生物制药</text>
+    <text x="103" y="116" fill="#cbd5e1" font-size="11.5" text-anchor="middle">隔行如隔山的真门槛</text>
+    <text x="103" y="134" fill="#94a3b8" font-size="11" text-anchor="middle">缺学科底图，不知道</text>
+    <text x="103" y="150" fill="#94a3b8" font-size="11" text-anchor="middle">第一个问题该问什么</text>
+
+    <rect x="196" y="74" width="162" height="86" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.2"/>
+    <text x="277" y="96" fill="#fde68a" font-size="13" font-weight="bold" text-anchor="middle">机器人（具身智能）</text>
+    <text x="277" y="116" fill="#cbd5e1" font-size="11.5" text-anchor="middle">技术路线晦暗不明</text>
+    <text x="277" y="134" fill="#94a3b8" font-size="11" text-anchor="middle">VLA / 世界模型 / RL 混战</text>
+    <text x="277" y="150" fill="#94a3b8" font-size="11" text-anchor="middle">大雾里难辨哪块是真地基</text>
+
+    <!-- Solid Path: Eat Paper by Paper with AI -->
+    <rect x="22" y="174" width="336" height="120" rx="10" fill="#0c242c" stroke="#10b981" stroke-width="1.8"/>
+    <text x="190" y="198" fill="#6ee7b7" font-size="14.5" font-weight="bold" text-anchor="middle">最朴素的活法：带着 AI 一口口吃透杰出论文</text>
+    <text x="38" y="222" fill="#d1fae5" font-size="12">• 科普级认知也得一点点学，但今天不必死磕二手教材</text>
+    <text x="38" y="244" fill="#d1fae5" font-size="12">• 直接啃各领域杰出原版论文：黑话与公式交 AI 掰开讲透</text>
+    <text x="38" y="266" fill="#d1fae5" font-size="12">• 结论可疑当场让 AI 写代码跑实验（如改权重 / 球面曲率）</text>
+    <text x="190" y="285" fill="#34d399" font-size="11.5" font-weight="bold" text-anchor="middle">一顿饭一口菜 · 等大雾散开时手里自然有刀</text>
+  </g>
+
+  <!-- Footer Banner -->
+  <text x="450" y="458" fill="#e2e8f0" font-size="14" font-weight="bold" text-anchor="middle">告别旧技能之后没有一步登天的神迹，只有带着 AI 这把新刀，一篇论文一个实验地往前拱</text>
+  <text x="450" y="482" fill="#64748b" font-size="12" text-anchor="middle">No.364 · 周末杂谈 · 靳岩岩的 AI 学习笔记</text>
+</svg>

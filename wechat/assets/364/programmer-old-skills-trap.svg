@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 350" width="540" height="350" style="font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <rect x="0" y="0" width="540" height="350" fill="#ffffff"/>
+
+  <text x="20" y="34" fill="#111827" font-size="16.5" font-weight="bold">程序员用 AI 为什么反而缺想象力？——被旧手艺锁死的两处现场</text>
+  <line x1="20" y1="46" x2="520" y2="46" stroke="#e5e7eb" stroke-width="1.5"/>
+
+  <!-- Box 1: Agent Shell -->
+  <rect x="20" y="60" width="500" height="122" rx="6" fill="#fef2f2"/>
+  <rect x="20" y="60" width="4" height="122" rx="2" fill="#dc2626"/>
+  <text x="36" y="84" fill="#111827" font-size="14.5" font-weight="bold">1. 做 Agent 壳子：拿旧时代的「确定性死规矩」捆绑高维模型</text>
+  <text x="36" y="106" fill="#374151" font-size="12.5">• 死板工单压缩：用 7 节 / 9 节固定表单强迫模型穷举报错原文，把死胡同置顶</text>
+  <text x="36" y="128" fill="#374151" font-size="12.5">• 纸帽子外包团：给同一个模型套上「齐活林 / 许清楚 / 高见远 / 寇豆码 / 严过关」</text>
+  <text x="36" y="149" fill="#374151" font-size="12.5">  禁止角色直连，全靠包工头在中间复制粘贴当二传手（消耗双倍 Token）</text>
+  <text x="36" y="170" fill="#b91c1c" font-size="12" font-weight="bold">病根：习惯了写 if-else 与状态机，把本就聪明的高维模型当成死物来管</text>
+
+  <!-- Box 2: Indie App -->
+  <rect x="20" y="196" width="500" height="138" rx="6" fill="#fffbeb"/>
+  <rect x="20" y="196" width="4" height="138" rx="2" fill="#d97706"/>
+  <text x="36" y="220" fill="#111827" font-size="14.5" font-weight="bold">2. 自己做独立产品：永远绕不出「电脑前管自己」的新老三样</text>
+  <text x="36" y="242" fill="#374151" font-size="12.5">• 移动互联网老三样：番茄时钟 / 待办清单（Todo）、个人记账本、习惯打卡笔记</text>
+  <text x="36" y="264" fill="#374151" font-size="12.5">• 大模型时代新三样：套壳聊天框、PDF 文档总结器、划词翻译小插件</text>
+  <text x="36" y="286" fill="#374151" font-size="12.5">• 至于把固定流程做成按钮菜单的传统「软件」，正被 AI 一次性脚本跑完即扔消解</text>
+  <text x="36" y="308" fill="#b45309" font-size="12" font-weight="bold">病根：生活半径困在屏幕前，潜意识只敢挑「表结构闭着眼能建出来」的 CRUD 做</text>
+  <text x="36" y="325" fill="#92400e" font-size="11.5">最难告别的执念：觉得「必须写一个叫软件的东西出来，才算干了正事」</text>
+</svg>
