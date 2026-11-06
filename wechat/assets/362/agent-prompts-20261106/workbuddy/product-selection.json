@@ -1,0 +1,643 @@
+{
+  "commit": "fa0a0901906addaa1a4259f6df347388a5563ded",
+  "date": "2026-10-29T15:46:44.029Z",
+  "genieVersion": "5.9.4",
+  "tokenUsageThresholds": {
+    "compact": {
+      "emergency": 0.4,
+      "modelOverrides": {
+        "deepseek": 0.5
+      }
+    },
+    "summary": {
+      "emergency": 0.15
+    },
+    "request": {
+      "emergency": 0.9
+    },
+    "inputTokens": {
+      "warning": 0.6,
+      "critical": 0.7,
+      "emergency": 0.9,
+      "preMessage": 0.5
+    }
+  },
+  "productFeatures": {
+    "GenerateCommitMessage": true,
+    "InlineCompletions": true,
+    "InlineChat": true,
+    "CursorPositonPrefetching": true,
+    "CompletionsPrefetching": true,
+    "CompletionsResultFusion": true,
+    "MultiFileWithPromptParam": true,
+    "MultiFileWithSeparateParams": false,
+    "CRLFCompatible": true,
+    "TrimByIndentation": true,
+    "MultiStepCompletions": false,
+    "RemoveBelowExist": true,
+    "CompletionsRelatedSnippets": true,
+    "StatusBar": true,
+    "CodeAction": true,
+    "FloatShortcut": true,
+    "CodeLens": true,
+    "UseDefaultModelIfCurrentNotInList": false,
+    "Mcp": true,
+    "McpMarket": true,
+    "MemoryManagement": true,
+    "McpInstallationGuide": true,
+    "SelectImage": true,
+    "Aegis": false,
+    "ProposalAPI": false,
+    "NESNativeRenderer": false,
+    "SwitchBySession": true,
+    "AutoMode": true,
+    "Billing": true,
+    "InternationalLogin": true,
+    "NesCompletions": true,
+    "NesDocumentActiveChangeTrigger": false,
+    "NesCompletionsPrefetching": true,
+    "NESPrefetchingAfterEmptyCompletion": true,
+    "TriggerNESAfterCompletionHasBeenAccepted": true,
+    "NesRepeatFilter": false,
+    "NesRepeatFilterV2": true,
+    "NesRangeFix": false,
+    "NesCompletionsJumpToHere": true,
+    "ImportMetadataForCompletions": true,
+    "CBChatUI": true,
+    "CompletionItemsForCompletions": true,
+    "WebFetch": true,
+    "SummaryWebFetch": true,
+    "WebSearch": true,
+    "DynamicAddWebSearch": true,
+    "Task": true,
+    "EnhancedCompletionRequest": false,
+    "ReportAfterCancel": false,
+    "RequestBodyGzip": true,
+    "StandaloneTerminal": true,
+    "Skills": true,
+    "SkillSecurityScan": true,
+    "SelectComponent": true,
+    "UIComponentLibrary": true,
+    "CustomModelsJSON": true,
+    "ImageGen": true,
+    "FileDiffHistory": false,
+    "Inspiration": true,
+    "Connector": true,
+    "Agents": true,
+    "BillingNotice": true,
+    "CloudAgentsSmartMerge": true,
+    "CustomModelIdPrefix": true,
+    "DeferToolLoading": true,
+    "ImageEdit": false,
+    "LibraryUpload": true,
+    "VideoGen": true,
+    "AudioTranscribe": false,
+    "ScheduledTasks": true,
+    "SkillManage": false,
+    "SkipToolCallSupportCheck": true,
+    "EnableEnterpriseCustomModelPolicy": true,
+    "EnableEnterpriseSkillUploadPolicy": true,
+    "WeixinPayInterception": true,
+    "HomePracticeCases": true,
+    "EnableClientMenuInAppNavigation": false,
+    "DefaultModelOptimizationOff": true,
+    "EnableDiagnosticsFull": false,
+    "ProjectLocalTask": true,
+    "CustomModelHideDefaultProvider": true,
+    "CustomModelProviderLabelI18nOnly": true,
+    "Claw": true,
+    "DisableCloudAssistantUpgradeBanner": true,
+    "MessageQueueDeferredDispatch": true,
+    "Sandbox": true,
+    "KnowledgeBase": true,
+    "TencentDocsKnowledge": false,
+    "TencentNetDriveKnowledge": false,
+    "TencentLexiangKnowledge": false,
+    "ImaKnowledge": false,
+    "DisableWecomBotIntegration": true,
+    "DisableWechatMiniProgramIntegration": false,
+    "DisableAutomationWechatMiniProgramPush": true,
+    "MobileConnectAppOnly": true,
+    "UserGrowth": false,
+    "DisableYuanbaoChannel": true,
+    "DisableYuanbaoSearchEntry": true,
+    "gaokaoEnabled": false,
+    "DisableMultimodalGeneration": false,
+    "SystemProxyDetection": true,
+    "DisableVoiceInput": true,
+    "DisableCreditsEntry": false,
+    "DisableShareFeature": false,
+    "DisableTeamsProject": true,
+    "HtmlPreviewShare": true,
+    "DisablePublishedApps": true,
+    "DisableArchivedTasks": false,
+    "DisableCheckin": true,
+    "DisableActivityBanner": true,
+    "DisableSlotSystem": true,
+    "DisableCreditPurchaseGuide": false,
+    "DisableMcpHub": true,
+    "DisableSkillHub": true,
+    "DisableStorageUpgradeEntry": true,
+    "DisableBuiltinPluginMarketplace": true,
+    "DisableCloudSkillSync": true,
+    "DisableCloudExpertSync": true,
+    "InternationalChangelog": true,
+    "EnablePortugueseLocale": true,
+    "EnableTraditionalChineseLocale": true,
+    "EnableIndonesianLocale": true,
+    "EnableJapaneseLocale": true,
+    "EnableKoreanLocale": true,
+    "EnableFrenchLocale": true,
+    "ChannelSlack": true,
+    "ChannelTelegram": true,
+    "ChannelDiscord": true,
+    "EnableArdot": false,
+    "ChannelWechatKf": false,
+    "PoiMap": false,
+    "DisableInspirationEntry": true,
+    "DisableHomePlaybookShuffle": true,
+    "DisableEnterpriseAgents": true,
+    "DisableMemoryPlatformV2": true,
+    "ExternalPackagePdfCli": true
+  },
+  "commands": [
+    {
+      "name": "init",
+      "description": "init is analyzing your codebase…",
+      "prompt": "init-prompt"
+    },
+    {
+      "name": "compact",
+      "description": "Clear conversation history but keep a summary in context. Optional: /compact [instructions for summarization]",
+      "prompt": "compact-prompt",
+      "tags": [
+        "compact-agent"
+      ]
+    },
+    {
+      "name": "_compact",
+      "description": "Clear conversation history but keep a summary in context. Optional: /compact [instructions for summarization]",
+      "prompt": "compact-prompt"
+    },
+    {
+      "name": "upgrade",
+      "description": "Open upgrade page in browser"
+    },
+    {
+      "name": "statusline",
+      "description": "Set up Codebuddy Code's status line UI",
+      "prompt": "command-statusline-prompt"
+    },
+    {
+      "name": "security-review",
+      "description": "Complete a security review of the pending changes on the current branch",
+      "prompt": "command-security-review-prompt",
+      "tags": [
+        "custom"
+      ],
+      "allowedTools": [
+        "Bash(git diff:*)",
+        "Bash(git status:*)",
+        "Bash(git log:*)",
+        "Bash(git show:*)",
+        "Bash(git remote show:*)",
+        "Read",
+        "LS",
+        "Agent"
+      ]
+    },
+    {
+      "name": "commit",
+      "description": "Create a git commit",
+      "prompt": "command-commit-prompt",
+      "userInvocable": false,
+      "tags": [
+        "custom"
+      ],
+      "allowedTools": [
+        "Bash(git add:*)",
+        "Bash(git status:*)",
+        "Bash(git commit:*)"
+      ]
+    },
+    {
+      "name": "commit-push-pr",
+      "description": "Commit, push, and open a PR",
+      "prompt": "command-commit-push-pr-prompt",
+      "userInvocable": false,
+      "tags": [
+        "custom"
+      ],
+      "allowedTools": [
+        "Bash(git checkout -b:*)",
+        "Bash(git checkout --branch:*)",
+        "Bash(git add:*)",
+        "Bash(git status:*)",
+        "Bash(git commit:*)",
+        "Bash(git push:*)",
+        "Bash(git branch:*)",
+        "Bash(git log:*)",
+        "Bash(git diff:*)",
+        "Bash(gh pr create:*)",
+        "Bash(gh pr edit:*)",
+        "Bash(gh pr view:*)"
+      ]
+    },
+    {
+      "name": "insights",
+      "description": "Generate AI-powered insights about your CodeBuddy Code usage patterns and activity",
+      "prompt": "command-insights-prompt"
+    }
+  ],
+  "agents": [
+    {
+      "name": "cli",
+      "instructions": "cli-agent-prompt",
+      "description": "cli agent",
+      "models": [
+        "fast-model",
+        "balanced-model",
+        "primary-model",
+        "deep-model"
+      ],
+      "modelTags": [
+        "craft"
+      ],
+      "commands": [
+        "init",
+        "compact",
+        "statusline",
+        "insights"
+      ],
+      "tools": [
+        "Agent",
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "PowerShell",
+        "Glob",
+        "Grep",
+        "EnterPlanMode",
+        "ExitPlanMode",
+        "TaskCreate",
+        "TaskGet",
+        "TaskUpdate",
+        "TaskList",
+        "WebFetch",
+        "WebSearch",
+        "TaskStop",
+        "TaskOutput",
+        "Skill",
+        "SkillManage",
+        "AskUserQuestion",
+        "AskUserForStructuredInput",
+        "StructuredOutput",
+        "ToolSearch",
+        "DeferExecuteTool",
+        "SendMessage",
+        "SendUserMessage",
+        "TeamCreate",
+        "TeamDelete",
+        "NotebookEdit",
+        "LSP",
+        "ImageGen",
+        "LibraryUpload",
+        "ImageEdit",
+        "ViewImage",
+        "VideoGen",
+        "AudioTranscribe",
+        "EnterWorktree",
+        "LeaveWorktree",
+        "CronCreate",
+        "CronDelete",
+        "CronList",
+        "DelegateTool",
+        "WeChatReply",
+        "WeComReply",
+        "PushNotification",
+        "ReportFindings",
+        "ComputerUse",
+        "ListMcpResources",
+        "ReadMcpResource",
+        "WaitForMcpServers",
+        "Workflow",
+        "Monitor",
+        "REPL",
+        "A2AGetAgentCard",
+        "A2ASendMessage",
+        "A2AGetTask",
+        "A2ACancelTask"
+      ],
+      "tags": [
+        "cli",
+        "default",
+        "model:craft"
+      ]
+    },
+    {
+      "name": "general-purpose",
+      "instructions": "cli-agent-prompt",
+      "description": "general-purpose agent",
+      "tools": [
+        "Read",
+        "ViewImage",
+        "Write",
+        "Edit",
+        "Bash",
+        "PowerShell",
+        "Glob",
+        "Grep",
+        "TaskCreate",
+        "TaskGet",
+        "TaskUpdate",
+        "TaskList",
+        "WebFetch",
+        "WebSearch",
+        "TaskStop",
+        "TaskOutput",
+        "Skill",
+        "AskUserQuestion",
+        "AskUserForStructuredInput",
+        "ToolSearch",
+        "DeferExecuteTool",
+        "StructuredOutput",
+        "SendMessage",
+        "SendUserMessage",
+        "NotebookEdit",
+        "LSP",
+        "WeChatReply",
+        "WeComReply",
+        "ComputerUse",
+        "ImageGen",
+        "ImageEdit",
+        "ListMcpResources",
+        "ReadMcpResource",
+        "WaitForMcpServers",
+        "REPL"
+      ],
+      "tags": [
+        "cli",
+        "general-purpose"
+      ]
+    },
+    {
+      "name": "compact",
+      "instructions": "compact-agent-prompt",
+      "description": "compact agent",
+      "tools": [
+        "Read",
+        "ViewImage"
+      ],
+      "commands": [
+        "_compact"
+      ],
+      "tags": [
+        "cli",
+        "compact"
+      ]
+    },
+    {
+      "name": "contextSummary",
+      "instructions": "context-summary-agent-prompt",
+      "description": "Context summary agent for conversation compaction and max-token recovery",
+      "tools": [],
+      "tags": [
+        "cli",
+        "contextSummary"
+      ]
+    },
+    {
+      "name": "contentAnalyzer",
+      "instructions": "content-analyzer-agent-instructions",
+      "description": "content analyzer agent",
+      "models": [
+        "lite"
+      ],
+      "tags": [
+        "cli",
+        "content-analyzer"
+      ],
+      "tools": []
+    },
+    {
+      "name": "terminalTitleGenerator",
+      "instructions": "terminal-title-generator-instructions",
+      "description": "Generate terminal window titles from conversation topics.",
+      "models": [
+        "builtin-lite"
+      ],
+      "tags": [
+        "cli",
+        "terminal-title-generator"
+      ],
+      "tools": []
+    },
+    {
+      "name": "promptSuggestion",
+      "instructions": "prompt-suggestion-instructions",
+      "description": "Suggest the user's next prompt after a conversation turn.",
+      "models": [
+        "lite"
+      ],
+      "tags": [
+        "cli",
+        "prompt-suggestion"
+      ],
+      "tools": []
+    },
+    {
+      "name": "memorySelector",
+      "instructions": "memory-selector-instructions",
+      "description": "Select relevant memories for the current query.",
+      "models": [
+        "lite"
+      ],
+      "tags": [
+        "cli",
+        "memory-selector"
+      ],
+      "tools": []
+    },
+    {
+      "name": "summaryGenerator",
+      "instructions": "summary-generator-instructions",
+      "description": "Generate session summaries from conversation content.",
+      "models": [
+        "lite"
+      ],
+      "tags": [
+        "cli",
+        "summary-generator"
+      ],
+      "tools": []
+    },
+    {
+      "name": "securityReviewer",
+      "instructions": "security-reviewer-instructions",
+      "description": "Review bounded security decisions without tools.",
+      "models": [
+        "lite"
+      ],
+      "tags": [
+        "cli",
+        "security-reviewer"
+      ],
+      "tools": []
+    },
+    {
+      "name": "autoModeClassifier",
+      "instructions": "auto-mode-classifier-instructions",
+      "description": "Classify auto mode tool permission risk.",
+      "models": [
+        "lite"
+      ],
+      "tags": [
+        "cli",
+        "auto-mode-classifier"
+      ],
+      "tools": []
+    },
+    {
+      "name": "viewImageDescriber",
+      "instructions": "viewimage-describer-instructions",
+      "description": "Describe an image for the ViewImage tool (non-multimodal main models).",
+      "models": [
+        "glm-5.3-flash"
+      ],
+      "tags": [
+        "cli"
+      ],
+      "tools": []
+    },
+    {
+      "name": "promptHookEvaluator",
+      "instructions": "prompt-hook-evaluator-instructions",
+      "description": "Evaluates prompt hooks using LLM to determine if conditions are met",
+      "models": [
+        "lite"
+      ],
+      "tags": [
+        "cli",
+        "prompt-hook-evaluator"
+      ],
+      "tools": []
+    },
+    {
+      "name": "insightsAnalyzer",
+      "instructions": "base-agent-instructions",
+      "description": "Analyzes user usage data facets for the /insights command",
+      "tags": [
+        "cli",
+        "insights-analyzer"
+      ],
+      "tools": []
+    },
+    {
+      "name": "agentInstructions",
+      "instructions": "agent-instructions",
+      "description": "generating agent instructions",
+      "tags": [
+        "cli",
+        "agent-instructions"
+      ],
+      "tools": []
+    },
+    {
+      "name": "statusline-setup",
+      "instructions": "agent-statusline-instructions",
+      "description": "Use this agent to configure the user's Codebuddy Code status line setting.",
+      "tools": [
+        "Read",
+        "ViewImage",
+        "Write",
+        "Edit",
+        "ToolSearch",
+        "DeferExecuteTool"
+      ],
+      "asTool": true,
+      "tags": [
+        "cli",
+        "sub-agent"
+      ]
+    },
+    {
+      "name": "Explore",
+      "instructions": "agent-explore-instructions",
+      "description": "Fast agent specialized for exploring codebases. Use this when you need to quickly find files by patterns (eg. \"src/components/**/*.tsx\"), search code for keywords (eg. \"API endpoints\"), or answer questions about the codebase (eg. \"how do API endpoints work?\"). When calling this agent, specify the desired thoroughness level: \"quick\" for basic searches, \"medium\" for moderate exploration, or \"very thorough\" for comprehensive analysis across multiple locations and naming conventions.",
+      "models": [
+        "lite"
+      ],
+      "tools": [
+        "Read",
+        "ViewImage",
+        "Bash",
+        "PowerShell",
+        "Glob",
+        "Grep",
+        "TaskCreate",
+        "TaskGet",
+        "TaskUpdate",
+        "TaskList",
+        "WebFetch",
+        "WebSearch",
+        "Skill",
+        "SendMessage",
+        "SendUserMessage",
+        "ToolSearch",
+        "DeferExecuteTool"
+      ],
+      "asTool": true,
+      "tags": [
+        "cli",
+        "sub-agent"
+      ]
+    },
+    {
+      "name": "Plan",
+      "instructions": "agent-plan-instructions",
+      "description": "Software architect agent for designing implementation plans. Use this when you need to plan the implementation strategy for a multi-step task before writing code. Returns step-by-step plans, identifies critical files, and considers architectural trade-offs. Read-only: it designs but does not modify files or exit plan mode; the caller reviews the plan and implements it.",
+      "tools": [
+        "Read",
+        "ViewImage",
+        "Bash",
+        "PowerShell",
+        "Glob",
+        "Grep",
+        "TaskCreate",
+        "TaskGet",
+        "TaskUpdate",
+        "TaskList",
+        "WebFetch",
+        "WebSearch",
+        "Skill",
+        "ToolSearch",
+        "DeferExecuteTool",
+        "TeamCreate",
+        "TeamDelete",
+        "SendMessage",
+        "SendUserMessage"
+      ],
+      "asTool": true,
+      "tags": [
+        "cli",
+        "sub-agent"
+      ]
+    },
+    {
+      "name": "enhance-prompt",
+      "instructions": "enhance-prompt-system-prompt",
+      "description": "Prompt enhancement agent for refining user input in WorkBuddy AI chat input box",
+      "tools": [],
+      "tags": [
+        "cli",
+        "sub-agent"
+      ]
+    }
+  ],
+  "disabledBuiltinSkills": [
+    "buddy-multimodal-generation",
+    "buddy-image-processing",
+    "workbuddy-smartsheet"
+  ]
+}

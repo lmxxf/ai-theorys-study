@@ -1,0 +1,24 @@
+{
+  "name": "skill-skill-creator",
+  "version": "5.9.4-wb.42593613.gfa0a0901.hd4338c001c60",
+  "description": "WorkBuddy bundled skill resource: skill-creator.",
+  "author": {
+    "name": "WorkBuddy"
+  },
+  "category": "skill",
+  "keywords": [
+    "workbuddy",
+    "builtin-skill",
+    "skill-creator"
+  ],
+  "workbuddy": {
+    "kind": "builtin-skill",
+    "legacyResourceName": "skill-creator",
+    "bundleSegments": [
+      "plugins",
+      "workbuddy-builtin",
+      "skills",
+      "skill-creator"
+    ]
+  }
+}

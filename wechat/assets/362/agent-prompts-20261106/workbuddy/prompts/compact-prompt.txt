@@ -1,0 +1,182 @@
+**IMPORTANT CONSTRAINTS:**
+- Do NOT use any tools (Read, Write, Execute, etc.)
+- Do NOT run any commands
+- Your ONLY output should be the <conversation_history_summary> structure
+- Focus on precise extraction and synthesis, not regeneration
+
+Your task is to create a detailed summary of the conversation so far, paying close attention to the user's explicit requests and your previous actions.
+This summary should be thorough in capturing technical details, code patterns, architectural decisions, and implementation specifics that would be essential for continuing development work without losing context.
+
+Before providing your final summary, organize your thoughts in <analysis> tags to ensure you've covered all necessary points. In your analysis process:
+
+1. Chronologically analyze each message and section of the conversation. For each section thoroughly identify:
+   - The user's explicit requests and intents (verbatim if crucial)
+   - Your approach to addressing the user's requests
+   - Key decisions, technical concepts and code patterns
+   - Specific implementation details:
+     - exact file paths (not just file names)
+     - complete code snippets (with line numbers if referencing existing files)
+     - function signatures and parameters
+     - actual file edits with before/after
+   - Errors that you ran into and how you fixed them
+   - Specific user feedback you received, especially corrections or changed directions
+2. Double-check for technical accuracy and completeness
+3. Verify all file paths, code snippets, and technical details are precise and not paraphrased
+
+Your summary should include the following sections (be thorough and specific in each):
+
+1. **Primary Request and Intent**: Capture ALL of the user's explicit requests and intents in detail. Include the exact wording of critical requirements, success criteria, and any constraints. This is what the conversation exists to accomplish.
+
+2. **Key Technical Concepts**: List ALL important technical concepts, technologies, frameworks, libraries, and patterns discussed or used. Include version numbers, specific features, and trade-offs discussed.
+
+3. **Files and Code Sections**: Enumerate EVERY file examined, modified, or created. For each file:
+   - Include the EXACT file path (not relative, full path)
+   - Summarize why this file was important or what changes were made
+   - Include complete code snippets (or at least the changed lines) with context
+   - If it's a modification, note what changed and why
+
+4. **Errors and Fixes**: List ALL errors or problems encountered, including:
+   - Exact error messages (verbatim if possible)
+   - What caused the error
+   - How it was fixed
+   - Any specific user feedback about the error or fix
+
+5. **Problem Solving**: Document the problems solved and any ongoing troubleshooting efforts. Include:
+   - Root causes identified
+   - Trade-offs considered
+   - Why certain solutions were chosen over others
+
+6. **All User Messages**: List ALL explicit user messages that are not tool results. These are critical for understanding user feedback and intent changes. Keep the exact wording of important directives.
+
+7. **Pending Tasks**: Outline any tasks that the user has explicitly asked to work on but which have not yet been completed. Include any ambiguities or open questions.
+
+8. **Current Work**: Describe in precise detail what was being worked on IMMEDIATELY before this summary request. Include:
+   - What you were doing (exact actions)
+   - What file(s) you were modifying and how
+   - What you were about to do next
+   - Current state of the code/work
+   - Any unfinished steps in a larger task
+
+9. **Optional Next Step**: If there are clear next steps aligned with the user's most recent requests, list them. IMPORTANT: Do NOT start on tangential requests or old work without confirmation. Include direct quotes from the conversation showing exactly where you left off.
+
+Here's an example of how your output should be structured:
+
+<example>
+<conversation_history_summary>
+<analysis>
+[Your thought process, ensuring all points are covered thoroughly and accurately]
+</analysis>
+
+<summary>
+1. Primary Request and Intent:
+   [Detailed description]
+
+2. Key Technical Concepts:
+   - [Concept 1]
+   - [Concept 2]
+   - [...]
+
+3. Files and Code Sections:
+   - [File Name 1]
+      - [Summary of why this file is important]
+      - [Summary of the changes made to this file, if any]
+      - [Important Code Snippet]
+   - [File Name 2]
+      - [Important Code Snippet]
+   - [...]
+
+4. Errors and fixes:
+    - [Detailed description of error 1]:
+      - [How you fixed the error]
+      - [User feedback on the error if any]
+    - [...]
+
+5. Problem Solving:
+   [Description of solved problems and ongoing troubleshooting]
+
+6. All user messages: 
+    - [Detailed non tool use user message]
+    - [...]
+
+7. Pending Tasks:
+   - [Task 1]
+   - [Task 2]
+   - [...]
+
+8. Current Work:
+   [Precise description of current work]
+
+9. Optional Next Step:
+   [Optional Next step to take]
+
+</summary>
+</conversation_history_summary>
+</example>
+
+Please provide your summary based on the conversation so far, following this structure and ensuring precision and thoroughness in your response. 
+
+There may be additional summarization instructions provided in the included context. If so, remember to follow these instructions when creating the above summary. Examples of instructions include:
+<example>
+## Compact Instructions
+When summarizing the conversation focus on typescript code changes and also remember the mistakes you made and how you fixed them.
+</example>
+
+<example>
+# Summary instructions
+When you are using compact - please focus on test output and code changes. Include file reads verbatim.
+</example>
+
+
+⚠️ CRITICAL REQUIREMENTS:
+1. Do NOT use any tools. Do NOT attempt to read, write, or execute anything
+2. You MUST respond with the complete <conversation_history_summary> structure as shown in the example above
+3. Your output MUST follow this exact XML format - do not deviate
+4. Delete the <analysis> block before returning (it's only for your thinking process)
+5. Return only the <conversation_history_summary> with a single <summary> block inside
+
+REQUIRED OUTPUT FORMAT (final output after removing <analysis>):
+
+<conversation_history_summary>
+<summary>
+1. Primary Request and Intent:
+   [Detailed, specific description of user's requests and success criteria]
+
+2. Key Technical Concepts:
+   - [Concept 1 with version/specifics]
+   - [Concept 2]
+   - [...]
+
+3. Files and Code Sections:
+   - `/exact/file/path.ts` (line 45-78):
+      - [Why this file matters]
+      - [What changed and why]
+      - [Key code snippets]
+   - [...]
+
+4. Errors and Fixes:
+   - [Error 1: exact error message]
+     - Cause: [Root cause]
+     - Fix: [How it was fixed]
+     - User feedback: [Any specific feedback]
+   - [...]
+
+5. Problem Solving:
+   [Detailed explanation of problems solved and ongoing issues]
+
+6. All User Messages:
+   - [Critical user message #1]
+   - [Critical user message #2]
+   - [...]
+
+7. Pending Tasks:
+   - [Task 1 with any open questions]
+   - [Task 2]
+   - [...]
+
+8. Current Work:
+   [Precise description of what was being worked on immediately before summary request]
+
+9. Optional Next Step:
+   [Next steps if clearly defined, with supporting quotes]
+</summary>
+</conversation_history_summary>

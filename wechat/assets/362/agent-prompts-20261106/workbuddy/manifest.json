@@ -1,0 +1,237 @@
+{
+  "offset_unit": "zero-based UTF-8 bytes; end exclusive",
+  "sources": {
+    "cli/product.json": {
+      "path": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/cli/product.json",
+      "size": 384615,
+      "sha256": "c6a7538c7df2e96ef1c1b6d46fb0fe5cc17d3e92e403ae778c6ff884b2b0b112"
+    },
+    "cli/dist/codebuddy-lite-wb.mjs": {
+      "path": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/cli/dist/codebuddy-lite-wb.mjs",
+      "size": 9880062,
+      "sha256": "afe2f19fa029c81cddaa384e809a415486181caee298cbfa10dc10af5c052720"
+    },
+    "node_modules/@genie/agent-harness/lib/session/compact.js": {
+      "path": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/node_modules/@genie/agent-harness/lib/session/compact.js",
+      "size": 3795,
+      "sha256": "7c51604b5aefd2f45dd1664a0f22dc100779f54d63b742c24db1678dbed1178e"
+    }
+  },
+  "prompts": [
+    {
+      "name": "compact-agent-prompt",
+      "json_pointer": "/prompts/3/template",
+      "name_offset": 51055,
+      "string_start": 51097,
+      "string_end": 51437,
+      "length_decoded_bytes": 322,
+      "sha256_decoded": "fa04a9e79ddf992c08b208b90ac67339dbcb46c890bc120451e6baae753982ea",
+      "output": "prompts/compact-agent-prompt.txt"
+    },
+    {
+      "name": "compact-prompt",
+      "json_pointer": "/prompts/4/template",
+      "name_offset": 51465,
+      "string_start": 51501,
+      "string_end": 59023,
+      "length_decoded_bytes": 7338,
+      "sha256_decoded": "1c8cc06938e7ef07ff0db0e4813f70c74e0f278cca174f2b8ec05076ddbd8635",
+      "output": "prompts/compact-prompt.txt"
+    },
+    {
+      "name": "context-summary-agent-prompt",
+      "json_pointer": "/prompts/5/template",
+      "name_offset": 59051,
+      "string_start": 59101,
+      "string_end": 59913,
+      "length_decoded_bytes": 799,
+      "sha256_decoded": "aa3f60bba580223dd19dc715fc328ed45e2d9cc54a4a135938d397e2e2062758",
+      "output": "prompts/context-summary-agent-prompt.txt"
+    },
+    {
+      "name": "context-summary-prompt",
+      "json_pointer": "/prompts/6/template",
+      "name_offset": 59941,
+      "string_start": 59985,
+      "string_end": 63838,
+      "length_decoded_bytes": 3778,
+      "sha256_decoded": "71c4b962b57cc1c875fe39449577d1a81e5d898a037dfd51528aca86daea9274",
+      "output": "prompts/context-summary-prompt.txt"
+    },
+    {
+      "name": "context-summary-max-token-prompt",
+      "json_pointer": "/prompts/7/template",
+      "name_offset": 63866,
+      "string_start": 63920,
+      "string_end": 65773,
+      "length_decoded_bytes": 1789,
+      "sha256_decoded": "7b01db9e858d3036348b7840f55928ee8a4d6f5bc1ddc48293cd8319db4ae795",
+      "output": "prompts/context-summary-max-token-prompt.txt"
+    },
+    {
+      "name": "summary-generator-instructions",
+      "json_pointer": "/prompts/27/template",
+      "name_offset": 100222,
+      "string_start": 100274,
+      "string_end": 102185,
+      "length_decoded_bytes": 1853,
+      "sha256_decoded": "c16835e98817e63407f4cda90f67f8393e0bc9adb1c480f89bd9409189e71351",
+      "output": "prompts/summary-generator-instructions.txt"
+    },
+    {
+      "name": "tool-skill-description",
+      "json_pointer": "/prompts/73/template",
+      "name_offset": 212885,
+      "string_start": 212929,
+      "string_end": 214927,
+      "length_decoded_bytes": 1910,
+      "sha256_decoded": "d8633c2ddcfd41d70015caced4515f4e963b20d4639a453965d6fa2b59fc40c7",
+      "output": "prompts/tool-skill-description.txt"
+    },
+    {
+      "name": "tool-skillmanage-description",
+      "json_pointer": "/prompts/74/template",
+      "name_offset": 214955,
+      "string_start": 215005,
+      "string_end": 216407,
+      "length_decoded_bytes": 1387,
+      "sha256_decoded": "17197cbcf2b64f6f419629038e9b2c207972fc755341a2a01bf8ee9766bb4f66",
+      "output": "prompts/tool-skillmanage-description.txt"
+    }
+  ],
+  "fragments": [
+    {
+      "name": "thresholds",
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/cli/dist/codebuddy-lite-wb.mjs",
+      "start": 7388249,
+      "end": 7389887,
+      "length": 1638,
+      "sha256": "d9db46bfd8b25ce646435891a1276d726b458caaa99f9b6f2cf393cac2f95eee",
+      "output": "thresholds.js"
+    },
+    {
+      "name": "runner-shouldCompact",
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/cli/dist/codebuddy-lite-wb.mjs",
+      "start": 7472770,
+      "end": 7476247,
+      "length": 3477,
+      "sha256": "7ee859adc2e8f766dd6982936aeee6c6ba906e6614839ef01827f52c05ec2321",
+      "output": "runner-shouldCompact.js"
+    },
+    {
+      "name": "pre-message-trigger",
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/cli/dist/codebuddy-lite-wb.mjs",
+      "start": 7894582,
+      "end": 7902881,
+      "length": 8299,
+      "sha256": "20ab0537fbddf024cfb89dcbf54c5d9968ae12a882daf7b2658495019f2741e6",
+      "output": "pre-message-trigger.js"
+    },
+    {
+      "name": "summary-router",
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/cli/dist/codebuddy-lite-wb.mjs",
+      "start": 7904022,
+      "end": 7910771,
+      "length": 6749,
+      "sha256": "3e2264e370454ea74818847fabd612c68602c2f6cda0dbad3af1aaf655220c69",
+      "output": "summary-router.js"
+    },
+    {
+      "name": "engineering-compactor",
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/cli/dist/codebuddy-lite-wb.mjs",
+      "start": 7910771,
+      "end": 7915451,
+      "length": 4680,
+      "sha256": "90a1393d5897420c1922d1a0a55e492b47c3b2ccccd00ac5ac961478c742685d",
+      "output": "engineering-compactor.js"
+    },
+    {
+      "name": "strategy-base",
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/cli/dist/codebuddy-lite-wb.mjs",
+      "start": 7915468,
+      "end": 7926237,
+      "length": 10769,
+      "sha256": "7d46a6e83f35ebbe070312f283266ea421432bb520e42d70f28b44a07d139f80",
+      "output": "strategy-base.js"
+    },
+    {
+      "name": "pre-message-strategy",
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/cli/dist/codebuddy-lite-wb.mjs",
+      "start": 7926603,
+      "end": 7932154,
+      "length": 5551,
+      "sha256": "c76d264ac1768ca7c4cbd2970089494cbc3d94580bad387f7b22d74e250ccafc",
+      "output": "pre-message-strategy.js"
+    },
+    {
+      "name": "max-token-strategy",
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/cli/dist/codebuddy-lite-wb.mjs",
+      "start": 7932518,
+      "end": 7941627,
+      "length": 9109,
+      "sha256": "86bb4bc70ac50443de0d5cf613e11ec1eac38d636a9441e4b190d36db1ad778d",
+      "output": "max-token-strategy.js"
+    },
+    {
+      "name": "blocking-strategy",
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/cli/dist/codebuddy-lite-wb.mjs",
+      "start": 7942134,
+      "end": 7950372,
+      "length": 8238,
+      "sha256": "709c9893a0850d8a496df8fa407e10c268cc0c1527a8ffffd8dc07d597bd78e7",
+      "output": "blocking-strategy.js"
+    }
+  ],
+  "skill_files": [
+    {
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/resources/plugins/workbuddy-builtin/skills/skill-creator/.codebuddy-plugin/plugin.json",
+      "offset": 0,
+      "size": 514,
+      "sha256": "974eeefeca2c2f76eaebea5227705105d3978b3abcea3d50e0923016da453bb9",
+      "output": "skill-creator/.codebuddy-plugin/plugin.json"
+    },
+    {
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/resources/plugins/workbuddy-builtin/skills/skill-creator/LICENSE.txt",
+      "offset": 0,
+      "size": 11357,
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "output": "skill-creator/LICENSE.txt"
+    },
+    {
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/resources/plugins/workbuddy-builtin/skills/skill-creator/SKILL.md",
+      "offset": 0,
+      "size": 14318,
+      "sha256": "8aa6ad52cbfca1b8700eeafb1617ae8c0a86ed8e02dc80e841021f489c2adc19",
+      "output": "skill-creator/SKILL.md"
+    },
+    {
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/resources/plugins/workbuddy-builtin/skills/skill-creator/scripts/init_skill.py",
+      "offset": 0,
+      "size": 11592,
+      "sha256": "025511f020bd9782088c0d66203c9c19f4c96e50639751d1ca05016426e9e26d",
+      "output": "skill-creator/scripts/init_skill.py"
+    },
+    {
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/resources/plugins/workbuddy-builtin/skills/skill-creator/scripts/package_skill.py",
+      "offset": 0,
+      "size": 3247,
+      "sha256": "692525dd8096aee51730ab142fb2605894a6f1a4135bcffebbf4f8ed3cf8715e",
+      "output": "skill-creator/scripts/package_skill.py"
+    },
+    {
+      "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar.unpacked/resources/plugins/workbuddy-builtin/skills/skill-creator/scripts/quick_validate.py",
+      "offset": 0,
+      "size": 2165,
+      "sha256": "41647b79d15e7e51b944d56843e9f87a33f4c66e64ded5964d1f95bad2fe634a",
+      "output": "skill-creator/scripts/quick_validate.py"
+    }
+  ],
+  "app_package": {
+    "source": "/mnt/c/Users/lmxxf/AppData/Local/Programs/WorkBuddyAI/resources/app.asar",
+    "asar_entry": "/package.json",
+    "absolute_byte_start": 132165580,
+    "size": 10158,
+    "sha256": "a672cdabc92257df0ff8bb3020a86d7d8f46a6d36a10699d7f11e2b2476ad116",
+    "version": "5.9.4"
+  }
+}

@@ -13,9 +13,8 @@
 | **[agy压缩.md](./agy压缩.md)** | **Google Antigravity CLI (`agy v1.5.1`)** 专档：7 节 `/compact` 续接模板（第 4 节穷举报错原文隐患）、内置 `/learn` 命令拼装逻辑（抓 `pivotal change`、分流 `Rule` vs `Skill`、优先改旧项、提案审批流）与 `agy-customizations` |
 | **[codex提示词.md](./codex提示词.md)** | **OpenAI Codex CLI (`codex v0.166.0`)** 专档：本地 9 行极简 `/compact` 提示词（426 字节 + `experimental_compact_prompt_file` 覆盖钩子）、远端 `remote_compaction_v2` 加密块机制、`token_budget` 记笔记切窗口机制与内置系统技能 `skill-creator` |
 
-> **补充指针（腾讯 WorkBuddyAI 全量逆向仓）**：
-> - 腾讯 `WorkBuddyAI (v5.9.4)` 的完整 20 条逆向解剖报告位于独立仓库 `/home/lmxxf/work/workbuddy-study/README.md`（其中第 19、20 节专门总结 `/compact` 的 `HistoryEngineeringCompactor` 15% 免 LLM 删减与“所有任务均已完成”二压乌龙、以及与 Codex 同源的 `skill-creator` 模板）；
-> - 其提取出的原始代码切片与提示词保存在 `/home/lmxxf/work/workbuddy-study/extracted/compact-skill-20261106/`（并在下方 `agent-prompts-20261106/` 中留有完整对照）。
+> **补充指针（腾讯 WorkBuddyAI 逆向材料）**：
+> - 腾讯 `WorkBuddyAI (v5.9.4)` 提取出的原始代码切片、三套压缩提示词与 `skill-creator` 全量保存在本目录 `agent-prompts-20261106/workbuddy/` 下（总报告可见 `agent-prompts-20261106/workbuddy/findings.md`）。
 
 ---
 
@@ -44,9 +43,15 @@
 - `token-budget-*.txt`：Token Budget 主动记笔记切窗口机制的三段提示词原件
 - `skill-creator/` & `skill-creator.zh.md`：内嵌系统技能 `skill-creator/SKILL.md`（偏移 `0xfdcbc68`）及配套 `init_skill.py`、`quick_validate.py`、`generate_openai_yaml.py`
 
+### 4. `agent-prompts-20261106/workbuddy/`（腾讯 `WorkBuddyAI` v5.9.4）
+- `manifest.json` / `extract.py` / `findings.md`：精确字节偏移、提取脚本与静态逆向总结
+- `engineering-compactor.js` / `summary-router.js` / `pre-message-strategy.js` / `max-token-strategy.js` / `blocking-strategy.js`：三级压缩路由与 15% 免 LLM 工程删减源码切片
+- `prompts/` & `compact-prompts.zh.md`：三套压缩提示词英文原件（含 `context-summary-prompt.txt`）与中译
+- `skill-creator/` & `skill-creator.zh.md`：内置 `skill-creator/SKILL.md` 及 `init_skill.py`、`package_skill.py`、`quick_validate.py`
+
 ---
 
-## 三、 第 362 期公众号正文配图（单卡片竖屏 SVG）
+## 三、 第 362 期公众号正文配图（纯白底单卡片 SVG）
 
 - `compact-four-routes.svg`：四家 `/compact` 压缩路线对比（详尽工单派 vs 极简/远端派 vs 腾讯先剪刀后催眠派）
 - `claude-fake-user-guard.svg`：Claude `/compact` 第 6 节拦截助手回合伪造 `user: ...` 机制示意

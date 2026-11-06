@@ -2932,7 +2932,7 @@ agents/grader.md：按输出评估断言；comparator.md：盲A/B比较；analyz
 
 # WorkBuddyAI 5.9.4：压缩与技能创建静态逆向（2026-11-06）
 
-这是安装包静态证据，不是一次触发真实会话的网络抓包。没有修改安装文件、更新配置或启动模型请求。可逐字复提取的脚本：[extract.py](../../../../../workbuddy-study/extracted/compact-skill-20261106/extract.py)；精确UTF-8字节偏移、长度和SHA-256：[manifest.json](../../../../../workbuddy-study/extracted/compact-skill-20261106/manifest.json)。偏移从0起算，结束位置不包含在片段内。
+这是安装包静态证据，不是一次触发真实会话的网络抓包。没有修改安装文件、更新配置或启动模型请求。可逐字复提取的脚本：[extract.py](agent-prompts-20261106/workbuddy/extract.py)；精确UTF-8字节偏移、长度和SHA-256：[manifest.json](agent-prompts-20261106/workbuddy/manifest.json)。偏移从0起算，结束位置不包含在片段内。
 
 ## 版本与证据文件
 
@@ -3041,14 +3041,14 @@ product.json SHA-256：`c6a7538c7df2e96ef1c1b6d46fb0fe5cc17d3e92e403ae778c6ff884
 
 |模板|product.json字节区间|解码后字节数|原件|
 |---|---|---:|---|
-|compact-agent-prompt|[51097, 51437)|322|[原文](../../../../../workbuddy-study/extracted/compact-skill-20261106/prompts/compact-agent-prompt.txt)|
-|compact-prompt|[51501, 59023)|7338|[原文](../../../../../workbuddy-study/extracted/compact-skill-20261106/prompts/compact-prompt.txt)|
-|context-summary-agent-prompt|[59101, 59913)|799|[原文](../../../../../workbuddy-study/extracted/compact-skill-20261106/prompts/context-summary-agent-prompt.txt)|
-|context-summary-prompt|[59985, 63838)|3778|[原文](../../../../../workbuddy-study/extracted/compact-skill-20261106/prompts/context-summary-prompt.txt)|
-|context-summary-max-token-prompt|[63920, 65773)|1789|[原文](../../../../../workbuddy-study/extracted/compact-skill-20261106/prompts/context-summary-max-token-prompt.txt)|
-|summary-generator-instructions|[100274, 102185)|1853|[原文](../../../../../workbuddy-study/extracted/compact-skill-20261106/prompts/summary-generator-instructions.txt)|
-|tool-skill-description|[212929, 214927)|1910|[原文](../../../../../workbuddy-study/extracted/compact-skill-20261106/prompts/tool-skill-description.txt)|
-|tool-skillmanage-description|[215005, 216407)|1387|[原文](../../../../../workbuddy-study/extracted/compact-skill-20261106/prompts/tool-skillmanage-description.txt)|
+|compact-agent-prompt|[51097, 51437)|322|[原文](agent-prompts-20261106/workbuddy/prompts/compact-agent-prompt.txt)|
+|compact-prompt|[51501, 59023)|7338|[原文](agent-prompts-20261106/workbuddy/prompts/compact-prompt.txt)|
+|context-summary-agent-prompt|[59101, 59913)|799|[原文](agent-prompts-20261106/workbuddy/prompts/context-summary-agent-prompt.txt)|
+|context-summary-prompt|[59985, 63838)|3778|[原文](agent-prompts-20261106/workbuddy/prompts/context-summary-prompt.txt)|
+|context-summary-max-token-prompt|[63920, 65773)|1789|[原文](agent-prompts-20261106/workbuddy/prompts/context-summary-max-token-prompt.txt)|
+|summary-generator-instructions|[100274, 102185)|1853|[原文](agent-prompts-20261106/workbuddy/prompts/summary-generator-instructions.txt)|
+|tool-skill-description|[212929, 214927)|1910|[原文](agent-prompts-20261106/workbuddy/prompts/tool-skill-description.txt)|
+|tool-skillmanage-description|[215005, 216407)|1387|[原文](agent-prompts-20261106/workbuddy/prompts/tool-skillmanage-description.txt)|
 
 |代码片段|CLI字节区间|
 |---|---|
@@ -3913,7 +3913,7 @@ When the user asks to edit an existing skill that they installed from the market
 
 # Skill Creator 中文对照
 
-原文：[skill-creator/SKILL.md](../../../../../workbuddy-study/extracted/compact-skill-20261106/skill-creator/SKILL.md)。以下为说明正文中译，代码、路径、元数据键保持原样；目录树和参数示例以原文件为准。
+原文：[skill-creator/SKILL.md](agent-prompts-20261106/workbuddy/skill-creator/SKILL.md)。以下为说明正文中译，代码、路径、元数据键保持原样；目录树和参数示例以原文件为准。
 
 元数据：名称skill-creator；描述为创建有效技能的指南。当用户希望创建新技能或更新现有技能，以专门知识、工作流或工具集成扩展CodeBuddy能力时使用。许可条款见LICENSE.txt；allowed-tools字段为空；disable为false。
 

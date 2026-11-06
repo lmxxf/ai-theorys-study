@@ -1,0 +1,340 @@
+{
+  "private": true,
+  "bin": {
+    "wb": "./bin/wb"
+  },
+  "name": "@genie/workbuddy-desktop",
+  "version": "5.9.4",
+  "description": "WorkBuddy Desktop - AI Agent Desktop Application",
+  "author": {
+    "name": "Tencent Technology (Shenzhen) Company Limited",
+    "email": "workbuddy@tencent.com"
+  },
+  "homepage": "https://www.workbuddy.ai",
+  "main": "main/index.js",
+  "dependencies": {
+    "@ban-dal/os-bridge": "^1.1.2",
+    "@genie/agent-harness": "workspace:*",
+    "@larksuiteoapi/node-sdk": "^1.60.0",
+    "@lydell/node-pty": "^1.2.0-beta.14",
+    "@slack/socket-mode": "^2.0.7",
+    "@slack/web-api": "^7.0.0",
+    "@tencent-connect/qqbot-connector": "^1.1.0",
+    "@tencent/aegis-electron-sdk-v2": "^2.6.13",
+    "@tencent/tencent-docs-ai-engine": "0.2.220-wb",
+    "@tencent/wwapi-electron": "0.1.25",
+    "@wecom/aibot-node-sdk": "1.0.7",
+    "dingtalk-stream": "^2.1.5",
+    "form-data": "^4.0.0",
+    "koffi": "^2.10.1",
+    "semver": "^7.7.2",
+    "tar": "^6.2.1",
+    "undici": "^6.23.0",
+    "ws": "^8.18.0",
+    "zod": "<=3.25.67"
+  },
+  "optionalDependencies": {
+    "@lydell/node-pty-darwin-arm64": "1.2.0-beta.14",
+    "@lydell/node-pty-darwin-x64": "1.2.0-beta.14",
+    "@lydell/node-pty-linux-arm64": "1.2.0-beta.14",
+    "@lydell/node-pty-linux-x64": "1.2.0-beta.14",
+    "@lydell/node-pty-win32-arm64": "1.2.0-beta.14",
+    "@lydell/node-pty-win32-x64": "1.2.0-beta.14",
+    "@tencent/qimei-node": "1.2.2",
+    "electron-macos-notification": "github:xxxxxccc/electron-macos-notification",
+    "node-pty": "1.1.0"
+  },
+  "nx": {
+    "targets": {
+      "test": {
+        "inputs": [
+          "default",
+          "^production",
+          "testGlobals",
+          "testTools",
+          "{workspaceRoot}/packages/agent-ui/src/**/*"
+        ]
+      },
+      "compile": {
+        "executor": "nx:noop",
+        "dependsOn": [
+          "^compile"
+        ],
+        "cache": false
+      },
+      "dev-deps": {
+        "executor": "nx:noop",
+        "dependsOn": [
+          "build-cli",
+          "@genie/channel-sdk:compile",
+          "@tencent/workbuddy-iframe-sdk:compile",
+          "@genie/workbuddy-core:gen:sdk:dts",
+          "@genie/workbuddy-desktop-sdk:build:wb-bootstrap"
+        ],
+        "cache": false
+      },
+      "dev:single": {
+        "dependsOn": [
+          "dev-deps"
+        ],
+        "cache": false
+      },
+      "dev:proxy": {
+        "dependsOn": [
+          "dev-deps"
+        ],
+        "cache": false
+      },
+      "dev:teams-plan": {
+        "dependsOn": [
+          "build-cli",
+          "^compile"
+        ],
+        "cache": false
+      },
+      "dev:schedule-smartsheet": {
+        "dependsOn": [
+          "dev-deps"
+        ],
+        "cache": false
+      },
+      "dev:smartsheet": {
+        "dependsOn": [
+          "build-cli",
+          "^compile"
+        ],
+        "cache": false
+      },
+      "dev:with-ext": {
+        "dependsOn": [
+          "dev-deps",
+          "@genie/workbuddy-desktop-sdk:build:wb-bootstrap"
+        ],
+        "cache": false
+      },
+      "test:e2e": {
+        "dependsOn": [
+          "^compile"
+        ]
+      },
+      "package": {
+        "dependsOn": [
+          "^compile"
+        ]
+      },
+      "copy-cli": {
+        "command": "node scripts/copy-cli.js",
+        "options": {
+          "cwd": "apps/workbuddy-desktop"
+        },
+        "cache": true,
+        "inputs": [
+          {
+            "dependentTasksOutputFiles": "**/*",
+            "transitive": false
+          },
+          {
+            "dependentTasksOutputFiles": "**/product*.json",
+            "transitive": true
+          },
+          "{workspaceRoot}/packages/agent-cli/bin/**/*",
+          "{workspaceRoot}/packages/agent-cli/builtin/**/*",
+          "{workspaceRoot}/packages/agent-cli/vendor/**/*",
+          "{workspaceRoot}/packages/agent-cli/product*.json",
+          "{workspaceRoot}/packages/agent-cli/package.json",
+          "{workspaceRoot}/packages/runtime-admission-protocol/src/runtime-admission-contract.ts",
+          {
+            "runtime": "node scripts/ci/workspace/hash-untracked-files.mjs apps/workbuddy-desktop/build/assets/cloud-hosted/product.workbuddy.json"
+          },
+          {
+            "runtime": "git rev-parse HEAD"
+          },
+          "{projectRoot}/package.json",
+          "{workspaceRoot}/build/patches/common/**/*",
+          "{workspaceRoot}/build/patches/cli-saas/**/*",
+          "{workspaceRoot}/build/patches/workbuddy-desktop/**/*",
+          "{workspaceRoot}/build/patches/workbuddy-ai/**/*",
+          "{workspaceRoot}/build/patches/workbuddy-custom/**/*",
+          "{workspaceRoot}/build/patches/workbuddy-learn/**/*",
+          {
+            "env": "BUILD_TYPE"
+          },
+          {
+            "env": "ENTERPRISE_ID"
+          },
+          {
+            "env": "CLOUD_HOSTED_PATCH_COS_KEY"
+          },
+          {
+            "env": "CUSTOM_ENDPOINT"
+          },
+          {
+            "env": "PRODUCT"
+          },
+          {
+            "env": "WORKBUDDY_DEV_BUILD"
+          },
+          {
+            "env": "VENDOR_PLATFORM"
+          },
+          {
+            "env": "VENDOR_ARCH"
+          },
+          {
+            "env": "PLATFORM"
+          },
+          {
+            "env": "PRODUCT_PATCH"
+          },
+          {
+            "env": "SANDBOX_LOCAL_PACK_DIR"
+          },
+          {
+            "env": "SANDBOX_FILE_VERSION_MANAGEMENT_ENABLED"
+          },
+          "{projectRoot}/scripts/**/*",
+          "{workspaceRoot}/pnpm-lock.yaml",
+          {
+            "runtime": "node -p \"[process.platform, process.arch].join('-')\""
+          }
+        ],
+        "outputs": [
+          "{projectRoot}/cli"
+        ]
+      },
+      "build-wb": {
+        "command": "vite build --config vite.wb.config.ts",
+        "options": {
+          "cwd": "apps/workbuddy-desktop"
+        },
+        "dependsOn": [
+          "build-cli"
+        ],
+        "cache": false
+      },
+      "build-cli": {
+        "command": "node scripts/verify-cli-freshness.js && node scripts/apply-product-overrides.js cli/product.json",
+        "options": {
+          "cwd": "apps/workbuddy-desktop"
+        },
+        "dependsOn": [
+          "copy-cli",
+          "@genie/agent-harness:build"
+        ],
+        "cache": false
+      },
+      "build-package-deps": {
+        "executor": "nx:noop",
+        "dependsOn": [
+          "@genie/workbuddy-extensions-builtin:compile",
+          "@genie/workbuddy-desktop-sdk:build:wb-bootstrap",
+          "@genie/workbuddy-extensions:compile",
+          "build-cli",
+          "im-napi"
+        ],
+        "cache": false
+      },
+      "im-napi": {
+        "command": "pnpm exec tsx scripts/prepare-im-backend-cmd-rust.ts",
+        "options": {
+          "cwd": "apps/workbuddy-desktop"
+        },
+        "cache": true,
+        "inputs": [
+          "{workspaceRoot}/native/im-sdk-rust/**/*",
+          "!{workspaceRoot}/native/im-sdk-rust/**/target/**/*",
+          "!{workspaceRoot}/native/im-sdk-rust/dist/**/*",
+          "{projectRoot}/scripts/prepare-im-backend-cmd-rust.ts",
+          "{projectRoot}/scripts/rust-im-napi-cache-key.ts",
+          "{workspaceRoot}/scripts/ci/workspace/native-toolchain-fingerprint.mjs",
+          {
+            "externalDependencies": [
+              "tsx"
+            ]
+          },
+          {
+            "runtime": "pnpm --filter @genie/workbuddy-desktop exec tsx scripts/rust-im-napi-cache-key.ts"
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/native/im-sdk-rust/dist/napi/im-napi.node"
+        ]
+      },
+      "native-sidecar": {
+        "command": "node scripts/rebuild-native.js rebuild && node scripts/copy-qimei-dll.js",
+        "options": {
+          "cwd": "apps/workbuddy-desktop"
+        },
+        "cache": true,
+        "inputs": [
+          "{projectRoot}/package.json",
+          "{projectRoot}/scripts/rebuild-native.js",
+          "{projectRoot}/scripts/node-pty-target-package.js",
+          "{projectRoot}/scripts/copy-qimei-dll.js",
+          "{projectRoot}/native/computer-use-launcher/**/*",
+          "{projectRoot}/native/default-open-handler/**/*",
+          "{projectRoot}/native/perf-metrics/**/*",
+          "{projectRoot}/native/turing-sdk/**/*",
+          "{projectRoot}/native/wechat-copydata-decoder/**/*",
+          "{workspaceRoot}/package.json",
+          "{workspaceRoot}/pnpm-lock.yaml",
+          "{workspaceRoot}/pnpm-workspace.yaml",
+          "{workspaceRoot}/.pnpmfile.cjs",
+          "{workspaceRoot}/.npmrc",
+          "{workspaceRoot}/patches/**/*",
+          "{workspaceRoot}/scripts/ci/workspace/native-toolchain-fingerprint.mjs",
+          "{workspaceRoot}/scripts/ci/workspace/windows-vs-env.cjs",
+          "{workspaceRoot}/.ci/apps/extension/vscode/Dockerfile",
+          {
+            "externalDependencies": [
+              "electron",
+              "@tencent/qimei-node"
+            ]
+          },
+          {
+            "runtime": "node -p \"[process.versions.node, process.platform, process.arch].join('-')\""
+          },
+          {
+            "runtime": "node scripts/ci/workspace/native-toolchain-fingerprint.mjs"
+          },
+          {
+            "env": "WORKBUDDY_SKIP_NATIVE_REBUILD"
+          },
+          {
+            "env": "PLATFORM"
+          },
+          {
+            "env": "npm_config_arch"
+          },
+          {
+            "runtime": "node -p \"require('./apps/workbuddy-desktop/native/turing-sdk/sdk-variant.cjs').resolveTuringSdkVariant()\""
+          }
+        ],
+        "outputs": [
+          "{projectRoot}/.native",
+          "{projectRoot}/native/qimei",
+          "{projectRoot}/native/computer-use-launcher/build",
+          "{projectRoot}/native/perf-metrics/build",
+          "{projectRoot}/native/turing-sdk/build",
+          "{projectRoot}/native/wechat-copydata-decoder/build"
+        ]
+      },
+      "dev": {
+        "dependsOn": [
+          "dev-deps"
+        ],
+        "cache": false
+      },
+      "dev:bundle": {
+        "dependsOn": [
+          "dev-deps"
+        ],
+        "cache": false
+      },
+      "dev:bundle:rebuild": {
+        "cache": false
+      }
+    }
+  },
+  "productName": "WorkBuddy AI"
+}
