@@ -27,8 +27,8 @@
   <circle cx="139" cy="135" r="3.5" fill="#059669"/>
   <text x="141" y="124" fill="#065f46" font-size="11" font-weight="bold" text-anchor="middle">球面步长 s_geo 大 · 跨层角速度 v_layer 快</text>
 
-  <text x="32" y="186" fill="#111827" font-size="11.5">• 球面步长 s_geo = arccos(u_t · u_{t-1}) 大</text>
-  <text x="32" y="206" fill="#059669" font-size="11.5" font-weight="bold">• 单位弧长转角 κ_geo 小，顺滑直奔目标词</text>
+  <text x="32" y="186" fill="#111827" font-size="11.5">• 例：读到「床前明」猜「月」(熵 0.01 bits)</text>
+  <text x="32" y="206" fill="#059669" font-size="11.5" font-weight="bold">• 步长 70.1° 大步跨跃，单位步长曲率低至 1.47</text>
 
   <!-- Right Card: High Entropy / Slow Tiny Steps -->
   <rect x="278" y="56" width="242" height="172" rx="6" fill="#fef2f2"/>
@@ -46,8 +46,8 @@
   <circle cx="420" cy="146" r="3" fill="#dc2626"/>
   <text x="399" y="124" fill="#991b1b" font-size="11" font-weight="bold" text-anchor="middle">急刹车 (accel &lt; 0) · 步长 s_geo 急剧缩短</text>
 
-  <text x="290" y="186" fill="#111827" font-size="11.5">• 步子缩成小碎步，跨层角速度 v_layer 变慢</text>
-  <text x="290" y="206" fill="#dc2626" font-size="11.5" font-weight="bold">• 单位步长内频繁折返，真曲率 κ_geo 飙升</text>
+  <text x="290" y="186" fill="#111827" font-size="11.5">• 例：读到「首都是北京，」换话题口 (熵 7.44)</text>
+  <text x="290" y="206" fill="#dc2626" font-size="11.5" font-weight="bold">• 步长骤缩至 28.7°，单位步长曲率飙至 3.96</text>
 
   <!-- Bottom Data Summary Banner -->
   <rect x="20" y="240" width="500" height="72" rx="6" fill="#f8fafc"/>
