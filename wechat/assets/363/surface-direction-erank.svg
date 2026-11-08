@@ -1,57 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 330" width="540" height="330" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
-  <defs>
-    <marker id="arrBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb"/>
-    </marker>
-    <marker id="arrOrange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#d97706"/>
-    </marker>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 365" width="540" height="365" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect x="0" y="0" width="540" height="365" fill="#ffffff"/>
 
-  <rect x="0" y="0" width="540" height="330" fill="#ffffff"/>
-
-  <text x="20" y="32" fill="#111827" font-size="15" font-weight="bold">流形表皮上的「方向多寡」：顺口溜钟摆 vs 烧脑题多向分叉</text>
+  <text x="20" y="32" fill="#111827" font-size="15" font-weight="bold">流形表皮显微镜下的三个微观破案（0.6B / 27B / 35B 实测）</text>
   <line x1="20" y1="44" x2="520" y2="44" stroke="#e5e7eb" stroke-width="1.5"/>
 
-  <!-- Left Card: ROUTINE Pendulum -->
-  <rect x="20" y="56" width="242" height="190" rx="6" fill="#eff6ff"/>
-  <rect x="20" y="56" width="242" height="4" rx="2" fill="#2563eb"/>
-  <text x="32" y="80" fill="#1e40af" font-size="13.5" font-weight="bold">1. 顺口溜 / 周期句 (ROUTINE)</text>
-  <text x="32" y="99" fill="#374151" font-size="11.5">例：1+1=2, 2+2=4 · 星期一星期二</text>
+  <!-- Card 1: ROUTINE vs HARD -->
+  <rect x="20" y="56" width="500" height="90" rx="6" fill="#eff6ff"/>
+  <rect x="20" y="56" width="4" height="90" rx="2" fill="#2563eb"/>
+  <text x="34" y="78" fill="#1e40af" font-size="13.5" font-weight="bold">1. 顺口溜 (1+1=2) vs 烧脑逻辑题：转角大 ≠ 思考复杂，分叉方向数才准</text>
+  <text x="34" y="100" fill="#374151" font-size="11.5">• 顺口溜在固定轨道来回折返：球皮转角虽大 (111°–116°)，但 5 步切平面有效维度低 (3.60 / 3.78 / 3.84)</text>
+  <text x="34" y="120" fill="#1d4ed8" font-size="11.5" font-weight="bold">• 烧脑逻辑题向新方向铺开：3 模型 (GPT-2英 / Pythia英 / Qwen3中) 5 步有效维度全升至 3.97 / 4.16 / 4.05</text>
+  <text x="34" y="138" fill="#4b5563" font-size="11">• 近 8 万词宏观回归中，全层切平面方向有效维度单独即可解释 22.2% 至 47.9% 的预测熵起伏</text>
 
-  <!-- Visual: Pendulum swinging back and forth in 2D plane -->
-  <line x1="65" y1="142" x2="215" y2="142" stroke="#bfdbfe" stroke-width="6" stroke-linecap="round"/>
-  <path d="M 75 136 L 205 136" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrBlue)"/>
-  <path d="M 205 148 L 75 148" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrBlue)"/>
-  <text x="141" y="126" fill="#1d4ed8" font-size="11" font-weight="bold" text-anchor="middle">在固定低维轨道里大步来回折返</text>
+  <!-- Card 2: 27B Brackets Mystery Solved -->
+  <rect x="20" y="158" width="500" height="96" rx="6" fill="#f0fdf4"/>
+  <rect x="20" y="158" width="4" height="96" rx="2" fill="#059669"/>
+  <text x="34" y="180" fill="#065f46" font-size="13.5" font-weight="bold">2. 解开 361 期 Qwen3.8-27B 悬案：为什么加括号草稿（……）平直弦只小了 2.6°？</text>
+  <text x="34" y="202" fill="#374151" font-size="11.5">• 无括号直接答：吐「答案是：5元」时仍在跨概念长途跳跃，答案区球皮步长很大（平均 41.1°）</text>
+  <text x="34" y="222" fill="#059669" font-size="11.5" font-weight="bold">• 有括号草稿：在括号内已用 40.8° 大步走完推理提前到站；出括号写答案时 5/5 题步长一致缩短 4.6° (至 36.5°)</text>
+  <text x="34" y="242" fill="#047857" font-size="11" font-weight="bold">• 真相：平直弦变小 2.6° 不是轨迹变直，而是模型在括号里已到终点谷底、出括号后步幅收小致向心折角减小</text>
 
-  <text x="32" y="176" fill="#111827" font-size="11.5">• 步子迈得大，来回折返导致转角显得大</text>
-  <text x="32" y="196" fill="#1e40af" font-size="11.5" font-weight="bold">• 但始终在老方向晃荡，没开辟新方向</text>
-  <text x="32" y="216" fill="#2563eb" font-size="11.5" font-weight="bold">• 5步切空间有效维度偏低：3.60 至 3.84</text>
-  <text x="32" y="235" fill="#4b5563" font-size="11">GPT-2: 3.60 · Pythia: 3.78 · Qwen3: 3.84</text>
-
-  <!-- Right Card: HARD Logic Multi-Direction -->
-  <rect x="278" y="56" width="242" height="190" rx="6" fill="#fffbeb"/>
-  <rect x="278" y="56" width="242" height="4" rx="2" fill="#d97706"/>
-  <text x="290" y="80" fill="#92400e" font-size="13.5" font-weight="bold">2. 烧脑逻辑推理题 (HARD)</text>
-  <text x="290" y="99" fill="#374151" font-size="11.5">例：多层嵌套逻辑 · 反直觉前提推理</text>
-
-  <!-- Visual: Multi-directional orthogonal branching -->
-  <circle cx="399" cy="144" r="4" fill="#d97706"/>
-  <line x1="399" y1="144" x2="438" y2="122" stroke="#d97706" stroke-width="2" marker-end="url(#arrOrange)"/>
-  <line x1="399" y1="144" x2="444" y2="152" stroke="#d97706" stroke-width="2" marker-end="url(#arrOrange)"/>
-  <line x1="399" y1="144" x2="362" y2="120" stroke="#d97706" stroke-width="2" marker-end="url(#arrOrange)"/>
-  <line x1="399" y1="144" x2="354" y2="154" stroke="#d97706" stroke-width="2" marker-end="url(#arrOrange)"/>
-  <line x1="399" y1="144" x2="399" y2="114" stroke="#d97706" stroke-width="2" marker-end="url(#arrOrange)"/>
-
-  <text x="290" y="176" fill="#111827" font-size="11.5">• 步长缩短（GPT-2 缩 2.4°、Pythia 缩 4.1°）</text>
-  <text x="290" y="196" fill="#92400e" font-size="11.5" font-weight="bold">• 每步往新的正交切方向试探分叉</text>
-  <text x="290" y="216" fill="#d97706" font-size="11.5" font-weight="bold">• 5步切空间有效维度升至：3.97 至 4.16</text>
-  <text x="290" y="235" fill="#4b5563" font-size="11">GPT-2: 3.97 · Pythia: 4.16 · Qwen3: 4.05</text>
-
-  <!-- Bottom Explanation Banner -->
-  <rect x="20" y="258" width="500" height="58" rx="6" fill="#f8fafc"/>
-  <rect x="20" y="258" width="4" height="58" rx="2" fill="#059669"/>
-  <text x="34" y="280" fill="#065f46" font-size="12.5" font-weight="bold">揭穿直觉误区：转角大 ≠ 思考复杂（顺口溜钟摆来回折返转角反而更大）</text>
-  <text x="34" y="301" fill="#374151" font-size="11">最近 5 步切向量张出几个方向（有效维度 erank）：全层方向多寡单独解释 22.2% 至 47.9% 熵起伏</text>
+  <!-- Card 3: 0.6B vs 27B Mother-Son Trap & 35B Role Funnel -->
+  <rect x="20" y="266" width="500" height="86" rx="6" fill="#fffbeb"/>
+  <rect x="20" y="266" width="4" height="86" rx="2" fill="#d97706"/>
+  <text x="34" y="288" fill="#92400e" font-size="13.5" font-weight="bold">3. 母子年龄题（30岁妈妈生35岁儿子）球面切平面入轨精度：0.6B vs 27B</text>
+  <text x="34" y="310" fill="#b91c1c" font-size="11.5" font-weight="bold">• Qwen3-0.6B：塞入括号提示后开口方向仍偏离纠错方向 59.8°，在第二个「答案是：」急刹后滑回「30岁」</text>
+  <text x="34" y="330" fill="#065f46" font-size="11.5" font-weight="bold">• Qwen3.8-27B：开口吐出「前提不成立」时，中层球面切平面移动方向与标准纠错方向夹角仅 0.40° (余弦 &gt; 0.9999)</text>
+  <text x="34" y="346" fill="#4b5563" font-size="10.5">• 附 Qwen3.5-35B-A3B 角色标签两级齿轮：assistant 末端先降维 0.30 急拐入轨 → 开口点曲率骤降 0.62 大步弹射</text>
 </svg>
