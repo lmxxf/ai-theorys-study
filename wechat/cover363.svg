@@ -66,7 +66,7 @@
   <!-- Right Visual: Manifold Surface Geodesic -->
   <circle cx="675" cy="230" r="185" fill="url(#glowRight)"/>
   <text x="675" y="52" fill="#6ee7b7" font-size="20" font-weight="bold" text-anchor="middle">顺着流形表皮走 (球面切空间)</text>
-  <text x="675" y="80" fill="#cbd5e1" font-size="13.5" text-anchor="middle">球面正交 90° · 单位步长曲率 × 表皮快慢 × 分叉数</text>
+  <text x="675" y="80" fill="#cbd5e1" font-size="13.5" text-anchor="middle">球面正交 90° · 球皮曲率 × 表皮快慢 × 分叉方向数</text>
 
   <!-- Sphere Right -->
   <circle cx="675" cy="215" r="96" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
@@ -88,7 +88,7 @@
 
   <rect x="495" y="340" width="360" height="96" rx="10" fill="#0d211d" stroke="#10b981" stroke-width="1.8"/>
   <text x="675" y="370" fill="#a7f3d0" font-size="14.5" font-weight="bold" text-anchor="middle">同一批模型跃升至 55%–67% (附 27B 破案)</text>
-  <text x="675" y="396" fill="#6ee7b7" font-size="12.5" text-anchor="middle">单层达 16.8%–41.1% · 单位步长曲率翻 4–79 倍</text>
+  <text x="675" y="396" fill="#6ee7b7" font-size="12.5" text-anchor="middle">单层达 16.8%–41.1% · 球皮曲率翻 4–79 倍</text>
   <text x="675" y="420" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">全层 10 折 CV：GPT-2 54.8% · Qwen 58.5% · Pythia 67.4%</text>
 
   <!-- Footer Issue Badge -->

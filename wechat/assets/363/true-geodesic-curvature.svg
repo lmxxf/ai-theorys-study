@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 320" width="540" height="320" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
   <rect x="0" y="0" width="540" height="320" fill="#ffffff"/>
 
-  <text x="20" y="32" fill="#111827" font-size="15" font-weight="bold">为什么平直弦测不准？向心折角干扰与除以球面步长后的跃升</text>
+  <text x="20" y="32" fill="#111827" font-size="15" font-weight="bold">为什么平直弦测不准？向心折角干扰与除以球心移动角度后的跃升</text>
   <line x1="20" y1="44" x2="520" y2="44" stroke="#e5e7eb" stroke-width="1.5"/>
 
   <!-- Formula Subtitle -->
   <rect x="20" y="54" width="500" height="34" rx="5" fill="#eff6ff"/>
   <rect x="20" y="54" width="4" height="34" rx="2" fill="#2563eb"/>
-  <text x="34" y="76" fill="#1e40af" font-size="12.5" font-weight="bold">单位步长球皮曲率 = 球皮转角 ÷ 相邻两步平均球面步长（平直弦差值呈负相关 -0.18/-0.34）</text>
+  <text x="34" y="76" fill="#1e40af" font-size="12.5" font-weight="bold">球皮曲率 = 球皮转弯角度 ÷ 球心移动角度（球心角每移动 1° 拐了多少度弯）</text>
 
   <!-- Chart Area -->
   <!-- Baseline Y=260, Max R2=18% -> height 144px (8px per 1%) -->
@@ -61,7 +61,7 @@
   <rect x="64" y="102" width="10" height="10" rx="2" fill="#9ca3af"/>
   <text x="78" y="111" fill="#374151" font-size="11.5">MIT 平直弦基线 (长语料；短语料为 0.62% / 0.21% / 0.89%)</text>
   <rect x="64" y="120" width="10" height="10" rx="2" fill="#3b82f6"/>
-  <text x="78" y="129" fill="#374151" font-size="11.5">单位步长球皮曲率 (LAMBADA 长语料)</text>
+  <text x="78" y="129" fill="#374151" font-size="11.5">球皮曲率 (每移动 1° 球心角拐弯度数，长语料)</text>
   <rect x="64" y="138" width="10" height="10" rx="2" fill="#1d4ed8"/>
-  <text x="78" y="147" fill="#374151" font-size="11.5">单位步长球皮曲率 (UD 短语料)</text>
+  <text x="78" y="147" fill="#374151" font-size="11.5">球皮曲率 (每移动 1° 球心角拐弯度数，短语料)</text>
 </svg>
