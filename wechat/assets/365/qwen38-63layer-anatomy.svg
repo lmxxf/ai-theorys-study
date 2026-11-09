@@ -32,12 +32,12 @@
   <text x="435" y="145" fill="#1e3a8a" font-size="10" font-weight="bold" text-anchor="middle">L47–L55 放大峰: 1.22–1.26</text>
 
   <!-- Bottom Subplot: Diagonal Energy Fraction (%) -->
-  <text x="26" y="204" fill="#991b1b" font-size="12" font-weight="bold">② 主对角线能量占比 Σ J_ii² / ||J||_F² (揭穿为什么老办法 Logit Lens 在中间层必瞎)</text>
+  <text x="26" y="204" fill="#991b1b" font-size="12" font-weight="bold">② 主对角线能量占比 Σ J_ii² / ||J||_F² (说明为什么老办法 Logit Lens 在中间层会读偏)</text>
 
   <!-- Highlight Workspace Band L20-L37 -->
   <rect x="200" y="212" width="119" height="100" fill="#fef2f2" opacity="0.85"/>
   <text x="259" y="232" fill="#b91c1c" font-size="10.5" font-weight="bold" text-anchor="middle">对角线仅占 7.1%–16.2%</text>
-  <text x="259" y="246" fill="#991b1b" font-size="10" text-anchor="middle">(约 90% 能量在非对角线！)</text>
+  <text x="259" y="246" fill="#991b1b" font-size="10" text-anchor="middle">(约 90% 能量在非对角线)</text>
 
   <!-- Axes Bottom Subplot: y=312 is 0%, y=212 is 100% (1px per 1%) -->
   <line x1="60" y1="312" x2="500" y2="312" stroke="#94a3b8" stroke-width="1.2"/>

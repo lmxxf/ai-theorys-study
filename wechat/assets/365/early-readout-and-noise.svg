@@ -45,9 +45,9 @@
 
   <!-- Bottom Box: Official Benchmark & Why N=2 Has Formatting Noise -->
   <rect x="20" y="218" width="500" height="110" rx="8" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5"/>
-  <text x="30" y="238" fill="#92400e" font-size="11" font-weight="bold">官方基准集实测与“为什么只跑 2 条语料还不够、必须通宵跑 N=100”的破案：</text>
+  <text x="30" y="238" fill="#92400e" font-size="11" font-weight="bold">官方基准集实测与“为什么只跑 2 条语料还不够、需通宵跑 N=100”的原因：</text>
   <text x="30" y="257" fill="#78350f" font-size="10">• 107 道多语言题：pass@1 从老办法 21.26% → N=1 跃升至 32.09% (+10.8%)，N=2 回落至 22.74%</text>
-  <text x="30" y="275" fill="#78350f" font-size="10">• 84 道多跳题：pass@5 从老办法 53.97% → N=1 升至 56.35%，但 N=2 的 pass@1 从 33.93% 降至 23.81%</text>
-  <text x="30" y="295" fill="#b45309" font-size="10" font-weight="bold">• 原因查明：第 1 条中文《数学》词条含大量换行符 \n\n 与省略号 …，仅 2 篇平均时“排版私货”尚未抵消，</text>
-  <text x="30" y="312" fill="#b45309" font-size="10" font-weight="bold">  在 L41 把第 1 名挤到第 3–5 名！这正是两台 Spark 必须挂机 18 小时跑满 100 篇磨平私货的物理原因</text>
+  <text x="30" y="275" fill="#78350f" font-size="10">• 84 道多跳题：pass@1 老办法与 N=1 均为 33.93%（pass@5 升至 56.35%），N=2 回落至 23.81%</text>
+  <text x="30" y="295" fill="#b45309" font-size="10" font-weight="bold">• 原因分析：N=1 到 N=2 矩阵余弦均值 0.81343（尚未收敛），且第 1 条中文《数学》含大量 \n\n 与 …，</text>
+  <text x="30" y="312" fill="#b45309" font-size="10" font-weight="bold">  在 L41 占据前两名把目标概念挤到第 3 至 5 名。这正是双机需挂机 18 小时跑满 100 篇磨平噪声的原因</text>
 </svg>
