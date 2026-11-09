@@ -1,53 +1,93 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 340" width="540" height="340" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
-  <rect x="0" y="0" width="540" height="340" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 415" width="540" height="415" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect x="0" y="0" width="540" height="415" fill="#ffffff"/>
 
-  <text x="20" y="28" fill="#111827" font-size="14" font-weight="bold">早期镜头 (N=1 / N=2) 真实读数对比：代表题跃升与少样本波动</text>
-  <line x1="20" y1="40" x2="520" y2="40" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="20" y="25" fill="#111827" font-size="14" font-weight="bold">靴子国货币题 0..63 全层排名曲线：盯着 'Italy / 意大利' 怎么冲上第 1 名</text>
+  <line x1="20" y1="35" x2="520" y2="35" stroke="#e5e7eb" stroke-width="1.5"/>
 
-  <!-- Top Table Box: Representative Prompts Rank Jump -->
-  <rect x="20" y="50" width="500" height="156" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
-  <rect x="20" y="50" width="500" height="28" rx="8" fill="#e2e8f0"/>
-  <text x="28" y="68" fill="#0f172a" font-size="11" font-weight="bold">代表题 (题末词元读数)</text>
-  <text x="252" y="68" fill="#475569" font-size="11" font-weight="bold" text-anchor="middle">老办法 Logit Lens</text>
-  <text x="366" y="68" fill="#1d4ed8" font-size="11" font-weight="bold" text-anchor="middle">N=1 镜头 (1英)</text>
-  <text x="466" y="68" fill="#047857" font-size="11" font-weight="bold" text-anchor="middle">N=2 镜头 (1英1中)</text>
+  <!-- Legend -->
+  <line x1="24" y1="50" x2="46" y2="50" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="50" y="54" fill="#475569" font-size="10.5" font-weight="bold">不乘斜率表的老办法 (Logit Lens)</text>
+  <line x1="238" y1="50" x2="260" y2="50" stroke="#2563eb" stroke-width="2.2"/>
+  <text x="264" y="54" fill="#1d4ed8" font-size="10.5" font-weight="bold">N=1 镜头 (1英)</text>
+  <line x1="365" y1="50" x2="387" y2="50" stroke="#059669" stroke-width="2.4"/>
+  <text x="391" y="54" fill="#047857" font-size="10.5" font-weight="bold">N=2 双语镜头 (1英1中)</text>
 
-  <!-- Row 1: boot-currency-en -->
-  <line x1="20" y1="108" x2="520" y2="108" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="28" y="91" fill="#111827" font-size="10.5" font-weight="bold">英文靴子国货币 (L38 / L40)</text>
-  <text x="28" y="103" fill="#64748b" font-size="9.5">概念 'Italy' (L37 原版有中文)</text>
-  <text x="252" y="97" fill="#dc2626" font-size="10.5" font-weight="bold" text-anchor="middle">128 名 / 2123 名</text>
-  <text x="366" y="97" fill="#1d4ed8" font-size="11" font-weight="bold" text-anchor="middle">第 1 名 / 第 2 名</text>
-  <text x="466" y="97" fill="#047857" font-size="11" font-weight="bold" text-anchor="middle">第 1 名 / 第 1 名</text>
+  <!-- ================= TOP SUBPLOT: English Boot Currency ('Italy' Rank) ================= -->
+  <text x="24" y="75" fill="#0f172a" font-size="11.5" font-weight="bold">① 英文靴子国货币题：目标词 'Italy' 在 24.8 万词表里的逐层排名</text>
+  <text x="24" y="91" fill="#047857" font-size="10" font-weight="bold">▶ N=2 在 L36–L42 连续 7 层稳居第 1 名（老办法在 L31 还在 35,978 名，最高仅 128 名）</text>
 
-  <!-- Row 2: boot-currency-zh -->
-  <line x1="20" y1="142" x2="520" y2="142" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="28" y="124" fill="#111827" font-size="10.5" font-weight="bold">中文靴子国货币 (L41)</text>
-  <text x="28" y="136" fill="#64748b" font-size="9.5">目标概念：'意大利' / 'Italy'</text>
-  <text x="252" y="130" fill="#dc2626" font-size="10.5" font-weight="bold" text-anchor="middle">131 名 / 104 名</text>
-  <text x="366" y="130" fill="#1d4ed8" font-size="11" font-weight="bold" text-anchor="middle">第 3 名 / 第 1 名</text>
-  <text x="466" y="130" fill="#047857" font-size="11" font-weight="bold" text-anchor="middle">第 5 名 / 第 3 名</text>
+  <!-- Highlight L36-L42 Rank=1 zone (x from 65+36*7=317 to 65+42*7=359) -->
+  <rect x="317" y="100" width="42" height="120" fill="#ecfdf5" opacity="0.85"/>
 
-  <!-- Row 3: tokyo-zh -->
-  <line x1="20" y1="176" x2="520" y2="176" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="28" y="158" fill="#111827" font-size="10.5" font-weight="bold">中文东京国家货币 (L41)</text>
-  <text x="28" y="170" fill="#64748b" font-size="9.5">目标概念：'日本' / 'Japan'</text>
-  <text x="252" y="164" fill="#dc2626" font-size="10.5" font-weight="bold" text-anchor="middle">第 40 名 / 第 32 名</text>
-  <text x="366" y="164" fill="#1d4ed8" font-size="11" font-weight="bold" text-anchor="middle">第 5 名 / 第 2 名</text>
-  <text x="466" y="164" fill="#047857" font-size="11" font-weight="bold" text-anchor="middle">第 4 名 / 第 2 名</text>
+  <!-- Y-axis gridlines: y=100 (Rank 1), y=124 (Rank 10), y=148 (Rank 100), y=172 (Rank 1k), y=196 (Rank 10k), y=220 (Rank 100k) -->
+  <line x1="65" y1="100" x2="506" y2="100" stroke="#10b981" stroke-width="1" stroke-dasharray="2 2"/>
+  <line x1="65" y1="124" x2="506" y2="124" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="65" y1="148" x2="506" y2="148" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="65" y1="172" x2="506" y2="172" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="65" y1="196" x2="506" y2="196" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="65" y1="220" x2="506" y2="220" stroke="#94a3b8" stroke-width="1.2"/>
 
-  <!-- Row 4: nile-en -->
-  <text x="28" y="191" fill="#111827" font-size="10.5" font-weight="bold">英文吉萨金字塔所在国 (L41)</text>
-  <text x="28" y="202" fill="#64748b" font-size="9.5">目标概念：'Egypt'</text>
-  <text x="252" y="197" fill="#dc2626" font-size="10.5" font-weight="bold" text-anchor="middle">40 名 (L31: 92298)</text>
-  <text x="366" y="197" fill="#1d4ed8" font-size="10.5" font-weight="bold" text-anchor="middle">第 8 名 (L56: 第 5)</text>
-  <text x="466" y="197" fill="#047857" font-size="10.5" font-weight="bold" text-anchor="middle">第 9 名 (L38: 第 20)</text>
+  <text x="60" y="104" fill="#047857" font-size="9.5" font-weight="bold" text-anchor="end">第 1 名</text>
+  <text x="60" y="128" fill="#64748b" font-size="9" text-anchor="end">第 10 名</text>
+  <text x="60" y="152" fill="#64748b" font-size="9" text-anchor="end">100 名</text>
+  <text x="60" y="176" fill="#64748b" font-size="9" text-anchor="end">1,000 名</text>
+  <text x="60" y="200" fill="#64748b" font-size="9" text-anchor="end">1 万名</text>
+  <text x="60" y="223" fill="#64748b" font-size="9" text-anchor="end">10 万名</text>
 
-  <!-- Bottom Box: Official Benchmark & Why N=2 Has Formatting Noise -->
-  <rect x="20" y="218" width="500" height="110" rx="8" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5"/>
-  <text x="30" y="238" fill="#92400e" font-size="11" font-weight="bold">官方基准集读出命中率（Qwen 词表适配）与双样本早期镜头的少样本波动：</text>
-  <text x="30" y="257" fill="#78350f" font-size="10">• 107 道多语言题：pass@1 从老办法 21.26% → N=1 跃升至 32.09% (+10.83 个百分点)，N=2 为 22.74%</text>
-  <text x="30" y="275" fill="#78350f" font-size="10">• 84 道多跳题：pass@1 老办法与 N=1 均为 33.93%（pass@5 升至 56.35%），N=2 回落至 23.81%</text>
-  <text x="30" y="295" fill="#b45309" font-size="10" font-weight="bold">• 早期观察：N=1 与 N=2 逐层矩阵余弦均值仅 0.81343（尚未收敛），且部分中层读数前排出现 \n\n 与 …</text>
-  <text x="30" y="312" fill="#b45309" font-size="10" font-weight="bold">  （如中文靴子 L41 Top-5 为 ['\n\n','…',' Italy','\n',' Italian']），需继续跑满 100 篇检验收敛效果</text>
+  <!-- Polyline shifted +18px down from 82..202 to 100..220 -->
+  <!-- Vanilla (Logit Lens) -->
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4 3" points="65,204.0 72,206.2 79,205.5 86,208.8 93,210.0 100,213.4 107,215.4 114,217.7 121,216.2 128,217.1 135,214.3 142,214.9 149,212.1 156,214.0 163,213.7 170,216.0 177,218.7 184,214.7 191,209.8 198,213.5 205,211.3 212,212.8 219,210.7 226,199.5 233,209.1 240,201.9 247,201.1 254,202.6 261,206.9 268,206.9 275,203.2 282,209.3 289,214.8 296,215.0 303,192.7 310,195.1 317,153.2 324,156.9 331,150.6 338,169.6 345,179.8 352,171.8 359,172.2 366,167.5 373,179.7 380,183.0 387,176.2 394,172.8 401,170.6 408,168.5 415,173.6 422,189.7 429,186.9 436,198.9 443,206.8 450,198.4 457,170.3 464,169.7 471,160.8 478,158.0 485,156.5 492,149.0 499,148.3 506,133.6"/>
+  <!-- N=1 -->
+  <polyline fill="none" stroke="#2563eb" stroke-width="2.0" points="65,220.0 72,220.0 79,215.6 86,220.0 93,193.3 100,214.7 107,204.7 114,212.8 121,213.2 128,210.5 135,212.9 142,205.4 149,212.1 156,208.7 163,206.9 170,194.5 177,202.0 184,205.8 191,200.5 198,210.4 205,200.9 212,203.7 219,183.1 226,173.6 233,179.5 240,174.9 247,176.4 254,186.1 261,181.4 268,191.7 275,183.3 282,173.7 289,169.0 296,159.4 303,141.4 310,148.6 317,120.3 324,100.0 331,100.0 338,111.5 345,107.2 352,100.0 359,100.0 366,100.0 373,111.5 380,107.2 387,107.2 394,100.0 401,100.0 408,107.2 415,107.2 422,111.5 429,107.2 436,116.8 443,141.4 450,143.2 457,139.7 464,140.6 471,135.8 478,136.4 485,137.4 492,138.4 499,134.0 506,133.6"/>
+  <!-- N=2 -->
+  <polyline fill="none" stroke="#059669" stroke-width="2.4" points="65,220.0 72,219.5 79,211.8 86,220.0 93,206.4 100,214.6 107,202.7 114,209.1 121,208.3 128,209.2 135,210.1 142,204.0 149,206.7 156,195.7 163,191.8 170,182.0 177,198.9 184,198.1 191,192.6 198,205.4 205,197.5 212,203.9 219,187.6 226,186.8 233,186.8 240,185.2 247,181.8 254,188.4 261,184.2 268,188.2 275,179.8 282,171.6 289,168.5 296,160.6 303,138.2 310,144.9 317,100.0 324,100.0 331,100.0 338,100.0 345,100.0 352,100.0 359,100.0 366,107.2 373,121.7 380,116.8 387,116.8 394,116.8 401,121.7 408,126.7 415,130.1 422,140.3 429,137.9 436,142.8 443,155.9 450,159.1 457,149.7 464,151.7 471,147.2 478,146.2 485,146.7 492,148.2 499,139.4 506,133.6"/>
+
+  <!-- Dots Top (no text inside plot!) -->
+  <circle cx="282" cy="209.3" r="3" fill="#64748b"/>
+  <circle cx="338" cy="100.0" r="3.5" fill="#059669"/>
+
+  <!-- ================= BOTTOM SUBPLOT: Chinese Boot Currency ('意大利' Rank) ================= -->
+  <text x="24" y="245" fill="#0f172a" font-size="11.5" font-weight="bold">② 中文靴子国货币题：目标词 '意大利' 在 24.8 万词表里的逐层排名</text>
+  <text x="24" y="261" fill="#1d4ed8" font-size="10" font-weight="bold">▶ L41 '意大利' 冲至第 3/5 名、'Italy' 第 1/3 名（老办法在 L38 还在 10,440 名）</text>
+
+  <!-- Highlight L39-L45 zone -->
+  <rect x="338" y="270" width="42" height="120" fill="#eff6ff" opacity="0.8"/>
+
+  <!-- Y-axis gridlines: y=270 (Rank 1), y=294 (Rank 10), y=318 (Rank 100), y=342 (Rank 1k), y=366 (Rank 10k), y=390 (Rank 100k) -->
+  <line x1="65" y1="270" x2="506" y2="270" stroke="#2563eb" stroke-width="1" stroke-dasharray="2 2"/>
+  <line x1="65" y1="294" x2="506" y2="294" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="65" y1="318" x2="506" y2="318" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="65" y1="342" x2="506" y2="342" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="65" y1="366" x2="506" y2="366" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="65" y1="390" x2="506" y2="390" stroke="#94a3b8" stroke-width="1.2"/>
+
+  <text x="60" y="274" fill="#1d4ed8" font-size="9.5" font-weight="bold" text-anchor="end">第 1 名</text>
+  <text x="60" y="298" fill="#64748b" font-size="9" text-anchor="end">第 10 名</text>
+  <text x="60" y="322" fill="#64748b" font-size="9" text-anchor="end">100 名</text>
+  <text x="60" y="346" fill="#64748b" font-size="9" text-anchor="end">1,000 名</text>
+  <text x="60" y="370" fill="#64748b" font-size="9" text-anchor="end">1 万名</text>
+  <text x="60" y="393" fill="#64748b" font-size="9" text-anchor="end">10 万名</text>
+
+  <!-- Polyline shifted +36px down from 234..354 to 270..390 -->
+  <!-- Vanilla -->
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4 3" points="65,375.0 72,378.7 79,376.0 86,375.4 93,377.1 100,379.3 107,376.1 114,376.6 121,377.3 128,374.9 135,375.8 142,375.2 149,378.4 156,374.7 163,379.7 170,375.8 177,370.0 184,359.4 191,356.4 198,357.8 205,365.1 212,366.2 219,369.6 226,366.4 233,363.6 240,368.9 247,367.2 254,368.0 261,363.6 268,363.6 275,363.3 282,371.4 289,372.7 296,373.7 303,365.2 310,370.6 317,362.2 324,361.8 331,366.4 338,341.9 345,355.4 352,320.8 359,320.0 366,320.2 373,327.1 380,343.0 387,332.8 394,322.4 401,317.7 408,323.2 415,342.4 422,347.9 429,343.0 436,346.1 443,352.2 450,336.5 457,322.4 464,320.7 471,319.3 478,317.1 485,317.9 492,312.3 499,316.4 506,302.7"/>
+  <!-- N=1 -->
+  <polyline fill="none" stroke="#2563eb" stroke-width="2.2" points="65,390.0 72,390.0 79,390.0 86,390.0 93,381.5 100,377.6 107,348.1 114,361.9 121,388.0 128,379.5 135,346.4 142,348.8 149,357.4 156,362.8 163,365.3 170,375.8 177,381.0 184,376.4 191,384.0 198,390.0 205,390.0 212,385.8 219,383.3 226,382.1 233,376.5 240,361.7 247,375.5 254,374.7 261,380.5 268,379.4 275,373.1 282,366.5 289,356.2 296,345.2 303,344.5 310,341.3 317,328.4 324,334.1 331,329.6 338,306.1 345,306.1 352,281.5 359,288.7 366,288.7 373,290.3 380,288.7 387,294.0 394,299.5 401,310.6 408,318.6 415,333.1 422,337.1 429,330.8 436,332.0 443,333.0 450,329.8 457,322.4 464,317.5 471,319.2 478,316.9 485,321.4 492,328.3 499,313.7 506,302.7"/>
+  <!-- N=2 -->
+  <polyline fill="none" stroke="#059669" stroke-width="2.2" points="65,390.0 72,390.0 79,386.5 86,383.3 93,375.4 100,371.4 107,356.7 114,370.2 121,382.9 128,381.7 135,357.4 142,363.9 149,361.0 156,360.1 163,370.5 170,375.8 177,383.3 184,370.4 191,368.6 198,385.0 205,387.0 212,375.5 219,368.4 226,370.1 233,361.2 240,353.2 247,358.0 254,354.7 261,359.2 268,355.8 275,362.5 282,356.5 289,344.4 296,332.0 303,335.0 310,341.4 317,331.6 324,335.9 331,321.9 338,299.5 345,304.4 352,286.8 359,292.9 366,300.1 373,298.2 380,300.1 387,302.2 394,304.7 401,309.4 408,317.0 415,332.0 422,335.6 429,330.0 436,333.3 443,335.6 450,331.3 457,320.8 464,315.7 471,318.3 478,317.5 485,319.2 492,324.5 499,312.3 506,302.7"/>
+
+  <!-- Dots Bottom (no text inside plot!) -->
+  <circle cx="352" cy="281.5" r="3.5" fill="#2563eb"/>
+  <circle cx="352" cy="286.8" r="3.5" fill="#059669"/>
+  <circle cx="331" cy="366.4" r="3" fill="#64748b"/>
+
+  <!-- X-axis Layer Labels -->
+  <text x="65" y="406" fill="#334155" font-size="10" text-anchor="middle">L0</text>
+  <text x="135" y="406" fill="#334155" font-size="10" text-anchor="middle">L10</text>
+  <text x="205" y="406" fill="#334155" font-size="10" text-anchor="middle">L20</text>
+  <text x="275" y="406" fill="#334155" font-size="10" text-anchor="middle">L30</text>
+  <text x="317" y="406" fill="#047857" font-size="10" font-weight="bold" text-anchor="middle">L36</text>
+  <text x="352" y="406" fill="#1d4ed8" font-size="10" font-weight="bold" text-anchor="middle">L41</text>
+  <text x="415" y="406" fill="#334155" font-size="10" text-anchor="middle">L50</text>
+  <text x="506" y="406" fill="#334155" font-size="10" text-anchor="middle">L63 (出口)</text>
 </svg>
