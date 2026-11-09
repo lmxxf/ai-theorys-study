@@ -8,15 +8,6 @@
       <stop offset="0%" stop-color="#10b981" stop-opacity="0.32"/>
       <stop offset="100%" stop-color="#070b14" stop-opacity="0"/>
     </radialGradient>
-    <marker id="arrRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444"/>
-    </marker>
-    <marker id="arrGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
-    </marker>
-    <marker id="arrCyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
-    </marker>
   </defs>
 
   <rect x="0" y="0" width="900" height="500" fill="#070b14"/>
@@ -39,7 +30,7 @@
   <!-- Left Visual: Vanilla Logit Lens (Assume J = I) -->
   <circle cx="225" cy="230" r="185" fill="url(#glowLeft)"/>
   <text x="225" y="52" fill="#fca5a5" font-size="20" font-weight="bold" text-anchor="middle">老办法 Logit Lens (假装 J = I)</text>
-  <text x="225" y="80" fill="#cbd5e1" font-size="13.5" text-anchor="middle">第 20–35 层对角线能量仅 7%–13% · 90% 信号全串道</text>
+  <text x="225" y="80" fill="#cbd5e1" font-size="13.5" text-anchor="middle">第 20–35 层对角线条目能量仅 7%–13% · 忽略非对角耦合</text>
 
   <!-- 3x3 Grid Left (Identity Illusion vs Real Off-diagonal) -->
   <g transform="translate(145, 118)">
@@ -63,17 +54,17 @@
     <text x="26" y="139" fill="#64748b" font-size="14" text-anchor="middle">0?</text>
     <text x="80" y="139" fill="#64748b" font-size="14" text-anchor="middle">0?</text>
   </g>
-  <text x="225" y="306" fill="#fca5a5" font-size="14" font-weight="bold" text-anchor="middle">裸接语言头 = 默认不拐弯直通</text>
+  <text x="225" y="306" fill="#fca5a5" font-size="14" font-weight="bold" text-anchor="middle">裸接语言头 = 默认层间是单位矩阵直通</text>
 
   <rect x="45" y="332" width="360" height="106" rx="10" fill="#1f1218" stroke="#be123c" stroke-width="1.6"/>
-  <text x="225" y="362" fill="#fecdd3" font-size="15" font-weight="bold" text-anchor="middle">Qwen3.8-27B 实测：中间层坐标系旋转逾 90%</text>
-  <text x="225" y="388" fill="#fda4af" font-size="12.5" text-anchor="middle">L0 对角线能量仅 1.04% · L20 工作空间仅 7.13%</text>
-  <text x="225" y="414" fill="#94a3b8" font-size="12" text-anchor="middle">L31 靴子国 Italy 排第 35978 名 · 满屏乱码与标点</text>
+  <text x="225" y="362" fill="#fecdd3" font-size="15" font-weight="bold" text-anchor="middle">Qwen3.8-27B 实测：中层近 90% 能量在非对角线</text>
+  <text x="225" y="388" fill="#fda4af" font-size="12.5" text-anchor="middle">L0 对角线占比仅 1.04% · L20 平台区仅 7.13%</text>
+  <text x="225" y="414" fill="#94a3b8" font-size="12" text-anchor="middle">L31 靴子国英文 Italy 排第 35978 名 · 跨维耦合强烈</text>
 
   <!-- Right Visual: Jacobian Lens (J_l = dh_63 / dh_l) -->
   <circle cx="675" cy="230" r="185" fill="url(#glowRight)"/>
   <text x="675" y="52" fill="#6ee7b7" font-size="20" font-weight="bold" text-anchor="middle">雅可比透镜 J-lens (∂h_63 / ∂h_l)</text>
-  <text x="675" y="80" fill="#cbd5e1" font-size="13.5" text-anchor="middle">5120 次反向传播填满偏导表 · 把旋转的坐标系拧正</text>
+  <text x="675" y="80" fill="#cbd5e1" font-size="13.5" text-anchor="middle">5120 维反向传播填满偏导表 · 计入跨维度线性响应</text>
 
   <!-- 3x3 Grid Right (Full Jacobian Matrix) -->
   <g transform="translate(595, 118)">
@@ -99,13 +90,13 @@
     <text x="80" y="138" fill="#38bdf8" font-size="13" text-anchor="middle">0.5</text>
     <text x="133" y="138" fill="#a7f3d0" font-size="13" font-weight="bold" text-anchor="middle">0.3</text>
   </g>
-  <text x="675" y="306" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">左乘 J_l 翻译回出口坐标系再接语言头</text>
+  <text x="675" y="306" fill="#6ee7b7" font-size="14" font-weight="bold" text-anchor="middle">左乘 J_l 做线性响应映射再接语言头</text>
 
   <rect x="495" y="332" width="360" height="106" rx="10" fill="#0d211d" stroke="#10b981" stroke-width="1.8"/>
-  <text x="675" y="362" fill="#a7f3d0" font-size="14.5" font-weight="bold" text-anchor="middle">双机 DGX Spark 锻造 Qwen3.8-27B 专属透镜</text>
-  <text x="675" y="388" fill="#6ee7b7" font-size="12.5" text-anchor="middle">L20–L37 平坦工作空间高原 (范数 0.68–0.86)</text>
-  <text x="675" y="414" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">N=1/N=2 快照：L36–L41 Italy 直冲第 1 名 · 多语言 +10.8%</text>
+  <text x="675" y="362" fill="#a7f3d0" font-size="14.5" font-weight="bold" text-anchor="middle">双机 DGX Spark 拟合 Qwen3.8-27B 双语透镜</text>
+  <text x="675" y="388" fill="#6ee7b7" font-size="12.5" text-anchor="middle">L20–L37 均方根增益平坦平台 (范数 0.68–0.86)</text>
+  <text x="675" y="414" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">N=2 下 L36–L41 Italy 连拿第 1 · N=1 多语言 +10.83 个百分点</text>
 
   <!-- Footer Issue Badge -->
-  <text x="450" y="478" fill="#64748b" font-size="14" font-weight="bold" text-anchor="middle">No.365 · 手把手给 Qwen3.8-27B 磨一副“读心眼镜”：雅可比透镜原理与双机实录</text>
+  <text x="450" y="478" fill="#64748b" font-size="14" font-weight="bold" text-anchor="middle">No.365 · 给 Qwen3.8-27B 磨一副「读心眼镜」：一个新模型的 J-Lens 怎么算？</text>
 </svg>

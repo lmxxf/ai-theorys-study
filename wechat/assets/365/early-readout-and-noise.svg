@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 340" width="540" height="340" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
   <rect x="0" y="0" width="540" height="340" fill="#ffffff"/>
 
-  <text x="20" y="28" fill="#111827" font-size="14" font-weight="bold">早期镜头 (N=1 / N=2) 真实读数对比：代表题跃升与单篇排版毛刺</text>
+  <text x="20" y="28" fill="#111827" font-size="14" font-weight="bold">早期镜头 (N=1 / N=2) 真实读数对比：代表题跃升与少样本波动</text>
   <line x1="20" y1="40" x2="520" y2="40" stroke="#e5e7eb" stroke-width="1.5"/>
 
   <!-- Top Table Box: Representative Prompts Rank Jump -->
@@ -39,15 +39,15 @@
   <!-- Row 4: nile-en -->
   <text x="28" y="191" fill="#111827" font-size="10.5" font-weight="bold">英文吉萨金字塔所在国 (L41)</text>
   <text x="28" y="202" fill="#64748b" font-size="9.5">目标概念：'Egypt'</text>
-  <text x="252" y="197" fill="#dc2626" font-size="10.5" font-weight="bold" text-anchor="middle">40 名 (L31: 18806)</text>
+  <text x="252" y="197" fill="#dc2626" font-size="10.5" font-weight="bold" text-anchor="middle">40 名 (L31: 92298)</text>
   <text x="366" y="197" fill="#1d4ed8" font-size="10.5" font-weight="bold" text-anchor="middle">第 8 名 (L56: 第 5)</text>
   <text x="466" y="197" fill="#047857" font-size="10.5" font-weight="bold" text-anchor="middle">第 9 名 (L38: 第 20)</text>
 
   <!-- Bottom Box: Official Benchmark & Why N=2 Has Formatting Noise -->
   <rect x="20" y="218" width="500" height="110" rx="8" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5"/>
-  <text x="30" y="238" fill="#92400e" font-size="11" font-weight="bold">官方基准集实测与“为什么只跑 2 条语料还不够、需通宵跑 N=100”的原因：</text>
-  <text x="30" y="257" fill="#78350f" font-size="10">• 107 道多语言题：pass@1 从老办法 21.26% → N=1 跃升至 32.09% (+10.8%)，N=2 回落至 22.74%</text>
+  <text x="30" y="238" fill="#92400e" font-size="11" font-weight="bold">官方基准集读出命中率（Qwen 词表适配）与双样本早期镜头的少样本波动：</text>
+  <text x="30" y="257" fill="#78350f" font-size="10">• 107 道多语言题：pass@1 从老办法 21.26% → N=1 跃升至 32.09% (+10.83 个百分点)，N=2 为 22.74%</text>
   <text x="30" y="275" fill="#78350f" font-size="10">• 84 道多跳题：pass@1 老办法与 N=1 均为 33.93%（pass@5 升至 56.35%），N=2 回落至 23.81%</text>
-  <text x="30" y="295" fill="#b45309" font-size="10" font-weight="bold">• 原因分析：N=1 到 N=2 矩阵余弦均值 0.81343（尚未收敛），且第 1 条中文《数学》含大量 \n\n 与 …，</text>
-  <text x="30" y="312" fill="#b45309" font-size="10" font-weight="bold">  在 L41 占据前两名把目标概念挤到第 3 至 5 名。这正是双机需挂机 18 小时跑满 100 篇磨平噪声的原因</text>
+  <text x="30" y="295" fill="#b45309" font-size="10" font-weight="bold">• 早期观察：N=1 与 N=2 逐层矩阵余弦均值仅 0.81343（尚未收敛），且部分中层读数前排出现 \n\n 与 …</text>
+  <text x="30" y="312" fill="#b45309" font-size="10" font-weight="bold">  （如中文靴子 L41 Top-5 为 ['\n\n','…',' Italy','\n',' Italian']），需继续跑满 100 篇检验收敛效果</text>
 </svg>

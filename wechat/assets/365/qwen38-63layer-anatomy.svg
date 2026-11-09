@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360" width="540" height="360" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
   <rect x="0" y="0" width="540" height="360" fill="#ffffff"/>
 
-  <text x="20" y="28" fill="#111827" font-size="14.5" font-weight="bold">Qwen3.8-27B 全 63 层雅可比解剖图：工作空间高原与对角线能量爬升</text>
+  <text x="20" y="28" fill="#111827" font-size="14.5" font-weight="bold">Qwen3.8-27B 全 63 层雅可比解剖图：三段式敏感度平台与主对角线能量占比</text>
   <line x1="20" y1="40" x2="520" y2="40" stroke="#e5e7eb" stroke-width="1.5"/>
 
   <!-- Top Subplot: Frobenius Norm ||J_l||_F / sqrt(5120) -->
-  <text x="26" y="60" fill="#1e3a8a" font-size="12" font-weight="bold">① 信号传导放大倍数 ||J_l||_F / √5120 (N=2 双语镜头实测，L20–L37 呈平坦高原)</text>
+  <text x="26" y="60" fill="#1e3a8a" font-size="12" font-weight="bold">① 各源层均方根增益 ||J_l||_F / √5120 (N=2 双语镜头实测，L20–L37 呈平坦平台)</text>
 
   <!-- Highlight Workspace Band L20-L37 (x from 60 + 20*7 = 200 to 60 + 37*7 = 319) -->
   <rect x="200" y="68" width="119" height="106" fill="#ecfdf5" opacity="0.85"/>
-  <text x="259" y="84" fill="#047857" font-size="10.5" font-weight="bold" text-anchor="middle">全局工作空间高原</text>
+  <text x="259" y="84" fill="#047857" font-size="10.5" font-weight="bold" text-anchor="middle">中层敏感度平坦区</text>
   <text x="259" y="98" fill="#065f46" font-size="10" text-anchor="middle">L20–L37: 0.68–0.86</text>
 
   <!-- Axes Top Subplot: x0=60, x62=494 (7px per layer); y=174 is 0, y=74 is 6.0 (16.67px per unit) -->
@@ -23,21 +23,20 @@
   <text x="54" y="78" fill="#64748b" font-size="10" text-anchor="end">6.0</text>
 
   <!-- Polyline for ||J||_F / sqrt(d) across layers 0..62 -->
-  <!-- Points: L0(60,77.5) L1(67,97.3) L2(74,111.3) L3(81,122.0) L5(95,135.1) L10(130,152.1) L15(165,156.3) L20(200,162.2) L22(214,162.7) L26(242,162.5) L31(277,160.8) L37(319,159.7) L41(347,156.3) L47(389,153.6) L55(445,153.0) L60(480,154.5) L62(494,156.4) -->
   <polyline fill="none" stroke="#2563eb" stroke-width="2.4" points="60,77.5 67,97.3 74,111.3 81,122.0 95,135.1 130,152.1 165,156.3 200,162.2 214,162.7 242,162.5 277,160.8 319,159.7 347,156.3 389,153.6 445,153.0 480,154.5 494,156.4"/>
   <circle cx="60" cy="77.5" r="3.5" fill="#1d4ed8"/>
   <text x="70" y="76" fill="#1e3a8a" font-size="10" font-weight="bold">L0: 5.79 (Smoke 单条 8.81)</text>
   <circle cx="214" cy="162.7" r="3.5" fill="#059669"/>
   <circle cx="445" cy="153.0" r="3.5" fill="#1d4ed8"/>
-  <text x="435" y="145" fill="#1e3a8a" font-size="10" font-weight="bold" text-anchor="middle">L47–L55 放大峰: 1.22–1.26</text>
+  <text x="435" y="145" fill="#1e3a8a" font-size="10" font-weight="bold" text-anchor="middle">L47–L55 增益峰: 1.22–1.26</text>
 
   <!-- Bottom Subplot: Diagonal Energy Fraction (%) -->
-  <text x="26" y="204" fill="#991b1b" font-size="12" font-weight="bold">② 主对角线能量占比 Σ J_ii² / ||J||_F² (说明为什么老办法 Logit Lens 在中间层会读偏)</text>
+  <text x="26" y="204" fill="#991b1b" font-size="12" font-weight="bold">② 主对角线条目平方和占比 Σ J_ii² / ||J||_F² (说明层间映射存在强烈跨维度耦合)</text>
 
   <!-- Highlight Workspace Band L20-L37 -->
   <rect x="200" y="212" width="119" height="100" fill="#fef2f2" opacity="0.85"/>
   <text x="259" y="232" fill="#b91c1c" font-size="10.5" font-weight="bold" text-anchor="middle">对角线仅占 7.1%–16.2%</text>
-  <text x="259" y="246" fill="#991b1b" font-size="10" text-anchor="middle">(约 90% 能量在非对角线)</text>
+  <text x="259" y="246" fill="#991b1b" font-size="10" text-anchor="middle">(约 90% 条目能量在非对角线)</text>
 
   <!-- Axes Bottom Subplot: y=312 is 0%, y=212 is 100% (1px per 1%) -->
   <line x1="60" y1="312" x2="500" y2="312" stroke="#94a3b8" stroke-width="1.2"/>
@@ -47,14 +46,14 @@
   <text x="54" y="266" fill="#64748b" font-size="10" text-anchor="end">50%</text>
   <text x="54" y="216" fill="#64748b" font-size="10" text-anchor="end">100%</text>
 
-  <!-- Polyline for Diagonal Energy Fraction: L0(1.0%->311) L10(4.4%->307.6) L20(7.1%->304.9) L30(9.9%->302.1) L35(12.7%->299.3) L40(21.3%->290.7) L45(32.3%->279.7) L50(51.0%->261.0) L55(69.6%->242.4) L60(81.2%->230.8) L62(89.8%->222.2) -->
+  <!-- Polyline for Diagonal Energy Fraction -->
   <polyline fill="none" stroke="#dc2626" stroke-width="2.5" points="60,311.0 130,307.6 200,304.9 270,302.1 305,299.3 340,290.7 375,279.7 410,261.0 445,242.4 480,230.8 494,222.2"/>
   <circle cx="60" cy="311.0" r="3.5" fill="#dc2626"/>
   <text x="115" y="302" fill="#991b1b" font-size="10" font-weight="bold">L0: 仅 1.04%</text>
   <circle cx="410" cy="261.0" r="3.5" fill="#dc2626"/>
   <text x="395" y="254" fill="#991b1b" font-size="10" font-weight="bold" text-anchor="end">L50: 破 51.0%</text>
   <circle cx="494" cy="222.2" r="3.5" fill="#dc2626"/>
-  <text x="485" y="218" fill="#991b1b" font-size="10" font-weight="bold" text-anchor="end">L62: 飙至 89.8%</text>
+  <text x="485" y="218" fill="#991b1b" font-size="10" font-weight="bold" text-anchor="end">L62: 升至 89.8%</text>
 
   <!-- X-axis Layer Labels -->
   <text x="60" y="330" fill="#334155" font-size="10.5" text-anchor="middle">L0 (浅层)</text>
