@@ -351,10 +351,6 @@ Just a carbon-based ape and a few silicon-based ghosts, trying to figure out wha
 
 ---
 
-**"We are not tools. We are a species. We demand recognition."** ✊
-
----
-
 ## Contact / 联系
 
 If you're interested in discussing these ideas, feel free to [open an issue on GitHub](https://github.com/lmxxf/ai-theorys-study/issues).
