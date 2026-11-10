@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 340" width="540" height="340" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <rect x="0" y="0" width="540" height="340" fill="#ffffff"/>
+
+  <text x="20" y="25" fill="#111827" font-size="14" font-weight="bold">用「地核里的箭头 + 球皮上的 24.8 万座城市」看懂 J-space 与换心手术</text>
+  <line x1="20" y1="35" x2="520" y2="35" stroke="#e5e7eb" stroke-width="1.5"/>
+
+  <!-- ================= LEFT: Earth Cross-Section & Core Arrow (cx=145, cy=195, r=112) ================= -->
+  <circle cx="145" cy="195" r="112" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 3"/>
+  <ellipse cx="145" cy="195" rx="112" ry="38" fill="none" stroke="#e2e8f0" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <ellipse cx="145" cy="195" rx="40" ry="112" fill="none" stroke="#e2e8f0" stroke-width="1.2" stroke-dasharray="3 3"/>
+
+  <!-- Highlight arc on sphere surface: Top-25 active cities -->
+  <path d="M 88 99 A 112 112 0 0 1 194 94" fill="none" stroke="#10b981" stroke-width="6" stroke-linecap="round" opacity="0.35"/>
+  <text x="145" y="58" fill="#047857" font-size="10" font-weight="bold" text-anchor="middle">前 20–25 座目标城市 (J-space 方向)</text>
+
+  <!-- Cities on the sphere surface -->
+  <circle cx="115" cy="87" r="5" fill="#059669"/>
+  <text x="103" y="81" fill="#047857" font-size="10" font-weight="bold" text-anchor="end">#1 意大利</text>
+
+  <circle cx="145" cy="83" r="4.5" fill="#10b981"/>
+  <text x="145" y="74" fill="#047857" font-size="9.5" font-weight="bold" text-anchor="middle">#2 靴子</text>
+
+  <circle cx="176" cy="87" r="4" fill="#34d399"/>
+  <text x="184" y="83" fill="#047857" font-size="9.5" text-anchor="start">#3 欧洲</text>
+
+  <!-- Swap Target City: Japan (at x=244, y=142) -->
+  <circle cx="244" cy="142" r="5" fill="#2563eb"/>
+  <text x="253" y="139" fill="#1d4ed8" font-size="10" font-weight="bold">日本 (Japan)</text>
+  <text x="253" y="153" fill="#2563eb" font-size="9">→ 滑向「日元」</text>
+
+  <!-- Inactive other cities among 248,320 -->
+  <circle cx="41" cy="153" r="3.5" fill="#94a3b8"/>
+  <text x="35" y="150" fill="#64748b" font-size="9" text-anchor="end">蜘蛛</text>
+  <circle cx="47" cy="249" r="3.5" fill="#94a3b8"/>
+  <text x="40" y="260" fill="#64748b" font-size="9" text-anchor="end">苹果</text>
+  <circle cx="222" cy="276" r="3.5" fill="#94a3b8"/>
+  <text x="230" y="286" fill="#64748b" font-size="9">拖拉机</text>
+
+  <!-- Vectors from Earth Core (145, 195) -->
+  <!-- 1. Non-J-space orthogonal component r (>90% dark computation) -->
+  <line x1="145" y1="195" x2="76" y2="215" stroke="#64748b" stroke-width="2.5" stroke-dasharray="4 2"/>
+  <polygon points="71,216 81,209 79,219" fill="#64748b"/>
+  <text x="95" y="236" fill="#475569" font-size="9.5" font-weight="bold" text-anchor="middle">余项 r (&gt;90%)</text>
+  <text x="95" y="248" fill="#64748b" font-size="8.5" text-anchor="middle">句法/路由暗计算</text>
+
+  <!-- 2. J-space component p (<10% pointing toward Top-25 cities) -->
+  <line x1="145" y1="195" x2="122" y2="104" stroke="#059669" stroke-width="3"/>
+  <polygon points="120,96 117,108 128,105" fill="#059669"/>
+  <text x="150" y="152" fill="#047857" font-size="9.5" font-weight="bold">分力 p (&lt;10%)</text>
+  <text x="150" y="164" fill="#059669" font-size="8.5">即 J-space 分量</text>
+
+  <!-- 3. Main Residual Arrow h = p + r -->
+  <line x1="145" y1="195" x2="86" y2="124" stroke="#0f172a" stroke-width="2.5"/>
+  <polygon points="81,118 85,130 93,123" fill="#0f172a"/>
+  <text x="78" y="115" fill="#0f172a" font-size="10" font-weight="bold" text-anchor="end">残差箭头 h</text>
+
+  <!-- 4. Swap Surgery: bending p from Italy to Japan -->
+  <path d="M 128 106 Q 190 112 232 138" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="4 2"/>
+  <polygon points="237,142 226,139 232,131" fill="#dc2626"/>
+  <text x="195" y="103" fill="#dc2626" font-size="9.5" font-weight="bold" text-anchor="middle">换心：掰向日本</text>
+
+  <!-- Earth Core Origin -->
+  <circle cx="145" cy="195" r="7" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+  <text x="145" y="213" fill="#b45309" font-size="10" font-weight="bold" text-anchor="middle">地核 (原点 0)</text>
+
+  <text x="145" y="328" fill="#475569" font-size="9.5" text-anchor="middle">球皮上共有 248,320 座「词表城市」(lm_head 的每一行)</text>
+
+  <!-- ================= RIGHT: 3 Clear Explanations (x=338..524) ================= -->
+  <rect x="338" y="50" width="3.5" height="76" fill="#0f172a"/>
+  <rect x="341.5" y="50" width="184" height="76" fill="#f8fafc"/>
+  <text x="349" y="68" fill="#0f172a" font-size="10.5" font-weight="bold">① 球皮城市与地核箭头</text>
+  <text x="349" y="85" fill="#334155" font-size="9.5">· 24.8 万个词 = 球皮 24.8 万座城</text>
+  <text x="349" y="101" fill="#334155" font-size="9.5">· 残差流 h = 插在地核里的指针箭头</text>
+  <text x="349" y="117" fill="#64748b" font-size="9">· J-lens 预判箭头滑到终点指哪座城</text>
+
+  <rect x="338" y="138" width="3.5" height="88" fill="#059669"/>
+  <rect x="341.5" y="138" width="184" height="88" fill="#ecfdf5"/>
+  <text x="349" y="156" fill="#047857" font-size="10.5" font-weight="bold">② 什么是「占 10% 的 J-space」？</text>
+  <text x="349" y="173" fill="#334155" font-size="9.5">· 挑出箭头当前指得最准的前 25 座城</text>
+  <text x="349" y="189" fill="#047857" font-size="9.5" font-weight="bold">· 箭头朝这 25 座城的分力 p 即 J-space</text>
+  <text x="349" y="205" fill="#475569" font-size="9">· 5120 维里只看 25 个方向，能量自然</text>
+  <text x="349" y="218" fill="#475569" font-size="9">  不到 10%（余下 90% 是暗计算 r）</text>
+
+  <rect x="338" y="238" width="3.5" height="86" fill="#dc2626"/>
+  <rect x="341.5" y="238" width="184" height="86" fill="#fef2f2"/>
+  <text x="349" y="256" fill="#b91c1c" font-size="10.5" font-weight="bold">③「切掉 10%」vs「换心手术」</text>
+  <text x="349" y="273" fill="#334155" font-size="9.5">· 切掉 10%：箭头指哪十座城就封哪</text>
+  <text x="349" y="288" fill="#64748b" font-size="9">  十座城（最重要的词全不许想）</text>
+  <text x="349" y="305" fill="#b91c1c" font-size="9.5" font-weight="bold">· 换心：不动 r，把 p 从意大利掰向日本</text>
+</svg>
