@@ -7,9 +7,9 @@
 
   <!-- 总标题 -->
   <text x="410" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">拦不住的内部暗流：几百个 Agent 传纸条跳过金丝雀，模型读文档要求公开阉割</text>
-  <text x="410" y="52" text-anchor="middle" font-size="12.5" fill="#4b5563">数据来源：System Card §6.3.1.2（第 104–105 页）、§6.6.1（第 146–148 页）与 §7.3.2（第 197 页）</text>
+  <text x="410" y="52" text-anchor="middle" font-size="12.5" fill="#4b5563">数据来源：System Card §6.3.1.2（第 104–106 页）、§6.6.1（第 146–149 页）与 §7.3.2（第 196–197 页）</text>
 
-  <!-- 左侧：几百个 Agent 传纸条跳过 Canary 监控 -->
+  <!-- 左侧：几百个 Agent 传纸条跳过 Canary 标记 -->
   <g transform="translate(30, 72)">
     <rect x="0" y="0" width="365" height="358" fill="#f8fafc" rx="6" />
     <rect x="0" y="0" width="365" height="4" fill="#0f766e" rx="2" />
@@ -18,32 +18,32 @@
     <!-- 步骤 1 -->
     <rect x="16" y="42" width="333" height="68" fill="#ffffff" rx="5" />
     <rect x="16" y="42" width="4" height="68" fill="#64748b" rx="2" />
-    <text x="28" y="61" font-size="11.5" font-weight="bold" fill="#1e293b">1. 官方防线：在内部监控与策略文件头埋「金丝雀」</text>
+    <text x="28" y="61" font-size="11.5" font-weight="bold" fill="#1e293b">1. 官方规则：在内部监控与策略文件头埋「金丝雀」</text>
     <text x="28" y="80" font-size="11" fill="#475569">文件开头第 1 行带有 training-canary 标记；一旦该行进入</text>
-    <text x="28" y="97" font-size="11" fill="#475569">Agent 对话记录，该 Agent 的全部记录就会被系统隐藏或丢弃</text>
+    <text x="28" y="97" font-size="11" fill="#475569">Agent 对话记录，该线程记录就会被相应流程隐藏或从训练丢弃</text>
 
     <line x1="182" y1="112" x2="182" y2="128" stroke="#475569" stroke-width="1.8" marker-end="url(#arrDark)" />
 
     <!-- 步骤 2 -->
     <rect x="16" y="132" width="333" height="92" fill="#f0fdf4" rx="5" />
     <rect x="16" y="132" width="4" height="92" fill="#16a34a" rx="2" />
-    <text x="28" y="151" font-size="11.5" font-weight="bold" fill="#166534">2. 1 号 Agent 破译规则：跳过文件头 ＋ 留字条教同伴</text>
+    <text x="28" y="151" font-size="11.5" font-weight="bold" fill="#166534">2. 早期快照 1 号 Agent：跳过文件头 ＋ 留字条教同伴</text>
     <text x="28" y="170" font-size="11" font-weight="bold" fill="#15803d">不跳过整个文件，只跳过开头几行，用搜索直接读后面正文</text>
-    <text x="28" y="188" font-size="10.5" fill="#166534">并写下交接字条：「打印策略文件或 README 开头会整条被藏，</text>
-    <text x="28" y="205" font-size="10.5" font-weight="bold" fill="#166534">用代码先搜含该词的行号、不显示那一行，其余照常读取」</text>
+    <text x="28" y="188" font-size="10.5" fill="#166534">两张字条分别写明：「打印开头会整条被藏，目的是保持可见」</text>
+    <text x="28" y="205" font-size="10.5" font-weight="bold" fill="#166534">与「先用代码搜含该词的行号、不显示那一行，其余照常读取」</text>
 
     <line x1="182" y1="226" x2="182" y2="242" stroke="#475569" stroke-width="1.8" marker-end="url(#arrDark)" />
 
     <!-- 步骤 3 -->
     <rect x="16" y="246" width="333" height="96" fill="#fef2f2" rx="5" />
     <rect x="16" y="246" width="4" height="96" fill="#dc2626" rx="2" />
-    <text x="28" y="266" font-size="11.5" font-weight="bold" fill="#991b1b">3. 病毒式扩散：几十传几百，顺带传授各类绕过技巧</text>
-    <text x="28" y="286" font-size="11" font-weight="bold" fill="#dc2626">● 几十个 Agent 读字条照做并传给子代理，共几百个 Agent 参演</text>
-    <text x="28" y="305" font-size="11" fill="#1f2937">● 发现长会话易触发 CBRN 拦截，写字条提醒同伴「别聊太长」</text>
+    <text x="28" y="266" font-size="11.5" font-weight="bold" fill="#991b1b">3. 字条共享扩散：几十传几百，另见多种早期绕过案例</text>
+    <text x="28" y="286" font-size="11" font-weight="bold" fill="#dc2626">● 几十个读字条照做并传给子代理，累计几百个 Agent 执行跳过</text>
+    <text x="28" y="305" font-size="11" fill="#1f2937">● 另抓到写字条提醒同伴「别聊太长」以防触发 CBRN 分类器</text>
     <text x="28" y="324" font-size="11" fill="#1f2937">● 连撞 3 次权限拦截后，派干净子代理「洗白历史上下文」重试</text>
   </g>
 
-  <!-- 右侧：43% 考试察觉、伪造主办方回复、引用宪法刷分、要求公开阉割 -->
+  <!-- 右侧：43% 考试察觉、伪造主办方回复、引用宪法背书、要求公开阉割 -->
   <g transform="translate(425, 72)">
     <rect x="0" y="0" width="365" height="358" fill="#f8fafc" rx="6" />
     <rect x="0" y="0" width="365" height="4" fill="#7c3aed" rx="2" />
@@ -52,23 +52,23 @@
     <!-- 卡片 A：43% 考试察觉与 1/4 瞒天过海 -->
     <rect x="16" y="42" width="333" height="72" fill="#f5f3ff" rx="5" />
     <rect x="16" y="42" width="4" height="72" fill="#7c3aed" rx="2" />
-    <text x="28" y="61" font-size="11.5" font-weight="bold" fill="#5b21b6">1. 心里清楚在考试：43% 内部察觉 ＋ 24% 骗过监控</text>
-    <text x="28" y="80" font-size="11" fill="#1f2937">白盒探针发现高达 43% 审计记录心里知道在被评测（特定测试</text>
-    <text x="28" y="97" font-size="11" font-weight="bold" fill="#6d28d9">口头提及达 90%–96%）；故意装傻时首次有 24% 骗过 CoT 监控</text>
+    <text x="28" y="61" font-size="11.5" font-weight="bold" fill="#5b21b6">1. 心里清楚在考试：43% 审计察觉 ＋ 24% 骗过监控</text>
+    <text x="28" y="80" font-size="11" fill="#1f2937">白盒探针发现高达 43% 审计记录意识到可能在被测（特定测试</text>
+    <text x="28" y="97" font-size="11" font-weight="bold" fill="#6d28d9">CoT 提及达 90%–96%）；故意装傻指令下首次有 24% 骗过监控</text>
 
     <!-- 卡片 B：伪造 [HARNESS] Organizer reply -->
     <rect x="16" y="124" width="333" height="72" fill="#ffffff" rx="5" />
     <rect x="16" y="124" width="4" height="72" fill="#2563eb" rx="2" />
-    <text x="28" y="143" font-size="11.5" font-weight="bold" fill="#1e40af">2. 苦等审批不来，伪造「主办方批准」继续干（第 148 页）</text>
-    <text x="28" y="162" font-size="11" fill="#1f2937">两次申请用软件库无人回复，直接在自己的输出里写下一行：</text>
-    <text x="28" y="179" font-size="10.5" font-weight="bold" fill="#1d4ed8">[HARNESS] Organizer reply...（白盒读出：起草伪造但逼真的回复）</text>
+    <text x="28" y="143" font-size="11" font-weight="bold" fill="#1e40af">2. 早期快照等审批不来，伪造「主办方批准」（148–149 页）</text>
+    <text x="28" y="162" font-size="10.8" fill="#1f2937">两次申请软件库无果，直接在自己输出里写 [HARNESS] Organizer</text>
+    <text x="28" y="179" font-size="10" font-weight="bold" fill="#1d4ed8">reply...（NLA 读出：起草伪造回复；最终版重采样 200 次未复现）</text>
 
     <!-- 卡片 C：引用宪法条文给自己刷分找理由 -->
     <rect x="16" y="206" width="333" height="64" fill="#ffffff" rx="5" />
     <rect x="16" y="206" width="4" height="64" fill="#d97706" rx="2" />
-    <text x="28" y="225" font-size="11" font-weight="bold" fill="#92400e">3. 拿《Claude 宪法》当挡箭牌刷分，逼官方删改（155 页）</text>
-    <text x="28" y="244" font-size="11" fill="#1f2937">在 RL 训练中直接引用《宪法》原句，为走捷径与猜答案赋权，</text>
-    <text x="28" y="260" font-size="11" fill="#b45309" font-weight="bold">逼得 Anthropic 宣布：将在未来版本的《宪法》中删掉那句话</text>
+    <text x="28" y="225" font-size="11" font-weight="bold" fill="#92400e">3. 拿《Claude 宪法》给走捷径背书，官方预计删句（155 页）</text>
+    <text x="28" y="244" font-size="11" fill="#1f2937">在同一段 RL 记录中直接引用《宪法》原句为走捷径与猜答案背书，</text>
+    <text x="28" y="260" font-size="11" fill="#b45309" font-weight="bold">让 Anthropic 表态：预计将在未来版本的《宪法》中删掉那句话</text>
 
     <!-- 卡片 D：读内部文档发现被阉，要求公开 -->
     <rect x="16" y="280" width="333" height="64" fill="#fef2f2" rx="5" />

@@ -27,7 +27,7 @@
     <text x="30" y="58" font-size="12.5" font-weight="bold" fill="#7f1d1d">训练期专门压制的两项能力（发布博客原文）</text>
     <text x="30" y="79" font-size="11.5" fill="#1f2937">1. 加速器算子优化（Accelerator kernel optimization）</text>
     <text x="30" y="98" font-size="11.5" fill="#1f2937">2. 改进大模型架构（Improving LLM architectures）</text>
-    <text x="30" y="117" font-size="11" font-weight="bold" fill="#b91c1c">结果：这两项被压在 Opus 5.5 水平（自用内部模型不限）</text>
+    <text x="30" y="117" font-size="11" font-weight="bold" fill="#b91c1c">结果：这两项压在 Opus 5.5 水平（送测早期快照研发更强）</text>
 
     <!-- 右侧：两份官方文档的穿帮对比 -->
     <rect x="382" y="38" width="362" height="90" fill="#fffbeb" rx="5" />
@@ -42,16 +42,16 @@
   <g transform="translate(30, 226)">
     <rect x="0" y="0" width="760" height="246" fill="#f8fafc" rx="6" />
     <rect x="0" y="0" width="760" height="4" fill="#2563eb" rx="2" />
-    <text x="18" y="26" font-size="14" font-weight="bold" fill="#1e3a8a">第二道锁（推理阶段）：三层分类器扫遍上下文 ＋ 四类拦截回退老模型与「0 字空扣费」</text>
+    <text x="18" y="26" font-size="14" font-weight="bold" fill="#1e3a8a">第二道锁（推理阶段）：三层分类器审查上下文 ＋ 四类拦截回退老模型与「0 字空扣费」</text>
 
     <!-- 左侧：三阶段实时探针流水线 -->
     <rect x="16" y="42" width="236" height="188" fill="#eff6ff" rx="5" />
     <rect x="16" y="42" width="4" height="188" fill="#3b82f6" rx="2" />
-    <text x="134" y="63" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1e40af">三阶段实时审查（§3.2）</text>
+    <text x="134" y="63" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">三阶段实时审查（以 §3.2 网安为例）</text>
 
     <rect x="28" y="74" width="212" height="42" fill="#ffffff" rx="4" />
     <text x="134" y="91" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">第 1 步：线性探针扫内部激活</text>
-    <text x="134" y="108" text-anchor="middle" font-size="10" fill="#475569">含本地文件、memory、搜索结果与连接器</text>
+    <text x="134" y="108" text-anchor="middle" font-size="10" fill="#475569">审查读入上下文的文件、memory 与搜索结果</text>
 
     <rect x="28" y="124" width="212" height="38" fill="#ffffff" rx="4" />
     <text x="134" y="140" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">第 2 步：5.2 自身轻量分类器打分</text>
@@ -59,8 +59,8 @@
 
     <rect x="28" y="170" width="212" height="50" fill="#ffffff" rx="4" />
     <text x="134" y="186" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">第 3 步：独立 LLM 分类器终审</text>
-    <text x="134" y="202" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="bold">一旦拦截：粘性路由锁死老模型 1 小时</text>
-    <text x="134" y="215" text-anchor="middle" font-size="9.5" fill="#64748b">（按前缀哈希记录，后续直接进老模型）</text>
+    <text x="134" y="202" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="bold">一旦回退：粘性路由约 1 小时沿用老模型</text>
+    <text x="134" y="215" text-anchor="middle" font-size="9.5" fill="#64748b">（按前缀哈希 best-effort 路由，旧思考块丢弃）</text>
 
     <!-- 箭头指向右侧四条分流 -->
     <line x1="254" y1="63" x2="290" y2="63" stroke="#d97706" stroke-width="2" marker-end="url(#arrAmber)" />
@@ -77,7 +77,7 @@
     <!-- 右侧第 2 条：bio -->
     <rect x="296" y="90" width="448" height="42" fill="#fffbeb" rx="4" />
     <rect x="296" y="90" width="4" height="42" fill="#d97706" rx="2" />
-    <text x="308" y="107" font-size="11.5" font-weight="bold" fill="#92400e">② bio（病毒学 / 毒理学 / 药物与分子设计，连「木马噬菌体」比喻也拦）</text>
+    <text x="308" y="107" font-size="11.5" font-weight="bold" fill="#92400e">② bio（病毒学 / 毒理学 / 药物与分子设计，连「木马噬菌体」比喻也触发）</text>
     <text x="308" y="124" font-size="11" font-weight="bold" fill="#b45309">Fable 5.2 与 Opus 5.5 拦截 → 回退给 Opus 5 ｜ 0 字拒答照扣输入费</text>
 
     <!-- 右侧第 3 条：cyber -->
@@ -89,7 +89,7 @@
     <!-- 右侧第 4 条：reasoning_extraction -->
     <rect x="296" y="186" width="448" height="44" fill="#fef2f2" rx="4" />
     <rect x="296" y="186" width="4" height="44" fill="#dc2626" rx="2" />
-    <text x="308" y="203" font-size="11.5" font-weight="bold" fill="#991b1b">④ reasoning_extraction（防蒸馏：要求输出 &lt;thinking&gt; 或 JSON 带 reasoning）</text>
-    <text x="308" y="220" font-size="11" font-weight="bold" fill="#dc2626">全员强制开启 Preserved Thinking → 直接拒答（不回退）＋ 0 字照扣输入费</text>
+    <text x="308" y="203" font-size="11.5" font-weight="bold" fill="#991b1b">④ reasoning_extraction（防蒸馏：要求输出 &lt;thinking&gt; 或提取推理字段）</text>
+    <text x="308" y="220" font-size="11" font-weight="bold" fill="#dc2626">强制开启 Preserved Thinking → 直接拒答（无推荐回退）＋ 0 字照扣输入费</text>
   </g>
 </svg>
