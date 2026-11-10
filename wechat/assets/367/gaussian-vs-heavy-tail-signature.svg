@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" width="820" height="430" style="background-color:#ffffff;font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <!-- 标题 -->
+  <text x="410" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">为什么「有意义的概念方向」一定长着一条非高斯长尾巴？</text>
+  <text x="410" y="54" text-anchor="middle" font-size="12.5" fill="#4b5563">将 GPT-2 全部 50,256 个词元的激活向量投影到一根方向轴上（横轴为投影得分 y，纵轴为词元密度）</text>
+
+  <!-- 左图：随机方向（高斯钟形） -->
+  <g transform="translate(45, 80)">
+    <rect x="0" y="0" width="345" height="315" fill="#f8fafc" rx="6" />
+    <rect x="0" y="0" width="345" height="4" fill="#64748b" rx="2" />
+    <text x="172" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b">① 随机乱指的方向（中心极限定理）</text>
+    <text x="172" y="48" text-anchor="middle" font-size="12" fill="#475569">上百种无关概念混加 → 左右对称的高斯钟形曲线</text>
+
+    <!-- 指标标签放在网格上方 -->
+    <text x="24" y="74" font-size="12" font-weight="bold" fill="#334155">背景标准差 σ = 1.00</text>
+    <text x="195" y="74" font-size="12" font-weight="bold" fill="#64748b">超额峰度 κ = 0.20 ≈ 0</text>
+
+    <!-- 坐标轴 -->
+    <line x1="25" y1="225" x2="320" y2="225" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="172" y1="88" x2="172" y2="230" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="4 3" />
+    <text x="172" y="244" text-anchor="middle" font-size="11.5" fill="#475569">0（均值中心）</text>
+    <text x="55" y="244" text-anchor="middle" font-size="11" fill="#64748b">-3</text>
+    <text x="290" y="244" text-anchor="middle" font-size="11" fill="#64748b">+3</text>
+
+    <!-- 高斯钟形曲线填充与描边 -->
+    <path d="M 30,224 C 65,223 95,210 120,170 C 142,132 156,102 172,102 C 188,102 202,132 224,170 C 249,210 279,223 314,224 Z" fill="#94a3b8" fill-opacity="0.22" />
+    <path d="M 30,224 C 65,223 95,210 120,170 C 142,132 156,102 172,102 C 188,102 202,132 224,170 C 249,210 279,223 314,224" fill="none" stroke="#475569" stroke-width="2.5" />
+
+    <!-- 右侧杂乱词标注 -->
+    <circle cx="272" cy="221" r="3.5" fill="#64748b" />
+    <circle cx="284" cy="222" r="3.5" fill="#64748b" />
+    <circle cx="296" cy="223" r="3.5" fill="#64748b" />
+    <line x1="284" y1="216" x2="265" y2="168" stroke="#64748b" stroke-width="1.2" />
+    <text x="260" y="148" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#334155">右端高分点全是杂烩</text>
+    <text x="260" y="164" text-anchor="middle" font-size="11" fill="#64748b">"apple", "run", "1998"...</text>
+
+    <!-- 底部结论说明 -->
+    <text x="172" y="274" text-anchor="middle" font-size="12" fill="#334155">没有长尾巴，挑出的最高分词元毫无共同主题</text>
+    <text x="172" y="294" text-anchor="middle" font-size="11.5" fill="#64748b">（人工构造 20 个随机词的平均方向同样 κ = 0.31）</text>
+  </g>
+
+  <!-- 右图：ICA 概念方向（尖峰 + 单侧长尾） -->
+  <g transform="translate(430, 80)">
+    <rect x="0" y="0" width="345" height="315" fill="#fffbeb" fill-opacity="0.55" rx="6" />
+    <rect x="0" y="0" width="345" height="4" fill="#d97706" rx="2" />
+    <text x="172" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#111827">② ICA 拧出的概念方向（尖峰＋单侧长尾）</text>
+    <text x="172" y="48" text-anchor="middle" font-size="12" fill="#475569">99.9% 无关词死死缩在 0 附近，目标概念词在右尾爆发</text>
+
+    <!-- 指标标签放在网格上方 -->
+    <text x="22" y="74" font-size="12" font-weight="bold" fill="#0f766e">背景极窄 σ = 0.37</text>
+    <text x="175" y="74" font-size="12" font-weight="bold" fill="#b45309">超额峰度 κ = 252.00</text>
+
+    <!-- 坐标轴 -->
+    <line x1="25" y1="225" x2="325" y2="225" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="115" y1="88" x2="115" y2="230" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="4 3" />
+    <text x="115" y="244" text-anchor="middle" font-size="11.5" fill="#475569">0（背景沉默区）</text>
+    <text x="285" y="244" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#b45309">正长尾（+y 飙升）</text>
+
+    <!-- 高斯参考虚线（浅灰） -->
+    <path d="M 35,224 C 60,222 80,195 95,155 C 105,130 110,120 115,120 C 120,120 125,130 135,155 C 150,195 170,222 195,224" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3" />
+
+    <!-- ICA 尖峰 + 右长尾曲线 -->
+    <path d="M 65,224 C 88,224 98,218 104,175 C 109,130 112,92 115,92 C 118,92 121,130 126,175 C 132,208 145,215 180,217 C 225,219 275,220 320,222 L 320,225 L 65,225 Z" fill="#f59e0b" fill-opacity="0.22" />
+    <path d="M 65,224 C 88,224 98,218 104,175 C 109,130 112,92 115,92 C 118,92 121,130 126,175 C 132,208 145,215 180,217 C 225,219 275,220 320,222" fill="none" stroke="#d97706" stroke-width="2.6" />
+
+    <!-- 长尾上的概念词簇点 -->
+    <circle cx="235" cy="219" r="4" fill="#d97706" />
+    <circle cx="255" cy="219.5" r="4" fill="#d97706" />
+    <circle cx="278" cy="220.5" r="4" fill="#d97706" />
+    <circle cx="302" cy="221" r="4" fill="#b45309" />
+
+    <line x1="270" y1="214" x2="245" y2="162" stroke="#d97706" stroke-width="1.3" />
+    <text x="238" y="128" text-anchor="middle" font-size="12" font-weight="bold" fill="#b45309">长尾尖端全是同一概念族</text>
+    <text x="238" y="146" text-anchor="middle" font-size="11.5" fill="#92400e">"either", "neither", "both",</text>
+    <text x="238" y="161" text-anchor="middle" font-size="11.5" fill="#92400e">"between"（两者选一概念族）</text>
+
+    <!-- 底部结论说明 -->
+    <text x="172" y="274" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">非高斯性（尖峰＋长尾）本身就是可解释特征的指纹</text>
+    <text x="172" y="294" text-anchor="middle" font-size="11.5" fill="#475569">不用训练几万维的字典，直接找 κ 最大的方向就能抓出概念</text>
+  </g>
+</svg>

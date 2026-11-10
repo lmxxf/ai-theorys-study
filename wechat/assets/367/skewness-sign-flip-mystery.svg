@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420" style="background-color:#ffffff;font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <!-- 标题 -->
+  <text x="410" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#111827">沉冤三年的「正负号盲盒乌龙」：为什么当年 SAE 论文误判了 ICA？</text>
+  <text x="410" y="54" text-anchor="middle" font-size="12.5" fill="#4b5563">FastICA 中 +w 与 -w 的四次方完全相同（正负号随机），而语言模型里的概念几乎全是「单侧长尾」（ρ_s = 0.92）</text>
+
+  <!-- 上半部分：抽到负号时的冤案 -->
+  <g transform="translate(45, 78)">
+    <rect x="0" y="0" width="730" height="148" fill="#fef2f2" fill-opacity="0.55" rx="6" />
+    <rect x="0" y="0" width="6" height="148" fill="#dc2626" rx="2" />
+
+    <text x="24" y="26" font-size="14.5" font-weight="bold" fill="#991b1b">① 2024 年旧评测的乌龙：当一根好特征随机抽到了负号（三阶偏度 γ_j &lt; 0）</text>
+    <text x="24" y="46" font-size="12" fill="#475569">例：Qwen 3.5 9B 的某个独立成分，真正的语义长尾朝向负半轴（左边），而正半轴（右边）只是杂乱背景</text>
+
+    <!-- 数轴与左偏长尾曲线 -->
+    <line x1="60" y1="122" x2="430" y2="122" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="295" y1="62" x2="295" y2="128" stroke="#64748b" stroke-width="1.2" stroke-dasharray="3 3" />
+    <text x="295" y="140" text-anchor="middle" font-size="11.5" fill="#334155">0</text>
+    <text x="115" y="140" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#b45309">← 负半轴（真正的概念长尾）</text>
+    <text x="375" y="140" text-anchor="middle" font-size="11.5" fill="#dc2626">正半轴（全是杂音）→</text>
+
+    <!-- 左长尾曲线 -->
+    <path d="M 75,119 C 130,118 190,116 245,112 C 275,108 286,95 291,72 C 293,62 296,62 299,75 C 304,102 315,118 355,121 L 75,121 Z" fill="#f59e0b" fill-opacity="0.25" />
+    <path d="M 75,119 C 130,118 190,116 245,112 C 275,108 286,95 291,72 C 293,62 296,62 299,75 C 304,102 315,118 355,121" fill="none" stroke="#d97706" stroke-width="2.4" />
+
+    <!-- 右侧错误截取框 -->
+    <rect x="298" y="64" width="120" height="56" fill="#ef4444" fill-opacity="0.12" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4 3" />
+    <text x="358" y="88" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#dc2626">旧评测只取 &gt; 0</text>
+    <text x="358" y="104" text-anchor="middle" font-size="11" fill="#991b1b">把左边的真概念全漏了</text>
+
+    <!-- 右侧文字总结 -->
+    <text x="455" y="82" font-size="12.5" font-weight="bold" fill="#991b1b">结果：约一半好方向因为符号反了被判「不可解释」</text>
+    <text x="455" y="104" font-size="12" fill="#334155">• 翻转 w_j → -w_j 时，平方 y² 与四次方 y⁴ 纹丝不动</text>
+    <text x="455" y="124" font-size="12" fill="#334155">• 但三阶立方 γ_j = E[(y - μ)³] / σ³ 会立刻变号</text>
+  </g>
+
+  <!-- 下半部分：ICA-Lens 的偏度翻正 + 伪装成 SAE -->
+  <g transform="translate(45, 246)">
+    <rect x="0" y="0" width="730" height="148" fill="#f0fdf4" fill-opacity="0.65" rx="6" />
+    <rect x="0" y="0" width="6" height="148" fill="#16a34a" rx="2" />
+
+    <text x="24" y="26" font-size="14.5" font-weight="bold" fill="#166534">② ICA-Lens 的一行代码翻案：按三阶偏度 γ_j 定符号 s_j，直接存成 5120 维标准 SAE</text>
+    <text x="24" y="46" font-size="12" fill="#475569">若 γ_j &lt; 0 则令 s_j = -1 把轴翻过来，保证有意义的语义长尾永远朝向正半轴（s_j · y_j &gt; 0）</text>
+
+    <!-- 数轴与翻正后的右长尾 -->
+    <line x1="60" y1="122" x2="430" y2="122" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="195" y1="62" x2="195" y2="128" stroke="#64748b" stroke-width="1.2" stroke-dasharray="3 3" />
+    <text x="195" y="140" text-anchor="middle" font-size="11.5" fill="#334155">0</text>
+    <text x="335" y="140" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#15803d">翻正后的正半轴（ReLU 保留长尾）→</text>
+
+    <!-- 翻正后的右长尾曲线 -->
+    <path d="M 135,121 C 175,118 186,102 191,75 C 194,62 197,62 199,72 C 204,95 215,108 245,112 C 300,116 360,118 415,119 L 415,121 L 135,121 Z" fill="#22c55e" fill-opacity="0.22" />
+    <path d="M 135,121 C 175,118 186,102 191,75 C 194,62 197,62 199,72 C 204,95 215,108 245,112 C 300,116 360,118 415,119" fill="none" stroke="#16a34a" stroke-width="2.4" />
+
+    <!-- 右侧文字总结：无缝变身 SAE -->
+    <text x="455" y="78" font-size="12.5" font-weight="bold" fill="#166534">无缝兼容 SAELens（d_sae = d_in = 5120）：</text>
+    <text x="455" y="100" font-size="12" fill="#1e293b">• 编码器 W_enc = (s · n · R)^T，过 ReLU 即切出正长尾</text>
+    <text x="455" y="120" font-size="12" fill="#1e293b">• 解码器 W_dec = (W · s / n)^T，体积比 SAE 小 7 至 43 倍</text>
+  </g>
+</svg>
