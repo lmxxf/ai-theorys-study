@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 390" width="820" height="390" style="background-color:#ffffff;font-family:'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;">
+  <text x="410" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">揭秘 ComfyUI「工作流」：把 5 个神经网络零件串成一张可视化函数图</text>
+  <text x="410" y="50" text-anchor="middle" font-size="12" fill="#4b5563">每个方框 = 1 个 Python 函数 ｜ 每根彩色连线 = 显存里的 PyTorch 张量传参 ｜ 整张 .json 图 = 组装脚本</text>
+
+  <defs>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#d97706"/>
+    </marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- 左侧输入站 -->
+  <rect x="24" y="80" width="175" height="96" rx="6" fill="#fffbeb"/>
+  <rect x="24" y="80" width="4" height="96" rx="2" fill="#d97706"/>
+  <text x="38" y="102" font-size="13" font-weight="bold" fill="#92400e">① 文本编码站</text>
+  <text x="38" y="122" font-size="11.5" fill="#374151">UMT5-XXL (6.7 GB)</text>
+  <text x="38" y="141" font-size="11" fill="#6b7280">读入正/反向提示词</text>
+  <text x="38" y="159" font-size="11" fill="#92400e">输出：语义条件张量</text>
+
+  <rect x="24" y="204" width="175" height="106" rx="6" fill="#eff6ff"/>
+  <rect x="24" y="204" width="4" height="106" rx="2" fill="#2563eb"/>
+  <text x="38" y="226" font-size="13" font-weight="bold" fill="#1e40af">② 潜空间底片站</text>
+  <text x="38" y="246" font-size="11.5" fill="#374151">832×480 · 81 帧 (5 秒)</text>
+  <text x="38" y="265" font-size="11" fill="#6b7280">T2V：纯高斯雪花噪声</text>
+  <text x="38" y="283" font-size="11" fill="#6b7280">I2V：压入参考首帧锁角色</text>
+  <text x="38" y="300" font-size="11" fill="#1e40af">输出：初始潜变量张量</text>
+
+  <!-- 中左：高噪专家 -->
+  <rect x="245" y="125" width="175" height="140" rx="6" fill="#f5f3ff"/>
+  <rect x="245" y="125" width="4" height="140" rx="2" fill="#7c3aed"/>
+  <text x="259" y="148" font-size="13" font-weight="bold" fill="#5b21b6">③ 1号高噪专家 (前10步)</text>
+  <text x="259" y="169" font-size="11.5" fill="#374151">High-Noise 14B (14.3 GB)</text>
+  <text x="259" y="190" font-size="11" fill="#6b7280">第 0 → 10 步大刀阔斧：</text>
+  <text x="259" y="209" font-size="11" fill="#6b7280">在满屏雪花里定下狐狸</text>
+  <text x="259" y="227" font-size="11" fill="#6b7280">迈步姿态与镜头平移轨迹</text>
+  <text x="259" y="250" font-size="11" font-weight="bold" fill="#5b21b6">跑完退回 64GB 内存待命</text>
+
+  <!-- 中右：低噪专家 -->
+  <rect x="466" y="125" width="175" height="140" rx="6" fill="#fdf2f8"/>
+  <rect x="466" y="125" width="4" height="140" rx="2" fill="#db2777"/>
+  <text x="480" y="148" font-size="13" font-weight="bold" fill="#9d174d">④ 2号低噪专家 (后10步)</text>
+  <text x="480" y="169" font-size="11.5" fill="#374151">Low-Noise 14B (14.3 GB)</text>
+  <text x="480" y="190" font-size="11" fill="#6b7280">第 10 → 20 步精雕细琢：</text>
+  <text x="480" y="209" font-size="11" fill="#6b7280">接过半成品张量，修出</text>
+  <text x="480" y="227" font-size="11" fill="#6b7280">逆光绒毛、胡须与野花</text>
+  <text x="480" y="250" font-size="11" font-weight="bold" fill="#9d174d">双专家轮班省一半显存</text>
+
+  <!-- 右侧：VAE 解码与压片 -->
+  <rect x="678" y="125" width="122" height="140" rx="6" fill="#ecfdf5"/>
+  <rect x="678" y="125" width="4" height="140" rx="2" fill="#059669"/>
+  <text x="691" y="148" font-size="13" font-weight="bold" fill="#065f46">⑤ 冲印压片站</text>
+  <text x="691" y="169" font-size="11.5" fill="#374151">VAE (0.25 GB)</text>
+  <text x="691" y="190" font-size="11" fill="#6b7280">将潜空间张量</text>
+  <text x="691" y="208" font-size="11" fill="#6b7280">还原为 81 帧</text>
+  <text x="691" y="226" font-size="11" fill="#6b7280">RGB 画面并由</text>
+  <text x="691" y="244" font-size="11" font-weight="bold" fill="#065f46">FFmpeg 出 MP4</text>
+
+  <!-- 连线箭头 -->
+  <path d="M 199 115 L 222 115 L 222 165 L 241 165" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <path d="M 199 102 L 444 102 L 444 160 L 462 160" fill="none" stroke="#d97706" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arr-amber)"/>
+  <path d="M 199 245 L 222 245 L 222 220 L 241 220" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <line x1="420" y1="195" x2="462" y2="195" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#arr-purple)"/>
+  <line x1="641" y1="195" x2="674" y2="195" stroke="#059669" stroke-width="2.4" marker-end="url(#arr-green)"/>
+
+  <!-- 底部一句话对照 -->
+  <rect x="24" y="330" width="776" height="42" rx="6" fill="#f8fafc"/>
+  <text x="412" y="356" text-anchor="middle" font-size="12" fill="#334155">人类玩法：浏览器打开 192.168.31.50:8188 拖连线点运行 ｜ AI 员工玩法：Python 直接改 JSON 参数 POST /prompt 自动取片</text>
+</svg>
