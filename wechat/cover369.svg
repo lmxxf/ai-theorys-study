@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg369" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071318"/>
+      <stop offset="0.5" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <radialGradient id="prismGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#14b8a6" stop-opacity="0.32"/>
+      <stop offset="0.55" stop-color="#3b82f6" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="0.5" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg369)"/>
+
+  <!-- 顶部标题 -->
+  <rect x="56" y="36" width="6" height="74" rx="3" fill="url(#barGrad)"/>
+  <text x="78" y="70" font-size="33" fill="#f8fafc" font-weight="bold">全 64 层 32.7 万根轴：给 27B 装上双透镜</text>
+  <text x="78" y="103" font-size="18" fill="#cbd5e1">双机 Spark 133 分钟跑通 Qwen3.8-27B ICA-Lens，撞见中英同轴奇观与 J-lens 双镜合璧</text>
+
+  <!-- 背景光晕 -->
+  <ellipse cx="450" cy="285" rx="360" ry="155" fill="url(#prismGlow)"/>
+
+  <!-- 左侧：第一面透镜 ICA-Lens 横向解混 -->
+  <g transform="translate(56, 150)">
+    <rect x="0" y="0" width="240" height="248" rx="14" fill="#0f172a" fill-opacity="0.88" stroke="#2dd4bf" stroke-width="2"/>
+    <text x="120" y="30" text-anchor="middle" font-size="15.5" fill="#5eead4" font-weight="bold">① 全 64 层 ICA-Lens 解混</text>
+    <text x="120" y="52" text-anchor="middle" font-size="12" fill="#94a3b8">64 层 × 5,120 维 = 327,680 根轴</text>
+
+    <!-- 迷你沙漏曲线示意 -->
+    <rect x="20" y="66" width="200" height="82" rx="8" fill="#1e293b"/>
+    <text x="120" y="83" text-anchor="middle" font-size="10.2" fill="#fde68a">L0 高耸 → L32 腰部混融 → L54 再聚焦</text>
+    <polyline points="32,94 65,109 98,125 120,138 145,122 175,102 206,118" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="120" cy="138" r="4" fill="#ef4444"/>
+
+    <text x="120" y="172" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">83.76% 重尾（27.4 万根 κ&gt;1）</text>
+    <text x="120" y="194" text-anchor="middle" font-size="12.5" fill="#5eead4" font-weight="bold">44.08% 强长尾（14.4 万根 κ&gt;10）</text>
+    <text x="120" y="218" text-anchor="middle" font-size="11.5" fill="#cbd5e1">双机 GB10 流式接力：133 分钟收官</text>
+    <text x="120" y="236" text-anchor="middle" font-size="11" fill="#94a3b8">单轴硬掰 27B 语种：0/36 翻转（诚实边界）</text>
+  </g>
+
+  <!-- 中央视觉：中英跨语言同轴共振（apple & 苹果 -> 同一根坐标轴） -->
+  <g transform="translate(322, 150)">
+    <circle cx="128" cy="115" r="102" fill="#0f172a" fill-opacity="0.92" stroke="#38bdf8" stroke-width="2.5" filter="url(#softGlow)"/>
+    <text x="128" y="54" text-anchor="middle" font-size="13.5" fill="#bae6fd" font-weight="bold">② 42/64 层中英盲选同轴</text>
+
+    <!-- 左上英文 apple，左下中文 苹果 -->
+    <rect x="42" y="72" width="72" height="28" rx="14" fill="#1d4ed8"/>
+    <text x="78" y="90" text-anchor="middle" font-size="12.5" fill="#ffffff" font-weight="bold">apple</text>
+
+    <rect x="42" y="132" width="72" height="28" rx="14" fill="#059669"/>
+    <text x="78" y="150" text-anchor="middle" font-size="12.5" fill="#ffffff" font-weight="bold">苹果</text>
+
+    <!-- 汇聚光线 -->
+    <line x1="114" y1="86" x2="148" y2="115" stroke="#38bdf8" stroke-width="2.5"/>
+    <line x1="114" y1="146" x2="148" y2="115" stroke="#34d399" stroke-width="2.5"/>
+    <circle cx="152" cy="115" r="7" fill="#fbbf24"/>
+
+    <text x="190" y="111" text-anchor="middle" font-size="11.5" fill="#fde68a" font-weight="bold">L38 C2639</text>
+    <text x="190" y="128" text-anchor="middle" font-size="11.5" fill="#fde68a" font-weight="bold">L41 C828</text>
+    <text x="128" y="182" text-anchor="middle" font-size="10.8" fill="#cbd5e1">5,120 选 1 撞同一根轴</text>
+    <text x="128" y="240" text-anchor="middle" font-size="13.5" fill="#38bdf8" font-weight="bold">余弦峰值 0.879 · 跨语种共享基底</text>
+  </g>
+
+  <!-- 右侧：第二面透镜 N=100 J-lens 纵向拐弯读出 -->
+  <g transform="translate(604, 150)">
+    <rect x="0" y="0" width="240" height="248" rx="14" fill="#0f172a" fill-opacity="0.88" stroke="#f59e0b" stroke-width="2"/>
+    <text x="120" y="30" text-anchor="middle" font-size="15.5" fill="#fcd34d" font-weight="bold">③ 叠上 N=100 J-lens 验光</text>
+    <text x="120" y="52" text-anchor="middle" font-size="11.5" fill="#94a3b8">横向 ICA 找轴 × 纵向 J-lens 拐弯</text>
+
+    <rect x="16" y="68" width="208" height="72" rx="8" fill="#1e293b"/>
+    <text x="120" y="88" text-anchor="middle" font-size="11" fill="#94a3b8">L0/C2108 老办法：eck / 姗 / rast</text>
+    <text x="120" y="108" text-anchor="middle" font-size="12" fill="#2dd4bf" font-weight="bold">↓ 套 J-lens 后秒变四国语言 ↓</text>
+    <text x="120" y="128" text-anchor="middle" font-size="12.5" fill="#fde68a" font-weight="bold">对于 / for / для / für</text>
+
+    <rect x="16" y="152" width="208" height="78" rx="8" fill="#1e293b"/>
+    <text x="120" y="172" text-anchor="middle" font-size="11" fill="#94a3b8">L41/C828 老办法：EDUCA / INU</text>
+    <text x="120" y="194" text-anchor="middle" font-size="12" fill="#34d399" font-weight="bold">↓ 套 J-lens 显影中英作物词 ↓</text>
+    <text x="120" y="215" text-anchor="middle" font-size="12" fill="#ffffff" font-weight="bold">种植 / 作物 / crops / 蔬菜 / 植物</text>
+  </g>
+
+  <!-- 底部金句与期号 -->
+  <text x="56" y="458" font-size="16" fill="#94a3b8">ICA 横向拧开纠缠的坐标轴，J-lens 纵向替它拐完剩下的弯——两副自制透镜终于严丝合缝</text>
+  <text x="844" y="458" text-anchor="end" font-size="18" fill="#2dd4bf" font-weight="bold">No.369</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" width="820" height="430" style="background-color:#ffffff;font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
+  <defs>
+    <marker id="arrTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0d9488" />
+    </marker>
+    <marker id="arrSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <!-- 总标题 -->
+  <text x="410" y="28" text-anchor="middle" font-size="17.5" font-weight="bold" fill="#111827">双镜合璧（ICA-Lens × N=100 J-lens）：把中间层「乱码碎片」拧回四国同义词</text>
+  <text x="410" y="50" text-anchor="middle" font-size="12" fill="#4b5563">6,633 个候选层-轴对实测：两种读出方式的前 5 名词元重合度均值仅 18.5%（早中层几乎完全换血，L63 恒等重合）</text>
+
+  <!-- 顶部原理对比小条 -->
+  <g transform="translate(35, 66)">
+    <rect x="0" y="0" width="362" height="58" fill="#f8fafc" rx="5" />
+    <rect x="0" y="0" width="4" height="58" fill="#94a3b8" rx="2" />
+    <text x="14" y="22" font-size="12" font-weight="bold" fill="#334155">老办法直读（不乘斜率表：d_j → RMSNorm → lm_head）</text>
+    <text x="14" y="43" font-size="11" fill="#64748b">假装后续几十层全是单位矩阵 I，在早中层撞上错误角度全是乱码碎片</text>
+
+    <rect x="388" y="0" width="362" height="58" fill="#f0fdfa" rx="5" />
+    <rect x="388" y="0" width="4" height="58" fill="#0d9488" rx="2" />
+    <text x="402" y="22" font-size="12" font-weight="bold" fill="#0f766e">双镜合璧（先乘 N=100 雅可比透镜：J_l · d_j → lm_head）</text>
+    <text x="402" y="43" font-size="11" fill="#115e59">先替这根 ICA 方向拐完后续几十层的弯，再对齐球皮 24.8 万座城市</text>
+  </g>
+
+  <!-- 四组真实读出对照实例 -->
+  <g transform="translate(35, 140)">
+    <!-- 表头 -->
+    <text x="68" y="18" text-anchor="middle" font-size="12" font-weight="bold" fill="#475569">层位与 ICA 轴</text>
+    <text x="262" y="18" text-anchor="middle" font-size="12" font-weight="bold" fill="#64748b">老办法直读 Top-5（未拐弯）</text>
+    <text x="565" y="18" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f766e">套上自家 N=100 J-lens 后 Top-5（拐弯对齐后）</text>
+    <line x1="0" y1="28" x2="750" y2="28" stroke="#cbd5e1" stroke-width="1.5" />
+
+    <!-- 行 1：L0 / C2108 -->
+    <rect x="0" y="38" width="750" height="50" fill="#f8fafc" rx="5" />
+    <text x="68" y="60" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1e293b">L0 / C2108</text>
+    <text x="68" y="77" text-anchor="middle" font-size="10.5" fill="#64748b">（早层语言候选轴）</text>
+    <text x="262" y="68" text-anchor="middle" font-size="11.5" fill="#64748b">eck / 姗 / rast / ophe / amax</text>
+    <line x1="395" y1="63" x2="425" y2="63" stroke="#0d9488" stroke-width="2" marker-end="url(#arrTeal)" />
+    <rect x="435" y="45" width="305" height="36" fill="#ccfbf1" rx="4" />
+    <text x="587" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f766e">对于 / for / для / for / für（中英俄德四国「对于」）</text>
+
+    <!-- 行 2：L41 / C1051 -->
+    <rect x="0" y="98" width="750" height="50" fill="#f8fafc" rx="5" />
+    <text x="68" y="120" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1e293b">L41 / C1051</text>
+    <text x="68" y="137" text-anchor="middle" font-size="10.5" fill="#64748b">（中深层候选轴）</text>
+    <text x="262" y="128" text-anchor="middle" font-size="11.5" fill="#64748b">[乱码字节] / スポンサーリンク / そも / UILayout</text>
+    <line x1="395" y1="123" x2="425" y2="123" stroke="#0d9488" stroke-width="2" marker-end="url(#arrTeal)" />
+    <rect x="435" y="105" width="305" height="36" fill="#ccfbf1" rx="4" />
+    <text x="587" y="128" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f766e">someone / 某人 / 帮忙 / someone / 明明</text>
+
+    <!-- 行 3：L41 / C828 -->
+    <rect x="0" y="158" width="750" height="50" fill="#f8fafc" rx="5" />
+    <text x="68" y="180" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1e293b">L41 / C828</text>
+    <text x="68" y="197" text-anchor="middle" font-size="10.5" fill="#059669">（苹果/apple 同选轴）</text>
+    <text x="262" y="188" text-anchor="middle" font-size="11.5" fill="#64748b">食用 / EDUCA / INU / 不耐 / arella</text>
+    <line x1="395" y1="183" x2="425" y2="183" stroke="#0d9488" stroke-width="2" marker-end="url(#arrTeal)" />
+    <rect x="435" y="165" width="305" height="36" fill="#ccfbf1" rx="4" />
+    <text x="587" y="188" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f766e">种植 / 作物 / 和蔬菜 / crops / 蔬菜 / 植物</text>
+
+    <!-- 行 4：L56 / C1678 -->
+    <rect x="0" y="218" width="750" height="50" fill="#f8fafc" rx="5" />
+    <text x="68" y="240" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1e293b">L56 / C1678</text>
+    <text x="68" y="257" text-anchor="middle" font-size="10.5" fill="#64748b">（晚层逻辑衔接轴）</text>
+    <text x="262" y="248" text-anchor="middle" font-size="11.5" fill="#64748b">Intialized / [乱码字节] / &lt;LM / EmptyEntries</text>
+    <line x1="395" y1="243" x2="425" y2="243" stroke="#0d9488" stroke-width="2" marker-end="url(#arrTeal)" />
+    <rect x="435" y="225" width="305" height="36" fill="#ccfbf1" rx="4" />
+    <text x="587" y="248" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f766e">\n\n / ${ / 因此 / 然而 / 但是（段落转折推手）</text>
+  </g>
+
+  <text x="410" y="420" text-anchor="middle" font-size="10.5" fill="#64748b">注：方向词表读出仅为启发式观察线索，真正确认概念需结合自然高激活上下文（contexts_decoded）与留出对比共同检验</text>
+</svg>
