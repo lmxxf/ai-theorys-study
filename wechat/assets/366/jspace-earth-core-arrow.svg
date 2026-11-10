@@ -76,15 +76,15 @@
   <rect x="338" y="138" width="3.5" height="88" fill="#059669"/>
   <rect x="341.5" y="138" width="184" height="88" fill="#ecfdf5"/>
   <text x="349" y="156" fill="#047857" font-size="10.5" font-weight="bold">② 什么是「占 10% 的 J-space」？</text>
-  <text x="349" y="173" fill="#334155" font-size="9.5">· 挑出箭头当前指得最准的前 25 座城</text>
+  <text x="349" y="173" fill="#334155" font-size="9.5">· 稀疏非负挑出约 20–25 座正向目标城</text>
   <text x="349" y="189" fill="#047857" font-size="9.5" font-weight="bold">· 箭头朝这 25 座城的分力 p 即 J-space</text>
-  <text x="349" y="205" fill="#475569" font-size="9">· 5120 维里只看 25 个方向，能量自然</text>
-  <text x="349" y="218" fill="#475569" font-size="9">  不到 10%（余下 90% 是暗计算 r）</text>
+  <text x="349" y="205" fill="#475569" font-size="9">· 论文测得 p 占激活总方差不到 10%</text>
+  <text x="349" y="218" fill="#475569" font-size="9">  (并非固定切出前 10% 的神经元脑区)</text>
 
   <rect x="338" y="238" width="3.5" height="86" fill="#dc2626"/>
   <rect x="341.5" y="238" width="184" height="86" fill="#fef2f2"/>
   <text x="349" y="256" fill="#b91c1c" font-size="10.5" font-weight="bold">③「切掉 10%」vs「换心手术」</text>
-  <text x="349" y="273" fill="#334155" font-size="9.5">· 切掉 10%：箭头指哪十座城就封哪</text>
-  <text x="349" y="288" fill="#64748b" font-size="9">  十座城（最重要的词全不许想）</text>
+  <text x="349" y="273" fill="#334155" font-size="9.5">· 切掉 J-space：实时抹掉当前排前列的</text>
+  <text x="349" y="288" fill="#64748b" font-size="9">  十来座核心跳板城（最重要的词不许想）</text>
   <text x="349" y="305" fill="#b91c1c" font-size="9.5" font-weight="bold">· 换心：不动 r，把 p 从意大利掰向日本</text>
 </svg>

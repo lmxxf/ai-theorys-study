@@ -5,8 +5,8 @@
   <line x1="20" y1="35" x2="520" y2="35" stroke="#e5e7eb" stroke-width="1.5"/>
 
   <!-- TOP SUBPLOT: 2*3+2= (tight) '6' vs '8' relay in L0..L63 -->
-  <text x="24" y="56" fill="#0f172a" font-size="11.5" font-weight="bold">① 紧凑无空格 "2*3+2="：前 54 层毫无动静，L55–L56 才闪现 '6' 第 1 名，L59 交棒给 '8'</text>
-  <text x="24" y="72" fill="#047857" font-size="10" font-weight="bold">▶ 原因 A：算术中间值挤在极晚的 L55–L58（86% 深度），去 L30–L45 中间层找只能扑空</text>
+  <text x="24" y="56" fill="#0f172a" font-size="11.5" font-weight="bold">① 紧凑无空格 "2*3+2="：前 52 层未进前十，L55–L56 闪现 '6' 第 1 名，L59 交棒给 '8'</text>
+  <text x="24" y="72" fill="#047857" font-size="10" font-weight="bold">▶ 原因 A：算术中间值挤在极晚的 L55–L58（86% 深度），只盯 L25–L45 中段层看 Top-5 会错过</text>
 
   <!-- Legend Top -->
   <line x1="24" y1="84" x2="46" y2="84" stroke="#059669" stroke-width="2.4"/>
@@ -14,7 +14,7 @@
   <line x1="215" y1="84" x2="237" y2="84" stroke="#2563eb" stroke-width="2.0" stroke-dasharray="4 2"/>
   <text x="241" y="88" fill="#1d4ed8" font-size="10" font-weight="bold">中间积 '6' 排名 (N=100)</text>
   <line x1="362" y1="84" x2="384" y2="84" stroke="#dc2626" stroke-width="2.4"/>
-  <text x="388" y="88" fill="#b91c1c" font-size="10" font-weight="bold">最终答案 '8' 排名 (L59–L63 第 1)</text>
+  <text x="388" y="88" fill="#b91c1c" font-size="10" font-weight="bold">最终答案 '8' (老办法 L59–63 第 1)</text>
 
   <!-- Highlight L55-L58 zone (x from 65+55*7=450 to 65+58*7=471) and L59-L63 (478 to 506) -->
   <rect x="450" y="98" width="24" height="115" fill="#ecfdf5" opacity="0.9"/>

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1f"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0a1a1a"/>
+    </linearGradient>
+    <radialGradient id="coreGlow" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.32"/>
+      <stop offset="0.55" stop-color="#2dd4bf" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#273449"/>
+      <stop offset="1" stop-color="#16213a"/>
+    </linearGradient>
+    <linearGradient id="titleBand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#4a90d9"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- 暗区残差流背景噪点与连线 -->
+  <g fill="#3b4a63" opacity="0.55">
+    <circle cx="55" cy="150" r="2.8"/><circle cx="120" cy="210" r="2.2"/><circle cx="75" cy="310" r="2.6"/>
+    <circle cx="165" cy="390" r="2.4"/><circle cx="240" cy="155" r="2.5"/><circle cx="290" cy="410" r="2.2"/>
+    <circle cx="620" cy="145" r="2.6"/><circle cx="730" cy="165" r="2.2"/><circle cx="835" cy="140" r="2.8"/>
+    <circle cx="850" cy="260" r="2.4"/><circle cx="790" cy="380" r="2.6"/><circle cx="660" cy="405" r="2.2"/>
+  </g>
+  <g stroke="#2c3a52" stroke-width="1" opacity="0.4">
+    <line x1="55" y1="150" x2="120" y2="210"/><line x1="120" y1="210" x2="240" y2="155"/>
+    <line x1="75" y1="310" x2="165" y2="390"/><line x1="165" y1="390" x2="290" y2="410"/>
+    <line x1="620" y1="145" x2="730" y2="165"/><line x1="730" y1="165" x2="835" y2="140"/>
+  </g>
+
+  <!-- 顶部大标题区 -->
+  <rect x="66" y="42" width="6" height="68" rx="3" fill="url(#titleBand)"/>
+  <text x="90" y="76" font-size="36" fill="#f8fafc" font-weight="bold">J-space 换心手术与「2*3+2 出 6」破案</text>
+  <text x="90" y="109" font-size="19.5" fill="#cbd5e1">用 Qwen3.8-27B 的 N=100 双语透镜改写中间层方向，顺手抓包「量子纠缠」顺从幻觉</text>
+
+  <!-- 中央主视觉光晕 -->
+  <ellipse cx="450" cy="268" rx="310" ry="145" fill="url(#coreGlow)"/>
+
+  <!-- 左侧面板：算术悬案 2*3+2= -->
+  <rect x="62" y="172" width="230" height="175" rx="16" fill="url(#panelGrad)" stroke="#4a90d9" stroke-width="2"/>
+  <text x="177" y="202" text-anchor="middle" font-size="16" fill="#93c5fd" font-weight="bold">① 破案「2*3+2= 先出 6」</text>
+  <g font-weight="bold">
+    <rect x="82" y="218" width="190" height="30" rx="15" fill="#059669" opacity="0.9"/>
+    <text x="177" y="239" text-anchor="middle" font-size="14" fill="#0f172a">L55–L56：中间积 '6' 冲第 1</text>
+
+    <rect x="82" y="258" width="190" height="30" rx="15" fill="#f59e0b" opacity="0.9"/>
+    <text x="177" y="279" text-anchor="middle" font-size="14" fill="#0f172a">L59–L63：终值 '8' 接棒第 1</text>
+  </g>
+  <text x="177" y="312" text-anchor="middle" font-size="13" fill="#cbd5e1">加空格 "2 * 3 + 2 =" 跌至 11 名</text>
+  <text x="177" y="332" text-anchor="middle" font-size="12.5" fill="#94a3b8">两位数须拆「十位 × 个位」两次推理</text>
+
+  <!-- 正中核心：5120 维语义地球与地核箭头换心 -->
+  <g filter="url(#glow)">
+    <circle cx="450" cy="260" r="92" fill="#0f172a" fill-opacity="0.88" stroke="#2dd4bf" stroke-width="3.5" stroke-dasharray="6 4"/>
+  </g>
+  <ellipse cx="450" cy="260" rx="92" ry="30" fill="none" stroke="#334155" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <!-- 球皮城市 -->
+  <circle cx="418" cy="174" r="6" fill="#2dd4bf"/>
+  <text x="408" y="166" text-anchor="end" font-size="14" fill="#2dd4bf" font-weight="bold">意大利 / 蜘蛛</text>
+
+  <circle cx="522" cy="212" r="6" fill="#f59e0b"/>
+  <text x="515" y="196" text-anchor="middle" font-size="14" fill="#fbbf24" font-weight="bold">日本 / 蚂蚁</text>
+
+  <!-- 地核原点与两步加减箭头 -->
+  <line x1="450" y1="295" x2="422" y2="186" stroke="#2dd4bf" stroke-width="3" stroke-dasharray="4 3"/>
+  <line x1="450" y1="295" x2="518" y2="218" stroke="#f59e0b" stroke-width="3.5"/>
+  <polygon points="523,214 512,217 519,225" fill="#f59e0b"/>
+  <path d="M 426 192 L 442 248 L 510 222" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-dasharray="3 2"/>
+  <circle cx="450" cy="295" r="7" fill="#f59e0b" stroke="#fef08a" stroke-width="2"/>
+  <text x="450" y="316" text-anchor="middle" font-size="13" fill="#fde68a" font-weight="bold">地核原点 (−旧 +新)</text>
+  <text x="450" y="374" text-anchor="middle" font-size="14" fill="#2dd4bf" font-weight="bold">② J-space (&lt;10% 分力 p) 换心手术</text>
+
+  <!-- 右侧面板：换心翻转与内省抓包 -->
+  <rect x="608" y="172" width="230" height="175" rx="16" fill="url(#panelGrad)" stroke="#fbbf24" stroke-width="2"/>
+  <text x="723" y="202" text-anchor="middle" font-size="16" fill="#fbbf24" font-weight="bold">③ 换心结果与内省抓包</text>
+  <g font-weight="bold">
+    <rect x="618" y="218" width="210" height="30" rx="15" fill="#f59e0b" opacity="0.95"/>
+    <text x="723" y="238" text-anchor="middle" font-size="12.5" fill="#0f172a">靴子国 α=1 → 欧元改口「日元」</text>
+
+    <rect x="618" y="258" width="210" height="30" rx="15" fill="#2dd4bf" opacity="0.95"/>
+    <text x="723" y="278" text-anchor="middle" font-size="12.5" fill="#0f172a">蜘蛛题 α=2 → 翻为 [6, 昆虫, 蚂蚁]</text>
+  </g>
+  <text x="723" y="312" text-anchor="middle" font-size="13" fill="#fca5a5" font-weight="bold">0 剂量自述：「突然想到量子纠缠」</text>
+  <text x="723" y="332" text-anchor="middle" font-size="12.5" fill="#94a3b8">强塞火锅 → 句首打嗝 / 复读火锅</text>
+
+  <!-- 底部三枚圆角标签 -->
+  <g font-size="15" font-weight="bold">
+    <rect x="62" y="434" width="186" height="32" rx="16" fill="#1e293b" stroke="#4a90d9" stroke-width="1.4"/>
+    <text x="155" y="455" text-anchor="middle" fill="#93c5fd">L55 算术晚层显影</text>
+
+    <rect x="262" y="434" width="196" height="32" rx="16" fill="#1e293b" stroke="#2dd4bf" stroke-width="1.4"/>
+    <text x="360" y="455" text-anchor="middle" fill="#2dd4bf">地核箭头与 24.8 万座城</text>
+
+    <rect x="472" y="434" width="196" height="32" rx="16" fill="#1e293b" stroke="#f59e0b" stroke-width="1.4"/>
+    <text x="570" y="455" text-anchor="middle" fill="#fbbf24">HF 开源与官方社区 PR</text>
+  </g>
+
+  <text x="838" y="455" text-anchor="end" font-size="15" fill="#64748b" font-weight="bold">No.366</text>
+</svg>
