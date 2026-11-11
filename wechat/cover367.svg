@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg367" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081226"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#17153b"/>
+    </linearGradient>
+    <radialGradient id="sphereGlow" cx="0.5" cy="0.5" r="0.52">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.30"/>
+      <stop offset="0.55" stop-color="#f59e0b" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="titleBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="0.5" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="glow367">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg367)"/>
+
+  <!-- 顶部标题 -->
+  <rect x="56" y="36" width="6" height="74" rx="3" fill="url(#titleBar)"/>
+  <text x="78" y="70" font-size="33" fill="#f8fafc" font-weight="bold">ICA-Lens：不训几万维字典，转一下轴就能读心？</text>
+  <text x="78" y="103" font-size="18" fill="#cbd5e1">四阶非高斯长尾拧出概念方向，一行三阶偏度洗刷三年前「正负号盲盒乌龙」</text>
+
+  <!-- 光晕 -->
+  <ellipse cx="450" cy="285" rx="350" ry="150" fill="url(#sphereGlow)"/>
+
+  <!-- 左栏：高斯钟形 vs 非高斯单侧长尾 -->
+  <g transform="translate(56, 148)">
+    <rect x="0" y="0" width="244" height="252" rx="14" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="2"/>
+    <text x="122" y="28" text-anchor="middle" font-size="15.5" fill="#7dd3fc" font-weight="bold">① 中心极限定理的指纹</text>
+
+    <!-- 高斯小盒 -->
+    <rect x="16" y="42" width="212" height="78" rx="8" fill="#1e293b"/>
+    <text x="122" y="59" text-anchor="middle" font-size="11.5" fill="#94a3b8">随机混合方向（κ = 0.20）</text>
+    <path d="M 32,108 Q 85,108 102,84 Q 122,56 142,84 Q 159,108 212,108" fill="none" stroke="#64748b" stroke-width="2.6"/>
+
+    <!-- 非高斯长尾小盒 -->
+    <rect x="16" y="130" width="212" height="92" rx="8" fill="#1e293b"/>
+    <text x="122" y="147" text-anchor="middle" font-size="11.5" fill="#fde68a" font-weight="bold">真实概念方向（κ = 252.00）</text>
+    <!-- 窄尖 + 右长尾 -->
+    <path d="M 38,208 L 76,208 L 84,154 L 92,205 L 155,206 L 198,196 L 210,208" fill="none" stroke="#2dd4bf" stroke-width="2.8" stroke-linejoin="round"/>
+    <circle cx="198" cy="196" r="4" fill="#f59e0b"/>
+    <text x="160" y="184" text-anchor="middle" font-size="10.5" fill="#5eead4">20 个目标词飙长尾</text>
+    <text x="122" y="241" text-anchor="middle" font-size="11.5" fill="#cbd5e1">49,980 无关词缩在 0 分窄尖</text>
+  </g>
+
+  <!-- 中央：白化正圆球 + 4次方旋转坐标轴 -->
+  <g transform="translate(326, 148)">
+    <text x="124" y="18" text-anchor="middle" font-size="15" fill="#5eead4" font-weight="bold">② 白化圆球 · 4 次方寻轴</text>
+    <circle cx="124" cy="126" r="94" fill="#0f172a" fill-opacity="0.92" stroke="#2dd4bf" stroke-width="2.5" filter="url(#glow367)"/>
+    <ellipse cx="124" cy="126" rx="94" ry="28" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="4 3"/>
+
+    <!-- 旧斜轴（PCA 失明） -->
+    <line x1="70" y1="168" x2="178" y2="82" stroke="#64748b" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="168" y="160" text-anchor="middle" font-size="10.5" fill="#94a3b8">PCA 2次方=1</text>
+
+    <!-- 旋转弧线箭头 -->
+    <path d="M 162,96 A 50,50 0 0,1 176,126" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+    <polygon points="176,130 171,120 181,121" fill="#fbbf24"/>
+
+    <!-- 拧准的 ICA 正交轴 -->
+    <line x1="48" y1="126" x2="200" y2="126" stroke="#f59e0b" stroke-width="3.2"/>
+    <polygon points="206,126 194,120 194,132" fill="#f59e0b"/>
+    <line x1="124" y1="54" x2="124" y2="180" stroke="#2dd4bf" stroke-width="2.4"/>
+
+    <rect x="44" y="186" width="160" height="26" rx="13" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="124" y="203" text-anchor="middle" font-size="11.5" fill="#fde68a" font-weight="bold">[0,0,0,+2] 4次方放大 4 倍</text>
+    <text x="124" y="242" text-anchor="middle" font-size="12.5" fill="#38bdf8" font-weight="bold">不扩维 · 桌面卡十分钟拧出一层</text>
+  </g>
+
+  <!-- 右栏：三阶偏度一行代码翻正 -->
+  <g transform="translate(600, 148)">
+    <rect x="0" y="0" width="244" height="252" rx="14" fill="#0f172a" fill-opacity="0.9" stroke="#f59e0b" stroke-width="2"/>
+    <text x="122" y="28" text-anchor="middle" font-size="15.5" fill="#fcd34d" font-weight="bold">③ 破案「正负号盲盒乌龙」</text>
+
+    <rect x="16" y="44" width="212" height="74" rx="8" fill="#1e293b"/>
+    <text x="122" y="64" text-anchor="middle" font-size="11.5" fill="#fca5a5" font-weight="bold">2024 旧评测：(+2)⁴ = (-2)⁴</text>
+    <text x="122" y="85" text-anchor="middle" font-size="11.5" fill="#cbd5e1">负半轴 [0,0,0,-2] 宝藏被一刀切</text>
+    <text x="122" y="105" text-anchor="middle" font-size="11" fill="#94a3b8">一半好特征白白背锅「不可解释」</text>
+
+    <rect x="16" y="130" width="212" height="86" rx="8" fill="#1e293b"/>
+    <text x="122" y="151" text-anchor="middle" font-size="12" fill="#34d399" font-weight="bold">3 次方偏度翻正：(-2)³ = -8 &lt; 0</text>
+    <text x="122" y="174" text-anchor="middle" font-size="12.5" fill="#fde68a" font-weight="bold">乘 −1 掉头 → 可解释性追平 SAE</text>
+    <text x="122" y="198" text-anchor="middle" font-size="11.5" fill="#ffffff">单轴拨动直接让英文提问飙中文</text>
+
+    <text x="122" y="238" text-anchor="middle" font-size="11.5" fill="#5eead4" font-weight="bold">兼容 SAELens · 第一副探路透镜</text>
+  </g>
+
+  <!-- 底部金句与期号 -->
+  <text x="56" y="458" font-size="15.5" fill="#94a3b8">四次方在圆球表面摸出非高斯长尾，三次方把朝左的宝藏掉头翻正——老算法洗刷三年冤屈</text>
+  <text x="844" y="458" text-anchor="end" font-size="18" fill="#f59e0b" font-weight="bold">No.367</text>
+</svg>
