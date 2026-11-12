@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 500" width="540" height="500" style="background-color:#ffffff;font-family:'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;">
+  <!-- 标题 -->
+  <text x="270" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">系统提示词（systemInstruction）的 14 个有序候选槽位</text>
+  <text x="270" y="48" text-anchor="middle" font-size="12" fill="#4b5563">PromptBuilder 按固定数组顺序排队，条件不满足的槽位自动跳过（14 - 3 = 11 块）</text>
+
+  <!-- 图例 -->
+  <rect x="115" y="62" width="12" height="12" fill="#0f766e" rx="2" />
+  <text x="133" y="72" font-size="11.5" fill="#1e293b">本会话实际激活输出（11 块）</text>
+  <rect x="305" y="62" width="12" height="12" fill="#e2e8f0" rx="2" />
+  <text x="323" y="72" font-size="11.5" fill="#64748b">条件不满足自动跳过（3 块）</text>
+
+  <!-- 左列 #1 - #7 -->
+  <!-- #1 -->
+  <rect x="20" y="88" width="242" height="48" fill="#f0fdfa" rx="6" />
+  <rect x="20" y="88" width="4" height="48" fill="#0f766e" rx="2" />
+  <text x="32" y="108" font-size="12.5" font-weight="bold" fill="#0f766e">01  &lt;identity&gt;</text>
+  <text x="32" y="126" font-size="11" fill="#475569">身份定义与用户请求优先级</text>
+
+  <!-- #2 skipped -->
+  <rect x="20" y="144" width="242" height="48" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3" rx="6" />
+  <text x="32" y="164" font-size="12.5" font-weight="bold" fill="#94a3b8">02  terminal_sandbox（跳过）</text>
+  <text x="32" y="182" font-size="11" fill="#94a3b8">enable_terminal_sandbox = 0</text>
+
+  <!-- #3 -->
+  <rect x="20" y="200" width="242" height="48" fill="#f0fdfa" rx="6" />
+  <rect x="20" y="200" width="4" height="48" fill="#0f766e" rx="2" />
+  <text x="32" y="220" font-size="12.5" font-weight="bold" fill="#0f766e">03  &lt;artifacts&gt;</text>
+  <text x="32" y="238" font-size="11" fill="#475569">报告文档目录与 Markdown 排版</text>
+
+  <!-- #4 -->
+  <rect x="20" y="256" width="242" height="48" fill="#f0fdfa" rx="6" />
+  <rect x="20" y="256" width="4" height="48" fill="#0f766e" rx="2" />
+  <text x="32" y="276" font-size="12.5" font-weight="bold" fill="#0f766e">04  &lt;conversation_transcript&gt;</text>
+  <text x="32" y="294" font-size="11" fill="#475569">本地会话日志路径与字段说明</text>
+
+  <!-- #5 -->
+  <rect x="20" y="312" width="242" height="48" fill="#f0fdfa" rx="6" />
+  <rect x="20" y="312" width="4" height="48" fill="#0f766e" rx="2" />
+  <text x="32" y="332" font-size="12.5" font-weight="bold" fill="#0f766e">05  &lt;guidelines&gt;</text>
+  <text x="32" y="350" font-size="11" fill="#475569">权限边界与验证码停手红线</text>
+
+  <!-- #6 -->
+  <rect x="20" y="368" width="242" height="48" fill="#f0fdfa" rx="6" />
+  <rect x="20" y="368" width="4" height="48" fill="#0f766e" rx="2" />
+  <text x="32" y="388" font-size="12.5" font-weight="bold" fill="#0f766e">06  &lt;communication_style&gt;</text>
+  <text x="32" y="406" font-size="11" fill="#475569">简明风格、数学公式与文件链接</text>
+
+  <!-- #7 -->
+  <rect x="20" y="424" width="242" height="48" fill="#f0fdfa" rx="6" />
+  <rect x="20" y="424" width="4" height="48" fill="#0f766e" rx="2" />
+  <text x="32" y="444" font-size="12.5" font-weight="bold" fill="#0f766e">07  &lt;slash_commands&gt;</text>
+  <text x="32" y="462" font-size="11" fill="#475569">内置斜杠命令清单（/goal 等）</text>
+
+  <!-- 右列 #8 - #14 -->
+  <!-- #8 -->
+  <rect x="278" y="88" width="242" height="48" fill="#f0fdfa" rx="6" />
+  <rect x="278" y="88" width="4" height="48" fill="#0f766e" rx="2" />
+  <text x="290" y="108" font-size="12.5" font-weight="bold" fill="#0f766e">08  &lt;messaging&gt;</text>
+  <text x="290" y="126" font-size="11" fill="#475569">异步消息接收与免轮询唤醒机制</text>
+
+  <!-- #9 skipped -->
+  <rect x="278" y="144" width="242" height="48" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3" rx="6" />
+  <text x="290" y="164" font-size="12.5" font-weight="bold" fill="#94a3b8">09  mcp_servers（跳过）</text>
+  <text x="290" y="182" font-size="11" fill="#94a3b8">当前工作区未挂载外部 MCP 服务</text>
+
+  <!-- #10 -->
+  <rect x="278" y="200" width="242" height="48" fill="#f0fdfa" rx="6" />
+  <rect x="278" y="200" width="4" height="48" fill="#0f766e" rx="2" />
+  <text x="290" y="220" font-size="12.5" font-weight="bold" fill="#0f766e">10  &lt;subagents&gt;</text>
+  <text x="290" y="238" font-size="11" fill="#475569">子代理类型（self / research 等）</text>
+
+  <!-- #11 -->
+  <rect x="278" y="256" width="242" height="48" fill="#f0fdfa" rx="6" />
+  <rect x="278" y="256" width="4" height="48" fill="#0f766e" rx="2" />
+  <text x="290" y="276" font-size="12.5" font-weight="bold" fill="#0f766e">11  &lt;skills&gt;</text>
+  <text x="290" y="294" font-size="11" fill="#475569">仅列技能名与路径，按需再去读</text>
+
+  <!-- #12 highlight -->
+  <rect x="278" y="312" width="242" height="48" fill="#fef3c7" rx="6" />
+  <rect x="278" y="312" width="4" height="48" fill="#d97706" rx="2" />
+  <text x="290" y="332" font-size="12.5" font-weight="bold" fill="#92400e">12  &lt;user_rules&gt;（最大头）</text>
+  <text x="290" y="350" font-size="11" fill="#78350f">全量内联项目 AGENTS.md（123KB）</text>
+
+  <!-- #13 -->
+  <rect x="278" y="368" width="242" height="48" fill="#f0fdfa" rx="6" />
+  <rect x="278" y="368" width="4" height="48" fill="#0f766e" rx="2" />
+  <text x="290" y="388" font-size="12.5" font-weight="bold" fill="#0f766e">13  &lt;user_information&gt;</text>
+  <text x="290" y="406" font-size="11" fill="#475569">系统、工作目录与当前会话 ID</text>
+
+  <!-- #14 skipped -->
+  <rect x="278" y="424" width="242" height="48" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3" rx="6" />
+  <text x="290" y="444" font-size="12.5" font-weight="bold" fill="#94a3b8">14  subagent_reminder（跳过）</text>
+  <text x="290" y="462" font-size="11" fill="#94a3b8">仅在子代理会话中注入汇报约束</text>
+</svg>

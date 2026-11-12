@@ -1,0 +1,547 @@
+
+### asm-google3_third_party_jetski_cortex_core_native_swarm_nativeswarm.NewHeadHook.func1.1.txt
+ 8ce2aa5:	49 89 0b             	mov    %rcx,(%r11)
+ 8ce2aa8:	48 8d 0d 47 67 41 fd 	lea    -0x2be98b9(%rip),%rcx        # 60f91f6 <_cgo_topofstack@@Base-0xe901ca> ; 'workingmerginguiState/bin/shListDirReadURLBrowserOpenURL.agents_agents.github.vscode.yarnrcdismiss#FF7518#E66F4B#CD697F#B463B2#9B5DE5#C2410C#AD3B3F#983573#822EA6#6D28D9#C3A6FF#E8C872#B4F05A#4E2E96#8A5A0B#26703A#2A1B3D#FFB347#FF7A1A#D9480F#8C2F0D#FFF6C2#FFD84D#8A5CF0#F7F3EA#C8C0E8#FF8FB1#B8862B#5C3A2'
+ 8ce2aaf:	48 89 08             	mov    %rcx,(%rax)
+ 8ce2ab2:	5d                   	pop    %rbp
+
+### asm-google3_third_party_jetski_cortex_core_native_swarm_nativeswarm.NewHeadHook.func1.txt
+ 8ce034b:	48 89 f0             	mov    %rsi,%rax
+ 8ce034e:	e8 2d e8 ff ff       	call   8cdeb80 <crosscall2@@Base+0x1c334e0> ; google3/third_party/jetski/cortex/core/native_swarm/nativeswarm.(*swarmMember).reachable
+ 8ce0353:	48 85 c0             	test   %rax,%rax
+ 8ce0356:	0f 85 e7 09 00 00    	jne    8ce0d43 <crosscall2@@Base+0x1c356a3>
+ 8ce038b:	00 
+ 8ce038c:	e8 0f 6c ff ff       	call   8cd6fa0 <crosscall2@@Base+0x1c2b900> ; google3/third_party/jetski/cortex/core/native_swarm/nativeswarm.sitOutForQuota
+ 8ce0391:	84 c0                	test   %al,%al
+ 8ce0393:	0f 85 88 09 00 00    	jne    8ce0d21 <crosscall2@@Base+0x1c35681>
+ 8ce03ec:	00 
+ 8ce03ed:	e8 8e c6 fd ff       	call   8cbca80 <crosscall2@@Base+0x1c113e0> ; google3/third_party/jetski/cortex/core/native_swarm/nativeswarm.recordAppliedModel
+ 8ce03f2:	48 8b 94 24 30 01 00 	mov    0x130(%rsp),%rdx
+ 8ce03f9:	00 
+ 8ce0428:	48 8d 3d 31 d4 cf 03 	lea    0x3cfd431(%rip),%rdi        # c9dd860 <__lxstat@plt+0x1ab4c60>
+ 8ce042f:	e8 ec ee ff ff       	call   8cdf320 <crosscall2@@Base+0x1c33c80> ; google3/third_party/jetski/cortex/core/native_swarm/nativeswarm.(*swarmMember).updateSelf
+ 8ce0434:	48 85 c0             	test   %rax,%rax
+ 8ce0437:	0f 84 12 01 00 00    	je     8ce054f <crosscall2@@Base+0x1c34eaf>
+ 8ce044a:	b8 20 00 00 00       	mov    $0x20,%eax
+ 8ce044f:	48 8d 1d 2a 3c d6 02 	lea    0x2d63c2a(%rip),%rbx        # ba44080 <__lxstat@plt+0xb1b480> ; 'raticTo'
+ 8ce0456:	b9 01 00 00 00       	mov    $0x1,%ecx
+ 8ce045b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 8ce053a:	41 89 f0             	mov    %esi,%r8d
+ 8ce053d:	4c 8d 0d cc 32 6a fd 	lea    -0x295cd34(%rip),%r9        # 6383810 <_cgo_topofstack@@Base-0xc05bb0> ; 'native swarm: failed to mark %s working in a chained execution: %vswitched worker %q to %s but failed to record it on the roster: %wCheckpointing: no messages fit the executor budget, compacting: %v/google.cloud.aiplatform.v1beta1.PredictionService/GenerateContentrecording output path component %q i'
+ 8ce0544:	41 ba 42 00 00 00    	mov    $0x42,%r10d
+ 8ce054a:	e8 91 23 4d fe       	call   71b28e0 <crosscall2@@Base+0x107240> ; google3/base/go/log.ctxlogf
+ 8ce054f:	48 8b 94 24 30 01 00 	mov    0x130(%rsp),%rdx
+ 8ce0556:	00 
+ 8ce0597:	00 
+ 8ce0598:	e8 e3 c2 fd ff       	call   8cbc880 <crosscall2@@Base+0x1c111e0> ; google3/third_party/jetski/cortex/core/native_swarm/nativeswarm.quotaWarning
+ 8ce059d:	0f 1f 00             	nopl   (%rax)
+ 8ce05a0:	48 85 db             	test   %rbx,%rbx
+ 8ce07a9:	00 
+ 8ce07aa:	e8 f1 ed fc ff       	call   8caf5a0 <crosscall2@@Base+0x1c03f00> ; google3/third_party/jetski/cortex/core/native_swarm/wake/wake.(*Engine).Nudge
+ 8ce07af:	48 85 ff             	test   %rdi,%rdi
+ 8ce07b2:	0f 85 5e 05 00 00    	jne    8ce0d16 <crosscall2@@Base+0x1c35676>
+ 8ce081d:	48 8b 7a 08          	mov    0x8(%rdx),%rdi
+ 8ce0821:	48 8d 05 58 fd ef 02 	lea    0x2effd58(%rip),%rax        # bbe0580 <__lxstat@plt+0xcb7980> ; 'oject_go_proto.SecurityPluginSettings'
+ 8ce0828:	e8 f3 eb 21 fe       	call   6eff420 <_cgo_topofstack@@Base-0x89fa0> ; runtime.mapaccess2_faststr
+ 8ce082d:	84 db                	test   %bl,%bl
+ 8ce086e:	00 
+ 8ce086f:	48 8d 15 b5 a3 6b fd 	lea    -0x2945c4b(%rip),%rdx        # 639ac2b <_cgo_topofstack@@Base-0xbee795> ; '[board] nothing has been posted yet. Wait for messages rather than looping.this conversation already has swarm %s; start a new conversation to join %smodel %s is out of quota until %s; pick another from swarm{action:"models"}google3/third_party/jetski/prompt/template_provider/templates/step_strings/'
+ 8ce0876:	48 89 50 08          	mov    %rdx,0x8(%rax)
+ 8ce087a:	48 8d 05 7f be b0 03 	lea    0x3b0be7f(%rip),%rax        # c7ec700 <__lxstat@plt+0x18c3b00>
+ 8ce09e1:	b8 20 00 00 00       	mov    $0x20,%eax
+ 8ce09e6:	48 8d 1d 3b 15 53 03 	lea    0x353153b(%rip),%rbx        # c211f28 <__lxstat@plt+0x12e9328> ; ',3,opt,name=provider_source,json=providerSource,proto3,enum=exa.codeium_common_pb.ProviderSource" json:"provider_source,omitempty" reflect:"unexport"'
+ 8ce09ed:	b9 01 00 00 00       	mov    $0x1,%ecx
+ 8ce09f2:	e8 69 5a 23 fe       	call   6f16460 <_cgo_topofstack@@Base-0x72f60> ; runtime.mallocgcSmallScanNoHeaderSC4
+ 8ce0abc:	00 
+ 8ce0abd:	48 8d 05 11 2d 6f fd 	lea    -0x290d2ef(%rip),%rax        # 63d37d5 <_cgo_topofstack@@Base-0xbb5beb> ; '[board] the latest message is #%d (you have read up to #%d). Read anything you have missed, and wait for messages when you have nothing left to do.(?i)\\.write_text\\(|\\.write\\(|open\\([^)]*[\'"][wa]b?\\+?[\'"]|sed\\s+-i|shutil\\.(?:copy|move)|os\\.(?:remove|unlink|rename)|\\bcat\\s*>|\\btee\\b|>\\s*[~/\\w.]%s %q '
+ 8ce0ac4:	bb 93 00 00 00       	mov    $0x93,%ebx
+ 8ce0ac9:	48 8d 8c 24 d0 00 00 	lea    0xd0(%rsp),%rcx
+ 8ce0ad6:	89 fe                	mov    %edi,%esi
+ 8ce0ad8:	e8 a3 b8 33 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8ce0add:	48 89 5c 24 50       	mov    %rbx,0x50(%rsp)
+ 8ce0ae2:	48 89 84 24 80 00 00 	mov    %rax,0x80(%rsp)
+ 8ce0cb9:	b8 20 00 00 00       	mov    $0x20,%eax
+ 8ce0cbe:	48 8d 1d 63 12 53 03 	lea    0x3531263(%rip),%rbx        # c211f28 <__lxstat@plt+0x12e9328> ; ',3,opt,name=provider_source,json=providerSource,proto3,enum=exa.codeium_common_pb.ProviderSource" json:"provider_source,omitempty" reflect:"unexport"'
+ 8ce0cc5:	b9 01 00 00 00       	mov    $0x1,%ecx
+ 8ce0cca:	e8 91 57 23 fe       	call   6f16460 <_cgo_topofstack@@Base-0x72f60> ; runtime.mallocgcSmallScanNoHeaderSC4
+ 8ce0d21:	b8 20 00 00 00       	mov    $0x20,%eax
+ 8ce0d26:	48 8d 1d fb 11 53 03 	lea    0x35311fb(%rip),%rbx        # c211f28 <__lxstat@plt+0x12e9328> ; ',3,opt,name=provider_source,json=providerSource,proto3,enum=exa.codeium_common_pb.ProviderSource" json:"provider_source,omitempty" reflect:"unexport"'
+ 8ce0d2d:	b9 01 00 00 00       	mov    $0x1,%ecx
+ 8ce0d32:	e8 29 57 23 fe       	call   6f16460 <_cgo_topofstack@@Base-0x72f60> ; runtime.mallocgcSmallScanNoHeaderSC4
+
+### asm-google3_third_party_jetski_cortex_core_prehooks_prehooks.newDirectoryCustomizationsHook.func1.deferwrap1.txt
+ 8d129de:	48 8b 42 08          	mov    0x8(%rdx),%rax
+ 8d129e2:	4c 8d 05 d4 4a 5e fd 	lea    -0x2a1b52c(%rip),%r8        # 62f74bd <_cgo_topofstack@@Base-0xc91f03> ; 'DIRECTORY_CUSTOMIZATIONS_HOOK_LATENCYPrecise User Location Field SanitizerTLS_ECDHE_PSK_WITH_AES_128_CBC_SHA256TLS_PSK_WITH_CHACHA20_POLY1305_SHA256TLS-ECDHE-PSK-WITH-AES-128-CBC-SHA256unknown or unsupported hash algorithmonly one Allocate() caller is allowedChannel data received from %s (ch=%d)mloc'
+ 8d129e9:	41 b9 25 00 00 00    	mov    $0x25,%r9d
+ 8d129ef:	45 31 d2             	xor    %r10d,%r10d
+ 8d129f2:	e8 c9 62 a9 ff       	call   87a8cc0 <crosscall2@@Base+0x16fd620> ; google3/third_party/jetski/telemetryutil/telemetryutil.(*PhaseLatencyRecorder).Emit
+ 8d129f7:	c9                   	leave  
+ 8d129f8:	c3                   	ret    
+
+### asm-google3_third_party_jetski_cortex_core_prehooks_prehooks.newDirectoryCustomizationsHook.func1.txt
+ 8d120bf:	89 d9                	mov    %ebx,%ecx
+ 8d120c1:	e8 9a 24 b5 fe       	call   7864560 <crosscall2@@Base+0x7b8ec0> ; google3/third_party/jetski/go_utils/go_utils.NewStopwatch
+ 8d120c6:	48 89 84 24 40 03 00 	mov    %rax,0x340(%rsp)
+ 8d120cd:	00 
+ 8d12229:	b8 20 00 00 00       	mov    $0x20,%eax
+ 8d1222e:	48 8d 1d f3 fc 4f 03 	lea    0x34ffcf3(%rip),%rbx        # c211f28 <__lxstat@plt+0x12e9328> ; ',3,opt,name=provider_source,json=providerSource,proto3,enum=exa.codeium_common_pb.ProviderSource" json:"provider_source,omitempty" reflect:"unexport"'
+ 8d12235:	b9 01 00 00 00       	mov    $0x1,%ecx
+ 8d1223a:	e8 21 42 20 fe       	call   6f16460 <_cgo_topofstack@@Base-0x72f60> ; runtime.mallocgcSmallScanNoHeaderSC4
+ 8d1225c:	0f 1f 40 00          	nopl   0x0(%rax)
+ 8d12260:	e8 9b f2 80 ff       	call   8521500 <crosscall2@@Base+0x1475e60> ; google3/third_party/jetski/cortex/utils/utils.GetLastStepOfType
+ 8d12265:	48 85 db             	test   %rbx,%rbx
+ 8d12268:	0f 8c ca 06 00 00    	jl     8d12938 <crosscall2@@Base+0x1c67298>
+ 8d122b9:	00 
+ 8d122ba:	e8 a1 e4 ff ff       	call   8d10760 <crosscall2@@Base+0x1c650c0> ; google3/third_party/jetski/cortex/core/prehooks/prehooks.collectNewDirPaths
+ 8d122bf:	90                   	nop
+ 8d122c0:	48 85 db             	test   %rbx,%rbx
+ 8d122f0:	00 
+ 8d122f1:	e8 2a e1 ff ff       	call   8d10420 <crosscall2@@Base+0x1c64d80> ; google3/third_party/jetski/cortex/core/prehooks/prehooks.collectEmittedCustomizations
+ 8d122f6:	48 89 84 24 c8 02 00 	mov    %rax,0x2c8(%rsp)
+ 8d122fd:	00 
+ 8d12361:	00 
+ 8d12362:	e8 99 49 c6 ff       	call   8976d00 <crosscall2@@Base+0x18cb660> ; google3/third_party/jetski/cortex/customizations/customizations.(*EmittedCustomizations).AddLoaded
+ 8d12367:	48 8b 84 24 98 01 00 	mov    0x198(%rsp),%rax
+ 8d1236e:	00 
+ 8d1236f:	48 8d 1d 2e 5b 59 fd 	lea    -0x2a6a4d2(%rip),%rbx        # 62a7ea4 <_cgo_topofstack@@Base-0xce151c> ; 'collect_dir_paths_latency_msfailed to parse step URI: %wTokenCounter must not be nilinvalid connection ID formatmDNS: config must not be nilturn: conn cannot not be nilno binding found for channelmulticast router terminationgetPredsForAmbigAlts result context surrounding pred is config from pred tra'
+ 8d12376:	b9 1c 00 00 00       	mov    $0x1c,%ecx
+ 8d1237b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 8d12380:	e8 bb 63 a9 ff       	call   87a8740 <crosscall2@@Base+0x16fd0a0> ; google3/third_party/jetski/telemetryutil/telemetryutil.(*PhaseLatencyRecorder).Mark
+ 8d12385:	48 8b 84 24 98 01 00 	mov    0x198(%rsp),%rax
+ 8d1238c:	00 
+ 8d1238d:	48 8d 1d 1a f8 42 fd 	lea    -0x2bd07e6(%rip),%rbx        # 6141bae <_cgo_topofstack@@Base-0xe47812> ; 'cascade_idstderr: %swebchannelsession_idcontinuouslate_dropsAuthLogoutsigned_out0000000000Matched %smulti-wordlatency_msuniversitysandbox.tsproject_idindex.htmlhttps://*.Jetski Web/auth/mintinstanceIdls_%s.jsondurationMssubscribedConnectioncli-%s.logerror: %v\nlaunch_clino managernot loadedjetski-cli'
+ 8d12394:	b9 0a 00 00 00       	mov    $0xa,%ecx
+ 8d12399:	48 8b bc 24 e0 02 00 	mov    0x2e0(%rsp),%rdi
+ 8d123a8:	00 
+ 8d123a9:	e8 92 64 a9 ff       	call   87a8840 <crosscall2@@Base+0x16fd1a0> ; google3/third_party/jetski/telemetryutil/telemetryutil.(*PhaseLatencyRecorder).SetDimension
+ 8d123ae:	48 8b 84 24 98 01 00 	mov    0x198(%rsp),%rax
+ 8d123b5:	00 
+ 8d123b6:	48 8d 1d 1e 65 49 fd 	lea    -0x2b69ae2(%rip),%rbx        # 61a88db <_cgo_topofstack@@Base-0xde0ae5> ; 'num_dir_pathspre-tool hook<%s>\n%s\n</%s>NoCertificateInternalErrortime exceeded(%v,%v%v%v%v)<missing EOF> exec LA(1)==conditionalOrENORMOUS_TESTAnywhereStatedirectorypath\\\\\\r?\\n[ \\t]*JAX_PLATFORMSacsv_severityUSER_MESSAGESArguments: %sArtifact: %s\n```tool_call\nFeedback: %s\nactive_configconfig is nilt'
+ 8d123bd:	b9 0d 00 00 00       	mov    $0xd,%ecx
+ 8d123c2:	48 8b bc 24 68 01 00 	mov    0x168(%rsp),%rdi
+ 8d123c9:	00 
+ 8d123ca:	e8 d1 65 a9 ff       	call   87a89a0 <crosscall2@@Base+0x16fd300> ; google3/third_party/jetski/telemetryutil/telemetryutil.(*PhaseLatencyRecorder).SetCount
+ 8d123cf:	48 8d 0d ea 05 00 00 	lea    0x5ea(%rip),%rcx        # 8d129c0 <crosscall2@@Base+0x1c67320>
+ 8d123d6:	48 89 8c 24 08 03 00 	mov    %rcx,0x308(%rsp)
+ 8d12465:	00 
+ 8d12466:	e8 95 41 c6 ff       	call   8976600 <crosscall2@@Base+0x18caf60> ; google3/third_party/jetski/cortex/customizations/customizations.(*Manager).DiscoverCustomizationsForPaths
+ 8d1246b:	48 8d 8c 24 c0 01 00 	lea    0x1c0(%rsp),%rcx
+ 8d12472:	00 
+ 8d124c6:	00 
+ 8d124c7:	48 8d 1d 1a d6 50 fd 	lea    -0x2af29e6(%rip),%rbx        # 621fae8 <_cgo_topofstack@@Base-0xd698d8> ; 'discover_latency_mspre-invocation hookhome_repair_servicecipher spec invalidhandshake error: %vInvalid alert levelinvalid alpn formatthe agent is closedrouter solicitationextended echo replyrpl control messagempl control messageinvalid buffer sizefailed predicate: {<missing undefined>Method not defi'
+ 8d124ce:	b9 13 00 00 00       	mov    $0x13,%ecx
+ 8d124d3:	e8 68 62 a9 ff       	call   87a8740 <crosscall2@@Base+0x16fd0a0> ; google3/third_party/jetski/telemetryutil/telemetryutil.(*PhaseLatencyRecorder).Mark
+ 8d124d8:	48 8b 84 24 c8 02 00 	mov    0x2c8(%rsp),%rax
+ 8d124df:	00 
+ 8d1253c:	0f 1f 40 00          	nopl   0x0(%rax)
+ 8d12540:	e8 db 4b c6 ff       	call   8977120 <crosscall2@@Base+0x18cba80> ; google3/third_party/jetski/cortex/customizations/customizations.CustomizationSet.CollectDirectoryManifest
+ 8d12545:	48 89 9c 24 58 01 00 	mov    %rbx,0x158(%rsp)
+ 8d1254c:	00 
+ 8d1259a:	48 89 df             	mov    %rbx,%rdi
+ 8d1259d:	48 8d 1d cb 52 46 fd 	lea    -0x2b9ad35(%rip),%rbx        # 617786f <_cgo_topofstack@@Base-0xe11b51> ; 'num_entriesstep %d: %w# Artifactsunknown(%v)CloseNotifymlock_style,uniqueAlt= (expected  not in 0.. expecting actionType(Empty Stack, previous=LESS_EQUALSLOGICAL_ANDESC_OCT_SEQESC_UNI_SEQescapeIdentMEDIUM_TESTS2A_TIMEOUTcodecontenttoolsummary/google/bin--max-procs--max-lines--max-chars--delimiter--v'
+ 8d125a4:	e8 f7 63 a9 ff       	call   87a89a0 <crosscall2@@Base+0x16fd300> ; google3/third_party/jetski/telemetryutil/telemetryutil.(*PhaseLatencyRecorder).SetCount
+ 8d125a9:	48 8b 9c 24 58 01 00 	mov    0x158(%rsp),%rbx
+ 8d125b0:	00 
+ 8d125c9:	00 
+ 8d125ca:	e8 f1 55 c6 ff       	call   8977bc0 <crosscall2@@Base+0x18cc520> ; google3/third_party/jetski/cortex/customizations/customizations.MarshalDirectoryManifest
+ 8d125cf:	48 85 c9             	test   %rcx,%rcx
+ 8d125d2:	0f 84 c4 00 00 00    	je     8d1269c <crosscall2@@Base+0x1c66ffc>
+ 8d125f6:	00 
+ 8d125f7:	48 8d 05 88 c4 65 fd 	lea    -0x29a3b78(%rip),%rax        # 636ea86 <_cgo_topofstack@@Base-0xc1a93a> ; 'directory customizations hook: failed to render manifest: %wmDNS: service instance name contains ASCII control charactercertificate in CertificateChain obtained from S2Av2 is emptymonitor %q references non-existent group %q in experiment %qLogprob Monitor %s: LLM logprob response received (%d steps)'
+ 8d125fe:	bb 3c 00 00 00       	mov    $0x3c,%ebx
+ 8d12603:	48 8d 8c 24 f8 02 00 	lea    0x2f8(%rsp),%rcx
+ 8d12610:	89 fe                	mov    %edi,%esi
+ 8d12612:	e8 c9 6b 30 fe       	call   70191e0 <_cgo_topofstack@@Base+0x8fe20> ; fmt.errorf
+ 8d12617:	48 85 c0             	test   %rax,%rax
+ 8d1261a:	75 33                	jne    8d1264f <crosscall2@@Base+0x1c66faf>
+ 8d1263a:	00 
+ 8d1263b:	48 8d 15 44 c4 65 fd 	lea    -0x29a3bbc(%rip),%rdx        # 636ea86 <_cgo_topofstack@@Base-0xc1a93a> ; 'directory customizations hook: failed to render manifest: %wmDNS: service instance name contains ASCII control charactercertificate in CertificateChain obtained from S2Av2 is emptymonitor %q references non-existent group %q in experiment %qLogprob Monitor %s: LLM logprob response received (%d steps)'
+ 8d12642:	48 89 10             	mov    %rdx,(%rax)
+ 8d12645:	48 89 c3             	mov    %rax,%rbx
+ 8d12648:	48 8d 05 69 0f c3 03 	lea    0x3c30f69(%rip),%rax        # c9435b8 <__lxstat@plt+0x1a1a9b8>
+ 8d1264f:	e8 ec 8b b3 fe       	call   784b240 <crosscall2@@Base+0x79fba0> ; google3/third_party/jetski/go_utils/errorreport/errorreport.ReportError
+ 8d12654:	48 8b 8c 24 98 02 00 	mov    0x298(%rsp),%rcx
+ 8d1265b:	00 
+ 8d126a7:	31 c0                	xor    %eax,%eax
+ 8d126a9:	48 8d 1d eb 16 6c fd 	lea    -0x293e915(%rip),%rbx        # 63d3d9b <_cgo_topofstack@@Base-0xbb5625> ; 'The following customizations were discovered from directories you recently accessed. Review the referenced files if they are relevant to your task:\nNote: The binary is installed, but it is not in your active PATH. Please follow the instructions above to add it, then restart your terminal session.You'
+ 8d126b0:	e8 6b f1 24 fe       	call   6f61820 <_cgo_topofstack@@Base-0x27ba0> ; runtime.concatstring2
+ 8d126b5:	48 8b 94 24 a8 02 00 	mov    0x2a8(%rsp),%rdx
+ 8d12724:	00 
+ 8d12725:	e8 d6 d9 ff ff       	call   8d10100 <crosscall2@@Base+0x1c64a60> ; google3/third_party/jetski/cortex/core/prehooks/prehooks.newDirectoryCustomizationsStep
+ 8d1272a:	48 85 db             	test   %rbx,%rbx
+ 8d1272d:	0f 84 c4 00 00 00    	je     8d127f7 <crosscall2@@Base+0x1c67157>
+ 8d12751:	00 
+ 8d12752:	48 8d 05 9b 83 64 fd 	lea    -0x29b7c65(%rip),%rax        # 635aaf4 <_cgo_topofstack@@Base-0xc2e8cc> ; 'directory customizations hook: failed to build step: %wmDNS: TXT record keys must be unique (case-insensitive)ParserATNSimulator.computeReachSet() make a closureBusymaxB is too large, the input is not using dense numbers^$|^(cpu|gpu|cuda|tpu|rocm)(,(cpu|gpu|cuda|tpu|rocm))*$<STEP_%d><ENVIRONMENT>\n[%'
+ 8d12759:	bb 37 00 00 00       	mov    $0x37,%ebx
+ 8d1275e:	48 8d 8c 24 e8 02 00 	lea    0x2e8(%rsp),%rcx
+ 8d1276b:	89 fe                	mov    %edi,%esi
+ 8d1276d:	e8 6e 6a 30 fe       	call   70191e0 <_cgo_topofstack@@Base+0x8fe20> ; fmt.errorf
+ 8d12772:	48 85 c0             	test   %rax,%rax
+ 8d12775:	75 33                	jne    8d127aa <crosscall2@@Base+0x1c6710a>
+ 8d12795:	00 
+ 8d12796:	48 8d 15 57 83 64 fd 	lea    -0x29b7ca9(%rip),%rdx        # 635aaf4 <_cgo_topofstack@@Base-0xc2e8cc> ; 'directory customizations hook: failed to build step: %wmDNS: TXT record keys must be unique (case-insensitive)ParserATNSimulator.computeReachSet() make a closureBusymaxB is too large, the input is not using dense numbers^$|^(cpu|gpu|cuda|tpu|rocm)(,(cpu|gpu|cuda|tpu|rocm))*$<STEP_%d><ENVIRONMENT>\n[%'
+ 8d1279d:	48 89 10             	mov    %rdx,(%rax)
+ 8d127a0:	48 89 c3             	mov    %rax,%rbx
+ 8d127a3:	48 8d 05 0e 0e c3 03 	lea    0x3c30e0e(%rip),%rax        # c9435b8 <__lxstat@plt+0x1a1a9b8>
+ 8d127aa:	e8 91 8a b3 fe       	call   784b240 <crosscall2@@Base+0x79fba0> ; google3/third_party/jetski/go_utils/errorreport/errorreport.ReportError
+ 8d127af:	48 8b 8c 24 98 02 00 	mov    0x298(%rsp),%rcx
+ 8d127b6:	00 
+ 8d127ff:	b8 20 00 00 00       	mov    $0x20,%eax
+ 8d12804:	48 8d 1d 1d f7 4f 03 	lea    0x34ff71d(%rip),%rbx        # c211f28 <__lxstat@plt+0x12e9328> ; ',3,opt,name=provider_source,json=providerSource,proto3,enum=exa.codeium_common_pb.ProviderSource" json:"provider_source,omitempty" reflect:"unexport"'
+ 8d1280b:	b9 01 00 00 00       	mov    $0x1,%ecx
+ 8d12810:	e8 4b 3c 20 fe       	call   6f16460 <_cgo_topofstack@@Base-0x72f60> ; runtime.mallocgcSmallScanNoHeaderSC4
+
+### asm-google3_third_party_jetski_cortex_core_systemprompt_systemprompt.Build.txt
+ 8e62790:	49 8b 79 10          	mov    0x10(%r9),%rdi
+ 8e62794:	e8 27 ff fe ff       	call   8e526c0 <crosscall2@@Base+0x1da7020> ; google3/third_party/jetski/cortex/mixins/mixins.GetJetskiHarnessFuncMap
+ 8e62799:	48 8d 15 20 1b ff ff 	lea    -0xe4e0(%rip),%rdx        # 8e542c0 <crosscall2@@Base+0x1da8c20>
+ 8e627a0:	48 89 54 24 70       	mov    %rdx,0x70(%rsp)
+ 8e6283e:	66 90                	xchg   %ax,%ax
+ 8e62840:	e8 3b d0 fe ff       	call   8e4f880 <crosscall2@@Base+0x1da41e0> ; google3/third_party/jetski/cortex/mixins/mixins.(*PromptBuilder).AddSections
+ 8e62845:	48 8b 44 24 40       	mov    0x40(%rsp),%rax
+ 8e6284a:	48 8b 9c 24 a0 00 00 	mov    0xa0(%rsp),%rbx
+ 8e62861:	00 
+ 8e62862:	e8 f9 d2 fe ff       	call   8e4fb60 <crosscall2@@Base+0x1da44c0> ; google3/third_party/jetski/cortex/mixins/mixins.(*PromptBuilder).Build
+ 8e62867:	48 85 ff             	test   %rdi,%rdi
+ 8e6286a:	74 7a                	je     8e628e6 <crosscall2@@Base+0x1db7246>
+ 8e6287d:	48 89 74 24 50       	mov    %rsi,0x50(%rsp)
+ 8e62882:	48 8d 05 ed 5f 48 fd 	lea    -0x2b7a013(%rip),%rax        # 62e8876 <_cgo_topofstack@@Base-0xca0b4a> ; 'failed to build prompt sections: %wwas stopped before it called finishinvalid workflow script path %q: %wbatch step %d has invalid action %qwebview_browser batch action failedFile is too large to show the diff.Input is required for the %q actionfailed to write provider media fileConnect request succ'
+ 8e62889:	bb 23 00 00 00       	mov    $0x23,%ebx
+ 8e6288e:	48 8d 4c 24 48       	lea    0x48(%rsp),%rcx
+ 8e62898:	89 fe                	mov    %edi,%esi
+ 8e6289a:	e8 41 69 1b fe       	call   70191e0 <_cgo_topofstack@@Base+0x8fe20> ; fmt.errorf
+ 8e6289f:	90                   	nop
+ 8e628a0:	48 85 c0             	test   %rax,%rax
+ 8e628c3:	00 
+ 8e628c4:	48 8d 15 ab 5f 48 fd 	lea    -0x2b7a055(%rip),%rdx        # 62e8876 <_cgo_topofstack@@Base-0xca0b4a> ; 'failed to build prompt sections: %wwas stopped before it called finishinvalid workflow script path %q: %wbatch step %d has invalid action %qwebview_browser batch action failedFile is too large to show the diff.Input is required for the %q actionfailed to write provider media fileConnect request succ'
+ 8e628cb:	48 89 10             	mov    %rdx,(%rax)
+ 8e628ce:	48 89 c3             	mov    %rax,%rbx
+
+### asm-google3_third_party_jetski_cortex_core_tooldecorators_tooldecorators.truncateOutput.txt
+ 8d14350:	ba 73 00 00 00       	mov    $0x73,%edx
+ 8d14355:	48 8d 35 30 f6 6a fd 	lea    -0x29509d0(%rip),%rsi        # 63c398c <_cgo_topofstack@@Base-0xbc5a34> ; "The tool's output was truncated due to being too long.\n\nHere is a preview with the middle of the output truncated:\n\nThe remaining artifacts were omitted to keep this summary short. List your artifacts directory to see all of them.\n\t-k -m -o -c -p -W --rootdir --confcutdir --basetemp --import-mode\n\t-"
+ 8d1435c:	eb 59                	jmp    8d143b7 <crosscall2@@Base+0x1c68d17>
+ 8d1435e:	44 0f 11 bc 24 c8 00 	movups %xmm15,0xc8(%rsp)
+ 8d14388:	00 
+ 8d14389:	48 8d 05 e3 31 6c fd 	lea    -0x293ce1d(%rip),%rax        # 63d7573 <_cgo_topofstack@@Base-0xbb1e4d> ; "The tool's output was truncated due to being too long. You can find the full output in a file at %s.\n\nHere is a preview with the middle of the output truncated:\ntrajectory sharing is not supported for agent identity %q: agent directories on x20 are private (kNonShareableUserDirectory) and cannot be "
+ 8d14390:	bb a1 00 00 00       	mov    $0xa1,%ebx
+ 8d14395:	48 8d 8c 24 c8 00 00 	lea    0xc8(%rsp),%rcx
+ 8d143a2:	89 fe                	mov    %edi,%esi
+ 8d143a4:	e8 d7 7f 30 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8d143a9:	48 89 da             	mov    %rbx,%rdx
+ 8d143ac:	48 89 c6             	mov    %rax,%rsi
+ 8d1441b:	00 
+ 8d1441c:	48 8d 05 f2 ac 64 fd 	lea    -0x29b530e(%rip),%rax        # 635f115 <_cgo_topofstack@@Base-0xc2a2ab> ; '<truncated %d of %d bytes from the middle of the output>failed to set in-progress search_marketplace render infomust supply at least a multicast IPv4 or IPv6 PacketConn[%s] failed to send mDNS packet on IPv4 interface %d: %v[%s] failed to send mDNS packet on IPv6 interface %d: %vFFFFFFFFFFFFFFFFFFFF'
+ 8d14423:	bb 38 00 00 00       	mov    $0x38,%ebx
+ 8d14428:	48 8d 8c 24 a8 00 00 	lea    0xa8(%rsp),%rcx
+ 8d14435:	89 fe                	mov    %edi,%esi
+ 8d14437:	e8 44 7f 30 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8d1443c:	48 8b 4c 24 78       	mov    0x78(%rsp),%rcx
+ 8d14441:	48 01 d9             	add    %rbx,%rcx
+ 8d144a8:	41 89 f0             	mov    %esi,%r8d
+ 8d144ab:	e8 50 08 b5 fe       	call   7864d00 <crosscall2@@Base+0x7b9660> ; google3/third_party/jetski/go_utils/go_utils.Truncate
+ 8d144b0:	48 89 84 24 98 00 00 	mov    %rax,0x98(%rsp)
+ 8d144b7:	00 
+ 8d1450c:	00 
+ 8d1450d:	48 8d 05 01 ac 64 fd 	lea    -0x29b53ff(%rip),%rax        # 635f115 <_cgo_topofstack@@Base-0xc2a2ab> ; '<truncated %d of %d bytes from the middle of the output>failed to set in-progress search_marketplace render infomust supply at least a multicast IPv4 or IPv6 PacketConn[%s] failed to send mDNS packet on IPv4 interface %d: %v[%s] failed to send mDNS packet on IPv6 interface %d: %vFFFFFFFFFFFFFFFFFFFF'
+ 8d14514:	bb 38 00 00 00       	mov    $0x38,%ebx
+ 8d14519:	48 8d 8c 24 a8 00 00 	lea    0xa8(%rsp),%rcx
+ 8d14526:	89 fe                	mov    %edi,%esi
+ 8d14528:	e8 53 7e 30 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8d1452d:	48 8b 8c 24 98 00 00 	mov    0x98(%rsp),%rcx
+ 8d14534:	00 
+
+### asm-google3_third_party_jetski_cortex_mixins_mixins.__PromptBuilder_.formatContent.txt
+ 8e51637:	48 89 f3             	mov    %rsi,%rbx
+ 8e5163a:	e8 a1 6d 1e fe       	call   70383e0 <_cgo_topofstack@@Base+0xaf020> ; strings.TrimSpace
+ 8e5163f:	90                   	nop
+ 8e51640:	48 85 db             	test   %rbx,%rbx
+ 8e516eb:	41 89 f0             	mov    %esi,%r8d
+ 8e516ee:	4c 8d 0d 8e 18 43 fd 	lea    -0x2bce772(%rip),%r9        # 6282f83 <_cgo_topofstack@@Base-0xd0643d> ; 'unknown header format: %dWHERE conditions requiredPRAGMA foreign_keys = OFFreading cancel signal: %wfailed to parse %s %q: %vChoose your color scheme:Count of live goroutines.arithmetic-error-operandsecho-stream-output-streammake-string-output-streampackage-shadowing-symbolsdefine-method-combination'
+ 8e516f5:	41 ba 19 00 00 00    	mov    $0x19,%r10d
+ 8e516fb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 8e51700:	e8 db 11 36 fe       	call   71b28e0 <crosscall2@@Base+0x107240> ; google3/base/go/log.ctxlogf
+ 8e51705:	48 8b 84 24 88 00 00 	mov    0x88(%rsp),%rax
+ 8e5170c:	00 
+ 8e51748:	89 fe                	mov    %edi,%esi
+ 8e5174a:	e8 51 ff 6b ff       	call   85116a0 <crosscall2@@Base+0x1466000> ; google3/third_party/jetski/cortex/utils/utils.FormatWithXMLTag
+ 8e5174f:	c9                   	leave  
+ 8e51750:	c3                   	ret    
+
+### asm-google3_third_party_jetski_language_server_code_assist_client_codeassistclient.__CodeAssistClient_.streamGenerateContentFromCCPA.func1.txt
+ 94c804c:	48 89 4c 24 50       	mov    %rcx,0x50(%rsp)
+ 94c8051:	e8 0a 66 d6 fd       	call   722e660 <crosscall2@@Base+0x182fc0> ; net/url.(*URL).String
+ 94c8056:	48 89 44 24 58       	mov    %rax,0x58(%rsp)
+ 94c805b:	48 89 5c 24 48       	mov    %rbx,0x48(%rsp)
+ 94c8065:	48 8b 41 18          	mov    0x18(%rcx),%rax
+ 94c8069:	48 8d 1d a3 67 d4 fc 	lea    -0x32b985d(%rip),%rbx        # 620e813 <_cgo_topofstack@@Base-0xd7abad> ; 'x-goog-sherlog-LinkX-Goog-User-Projectupgrade_button_textVALIDATION_REQUIREDaicode_error_reasonstate syncing errorbattleModeOverridesregisterInteractionsave_project_region/v3/projects:searchProxy-AuthorizationX-Aicode-Request-Idvideo_summarizationAICODE_ENDPOINT_URLtrajectoryVerbosityx-goog-user-pro'
+ 94c8070:	b9 13 00 00 00       	mov    $0x13,%ecx
+ 94c8075:	e8 26 39 e0 fd       	call   72cb9a0 <crosscall2@@Base+0x220300> ; net/textproto.MIMEHeader.Get
+ 94c807a:	48 8b 4c 24 78       	mov    0x78(%rsp),%rcx
+ 94c807f:	90                   	nop
+ 94c80c3:	48 8b 5c 24 48       	mov    0x48(%rsp),%rbx
+ 94c80c8:	e8 73 42 fd ff       	call   949c340 <crosscall2@@Base+0x23f0ca0> ; google3/third_party/jetski/language_server/code_assist_client/codeassistclient.printDebugInfoFields
+ 94c80cd:	c9                   	leave  
+ 94c80ce:	c3                   	ret    
+
+### asm-google3_third_party_jetski_language_server_code_assist_client_codeassistclient.__CodeAssistClient_.streamGenerateContentFromCCPA.func2.deferwrap1.txt
+
+### asm-google3_third_party_jetski_language_server_code_assist_client_codeassistclient.__CodeAssistClient_.streamGenerateContentFromCCPA.func2.txt
+ 94c7f8d:	4c 89 e0             	mov    %r12,%rax
+ 94c7f90:	e8 6b c4 fe ff       	call   94b4400 <crosscall2@@Base+0x2408d60> ; google3/third_party/jetski/language_server/code_assist_client/codeassistclient.ProcessStreamChunks
+ 94c7f95:	c6 44 24 47 00       	movb   $0x0,0x47(%rsp)
+ 94c7f9a:	48 8b 54 24 60       	mov    0x60(%rsp),%rdx
+
+### asm-google3_third_party_jetski_language_server_code_assist_client_codeassistclient.__CodeAssistClient_.streamGenerateContentFromCCPA.txt
+ 9493075:	48 89 f8             	mov    %rdi,%rax
+ 9493078:	e8 e3 fe ff ff       	call   9492f60 <crosscall2@@Base+0x23e78c0> ; google3/third_party/jetski/language_server/code_assist_client/codeassistclient.marshalCCPARequest
+ 949307d:	0f 1f 00             	nopl   (%rax)
+ 9493080:	48 85 ff             	test   %rdi,%rdi
+ 9493113:	b9 02 00 00 00       	mov    $0x2,%ecx
+ 9493118:	e8 83 40 d2 fd       	call   71b71a0 <crosscall2@@Base+0x10bb00> ; google3/base/go/log.(*verboseFlags).enabled
+ 949311d:	88 44 24 4f          	mov    %al,0x4f(%rsp)
+ 9493121:	b8 10 00 00 00       	mov    $0x10,%eax
+ 94931c2:	45 31 c0             	xor    %r8d,%r8d
+ 94931c5:	4c 8d 0d 3d 4a dc fc 	lea    -0x323b5c3(%rip),%r9        # 6257c09 <_cgo_topofstack@@Base-0xd317b7> ; 'Cortex API Request: %s\nAGY_LLM_GATEWAY_CA_CERTchat-gemini-3.1-pro-lowAndroid (no OS keyring)streamAgentStateUpdateslistPluginInstallations%s returned no terminalInvalid state parameterinvalid state parameteragy-business-paygo-tierSplit called after ScanautocompleteContext.txtunknown client metadatau'
+ 94931cc:	41 ba 17 00 00 00    	mov    $0x17,%r10d
+ 94931d2:	e8 09 f7 d1 fd       	call   71b28e0 <crosscall2@@Base+0x107240> ; google3/base/go/log.ctxlogf
+ 94931d7:	48 8d 84 24 c0 01 00 	lea    0x1c0(%rsp),%rax
+ 94931de:	00 
+ 949324c:	00 
+ 949324d:	48 8d 05 d4 3a 76 02 	lea    0x2763ad4(%rip),%rax        # bbf6d28 <__lxstat@plt+0xcce128> ; 'eium_common_go_proto.CompletionType'
+ 9493254:	48 8d 9c 24 c0 01 00 	lea    0x1c0(%rsp),%rbx
+ 949325b:	00 
+ 949325c:	48 8d 0d 69 37 c3 fc 	lea    -0x33cc897(%rip),%rcx        # 60c69cc <_cgo_topofstack@@Base-0xec29f4> ; 'altsseGETgptadcat:rt:dnseoftcp*/*1:1wslPro.js://:%d/\\'
+ 9493263:	bf 03 00 00 00       	mov    $0x3,%edi
+ 9493268:	e8 33 c4 a6 fd       	call   6eff6a0 <_cgo_topofstack@@Base-0x89d20> ; runtime.mapassign_faststr
+ 9493286:	49 89 13             	mov    %rdx,(%r11)
+ 9493289:	48 8d 15 3f 37 c3 fc 	lea    -0x33cc8c1(%rip),%rdx        # 60c69cf <_cgo_topofstack@@Base-0xec29f1> ; 'sseGETgptadcat:rt:dnseoftcp*/*1:1wslPro.js://:%d/\\'
+ 9493290:	48 89 10             	mov    %rdx,(%rax)
+ 9493293:	48 8b 84 24 48 02 00 	mov    0x248(%rsp),%rax
+ 94932aa:	00 
+ 94932ab:	48 8d 3d 39 ee d9 fc 	lea    -0x32611c7(%rip),%rdi        # 62320eb <_cgo_topofstack@@Base-0xd572d5> ; 'streamGenerateContentgemini-4-argon-mediumgemini-3.8-flash-highgemini-3.7-flash-highgemini-3.6-flash-highclaude-sonnet-5-5-maxclaude-sonnet-5-5-lowGemini 4 Carbon (Low)Gemini 4 Argon (High)gemini-3.1-flash-liteGemini 3.1 Flash LiteClaude Opus 5.5 (Max)Claude Opus 5.5 (Low)LOCATION_NOT_ELIGIBLEaicode'
+ 94932b2:	be 15 00 00 00       	mov    $0x15,%esi
+ 94932b7:	4c 8d 84 24 c0 01 00 	lea    0x1c0(%rsp),%r8
+ 94932bf:	90                   	nop
+ 94932c0:	e8 db 71 00 00       	call   949a4a0 <crosscall2@@Base+0x23eee00> ; google3/third_party/jetski/language_server/code_assist_client/codeassistclient.(*CodeAssistClient).constructCodeAssistEndpointWithParams
+ 94932c5:	48 85 c9             	test   %rcx,%rcx
+ 94932c8:	75 7b                	jne    9493345 <crosscall2@@Base+0x23e7ca5>
+ 94934af:	00 
+ 94934b0:	48 8d 0d 85 a5 c3 fc 	lea    -0x33c5a7b(%rip),%rcx        # 60cda3c <_cgo_topofstack@@Base-0xebb984> ; 'POSTtiersaveenumnoneuser1000S256code\r\n\r\nflexprod.css.htm.map.mjs.svg.txt.xmlcsrf.git.exeselflogs.zipkind.bin or USER1-7d90d+3-10heapbaseHEADbashRepoETagVarygziptestpongdata*?[\\.tmpNone\r'
+ 94934b7:	e8 84 80 ea fd       	call   733b540 <crosscall2@@Base+0x28fea0> ; net/http.NewRequestWithContext
+ 94934bc:	0f 1f 40 00          	nopl   0x0(%rax)
+ 94934c0:	48 85 db             	test   %rbx,%rbx
+ 9493548:	90                   	nop
+ 9493549:	48 8d 05 ae 4e ce fc 	lea    -0x331b152(%rip),%rax        # 61783fe <_cgo_topofstack@@Base-0xe10fc2> ; 'Content-TypeaicodeConfigSaveUserTierstate:ACTIVEalpn_missingx509_invalidconn_refusedaidev_clienthost_path=%s Trace: 0x%s Sherlog: %sagentPluginscascadeNuxesstartCascadetoken_expirypre_tls_dialworkspaceUrilistProjectslistTriggersvscode-file:http://[::1]UnauthorizedPLUGIN_ROOT=PLUGIN_DATA=user_refresh'
+ 9493550:	bb 0c 00 00 00       	mov    $0xc,%ebx
+ 9493555:	e8 e6 a4 e3 fd       	call   72cda40 <crosscall2@@Base+0x2223a0> ; net/textproto.CanonicalMIMEHeaderKey
+ 949355a:	48 89 84 24 28 02 00 	mov    %rax,0x228(%rsp)
+ 9493561:	00 
+ 9493567:	b8 10 00 00 00       	mov    $0x10,%eax
+ 949356c:	48 8d 1d 95 f2 5a 02 	lea    0x25af295(%rip),%rbx        # ba42808 <__lxstat@plt+0xb19c08> ; 'ction'
+ 9493573:	b9 01 00 00 00       	mov    $0x1,%ecx
+ 9493578:	e8 e3 27 a8 fd       	call   6f15d60 <_cgo_topofstack@@Base-0x73660> ; runtime.mallocgcSmallScanNoHeaderSC2
+ 949358c:	00 
+ 949358d:	48 8d 0d 80 11 d4 fc 	lea    -0x32bee80(%rip),%rcx        # 61d4714 <_cgo_topofstack@@Base-0xdb4cac> ; 'application/jsonkeyring-marker-*CRM_ENDPOINT_URLimage-generationlen out of range/v1alpha/remote:.corp.google.comfetchSandboxPortlistEnvironmentsmarked_as_unreaddisconnectPluginupload, finalizechat/completionsstreamRawPredictContent-Encodinghttp://127.0.0.1http://localhostForbidden Originauth unavail'
+ 9493594:	48 89 08             	mov    %rcx,(%rax)
+ 9493597:	48 8d 05 72 29 14 03 	lea    0x3142972(%rip),%rax        # c5d5f10 <__lxstat@plt+0x16ad310>
+ 9493606:	00 
+ 9493607:	e8 74 86 00 00       	call   949bc80 <crosscall2@@Base+0x23f05e0> ; google3/third_party/jetski/language_server/code_assist_client/codeassistclient.(*CodeAssistClient).setHeaders
+ 949360c:	b8 10 00 00 00       	mov    $0x10,%eax
+ 9493611:	48 8d 1d b0 36 cb 02 	lea    0x2cb36b0(%rip),%rbx        # c146cc8 <__lxstat@plt+0x121e0c8>
+ 94936fa:	b8 20 00 00 00       	mov    $0x20,%eax
+ 94936ff:	48 8d 1d 7a f2 f0 02 	lea    0x2f0f27a(%rip),%rbx        # c3a2980 <__lxstat@plt+0x1479d80> ; 'd66f9c9cdc9234dc89f9dfe42e2df21c1b1325085866656b2a41b]) (*connect.Response[go.shape.3bd24d6741076ff4ff6289dd13ba689f7ffb4e9a3df1b1397a9e207ab68f7d3d], error)'
+ 9493706:	b9 01 00 00 00       	mov    $0x1,%ecx
+ 949370b:	e8 50 2d a8 fd       	call   6f16460 <_cgo_topofstack@@Base-0x72f60> ; runtime.mallocgcSmallScanNoHeaderSC4
+ 949373b:	48 8d 05 ee 81 c9 01 	lea    0x1c981ee(%rip),%rax        # b12b930 <__lxstat@plt+0x202d30>
+ 9493742:	e8 59 e7 03 00       	call   94d1ea0 <crosscall2@@Base+0x2426800> ; google3/third_party/jetski/language_server/code_assist_client/codeassistclient.sendModelStreamRequest[go.shape.916abe2b54e47c37d46628fbedf42b660c49e6305d496e6a25836917a733e612]
+ 9493747:	48 85 c0             	test   %rax,%rax
+ 949374a:	74 6f                	je     94937bb <crosscall2@@Base+0x23e811b>
+
+### asm-google3_third_party_jetski_language_server_code_assist_client_codeassistclient.marshalCCPARequest.txt
+ 9493018:	31 c0                	xor    %eax,%eax
+ 949301a:	e8 e1 28 f4 fd       	call   73d5900 <crosscall2@@Base+0x32a260> ; google3/third_party/golang/protobuf/v2/encoding/protojson/protojson.MarshalOptions.marshal
+ 949301f:	c9                   	leave  
+ 9493020:	c3                   	ret    
+
+### asm-google3_third_party_oneharness_internal_core_serializers_serializers.DefaultSerializer.formatCheckpointWrapper.txt
+ 8cf8d1c:	48 89 44 24 30       	mov    %rax,0x30(%rsp)
+ 8cf8d21:	48 8d 05 d9 9f 60 fd 	lea    -0x29f6027(%rip),%rax        # 6302d01 <_cgo_topofstack@@Base-0xc866bf> ; '<CONTEXT_SUMMARY>\n%s\n</CONTEXT_SUMMARY>Await received zero-value WaitConditiontool step index %d out of range [0, %d)tool step index %d out of range [0, %d]read_file path %q is not a regular fileFailed to parse remote candidate %q: %vdevtools/jetski/boq/api/proto/api.protolocalcert: unexpected PEM b'
+ 8cf8d28:	bb 27 00 00 00       	mov    $0x27,%ebx
+ 8cf8d2d:	48 8d 4c 24 28       	lea    0x28(%rsp),%rcx
+ 8cf8d37:	89 fe                	mov    %edi,%esi
+ 8cf8d39:	e8 42 36 32 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8cf8d3e:	c9                   	leave  
+ 8cf8d3f:	90                   	nop
+ 8cf8d58:	48 89 44 24 30       	mov    %rax,0x30(%rsp)
+ 8cf8d5d:	48 8d 05 53 c1 6d fd 	lea    -0x2923ead(%rip),%rax        # 63d4eb7 <_cgo_topofstack@@Base-0xbb4509> ; "<CONTEXT_SUMMARY>\nThe following is a summary of the conversation history that has been truncated to fit within the context window:\n\n%s\n</CONTEXT_SUMMARY>The following changes were made by %v to: %v. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permi"
+ 8cf8d64:	bb 99 00 00 00       	mov    $0x99,%ebx
+ 8cf8d69:	48 8d 4c 24 28       	lea    0x28(%rsp),%rcx
+ 8cf8d73:	89 fe                	mov    %edi,%esi
+ 8cf8d75:	e8 06 36 32 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8cf8d7a:	c9                   	leave  
+ 8cf8d7b:	c3                   	ret    
+
+### asm-google3_third_party_oneharness_internal_core_serializers_serializers.DefaultSerializer.formatSystemMessage.txt
+ 8cf8551:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+ 8cf8556:	48 8d 05 82 39 6e fd 	lea    -0x291c67e(%rip),%rax        # 63dbedf <_cgo_topofstack@@Base-0xbad4e1> ; 'The following is a <SYSTEM_MESSAGE> not actually sent by the user. It is provided by the system as important information to pay attention to.\n\n<SYSTEM_MESSAGE>\n%s\n</SYSTEM_MESSAGE>sharing conversations relies on your x20 user directory being accessible to other users, but public read and execute per'
+ 8cf855d:	bb b4 00 00 00       	mov    $0xb4,%ebx
+ 8cf8562:	48 8d 4c 24 38       	lea    0x38(%rsp),%rcx
+ 8cf856c:	89 fe                	mov    %edi,%esi
+ 8cf856e:	e8 0d 3e 32 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8cf8573:	48 8b 4c 24 30       	mov    0x30(%rsp),%rcx
+ 8cf8578:	48 89 59 28          	mov    %rbx,0x28(%rcx)
+
+### asm-google3_third_party_oneharness_internal_core_serializers_serializers.DefaultSerializer.systemMessageToMessage.txt
+ 8cf7e21:	4c 89 cb             	mov    %r9,%rbx
+ 8cf7e24:	e8 f7 05 00 00       	call   8cf8420 <crosscall2@@Base+0x1c4cd80> ; google3/third_party/oneharness/internal/core/serializers/serializers.DefaultSerializer.formatSystemMessage
+ 8cf7e29:	c9                   	leave  
+ 8cf7e2a:	c3                   	ret    
+
+### asm-google3_third_party_oneharness_internal_core_serializers_serializers.serializeUserInput.txt
+ 8cfcaf7:	48 89 d0             	mov    %rdx,%rax
+ 8cfcafa:	e8 a1 ea 82 ff       	call   852b5a0 <crosscall2@@Base+0x147ff00> ; google3/third_party/jetski/cortex/utils/utils.RenderReviewComments
+ 8cfcaff:	90                   	nop
+ 8cfcb00:	48 85 db             	test   %rbx,%rbx
+ 8cfcb7c:	00 
+ 8cfcb7d:	48 8d 05 0a ec 47 fd 	lea    -0x2b813f6(%rip),%rax        # 617b78e <_cgo_topofstack@@Base-0xe0dc32> ; 'USER_REQUESTStep Id: %d\nBlockCommentInvalidTokenfiltered outminiswe_bashminiswe_loopAnalyzing %swith name %qSerializableLinearizable_auto_vacuum_synchronoussqlite_cryptauth_enabledIN_MOVE_SELFRATE_LIMITEDopacity:0.33display:noneTODO: DecalnReverseIndexActionScriptBibTeX StyleObjectScriptOpenEdge ABL'
+ 8cfcb84:	bb 0c 00 00 00       	mov    $0xc,%ebx
+ 8cfcb89:	48 8d 8c 24 60 03 00 	lea    0x360(%rsp),%rcx
+ 8cfcb96:	89 fe                	mov    %edi,%esi
+ 8cfcb98:	e8 43 5f 00 00       	call   8d02ae0 <crosscall2@@Base+0x1c57440> ; google3/third_party/oneharness/internal/core/serializers/serializers.formatWithXMLTag
+ 8cfcb9d:	48 8b 8c 24 88 00 00 	mov    0x88(%rsp),%rcx
+ 8cfcba4:	00 
+ 8cfccac:	00 
+ 8cfccad:	48 8d 05 20 b3 4d fd 	lea    -0x2b24ce0(%rip),%rax        # 61d7fd4 <_cgo_topofstack@@Base-0xdb13ec> ; 'The user is: %s.UserInput is nilmissingkey=errorPath is requiredRead Uncommitted2006-01-02 15:042006-01-02T15:04_writable_schema_stmt_cache_sizeauth_user_changeauth_user_deleteserialize failedX-Forwarded-HostIN_CLOSE_NOWRITEexternal_accountfont-weight:boldTODO: ResetStateSWITCHING TO ALTSET UNKNOWN '
+ 8cfccb4:	bb 10 00 00 00       	mov    $0x10,%ebx
+ 8cfccb9:	48 8d 8c 24 50 03 00 	lea    0x350(%rsp),%rcx
+ 8cfccc6:	89 fe                	mov    %edi,%esi
+ 8cfccc8:	e8 b3 f6 31 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8cfcccd:	48 8d 8c 24 e0 02 00 	lea    0x2e0(%rsp),%rcx
+ 8cfccd4:	00 
+ 8cfcd69:	48 89 d8             	mov    %rbx,%rax
+ 8cfcd6c:	e8 af 24 79 fe       	call   748f220 <crosscall2@@Base+0x3e3b80> ; google3/google/protobuf/timestamp_go_proto.(*Timestamp).GetSeconds
+ 8cfcd71:	48 85 c0             	test   %rax,%rax
+ 8cfcd74:	7f 1d                	jg     8cfcd93 <crosscall2@@Base+0x1c516f3>
+ 8cfcd9b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 8cfcda0:	e8 9b 1f 79 fe       	call   748ed40 <crosscall2@@Base+0x3e36a0> ; google3/google/protobuf/timestamp_go_proto.(*Timestamp).AsTime
+ 8cfcda5:	48 89 84 24 50 01 00 	mov    %rax,0x150(%rsp)
+ 8cfcdac:	00 
+ 8cfce34:	00 
+ 8cfce35:	48 8d 3d e2 ad 57 fd 	lea    -0x2a8521e(%rip),%rdi        # 6277c1e <_cgo_topofstack@@Base-0xd117a2> ; '2006-01-02T15:04:05Z07:00Gemini 3.8 Flash (Medium)Gemini 3.7 Flash (Medium)Gemini 3.6 Flash (Medium)Gemini 3.5 Flash (Medium)claude-sonnet-5-5@defaultaicode_oauth_scope_statusshadow-call-aicode-mendelmendel_aicode_shadow_diffupgrade_subscription_textAGY_LLM_GATEWAY_PROXY_URLempty event type in chunk'
+ 8cfce3c:	be 19 00 00 00       	mov    $0x19,%esi
+ 8cfce41:	e8 1a 83 2a fe       	call   6fa5160 <_cgo_topofstack@@Base+0x1bda0> ; time.Time.Format
+ 8cfce46:	44 0f 11 bc 24 50 03 	movups %xmm15,0x350(%rsp)
+ 8cfce4d:	00 00 
+ 8cfce6a:	00 
+ 8cfce6b:	48 8d 05 97 a8 5b fd 	lea    -0x2a45769(%rip),%rax        # 62b7709 <_cgo_topofstack@@Base-0xcd1cb7> ; "The current local time is: %s.project_env_config is requiredShowing binary file of type %sFailed to parse skill file: %vauth: options must be providedcould not determine endiannesscannot decode integer from '-'hexadecimal value out of rangeparsing unicode code point: %sMultiple errors without a key."
+ 8cfce72:	bb 1e 00 00 00       	mov    $0x1e,%ebx
+ 8cfce77:	48 8d 8c 24 50 03 00 	lea    0x350(%rsp),%rcx
+ 8cfce84:	89 fe                	mov    %edi,%esi
+ 8cfce86:	e8 f5 f4 31 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8cfce8b:	48 8b 8c 24 98 00 00 	mov    0x98(%rsp),%rcx
+ 8cfce92:	00 
+ 8cfcf5b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 8cfcf60:	e8 db 1d 79 fe       	call   748ed40 <crosscall2@@Base+0x3e36a0> ; google3/google/protobuf/timestamp_go_proto.(*Timestamp).AsTime
+ 8cfcf65:	48 89 cf             	mov    %rcx,%rdi
+ 8cfcf68:	48 89 d9             	mov    %rbx,%rcx
+ 8cfcf75:	00 
+ 8cfcf76:	e8 65 17 00 00       	call   8cfe6e0 <crosscall2@@Base+0x1c53040> ; google3/third_party/oneharness/internal/core/serializers/serializers.stateSnapshotToContext
+ 8cfcf7b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 8cfcf80:	48 85 db             	test   %rbx,%rbx
+ 8cfcfdc:	00 
+ 8cfcfdd:	48 8d 05 a4 09 62 fd 	lea    -0x29df65c(%rip),%rax        # 631d988 <_cgo_topofstack@@Base-0xc6ba38> ; "\nThe user's current state is as follows:\n%sThe USER performed the following action:\n%sinvalid ByteOffset %d: must be non-negativeContentOffset %d exceeds line range size %dsql: connection returned that was never outauth: state mismatch in 3-legged-OAuth flowDesktopNotification: payload=%+v (ignored)"
+ 8cfcfe4:	bb 2b 00 00 00       	mov    $0x2b,%ebx
+ 8cfcfe9:	48 8d 8c 24 50 03 00 	lea    0x350(%rsp),%rcx
+ 8cfcff6:	89 fe                	mov    %edi,%esi
+ 8cfcff8:	e8 83 f3 31 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8cfcffd:	48 8b b4 24 98 00 00 	mov    0x98(%rsp),%rsi
+ 8cfd004:	00 
+ 8cfd0dd:	48 8b 5a 28          	mov    0x28(%rdx),%rbx
+ 8cfd0e1:	e8 3a 5b 00 00       	call   8d02c20 <crosscall2@@Base+0x1c57580> ; google3/third_party/oneharness/internal/core/serializers/serializers.removeInvisibleUnicode
+ 8cfd0e6:	31 c9                	xor    %ecx,%ecx
+ 8cfd0e8:	31 ff                	xor    %edi,%edi
+ 8cfd10c:	00 
+ 8cfd10d:	48 8d 15 d0 ae 4d fd 	lea    -0x2b25130(%rip),%rdx        # 61d7fe4 <_cgo_topofstack@@Base-0xdb13dc> ; 'UserInput is nilmissingkey=errorPath is requiredRead Uncommitted2006-01-02 15:042006-01-02T15:04_writable_schema_stmt_cache_sizeauth_user_changeauth_user_deleteserialize failedX-Forwarded-HostIN_CLOSE_NOWRITEexternal_accountfont-weight:boldTODO: ResetStateSWITCHING TO ALTSET UNKNOWN MODENAMED COLOR:'
+ 8cfd114:	48 89 10             	mov    %rdx,(%rax)
+ 8cfd117:	31 db                	xor    %ebx,%ebx
+ 8cfd333:	49 8b 04 c7          	mov    (%r15,%rax,8),%rax
+ 8cfd337:	e8 e4 50 00 00       	call   8d02420 <crosscall2@@Base+0x1c56d80> ; google3/third_party/oneharness/internal/core/serializers/serializers.scopeItemToMentionMetadataString
+ 8cfd33c:	0f 1f 40 00          	nopl   0x0(%rax)
+ 8cfd340:	48 85 c9             	test   %rcx,%rcx
+ 8cfd4ff:	49 89 33             	mov    %rsi,(%r11)
+ 8cfd502:	4c 8d 1d f1 a2 6d fd 	lea    -0x2925d0f(%rip),%r11        # 63d77fa <_cgo_topofstack@@Base-0xbb1bc6> ; "\nThe user has mentioned some items in the form @[ITEM]. Here is extra information about the items that were mentioned by the user, in the order that they appear:\nNo need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name inst"
+ 8cfd509:	4c 89 1c 10          	mov    %r11,(%rax,%rdx,1)
+ 8cfd50d:	4c 39 c9             	cmp    %r9,%rcx
+ 8cfda29:	00 
+ 8cfda2a:	48 8d 05 b9 89 6a fd 	lea    -0x2957647(%rip),%rax        # 63a63ea <_cgo_topofstack@@Base-0xbe2fd6> ; "\nThe user has uploaded %d audio file(s). Consider them as a part of their message.Invalid _query_only: %v, expecting boolean value of '0 1 false true no yes off on'//localhost/Users/hubery/Public/ucar/Document/Functions/Contributed/zonalAve.shtmlcollected metric %q { %s} was collected before with th"
+ 8cfda31:	bb 52 00 00 00       	mov    $0x52,%ebx
+ 8cfda36:	48 8d 8c 24 50 03 00 	lea    0x350(%rsp),%rcx
+ 8cfda43:	89 fe                	mov    %edi,%esi
+ 8cfda45:	e8 36 e9 31 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8cfda4a:	48 8b b4 24 98 00 00 	mov    0x98(%rsp),%rsi
+ 8cfda51:	00 
+ 8cfdc8d:	00 
+ 8cfdc8e:	48 8d 05 03 76 5e fd 	lea    -0x2a189fd(%rip),%rax        # 62e5298 <_cgo_topofstack@@Base-0xca4128> ; '\nThe user has uploaded %d video(s):invalid UTF-8 in output for step %sfailed to create CitC workspace: %wcannot advance; vector iterator bugunpaired removeDep: no %T dep on %T2006-01-02 15:04:05.999999999-07:002006-01-02T15:04:05.999999999-07:00Non-function passed to RegisterFuncFSNOTIFY_DEBUG: %s  '
+ 8cfdc95:	bb 23 00 00 00       	mov    $0x23,%ebx
+ 8cfdc9a:	48 8d 8c 24 50 03 00 	lea    0x350(%rsp),%rcx
+ 8cfdca7:	89 fe                	mov    %edi,%esi
+ 8cfdca9:	e8 d2 e6 31 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8cfdcae:	48 8b bc 24 90 00 00 	mov    0x90(%rsp),%rdi
+ 8cfdcb5:	00 
+ 8cfdd80:	48 89 c6             	mov    %rax,%rsi
+ 8cfdd83:	48 8d 05 e3 4c 51 fd 	lea    -0x2aeb31d(%rip),%rax        # 6212a6d <_cgo_topofstack@@Base-0xd76953> ; 'ADDITIONAL_METADATACORTEX_STEP_SOURCE_tool call completedcontrib:fetch_mediaminiswe_eval_prompt<|context_request|>Invalid _txlock: %v_defer_foreign_keys_recursive_triggersGOOGLE_API_USE_MTLSX-goog-user-projectgdc_service_accountINSUFFICIENT_SCOPESwrite to stream: %wmarshaling call: %wDeviceStatus: n'
+ 8cfdd8a:	e8 51 4d 00 00       	call   8d02ae0 <crosscall2@@Base+0x1c57440> ; google3/third_party/oneharness/internal/core/serializers/serializers.formatWithXMLTag
+ 8cfdd8f:	48 8b 94 24 80 00 00 	mov    0x80(%rsp),%rdx
+ 8cfdd96:	00 
+ 8cfde62:	00 
+ 8cfde63:	e8 d8 46 00 00       	call   8d02540 <crosscall2@@Base+0x1c56ea0> ; google3/third_party/oneharness/internal/core/serializers/serializers.buildOutputStringForConfigChange
+ 8cfde68:	48 85 db             	test   %rbx,%rbx
+ 8cfde6b:	75 1d                	jne    8cfde8a <crosscall2@@Base+0x1c527ea>
+ 8cfde95:	48 89 c1             	mov    %rax,%rcx
+ 8cfde98:	48 8d 05 4b 70 52 fd 	lea    -0x2ad8fb5(%rip),%rax        # 6224eea <_cgo_topofstack@@Base-0xd644d6> ; 'USER_SETTINGS_CHANGEagent (action spawn)cannot send input tosql: Rows are closedInvalid _loc: %v: %v_case_sensitive_likesentinel error valuemismatched extensionsecondary rate limitJSON-RPC parse errorTODO: CellSizePixelsTODO: ClearModeSavedUNKNOWN NAMED COLOR:(?i)mov\\s+[^\\s]{2,},![\\w\\s]+methodsFor: '
+ 8cfde9f:	90                   	nop
+ 8cfdea0:	e8 3b 4c 00 00       	call   8d02ae0 <crosscall2@@Base+0x1c57440> ; google3/third_party/oneharness/internal/core/serializers/serializers.formatWithXMLTag
+ 8cfdea5:	48 8b 94 24 80 00 00 	mov    0x80(%rsp),%rdx
+ 8cfdeac:	00 
+ 8cfdf40:	be 01 00 00 00       	mov    $0x1,%esi
+ 8cfdf45:	e8 d6 78 33 fe       	call   7035820 <_cgo_topofstack@@Base+0xac460> ; strings.Join
+ 8cfdf4a:	e8 d1 4c 00 00       	call   8d02c20 <crosscall2@@Base+0x1c57580> ; google3/third_party/oneharness/internal/core/serializers/serializers.removeInvisibleUnicode
+ 8cfdf4f:	31 c9                	xor    %ecx,%ecx
+ 8cfdf51:	31 ff                	xor    %edi,%edi
+ 8cfe024:	00 
+ 8cfe025:	48 8d 05 10 63 5d fd 	lea    -0x2a29cf0(%rip),%rax        # 62d433c <_cgo_topofstack@@Base-0xcb5084> ; '\nVideo number %v description: \n%sfailed to parse folder URI %q: %wagent_efficiency_work_efficientlyreduce_prompt_overhead_user_rulesstop not found in completion textsql: connection is already closedsqlite3: unsupported bind type %Tdeserialize failed: out of memorydeserialize failed with return %vhij'
+ 8cfe02c:	bb 21 00 00 00       	mov    $0x21,%ebx
+ 8cfe031:	48 8d 8c 24 30 03 00 	lea    0x330(%rsp),%rcx
+ 8cfe03e:	89 fe                	mov    %edi,%esi
+ 8cfe040:	e8 3b e3 31 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8cfe045:	48 8b 8c 24 f0 00 00 	mov    0xf0(%rsp),%rcx
+ 8cfe04c:	00 
+ 8cfe1bb:	00 
+ 8cfe1bc:	48 8d 05 a9 fd 3c fd 	lea    -0x2c30257(%rip),%rax        # 60cdf6c <_cgo_topofstack@@Base-0xebb454> ; '- %s OR >%s\nmintGNU'
+ 8cfe1c3:	bb 04 00 00 00       	mov    $0x4,%ebx
+ 8cfe1c8:	48 8d 8c 24 50 03 00 	lea    0x350(%rsp),%rcx
+ 8cfe1d5:	89 fe                	mov    %edi,%esi
+ 8cfe1d7:	e8 a4 e1 31 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8cfe1dc:	48 8b 8c 24 d0 00 00 	mov    0xd0(%rsp),%rcx
+ 8cfe1e3:	00 
+ 8cfe324:	00 
+ 8cfe325:	48 8d 05 49 6f 5e fd 	lea    -0x2a190b7(%rip),%rax        # 62e5275 <_cgo_topofstack@@Base-0xca414b> ; '\nThe user has uploaded %d image(s):\nThe user has uploaded %d video(s):invalid UTF-8 in output for step %sfailed to create CitC workspace: %wcannot advance; vector iterator bugunpaired removeDep: no %T dep on %T2006-01-02 15:04:05.999999999-07:002006-01-02T15:04:05.999999999-07:00Non-function passed '
+ 8cfe32c:	bb 23 00 00 00       	mov    $0x23,%ebx
+ 8cfe331:	48 8d 8c 24 50 03 00 	lea    0x350(%rsp),%rcx
+ 8cfe33e:	89 fe                	mov    %edi,%esi
+ 8cfe340:	e8 3b e0 31 fe       	call   701c380 <_cgo_topofstack@@Base+0x92fc0> ; fmt.Sprintf
+ 8cfe345:	48 8b bc 24 c8 00 00 	mov    0xc8(%rsp),%rdi
+ 8cfe34c:	00 
+ 8cfe42d:	49 89 13             	mov    %rdx,(%r11)
+ 8cfe430:	48 8d 15 1f a4 69 fd 	lea    -0x2965be1(%rip),%rdx        # 6398856 <_cgo_topofstack@@Base-0xbf0b6a> ; "You can embed this image in an artifact if you need the USER to review it.Invalid _auto_vacuum: %v, expecting value of '0 NONE 1 FULL 2 INCREMENTAL'(?i:^\\s*GO\\b|BEGIN(\\s+TRY|\\s+CATCH)|OUTPUT\\s+INSERTED|DECLARE\\s+@|\\[dbo\\])//////////////////////////////////////////////////////////////////////////####"
+ 8cfe437:	48 89 50 20          	mov    %rdx,0x20(%rax)
+ 8cfe43b:	bb 03 00 00 00       	mov    $0x3,%ebx
+ 8cfe498:	4d 89 03             	mov    %r8,(%r11)
+ 8cfe49b:	4c 8d 05 f3 1f 6a fd 	lea    -0x295e00d(%rip),%r8        # 63a0495 <_cgo_topofstack@@Base-0xbe8f2b> ; 'You can embed these images in an artifact if you need the USER to review them.Partial read (lines %d-%d of %d). Showing bytes %d-%d of %d in this line range^\\s*#(?:(?:if|ifdef|define|pragma)\\s+\\w|\\s*include\\s+<[^>]+>)|^\\s*template\\s*<//////////////////////////////////////////////////////////////////'
+ 8cfe4a2:	4c 89 04 10          	mov    %r8,(%rax,%rdx,1)
+ 8cfe4a6:	48 8d 3d ab 0f f1 fd 	lea    -0x20ef055(%rip),%rdi        # 6c0f458 <_cgo_topofstack@@Base-0x379f68>
+ 8cfe4ad:	be 01 00 00 00       	mov    $0x1,%esi
+ 8cfe4b2:	e8 69 73 33 fe       	call   7035820 <_cgo_topofstack@@Base+0xac460> ; strings.Join
+ 8cfe4b7:	48 8b bc 24 90 00 00 	mov    0x90(%rsp),%rdi
+ 8cfe4be:	00 

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120" />
+      <stop offset="0.55" stop-color="#111827" />
+      <stop offset="1" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="beam1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#14b8a6" stop-opacity="0.28" />
+    </linearGradient>
+    <linearGradient id="beam2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#14b8a6" stop-opacity="0.28" />
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0.34" />
+    </linearGradient>
+    <marker id="cArr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="900" height="500" fill="url(#bgGrad)" />
+
+  <!-- 背景细网格装饰 -->
+  <line x1="0" y1="100" x2="900" y2="100" stroke="#1e293b" stroke-width="1" />
+  <line x1="0" y1="220" x2="900" y2="220" stroke="#1e293b" stroke-width="1" />
+  <line x1="0" y1="340" x2="900" y2="340" stroke="#1e293b" stroke-width="1" />
+  <line x1="300" y1="0" x2="300" y2="500" stroke="#1e293b" stroke-width="1" />
+  <line x1="600" y1="0" x2="600" y2="500" stroke="#1e293b" stroke-width="1" />
+
+  <!-- 顶部期号与小标签 -->
+  <rect x="48" y="34" width="168" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" />
+  <text x="132" y="53" text-anchor="middle" font-size="13" font-weight="bold" fill="#38bdf8">AI AGENT ANATOMY</text>
+  <text x="852" y="53" text-anchor="end" font-size="14" fill="#64748b">Antigravity CLI v1.5.7 实盘透视</text>
+
+  <!-- 光束扩展多边形（从 130B 膨胀到 44,133 Tokens） -->
+  <polygon points="248,175 332,140 332,268 248,233" fill="url(#beam1)" />
+  <polygon points="558,140 642,115 642,293 558,268" fill="url(#beam2)" />
+
+  <!-- 阶段 1：终端与 SQLite 裸数据 -->
+  <rect x="48" y="145" width="200" height="118" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.8" />
+  <text x="64" y="172" font-size="13" font-weight="bold" fill="#38bdf8">① 本地状态库 (SQLite)</text>
+  <text x="64" y="196" font-size="15" font-weight="bold" fill="#f8fafc">130 Bytes 裸输入</text>
+  <text x="64" y="219" font-size="12" fill="#94a3b8">二进制 Protobuf 对象</text>
+  <text x="64" y="239" font-size="12" fill="#94a3b8">+ 138B 思考加密签名</text>
+
+  <line x1="254" y1="204" x2="324" y2="204" stroke="#94a3b8" stroke-width="2" marker-end="url(#cArr)" />
+
+  <!-- 阶段 2：网卡 HTTP JSON + XML -->
+  <rect x="332" y="128" width="226" height="152" rx="10" fill="#1e293b" stroke="#14b8a6" stroke-width="1.8" />
+  <text x="348" y="155" font-size="13" font-weight="bold" fill="#2dd4bf">② 跨网卡请求 (HTTP JSON)</text>
+  <rect x="348" y="168" width="194" height="44" rx="5" fill="#0f172a" />
+  <text x="358" y="186" font-size="12" font-weight="bold" fill="#5eead4">左半：已拼 XML 文本</text>
+  <text x="358" y="203" font-size="11" fill="#94a3b8">11 块系统规则 + 时间戳尾巴</text>
+  <rect x="348" y="220" width="194" height="44" rx="5" fill="#0f172a" />
+  <text x="358" y="238" font-size="12" font-weight="bold" fill="#fbbf24">右半：仍为 JSON 结构</text>
+  <text x="358" y="255" font-size="11" fill="#94a3b8">tools / thinkingConfig / call</text>
+
+  <line x1="564" y1="204" x2="634" y2="204" stroke="#94a3b8" stroke-width="2" marker-end="url(#cArr)" />
+
+  <!-- 阶段 3：云端压平进模型的一维词元流 -->
+  <rect x="642" y="108" width="210" height="192" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2" />
+  <text x="658" y="136" font-size="13" font-weight="bold" fill="#fbbf24">③ 模型输入层 (Tokens)</text>
+  <text x="658" y="166" font-size="24" font-weight="bold" fill="#fef08a">44,133 词元</text>
+  <text x="658" y="191" font-size="12" fill="#cbd5e1">云端网关最后压平为一维带：</text>
+  <text x="658" y="213" font-size="11.5" fill="#94a3b8">• 档位与工具控制块</text>
+  <text x="658" y="233" font-size="11.5" fill="#94a3b8">• 14 选 11 系统提示词</text>
+  <text x="658" y="253" font-size="11.5" fill="#94a3b8">• 队尾动态提醒与历史流</text>
+  <text x="658" y="278" font-size="11.5" font-weight="bold" fill="#34d399">次轮缓存复用：44,134 词元</text>
+
+  <!-- 底部大标题区 -->
+  <text x="48" y="392" font-size="34" font-weight="bold" fill="#f8fafc">敲下一行字，上下文里到底塞了什么？</text>
+  <text x="48" y="434" font-size="19" fill="#94a3b8">以 Antigravity CLI 为例：追踪「三次变形」、14 个系统槽位与队尾隐形纸条</text>
+  <line x1="48" y1="458" x2="852" y2="458" stroke="#334155" stroke-width="1.5" />
+  <text x="48" y="480" font-size="13" fill="#64748b">靳岩岩的 AI 学习笔记</text>
+  <text x="852" y="480" text-anchor="end" font-size="13" fill="#38bdf8">SQLite Protobuf  →  HTTP JSON  →  1D Token Stream</text>
+</svg>
