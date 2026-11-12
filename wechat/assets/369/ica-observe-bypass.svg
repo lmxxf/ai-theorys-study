@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 390" width="520" height="390" style="background-color:#ffffff;font-family:'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;">
+  <defs>
+    <marker id="arrMain" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#1e293b" />
+    </marker>
+    <marker id="arrProbe" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0d9488" />
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="260" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">① 日常观察模式：挂在第 41 层外面的「旁路万用表」</text>
+  <text x="260" y="49" text-anchor="middle" font-size="12" fill="#4b5563">大模型主干道从上往下照常直通，旁路复印算完即止、不回接主流程</text>
+
+  <!-- 左侧：模型纵向主干道背景淡色带 -->
+  <rect x="22" y="68" width="182" height="298" fill="#f8fafc" rx="8" />
+  <rect x="22" y="68" width="182" height="4" fill="#334155" rx="2" />
+  <text x="113" y="91" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#334155">大模型推理主干道</text>
+
+  <!-- 第 41 层 -->
+  <rect x="38" y="106" width="150" height="46" fill="#e2e8f0" rx="6" />
+  <text x="113" y="127" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f172a">第 41 层 Block</text>
+  <text x="113" y="144" text-anchor="middle" font-size="11" fill="#475569">输出残差 h_41 [5120]</text>
+
+  <!-- 主干向下直通粗箭头 -->
+  <line x1="113" y1="152" x2="113" y2="288" stroke="#1e293b" stroke-width="3.2" marker-end="url(#arrMain)" />
+  <rect x="34" y="210" width="158" height="26" fill="#f1f5f9" rx="4" />
+  <text x="113" y="227" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e293b">原样直通（零侵入）</text>
+
+  <!-- 第 42 层 -->
+  <rect x="38" y="296" width="150" height="46" fill="#e2e8f0" rx="6" />
+  <text x="113" y="317" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f172a">第 42 层 Block</text>
+  <text x="113" y="334" text-anchor="middle" font-size="11" fill="#475569">继续往第 63 层推理</text>
+
+  <!-- 右侧：ICA 旁路万用表区域 -->
+  <rect x="234" y="68" width="264" height="298" fill="#f0fdfa" rx="8" />
+  <rect x="234" y="68" width="264" height="4" fill="#0d9488" rx="2" />
+  <text x="366" y="91" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f766e">旁路 ICA-Lens 读表（只看不改）</text>
+
+  <!-- 探针引出点与虚线连接（置于右侧背景之上防遮挡箭头） -->
+  <circle cx="113" cy="180" r="5" fill="#0d9488" />
+  <path d="M 118 180 L 248 180" fill="none" stroke="#0d9488" stroke-width="2.2" stroke-dasharray="5,3" marker-end="url(#arrProbe)" />
+  <text x="172" y="171" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f766e">复印一份</text>
+
+  <!-- Step A: 归一化 -->
+  <rect x="252" y="158" width="228" height="44" fill="#ffffff" stroke="#5eead4" stroke-width="1.3" rx="6" />
+  <text x="366" y="177" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#115e59">单位球面归一化＋去中心</text>
+  <text x="366" y="194" text-anchor="middle" font-size="11" fill="#0f766e">x_hat - center  [5120]</text>
+
+  <line x1="366" y1="202" x2="366" y2="226" stroke="#0d9488" stroke-width="2.2" marker-end="url(#arrProbe)" />
+
+  <!-- Step B: 乘读取矩阵 C -->
+  <rect x="252" y="232" width="228" height="46" fill="#ccfbf1" rx="6" />
+  <text x="366" y="252" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f766e">乘第 41 层读取方阵 C_41</text>
+  <text x="366" y="269" text-anchor="middle" font-size="11" fill="#115e59">[5120] @ C_41.T [5120×5120]</text>
+
+  <line x1="366" y1="278" x2="366" y2="300" stroke="#0d9488" stroke-width="2.2" marker-end="url(#arrProbe)" />
+
+  <!-- Step C: 读数结果 -->
+  <rect x="252" y="306" width="228" height="48" fill="#ffffff" stroke="#0d9488" stroke-width="1.5" rx="6" />
+  <text x="366" y="326" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f766e">5,120 根轴实时读数 y [5120]</text>
+  <text x="366" y="344" text-anchor="middle" font-size="11" fill="#475569">例：C828 = +12.4（到此为止，不回接）</text>
+</svg>

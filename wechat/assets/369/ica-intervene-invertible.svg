@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 490" width="520" height="490" style="background-color:#ffffff;font-family:'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;">
+  <defs>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#2563eb" />
+    </marker>
+    <marker id="arrSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="260" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">② 因果干预模式：在第 41 层拨动旋钮并互逆回写</text>
+  <text x="260" y="49" text-anchor="middle" font-size="12" fill="#4b5563">读取方阵 C_41 与写入方阵 M_41 严格互逆（C·M = I），不拨旋钮则 100% 无损复原</text>
+
+  <!-- 左侧：模型纵向主干道 -->
+  <rect x="22" y="68" width="176" height="316" fill="#f8fafc" rx="8" />
+  <rect x="22" y="68" width="176" height="4" fill="#334155" rx="2" />
+  <text x="110" y="91" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#334155">大模型推理主干道</text>
+
+  <!-- 第 41 层 -->
+  <rect x="36" y="106" width="148" height="46" fill="#e2e8f0" rx="6" />
+  <text x="110" y="127" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f172a">第 41 层 Block</text>
+  <text x="110" y="144" text-anchor="middle" font-size="11" fill="#475569">原残差 h_41 [5120]</text>
+
+  <!-- 原主干断开虚线示意 -->
+  <line x1="110" y1="152" x2="110" y2="178" stroke="#2563eb" stroke-width="2.5" />
+  <line x1="110" y1="186" x2="110" y2="300" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4" />
+  <rect x="52" y="224" width="116" height="24" fill="#f1f5f9" rx="4" />
+  <text x="110" y="240" text-anchor="middle" font-size="11" fill="#64748b">绕行右侧干预回路</text>
+  <line x1="110" y1="300" x2="110" y2="320" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)" />
+
+  <!-- 第 42 层 -->
+  <rect x="36" y="326" width="148" height="46" fill="#dbeafe" rx="6" />
+  <text x="110" y="347" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e3a8a">第 42 层 Block</text>
+  <text x="110" y="364" text-anchor="middle" font-size="11" fill="#1e40af">接收新残差 h_41_new</text>
+
+  <!-- 右侧：互逆干预回路 -->
+  <rect x="234" y="68" width="264" height="316" fill="#eff6ff" rx="8" />
+  <rect x="234" y="68" width="264" height="4" fill="#2563eb" rx="2" />
+  <text x="366" y="91" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1d4ed8">ICA 互逆外科手术（C_41 ↔ M_41）</text>
+
+  <!-- 引出与回写横线（置于右侧背景之上防遮挡箭头） -->
+  <circle cx="110" cy="176" r="4.5" fill="#2563eb" />
+  <path d="M 114 176 L 248 176" fill="none" stroke="#2563eb" stroke-width="2.3" marker-end="url(#arrBlue)" />
+  <text x="169" y="168" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">引出 x_hat</text>
+
+  <path d="M 252 304 L 116 304" fill="none" stroke="#2563eb" stroke-width="2.3" marker-end="url(#arrBlue)" />
+  <text x="172" y="295" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">塞回主干</text>
+  <circle cx="110" cy="304" r="4.5" fill="#2563eb" />
+
+  <!-- Step 1: 乘 C_41 -->
+  <rect x="252" y="154" width="228" height="44" fill="#bfdbfe" rx="6" />
+  <text x="366" y="173" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1e3a8a">1. 乘读取方阵 C_41 [5120×5120]</text>
+  <text x="366" y="190" text-anchor="middle" font-size="11" fill="#1e40af">y = (x_hat - center) @ C_41.T</text>
+
+  <line x1="366" y1="198" x2="366" y2="216" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrBlue)" />
+
+  <!-- Step 2: 拨动单根旋钮 -->
+  <rect x="252" y="220" width="228" height="42" fill="#ffffff" stroke="#60a5fa" stroke-width="1.5" rx="6" />
+  <text x="366" y="238" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1d4ed8">2. 拨动目标概念轴旋钮</text>
+  <text x="366" y="254" text-anchor="middle" font-size="11" fill="#2563eb">例：y[828] = 0.0（其余 5,119 轴不动）</text>
+
+  <line x1="366" y1="262" x2="366" y2="278" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrBlue)" />
+
+  <!-- Step 3: 乘逆矩阵 M_41 -->
+  <rect x="252" y="282" width="228" height="44" fill="#bfdbfe" rx="6" />
+  <text x="366" y="301" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1e3a8a">3. 乘逆矩阵 M_41 转回原坐标系</text>
+  <text x="366" y="318" text-anchor="middle" font-size="11" fill="#1e40af">x_hat_new = y @ M_41.T + center</text>
+
+  <text x="366" y="352" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">若第 2 步不改 y：往返误差仅 0.00003</text>
+  <text x="366" y="370" text-anchor="middle" font-size="10.5" fill="#3b82f6">（不扩维、不过 ReLU 死区，100% 无损）</text>
+
+  <!-- 底部：对比传统 SAE 的有损瓶颈 -->
+  <g transform="translate(22, 400)">
+    <rect x="0" y="0" width="476" height="72" fill="#fffbeb" rx="6" />
+    <rect x="0" y="0" width="4" height="72" fill="#d97706" rx="2" />
+    <text x="16" y="23" font-size="12" font-weight="bold" fill="#b45309">对比传统 SAE 塞进第 41 层：升维 [5120 → 65,536] ＋ ReLU 砍负 → 降维 [5120]</text>
+    <text x="16" y="44" font-size="11" fill="#92400e">• 因存在稀疏惩罚与激活死区截断，哪怕一根旋钮都不改，输出 h_hat 也已被磨歪一截</text>
+    <text x="16" y="61" font-size="11" fill="#92400e">• 自带有损重构误差（h_hat ≠ h），直接串进主干道会导致模型原有智商掉分</text>
+  </g>
+</svg>
