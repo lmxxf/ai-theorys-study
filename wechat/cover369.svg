@@ -48,14 +48,14 @@
 
     <text x="120" y="172" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="bold">83.76% 重尾（27.4 万根 κ&gt;1）</text>
     <text x="120" y="194" text-anchor="middle" font-size="12.5" fill="#5eead4" font-weight="bold">44.08% 强长尾（14.4 万根 κ&gt;10）</text>
-    <text x="120" y="218" text-anchor="middle" font-size="11.5" fill="#cbd5e1">双机 GB10 流式接力：133 分钟收官</text>
-    <text x="120" y="236" text-anchor="middle" font-size="11" fill="#94a3b8">单轴硬掰 27B 语种：0/36 翻转（诚实边界）</text>
+    <text x="120" y="218" text-anchor="middle" font-size="11.5" fill="#cbd5e1">双机 GB10 流式接力：133 分钟开源</text>
+    <text x="120" y="236" text-anchor="middle" font-size="11" fill="#fde68a">不随输入换尺子的真实逐层 J-space</text>
   </g>
 
   <!-- 中央视觉：中英跨语言同轴共振（apple & 苹果 -> 同一根坐标轴） -->
   <g transform="translate(322, 150)">
     <circle cx="128" cy="115" r="102" fill="#0f172a" fill-opacity="0.92" stroke="#38bdf8" stroke-width="2.5" filter="url(#softGlow)"/>
-    <text x="128" y="54" text-anchor="middle" font-size="13.5" fill="#bae6fd" font-weight="bold">② 42/64 层中英盲选同轴</text>
+    <text x="128" y="54" text-anchor="middle" font-size="13.5" fill="#bae6fd" font-weight="bold">② 中英盲选 64/64 层共享前五</text>
 
     <!-- 左上英文 apple，左下中文 苹果 -->
     <rect x="42" y="72" width="72" height="28" rx="14" fill="#1d4ed8"/>
@@ -71,7 +71,7 @@
 
     <text x="190" y="111" text-anchor="middle" font-size="11.5" fill="#fde68a" font-weight="bold">L38 C2639</text>
     <text x="190" y="128" text-anchor="middle" font-size="11.5" fill="#fde68a" font-weight="bold">L41 C828</text>
-    <text x="128" y="182" text-anchor="middle" font-size="10.8" fill="#cbd5e1">5,120 选 1 撞同一根轴</text>
+    <text x="128" y="174" text-anchor="middle" font-size="10.5" fill="#cbd5e1">42 层撞第 1 名 ＋ 20 层前五换位</text>
     <text x="128" y="240" text-anchor="middle" font-size="13.5" fill="#38bdf8" font-weight="bold">余弦峰值 0.879 · 跨语种共享基底</text>
   </g>
 
