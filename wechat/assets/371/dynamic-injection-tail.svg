@@ -1,47 +1,108 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 480" width="540" height="480" style="background-color:#ffffff;font-family:'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 465" width="580" height="465" style="background-color:#ffffff;font-family:'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;">
+  <defs>
+    <marker id="arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#64748b" />
+    </marker>
+    <marker id="arrOrg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#d97706" />
+    </marker>
+  </defs>
+
   <!-- 标题 -->
-  <text x="270" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">动态提醒往哪塞：锁住前部缓存，变化全追加在队尾</text>
-  <text x="270" y="48" text-anchor="middle" font-size="12" fill="#4b5563">改动前文会让整条前缀缓存失效，日常提醒一律顺着最新轮次往后贴</text>
+  <text x="290" y="27" text-anchor="middle" font-size="16" font-weight="bold" fill="#111827">动态提醒插在哪：上下文积木挂件图</text>
+  <text x="290" y="46" text-anchor="middle" font-size="11.5" fill="#64748b">全程严格按「用户 (user) ⇄ AI (model)」交替，动态纸条只挂队尾</text>
 
-  <!-- 上半部：锁死不动的 KV 缓存前缀区 -->
-  <rect x="20" y="66" width="500" height="104" fill="#f1f5f9" rx="8" />
-  <rect x="20" y="66" width="500" height="4" fill="#475569" rx="2" />
-  <text x="36" y="90" font-size="13" font-weight="bold" fill="#1e293b">前部稳定前缀（次轮直接命中 cache_read_tokens = 44,134）</text>
-  <text x="504" y="90" text-anchor="end" font-size="11" font-weight="bold" fill="#0f766e">只读复用 · 不改动</text>
+  <!-- ================= 第一部分：锁死不动的 KV 缓存前缀 ================= -->
+  <rect x="18" y="62" width="544" height="92" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5,3" rx="8" />
+  <text x="32" y="83" font-size="12.5" font-weight="bold" fill="#334155">前部稳定前缀（只读复用 KV 缓存：44,134 词元）</text>
+  <rect x="462" y="69" width="88" height="20" fill="#e2e8f0" rx="4" />
+  <text x="506" y="83" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#475569">严禁涂改</text>
 
-  <rect x="36" y="102" width="468" height="54" fill="#ffffff" rx="6" />
-  <text x="48" y="123" font-size="11.5" fill="#334155">工具声明 ＋ 11 块系统规则 ＋ 已完成的历史对话轮次</text>
-  <text x="48" y="143" font-size="11" fill="#64748b">细节：历史轮次里的本地时间写死在创建那一刻，重发旧消息时绝不刷新时间</text>
+  <!-- 前缀严格交替积木链：system -> 第1轮用户 -> 第1轮AI -> ... -> 第N轮AI调工具 -->
+  <rect x="30" y="96" width="102" height="44" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.4" rx="6" />
+  <text x="81" y="115" text-anchor="middle" font-size="11" font-weight="bold" fill="#075985">system 车头</text>
+  <text x="81" y="131" text-anchor="middle" font-size="9.5" fill="#0369a1">档位+工具+规则</text>
 
-  <!-- 分界虚线 -->
-  <line x1="20" y1="184" x2="520" y2="184" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,4" />
-  <rect x="175" y="173" width="190" height="22" fill="#ffffff" />
-  <text x="270" y="188" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0284c7">▼ 队尾增量追加区（新算输入） ▼</text>
+  <line x1="134" y1="118" x2="148" y2="118" stroke="#64748b" stroke-width="1.6" marker-end="url(#arrG)" />
 
-  <!-- 下半部：四类动态注入插槽 -->
-  <!-- 插槽 1 -->
-  <rect x="20" y="202" width="500" height="64" fill="#f0f9ff" rx="6" />
-  <rect x="20" y="202" width="4" height="64" fill="#0284c7" rx="2" />
-  <text x="34" y="222" font-size="12.5" font-weight="bold" fill="#0c4a6e">① 粘在用户请求后的尾巴：&lt;ADDITIONAL_METADATA&gt; 与设置变更</text>
-  <text x="34" y="240" font-size="11" fill="#334155">每轮自动附带当前时间（IDE 模式下还会附加打开文档与光标行号）；</text>
-  <text x="34" y="256" font-size="11" fill="#0369a1">一旦切换模型或推理档位，紧接着追加 &lt;USER_SETTINGS_CHANGE&gt;</text>
+  <rect x="152" y="96" width="114" height="44" fill="#dcfce7" stroke="#16a34a" stroke-width="1.4" rx="6" />
+  <text x="209" y="115" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">第1轮 用户</text>
+  <text x="209" y="131" text-anchor="middle" font-size="9.5" fill="#15803d">原话+冻死旧时间</text>
 
-  <!-- 插槽 2 -->
-  <rect x="20" y="273" width="500" height="58" fill="#fdf4ff" rx="6" />
-  <rect x="20" y="273" width="4" height="58" fill="#a21caf" rx="2" />
-  <text x="34" y="294" font-size="12.5" font-weight="bold" fill="#701a75">② 异步通知：&lt;SYSTEM_MESSAGE&gt;（名字叫系统，其实走普通轮次）</text>
-  <text x="34" y="314" font-size="11" fill="#334155">后台任务完成、子代理回信、服务重启时塞入，默认可并入上一条工具结果</text>
+  <line x1="268" y1="118" x2="282" y2="118" stroke="#64748b" stroke-width="1.6" marker-end="url(#arrG)" />
 
-  <!-- 插槽 3 -->
-  <rect x="20" y="338" width="500" height="58" fill="#f0fdfa" rx="6" />
-  <rect x="20" y="338" width="4" height="58" fill="#0d9488" rx="2" />
-  <text x="34" y="359" font-size="12.5" font-weight="bold" fill="#115e59">③ 工具返回装饰器：执行耗时戳 ＋ 超长输出「掐腰留头尾」</text>
-  <text x="34" y="379" font-size="11" fill="#334155">自动在结果前打 Created/Completed At；超长输出从正中间剪断留文件指针</text>
+  <rect x="286" y="96" width="96" height="44" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.4" rx="6" />
+  <text x="334" y="115" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">第1轮 AI</text>
+  <text x="334" y="131" text-anchor="middle" font-size="9.5" fill="#a16207">role: model</text>
 
-  <!-- 插槽 4 -->
-  <rect x="20" y="403" width="500" height="62" fill="#fffbeb" rx="6" />
-  <rect x="20" y="403" width="4" height="62" fill="#d97706" rx="2" />
-  <text x="34" y="424" font-size="12.5" font-weight="bold" fill="#92400e">④ 回合尾拦截 Hook 与唯一会推翻前缀的 /compact</text>
-  <text x="34" y="442" font-size="11" fill="#334155">goal_stop / force_invocation 在模型想停手时追塞指令催活；</text>
-  <text x="34" y="457" font-size="11" fill="#78350f">唯独触发压缩（&lt;CONTEXT_SUMMARY&gt;）会裁掉旧历史，重塑整条前缀</text>
+  <text x="403" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#64748b">···▶</text>
+
+  <rect x="424" y="96" width="124" height="44" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.4" rx="6" />
+  <text x="486" y="115" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">第N轮 AI 调工具</text>
+  <text x="486" y="131" text-anchor="middle" font-size="9.5" fill="#a16207">role: model</text>
+
+  <!-- 向下转折进入队尾新增区（model 之后严格接 user 工具返回！） -->
+  <path d="M 486 142 L 486 167 L 113 167 L 113 184" fill="none" stroke="#0284c7" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#arrG)" />
+  <rect x="218" y="157" width="144" height="20" fill="#ffffff" />
+  <text x="290" y="171" text-anchor="middle" font-size="11" font-weight="bold" fill="#0284c7">▼ 队尾增量追加区 ▼</text>
+
+  <!-- ================= 第二部分：队尾严格按 user -> model -> user 交替 ================= -->
+  <rect x="18" y="186" width="544" height="158" fill="#f8fafc" rx="8" />
+  <rect x="18" y="186" width="544" height="4" fill="#0284c7" rx="2" />
+  <text x="32" y="209" font-size="12.5" font-weight="bold" fill="#0c4a6e">常规队尾：继续保持「user ⇄ model」交替，四类纸条就近挂载</text>
+
+  <!-- 积木 1：工具返回块 (role: user) -->
+  <rect x="30" y="222" width="166" height="110" fill="#ffffff" stroke="#0d9488" stroke-width="1.5" rx="6" />
+  <text x="113" y="239" text-anchor="middle" font-size="11" font-weight="bold" fill="#115e59">工具返回轮 (user)</text>
+  <rect x="40" y="246" width="146" height="20" fill="#ccfbf1" rx="3" />
+  <text x="113" y="260" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#0f766e">③ 头部耗时戳</text>
+  <rect x="40" y="270" width="146" height="22" fill="#f0fdfa" stroke="#5eead4" stroke-width="1" stroke-dasharray="3,2" rx="3" />
+  <text x="113" y="285" text-anchor="middle" font-size="9.5" fill="#0f766e">输出正文（③ 超长掐腰）</text>
+  <rect x="40" y="296" width="146" height="26" fill="#fae8ff" stroke="#c026d3" stroke-width="1.2" rx="4" />
+  <text x="113" y="313" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#86198f">② 并入 SYSTEM_MESSAGE</text>
+
+  <line x1="198" y1="277" x2="216" y2="277" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrG)" />
+
+  <!-- 积木 2：AI 回复轮 (role: model，居中隔开两个 user！) -->
+  <rect x="220" y="222" width="146" height="52" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5" rx="6" />
+  <text x="293" y="244" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">AI 回复轮 (model)</text>
+  <text x="293" y="261" text-anchor="middle" font-size="9.5" fill="#a16207">读完工具结果答复</text>
+
+  <line x1="293" y1="275" x2="293" y2="291" stroke="#d97706" stroke-width="1.8" stroke-dasharray="3,2" marker-end="url(#arrOrg)" />
+
+  <rect x="220" y="295" width="146" height="37" fill="#ffedd5" stroke="#d97706" stroke-width="1.4" rx="6" />
+  <text x="293" y="311" text-anchor="middle" font-size="10" font-weight="bold" fill="#9a3412">④ Stop Hook 拦截</text>
+  <text x="293" y="325" text-anchor="middle" font-size="9" fill="#b45309">若未完目标则塞指令催活</text>
+
+  <line x1="368" y1="248" x2="386" y2="248" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrG)" />
+
+  <!-- 积木 3：下一轮新用户提问 (role: user) -->
+  <rect x="390" y="222" width="160" height="110" fill="#ffffff" stroke="#16a34a" stroke-width="1.5" rx="6" />
+  <text x="470" y="239" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">新用户提问轮 (user)</text>
+  <rect x="400" y="246" width="140" height="22" fill="#dcfce7" rx="3" />
+  <text x="470" y="261" text-anchor="middle" font-size="10" font-weight="bold" fill="#15803d">&lt;USER_REQUEST&gt;</text>
+  <rect x="400" y="272" width="140" height="24" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.1" rx="3" />
+  <text x="470" y="288" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#0369a1">① 本步时间 / IDE光标</text>
+  <rect x="400" y="300" width="140" height="22" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.1" stroke-dasharray="3,2" rx="3" />
+  <text x="470" y="315" text-anchor="middle" font-size="9.5" fill="#0369a1">① 设置变更（按需）</text>
+
+  <!-- ================= 第三部分：唯一推翻前缀的特例 /compact ================= -->
+  <rect x="18" y="358" width="544" height="92" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.3" rx="8" />
+  <text x="32" y="379" font-size="12" font-weight="bold" fill="#92400e">唯一主动推翻前部缓存的特例：触发 /compact 压缩</text>
+
+  <rect x="32" y="392" width="120" height="44" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.4" rx="6" />
+  <text x="92" y="412" text-anchor="middle" font-size="11" font-weight="bold" fill="#075985">system 车头</text>
+  <text x="92" y="427" text-anchor="middle" font-size="9.5" fill="#0369a1">保持不变</text>
+
+  <line x1="154" y1="414" x2="174" y2="414" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrG)" />
+
+  <rect x="178" y="392" width="218" height="44" fill="#fed7aa" stroke="#ea580c" stroke-width="1.6" rx="6" />
+  <text x="287" y="411" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#9a3412">&lt;CONTEXT_SUMMARY&gt;</text>
+  <text x="287" y="427" text-anchor="middle" font-size="10" fill="#c2410c">裁掉旧交替轮次，换成摘要块</text>
+
+  <line x1="398" y1="414" x2="418" y2="414" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrG)" />
+
+  <rect x="422" y="392" width="126" height="44" fill="#dcfce7" stroke="#16a34a" stroke-width="1.4" rx="6" />
+  <text x="485" y="412" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">后续交替新轮次</text>
+  <text x="485" y="427" text-anchor="middle" font-size="9.5" fill="#15803d">从新前缀续算</text>
 </svg>
