@@ -1,71 +1,133 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 530" width="540" height="530" style="background-color:#ffffff;font-family:'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 540" width="560" height="540" style="background-color:#ffffff;font-family:'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;">
   <defs>
-    <marker id="arrDown" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 9 5 L 0 9 z" fill="#334155" />
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#475569" />
+    </marker>
+    <marker id="arrSm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#64748b" />
     </marker>
   </defs>
 
   <!-- 标题 -->
-  <text x="270" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">一句话的「三次变形」：从终端回车到模型输入</text>
-  <text x="270" y="48" text-anchor="middle" font-size="12" fill="#4b5563">客户端负责业务文本与协议结构，推理后端负责最后压平成一维词元流</text>
+  <text x="280" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">每一段上下文去哪了：三站积木拼装图</text>
+  <text x="280" y="47" text-anchor="middle" font-size="12" fill="#64748b">同一种颜色代表同一段内容在三站里的形态变化</text>
 
-  <!-- 第 1 站：本地 SQLite 状态库 -->
-  <rect x="20" y="66" width="500" height="114" fill="#f8fafc" rx="8" />
-  <rect x="20" y="66" width="500" height="4" fill="#334155" rx="2" />
-  <text x="36" y="90" font-size="13.5" font-weight="bold" fill="#0f172a">第 1 站 · 本地 SQLite 状态库（conversations/&lt;id&gt;.db）</text>
-  <text x="504" y="90" text-anchor="end" font-size="11.5" font-weight="bold" fill="#475569">二进制 Protobuf</text>
+  <!-- ================= 第 1 站 ================= -->
+  <rect x="18" y="64" width="524" height="126" fill="#f8fafc" rx="8" />
+  <rect x="18" y="64" width="524" height="4" fill="#334155" rx="2" />
+  <text x="32" y="87" font-size="13.5" font-weight="bold" fill="#0f172a">① 本地数据库与磁盘（散装状态）</text>
 
-  <rect x="36" y="102" width="226" height="64" fill="#ffffff" rx="6" />
-  <rect x="36" y="102" width="4" height="64" fill="#64748b" rx="2" />
-  <text x="48" y="122" font-size="12" font-weight="bold" fill="#1e293b">steps 表（原始步骤流）</text>
-  <text x="48" y="140" font-size="11" fill="#475569">首条输入仅存 130 字节裸文本</text>
-  <text x="48" y="156" font-size="11" fill="#64748b">无 &lt;USER_REQUEST&gt; 标签与时间戳</text>
+  <!-- 左区：配置与文件散装原料 -->
+  <text x="34" y="108" font-size="11" font-weight="bold" fill="#64748b">配置表 + 本地文件（未拼合）</text>
+  <rect x="32" y="116" width="68" height="58" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.3" stroke-dasharray="4,2" rx="6" />
+  <text x="66" y="142" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#6b21a8">档位号</text>
+  <text x="66" y="159" text-anchor="middle" font-size="10.5" fill="#7e22ce">1438</text>
 
-  <rect x="278" y="102" width="226" height="64" fill="#ffffff" rx="6" />
-  <rect x="278" y="102" width="4" height="64" fill="#0d9488" rx="2" />
-  <text x="290" y="122" font-size="12" font-weight="bold" fill="#115e59">独立工具字段＋思考签名</text>
-  <text x="290" y="140" font-size="11" fill="#475569">name / args / call_id 分字段存</text>
-  <text x="290" y="156" font-size="11" fill="#0f766e">附 138 字节二进制加密签名</text>
+  <rect x="106" y="116" width="72" height="58" fill="#ffedd5" stroke="#f97316" stroke-width="1.3" stroke-dasharray="4,2" rx="6" />
+  <text x="142" y="142" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#9a3412">工具开关</text>
+  <text x="142" y="159" text-anchor="middle" font-size="10.5" fill="#c2410c">名称列表</text>
+
+  <rect x="184" y="116" width="88" height="58" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.3" stroke-dasharray="4,2" rx="6" />
+  <text x="228" y="142" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#075985">模板+规则</text>
+  <text x="228" y="159" text-anchor="middle" font-size="10.5" fill="#0369a1">AGENTS.md</text>
+
+  <!-- 分隔竖虚线 -->
+  <line x1="284" y1="98" x2="284" y2="178" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3,3" />
+
+  <!-- 右区：steps 表裸记录 -->
+  <text x="298" y="108" font-size="11" font-weight="bold" fill="#64748b">steps 表（Protobuf 裸步骤）</text>
+  <rect x="296" y="116" width="72" height="58" fill="#dcfce7" stroke="#16a34a" stroke-width="1.4" rx="6" />
+  <text x="332" y="142" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#166534">Step 0</text>
+  <text x="332" y="159" text-anchor="middle" font-size="10.5" fill="#15803d">用户裸原话</text>
+
+  <rect x="374" y="116" width="76" height="58" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.4" rx="6" />
+  <text x="412" y="142" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#854d0e">Step 1</text>
+  <text x="412" y="159" text-anchor="middle" font-size="10.5" fill="#a16207">正文+调工具</text>
+
+  <rect x="456" y="116" width="72" height="58" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.4" rx="6" />
+  <text x="492" y="142" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#115e59">Step 2</text>
+  <text x="492" y="159" text-anchor="middle" font-size="10.5" fill="#0f766e">工具返回值</text>
 
   <!-- 转换箭头 1 -->
-  <line x1="270" y1="180" x2="270" y2="216" stroke="#334155" stroke-width="2.2" marker-end="url(#arrDown)" />
-  <rect x="108" y="186" width="324" height="22" fill="#f1f5f9" rx="4" />
-  <text x="270" y="201" text-anchor="middle" font-size="11" font-weight="bold" fill="#334155">客户端 OneHarness 序列化 ＋ protojson 转 HTTP JSON</text>
+  <line x1="280" y1="190" x2="280" y2="222" stroke="#475569" stroke-width="2" marker-end="url(#arr)" />
+  <rect x="166" y="195" width="228" height="20" fill="#ffffff" />
+  <text x="280" y="209" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#334155">客户端现拼 XML ＋ 组装 HTTP JSON</text>
 
-  <!-- 第 2 站：跨网卡 HTTP JSON 请求包 -->
-  <rect x="20" y="222" width="500" height="134" fill="#f0f9ff" rx="8" />
-  <rect x="20" y="222" width="500" height="4" fill="#0284c7" rx="2" />
-  <text x="36" y="246" font-size="13.5" font-weight="bold" fill="#0c4a6e">第 2 站 · 跨网卡 HTTP 请求包（streamGenerateContent）</text>
-  <text x="504" y="246" text-anchor="end" font-size="11.5" font-weight="bold" fill="#0369a1">半文本＋半 JSON</text>
+  <!-- ================= 第 2 站 ================= -->
+  <rect x="18" y="228" width="524" height="148" fill="#f8fafc" rx="8" />
+  <rect x="18" y="228" width="524" height="4" fill="#0284c7" rx="2" />
+  <text x="32" y="251" font-size="13.5" font-weight="bold" fill="#0c4a6e">② 跨网卡 HTTP 请求包（4 个平级 JSON 字段）</text>
 
-  <rect x="36" y="258" width="226" height="84" fill="#ffffff" rx="6" />
-  <rect x="36" y="258" width="4" height="84" fill="#0284c7" rx="2" />
-  <text x="48" y="278" font-size="12" font-weight="bold" fill="#0c4a6e">已在本地拼成 XML 字符串</text>
-  <text x="48" y="296" font-size="11" fill="#334155">• systemInstruction（11 块规则）</text>
-  <text x="48" y="313" font-size="11" fill="#334155">• &lt;USER_REQUEST&gt; ＋ 本步时间</text>
-  <text x="48" y="330" font-size="11" fill="#334155">• 设置变更 / &lt;SYSTEM_MESSAGE&gt;</text>
+  <!-- 上排：三个平级顶层抽屉 -->
+  <rect x="32" y="262" width="138" height="44" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5" rx="6" />
+  <text x="101" y="281" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#6b21a8">thinkingConfig</text>
+  <text x="101" y="297" text-anchor="middle" font-size="10.5" fill="#7e22ce">{JSON 对象}</text>
 
-  <rect x="278" y="258" width="226" height="84" fill="#ffffff" rx="6" />
-  <rect x="278" y="258" width="4" height="84" fill="#d97706" rx="2" />
-  <text x="290" y="278" font-size="12" font-weight="bold" fill="#92400e">离开网卡时仍是 JSON 对象</text>
-  <text x="290" y="296" font-size="11" fill="#334155">• tools（函数声明参数树）</text>
-  <text x="290" y="313" font-size="11" fill="#334155">• thinkingConfig（推理档位）</text>
-  <text x="290" y="330" font-size="11" fill="#334155">• role / functionCall / 签名</text>
+  <rect x="180" y="262" width="146" height="44" fill="#ffedd5" stroke="#f97316" stroke-width="1.5" rx="6" />
+  <text x="253" y="281" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#9a3412">tools[]</text>
+  <text x="253" y="297" text-anchor="middle" font-size="10.5" fill="#c2410c">{13 个函数 JSON 树}</text>
+
+  <rect x="336" y="262" width="192" height="44" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" rx="6" />
+  <text x="432" y="281" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#075985">systemInstruction</text>
+  <text x="432" y="297" text-anchor="middle" font-size="10.5" fill="#0369a1">"11 块已拼好的 XML 文本"</text>
+
+  <!-- 下排：contents[] 数组容器 -->
+  <rect x="32" y="314" width="496" height="52" fill="#ffffff" stroke="#94a3b8" stroke-width="1.3" rx="6" />
+  <text x="44" y="344" font-size="11.5" font-weight="bold" fill="#475569">contents[ ] :</text>
+
+  <rect x="124" y="321" width="126" height="38" fill="#dcfce7" stroke="#16a34a" stroke-width="1.4" rx="5" />
+  <text x="187" y="338" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">role: user</text>
+  <text x="187" y="352" text-anchor="middle" font-size="10" fill="#15803d">"XML原话+时间+设置"</text>
+
+  <rect x="258" y="321" width="126" height="38" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.4" rx="5" />
+  <text x="321" y="338" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">role: model</text>
+  <text x="321" y="352" text-anchor="middle" font-size="10" fill="#a16207">正文 + {functionCall}</text>
+
+  <rect x="392" y="321" width="128" height="38" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.4" rx="5" />
+  <text x="456" y="338" text-anchor="middle" font-size="11" font-weight="bold" fill="#115e59">role: user</text>
+  <text x="456" y="352" text-anchor="middle" font-size="10" fill="#0f766e">{functionResponse}</text>
 
   <!-- 转换箭头 2 -->
-  <line x1="270" y1="356" x2="270" y2="392" stroke="#334155" stroke-width="2.2" marker-end="url(#arrDown)" />
-  <rect x="114" y="362" width="312" height="22" fill="#f1f5f9" rx="4" />
-  <text x="270" y="377" text-anchor="middle" font-size="11" font-weight="bold" fill="#334155">云端推理网关渲染控制符 ＋ 分词器压平为一维序列</text>
+  <line x1="280" y1="376" x2="280" y2="408" stroke="#475569" stroke-width="2" marker-end="url(#arr)" />
+  <rect x="148" y="381" width="264" height="20" fill="#ffffff" />
+  <text x="280" y="395" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#334155">云端网关剥掉 JSON 花括号，合体压成一条长带</text>
 
-  <!-- 第 3 站：模型残差流真正吃进去的一维词元流 -->
-  <rect x="20" y="398" width="500" height="114" fill="#fefce8" rx="8" />
-  <rect x="20" y="398" width="500" height="4" fill="#ca8a04" rx="2" />
-  <text x="36" y="422" font-size="13.5" font-weight="bold" fill="#713f12">第 3 站 · 模型输入层（Transformer 唯一认识的一维序列）</text>
-  <text x="504" y="422" text-anchor="end" font-size="11.5" font-weight="bold" fill="#a16207">平坦词元 ID 流</text>
+  <!-- ================= 第 3 站 ================= -->
+  <rect x="18" y="414" width="524" height="112" fill="#f8fafc" rx="8" />
+  <rect x="18" y="414" width="524" height="4" fill="#ca8a04" rx="2" />
+  <text x="32" y="437" font-size="13.5" font-weight="bold" fill="#713f12">③ 模型真正吃进嘴里的一维词元（Token）序列</text>
 
-  <rect x="36" y="434" width="468" height="64" fill="#ffffff" rx="6" />
-  <rect x="36" y="434" width="4" height="64" fill="#ca8a04" rx="2" />
-  <text x="48" y="454" font-size="11.5" font-weight="bold" fill="#713f12">[档位与工具控制块] → [11 块系统规则] → [User 轮] → [思考＋调用＋结果]</text>
-  <text x="48" y="473" font-size="11" fill="#334155">实盘首轮计费：input_tokens = 44,133（预填充 16.3s，内部思考 2 词元，正文 191 词元）</text>
-  <text x="48" y="490" font-size="11" fill="#0f766e">实盘次轮计费：cache_read_tokens = 44,134（前缀原样复用）＋ 新增 input = 6,255</text>
+  <!-- 顶上 system 合体大括号提示框 -->
+  <rect x="28" y="446" width="242" height="68" fill="#ffffff" stroke="#64748b" stroke-width="1.3" stroke-dasharray="4,2" rx="6" />
+  <text x="149" y="461" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#334155">▼ 三个抽屉合体进 system 车头 ▼</text>
+
+  <!-- 一维紧挨着的连续词元积木流 -->
+  <rect x="34" y="468" width="66" height="40" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.4" rx="4" />
+  <text x="67" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#6b21a8">努力档位</text>
+  <text x="67" y="500" text-anchor="middle" font-size="9.5" fill="#7e22ce">0.05 指令</text>
+
+  <rect x="103" y="468" width="72" height="40" fill="#ffedd5" stroke="#f97316" stroke-width="1.4" rx="4" />
+  <text x="139" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#9a3412">13个工具</text>
+  <text x="139" y="500" text-anchor="middle" font-size="9.5" fill="#c2410c">tool_decl</text>
+
+  <rect x="178" y="468" width="86" height="40" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.4" rx="4" />
+  <text x="221" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#075985">11块规则</text>
+  <text x="221" y="500" text-anchor="middle" font-size="9.5" fill="#0369a1">XML 文本</text>
+
+  <!-- 紧挨后续对话块 -->
+  <rect x="274" y="468" width="62" height="40" fill="#dcfce7" stroke="#16a34a" stroke-width="1.4" rx="4" />
+  <text x="305" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#166534">user</text>
+  <text x="305" y="500" text-anchor="middle" font-size="9.5" fill="#15803d">请求+时间</text>
+
+  <rect x="339" y="468" width="68" height="40" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.4" rx="4" />
+  <text x="373" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#854d0e">model</text>
+  <text x="373" y="500" text-anchor="middle" font-size="9.5" fill="#a16207">思考+call</text>
+
+  <rect x="410" y="468" width="64" height="40" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.4" rx="4" />
+  <text x="442" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#115e59">user</text>
+  <text x="442" y="500" text-anchor="middle" font-size="9.5" fill="#0f766e">tool_resp</text>
+
+  <rect x="477" y="468" width="54" height="40" fill="#fef08a" stroke="#eab308" stroke-width="1.6" rx="4" />
+  <text x="504" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#713f12">model</text>
+  <text x="504" y="500" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#b45309">续写 ▊</text>
 </svg>
