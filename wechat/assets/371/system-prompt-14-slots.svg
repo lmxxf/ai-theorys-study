@@ -1,13 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 500" width="540" height="500" style="background-color:#ffffff;font-family:'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;">
   <!-- 标题 -->
-  <text x="270" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">系统提示词（systemInstruction）的 14 个有序候选槽位</text>
-  <text x="270" y="48" text-anchor="middle" font-size="12" fill="#4b5563">PromptBuilder 按固定数组顺序排队，条件不满足的槽位自动跳过（14 - 3 = 11 块）</text>
+  <text x="270" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">系统提示词（systemInstruction）的 14 个有序槽位</text>
+  <text x="270" y="48" text-anchor="middle" font-size="12" fill="#4b5563">PromptBuilder 按固定数组顺序依次拼装，各槽位依当前配置开关输出</text>
 
   <!-- 图例 -->
-  <rect x="115" y="62" width="12" height="12" fill="#0f766e" rx="2" />
-  <text x="133" y="72" font-size="11.5" fill="#1e293b">本会话实际激活输出（11 块）</text>
-  <rect x="305" y="62" width="12" height="12" fill="#e2e8f0" rx="2" />
-  <text x="323" y="72" font-size="11.5" fill="#64748b">条件不满足自动跳过（3 块）</text>
+  <rect x="92" y="62" width="12" height="12" fill="#0f766e" rx="2" />
+  <text x="110" y="72" font-size="11.5" fill="#1e293b">基础常驻槽位</text>
+  <rect x="216" y="62" width="12" height="12" fill="#0284c7" rx="2" />
+  <text x="234" y="72" font-size="11.5" fill="#1e293b">按开关/角色挂载</text>
+  <rect x="354" y="62" width="12" height="12" fill="#d97706" rx="2" />
+  <text x="372" y="72" font-size="11.5" fill="#1e293b">体积占比大头</text>
 
   <!-- 左列 #1 - #7 -->
   <!-- #1 -->
@@ -16,10 +18,11 @@
   <text x="32" y="108" font-size="12.5" font-weight="bold" fill="#0f766e">01  &lt;identity&gt;</text>
   <text x="32" y="126" font-size="11" fill="#475569">身份定义与用户请求优先级</text>
 
-  <!-- #2 skipped -->
-  <rect x="20" y="144" width="242" height="48" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3" rx="6" />
-  <text x="32" y="164" font-size="12.5" font-weight="bold" fill="#94a3b8">02  terminal_sandbox（跳过）</text>
-  <text x="32" y="182" font-size="11" fill="#94a3b8">enable_terminal_sandbox = 0</text>
+  <!-- #2 -->
+  <rect x="20" y="144" width="242" height="48" fill="#f0f9ff" rx="6" />
+  <rect x="20" y="144" width="4" height="48" fill="#0284c7" rx="2" />
+  <text x="32" y="164" font-size="12.5" font-weight="bold" fill="#0369a1">02  &lt;terminal_sandbox&gt;</text>
+  <text x="32" y="182" font-size="11" fill="#475569">终端命令沙箱边界说明（开沙箱时输出）</text>
 
   <!-- #3 -->
   <rect x="20" y="200" width="242" height="48" fill="#f0fdfa" rx="6" />
@@ -58,10 +61,11 @@
   <text x="290" y="108" font-size="12.5" font-weight="bold" fill="#0f766e">08  &lt;messaging&gt;</text>
   <text x="290" y="126" font-size="11" fill="#475569">异步消息接收与免轮询唤醒机制</text>
 
-  <!-- #9 skipped -->
-  <rect x="278" y="144" width="242" height="48" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3" rx="6" />
-  <text x="290" y="164" font-size="12.5" font-weight="bold" fill="#94a3b8">09  mcp_servers（跳过）</text>
-  <text x="290" y="182" font-size="11" fill="#94a3b8">当前工作区未挂载外部 MCP 服务</text>
+  <!-- #9 -->
+  <rect x="278" y="144" width="242" height="48" fill="#f0f9ff" rx="6" />
+  <rect x="278" y="144" width="4" height="48" fill="#0284c7" rx="2" />
+  <text x="290" y="164" font-size="12.5" font-weight="bold" fill="#0369a1">09  &lt;mcp_servers&gt;</text>
+  <text x="290" y="182" font-size="11" fill="#475569">外部 MCP 服务工具清单（挂载时输出）</text>
 
   <!-- #10 -->
   <rect x="278" y="200" width="242" height="48" fill="#f0fdfa" rx="6" />
@@ -78,17 +82,18 @@
   <!-- #12 highlight -->
   <rect x="278" y="312" width="242" height="48" fill="#fef3c7" rx="6" />
   <rect x="278" y="312" width="4" height="48" fill="#d97706" rx="2" />
-  <text x="290" y="332" font-size="12.5" font-weight="bold" fill="#92400e">12  &lt;user_rules&gt;（最大头）</text>
-  <text x="290" y="350" font-size="11" fill="#78350f">全量内联项目 AGENTS.md（123KB）</text>
+  <text x="290" y="332" font-size="12.5" font-weight="bold" fill="#92400e">12  &lt;user_rules&gt;</text>
+  <text x="290" y="350" font-size="11" fill="#78350f">全量内联项目规则文件（AGENTS.md）</text>
 
   <!-- #13 -->
   <rect x="278" y="368" width="242" height="48" fill="#f0fdfa" rx="6" />
   <rect x="278" y="368" width="4" height="48" fill="#0f766e" rx="2" />
   <text x="290" y="388" font-size="12.5" font-weight="bold" fill="#0f766e">13  &lt;user_information&gt;</text>
-  <text x="290" y="406" font-size="11" fill="#475569">系统、工作目录与当前会话 ID</text>
+  <text x="290" y="406" font-size="11" fill="#475569">操作系统、工作目录与当前会话 ID</text>
 
-  <!-- #14 skipped -->
-  <rect x="278" y="424" width="242" height="48" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3" rx="6" />
-  <text x="290" y="444" font-size="12.5" font-weight="bold" fill="#94a3b8">14  subagent_reminder（跳过）</text>
-  <text x="290" y="462" font-size="11" fill="#94a3b8">仅在子代理会话中注入汇报约束</text>
+  <!-- #14 -->
+  <rect x="278" y="424" width="242" height="48" fill="#f0f9ff" rx="6" />
+  <rect x="278" y="424" width="4" height="48" fill="#0284c7" rx="2" />
+  <text x="290" y="444" font-size="12.5" font-weight="bold" fill="#0369a1">14  &lt;subagent_reminder&gt;</text>
+  <text x="290" y="462" font-size="11" fill="#475569">子代理身份提醒（仅子代理会话输出）</text>
 </svg>
