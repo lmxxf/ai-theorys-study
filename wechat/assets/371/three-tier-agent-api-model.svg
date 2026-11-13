@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 440" width="580" height="440" style="background-color:#ffffff;font-family:'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;">
+  <defs>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0284c7" />
+    </marker>
+    <marker id="arrRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#dc2626" />
+    </marker>
+    <marker id="arrTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0d9488" />
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="290" y="27" text-anchor="middle" font-size="16" font-weight="bold" fill="#111827">三层对接关系与壳子的三种接法</text>
+  <text x="290" y="46" text-anchor="middle" font-size="11.5" fill="#64748b">Agent 壳子  ⇄  官方 API / 中转站  ⇄  大模型母语词元流</text>
+
+  <!-- 三层横向水平色带底座 -->
+  <!-- 层 1：Agent 壳子层 -->
+  <rect x="16" y="64" width="548" height="92" fill="#f8fafc" rx="8" />
+  <rect x="16" y="64" width="4" height="92" fill="#334155" rx="2" />
+  <text x="28" y="88" font-size="11.5" font-weight="bold" fill="#475569">第 1 层</text>
+  <text x="28" y="106" font-size="13" font-weight="bold" fill="#0f172a">Agent 壳子</text>
+  <text x="28" y="126" font-size="10.5" fill="#64748b">管上下文与工具</text>
+
+  <!-- 层 2：API / 中转站层 -->
+  <rect x="16" y="190" width="548" height="96" fill="#f8fafc" rx="8" />
+  <rect x="16" y="190" width="4" height="96" fill="#0284c7" rx="2" />
+  <text x="28" y="214" font-size="11.5" font-weight="bold" fill="#0369a1">第 2 层</text>
+  <text x="28" y="232" font-size="13" font-weight="bold" fill="#0c4a6e">API / 中转站</text>
+  <text x="28" y="252" font-size="10.5" fill="#64748b">JSON ⇄ 词元</text>
+  <text x="28" y="268" font-size="10.5" fill="#64748b">截胡工具调用</text>
+
+  <!-- 层 3：模型词元流层 -->
+  <rect x="16" y="320" width="548" height="96" fill="#f8fafc" rx="8" />
+  <rect x="16" y="320" width="4" height="96" fill="#ca8a04" rx="2" />
+  <text x="28" y="344" font-size="11.5" font-weight="bold" fill="#a16207">第 3 层</text>
+  <text x="28" y="362" font-size="13" font-weight="bold" fill="#713f12">模型词元流</text>
+  <text x="28" y="382" font-size="10.5" fill="#64748b">只认一维序列与</text>
+  <text x="28" y="398" font-size="10.5" fill="#64748b">母语特殊词元</text>
+
+  <!-- ================= 列 ①：官方壳子 ================= -->
+  <rect x="150" y="76" width="124" height="68" fill="#eff6ff" stroke="#0284c7" stroke-width="1.5" rx="6" />
+  <text x="212" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#0c4a6e">① 官方壳子</text>
+  <text x="212" y="115" text-anchor="middle" font-size="10.5" fill="#0369a1">agy / CC / Codex</text>
+  <text x="212" y="132" text-anchor="middle" font-size="10" fill="#475569">发标准 JSON tools</text>
+
+  <rect x="150" y="204" width="124" height="68" fill="#ffffff" stroke="#0284c7" stroke-width="1.5" rx="6" />
+  <text x="212" y="227" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0c4a6e">自家官方网关</text>
+  <text x="212" y="244" text-anchor="middle" font-size="10" fill="#475569">JSON 转母语控制符</text>
+  <text x="212" y="260" text-anchor="middle" font-size="10" fill="#0369a1">截胡返回调用对象</text>
+
+  <rect x="150" y="334" width="124" height="68" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" rx="6" />
+  <text x="212" y="357" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#713f12">自家大模型</text>
+  <text x="212" y="374" text-anchor="middle" font-size="10" fill="#854d0e">说母语特殊词元</text>
+  <text x="212" y="390" text-anchor="middle" font-size="9.5" fill="#a16207">&lt;|tool_call|&gt;</text>
+
+  <line x1="212" y1="146" x2="212" y2="198" stroke="#0284c7" stroke-width="2" marker-start="url(#arrBlue)" marker-end="url(#arrBlue)" />
+  <line x1="212" y1="274" x2="212" y2="328" stroke="#0284c7" stroke-width="2" marker-start="url(#arrBlue)" marker-end="url(#arrBlue)" />
+
+  <!-- ================= 列 ②：早期第三方壳子（正中越级穿透） ================= -->
+  <rect x="288" y="76" width="124" height="68" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" rx="6" />
+  <text x="350" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">② 早期三方壳子</text>
+  <text x="350" y="115" text-anchor="middle" font-size="10.5" fill="#b91c1c">旧 Cline / Aider</text>
+  <text x="350" y="132" text-anchor="middle" font-size="10" fill="#475569">提示词写自定义标签</text>
+
+  <!-- 被虚化的透明水管外框 -->
+  <rect x="288" y="204" width="124" height="68" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.3" stroke-dasharray="4,3" rx="6" />
+
+  <rect x="288" y="334" width="124" height="68" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" rx="6" />
+  <text x="350" y="356" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#713f12">任意模型</text>
+  <text x="350" y="373" text-anchor="middle" font-size="10" fill="#b91c1c">正文现背外语标签</text>
+  <text x="350" y="389" text-anchor="middle" font-size="9.5" fill="#991b1b">费注意力 + 丢签名</text>
+
+  <!-- 正中越级穿透红虚线 + 居中胶囊说明 -->
+  <line x1="350" y1="144" x2="350" y2="328" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="5,3" marker-end="url(#arrRed)" />
+  <rect x="296" y="217" width="108" height="42" fill="#ffffff" stroke="#fca5a5" stroke-width="1.2" rx="5" />
+  <text x="350" y="234" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#dc2626">越级直穿对暗号</text>
+  <text x="350" y="250" text-anchor="middle" font-size="9.5" fill="#94a3b8">API 仅当纯文本水管</text>
+
+  <!-- ================= 列 ③：最新第三方壳子（多协议原生） ================= -->
+  <rect x="426" y="76" width="126" height="68" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5" rx="6" />
+  <text x="489" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#115e59">③ 最新三方壳子</text>
+  <text x="489" y="115" text-anchor="middle" font-size="10.5" fill="#0f766e">新 Cline / Roo 等</text>
+  <text x="489" y="132" text-anchor="middle" font-size="10" fill="#475569">内置多协议适配器</text>
+
+  <rect x="426" y="204" width="126" height="68" fill="#ffffff" stroke="#0d9488" stroke-width="1.5" rx="6" />
+  <text x="489" y="226" text-anchor="middle" font-size="11" font-weight="bold" fill="#115e59">各家 API / 中转</text>
+  <text x="489" y="243" text-anchor="middle" font-size="10" fill="#475569">对齐三家原生 JSON</text>
+  <text x="489" y="259" text-anchor="middle" font-size="10" fill="#0f766e">保住 138B 思考签名</text>
+
+  <rect x="426" y="334" width="126" height="68" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" rx="6" />
+  <text x="489" y="356" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#713f12">各大主流模型</text>
+  <text x="489" y="373" text-anchor="middle" font-size="10" fill="#0f766e">各自用母语盲打</text>
+  <text x="489" y="389" text-anchor="middle" font-size="9.5" fill="#115e59">省 15% 词元+真并发</text>
+
+  <line x1="470" y1="146" x2="470" y2="198" stroke="#0d9488" stroke-width="1.8" marker-end="url(#arrTeal)" />
+  <line x1="489" y1="146" x2="489" y2="198" stroke="#0d9488" stroke-width="1.8" marker-end="url(#arrTeal)" />
+  <line x1="508" y1="146" x2="508" y2="198" stroke="#0d9488" stroke-width="1.8" marker-end="url(#arrTeal)" />
+  <line x1="489" y1="274" x2="489" y2="328" stroke="#0d9488" stroke-width="2" marker-start="url(#arrTeal)" marker-end="url(#arrTeal)" />
+</svg>
