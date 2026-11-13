@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 500" width="540" height="500" style="background-color:#ffffff;font-family:'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;">
+  <rect width="540" height="500" fill="#ffffff" />
   <!-- 标题 -->
   <text x="270" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">系统提示词（systemInstruction）的 14 个有序槽位</text>
   <text x="270" y="48" text-anchor="middle" font-size="12" fill="#4b5563">PromptBuilder 按固定数组顺序依次拼装，各槽位依当前配置开关输出</text>

@@ -7,6 +7,7 @@
       <path d="M 0 1 L 9 5 L 0 9 z" fill="#64748b" />
     </marker>
   </defs>
+  <rect width="560" height="540" fill="#ffffff" />
 
   <!-- 标题 -->
   <text x="280" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">每一段上下文去哪了：三站积木拼装图</text>
@@ -60,16 +61,16 @@
 
   <!-- 上排：三个平级顶层抽屉 -->
   <rect x="32" y="262" width="138" height="44" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5" rx="6" />
-  <text x="101" y="281" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#6b21a8">thinkingConfig</text>
-  <text x="101" y="297" text-anchor="middle" font-size="10.5" fill="#7e22ce">{JSON 对象}</text>
+  <text x="101" y="281" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#6b21a8">generationConfig</text>
+  <text x="101" y="297" text-anchor="middle" font-size="10" fill="#7e22ce">{thinkingConfig}</text>
 
   <rect x="180" y="262" width="146" height="44" fill="#ffedd5" stroke="#f97316" stroke-width="1.5" rx="6" />
   <text x="253" y="281" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#9a3412">tools[]</text>
-  <text x="253" y="297" text-anchor="middle" font-size="10.5" fill="#c2410c">{13 个函数 JSON 树}</text>
+  <text x="253" y="297" text-anchor="middle" font-size="10.5" fill="#c2410c">{函数声明 JSON 树}</text>
 
   <rect x="336" y="262" width="192" height="44" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" rx="6" />
   <text x="432" y="281" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#075985">systemInstruction</text>
-  <text x="432" y="297" text-anchor="middle" font-size="10.5" fill="#0369a1">"11 块已拼好的 XML 文本"</text>
+  <text x="432" y="297" text-anchor="middle" font-size="10.5" fill="#0369a1">"已拼好的系统规则 XML"</text>
 
   <!-- 下排：contents[] 数组容器 -->
   <rect x="32" y="314" width="496" height="52" fill="#ffffff" stroke="#94a3b8" stroke-width="1.3" rx="6" />
@@ -95,23 +96,23 @@
   <!-- ================= 第 3 站 ================= -->
   <rect x="18" y="414" width="524" height="112" fill="#f8fafc" rx="8" />
   <rect x="18" y="414" width="524" height="4" fill="#ca8a04" rx="2" />
-  <text x="32" y="437" font-size="13.5" font-weight="bold" fill="#713f12">③ 模型真正吃进嘴里的一维词元（Token）序列</text>
+  <text x="32" y="437" font-size="13.5" font-weight="bold" fill="#713f12">③ 模型侧一维词元（Token）序列（展开结构示意）</text>
 
   <!-- 顶上 system 合体大括号提示框 -->
   <rect x="28" y="446" width="242" height="68" fill="#ffffff" stroke="#64748b" stroke-width="1.3" stroke-dasharray="4,2" rx="6" />
-  <text x="149" y="461" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#334155">▼ 三个抽屉合体进 system 车头 ▼</text>
+  <text x="149" y="461" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#334155">▼ 三个抽屉合入开头区块 ▼</text>
 
   <!-- 一维紧挨着的连续词元积木流 -->
   <rect x="34" y="468" width="66" height="40" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.4" rx="4" />
   <text x="67" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#6b21a8">努力档位</text>
-  <text x="67" y="500" text-anchor="middle" font-size="9.5" fill="#7e22ce">0.05 指令</text>
+  <text x="67" y="500" text-anchor="middle" font-size="9.5" fill="#7e22ce">控制指令</text>
 
   <rect x="103" y="468" width="72" height="40" fill="#ffedd5" stroke="#f97316" stroke-width="1.4" rx="4" />
-  <text x="139" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#9a3412">13个工具</text>
+  <text x="139" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#9a3412">工具声明</text>
   <text x="139" y="500" text-anchor="middle" font-size="9.5" fill="#c2410c">tool_decl</text>
 
   <rect x="178" y="468" width="86" height="40" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.4" rx="4" />
-  <text x="221" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#075985">11块规则</text>
+  <text x="221" y="486" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#075985">系统规则</text>
   <text x="221" y="500" text-anchor="middle" font-size="9.5" fill="#0369a1">XML 文本</text>
 
   <!-- 紧挨后续对话块 -->
