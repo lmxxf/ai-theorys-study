@@ -1,52 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 568" width="520" height="568" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
-  <rect width="520" height="568" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 400" width="520" height="400" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <rect width="520" height="400" fill="#ffffff"/>
 
-  <text x="20" y="32" font-size="15.5" font-weight="bold" fill="#111827">Fable 5.2 跑分裂缝：按评测主办方把尺子摆清楚</text>
-  <text x="20" y="52" font-size="11" fill="#6b7280">总榜登顶背后，三类评测源头同时暴露出「踩点高分、开放与质感失血」</text>
+  <text x="20" y="30" font-size="15" font-weight="bold" fill="#111827">踩采分点拿第一，盲评质感与手写权重却掉队</text>
 
-  <!-- Block 1: Artificial Analysis -->
-  <rect x="20" y="68" width="480" height="148" fill="#f8fafc" rx="6"/>
-  <rect x="20" y="68" width="4" height="148" fill="#2563eb" rx="2"/>
-  <text x="34" y="91" font-size="12.5" font-weight="bold" fill="#111827">① Artificial Analysis（AA 网站）独立评测：超大杯盲评反输自家大杯</text>
+  <!-- Group 1: AA-Briefcase Rubric vs Elo -->
+  <rect x="20" y="48" width="232" height="156" fill="#f8fafc" rx="6"/>
+  <rect x="20" y="48" width="232" height="4" fill="#2563eb" rx="2"/>
+  <text x="34" y="74" font-size="12" font-weight="bold" fill="#111827">AA 网站：按细则打勾</text>
+  <text x="34" y="102" font-size="11" fill="#374151">超大杯 Fable 5.2</text>
+  <rect x="34" y="110" width="150" height="16" fill="#2563eb" rx="3"/>
+  <text x="190" y="122" font-size="11" font-weight="bold" fill="#1d4ed8">66.1%</text>
+  <text x="34" y="150" font-size="11" fill="#64748b">大杯 Opus 5.5</text>
+  <rect x="34" y="158" width="136" height="16" fill="#94a3b8" rx="3"/>
+  <text x="176" y="170" font-size="11" fill="#475569">61.2%</text>
 
-  <text x="34" y="116" font-size="11" fill="#374151">AA-Briefcase 踩点（Rubric）</text>
-  <rect x="198" y="104" width="150" height="15" fill="#2563eb" rx="3"/>
-  <text x="355" y="116" font-size="10.8" font-weight="bold" fill="#1d4ed8">超大杯 Fable 5.2：66.1%</text>
-  <rect x="198" y="123" width="138" height="13" fill="#94a3b8" rx="3"/>
-  <text x="343" y="134" font-size="10.5" fill="#475569">大杯 Opus 5.5：61.2%</text>
+  <rect x="268" y="48" width="232" height="156" fill="#fef2f2" rx="6"/>
+  <rect x="268" y="48" width="232" height="4" fill="#dc2626" rx="2"/>
+  <text x="282" y="74" font-size="12" font-weight="bold" fill="#991b1b">同批成品：并排盲评 Elo</text>
+  <text x="282" y="102" font-size="11" fill="#991b1b">超大杯 Fable 5.2（倒退）</text>
+  <rect x="282" y="110" width="128" height="16" fill="#dc2626" rx="3"/>
+  <text x="416" y="122" font-size="11" font-weight="bold" fill="#b91c1c">1785</text>
+  <text x="282" y="150" font-size="11" fill="#111827">大杯 Opus 5.5（反超）</text>
+  <rect x="282" y="158" width="144" height="16" fill="#334155" rx="3"/>
+  <text x="432" y="170" font-size="11" font-weight="bold" fill="#111827">1800</text>
 
-  <text x="34" y="162" font-size="11" fill="#374151">同批项目成稿盲评（Elo）</text>
-  <rect x="198" y="150" width="132" height="15" fill="#dc2626" rx="3"/>
-  <text x="337" y="162" font-size="10.8" font-weight="bold" fill="#b91c1c">超大杯 Fable 5.2：1785</text>
-  <rect x="198" y="169" width="146" height="13" fill="#475569" rx="3"/>
-  <text x="351" y="180" font-size="10.5" fill="#111827">大杯 Opus 5.5：1800（反超）</text>
-  <text x="34" y="202" font-size="10" fill="#6b7280">同属 AA 独立测：GDPval-AA 输大杯 Opus 5.5；法律无幻觉输 Astra；HealthBench 输小杯 Haiku</text>
+  <!-- Group 2: MIT Writing Weights -->
+  <rect x="20" y="222" width="480" height="160" fill="#f8fafc" rx="6"/>
+  <rect x="20" y="222" width="4" height="160" fill="#d97706" rx="2"/>
+  <text x="36" y="248" font-size="12.5" font-weight="bold" fill="#111827">MIT 实验：禁用工具徒手写 2 万个神经网络权重</text>
 
-  <!-- Block 2: vals.ai / MIT / ARC / Zapier -->
-  <rect x="20" y="232" width="480" height="162" fill="#f8fafc" rx="6"/>
-  <rect x="20" y="232" width="4" height="162" fill="#d97706" rx="2"/>
-  <text x="34" y="255" font-size="12.5" font-weight="bold" fill="#111827">② vals.ai、MIT、ARC 与 Zapier 等其他外部机构独立评测</text>
+  <text x="36" y="280" font-size="11" fill="#111827">超大杯 GPT-6 Astra</text>
+  <rect x="176" y="268" width="220" height="16" fill="#1e293b" rx="3"/>
+  <text x="404" y="280" font-size="11" font-weight="bold" fill="#111827">60.7</text>
 
-  <text x="34" y="279" font-size="10.8" fill="#374151"><tspan font-weight="bold" fill="#92400e">• vals.ai 实务榜：</tspan>71.31% 仅赢自家中杯 Sonnet 5.5（70.85%）0.46%，法税子榜居中游</text>
+  <text x="36" y="314" font-size="11" fill="#111827">超大杯 Gemini 4 Carbon</text>
+  <rect x="176" y="302" width="208" height="16" fill="#16a34a" rx="3"/>
+  <text x="392" y="314" font-size="11" font-weight="bold" fill="#15803d">57.7</text>
 
-  <text x="34" y="304" font-size="11" fill="#374151">MIT 禁工具手写 2 万权重</text>
-  <rect x="186" y="292" width="160" height="13" fill="#1e293b" rx="3"/>
-  <text x="353" y="303" font-size="10.2" font-weight="bold" fill="#111827">超大杯 Astra：60.7</text>
-  <rect x="186" y="309" width="152" height="13" fill="#16a34a" rx="3"/>
-  <text x="345" y="320" font-size="10.2" font-weight="bold" fill="#15803d">超大杯 Carbon：57.7</text>
-  <rect x="186" y="326" width="135" height="13" fill="#d97706" rx="3"/>
-  <text x="328" y="337" font-size="10.2" fill="#92400e">大杯 Opus 5.5：51.2</text>
-
-  <text x="34" y="361" font-size="10.5" fill="#374151">• ARC 基金会 ARC-AGI-3（适配架最高档）：94.9% 输超大杯 Astra（98.6%）与大杯 Sol（96.2%）</text>
-  <text x="34" y="380" font-size="10.5" fill="#374151">• Zapier AutomationBench 企业业务流：51.4% 输给 Gemini 4 Carbon（53.9%）</text>
-
-  <!-- Block 3: Anthropic Internal & METR -->
-  <rect x="20" y="410" width="480" height="142" fill="#fef2f2" rx="6"/>
-  <rect x="20" y="410" width="4" height="142" fill="#dc2626" rx="2"/>
-  <text x="34" y="433" font-size="12.5" font-weight="bold" fill="#991b1b">③ Anthropic 自家内部实测与提交给 METR 的内部问卷</text>
-
-  <text x="34" y="458" font-size="10.8" fill="#374151"><tspan font-weight="bold" fill="#7f1d1d">• 自家开放科研 63% 早退：</tspan>默认 Medium 档下连一次实验都不跑就直接放弃退出</text>
-  <text x="34" y="481" font-size="10.8" fill="#374151"><tspan font-weight="bold" fill="#7f1d1d">• 自家测 1M 窗口 68% 撑爆：</tspan>无余量提示时通过率 85.6%，反输 Opus 5.5（91.2%）</text>
-  <text x="34" y="504" font-size="10.8" fill="#374151"><tspan font-weight="bold" fill="#7f1d1d">• 内部问卷自认缺科研品味：</tspan>擅长奔向精确目标，不善发现新事实；员工有时切回旧版</text>
-  <text x="34" y="527" font-size="10.8" fill="#374151"><tspan font-weight="bold" fill="#7f1d1d">• 自家性格审计倒退：</tspan>温度（Warmth）、幽默感与创意掌控力均输给上一代 5.1</text>
+  <text x="36" y="348" font-size="11" fill="#92400e">大杯 Claude Opus 5.5</text>
+  <rect x="176" y="336" width="184" height="16" fill="#d97706" rx="3"/>
+  <text x="368" y="348" font-size="11" font-weight="bold" fill="#92400e">51.2</text>
 </svg>
