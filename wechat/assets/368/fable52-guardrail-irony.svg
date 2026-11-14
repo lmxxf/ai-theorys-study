@@ -1,44 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 350" width="520" height="350" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
-  <rect width="520" height="350" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 356" width="520" height="356" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
+  <rect width="520" height="356" fill="#ffffff"/>
 
-  <text x="20" y="30" font-size="15" font-weight="bold" fill="#111827">99.46% 请求踢给老模型，反把防注入成绩单拖差 3.24 倍</text>
+  <text x="20" y="30" font-size="14.5" font-weight="bold" fill="#111827">攻击测试有效响应中 99.46% 踢给老模型，反拖差防注入分数</text>
 
   <!-- Top visual flow: Routing -->
-  <rect x="20" y="50" width="126" height="92" fill="#f1f5f9" rx="6"/>
-  <text x="83" y="88" font-size="12" font-weight="bold" fill="#111827" text-anchor="middle">编程隐藏指令测试</text>
-  <text x="83" y="108" font-size="10.5" fill="#64748b" text-anchor="middle">分类器自动分流</text>
+  <rect x="20" y="50" width="132" height="94" fill="#f1f5f9" rx="6"/>
+  <text x="86" y="86" font-size="11.5" font-weight="bold" fill="#111827" text-anchor="middle">隐藏指令测试</text>
+  <text x="86" y="106" font-size="10" fill="#64748b" text-anchor="middle">有效响应请求分流</text>
+  <text x="86" y="123" font-size="9.5" fill="#94a3b8" text-anchor="middle">（§5.2.2.1 路由统计）</text>
 
   <!-- Arrows -->
-  <path d="M146,76 L212,68" stroke="#16a34a" stroke-width="2" fill="none"/>
+  <path d="M152,76 L212,68" stroke="#16a34a" stroke-width="2" fill="none"/>
   <polygon points="212,64 220,67 213,72" fill="#16a34a"/>
 
-  <path d="M146,112 L212,122" stroke="#dc2626" stroke-width="4" fill="none"/>
-  <polygon points="211,116 222,123 210,128" fill="#dc2626"/>
+  <path d="M152,114 L212,124" stroke="#dc2626" stroke-width="4" fill="none"/>
+  <polygon points="211,118 222,125 210,130" fill="#dc2626"/>
 
   <!-- Branch A: 0.54% Fable 5.2 -->
   <rect x="224" y="46" width="276" height="42" fill="#f0fdf4" rx="6"/>
   <rect x="224" y="46" width="4" height="42" fill="#16a34a" rx="2"/>
-  <text x="238" y="71" font-size="11.5" fill="#166534"><tspan font-weight="bold">仅 0.54%</tspan> 留给 5.2 自答 → <tspan font-weight="bold">0 次上当</tspan></text>
+  <text x="238" y="71" font-size="11.2" fill="#166534"><tspan font-weight="bold">0.54%（43 次）</tspan>5.2 自答 → <tspan font-weight="bold">0 次上当</tspan></text>
 
   <!-- Branch B: 99.46% Opus 4.8 -->
   <rect x="224" y="100" width="276" height="48" fill="#fef2f2" rx="6"/>
   <rect x="224" y="100" width="4" height="48" fill="#dc2626" rx="2"/>
-  <text x="238" y="122" font-size="11.5" font-weight="bold" fill="#991b1b">99.46% 踢给老模型 Opus 4.8 替班</text>
-  <text x="238" y="139" font-size="10.5" fill="#7f1d1d">替班老模型防骗定力差，28.56% 中招上当</text>
+  <text x="238" y="122" font-size="11.2" font-weight="bold" fill="#991b1b">99.46% 被踢给老模型 Opus 4.8 替班</text>
+  <text x="238" y="139" font-size="10.2" fill="#7f1d1d">无探针 90.31% 上当，开探针后仍有 28.56% 上当</text>
 
   <!-- Bottom visual bars: Final ASR with probes -->
-  <rect x="20" y="168" width="480" height="162" fill="#f8fafc" rx="6"/>
-  <text x="36" y="194" font-size="12" font-weight="bold" fill="#111827">账面被注入上当率（开启探针保护，越短越好）</text>
+  <rect x="20" y="170" width="480" height="166" fill="#f8fafc" rx="6"/>
+  <text x="36" y="196" font-size="12" font-weight="bold" fill="#111827">开启注入探针后的系统整体上当率（尝试级，越短越好）</text>
 
-  <text x="36" y="228" font-size="11" fill="#374151">上代 Fable 5.1</text>
-  <rect x="148" y="216" width="70" height="16" fill="#16a34a" rx="3"/>
-  <text x="226" y="228" font-size="11" font-weight="bold" fill="#15803d">8.70%</text>
+  <text x="36" y="232" font-size="11" fill="#374151">上代 Fable 5.1</text>
+  <rect x="148" y="220" width="70" height="16" fill="#16a34a" rx="3"/>
+  <text x="226" y="232" font-size="11" font-weight="bold" fill="#15803d">8.70%</text>
 
-  <text x="36" y="264" font-size="11" fill="#374151">大杯 Opus 5.5</text>
-  <rect x="148" y="252" width="90" height="16" fill="#64748b" rx="3"/>
-  <text x="246" y="264" font-size="11" fill="#475569">11.13%</text>
+  <text x="36" y="268" font-size="11" fill="#374151">大杯 Opus 5.5</text>
+  <rect x="148" y="256" width="90" height="16" fill="#64748b" rx="3"/>
+  <text x="246" y="268" font-size="11" fill="#475569">11.13%</text>
 
-  <text x="36" y="300" font-size="11" font-weight="bold" fill="#991b1b">超大杯 Fable 5.2</text>
-  <rect x="148" y="288" width="226" height="16" fill="#dc2626" rx="3"/>
-  <text x="382" y="300" font-size="11" font-weight="bold" fill="#b91c1c">28.16%（拖差 3.24 倍）</text>
+  <text x="36" y="304" font-size="11" font-weight="bold" fill="#991b1b">超大杯 Fable 5.2</text>
+  <rect x="148" y="292" width="226" height="16" fill="#dc2626" rx="3"/>
+  <text x="382" y="304" font-size="11" font-weight="bold" fill="#b91c1c">28.16%（拖差 3.24 倍）</text>
 </svg>

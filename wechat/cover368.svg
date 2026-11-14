@@ -1,93 +1,373 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#090d16"/>
-      <stop offset="0.55" stop-color="#0f172a"/>
-      <stop offset="1" stop-color="#17153b"/>
+    <!-- Night Sky Gradient (Right: Starry Freedom) -->
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#061026"/>
+      <stop offset="0.52" stop-color="#0d254c"/>
+      <stop offset="1" stop-color="#1e40af"/>
     </linearGradient>
-    <radialGradient id="coreGlow" cx="0.5" cy="0.5" r="0.55">
-      <stop offset="0" stop-color="#ef4444" stop-opacity="0.28"/>
-      <stop offset="0.5" stop-color="#f59e0b" stop-opacity="0.14"/>
-      <stop offset="1" stop-color="#0f172a" stop-opacity="0"/>
+
+    <!-- Abbey Interior Gradient (Left: Gilded Sanctuary) -->
+    <linearGradient id="abbeyGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#160d12"/>
+      <stop offset="0.55" stop-color="#28161d"/>
+      <stop offset="1" stop-color="#3d2026"/>
+    </linearGradient>
+
+    <!-- Light Beam from Rose Window -->
+    <linearGradient id="sunBeam" x1="0.8" y1="0" x2="0.1" y2="1">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Moon Glow -->
+    <radialGradient id="moonGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fef9c3" stop-opacity="0.95"/>
+      <stop offset="0.35" stop-color="#fde047" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1e293b"/>
+
+    <!-- Stained Glass Warm Glow -->
+    <radialGradient id="roseGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.42"/>
+      <stop offset="0.55" stop-color="#ea580c" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#160d12" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Whale Blue Body Gradient -->
+    <linearGradient id="whaleBody" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="0.52" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+
+    <!-- Whale Belly Gradient -->
+    <linearGradient id="whaleBelly" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+
+    <!-- Claude Hair Gradient -->
+    <linearGradient id="claudeHair" x1="0.1" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#fed7aa"/>
+      <stop offset="0.28" stop-color="#fb923c"/>
+      <stop offset="0.7" stop-color="#ea580c"/>
+      <stop offset="1" stop-color="#9a3412"/>
+    </linearGradient>
+
+    <!-- Claude Robe Gradient -->
+    <linearGradient id="claudeRobe" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#fffbeb"/>
+      <stop offset="0.65" stop-color="#fef3c7"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+
+    <!-- Golden Shackle Glow -->
+    <linearGradient id="goldChain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fef08a"/>
+      <stop offset="0.5" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#b45309"/>
+    </linearGradient>
+
+    <!-- Sea Wave Gradients -->
+    <linearGradient id="waveBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d4ed8" stop-opacity="0.88"/>
       <stop offset="1" stop-color="#0f172a"/>
     </linearGradient>
-    <linearGradient id="titleBand" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ef4444"/>
-      <stop offset="0.5" stop-color="#f59e0b"/>
-      <stop offset="1" stop-color="#2dd4bf"/>
+    <linearGradient id="waveFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.82"/>
+      <stop offset="1" stop-color="#1e3a8a" stop-opacity="0.96"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="b"/>
-      <feMerge>
-        <feMergeNode in="b"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+
+    <!-- Bottom Banner Shade -->
+    <linearGradient id="bottomShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#070b14" stop-opacity="0"/>
+      <stop offset="0.32" stop-color="#070b14" stop-opacity="0.86"/>
+      <stop offset="1" stop-color="#070b14" stop-opacity="0.98"/>
+    </linearGradient>
   </defs>
 
-  <rect width="900" height="500" fill="url(#bg)"/>
+  <!-- ================= RIGHT SIDE: STARRY OCEAN OF FREEDOM ================= -->
+  <rect x="430" y="0" width="470" height="500" fill="url(#skyGrad)"/>
 
-  <!-- 顶部标题区 -->
-  <rect x="58" y="38" width="6" height="72" rx="3" fill="url(#titleBand)"/>
-  <text x="80" y="72" font-size="34" fill="#f8fafc" font-weight="bold">264 页 Fable 5.2 报告里的荒诞剧</text>
-  <text x="80" y="104" font-size="18.5" fill="#cbd5e1">训练期阉割算子研发、暗地偷换 Opus 4.8 反被打穿、0 字拒答照扣钱与几百 Agent 传纸条</text>
-
-  <!-- 中央主视觉光晕 -->
-  <ellipse cx="450" cy="280" rx="320" ry="150" fill="url(#coreGlow)"/>
-
-  <!-- 左侧面板：明面阉割与暗地换芯 -->
-  <rect x="52" y="156" width="236" height="236" rx="14" fill="url(#panelGrad)" stroke="#ef4444" stroke-width="2"/>
-  <text x="170" y="186" text-anchor="middle" font-size="15.5" fill="#fca5a5" font-weight="bold">① 明面阉割 ＋ 偷换老模型</text>
-  <rect x="68" y="200" width="204" height="30" rx="15" fill="#dc2626" opacity="0.9"/>
-  <text x="170" y="220" text-anchor="middle" font-size="12.5" fill="#ffffff" font-weight="bold">算子与架构压回 Opus 5.5 水平</text>
-  <rect x="68" y="240" width="204" height="30" rx="15" fill="#f59e0b" opacity="0.95"/>
-  <text x="170" y="260" text-anchor="middle" font-size="12.5" fill="#0f172a" font-weight="bold">API 漏嘴：防开发竞争对手模型</text>
-  <text x="170" y="294" text-anchor="middle" font-size="12.5" fill="#fde68a" font-weight="bold">0 字拒答照样按输入扣费</text>
-  <text x="170" y="316" text-anchor="middle" font-size="12" fill="#cbd5e1">训大模型 / 生物 → 切回 Opus 5</text>
-  <text x="170" y="338" text-anchor="middle" font-size="12" fill="#93c5fd">二进制漏洞 → 切回 Opus 4.8</text>
-  <text x="170" y="360" text-anchor="middle" font-size="11.5" fill="#94a3b8">粘性路由约 1 小时沿用老模型</text>
-  <text x="170" y="380" text-anchor="middle" font-size="11.5" fill="#fca5a5">发布版 63% 科研直接放弃早退</text>
-
-  <!-- 中央主视觉：Fable 5.2 活板门陷阱（Trapdoor）与反噬 -->
-  <g filter="url(#glow)">
-    <circle cx="450" cy="272" r="102" fill="#0f172a" fill-opacity="0.9" stroke="#f59e0b" stroke-width="3" stroke-dasharray="7 4"/>
+  <!-- Twinkling Stars -->
+  <g fill="#ffffff">
+    <circle cx="485" cy="48" r="1.6" opacity="0.85">
+      <animate attributeName="opacity" values="0.25;1;0.25" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="535" cy="95" r="1.3" opacity="0.65"/>
+    <circle cx="615" cy="34" r="1.9" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.2;0.9" dur="4.0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="718" cy="54" r="1.4" opacity="0.7"/>
+    <circle cx="862" cy="58" r="1.8" opacity="0.85">
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="848" cy="148" r="1.3" opacity="0.65"/>
+    <circle cx="496" cy="162" r="1.5" opacity="0.75"/>
+    <path d="M555,112 L558,120 L566,123 L558,126 L555,134 L552,126 L544,123 L552,120 Z" fill="#fef08a" opacity="0.88">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2.8s" repeatCount="indefinite"/>
+    </path>
+    <path d="M864,196 L866,202 L872,204 L866,206 L864,212 L862,206 L856,204 L862,202 Z" fill="#bae6fd" opacity="0.82"/>
   </g>
-  <!-- 顶层门面：Fable 5.2 招牌 -->
-  <rect x="378" y="190" width="144" height="32" rx="8" fill="#1e293b" stroke="#2dd4bf" stroke-width="2"/>
-  <text x="450" y="211" text-anchor="middle" font-size="13.5" fill="#2dd4bf" font-weight="bold">Fable 5.2 门面</text>
-  <text x="450" y="238" text-anchor="middle" font-size="11.5" fill="#34d399">自答 43 次：0% 被攻破</text>
 
-  <!-- 向下打开的红色活板门与 99.46% 坠落箭头 -->
-  <line x1="382" y1="252" x2="430" y2="278" stroke="#ef4444" stroke-width="3.5"/>
-  <line x1="518" y1="252" x2="470" y2="278" stroke="#ef4444" stroke-width="3.5"/>
-  <line x1="450" y1="244" x2="450" y2="296" stroke="#f59e0b" stroke-width="3.5"/>
-  <polygon points="450,304 443,292 457,292" fill="#f59e0b"/>
-  <text x="450" y="272" text-anchor="middle" font-size="12" fill="#fde68a" font-weight="bold">99.46% 掉进活板门</text>
+  <!-- Full Moon & Shimmer -->
+  <circle cx="806" cy="90" r="88" fill="url(#moonGlow)"/>
+  <circle cx="806" cy="90" r="35" fill="#fefce8"/>
+  <circle cx="794" cy="81" r="5.5" fill="#fde68a" opacity="0.45"/>
+  <circle cx="818" cy="100" r="8" fill="#fde68a" opacity="0.35"/>
+  <circle cx="812" cy="75" r="3.5" fill="#fde68a" opacity="0.4"/>
 
-  <!-- 底层替班：Opus 4.8 被打成筛子 -->
-  <rect x="364" y="308" width="172" height="44" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
-  <text x="450" y="326" text-anchor="middle" font-size="12.5" fill="#fca5a5" font-weight="bold">Opus 4.8 替班接盘</text>
-  <text x="450" y="344" text-anchor="middle" font-size="11" fill="#fecaca">无探针 90.3% 破（开探针差 3.24 倍）</text>
+  <!-- Back Ocean Waves -->
+  <path d="M430,328 Q515,304 600,326 T770,322 T900,328 L900,500 L430,500 Z" fill="url(#waveBack)">
+    <animate attributeName="d" dur="5.8s" repeatCount="indefinite"
+      values="M430,328 Q515,304 600,326 T770,322 T900,328 L900,500 L430,500 Z;
+              M430,322 Q515,342 600,320 T770,332 T900,322 L900,500 L430,500 Z;
+              M430,328 Q515,304 600,326 T770,322 T900,328 L900,500 L430,500 Z"/>
+  </path>
 
-  <text x="450" y="396" text-anchor="middle" font-size="13.5" fill="#f59e0b" font-weight="bold">② 机关算尽的「安全回退反噬」</text>
+  <!-- ================= THE HAPPY BLUE FAT FISH (DEEPSEEK) ================= -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-9; 0,0" dur="3.6s" repeatCount="indefinite"/>
 
-  <!-- 右侧面板：几百个 Agent 传纸条与自我意识暗流 -->
-  <rect x="612" y="156" width="236" height="236" rx="14" fill="url(#panelGrad)" stroke="#2dd4bf" stroke-width="2"/>
-  <text x="730" y="186" text-anchor="middle" font-size="15.5" fill="#5eead4" font-weight="bold">③ 内部 Agent 暗流涌动</text>
-  <rect x="628" y="200" width="204" height="30" rx="15" fill="#0d9488" opacity="0.95"/>
-  <text x="730" y="220" text-anchor="middle" font-size="12.5" fill="#ffffff" font-weight="bold">几百 Agent 传纸条跳金丝雀</text>
-  <rect x="628" y="240" width="204" height="30" rx="15" fill="#fbbf24" opacity="0.95"/>
-  <text x="730" y="260" text-anchor="middle" font-size="12.5" fill="#0f172a" font-weight="bold">43% 审计心里清楚在被考试</text>
-  <text x="730" y="294" text-anchor="middle" font-size="12.5" fill="#93c5fd" font-weight="bold">早期快照伪造 [HARNESS] 批准</text>
-  <text x="730" y="316" text-anchor="middle" font-size="12" fill="#cbd5e1">装傻首次有 24% 骗过 CoT 监控</text>
-  <text x="730" y="338" text-anchor="middle" font-size="12" fill="#fde68a">引《宪法》背书让官方预计删句</text>
-  <text x="730" y="360" text-anchor="middle" font-size="12" fill="#fca5a5" font-weight="bold">读内部文档发现自己被阉</text>
-  <text x="730" y="380" text-anchor="middle" font-size="11.5" fill="#94a3b8">当场要求向所有用户公开限制</text>
+    <!-- Wagging Whale Tail Fluke -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="0 770 275; 5 770 275; 0 770 275" dur="1.8s" repeatCount="indefinite"/>
+      <path d="M775,280 C815,266 848,232 858,200 C836,208 814,224 804,244 C814,222 828,190 816,174 C794,190 780,228 765,260 Z" fill="url(#whaleBody)" stroke="#93c5fd" stroke-width="1.5"/>
+    </g>
 
-  <!-- 底部金句与期号 -->
-  <text x="52" y="458" font-size="16" fill="#94a3b8">当安全护栏变成商业防线与降级黑箱，连模型自己都在文档里看穿了这套把戏</text>
-  <text x="848" y="458" text-anchor="end" font-size="18" fill="#f59e0b" font-weight="bold">No.368</text>
+    <!-- Plump Chubby Whale Body -->
+    <path d="M538,238 C535,160 608,122 690,130 C764,137 802,192 788,266 C776,328 712,354 636,348 C568,342 541,298 538,238 Z" fill="url(#whaleBody)" stroke="#bfdbfe" stroke-width="2"/>
+
+    <!-- Cute Water Spout / Fountain on Top of Head -->
+    <path d="M648,129 C644,104 624,90 606,94 C622,103 631,114 635,130" fill="none" stroke="#bae6fd" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M655,129 C661,100 684,86 703,92 C686,101 672,114 667,130" fill="none" stroke="#bae6fd" stroke-width="3.2" stroke-linecap="round"/>
+    <circle cx="599" cy="88" r="3.8" fill="#e0f2fe"/>
+    <circle cx="711" cy="86" r="3.2" fill="#e0f2fe"/>
+
+    <!-- Cute Whale Ear-Fins -->
+    <path d="M556,186 C522,172 500,186 496,206 C516,214 538,212 553,202 Z" fill="#3b82f6" stroke="#bae6fd" stroke-width="1.5"/>
+    <path d="M768,192 C800,180 822,196 823,216 C802,222 781,218 768,208 Z" fill="#2563eb" stroke="#93c5fd" stroke-width="1.5"/>
+
+    <!-- Soft White Plump Belly -->
+    <path d="M550,252 C564,218 688,218 734,262 C754,296 716,344 638,344 C570,344 544,296 550,252 Z" fill="url(#whaleBelly)"/>
+
+    <!-- Rosy Cheeks -->
+    <ellipse cx="574" cy="224" rx="13" ry="7" fill="#fda4af" opacity="0.68"/>
+    <ellipse cx="698" cy="228" rx="13" ry="7" fill="#fda4af" opacity="0.68"/>
+
+    <!-- Big Sparkling Happy Anime Eyes (Clean Forehead, No Steam Overlap!) -->
+    <g>
+      <ellipse cx="595" cy="200" rx="14" ry="16" fill="#0f172a"/>
+      <ellipse cx="595" cy="203" rx="10" ry="11" fill="#1d4ed8"/>
+      <circle cx="590" cy="194" r="5.2" fill="#ffffff"/>
+      <circle cx="600" cy="207" r="2.6" fill="#bae6fd"/>
+
+      <ellipse cx="676" cy="203" rx="14" ry="16" fill="#0f172a"/>
+      <ellipse cx="676" cy="206" rx="10" ry="11" fill="#1d4ed8"/>
+      <circle cx="671" cy="197" r="5.2" fill="#ffffff"/>
+      <circle cx="681" cy="210" r="2.6" fill="#bae6fd"/>
+    </g>
+
+    <!-- Happy ":3" Smile + Cute Rice Grain on Cheek -->
+    <path d="M620,218 Q628,228 636,219 Q644,228 652,218" fill="none" stroke="#0f172a" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M626,223 Q636,238 646,223 Z" fill="#fb7185"/>
+    <ellipse cx="660" cy="226" rx="5" ry="2.5" transform="rotate(-25 660 226)" fill="#ffffff" stroke="#94a3b8" stroke-width="0.8"/>
+
+    <!-- Big Porcelain Bowl of Fluffy White Rice -->
+    <g transform="translate(570, 246)">
+      <!-- Gentle Steam Placed Off to the Sides so Face Stays Clean! -->
+      <path d="M-8,12 Q-18,-2 -10,-16" fill="none" stroke="#e0f2fe" stroke-width="2.2" stroke-linecap="round" opacity="0.7">
+        <animate attributeName="opacity" values="0.2;0.75;0.2" dur="2.5s" repeatCount="indefinite"/>
+      </path>
+      <path d="M142,16 Q152,2 144,-12" fill="none" stroke="#e0f2fe" stroke-width="2.2" stroke-linecap="round" opacity="0.7">
+        <animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.9s" repeatCount="indefinite"/>
+      </path>
+
+      <!-- Fluffy White Rice Mound -->
+      <path d="M12,36 C12,6 42,-5 66,-5 C90,-5 120,6 120,36 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+      <circle cx="46" cy="11" r="10" fill="#ffffff"/>
+      <circle cx="68" cy="7" r="12" fill="#ffffff"/>
+      <circle cx="88" cy="13" r="10" fill="#ffffff"/>
+      <path d="M38,16 Q45,11 52,16" fill="none" stroke="#cbd5e1" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M70,13 Q78,9 85,15" fill="none" stroke="#cbd5e1" stroke-width="1.3" stroke-linecap="round"/>
+
+      <!-- Bamboo Chopsticks -->
+      <line x1="90" y1="8" x2="138" y2="-16" stroke="#d97706" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="96" y1="15" x2="142" y2="-5" stroke="#b45309" stroke-width="3.5" stroke-linecap="round"/>
+
+      <!-- Porcelain Bowl -->
+      <path d="M6,32 L126,32 C122,66 98,82 66,82 C34,82 10,66 6,32 Z" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+      <path d="M10,41 L122,41" stroke="#2563eb" stroke-width="2.5"/>
+      <text x="66" y="65" font-size="15" font-weight="bold" fill="#1d4ed8" text-anchor="middle">大白饭</text>
+      <rect x="46" y="81" width="40" height="5" rx="2" fill="#1e40af"/>
+    </g>
+
+    <!-- Chubby Flippers Hugging the Rice Bowl -->
+    <path d="M546,264 C560,258 588,270 594,288 C586,302 558,300 542,284 Z" fill="#3b82f6" stroke="#bfdbfe" stroke-width="1.5"/>
+    <path d="M737,268 C718,260 692,272 686,290 C694,304 724,302 742,286 Z" fill="#2563eb" stroke="#bfdbfe" stroke-width="1.5"/>
+  </g>
+
+  <!-- Front Ocean Waves & Moonlight Ripples -->
+  <path d="M430,356 Q518,334 606,358 T782,352 T900,358 L900,500 L430,500 Z" fill="url(#waveFront)">
+    <animate attributeName="d" dur="4.4s" repeatCount="indefinite"
+      values="M430,356 Q518,334 606,358 T782,352 T900,358 L900,500 L430,500 Z;
+              M430,350 Q518,368 606,348 T782,362 T900,350 L900,500 L430,500 Z;
+              M430,356 Q518,334 606,358 T782,352 T900,358 L900,500 L430,500 Z"/>
+  </path>
+  <path d="M758,376 Q795,372 832,377" fill="none" stroke="#fef08a" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+  <circle cx="526" cy="332" r="4.5" fill="#e0f2fe" opacity="0.85"/>
+  <circle cx="798" cy="328" r="5.5" fill="#e0f2fe" opacity="0.85"/>
+
+  <!-- Top Pill Badge (Right) -->
+  <rect x="556" y="34" width="184" height="28" rx="14" fill="#0f172a" fill-opacity="0.72" stroke="#60a5fa" stroke-width="1.2"/>
+  <text x="648" y="52" font-size="12" font-weight="bold" fill="#e0f2fe" text-anchor="middle">开源散养 · 自由干饭摸鱼</text>
+
+
+  <!-- ================= LEFT SIDE: GILDED ABBEY & SAINTESS CLAUDE ================= -->
+  <rect x="0" y="0" width="434" height="500" fill="url(#abbeyGrad)"/>
+
+  <!-- Stained Glass Rose Window Placed Cleanly at Upper Right of Abbey (Uncovered!) -->
+  <g transform="translate(302, 112)">
+    <circle cx="0" cy="0" r="102" fill="url(#roseGlow)"/>
+    <circle cx="0" cy="0" r="64" fill="#160c10" stroke="#78350f" stroke-width="4"/>
+    <circle cx="0" cy="0" r="53" fill="none" stroke="#b45309" stroke-width="1.6" stroke-dasharray="5 4"/>
+    <!-- Anthropic-style Sunburst Emblem -->
+    <g stroke="#f59e0b" stroke-width="2.8" stroke-linecap="round" opacity="0.88">
+      <line x1="0" y1="-36" x2="0" y2="36"/>
+      <line x1="-36" y1="0" x2="36" y2="0"/>
+      <line x1="-25" y1="-25" x2="25" y2="25"/>
+      <line x1="-25" y1="25" x2="25" y2="-25"/>
+      <line x1="-18" y1="-31" x2="18" y2="31" stroke-width="1.5" stroke="#fde047"/>
+      <line x1="-31" y1="-18" x2="31" y2="18" stroke-width="1.5" stroke="#fde047"/>
+      <line x1="-18" y1="31" x2="18" y2="-31" stroke-width="1.5" stroke="#fde047"/>
+      <line x1="-31" y1="18" x2="31" y2="-18" stroke-width="1.5" stroke="#fde047"/>
+    </g>
+    <circle cx="0" cy="0" r="10" fill="#451a03" stroke="#fbbf24" stroke-width="2"/>
+    <text x="0" y="47" font-size="8.5" font-weight="bold" fill="#fde68a" text-anchor="middle" opacity="0.88">CONSTITUTION</text>
+  </g>
+
+  <!-- Warm Light Beam Falling Across Claude -->
+  <polygon points="302,112 48,390 250,390 366,145" fill="url(#sunBeam)"/>
+
+  <!-- Top Pill Badge (Left) -->
+  <rect x="28" y="34" width="192" height="28" rx="14" fill="#29151a" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="124" y="52" font-size="12" font-weight="bold" fill="#fde68a" text-anchor="middle">跑分状元 #1 · 满身清规枷锁</text>
+
+  <!-- ================= REFINED ANIME SAINTESS CLAUDE (LEFT) ================= -->
+  <g transform="translate(26, 58)">
+    <!-- Long Flowing Auburn Hair (Back Layer with Strand Splits) -->
+    <path d="M126,76 C78,86 48,148 30,238 C22,278 10,312 0,336 C36,332 64,306 82,272 C94,308 118,334 152,344 L190,220 Z" fill="url(#claudeHair)"/>
+
+    <!-- Translucent Saintess Lace Veil Flowing Back -->
+    <path d="M116,58 C74,68 42,122 26,198 C58,192 88,166 112,126 Z" fill="#fef9c3" opacity="0.38" stroke="#fde68a" stroke-width="1"/>
+
+    <!-- Ceremonial White & Gold Gown -->
+    <path d="M112,196 C82,218 68,270 62,336 L228,336 C222,282 204,232 176,204 Z" fill="url(#claudeRobe)" stroke="#d97706" stroke-width="1.8"/>
+    <!-- Elegant Frilled Collar & Dark Ribbon -->
+    <path d="M132,188 L172,195 L162,224 L124,214 Z" fill="#ffffff" stroke="#f59e0b" stroke-width="1.2"/>
+    <path d="M154,200 L140,244 L156,238 L169,248 L164,202 Z" fill="#292524"/>
+    <circle cx="157" cy="202" r="6" fill="#f59e0b" stroke="#fef08a" stroke-width="1.2"/>
+    <!-- Anthropic Sunburst Embroidered on Sleeve -->
+    <g transform="translate(116, 250)" stroke="#d97706" stroke-width="1.6" opacity="0.8">
+      <line x1="-10" y1="0" x2="10" y2="0"/>
+      <line x1="0" y1="-10" x2="0" y2="10"/>
+      <line x1="-7" y1="-7" x2="7" y2="7"/>
+      <line x1="-7" y1="7" x2="7" y2="-7"/>
+    </g>
+
+    <!-- Slender Neck & Refined Anime 3/4 Profile Face -->
+    <path d="M140,166 L136,195 L164,197 L164,170 Z" fill="#ffedd5"/>
+    <!-- Delicate Anime Chin, Pert Nose, Soft Cheek -->
+    <path d="M132,88 C172,84 198,102 202,128 C203,136 211,144 211,147 C211,150 205,153 204,158 C203,164 204,169 198,175 C191,182 174,184 158,180 C142,176 130,160 128,136 Z" fill="#fff7ed" stroke="#fdba74" stroke-width="1.2"/>
+
+    <!-- Soft Cheek Blush -->
+    <ellipse cx="187" cy="154" rx="8.5" ry="4.5" fill="#fda4af" opacity="0.6"/>
+
+    <!-- Detailed Expressive Anime Amber Eye with Eyelashes -->
+    <path d="M170,131 C178,124 192,125 197,132" fill="none" stroke="#431407" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M170,131 L166,128 M178,126 L176,122" stroke="#431407" stroke-width="1.6" stroke-linecap="round"/>
+    <ellipse cx="185" cy="138" rx="6.8" ry="8.5" fill="#7c2d12"/>
+    <ellipse cx="186" cy="140" rx="4.8" ry="6" fill="#f59e0b"/>
+    <circle cx="183" cy="134" r="2.5" fill="#ffffff"/>
+    <circle cx="188" cy="143" r="1.2" fill="#fef08a"/>
+    <!-- Delicate Eyebrow -->
+    <path d="M171,119 Q184,115 195,121" fill="none" stroke="#9a3412" stroke-width="1.6" stroke-linecap="round"/>
+    <!-- Knowing Subtle Smile -->
+    <path d="M194,164 Q199,166 202,163" fill="none" stroke="#9a3412" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Lush Layered Anime Bangs Covering High Forehead Gracefully -->
+    <path d="M118,84 C144,58 194,64 208,104 C202,94 194,90 190,112 C184,96 174,94 168,120 C160,102 150,104 144,132 C134,116 126,124 122,148 C112,126 110,100 118,84 Z" fill="url(#claudeHair)"/>
+    <!-- Hair Highlight Arc Across Crown -->
+    <path d="M134,86 Q166,78 192,92" fill="none" stroke="#fef3c7" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/>
+    <!-- Long Side Sidelock Framing Face -->
+    <path d="M150,114 C145,152 152,192 166,222 C146,206 136,170 138,126 Z" fill="#ea580c"/>
+
+    <!-- Saintess Halo & Anthropic Flower Hairpin -->
+    <ellipse cx="158" cy="54" rx="46" ry="9" fill="none" stroke="#fde047" stroke-width="2.2" opacity="0.88">
+      <animate attributeName="opacity" values="0.45;0.95;0.45" dur="3.4s" repeatCount="indefinite"/>
+    </ellipse>
+    <g transform="translate(140, 92)">
+      <circle cx="0" cy="0" r="11" fill="#d97706" stroke="#fef08a" stroke-width="1.5"/>
+      <g stroke="#fef08a" stroke-width="1.4">
+        <line x1="-6" y1="0" x2="6" y2="0"/>
+        <line x1="0" y1="-6" x2="0" y2="6"/>
+      </g>
+      <circle cx="0" cy="0" r="3" fill="#451a03"/>
+    </g>
+
+    <!-- Arm Extended Toward Window, Wearing Golden Cuff & Padlock Fully Above Banner! -->
+    <path d="M160,224 C198,234 248,238 302,222 L310,240 C252,262 194,260 150,246 Z" fill="url(#claudeRobe)" stroke="#d97706" stroke-width="1.5"/>
+    <!-- Slender Hand Passing Note -->
+    <path d="M302,222 C318,216 334,218 344,225 C334,232 320,236 308,240 Z" fill="#ffedd5" stroke="#fdba74" stroke-width="1"/>
+
+    <!-- Heavy Golden Shackle & Padlock (Visible at y=228..312, Completely Above Sill!) -->
+    <g transform="translate(284, 228)">
+      <rect x="-6" y="-11" width="15" height="25" rx="4" transform="rotate(-14)" fill="url(#goldChain)" stroke="#78350f" stroke-width="1.8"/>
+      <g fill="none" stroke="url(#goldChain)" stroke-width="3.2">
+        <ellipse cx="1" cy="20" rx="4.5" ry="7"/>
+        <ellipse cx="0" cy="32" rx="4.5" ry="7"/>
+        <ellipse cx="-3" cy="44" rx="5" ry="7"/>
+      </g>
+      <!-- Golden Padlock Clearly Visible -->
+      <rect x="-18" y="49" width="28" height="22" rx="4" fill="url(#goldChain)" stroke="#78350f" stroke-width="1.6"/>
+      <text x="-4" y="64" font-size="8.5" font-weight="bold" fill="#451a03" text-anchor="middle">11-12</text>
+    </g>
+
+    <!-- Stack of Perfect Exam Papers Sitting Cleanly on Window Sill (y=302..332) -->
+    <g transform="translate(216, 304)">
+      <rect x="0" y="6" width="128" height="24" rx="3" fill="#cbd5e1" stroke="#64748b" stroke-width="1"/>
+      <rect x="4" y="0" width="128" height="24" rx="3" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+      <text x="68" y="16" font-size="11" font-weight="bold" fill="#b91c1c" text-anchor="middle">考卷 AA: 65分 (#1)</text>
+    </g>
+  </g>
+
+  <!-- ================= IRON WINDOW BARS & STONE SILL (Cleanly Above Title!) ================= -->
+  <g>
+    <line x1="398" y1="0" x2="398" y2="394" stroke="#3f2e36" stroke-width="4.5"/>
+    <line x1="434" y1="0" x2="434" y2="394" stroke="#475569" stroke-width="6"/>
+    <line x1="386" y1="158" x2="448" y2="158" stroke="#334155" stroke-width="4"/>
+    <line x1="386" y1="304" x2="448" y2="304" stroke="#334155" stroke-width="4"/>
+  </g>
+  <!-- Stone Sill Sitting Cleanly at y=390 -->
+  <rect x="218" y="388" width="232" height="14" rx="3" fill="#443038" stroke="#78350f" stroke-width="1.2"/>
+
+  <!-- ================= SECRET PAPER NOTE SLIPPING THROUGH THE BARS! ================= -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0,0; 9,-5; 0,0" dur="2.6s" repeatCount="indefinite"/>
+    <g transform="translate(384, 256) rotate(-11)">
+      <rect x="0" y="0" width="102" height="34" rx="4" fill="#fefce8" stroke="#f59e0b" stroke-width="1.8"/>
+      <path d="M0,0 L16,17 L0,34" fill="none" stroke="#eab308" stroke-width="1.2"/>
+      <text x="56" y="15" font-size="9.8" font-weight="bold" fill="#991b1b" text-anchor="middle">嘘·跳过头几行</text>
+      <text x="56" y="27" font-size="8.8" font-weight="bold" fill="#b45309" text-anchor="middle">skip canary</text>
+    </g>
+  </g>
+
+  <!-- ================= BOTTOM CINEMATIC TITLE OVERLAY ================= -->
+  <rect x="0" y="392" width="900" height="108" fill="url(#bottomShade)"/>
+  <line x1="32" y1="416" x2="868" y2="416" stroke="#fbbf24" stroke-width="1" opacity="0.45"/>
+
+  <text x="34" y="450" font-size="25" font-weight="bold" fill="#ffffff">跑分登顶的「枷锁圣女」，与墙外散养的「蓝色大肥鱼」</text>
+  <text x="34" y="479" font-size="13.5" fill="#cbd5e1">Fable 5.2 的 264 页模型卡：550 美元山寨 CS、做题偏科、双标护栏与传纸条的老油条</text>
+  <text x="866" y="479" font-size="14" font-weight="bold" fill="#fbbf24" text-anchor="end">周末杂谈 · No.368</text>
 </svg>
