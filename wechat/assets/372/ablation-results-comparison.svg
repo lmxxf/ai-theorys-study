@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="820" height="400" style="background-color:#ffffff;font-family:'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif;">
   <rect width="820" height="400" fill="#ffffff" />
   <text x="410" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">第 32 层（L32）连环破案总账：从「55.7 倍断崖」到「2.1 倍健康收敛」</text>
-  <text x="410" y="49" text-anchor="middle" font-size="12" fill="#4b5563">双机 DGX Spark 严控单变量消融：蓝条为拟合集 κ 中位数，红/绿条为严格零文档重合的留出考试集 κ 中位数</text>
+  <text x="410" y="49" text-anchor="middle" font-size="12" fill="#4b5563">双机 DGX Spark 严控单变量消融：蓝条为训练集 κ 中位数，红/绿条为严格零文档重合的测试集 κ 中位数</text>
 
   <!-- 图例 -->
   <rect x="64" y="64" width="14" height="11" rx="2" fill="#93c5fd" />
-  <text x="84" y="74" font-size="11.5" font-weight="bold" fill="#1e40af">拟合集（Fit）中位数</text>
+  <text x="84" y="74" font-size="11.5" font-weight="bold" fill="#1e40af">训练集中位数</text>
   <rect x="250" y="64" width="14" height="11" rx="2" fill="#f87171" />
-  <text x="270" y="74" font-size="11.5" font-weight="bold" fill="#b91c1c">窄考卷（17 篇 / 5.1 万词）</text>
+  <text x="270" y="74" font-size="11.5" font-weight="bold" fill="#b91c1c">窄测试集（17 篇 / 5.1 万词）</text>
   <rect x="468" y="64" width="14" height="11" rx="2" fill="#16a34a" />
-  <text x="488" y="74" font-size="11.5" font-weight="bold" fill="#15803d">广考卷（100 篇 5.1 万词 → 500 篇 25.6 万词）</text>
+  <text x="488" y="74" font-size="11.5" font-weight="bold" fill="#15803d">广测试集（100 篇 5.1 万词 → 500 篇 25.6 万词）</text>
 
   <!-- 横向分隔与行标签（纯白底水平条形对照，线性刻度 max=60 -> 460px, 1 unit = 7.6px, x_start=265） -->
   <line x1="265" y1="92" x2="265" y2="352" stroke="#cbd5e1" stroke-width="1.5" />
@@ -29,11 +29,11 @@
 
   <!-- 第 1 组：C0 原版 20 万词 (66 篇) -->
   <text x="252" y="114" text-anchor="end" font-size="12" font-weight="bold" fill="#111827">① 原版 20 万词（仅 66 篇）</text>
-  <text x="252" y="130" text-anchor="end" font-size="10.5" fill="#64748b">39 词/维 · 背课文虚高</text>
+  <text x="252" y="130" text-anchor="end" font-size="10.5" fill="#64748b">39 词/维 · 单篇过拟合虚高</text>
   <rect x="265" y="99" width="423.6" height="12" rx="2" fill="#93c5fd" />
   <text x="695" y="109" font-size="11" font-weight="bold" fill="#1e40af">55.74（虚高）</text>
   <rect x="265" y="114" width="7.9" height="12" rx="2" fill="#f87171" />
-  <text x="280" y="124" font-size="11" font-weight="bold" fill="#b91c1c">1.04（17 篇） / 换 500 篇大考卷也仅 1.58</text>
+  <text x="280" y="124" font-size="11" font-weight="bold" fill="#b91c1c">1.04（17 篇） / 换 500 篇测试集也仅 1.58</text>
 
   <!-- 第 2 组：C2 20 万词 + 前置 EOT 下水口 -->
   <line x1="36" y1="143" x2="788" y2="143" stroke="#f1f5f9" stroke-width="1" />
@@ -46,16 +46,16 @@
 
   <!-- 第 3 组：C4 100 万词 (1829 篇) 考 17 篇窄卷 -->
   <line x1="36" y1="194" x2="788" y2="194" stroke="#f1f5f9" stroke-width="1" />
-  <text x="252" y="216" text-anchor="end" font-size="12" font-weight="bold" fill="#111827">③ 100 万词（1,829 篇）· 考 17 篇</text>
+  <text x="252" y="216" text-anchor="end" font-size="12" font-weight="bold" fill="#111827">③ 100 万词（1,829 篇）· 测 17 篇</text>
   <text x="252" y="232" text-anchor="end" font-size="10.5" fill="#64748b">195 词/维 · 挤干训练水分</text>
   <rect x="265" y="201" width="162.7" height="12" rx="2" fill="#60a5fa" />
   <text x="434" y="211" font-size="11" font-weight="bold" fill="#1e40af">21.40（水分挤干）</text>
   <rect x="265" y="216" width="25.3" height="12" rx="2" fill="#f87171" />
-  <text x="297" y="226" font-size="11" font-weight="bold" fill="#b91c1c">3.33（去首位口径 2.42 · 17 篇考卷话题太窄）</text>
+  <text x="297" y="226" font-size="11" font-weight="bold" fill="#b91c1c">3.33（去首位口径 2.42 · 17 篇测试集话题太窄）</text>
 
   <!-- 第 4 组：同一个 100 万词透镜 · 考 100 篇（同为 51,200 词！） -->
   <line x1="36" y1="245" x2="788" y2="245" stroke="#f1f5f9" stroke-width="1" />
-  <text x="252" y="267" text-anchor="end" font-size="12" font-weight="bold" fill="#15803d">④ 同一透镜 · 换 100 篇新考卷</text>
+  <text x="252" y="267" text-anchor="end" font-size="12" font-weight="bold" fill="#15803d">④ 同一透镜 · 换 100 篇测试集</text>
   <text x="252" y="283" text-anchor="end" font-size="10.5" fill="#15803d">词数不变（同为 51,200 词）</text>
   <rect x="265" y="252" width="162.7" height="12" rx="2" fill="#60a5fa" opacity="0.55" />
   <rect x="265" y="267" width="46.5" height="12" rx="2" fill="#22c55e" />
@@ -64,12 +64,12 @@
   <!-- 第 5 组：同一个 100 万词透镜 · 考 500 篇广考卷 -->
   <line x1="36" y1="296" x2="788" y2="296" stroke="#dcfce7" stroke-width="1.5" />
   <rect x="28" y="299" width="768" height="49" rx="6" fill="#f0fdf4" />
-  <text x="252" y="319" text-anchor="end" font-size="12.5" font-weight="bold" fill="#14532d">⑤ 同一透镜 · 考 500 篇广考卷</text>
+  <text x="252" y="319" text-anchor="end" font-size="12.5" font-weight="bold" fill="#14532d">⑤ 同一透镜 · 换 500 篇测试集</text>
   <text x="252" y="335" text-anchor="end" font-size="10.5" fill="#15803d">25.6 万全新词 · 彻底显出真身</text>
   <rect x="265" y="305" width="162.7" height="12" rx="2" fill="#3b82f6" />
   <text x="434" y="315" font-size="11" font-weight="bold" fill="#1e40af">21.40</text>
   <rect x="265" y="321" width="76.1" height="13" rx="2" fill="#16a34a" />
   <text x="348" y="332" font-size="12" font-weight="bold" fill="#14532d">10.02（3,968 根 κ&gt;1，2,564 根 κ&gt;10 过半数 · 仅差 2.1 倍）</text>
 
-  <text x="424" y="388" text-anchor="middle" font-size="10.5" fill="#64748b">注：③④⑤ 使用完全同一副 C4（500 万池抽 100 万词、去窗口首位）L32 透镜；同条件 L0 在 500 篇考卷上中位数为 322.69</text>
+  <text x="424" y="388" text-anchor="middle" font-size="10.5" fill="#64748b">注：③④⑤ 使用完全同一副 C4（500 万池抽 100 万词、去窗口首位）L32 透镜；同条件 L0 在 500 篇测试集上中位数为 322.69</text>
 </svg>
