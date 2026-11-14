@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif">
+  <defs>
+    <linearGradient id="bg372" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a" />
+      <stop offset="0.55" stop-color="#1e293b" />
+      <stop offset="1" stop-color="#0b1120" />
+    </linearGradient>
+    <linearGradient id="redGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ef4444" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#ef4444" stop-opacity="0.02" />
+    </linearGradient>
+    <linearGradient id="greenGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22c55e" stop-opacity="0.32" />
+      <stop offset="1" stop-color="#22c55e" stop-opacity="0.02" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg372)" />
+
+  <!-- 顶部期号与主标题 -->
+  <rect x="44" y="30" width="168" height="28" rx="14" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1.2" />
+  <text x="128" y="49" text-anchor="middle" font-size="13" font-weight="bold" fill="#93c5fd">No.372 · ICA-Lens 破案</text>
+  <text x="228" y="50" font-size="14" fill="#94a3b8">原作者一眼盯住「L32 = 0.99」之后：双机 500 万词重测揭底牌</text>
+
+  <text x="44" y="96" font-size="30" font-weight="bold" fill="#f8fafc">第 32 层的 0.99，真是高斯浆糊吗？</text>
+
+  <!-- 左侧：原版 66 篇「背课文」断崖 -->
+  <rect x="44" y="122" width="388" height="292" rx="14" fill="#181826" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.65" />
+  <text x="68" y="154" font-size="17" font-weight="bold" fill="#fca5a5">旧账：20 万词仅切自 66 篇文章</text>
+  <text x="68" y="176" font-size="12.5" fill="#94a3b8">平均每篇分摊 77 根轴 → 死背单篇专名 Vargas Llos</text>
+
+  <!-- 左侧曲线与 55.7x 断崖 -->
+  <line x1="72" y1="342" x2="404" y2="342" stroke="#334155" stroke-width="1.5" />
+  <polygon points="84,205 155,222 238,236 320,224 392,216 392,330 320,334 238,336 155,305 84,232" fill="url(#redGlow)" />
+  <polyline points="84,205 155,222 238,236 320,224 392,216" fill="none" stroke="#60a5fa" stroke-width="3" stroke-dasharray="6 4" />
+  <polyline points="84,232 155,305 238,336 320,334 392,310" fill="none" stroke="#ef4444" stroke-width="3.2" />
+
+  <circle cx="238" cy="236" r="5.5" fill="#60a5fa" />
+  <circle cx="238" cy="336" r="6" fill="#ef4444" />
+  <line x1="238" y1="244" x2="238" y2="328" stroke="#f87171" stroke-width="2" stroke-dasharray="3 3" />
+  <text x="238" y="224" text-anchor="middle" font-size="13" font-weight="bold" fill="#93c5fd">训练 κ = 55.10</text>
+  <rect x="180" y="273" width="116" height="24" rx="5" fill="#450a0a" stroke="#ef4444" stroke-width="1" />
+  <text x="238" y="290" text-anchor="middle" font-size="13" font-weight="bold" fill="#fca5a5">摔落 55.7 倍</text>
+  <text x="238" y="362" text-anchor="middle" font-size="13" font-weight="bold" fill="#f87171">17 篇窄考卷：κ = 0.99</text>
+  <text x="238" y="394" text-anchor="middle" font-size="12" fill="#cbd5e1">单篇尖刺过拟合 + 17 篇考卷话题漏测</text>
+
+  <!-- 中间箭头 -->
+  <path d="M 442,268 L 462,268" stroke="#fbbf24" stroke-width="3.5" stroke-linecap="round" />
+  <polygon points="460,260 472,268 460,276" fill="#fbbf24" />
+
+  <!-- 右侧：新版 1829 篇百万词 + 500 篇大考卷闭环 -->
+  <rect x="476" y="122" width="380" height="292" rx="14" fill="#0f241d" stroke="#22c55e" stroke-width="1.6" stroke-opacity="0.75" />
+  <text x="500" y="154" font-size="17" font-weight="bold" fill="#86efac">新账：500 万池抽 100 万词（1,829 篇）</text>
+  <text x="500" y="176" font-size="12.5" fill="#94a3b8">872 根假尖刺轴清零 · 换 500 篇广考卷水落石出</text>
+
+  <!-- 右侧三级阶梯 -->
+  <rect x="504" y="202" width="218" height="24" rx="4" fill="#3b82f6" opacity="0.85" />
+  <text x="732" y="219" font-size="13" font-weight="bold" fill="#93c5fd">训练：21.40</text>
+  <text x="512" y="219" font-size="12" fill="#eff6ff">挤干背书水分</text>
+
+  <rect x="504" y="242" width="48" height="22" rx="4" fill="#f59e0b" />
+  <text x="562" y="258" font-size="12.5" fill="#fde68a">考 17 篇：3.33（话题太窄未出场）</text>
+
+  <rect x="504" y="278" width="82" height="22" rx="4" fill="#34d399" />
+  <text x="596" y="294" font-size="12.5" fill="#a7f3d0">考 100 篇（同为 5.1 万词）：6.11</text>
+
+  <rect x="504" y="314" width="128" height="26" rx="4" fill="#22c55e" />
+  <text x="642" y="332" font-size="14" font-weight="bold" fill="#4ade80">考 500 篇：10.02</text>
+  <text x="512" y="332" font-size="12" font-weight="bold" fill="#052e16">过半轴 κ &gt; 10</text>
+
+  <text x="666" y="366" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#86efac">中英文「苹果」盲选 100% 同轴满分</text>
+  <text x="666" y="394" text-anchor="middle" font-size="12" fill="#cbd5e1">对比 L0 (322.7)：腰部混融谷底依然坚实存在</text>
+
+  <!-- 底部金句条 -->
+  <text x="450" y="458" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#f8fafc">「66 篇课文造出了假高峰，17 篇考卷压出了假深谷；把两头都摊开，真地形才浮出水面。」</text>
+  <text x="450" y="482" text-anchor="middle" font-size="12" fill="#64748b">双 DGX Spark 实测 · Qwen3.8-27B · icalens 0.4.1 × N=100 J-lens</text>
+</svg>
