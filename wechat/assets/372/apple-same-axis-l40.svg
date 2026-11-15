@@ -3,7 +3,7 @@
 
   <!-- 主标题与副标题 -->
   <text x="420" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">中英「apple / 苹果」全 64 层盲选棋盘（v2：28/64）与第 40 层插队真相</text>
-  <text x="420" y="49" text-anchor="middle" font-size="12" fill="#4b5563">中段核心概念区（L24–L35）连续 12 层撞上同一根第 1 名轴；L39 起英文首字母大写语法轴提前插队抢走榜首</text>
+  <text x="420" y="49" text-anchor="middle" font-size="12" fill="#4b5563">中段核心概念区（L24–L35）连续 12 层撞上同一根第 1 名轴；L39 起英文「小写专有名词」纠偏轴插队抢走榜首</text>
 
   <!-- 左面板标题与图例 -->
   <text x="36" y="80" font-size="13.5" font-weight="bold" fill="#1e293b">① v2 百万词全 64 层「第 1 名同轴」棋盘</text>
@@ -25,7 +25,7 @@
   <!-- 右面板：L40 放大拆解框 -->
   <rect x="424" y="72" width="388" height="346" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.4" />
   <text x="618" y="98" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f172a">② 放大拆解 L40：为什么没判「第 1 名同轴」？</text>
-  <text x="618" y="117" text-anchor="middle" font-size="11" fill="#64748b">对比英文组（apple vs Apple）与中文组（苹果）盲选 Top-3 轴</text>
+  <text x="618" y="117" text-anchor="middle" font-size="11" fill="#64748b">对比英文组（全小写水果 apple 对全小写公司 apple）与中文组（苹果）Top-3 轴</text>
 
   <!-- 左右两列小标题 -->
   <text x="506" y="144" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">英文盲选 Top-3</text>
@@ -40,7 +40,7 @@
   <!-- 英文 #1: C776 (插队者) -->
   <rect x="438" y="158" width="140" height="50" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="1.6" />
   <text x="448" y="177" font-size="11.5" font-weight="bold" fill="#b91c1c">#1 轴 776（插队）</text>
-  <text x="448" y="196" font-size="10.2" fill="#7f1d1d">大写专名 Apple 语法轴</text>
+  <text x="448" y="196" font-size="10.2" fill="#7f1d1d">小写专有名词纠偏轴</text>
 
   <!-- 英文 #2: C298 -->
   <rect x="438" y="222" width="140" height="50" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6" />
@@ -70,5 +70,5 @@
   <!-- 右面板底部一句话结论条 -->
   <rect x="438" y="352" width="360" height="52" rx="6" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.2" />
   <text x="618" y="372" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">本质：百万词校准中层角度后，更多细分抽象概念浮出水面</text>
-  <text x="618" y="392" text-anchor="middle" font-size="10.3" fill="#78350f">食物（298）、植物（1405）、专名（776）各自独立，不再糊成单根粗轴</text>
+  <text x="618" y="392" text-anchor="middle" font-size="10.3" fill="#78350f">食物（298）、植物（1405）、小写专名纠偏（776）各自独立成轴</text>
 </svg>
