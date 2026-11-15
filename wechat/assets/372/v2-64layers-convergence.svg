@@ -52,6 +52,6 @@
   <rect x="642" y="264" width="136" height="20" rx="4" fill="#ffffff" opacity="0.95" />
   <text x="774" y="278" text-anchor="end" font-size="10.8" font-weight="bold" fill="#14532d">L63 末层：21.79（2.20×）</text>
 
-  <text x="424" y="382" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">Qwen3.8-27B 残差块输出层（L0 至 L63 · C4 百万词去首位配方）</text>
+  <text x="424" y="382" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">Qwen3.8-27B 残差块输出层（L0 至 L63 · 100 万词去窗口首位重磨版）</text>
   <text x="424" y="402" text-anchor="middle" font-size="10.5" fill="#64748b">注：每层内置 N=100 双语 J-lens 读出档案，全部 64 层权重与测试复现包已更新开源至 lmxxf/Qwen3.8-27B-ica-lens</text>
 </svg>
