@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="820" height="440" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
+  <rect width="820" height="440" fill="#ffffff" />
+
+  <text x="410" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">母语刻刀的三幕演化：从空间「外」字隐喻，到 2/3 深处切开英文 uncle</text>
+  <text x="410" y="48" text-anchor="middle" font-size="12" fill="#4b5563">零对话模板裸喂原文 · 严苛 S2 选择器仅用「伯父/舅舅、叔叔/姨夫、姑姑/姨妈」3 对零共享字词选单根轴</text>
+
+  <!-- 第一幕：L13 C2665 -->
+  <rect x="26" y="68" width="768" height="106" rx="8" fill="#f8fafc" />
+  <rect x="26" y="68" width="5" height="106" rx="2" fill="#0284c7" />
+  <text x="44" y="92" font-size="14.5" font-weight="bold" fill="#0369a1">第一幕 · 第 13 层 L13 C2665（κ = 60.04）：两千年「堂（屋内）vs 表（衣外）」隐喻同轴</text>
+  <text x="44" y="113" font-size="12" fill="#334155">物理空间内外（5/5）、社会内外（5/5）与中文亲属 S1（均值差与配对 t 双准则）各自在 5,120 轴盲选第 1 名撞上同一根 C2665</text>
+
+  <rect x="44" y="124" width="352" height="38" rx="6" fill="#ffffff" />
+  <text x="56" y="141" font-size="11.5" font-weight="bold" fill="#0f172a">v3 真实语料最高激活（z = 32.32 / 30.56）：</text>
+  <text x="56" y="156" font-size="11" fill="#475569">全落在物理空间汉字「外」（铜人模型，外 / 蜘蛛腹部不是从外）</text>
+
+  <rect x="412" y="124" width="364" height="38" rx="6" fill="#e0f2fe" />
+  <text x="424" y="141" font-size="11.5" font-weight="bold" fill="#0369a1">零「外」字北方单 token 盲测照样 10/10 全对：</text>
+  <text x="424" y="156" font-size="11" fill="#0c4a6e">姥爷 / 姥姥（+6.99）比 爷爷 / 奶奶（+1.77）高出 5.22</text>
+
+  <!-- 向下箭头 1 -->
+  <line x1="410" y1="176" x2="410" y2="192" stroke="#94a3b8" stroke-width="2" />
+  <polygon points="405,190 410,198 415,190" fill="#94a3b8" />
+
+  <!-- 第二幕：L25 C3140 / L26 C3526 -->
+  <rect x="26" y="200" width="768" height="106" rx="8" fill="#fefce8" />
+  <rect x="26" y="200" width="5" height="106" rx="2" fill="#d97706" />
+  <text x="44" y="224" font-size="14.5" font-weight="bold" fill="#b45309">第二幕 · 第 25/26 层 L25 C3140（κ = 74.97）/ L26 C3526：父系零标记 + 单极「嫁娶算子」</text>
+  <text x="44" y="245" font-size="12" fill="#334155">与物理内外彻底分家正交（余弦 -0.007）· 留出盲测无外字隔代 10/10（d=5.89）、堂表 20/20、含外字 30/30，合计 60/60 满分</text>
+
+  <rect x="44" y="256" width="320" height="38" rx="6" fill="#ffffff" />
+  <text x="56" y="273" font-size="11.5" font-weight="bold" fill="#475569">父系同宗侧（默认本家基线）：</text>
+  <text x="56" y="288" font-size="11" fill="#64748b">无专属词簇隆起 —— 本家自家人无需额外打标</text>
+
+  <rect x="380" y="256" width="396" height="38" rx="6" fill="#fef3c7" />
+  <text x="392" y="273" font-size="11.5" font-weight="bold" fill="#92400e">外姻侧单极高耸（跨过一次婚姻联结）：</text>
+  <text x="392" y="288" font-size="11" fill="#78350f">女婿 / 婿 / 岳父 / 出嫁 / 娘家（L26 全词表第 8 名, 99.997%）/ maternal</text>
+
+  <!-- 向下箭头 2 -->
+  <line x1="410" y1="308" x2="410" y2="324" stroke="#94a3b8" stroke-width="2" />
+  <polygon points="405,322 410,330 415,322" fill="#94a3b8" />
+
+  <!-- 第三幕：L42 C1992 -->
+  <rect x="26" y="332" width="768" height="96" rx="8" fill="#f0fdf4" />
+  <rect x="26" y="332" width="5" height="96" rx="2" fill="#16a34a" />
+  <text x="44" y="356" font-size="14.5" font-weight="bold" fill="#15803d">第三幕 · 第 42 层 L42 C1992（42/64 = 65.6% 黄金三分之二层）：一刀切开同一个英文 uncle</text>
+  <text x="44" y="377" font-size="12" fill="#334155">纯中文 S2 盲选轴（J-Lens：嫁给 / marriage / 出嫁 / 婚姻 / married，性别控制无偏置）· 100% 同词袋英文姓氏推理 EN-C：</text>
+
+  <rect x="44" y="387" width="466" height="30" rx="5" fill="#ffffff" />
+  <text x="54" y="406" font-size="11" fill="#111827">父母 John Miller 与 Mary Clark 同在，仅互换 Robert Miller / Clark 谁是 friend 谁是 uncle</text>
+
+  <rect x="522" y="387" width="254" height="30" rx="5" fill="#dcfce7" />
+  <text x="649" y="406" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#166534">15/15 全对（uncle d=7.49 · 与英文自选同轴）</text>
+</svg>
