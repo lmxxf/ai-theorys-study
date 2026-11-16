@@ -3,7 +3,7 @@
 
   <!-- 标题 -->
   <text x="420" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">扒开权重文件头：1.82 GiB 的「4 步加速 LoRA」到底挂在什么样的网络上？</text>
-  <text x="420" y="50" text-anchor="middle" font-size="12" fill="#4b5563">MiniMax-H3 本质是 50 层 5376 维 Transformer ｜ LoRA 并联在每层 4 块线性矩阵旁，把整座大楼循环从 40 趟砍成 4 趟</text>
+  <text x="420" y="50" text-anchor="middle" font-size="12" fill="#4b5563">MiniMax-H3 主干是 50 层 5376 维 Transformer ｜ LoRA 并联在每层 4 块线性矩阵旁，把整栋楼循环从 20 遍砍成 4 遍</text>
 
   <defs>
     <marker id="arrDark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -35,7 +35,7 @@
   <rect x="52" y="192" width="256" height="106" rx="6" fill="#eef2ff" />
   <rect x="52" y="192" width="256" height="4" rx="2" fill="#4f46e5" />
   <text x="180" y="216" text-anchor="middle" font-size="13" font-weight="bold" fill="#312e81">50 层音视频 Transformer (blocks.0..49)</text>
-  <text x="180" y="236" text-anchor="middle" font-size="11" fill="#4338ca">每层结构与 LLM 完全一致：Attention + SwiGLU MLP</text>
+  <text x="180" y="236" text-anchor="middle" font-size="11" fill="#4338ca">熟悉骨架：Attention + 门控前馈 MLP (含时间调制)</text>
   <text x="180" y="256" text-anchor="middle" font-size="11" fill="#374151">原厂主干 INT8：19.53 GiB</text>
   <text x="180" y="275" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">+ 外挂 208 处加速 LoRA (BF16)：1.82 GiB</text>
 
@@ -46,8 +46,8 @@
 
   <!-- 为什么省时间账本 -->
   <rect x="42" y="322" width="298" height="60" rx="6" fill="#fffbeb" />
-  <text x="54" y="342" font-size="11.5" fill="#78350f">• 没挂 LoRA：20 步 × 正负词各一遍 = 跑 40 遍前向</text>
-  <text x="54" y="362" font-size="11.5" font-weight="bold" fill="#b45309">• 挂上 LoRA：单遍仅多约 4%，但一共只跑 4 遍前向</text>
+  <text x="54" y="342" font-size="11.5" fill="#78350f">• 没挂 LoRA：原版 20 步要跑满 20 遍前向</text>
+  <text x="54" y="362" font-size="11.5" font-weight="bold" fill="#b45309">• 挂上 LoRA：线性乘加仅多几个点，整栋楼只跑 4 遍</text>
 
   <!-- 放大连接虚线 -->
   <line x1="308" y1="202" x2="386" y2="92" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3" />

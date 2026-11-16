@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 390" width="820" height="390" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
   <rect width="820" height="390" fill="#ffffff"/>
-  <text x="410" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">揭秘 ComfyUI「工作流」：把 5 个神经网络零件串成一张可视化函数图</text>
-  <text x="410" y="50" text-anchor="middle" font-size="12" fill="#4b5563">每个方框 = 1 个 Python 函数 ｜ 每根彩色连线 = 显存里的 PyTorch 张量传参 ｜ 整张 .json 图 = 组装脚本</text>
+  <text x="410" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">揭秘 ComfyUI「工作流」：把 5 个处理节点串成一张可视化函数图</text>
+  <text x="410" y="50" text-anchor="middle" font-size="12" fill="#4b5563">每个方框 = 1 个 Python 节点函数 ｜ 每根彩色连线 = 节点间张量与模型句柄传参 ｜ 整张 .json 图 = 组装配置单</text>
 
   <defs>
     <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
