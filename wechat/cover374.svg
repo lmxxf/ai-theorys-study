@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+  <defs>
+    <linearGradient id="bg374" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c140d" />
+      <stop offset="0.55" stop-color="#271c12" />
+      <stop offset="1" stop-color="#120d08" />
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0.03" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg374)" />
+
+  <!-- 顶部期号与说明 -->
+  <rect x="42" y="26" width="232" height="28" rx="14" fill="#451a03" stroke="#f59e0b" stroke-width="1.2" />
+  <text x="158" y="45" text-anchor="middle" font-size="13" font-weight="bold" fill="#fcd34d">No.374 · ICA-Lens v3 语义考古</text>
+  <text x="290" y="45" font-size="13.5" fill="#d6d3d1">整部《红楼梦》训练期预屏蔽零泄露 · 439 条因果左文真史料盲测</text>
+
+  <!-- 主标题 -->
+  <text x="42" y="90" font-size="27.5" font-weight="bold" fill="#fef3c7">拿《出师表》调零时光机，照透清宫与《红楼梦》的「奴才」</text>
+
+  <!-- 左卡：第一章 时光机调零 -->
+  <rect x="42" y="120" width="258" height="298" rx="14" fill="#291d12" stroke="#d97706" stroke-width="1.4" />
+  <text x="62" y="150" font-size="16" font-weight="bold" fill="#fde68a">1. 《出师表》调零校准尺</text>
+  <text x="62" y="171" font-size="12" fill="#d6d3d1">「先帝不以臣卑鄙」洗现代污染</text>
+
+  <rect x="62" y="188" width="218" height="70" rx="8" fill="#3b2611" />
+  <text x="74" y="210" font-size="12" fill="#fef3c7">千字《三国志》纯文言 W2：</text>
+  <text x="74" y="232" font-size="15" font-weight="bold" fill="#4ade80">L30 贬义残留 -0.43%</text>
+  <text x="74" y="249" font-size="11" fill="#a7f3d0">卑鄙 (+4.05) ≈ 微贱/浅陋 (+4.13)</text>
+
+  <rect x="62" y="270" width="218" height="66" rx="8" fill="#451a14" />
+  <text x="74" y="291" font-size="12" font-weight="bold" fill="#fca5a5">纯英文隔离舱 W3a 翻车：</text>
+  <text x="74" y="312" font-size="13.5" font-weight="bold" fill="#f87171">38 层中位残留反升至 25.6%</text>
+  <text x="74" y="328" font-size="10.5" fill="#fecaca">切断中文后蹦汉字掉回现代白话入口</text>
+
+  <text x="62" y="362" font-size="11.5" fill="#e7e5e4">• 浅层 L16 仍有 35.6% 字面惊跳</text>
+  <text x="62" y="383" font-size="11.5" fill="#fde68a">• 锁定 L30–L45 概念区彻底消噪</text>
+  <text x="62" y="403" font-size="11" fill="#a8a29e">• 严守单向注意力只喂目标左侧原文</text>
+
+  <!-- 箭头 1 -->
+  <path d="M 306,268 L 320,268" stroke="#f59e0b" stroke-width="2.5" />
+  <polygon points="318,262 327,268 318,274" fill="#f59e0b" />
+
+  <!-- 中卡：第二章 红楼梦与鲁迅对勘 -->
+  <rect x="330" y="120" width="258" height="298" rx="14" fill="#1f2419" stroke="#22c55e" stroke-width="1.4" stroke-opacity="0.85" />
+  <text x="350" y="150" font-size="16" font-weight="bold" fill="#86efac">2. 《红楼梦》自称真身</text>
+  <text x="350" y="171" font-size="12" fill="#d6d3d1">120 回原著对勘鲁迅五篇杂文</text>
+
+  <rect x="350" y="188" width="218" height="84" rx="8" fill="#143020" />
+  <text x="362" y="209" font-size="12" fill="#bbf7d0">L30 C846 贬损轴两极分化：</text>
+  <text x="362" y="230" font-size="12.5" font-weight="bold" fill="#38bdf8">• 贾府/奏折自称：+1.93 / +2.02</text>
+  <text x="362" y="249" font-size="12.5" font-weight="bold" fill="#fbbf24">• 探春贾政痛骂 / 上谕：+7.19 / +8.10</text>
+  <text x="362" y="266" font-size="12.5" font-weight="bold" fill="#f87171">• 鲁迅杂文批判：+10.07</text>
+
+  <rect x="350" y="284" width="218" height="72" rx="8" fill="#064e3b" />
+  <text x="362" y="305" font-size="12" font-weight="bold" fill="#6ee7b7">B−A2 连续 20 层 9/9 冠军轴：</text>
+  <text x="362" y="327" font-size="14" font-weight="bold" fill="#ecfdf5">myself / my / 我自己 / I / 我</text>
+  <text x="362" y="346" font-size="11" fill="#a7f3d0">管家自称 +16.84 vs 挨骂 +1.17</text>
+
+  <text x="350" y="381" font-size="11.5" fill="#fde68a">日常回话毫无羞辱感，中深层已</text>
+  <text x="350" y="401" font-size="11.5" fill="#fde68a">彻底代词化为制度性的「我」</text>
+
+  <!-- 箭头 2 -->
+  <path d="M 594,268 L 608,268" stroke="#f59e0b" stroke-width="2.5" />
+  <polygon points="606,262 615,268 606,274" fill="#f59e0b" />
+
+  <!-- 右卡：第三章 雍正朱批称臣得体 -->
+  <rect x="618" y="120" width="240" height="298" rx="14" fill="#301515" stroke="#f87171" stroke-width="1.5" />
+  <text x="638" y="150" font-size="16" font-weight="bold" fill="#fca5a5">3. 雍正朱批「称臣得体」</text>
+  <text x="638" y="171" font-size="12" fill="#fecaca">10 份真奏折 z(奴才)−z(臣) 盲搜</text>
+
+  <rect x="638" y="188" width="200" height="48" rx="7" fill="#451a03" />
+  <text x="648" y="207" font-size="11.5" font-weight="bold" fill="#fdba74">浅层 L18 C1690 (+5.78, 10/10)</text>
+  <text x="648" y="226" font-size="11" fill="#fed7aa">闪过字根：奴隶 / Slave / slavery</text>
+
+  <rect x="638" y="246" width="200" height="58" rx="7" fill="#172554" />
+  <text x="648" y="265" font-size="11.5" font-weight="bold" fill="#93c5fd">中层 L25–L41 外朝公器暴跌</text>
+  <text x="648" y="283" font-size="11" fill="#dbeafe">大臣/宰相 (-5.70) · Governor (-4.25)</text>
+  <text x="648" y="298" font-size="10.5" fill="#bfdbfe">御史 (-3.97) · 诏/上书/天子 (-3.08)</text>
+
+  <rect x="638" y="314" width="200" height="86" rx="7" fill="#450a0a" stroke="#fbbf24" stroke-width="1" />
+  <text x="648" y="334" font-size="12" font-weight="bold" fill="#fde047">深层 L45 榜首 C1194 (+7.27)</text>
+  <text x="648" y="353" font-size="10.5" fill="#fef3c7">全库第 1 原句：「隶属八旗的</text>
+  <text x="648" y="370" font-size="10.5" fill="#fef3c7">『旗地』管辖……系满洲根本重地」</text>
+  <text x="648" y="390" font-size="11" font-weight="bold" fill="#86efac">弃外朝公器攀内廷私产 → 失体统</text>
+
+  <!-- 底部金句 -->
+  <text x="450" y="458" text-anchor="middle" font-size="15" font-weight="bold" fill="#fef3c7">「三百年前那句『称臣得体』的朱批，拨正的不是现代道德羞耻，而是外朝公器与八旗家产的正交坐标。」</text>
+  <text x="450" y="482" text-anchor="middle" font-size="12" fill="#a8a29e">台北故宫 022688 杨宗仁原折 · 曹家织造档案 · 百二十回《红楼梦》· Qwen3.8-27B ICA-Lens v3 实测</text>
+</svg>

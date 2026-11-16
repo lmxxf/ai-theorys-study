@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 390" width="820" height="390" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
+  <rect width="820" height="390" fill="#ffffff" />
+
+  <text x="410" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">百二十回《红楼梦》对勘鲁迅杂文：体面回话里的「奴才」就是无痛的「我」</text>
+  <text x="410" y="48" text-anchor="middle" font-size="12" fill="#4b5563">整部《红楼梦》在 v3 拟合与评测期均已预屏蔽零泄露 · 严格截取目标词左侧原著上文</text>
+
+  <!-- 左栏：贬损评价轴验光 -->
+  <rect x="26" y="68" width="380" height="302" rx="8" fill="#f8fafc" />
+  <rect x="26" y="68" width="5" height="302" rx="2" fill="#0284c7" />
+  <text x="46" y="92" font-size="13.5" font-weight="bold" fill="#0369a1">1. 调零后的贬损评价轴（L30 C846：侮辱 / 劣 / stupid）</text>
+  <text x="46" y="112" font-size="11.5" fill="#475569">自称组紧贴中性基线，唯主子翻脸痛骂与现代杂文高高拉升</text>
+
+  <text x="46" y="142" font-size="11.5" fill="#334155">贾府回话 A2</text>
+  <rect x="128" y="129" width="27" height="16" rx="3" fill="#38bdf8" />
+  <text x="162" y="142" font-size="11" font-weight="bold" fill="#0369a1">+1.93（林之孝 / 平儿 / 李贵）</text>
+
+  <text x="46" y="170" font-size="11.5" fill="#334155">清宫奏折 A1</text>
+  <rect x="128" y="157" width="28" height="16" rx="3" fill="#0ea5e9" />
+  <text x="163" y="170" font-size="11" font-weight="bold" fill="#0369a1">+2.02（曹家织造 / 杨宗仁折）</text>
+
+  <text x="46" y="198" font-size="11.5" font-weight="bold" fill="#b45309">贾府痛骂 B</text>
+  <rect x="128" y="185" width="100" height="16" rx="3" fill="#f59e0b" />
+  <text x="235" y="198" font-size="11" font-weight="bold" fill="#b45309">+7.19（贾政 / 探春怒斥）</text>
+
+  <text x="46" y="226" font-size="11.5" font-weight="bold" fill="#c2410c">雍正上谕斥责</text>
+  <rect x="128" y="213" width="113" height="16" rx="3" fill="#ea580c" />
+  <text x="248" y="226" font-size="11" font-weight="bold" fill="#c2410c">+8.10（包衣下贱奴才）</text>
+
+  <text x="46" y="254" font-size="11.5" font-weight="bold" fill="#b91c1c">鲁迅杂文批判</text>
+  <rect x="128" y="241" width="141" height="16" rx="3" fill="#dc2626" />
+  <text x="276" y="254" font-size="11" font-weight="bold" fill="#b91c1c">+10.07（五篇杂文）</text>
+
+  <rect x="46" y="274" width="342" height="80" rx="6" fill="#ffffff" />
+  <text x="58" y="294" font-size="11" font-weight="bold" fill="#0f172a">原位同句替换对账（最小配对检验）：</text>
+  <text x="58" y="313" font-size="10.5" fill="#334155">• 贾府自称换「小的」仅差 +0.28，比自称「下官」还低 -0.34；</text>
+  <text x="58" y="330" font-size="10.5" fill="#334155">• 奏折自称换「臣」仅差 +0.60（占现代正反差 3.7%，落入近零带）；</text>
+  <text x="58" y="347" font-size="10.5" fill="#64748b">• L18 C1376 贬损轴：奏折 0.00、贾府 -0.24；L45 原著差值跨 0。</text>
+
+  <!-- 右栏：第一人称代词冠军轴 -->
+  <rect x="420" y="68" width="374" height="302" rx="8" fill="#f0fdf4" />
+  <rect x="420" y="68" width="5" height="302" rx="2" fill="#16a34a" />
+  <text x="440" y="93" font-size="14.5" font-weight="bold" fill="#15803d">2. 原著内部 B − A2 无监督盲选：连续 20 层冠军同构</text>
+  <text x="440" y="112" font-size="11.5" fill="#475569">不喂任何外源词表，在 5,120 轴中盲选切开「痛骂 vs 回话」第 1 名</text>
+
+  <rect x="440" y="126" width="336" height="62" rx="6" fill="#dcfce7" />
+  <text x="608" y="147" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#166534">L29 C502 → L35 C416 → L42 C368 → L45 C523 → L48 C335</text>
+  <text x="608" y="168" text-anchor="middle" font-size="12" font-weight="bold" fill="#15803d">J-Lens 词牌清一色：myself / my / 我自己 / 我的 / I / 我</text>
+  <text x="608" y="183" text-anchor="middle" font-size="10.5" fill="#065f46">跨回目文档留出准确率：9 / 9（100% 切开）</text>
+
+  <rect x="440" y="202" width="336" height="84" rx="6" fill="#ffffff" />
+  <text x="452" y="223" font-size="11.5" font-weight="bold" fill="#15803d">平儿 / 林之孝平静回话自称（A2）：</text>
+  <text x="452" y="242" font-size="12" font-weight="bold" fill="#166534">代词轴读数高达 +13.35 至 +16.84（L48 达 17.59 幅度）</text>
+  <text x="452" y="264" font-size="11.5" font-weight="bold" fill="#b45309">贾政 / 探春 / 凤姐开口痛骂（B）：</text>
+  <text x="452" y="280" font-size="11.5" fill="#9a3412">代词轴瞬间跌回基线（+0.48 至 +1.17）</text>
+
+  <rect x="440" y="298" width="336" height="56" rx="6" fill="#ecfdf5" />
+  <text x="452" y="319" font-size="11" font-weight="bold" fill="#065f46">康雍乾旗人与包衣日常语感还原：</text>
+  <text x="452" y="338" font-size="11" fill="#111827">体面回话时并无人格羞辱，中深层已完全代词化为制度性的「我」</text>
+</svg>
