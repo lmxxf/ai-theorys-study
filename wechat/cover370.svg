@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#090d16" />
+      <stop offset="0.55" stop-color="#111827" />
+      <stop offset="1" stop-color="#1c1522" />
+    </linearGradient>
+    <linearGradient id="vramBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8" />
+      <stop offset="0.68" stop-color="#818cf8" />
+      <stop offset="1" stop-color="#f59e0b" />
+    </linearGradient>
+    <linearGradient id="filmGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.16" />
+      <stop offset="0.5" stop-color="#ec4899" stop-opacity="0.14" />
+      <stop offset="1" stop-color="#14b8a6" stop-opacity="0.18" />
+    </linearGradient>
+  </defs>
+
+  <!-- 实心渐变底 -->
+  <rect width="900" height="500" fill="url(#bg)" />
+
+  <!-- 顶栏徽标 -->
+  <rect x="46" y="30" width="244" height="28" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2" />
+  <text x="168" y="49" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fbbf24">LOCAL AI VIDEO STUDIO · No.370</text>
+  <text x="854" y="49" text-anchor="end" font-size="13.5" fill="#94a3b8">RTX 5090 (32GB GDDR7)  ×  MiniMax-H3  ×  ACE-Step 1.5</text>
+
+  <!-- 上半部：剪辑台时间轴面板 -->
+  <rect x="46" y="76" width="808" height="252" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+  <rect x="47" y="77" width="806" height="32" rx="11" fill="#1e293b" />
+  <circle cx="68" cy="93" r="5" fill="#ef4444" />
+  <circle cx="84" cy="93" r="5" fill="#f59e0b" />
+  <circle cx="100" cy="93" r="5" fill="#10b981" />
+  <text x="120" y="97" font-size="11.5" font-weight="bold" fill="#cbd5e1">TIMELINE: 《重生宗祠夜》 18 镜 × 10.1s = 03:02 (720p 有声成片)</text>
+
+  <!-- 刀尖显存监控小表 -->
+  <text x="732" y="97" text-anchor="end" font-size="11.5" font-weight="bold" fill="#fcd34d">VRAM 30.93 / 32.0 GiB (97%)</text>
+  <rect x="742" y="87" width="96" height="12" rx="6" fill="#090d16" stroke="#475569" stroke-width="1" />
+  <rect x="743" y="88" width="91" height="10" rx="5" fill="url(#vramBar)" />
+
+  <!-- 轨道 1：视频胶片轨 (V1) -->
+  <text x="64" y="146" font-size="12" font-weight="bold" fill="#38bdf8">V1 画面轨</text>
+  <text x="64" y="164" font-size="10.5" fill="#64748b">Ref2VA 锁脸</text>
+
+  <rect x="142" y="120" width="692" height="68" rx="6" fill="url(#filmGlow)" stroke="#475569" stroke-width="1" />
+  <!-- 上沿齿孔装饰 -->
+  <g fill="#334155">
+    <rect x="154" y="124" width="12" height="5" rx="1.5" /><rect x="184" y="124" width="12" height="5" rx="1.5" /><rect x="214" y="124" width="12" height="5" rx="1.5" /><rect x="244" y="124" width="12" height="5" rx="1.5" /><rect x="274" y="124" width="12" height="5" rx="1.5" />
+    <rect x="304" y="124" width="12" height="5" rx="1.5" /><rect x="334" y="124" width="12" height="5" rx="1.5" /><rect x="364" y="124" width="12" height="5" rx="1.5" /><rect x="394" y="124" width="12" height="5" rx="1.5" /><rect x="424" y="124" width="12" height="5" rx="1.5" />
+    <rect x="454" y="124" width="12" height="5" rx="1.5" /><rect x="484" y="124" width="12" height="5" rx="1.5" /><rect x="514" y="124" width="12" height="5" rx="1.5" /><rect x="544" y="124" width="12" height="5" rx="1.5" /><rect x="574" y="124" width="12" height="5" rx="1.5" />
+    <rect x="604" y="124" width="12" height="5" rx="1.5" /><rect x="634" y="124" width="12" height="5" rx="1.5" /><rect x="664" y="124" width="12" height="5" rx="1.5" /><rect x="694" y="124" width="12" height="5" rx="1.5" /><rect x="724" y="124" width="12" height="5" rx="1.5" />
+    <rect x="754" y="124" width="12" height="5" rx="1.5" /><rect x="784" y="124" width="12" height="5" rx="1.5" /><rect x="810" y="124" width="12" height="5" rx="1.5" />
+  </g>
+
+  <!-- 4 格代表性分镜卡 -->
+  <rect x="152" y="134" width="154" height="46" rx="5" fill="#1e293b" stroke="#f59e0b" stroke-width="1.3" />
+  <text x="163" y="153" font-size="11.5" font-weight="bold" fill="#fbbf24">热身：Wan 2.2 小狐狸</text>
+  <text x="163" y="171" font-size="10.5" fill="#94a3b8">14B 双专家轮班 · 纯哑巴</text>
+
+  <rect x="318" y="134" width="164" height="46" rx="5" fill="#1e293b" stroke="#38bdf8" stroke-width="1.3" />
+  <text x="329" y="153" font-size="11.5" font-weight="bold" fill="#7dd3fc">镜 02：金色系统觉醒</text>
+  <text x="329" y="171" font-size="10.5" fill="#cbd5e1">正楷汉字「天命守护系统」</text>
+
+  <rect x="494" y="134" width="168" height="46" rx="5" fill="#1e293b" stroke="#ec4899" stroke-width="1.3" />
+  <text x="505" y="153" font-size="11.5" font-weight="bold" fill="#f472b6">镜 10：排掉吊灯巨型刘海</text>
+  <text x="505" y="171" font-size="10.5" fill="#cbd5e1">全景图放第 1 槽定空间</text>
+
+  <rect x="674" y="134" width="150" height="46" rx="5" fill="#1e293b" stroke="#14b8a6" stroke-width="1.3" />
+  <text x="685" y="153" font-size="11.5" font-weight="bold" fill="#5eead4">镜 18：月夜花亭定情</text>
+  <text x="685" y="171" font-size="10.5" fill="#cbd5e1">3 人五官衣饰全程锁死</text>
+
+  <!-- 轨道 2：人声口型干轨 (A1) -->
+  <text x="64" y="220" font-size="12" font-weight="bold" fill="#fbbf24">A1 对白轨</text>
+  <text x="64" y="238" font-size="10.5" fill="#64748b">前干去口哨</text>
+  <rect x="142" y="198" width="692" height="48" rx="6" fill="#131c2e" stroke="#334155" stroke-width="1" />
+  <!-- 语音波形柱（全部在 x=165..475，右侧留净空给文字） -->
+  <g fill="#f59e0b">
+    <rect x="165" y="218" width="4" height="8" rx="1"/><rect x="175" y="212" width="4" height="20" rx="1"/><rect x="185" y="206" width="4" height="32" rx="1"/><rect x="195" y="214" width="4" height="16" rx="1"/><rect x="205" y="220" width="4" height="4" rx="1"/>
+    <rect x="248" y="210" width="4" height="24" rx="1"/><rect x="258" y="204" width="4" height="36" rx="1"/><rect x="268" y="208" width="4" height="28" rx="1"/><rect x="278" y="215" width="4" height="14" rx="1"/>
+    <rect x="335" y="213" width="4" height="18" rx="1"/><rect x="345" y="205" width="4" height="34" rx="1"/><rect x="355" y="203" width="4" height="38" rx="1"/><rect x="365" y="209" width="4" height="26" rx="1"/><rect x="375" y="216" width="4" height="12" rx="1"/>
+    <rect x="432" y="208" width="4" height="28" rx="1"/><rect x="442" y="203" width="4" height="38" rx="1"/><rect x="452" y="206" width="4" height="32" rx="1"/><rect x="462" y="214" width="4" height="16" rx="1"/>
+  </g>
+  <text x="822" y="227" text-anchor="end" font-size="11" fill="#fde68a">洗掉 whistling 口哨词 · 直出干净普通话口型</text>
+
+  <!-- 轨道 3：交响配乐闪避轨 (A2) -->
+  <text x="64" y="280" font-size="12" font-weight="bold" fill="#34d399">A2 配乐轨</text>
+  <text x="64" y="298" font-size="10.5" fill="#64748b">后湿闪避混音</text>
+  <rect x="142" y="256" width="692" height="54" rx="6" fill="#0f2222" stroke="#115e59" stroke-width="1" />
+  <!-- 侧链闪避包络曲线（人声处自动压低，空隙处涌起） -->
+  <path d="M 148 296 L 160 272 L 172 294 L 208 294 L 224 268 L 240 268 L 252 294 L 285 294 L 308 266 L 328 266 L 340 294 L 382 294 L 406 265 L 424 265 L 436 294 L 470 294 L 502 264 L 826 264 L 826 304 L 148 304 Z" fill="#10b981" fill-opacity="0.24" />
+  <path d="M 148 296 L 160 272 L 172 294 L 208 294 L 224 268 L 240 268 L 252 294 L 285 294 L 308 266 L 328 266 L 340 294 L 382 294 L 406 265 L 424 265 L 436 294 L 470 294 L 502 264 L 826 264" fill="none" stroke="#34d399" stroke-width="2" />
+  <text x="822" y="295" text-anchor="end" font-size="11" fill="#6ee7b7">ACE-Step 9.4 秒出交响曲 + FFmpeg 侧链自动避让人声</text>
+
+  <!-- 红色播放指针 -->
+  <line x1="488" y1="109" x2="488" y2="318" stroke="#ef4444" stroke-width="2" />
+  <polygon points="482,109 494,109 488,118" fill="#ef4444" />
+
+  <!-- 底部主标题区 -->
+  <text x="46" y="384" font-size="31" font-weight="bold" fill="#f8fafc">从哑巴小狐狸到 3 分钟有声国漫爽剧</text>
+  <text x="46" y="424" font-size="18.5" fill="#cbd5e1">我在 RTX 5090 上让 AI 自动制片的一天：ComfyUI 显存换班与联合生成排雷实录</text>
+  <line x1="46" y1="452" x2="854" y2="452" stroke="#334155" stroke-width="1.5" />
+  <text x="46" y="476" font-size="13" fill="#64748b">靳岩岩的 AI 学习笔记</text>
+  <text x="854" y="476" text-anchor="end" font-size="13" fill="#fbbf24">64GB RAM ↔ 32GB VRAM 轮班  ｜  排掉「寒风吹口哨」与「刘海挂吊灯」</text>
+</svg>
