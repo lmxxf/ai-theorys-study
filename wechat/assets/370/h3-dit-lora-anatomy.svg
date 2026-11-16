@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 420" width="840" height="420" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif" style="background-color:#ffffff;">
+  <rect width="840" height="420" fill="#ffffff" />
+
+  <!-- 标题 -->
+  <text x="420" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">扒开权重文件头：1.82 GiB 的「4 步加速 LoRA」到底挂在什么样的网络上？</text>
+  <text x="420" y="50" text-anchor="middle" font-size="12" fill="#4b5563">MiniMax-H3 本质是 50 层 5376 维 Transformer ｜ LoRA 并联在每层 4 块线性矩阵旁，把整座大楼循环从 40 趟砍成 4 趟</text>
+
+  <defs>
+    <marker id="arrDark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" />
+    </marker>
+    <marker id="arrAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#d97706" />
+    </marker>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb" />
+    </marker>
+  </defs>
+
+  <!-- ================= 左半区：宏观 50 层大楼循环次数对比 ================= -->
+  <rect x="24" y="72" width="336" height="324" rx="8" fill="#f8fafc" />
+  <rect x="24" y="72" width="4" height="324" rx="2" fill="#2563eb" />
+
+  <text x="42" y="97" font-size="14" font-weight="bold" fill="#1e3a8a">① 宏观视角：跟 LLM 同构的 50 层大楼</text>
+  <text x="42" y="116" font-size="11.5" fill="#475569">把画面块 + 声音块全投成 5376 维向量一锅炖</text>
+
+  <!-- 输入层 -->
+  <rect x="52" y="132" width="256" height="38" rx="6" fill="#eff6ff" />
+  <text x="180" y="149" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1d4ed8">三维画面块 + 音频块 + 角色台词条件</text>
+  <text x="180" y="164" text-anchor="middle" font-size="10.5" fill="#64748b">统一投影对齐至 d = 5,376 维（含 2 层 Refiner）</text>
+
+  <line x1="180" y1="170" x2="180" y2="188" stroke="#475569" stroke-width="1.6" marker-end="url(#arrDark)" />
+
+  <!-- 50 层 DiT 主干 -->
+  <rect x="52" y="192" width="256" height="106" rx="6" fill="#eef2ff" />
+  <rect x="52" y="192" width="256" height="4" rx="2" fill="#4f46e5" />
+  <text x="180" y="216" text-anchor="middle" font-size="13" font-weight="bold" fill="#312e81">50 层音视频 Transformer (blocks.0..49)</text>
+  <text x="180" y="236" text-anchor="middle" font-size="11" fill="#4338ca">每层结构与 LLM 完全一致：Attention + SwiGLU MLP</text>
+  <text x="180" y="256" text-anchor="middle" font-size="11" fill="#374151">原厂主干 INT8：19.53 GiB</text>
+  <text x="180" y="275" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">+ 外挂 208 处加速 LoRA (BF16)：1.82 GiB</text>
+
+  <!-- 右侧循环回环箭头 -->
+  <path d="M 308 268 L 336 268 L 336 216 L 314 216" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrAmber)" />
+
+  <line x1="180" y1="298" x2="180" y2="316" stroke="#475569" stroke-width="1.6" marker-end="url(#arrDark)" />
+
+  <!-- 为什么省时间账本 -->
+  <rect x="42" y="322" width="298" height="60" rx="6" fill="#fffbeb" />
+  <text x="54" y="342" font-size="11.5" fill="#78350f">• 没挂 LoRA：20 步 × 正负词各一遍 = 跑 40 遍前向</text>
+  <text x="54" y="362" font-size="11.5" font-weight="bold" fill="#b45309">• 挂上 LoRA：单遍仅多约 4%，但一共只跑 4 遍前向</text>
+
+  <!-- 放大连接虚线 -->
+  <line x1="308" y1="202" x2="386" y2="92" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="308" y1="292" x2="386" y2="382" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3" />
+
+  <!-- ================= 右半区：微观放大单层线性矩阵与 LoRA 并联 ================= -->
+  <rect x="386" y="72" width="430" height="324" rx="8" fill="#f8fafc" />
+  <rect x="386" y="72" width="4" height="324" rx="2" fill="#d97706" />
+
+  <text x="404" y="97" font-size="14" font-weight="bold" fill="#92400e">② 放大其中 1 层：LoRA 并联在全部 4 块线性层旁</text>
+  <text x="404" y="116" font-size="11.5" fill="#475569">单层挂满 4 处：attn.qkv_proj / attn.out_proj / mlp.fc1 / mlp.fc2</text>
+
+  <!-- 以单块线性层为例的并联图 -->
+  <!-- 输入向量 x -->
+  <rect x="406" y="188" width="68" height="54" rx="6" fill="#e2e8f0" />
+  <text x="440" y="211" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e293b">输入 x</text>
+  <text x="440" y="229" text-anchor="middle" font-size="10.5" fill="#475569">[N, 5376]</text>
+
+  <!-- 分流到上路（冻结 INT8 大矩阵） -->
+  <path d="M 474 204 L 502 204 L 502 162 L 522 162" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrBlue)" />
+  <rect x="526" y="132" width="194" height="60" rx="6" fill="#dbeafe" />
+  <text x="623" y="154" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">冻结原厂主路权重 W (INT8)</text>
+  <text x="623" y="172" text-anchor="middle" font-size="10.5" fill="#1e3a8a">如 mlp.fc1: 5,376 → 28,672</text>
+  <text x="623" y="186" text-anchor="middle" font-size="10" fill="#3b82f6">跑原本弯曲的 20 步基础方向</text>
+
+  <!-- 分流到下路（外挂 BF16 低秩 LoRA A -> B） -->
+  <path d="M 474 226 L 502 226 L 502 268 L 522 268" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrAmber)" />
+  <rect x="526" y="232" width="88" height="68" rx="6" fill="#fef3c7" />
+  <text x="570" y="253" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#92400e">降维 lora_A</text>
+  <text x="570" y="270" text-anchor="middle" font-size="10.5" fill="#78350f">5376 → 128</text>
+  <text x="570" y="286" text-anchor="middle" font-size="10" fill="#b45309">(BF16 窄门)</text>
+
+  <line x1="614" y1="266" x2="628" y2="266" stroke="#d97706" stroke-width="2" marker-end="url(#arrAmber)" />
+
+  <rect x="632" y="232" width="88" height="68" rx="6" fill="#fde68a" />
+  <text x="676" y="253" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#92400e">升维 lora_B</text>
+  <text x="676" y="270" text-anchor="middle" font-size="10.5" fill="#78350f">128 → 28672</text>
+  <text x="676" y="286" text-anchor="middle" font-size="10" fill="#b45309">(修直轨迹捷径)</text>
+
+  <!-- 两路汇合相加 (+) -->
+  <path d="M 720 162 L 748 162 L 748 197" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrBlue)" />
+  <path d="M 720 266 L 748 266 L 748 233" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrAmber)" />
+
+  <circle cx="748" cy="215" r="14" fill="#10b981" />
+  <text x="748" y="221" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">+</text>
+
+  <line x1="762" y1="215" x2="776" y2="215" stroke="#475569" stroke-width="1.8" marker-end="url(#arrDark)" />
+  <text x="796" y="212" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#065f46">输出 y</text>
+  <text x="796" y="228" text-anchor="middle" font-size="10" fill="#475569">1大步到位</text>
+
+  <!-- 右下实盘核验注脚 -->
+  <rect x="404" y="318" width="394" height="64" rx="6" fill="#f1f5f9" />
+  <text x="416" y="338" font-size="11" font-weight="bold" fill="#334155">真机 safetensors 实盘账目（共 624 个张量 = 1.82 GiB）：</text>
+  <text x="416" y="356" font-size="10.5" fill="#475569">• 覆盖全部 50 层主干 + 2 层文本精炼器 × 每层 4 块矩阵 = 208 处并联旁路</text>
+  <text x="416" y="373" font-size="10.5" fill="#475569">• 瓶颈秩 r = 128（三合一 qkv_proj 为 r = 384）：一插即 4 步出片，一拔即回退 20 步</text>
+</svg>
