@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 485" width="860" height="485" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
+  <rect width="860" height="485" fill="#ffffff" />
+  <text x="430.0" y="27" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">第 42 层（L42 C1992）：纯中文挑出的轴，零样本切开 15 对同词袋英文句子</text>
+  <text x="430.0" y="47" text-anchor="middle" font-size="11.5" fill="#4b5563">每对英文句子单词出现频次 100% 相同、句末停在同一个英文词，仅互换候选人跟父姓还是跟母姓（15/15 全向右弹起）</text>
+
+  <!-- 图例 -->
+  <circle cx="265" cy="70" r="5.5" fill="#2563eb" />
+  <text x="276" y="74" font-size="11.2" font-weight="bold" fill="#1e40af">跟父亲同姓（如 Robert Miller is my uncle）</text>
+  <circle cx="555" cy="70" r="5.5" fill="#16a34a" />
+  <text x="566" y="74" font-size="11.2" font-weight="bold" fill="#15803d">跟母亲娘家同姓（如 Robert Clark is my uncle）</text>
+
+  <line x1="250.0" y1="90.0" x2="250.0" y2="438.0" stroke="#94a3b8" stroke-width="1" />
+  <text x="250.0" y="456.0" text-anchor="middle" font-size="10.8" fill="#475569">z = 0</text>
+  <line x1="325.0" y1="90.0" x2="325.0" y2="438.0" stroke="#e2e8f0" stroke-width="1" />
+  <text x="325.0" y="456.0" text-anchor="middle" font-size="10.8" fill="#475569">z = 2</text>
+  <line x1="400.0" y1="90.0" x2="400.0" y2="438.0" stroke="#e2e8f0" stroke-width="1" />
+  <text x="400.0" y="456.0" text-anchor="middle" font-size="10.8" fill="#475569">z = 4</text>
+  <line x1="475.0" y1="90.0" x2="475.0" y2="438.0" stroke="#e2e8f0" stroke-width="1" />
+  <text x="475.0" y="456.0" text-anchor="middle" font-size="10.8" fill="#475569">z = 6</text>
+  <line x1="550.0" y1="90.0" x2="550.0" y2="438.0" stroke="#e2e8f0" stroke-width="1" />
+  <text x="550.0" y="456.0" text-anchor="middle" font-size="10.8" fill="#475569">z = 8</text>
+  <line x1="625.0" y1="90.0" x2="625.0" y2="438.0" stroke="#e2e8f0" stroke-width="1" />
+  <text x="625.0" y="456.0" text-anchor="middle" font-size="10.8" fill="#475569">z = 10</text>
+  <line x1="700.0" y1="90.0" x2="700.0" y2="438.0" stroke="#e2e8f0" stroke-width="1" />
+  <text x="700.0" y="456.0" text-anchor="middle" font-size="10.8" fill="#475569">z = 12</text>
+  <line x1="775.0" y1="90.0" x2="775.0" y2="438.0" stroke="#e2e8f0" stroke-width="1" />
+  <text x="775.0" y="456.0" text-anchor="middle" font-size="10.8" fill="#475569">z = 14</text>
+  <text x="30" y="111.4" font-size="11" font-weight="bold" fill="#0f766e">uncle 组 (5/5, d=7.49)</text>
+  <text x="240" y="111.4" text-anchor="end" font-size="10.8" fill="#334155">Harris/Scott</text>
+  <line x1="534.8" y1="107.4" x2="718.1" y2="107.4" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="534.8" cy="107.4" r="5.0" fill="#2563eb" />
+  <circle cx="718.1" cy="107.4" r="5.0" fill="#16a34a" />
+  <text x="527.8" y="111.2" text-anchor="end" font-size="9.6" fill="#1e40af">7.59</text>
+  <text x="725.1" y="111.2" font-size="9.6" font-weight="bold" fill="#15803d">12.48</text>
+  <text x="240" y="134.2" text-anchor="end" font-size="10.8" fill="#334155">Miller/Clark</text>
+  <line x1="516.7" y1="130.2" x2="721.4" y2="130.2" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="516.7" cy="130.2" r="5.0" fill="#2563eb" />
+  <circle cx="721.4" cy="130.2" r="5.0" fill="#16a34a" />
+  <text x="509.70000000000005" y="134.0" text-anchor="end" font-size="9.6" fill="#1e40af">7.11</text>
+  <text x="728.4" y="134.0" font-size="9.6" font-weight="bold" fill="#15803d">12.57</text>
+  <text x="240" y="157.0" text-anchor="end" font-size="10.8" fill="#334155">Taylor/Morgan</text>
+  <line x1="544.0" y1="153.0" x2="685.4" y2="153.0" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="544.0" cy="153.0" r="5.0" fill="#2563eb" />
+  <circle cx="685.4" cy="153.0" r="5.0" fill="#16a34a" />
+  <text x="537.0" y="156.8" text-anchor="end" font-size="9.6" fill="#1e40af">7.84</text>
+  <text x="692.4" y="156.8" font-size="9.6" font-weight="bold" fill="#15803d">11.61</text>
+  <text x="240" y="179.8" text-anchor="end" font-size="10.8" fill="#334155">Walker/Reed</text>
+  <line x1="461.3" y1="175.8" x2="739.0" y2="175.8" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="461.3" cy="175.8" r="5.0" fill="#2563eb" />
+  <circle cx="739.0" cy="175.8" r="5.0" fill="#16a34a" />
+  <text x="454.3" y="179.60000000000002" text-anchor="end" font-size="9.6" fill="#1e40af">5.64</text>
+  <text x="746.0" y="179.60000000000002" font-size="9.6" font-weight="bold" fill="#15803d">13.04</text>
+  <text x="240" y="202.6" text-anchor="end" font-size="10.8" fill="#334155">Wilson/Baker</text>
+  <line x1="520.7" y1="198.6" x2="710.7" y2="198.6" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="520.7" cy="198.6" r="5.0" fill="#2563eb" />
+  <circle cx="710.7" cy="198.6" r="5.0" fill="#16a34a" />
+  <text x="513.7" y="202.4" text-anchor="end" font-size="9.6" fill="#1e40af">7.22</text>
+  <text x="717.7" y="202.4" font-size="9.6" font-weight="bold" fill="#15803d">12.28</text>
+  <line x1="30" y1="210.0" x2="805.0" y2="210.0" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="4 3" />
+  <text x="30" y="225.4" font-size="11" font-weight="bold" fill="#0f766e">aunt 组 (5/5, d=2.68)</text>
+  <text x="240" y="225.4" text-anchor="end" font-size="10.8" fill="#334155">Harris/Scott</text>
+  <line x1="469.8" y1="221.4" x2="566.5" y2="221.4" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="469.8" cy="221.4" r="5.0" fill="#2563eb" />
+  <circle cx="566.5" cy="221.4" r="5.0" fill="#16a34a" />
+  <text x="462.8" y="225.20000000000002" text-anchor="end" font-size="9.6" fill="#1e40af">5.86</text>
+  <text x="573.5" y="225.20000000000002" font-size="9.6" font-weight="bold" fill="#15803d">8.44</text>
+  <text x="240" y="248.2" text-anchor="end" font-size="10.8" fill="#334155">Miller/Clark</text>
+  <line x1="431.4" y1="244.2" x2="570.9" y2="244.2" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="431.4" cy="244.2" r="5.0" fill="#2563eb" />
+  <circle cx="570.9" cy="244.2" r="5.0" fill="#16a34a" />
+  <text x="424.4" y="248.0" text-anchor="end" font-size="9.6" fill="#1e40af">4.84</text>
+  <text x="577.9" y="248.0" font-size="9.6" font-weight="bold" fill="#15803d">8.56</text>
+  <text x="240" y="271.0" text-anchor="end" font-size="10.8" fill="#334155">Taylor/Morgan</text>
+  <line x1="499.9" y1="267.0" x2="530.2" y2="267.0" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="499.9" cy="267.0" r="5.0" fill="#2563eb" />
+  <circle cx="530.2" cy="267.0" r="5.0" fill="#16a34a" />
+  <text x="492.9" y="270.8" text-anchor="end" font-size="9.6" fill="#1e40af">6.67</text>
+  <text x="537.2" y="270.8" font-size="9.6" font-weight="bold" fill="#15803d">7.47</text>
+  <text x="240" y="293.8" text-anchor="end" font-size="10.8" fill="#334155">Walker/Reed</text>
+  <line x1="397.3" y1="289.8" x2="497.6" y2="289.8" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="397.3" cy="289.8" r="5.0" fill="#2563eb" />
+  <circle cx="497.6" cy="289.8" r="5.0" fill="#16a34a" />
+  <text x="390.3" y="293.6" text-anchor="end" font-size="9.6" fill="#1e40af">3.93</text>
+  <text x="504.6" y="293.6" font-size="9.6" font-weight="bold" fill="#15803d">6.60</text>
+  <text x="240" y="316.6" text-anchor="end" font-size="10.8" fill="#334155">Wilson/Baker</text>
+  <line x1="453.6" y1="312.6" x2="552.3" y2="312.6" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="453.6" cy="312.6" r="5.0" fill="#2563eb" />
+  <circle cx="552.3" cy="312.6" r="5.0" fill="#16a34a" />
+  <text x="446.6" y="316.40000000000003" text-anchor="end" font-size="9.6" fill="#1e40af">5.43</text>
+  <text x="559.3" y="316.40000000000003" font-size="9.6" font-weight="bold" fill="#15803d">8.06</text>
+  <line x1="30" y1="324.0" x2="805.0" y2="324.0" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="4 3" />
+  <text x="30" y="339.4" font-size="11" font-weight="bold" fill="#0f766e">cousin 组 (5/5, d=14.77)</text>
+  <text x="240" y="339.4" text-anchor="end" font-size="10.8" fill="#334155">Harris/Scott</text>
+  <line x1="324.6" y1="335.4" x2="406.7" y2="335.4" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="324.6" cy="335.4" r="5.0" fill="#2563eb" />
+  <circle cx="406.7" cy="335.4" r="5.0" fill="#16a34a" />
+  <text x="317.6" y="339.2" text-anchor="end" font-size="9.6" fill="#1e40af">1.99</text>
+  <text x="413.7" y="339.2" font-size="9.6" font-weight="bold" fill="#15803d">4.18</text>
+  <text x="240" y="362.2" text-anchor="end" font-size="10.8" fill="#334155">Miller/Clark</text>
+  <line x1="324.5" y1="358.2" x2="415.9" y2="358.2" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="324.5" cy="358.2" r="5.0" fill="#2563eb" />
+  <circle cx="415.9" cy="358.2" r="5.0" fill="#16a34a" />
+  <text x="317.5" y="362.0" text-anchor="end" font-size="9.6" fill="#1e40af">1.99</text>
+  <text x="422.9" y="362.0" font-size="9.6" font-weight="bold" fill="#15803d">4.42</text>
+  <text x="240" y="385.0" text-anchor="end" font-size="10.8" fill="#334155">Taylor/Morgan</text>
+  <line x1="325.6" y1="381.0" x2="412.1" y2="381.0" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="325.6" cy="381.0" r="5.0" fill="#2563eb" />
+  <circle cx="412.1" cy="381.0" r="5.0" fill="#16a34a" />
+  <text x="318.6" y="384.8" text-anchor="end" font-size="9.6" fill="#1e40af">2.01</text>
+  <text x="419.1" y="384.8" font-size="9.6" font-weight="bold" fill="#15803d">4.32</text>
+  <text x="240" y="407.8" text-anchor="end" font-size="10.8" fill="#334155">Walker/Reed</text>
+  <line x1="311.1" y1="403.8" x2="404.2" y2="403.8" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="311.1" cy="403.8" r="5.0" fill="#2563eb" />
+  <circle cx="404.2" cy="403.8" r="5.0" fill="#16a34a" />
+  <text x="304.1" y="407.6" text-anchor="end" font-size="9.6" fill="#1e40af">1.63</text>
+  <text x="411.2" y="407.6" font-size="9.6" font-weight="bold" fill="#15803d">4.11</text>
+  <text x="240" y="430.6" text-anchor="end" font-size="10.8" fill="#334155">Wilson/Baker</text>
+  <line x1="314.7" y1="426.6" x2="404.2" y2="426.6" stroke="#86efac" stroke-width="2.6" />
+  <circle cx="314.7" cy="426.6" r="5.0" fill="#2563eb" />
+  <circle cx="404.2" cy="426.6" r="5.0" fill="#16a34a" />
+  <text x="307.7" y="430.40000000000003" text-anchor="end" font-size="9.6" fill="#1e40af">1.72</text>
+  <text x="411.2" y="430.40000000000003" font-size="9.6" font-weight="bold" fill="#15803d">4.11</text>
+  <text x="527.5" y="472" text-anchor="middle" font-size="10.8" fill="#64748b">L42 C1992（42/64 = 65.6% 三分之二层，由 3 对中文父辈词选出）在末词元上的真实激活读数 z</text>
+</svg>
