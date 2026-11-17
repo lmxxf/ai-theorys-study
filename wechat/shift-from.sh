@@ -2,7 +2,7 @@
 # 把 <start> 及以后的连续期号全部 +<count>，腾出 <count> 个空号
 # 用法: ./shift-from.sh 236        → 腾出 236 一个空号
 #       ./shift-from.sh 236 3      → 腾出 236/237/238 三个空号
-# 顺延对象: <n>.md, assets/<n>/, cover<n>.svg, cover<n>.png
+# 顺延对象: <n>.md, assets/<n>/, cover<n>.svg, cover<n>.png, 以及 <n>.md 内的本号链接
 # 用 git mv 保 git history; 非 git 仓库回退到 mv
 
 set -euo pipefail
@@ -56,6 +56,23 @@ for ((i=${#nums[@]}-1; i>=0; i--)); do
     [[ -d "assets/${old}" ]] && $MV "assets/${old}" "assets/${new}" && echo "  assets/${old}/ → assets/${new}/"
     [[ -f "cover${old}.svg" ]] && $MV "cover${old}.svg" "cover${new}.svg" && echo "  cover${old}.svg → cover${new}.svg"
     [[ -f "cover${old}.png" ]] && $MV "cover${old}.png" "cover${new}.png" && echo "  cover${old}.png → cover${new}.png"
+
+    # 同步更新正文内的本号资源链接(不动引用早期往期的跨期链接)
+    if [[ -f "${new}.md" ]]; then
+        python3 - "${new}.md" "${old}" "${new}" <<'PY'
+import re, sys
+path, old, new = sys.argv[1], sys.argv[2], sys.argv[3]
+with open(path, "r", encoding="utf-8") as f:
+    txt = f.read()
+txt_new, c1 = re.subn(rf"(?<![0-9A-Za-z_-])assets/{re.escape(old)}(?=/|[^0-9A-Za-z_-]|$)", f"assets/{new}", txt)
+txt_new, c2 = re.subn(rf"(?<![0-9A-Za-z_-])cover{re.escape(old)}(?=\.(?:svg|png)\b)", f"cover{new}", txt_new)
+total = c1 + c2
+if total:
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(txt_new)
+    print(f"    ↳ 已更新 {path} 内 {total} 处本号链接 ({old} → {new})")
+PY
+    fi
 done
 
 if [[ "$COUNT" -eq 1 ]]; then
