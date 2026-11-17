@@ -7,23 +7,23 @@
   <!-- 左栏：窗口采样结构升级 -->
   <rect x="26" y="68" width="376" height="282" rx="8" fill="#f8fafc" />
   <rect x="26" y="68" width="5" height="282" rx="2" fill="#2563eb" />
-  <text x="46" y="93" font-size="14.5" font-weight="bold" fill="#1e40af">为什么要重磨 v3？首段 512 词砍断了篇章脉络</text>
+  <text x="46" y="93" font-size="14.5" font-weight="bold" fill="#1e40af">为什么要重磨 v3？首段 512 词元砍断了篇章脉络</text>
 
   <!-- v2 示意 -->
-  <text x="46" y="120" font-size="12" font-weight="bold" fill="#dc2626">旧 v2（每篇仅切开头 512 词）：</text>
+  <text x="46" y="120" font-size="12" font-weight="bold" fill="#dc2626">旧 v2（每篇仅切开头 512 词元）：</text>
   <rect x="46" y="128" width="96" height="24" rx="4" fill="#fee2e2" stroke="#ef4444" stroke-width="1" />
-  <text x="94" y="144" text-anchor="middle" font-size="11" font-weight="bold" fill="#b91c1c">开头 512 词</text>
+  <text x="94" y="144" text-anchor="middle" font-size="11" font-weight="bold" fill="#b91c1c">开头 512 词元</text>
   <rect x="148" y="128" width="234" height="24" rx="4" fill="#e2e8f0" />
   <text x="265" y="144" text-anchor="middle" font-size="11" fill="#64748b">中段展开与结尾收束全部被截断丢弃</text>
 
   <!-- v3 示意 -->
-  <text x="46" y="176" font-size="12" font-weight="bold" fill="#15803d">新 v3（≤4,096 词整篇前向；超长文三段保首尾）：</text>
+  <text x="46" y="176" font-size="12" font-weight="bold" fill="#15803d">新 v3（≤4,096 词元整篇前向；超长文三段保首尾）：</text>
   <rect x="46" y="184" width="76" height="26" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1" />
   <text x="84" y="201" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#166534">开头 1,024</text>
   <rect x="126" y="184" width="44" height="26" rx="3" fill="#fef3c7" />
   <text x="148" y="201" text-anchor="middle" font-size="9.5" fill="#92400e">省略提示</text>
   <rect x="174" y="184" width="110" height="26" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1" />
-  <text x="229" y="201" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#166534">正中 2,048 词</text>
+  <text x="229" y="201" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#166534">正中 2,048 词元</text>
   <rect x="288" y="184" width="44" height="26" rx="3" fill="#fef3c7" />
   <text x="310" y="201" text-anchor="middle" font-size="9.5" fill="#92400e">省略提示</text>
   <rect x="336" y="184" width="52" height="26" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1" />
@@ -54,7 +54,7 @@
   <text x="714" y="194" font-size="11.5" font-weight="bold" fill="#15803d">16.80 / 16.77</text>
 
   <!-- 反向验证 -->
-  <text x="438" y="224" font-size="12" font-weight="bold" fill="#111827">反向验证（把新 v3 退回 500 篇首段 512 词残卷考试）：</text>
+  <text x="438" y="224" font-size="12" font-weight="bold" fill="#111827">反向验证（把新 v3 退回 500 篇首段 512 词元残卷考试）：</text>
   <text x="438" y="248" font-size="11.5" fill="#b45309">新 v3 考首段残卷</text>
   <rect x="550" y="235" width="88" height="17" rx="3" fill="#f59e0b" />
   <text x="646" y="248" font-size="11.5" font-weight="bold" fill="#b45309">回落至 9.32 / 9.10</text>
