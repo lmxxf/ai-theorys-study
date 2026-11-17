@@ -57,11 +57,11 @@
 
   <!-- 第三幕 -->
   <rect x="304" y="330" width="556" height="92" rx="12" fill="#072e22" stroke="#10b981" stroke-width="1.5" />
-  <text x="322" y="356" font-size="14.5" font-weight="bold" fill="#6ee7b7">第三幕 · 2×2 加测：陕北祖祠放大中文「亲戚」，英文 uncle 瞬间抹平</text>
-  <text x="322" y="379" font-size="11.3" fill="#ecfdf5">在 L42 C1992 上，中文「亲戚」从现代聚会第 16 名进陕北祖祠跃居本层第 2 名（10/10 全对）</text>
-  <text x="322" y="401" font-size="11.5" font-weight="bold" fill="#34d399">同一聚会与祖祠句末换英文 uncle，叔舅差值瞬间塌回第 4,219 与第 879 名（L25: 10.53 vs 10.47）</text>
+  <text x="322" y="356" font-size="14.5" font-weight="bold" fill="#6ee7b7">第三幕 · 两步加测：把「叔叔舅舅」拍在脸上，英文 uncle 照样抹平内外差</text>
+  <text x="322" y="379" font-size="11.4" fill="#ecfdf5">纯英文明牌 father's vs mother's brother：五类十根柱子两两齐平（L25: 10.53 vs 10.47）</text>
+  <text x="322" y="401" font-size="11.5" font-weight="bold" fill="#34d399">前文全换白话中文、句末留英文 uncle：L42 C1992 照样死线（Δ=+0.02，第 4,219/5,120 名）</text>
 
   <!-- 底部金句 -->
-  <text x="450" y="458" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#f8fafc">「祖祠把中文『亲戚』推上第 2 名，英文 uncle 瞬间抹平内外差——大模型本没有国籍。」</text>
+  <text x="450" y="458" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#f8fafc">「中文词条切开内外，英文 uncle 瞬间拉平——大模型本没有国籍，频道切哪就是谁。」</text>
   <text x="450" y="482" text-anchor="middle" font-size="12" fill="#64748b">Qwen3.8-27B 全 64 层完整篇章 ICA-Lens v3 × N=100 J-Lens · 亲属词跨文化与语境消融实测</text>
 </svg>
