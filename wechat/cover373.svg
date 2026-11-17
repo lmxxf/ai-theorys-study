@@ -57,11 +57,11 @@
 
   <!-- 第三幕 -->
   <rect x="304" y="330" width="556" height="92" rx="12" fill="#072e22" stroke="#10b981" stroke-width="1.5" />
-  <text x="322" y="356" font-size="14.5" font-weight="bold" fill="#6ee7b7">第三幕 · 把「叔叔舅舅」拍在脸上，英文 uncle 依然无动于衷</text>
-  <text x="322" y="379" font-size="11.5" fill="#ecfdf5">明牌写 father's vs mother's brother，L25 宗法轴读数 10.53 vs 10.47（Δ=-0.06 死线拉平）</text>
-  <text x="322" y="401" font-size="12" font-weight="bold" fill="#34d399">五类英文亲属十根柱子两两齐平（|Δ|≤0.15）——大模型本无国籍，语境即立场</text>
+  <text x="322" y="356" font-size="14.5" font-weight="bold" fill="#6ee7b7">第三幕 · 日常聚会拍脸无感 vs 「陕北小山村祠堂」的第 42 层唤醒</text>
+  <text x="322" y="379" font-size="11.5" fill="#ecfdf5">日常聚会明牌 father's vs mother's brother：L25 (10.53 vs 10.47) 与 L42 (第 4,219 名) 全躺平</text>
+  <text x="322" y="401" font-size="11.8" font-weight="bold" fill="#34d399">换「陕北老村宗祠分席」语境：L25 词典层仍不动，L42 C1992 飙至第 1–2 名（uncle 10/10 切开）</text>
 
   <!-- 底部金句 -->
-  <text x="450" y="458" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#f8fafc">「把叔叔舅舅拍在脸上，英文语境照样无动于衷——大模型是没有国籍的，语境是谁就是谁。」</text>
-  <text x="450" y="482" text-anchor="middle" font-size="12" fill="#64748b">Qwen3.8-27B 全 64 层完整篇章 ICA-Lens v3 × N=100 J-Lens · 260 条零模板裸文本探针实测</text>
+  <text x="450" y="458" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#f8fafc">「日常聚会对 uncle 无动于衷，走进陕北祠堂瞬间分清内外——大模型本无国籍，语境是谁就是谁。」</text>
+  <text x="450" y="482" text-anchor="middle" font-size="12" fill="#64748b">Qwen3.8-27B 全 64 层完整篇章 ICA-Lens v3 × N=100 J-Lens · 亲属词跨文化与语境消融实测</text>
 </svg>
