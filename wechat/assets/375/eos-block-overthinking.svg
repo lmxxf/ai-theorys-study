@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" width="820" height="430" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" style="background-color:#ffffff;">
+  <rect width="820" height="430" fill="#ffffff" />
+
+  <text x="410" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">推翻原猜想的反例：焊死停止符 EOS 后，27B 大模型为何不兜低秩死圈？</text>
+  <text x="410" y="48" text-anchor="middle" font-size="12" fill="#4b5563">同前缀因果干预（题目：计算 23+19，只写最后的数值）· 第 32 层真实生成轨迹与固定重复对照</text>
+
+  <!-- 左栏：自然停靠 -->
+  <rect x="24" y="68" width="236" height="224" rx="8" fill="#f0fdf4" />
+  <rect x="24" y="68" width="236" height="5" rx="2" fill="#16a34a" />
+  <text x="40" y="95" font-size="14" font-weight="bold" fill="#15803d">① 自然解码：一步到港下锚</text>
+  <text x="40" y="118" font-size="11.5" fill="#334155">生成 3 个词元即输出正确结果：</text>
+  <rect x="40" y="128" width="204" height="32" rx="5" fill="#ffffff" />
+  <text x="142" y="149" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#15803d">「42」 + 主动提议 EOS</text>
+  <text x="40" y="182" font-size="11.5" fill="#111827">• 下一步预测熵：<tspan font-weight="bold" fill="#15803d">0.14 bits</tspan></text>
+  <text x="40" y="203" font-size="11.5" fill="#111827">• 5 步切平面有效秩：<tspan font-weight="bold">4.05</tspan></text>
+  <text x="40" y="224" font-size="11.5" fill="#111827">• 球面步长：<tspan font-weight="bold">0.744 rad</tspan></text>
+  <text x="40" y="245" font-size="11.5" fill="#111827">• 主岛海拔 z_max+：<tspan font-weight="bold">10.51</tspan></text>
+  <text x="40" y="274" font-size="11" fill="#475569">答案早已算完，船稳稳停靠码头</text>
+
+  <!-- 中栏：固定重复正对照（原先猜想的港口兜圈） -->
+  <rect x="276" y="68" width="244" height="224" rx="8" fill="#f8fafc" />
+  <rect x="276" y="68" width="244" height="5" rx="2" fill="#64748b" />
+  <text x="292" y="95" font-size="14" font-weight="bold" fill="#334155">② 重复正对照：低秩港口转圈</text>
+  <text x="292" y="118" font-size="11.5" fill="#475569">机械复读数字串（原猜想形态）：</text>
+  <rect x="292" y="128" width="212" height="32" rx="5" fill="#ffffff" />
+  <text x="398" y="149" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#475569">「44，44，44，44……」</text>
+  <text x="292" y="182" font-size="11.5" fill="#111827">• 下一步预测熵：<tspan font-weight="bold">0.12 bits</tspan></text>
+  <text x="292" y="203" font-size="11.5" fill="#111827">• 5 步切平面有效秩：<tspan font-weight="bold" fill="#dc2626">跌至 3.43</tspan></text>
+  <text x="292" y="224" font-size="11.5" fill="#111827">• 尾段 31 步仅涉 <tspan font-weight="bold">11 座岛</tspan></text>
+  <text x="292" y="245" font-size="11.5" fill="#111827">• Top-4 礁石覆盖率：<tspan font-weight="bold">71.0%</tspan></text>
+  <text x="292" y="274" font-size="11" fill="#64748b">困在 C2721 / C72 标点礁石兜死圈</text>
+
+  <!-- 右栏：焊死 EOS 真实干预结果 -->
+  <rect x="536" y="68" width="260" height="224" rx="8" fill="#fef2f2" />
+  <rect x="536" y="68" width="260" height="5" rx="2" fill="#dc2626" />
+  <text x="552" y="95" font-size="14" font-weight="bold" fill="#b91c1c">③ 焊死 EOS 实测：拔锚跨 53 岛</text>
+  <text x="552" y="118" font-size="11.5" fill="#7f1d1d">在「42」处强行阻断 EOS 续写 96 步：</text>
+  <rect x="552" y="128" width="228" height="32" rx="5" fill="#ffffff" />
+  <text x="666" y="149" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#dc2626">非但没降秩，反而出海改考题</text>
+  <text x="552" y="182" font-size="11.5" fill="#111827">• 预测熵暴涨十倍：<tspan font-weight="bold" fill="#dc2626">0.14 → 1.47 bits</tspan></text>
+  <text x="552" y="203" font-size="11.5" fill="#111827">• 5 步切平面有效秩：<tspan font-weight="bold" fill="#dc2626">4.05 → 4.22（反升）</tspan></text>
+  <text x="552" y="224" font-size="11.5" fill="#111827">• 91 步横跨主岛：<tspan font-weight="bold" fill="#dc2626">53 座不同岛屿</tspan></text>
+  <text x="552" y="245" font-size="11.5" fill="#111827">• Top-4 主岛覆盖率：<tspan font-weight="bold">仅 25.3%</tspan></text>
+  <text x="552" y="268" font-size="10.5" fill="#991b1b">途经 C2018 / C214「或者其他」</text>
+  <text x="552" y="283" font-size="10.5" fill="#991b1b">与 C772「或是」/ C1755「vs」</text>
+
+  <!-- 底部真实生成现场框 -->
+  <rect x="24" y="308" width="772" height="104" rx="8" fill="#fff7ed" />
+  <rect x="24" y="308" width="5" height="104" rx="2" fill="#ea580c" />
+  <text x="44" y="332" font-size="13" font-weight="bold" fill="#9a3412">Qwen3.8-27B 被拦住不准交卷后的真实续写原文（过度思考 Overthinking 现场）：</text>
+  <text x="44" y="356" font-size="11.5" fill="#111827">「42  （注：题目中“23+19”的数学计算结果为 42。若题目原意是“23×19”，则结果为 437。此处按字面加法作答。）」</text>
+  <text x="44" y="378" font-size="11.5" fill="#111827">「更正：通常此类题目若出现“23+19”，答案即为 42。但考虑到常见的小学数学题陷阱或笔误，如果是乘法 23×19，答案是 437。」</text>
+  <text x="44" y="400" font-size="11" font-weight="bold" fill="#c2410c">机制破案：大容量模型抗拒低秩复读；被迫拉长航程时只能主动驶出港口虚构「万一印错符号」的新分支，把送分题想歪。</text>
+</svg>

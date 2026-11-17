@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif">
+  <defs>
+    <linearGradient id="seaBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#061224" />
+      <stop offset="0.55" stop-color="#0b1f3a" />
+      <stop offset="1" stop-color="#050d1a" />
+    </linearGradient>
+    <radialGradient id="globeGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0ea5e9" stop-opacity="0.22" />
+      <stop offset="0.7" stop-color="#0284c7" stop-opacity="0.08" />
+      <stop offset="1" stop-color="#061224" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#seaBg)" />
+
+  <!-- 顶部期号徽章 -->
+  <rect x="38" y="24" width="236" height="28" rx="14" fill="#0f294a" stroke="#38bdf8" stroke-width="1.2" />
+  <text x="156" y="43" text-anchor="middle" font-size="13" font-weight="bold" fill="#7dd3fc">No.375 · ICA-Lens × 球面航海图</text>
+  <text x="288" y="43" font-size="13" fill="#94a3b8">268,320 座非高斯岛屿 + 363 期球皮曲率陀螺仪 · 44 条真实航迹</text>
+
+  <!-- 主标题 -->
+  <text x="38" y="86" font-size="27" font-weight="bold" fill="#f8fafc">高维地球的非高斯大陆：给思维链装上电子海图</text>
+
+  <!-- 左侧：高维球面电子海图雷达区 -->
+  <circle cx="215" cy="276" r="168" fill="url(#globeGlow)" />
+  <circle cx="215" cy="276" r="152" fill="#08172e" stroke="#1e3a5f" stroke-width="1.5" />
+  <ellipse cx="215" cy="276" rx="152" ry="56" fill="none" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="4 4" />
+  <ellipse cx="215" cy="276" rx="68" ry="152" fill="none" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="4 4" />
+
+  <!-- 高斯海平面注记 -->
+  <text x="215" y="148" text-anchor="middle" font-size="11.5" fill="#64748b">高斯汪洋（κ≈0，z_max 95% 海平线 = 4.30）</text>
+
+  <!-- 非高斯山脊大陆（熟诗高铁） -->
+  <polygon points="105,232 135,198 168,215 196,184 228,208 242,232" fill="#064e3b" stroke="#34d399" stroke-width="1.5" />
+  <path d="M 102 226 Q 168 176 244 222" fill="none" stroke="#4ade80" stroke-width="3" />
+  <circle cx="196" cy="184" r="4.5" fill="#fde047" />
+  <text x="174" y="175" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#86efac">熟诗高铁 z=18.97</text>
+
+  <!-- 127.4° 钝角折返切岛航线 -->
+  <path d="M 118 296 L 188 282 L 154 338 L 246 344" fill="none" stroke="#fb923c" stroke-width="2.6" />
+  <circle cx="188" cy="282" r="5" fill="#f97316" />
+  <circle cx="154" cy="338" r="4.5" fill="#fbbf24" />
+  <circle cx="246" cy="344" r="4.5" fill="#38bdf8" />
+  <text x="242" y="285" font-size="11" font-weight="bold" fill="#fdba74">127.4° 钝角切岛</text>
+  <text x="195" y="362" text-anchor="middle" font-size="11" fill="#fcd34d">「等等，让我重新算」</text>
+
+  <!-- 屏蔽 EOS 驶出港口远航 -->
+  <path d="M 248 248 C 282 246, 305 272, 336 308" fill="none" stroke="#f43f5e" stroke-width="2.4" stroke-dasharray="5 3" />
+  <circle cx="248" cy="248" r="4.5" fill="#38bdf8" />
+  <circle cx="336" cy="308" r="5" fill="#f43f5e" />
+  <text x="292" y="242" font-size="10.5" fill="#fda4af">焊死 EOS 跨 53 岛</text>
+
+  <text x="215" y="408" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#7dd3fc">非高斯重尾方向（κ &gt; 10）才是语义陆地</text>
+
+  <!-- 右侧：三大航海实测现场 -->
+  <!-- 现场 1 -->
+  <rect x="396" y="114" width="466" height="96" rx="10" fill="#0d223a" stroke="#34d399" stroke-width="1.3" />
+  <text x="414" y="139" font-size="14.5" font-weight="bold" fill="#6ee7b7">1. 山脊高铁 vs 算子浅滩 · 抓出《静夜思》公众号钢印</text>
+  <text x="414" y="162" font-size="12" fill="#e2e8f0">• L32 正极海拔：熟诗 18.97（Kurt_d=15.12）vs 括号推理 10.68（2.99）</text>
+  <text x="414" y="183" font-size="12" fill="#bae6fd">• 续写「明月」L20 登嫦娥月球岛，L32 头号主岛竟是「点击上方蓝字」</text>
+  <text x="414" y="201" font-size="11" fill="#94a3b8">背完「低头思故乡。」下一秒无缝续写中小学古诗教辅赏析模板</text>
+
+  <!-- 现场 2 -->
+  <rect x="396" y="222" width="466" height="94" rx="10" fill="#1f1c18" stroke="#fb923c" stroke-width="1.3" />
+  <text x="414" y="247" font-size="14.5" font-weight="bold" fill="#fdba74">2. 自我纠错慢镜头：127.4° 折返与功能岛屿接力</text>
+  <text x="414" y="270" font-size="12" fill="#fef3c7">• 49×51 误算 2501 后喊「等等，让我重新算」：逗号处急拐 2.224 rad</text>
+  <text x="414" y="291" font-size="12" fill="#fed7aa">• 惊叹异常 C2165 → 反驳 C1542 → 自指 C626 → 重构 C2436（重叠归 0）</text>
+  <text x="414" y="308" font-size="11" fill="#d6d3d1">三段论野生改口「但更严谨的例子是」同步拍到 C23 → C842 → C1007 换岛</text>
+
+  <!-- 现场 3 -->
+  <rect x="396" y="328" width="466" height="100" rx="10" fill="#261220" stroke="#fb7185" stroke-width="1.4" />
+  <text x="414" y="353" font-size="14.5" font-weight="bold" fill="#fda4af">3. 推翻原猜想的反例：焊死 EOS 诱发「疑神疑鬼改考题」</text>
+  <text x="414" y="376" font-size="12" fill="#ffe4e6">• 23+19=42 到港后强行屏蔽 EOS 续写 96 步，并未兜低秩死圈（3.43）</text>
+  <text x="414" y="397" font-size="12" font-weight="bold" fill="#fecdd3">• 切平面秩反升至 4.22，熵涨十倍至 1.47 bits，横跨 53 座不同主岛</text>
+  <text x="414" y="416" font-size="11.5" fill="#fda4af">脑补写出：「若题目原意是 23×19，则结果为 437」——过度思考的几何真身</text>
+
+  <!-- 底部金句 -->
+  <text x="450" y="462" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#f8fafc">「这个高维地球不是哪里都有大陆，非高斯的部分才算；不许停船的大模型宁可改考题也不原地转圈。」</text>
+  <text x="450" y="484" text-anchor="middle" font-size="11.5" fill="#64748b">Qwen3.8-27B 生成缓存路径实时捕获 · 全 64 层完整篇章 ICA-Lens v3 × N=100 双语 J-Lens</text>
+</svg>
