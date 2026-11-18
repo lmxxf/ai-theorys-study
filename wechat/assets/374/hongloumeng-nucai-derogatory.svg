@@ -1,35 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 346" width="540" height="346" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
-  <rect width="540" height="346" fill="#ffffff" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 426" width="540" height="426" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
+  <rect width="540" height="426" fill="#ffffff" />
 
-  <rect x="16" y="16" width="508" height="314" rx="10" fill="#f8fafc" />
-  <rect x="16" y="16" width="6" height="314" rx="3" fill="#0284c7" />
+  <rect x="16" y="16" width="508" height="394" rx="10" fill="#f8fafc" />
+  <rect x="16" y="16" width="6" height="394" rx="3" fill="#0284c7" />
 
-  <text x="38" y="46" font-size="16" font-weight="bold" fill="#0369a1">贬损评价轴验光（L30 C846：侮辱 / 劣 / stupid）</text>
-  <text x="38" y="68" font-size="12.2" fill="#475569">零泄露测 120 回《红楼梦》与奏折：平静自称紧贴基线，唯痛骂高高拉升</text>
+  <text x="38" y="45" font-size="16" font-weight="bold" fill="#0369a1">贬损评价轴原始激活 z（L30 C846：侮辱 / 劣 / stupid）</text>
+  <text x="38" y="66" font-size="11.6" fill="#475569">横轴为原始激活读数 z（非差值）：并排放入同句换词基底，直接对比绝对水位</text>
 
-  <!-- 1z = 18px, x0 = 148 -->
-  <line x1="148" y1="84" x2="148" y2="250" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 3" />
+  <!-- 1z = 19px, x0 = 162 -->
+  <text x="162" y="86" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#64748b">z = 0（全语料均值）</text>
+  <line x1="162" y1="91" x2="162" y2="378" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 3" />
 
-  <text x="38" y="106" font-size="13" fill="#334155">贾府回话 A2</text>
-  <rect x="148" y="91" width="35" height="20" rx="3" fill="#38bdf8" />
-  <text x="191" y="106" font-size="12.5" font-weight="bold" fill="#0369a1">+1.93（林之孝 / 平儿 / 李贵）</text>
+  <!-- 上半区：同句自称与古人谦称台阶 -->
+  <text x="38" y="111" font-size="12.2" fill="#64748b">同句换「我」</text>
+  <rect x="162" y="97" width="3" height="18" rx="1.5" fill="#94a3b8" />
+  <text x="172" y="111" font-size="11.8" fill="#475569">+0.10（无谦称纯白话零基线）</text>
 
-  <text x="38" y="140" font-size="13" fill="#334155">清宫奏折 A1</text>
-  <rect x="148" y="125" width="36" height="20" rx="3" fill="#0ea5e9" />
-  <text x="192" y="140" font-size="12.5" font-weight="bold" fill="#0369a1">+2.02（曹家织造 / 杨宗仁折）</text>
+  <text x="38" y="140" font-size="12.2" fill="#64748b">奏折换「臣」</text>
+  <rect x="162" y="126" width="27" height="18" rx="3" fill="#94a3b8" />
+  <text x="197" y="140" font-size="11.8" fill="#475569">+1.42（外朝奏折自谦基底）</text>
 
-  <text x="38" y="174" font-size="13" font-weight="bold" fill="#b45309">贾府痛骂 B</text>
-  <rect x="148" y="159" width="129" height="20" rx="3" fill="#f59e0b" />
-  <text x="285" y="174" font-size="12.5" font-weight="bold" fill="#b45309">+7.19（贾政 / 探春怒斥）</text>
+  <text x="38" y="169" font-size="12.2" fill="#64748b">同句换「小的」</text>
+  <rect x="162" y="155" width="31" height="18" rx="3" fill="#94a3b8" />
+  <text x="201" y="169" font-size="11.8" fill="#475569">+1.65（家丁普通谦称基底）</text>
 
-  <text x="38" y="208" font-size="13" font-weight="bold" fill="#c2410c">雍正上谕斥责</text>
-  <rect x="148" y="193" width="146" height="20" rx="3" fill="#ea580c" />
-  <text x="302" y="208" font-size="12.5" font-weight="bold" fill="#c2410c">+8.10（包衣下贱奴才）</text>
+  <text x="38" y="198" font-size="12.5" font-weight="bold" fill="#0369a1">贾府回话「奴才」</text>
+  <rect x="162" y="184" width="37" height="18" rx="3" fill="#38bdf8" />
+  <text x="207" y="198" font-size="12" font-weight="bold" fill="#0369a1">+1.93（林之孝 / 平儿 / 李贵）</text>
 
-  <text x="38" y="242" font-size="13" font-weight="bold" fill="#b91c1c">鲁迅杂文批判</text>
-  <rect x="148" y="227" width="181" height="20" rx="3" fill="#dc2626" />
-  <text x="337" y="242" font-size="12.5" font-weight="bold" fill="#b91c1c">+10.07（五篇杂文）</text>
+  <text x="38" y="227" font-size="12.5" font-weight="bold" fill="#0369a1">清宫奏折「奴才」</text>
+  <rect x="162" y="213" width="38" height="18" rx="3" fill="#0ea5e9" />
+  <text x="208" y="227" font-size="12" font-weight="bold" fill="#0369a1">+2.02（曹家织造 / 杨宗仁折）</text>
 
-  <text x="38" y="278" font-size="11.8" fill="#334155">• 同句原位换词：贾府自称换「小的」仅差 +0.28，比「下官」还低 -0.34</text>
-  <text x="38" y="298" font-size="11.8" fill="#334155">• 奏折自称换「臣」仅差 +0.60（占现代正反跨度 3.7%）；L45 C1564 差值跨 0</text>
+  <text x="38" y="256" font-size="12.2" fill="#64748b">同句换「下官」</text>
+  <rect x="162" y="242" width="43" height="18" rx="3" fill="#94a3b8" />
+  <text x="213" y="256" font-size="11.8" fill="#475569">+2.28（下级官员谦称，反高于奴才）</text>
+
+  <!-- 分界线：礼貌谦称区 vs 真贬损痛骂区 -->
+  <line x1="38" y1="274" x2="504" y2="274" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="5 4" />
+  <text x="498" y="288" text-anchor="end" font-size="10.5" font-weight="bold" fill="#b45309">▲ 上为礼貌谦称本底（+1.4~+2.3）｜▼ 下为真贬损羞辱区</text>
+
+  <!-- 下半区：痛骂与现代批判 -->
+  <text x="38" y="311" font-size="12.8" font-weight="bold" fill="#b45309">贾府主子痛骂</text>
+  <rect x="162" y="297" width="137" height="18" rx="3" fill="#f59e0b" />
+  <text x="307" y="311" font-size="12.2" font-weight="bold" fill="#b45309">+7.19（贾政 / 探春怒斥）</text>
+
+  <text x="38" y="340" font-size="12.8" font-weight="bold" fill="#c2410c">雍正上谕斥责</text>
+  <rect x="162" y="326" width="154" height="18" rx="3" fill="#ea580c" />
+  <text x="324" y="340" font-size="12.2" font-weight="bold" fill="#c2410c">+8.10（包衣下贱奴才）</text>
+
+  <text x="38" y="369" font-size="12.8" font-weight="bold" fill="#b91c1c">鲁迅杂文批判</text>
+  <rect x="162" y="355" width="191" height="18" rx="3" fill="#dc2626" />
+  <text x="361" y="369" font-size="12.2" font-weight="bold" fill="#b91c1c">+10.07（五篇杂文）</text>
+
+  <text x="38" y="396" font-size="11.4" fill="#475569">• 另核 L18 C1376 贬损轴：奏折 0.00、贾府 -0.24；L45 C1564 原著「奴才−臣」仅 +0.013</text>
 </svg>

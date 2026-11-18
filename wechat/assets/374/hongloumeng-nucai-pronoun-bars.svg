@@ -4,11 +4,12 @@
   <rect x="16" y="16" width="508" height="342" rx="10" fill="#f0fdf4" />
   <rect x="16" y="16" width="6" height="342" rx="3" fill="#16a34a" />
 
-  <text x="38" y="46" font-size="16" font-weight="bold" fill="#15803d">原著盲选第 1/5,120 名冠军轴：myself / my / 我</text>
-  <text x="38" y="68" font-size="12" fill="#475569">连续 20 层冠军同构（跨回目 9/9 全切开）：绿 = 平静回话 A2，橙 = 痛骂 B</text>
+  <text x="38" y="45" font-size="16" font-weight="bold" fill="#15803d">盲选第 1/5,120 名冠军轴原始激活 z：myself / my / 我</text>
+  <text x="38" y="66" font-size="11.6" fill="#475569">横轴为原始激活读数 z（z=0 为全语料均值）：绿 = 回话自称 A2，橙 = 痛骂 B</text>
 
   <!-- 1z = 15px, x0 = 132 -->
-  <line x1="132" y1="84" x2="132" y2="306" stroke="#86efac" stroke-width="1.5" stroke-dasharray="4 3" />
+  <text x="132" y="81" text-anchor="middle" font-size="10.2" font-weight="bold" fill="#15803d">z = 0</text>
+  <line x1="132" y1="86" x2="132" y2="306" stroke="#86efac" stroke-width="1.5" stroke-dasharray="4 3" />
 
   <!-- L29 C502: A2=+16.84 (253px), B=+3.43 (51px) -->
   <text x="38" y="106" font-size="13" font-weight="bold" fill="#166534">L29 C502</text>
