@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 318" width="540" height="318" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
+  <rect width="540" height="318" fill="#ffffff" />
+
+  <rect x="16" y="16" width="508" height="286" rx="10" fill="#f8fafc" />
+  <rect x="16" y="16" width="6" height="286" rx="3" fill="#2563eb" />
+
+  <text x="38" y="46" font-size="16.5" font-weight="bold" fill="#1e40af">四种左文包裹对比：纯英文隔离舱反而最脏</text>
+  <text x="38" y="68" font-size="12.5" fill="#475569">《出师表》「卑鄙」在 L10–L48 共 38 个有效道德贬义轴上的残留中位数</text>
+
+  <!-- 横向柱状条 (1% = 8.5px, 起点 x=178) -->
+  <line x1="178" y1="84" x2="178" y2="236" stroke="#cbd5e1" stroke-width="1.4" />
+
+  <text x="38" y="108" font-size="13.5" font-weight="bold" fill="#15803d">W2 千字《三国志》</text>
+  <rect x="178" y="91" width="145" height="24" rx="4" fill="#16a34a" />
+  <text x="332" y="108" font-size="13.5" font-weight="bold" fill="#15803d">17.0%（最干净）</text>
+
+  <text x="38" y="148" font-size="13.5" fill="#334155">W1 百字《出师表》</text>
+  <rect x="178" y="131" width="167" height="24" rx="4" fill="#3b82f6" />
+  <text x="354" y="148" font-size="13.5" font-weight="bold" fill="#1e40af">19.6%</text>
+
+  <text x="38" y="188" font-size="13.5" fill="#334155">W0 短句直喂基线</text>
+  <rect x="178" y="171" width="179" height="24" rx="4" fill="#94a3b8" />
+  <text x="366" y="188" font-size="13.5" fill="#475569">21.0%</text>
+
+  <text x="38" y="228" font-size="13.5" font-weight="bold" fill="#b91c1c">W3a 纯英文导语舱</text>
+  <rect x="178" y="211" width="218" height="24" rx="4" fill="#dc2626" />
+  <text x="405" y="228" font-size="13.5" font-weight="bold" fill="#b91c1c">25.6%（最脏）</text>
+
+  <text x="38" y="264" font-size="12" fill="#334155">• 英文导语切断中文后突现汉字，默认掉回占 99% 的现代白话入口</text>
+  <text x="38" y="285" font-size="12" font-weight="bold" fill="#1e40af">• 唯铺足两千字同源纯文言（2,369 词），才能稳稳推入汉晋古人轨道</text>
+</svg>
