@@ -20,7 +20,7 @@
   <!-- 顶部徽章 -->
   <rect x="42" y="26" width="268" height="28" rx="14" fill="#3b1d06" stroke="#f59e0b" stroke-width="1.2" />
   <text x="176" y="45" text-anchor="middle" font-size="13" font-weight="bold" fill="#fcd34d">No.374 · Mech Interp 历史语言学</text>
-  <text x="326" y="45" font-size="13" fill="#d6d3d1">《出师表》千字文言调零 · 百二十回《红楼梦》零泄露验光</text>
+  <text x="326" y="45" font-size="13" fill="#d6d3d1">《出师表》千字文言调零 · 百二十回《红楼梦》预过滤盲测</text>
 
   <!-- 主标题 -->
   <text x="42" y="90" font-size="29" font-weight="bold" fill="#fef3c7">照透清代奏折与《红楼梦》里的「奴才」</text>
@@ -28,7 +28,7 @@
   <!-- 左侧视觉主体：故宫 022688 明黄请安折意象 (x=42..252, y=122..412) -->
   <rect x="42" y="122" width="210" height="290" rx="10" fill="url(#memorialYellow)" stroke="#fef08a" stroke-width="1.5" />
   <rect x="52" y="132" width="190" height="270" rx="6" fill="none" stroke="#78350f" stroke-width="1.4" stroke-dasharray="4 2" />
-  <text x="147" y="156" text-anchor="middle" font-size="12" font-weight="bold" fill="#451a03">故宫 022688 原折现场</text>
+  <text x="147" y="156" text-anchor="middle" font-size="12" font-weight="bold" fill="#451a03">故宫 022688 朱批改字示意</text>
 
   <!-- 竖排墨迹模拟 -->
   <text x="196" y="186" text-anchor="middle" font-size="16" font-weight="bold" fill="#1c1917">湖</text>
@@ -51,8 +51,8 @@
   <text x="107" y="296" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#b91c1c">臣</text>
   <text x="107" y="320" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#b91c1c">得</text>
   <text x="107" y="344" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#b91c1c">體</text>
-  <text x="107" y="198" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">辽阳陈汉军</text>
-  <text x="107" y="215" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">正白旗总督</text>
+  <text x="107" y="198" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">汉军正白旗</text>
+  <text x="107" y="215" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">湖广总督</text>
 
   <!-- 入射光束 → 中央 5,120 维 ICA×J-Lens 时光机三棱镜 -->
   <line x1="252" y1="274" x2="322" y2="274" stroke="#fde047" stroke-width="4" />
@@ -70,15 +70,15 @@
 
   <!-- 光谱 1：包衣回话 = 代词「我」 -->
   <rect x="472" y="122" width="386" height="84" rx="10" fill="#0f291e" stroke="#22c55e" stroke-width="1.5" />
-  <text x="490" y="148" font-size="14.5" font-weight="bold" fill="#86efac">内务府包衣日常回话：无痛代词「我」</text>
+  <text x="490" y="148" font-size="14.5" font-weight="bold" fill="#86efac">《红楼梦》平静回话：代词化为「我」</text>
   <text x="490" y="170" font-size="12" fill="#ecfdf5">L30 C846 贬损轴夹在「小的 (+1.65)」与「下官 (+2.28)」间</text>
-  <text x="490" y="190" font-size="12" font-weight="bold" fill="#4ade80">L29–L48 连续 20 层第 1/5,120 名：myself / my / 我 (+17.59)</text>
+  <text x="490" y="190" font-size="11.8" font-weight="bold" fill="#4ade80">L37–L46 连续 10 层 9/9 冠军：myself / my（L48 达 +17.59）</text>
 
   <!-- 光谱 2：门外公器 vs 门里家人内外对冲 -->
   <rect x="472" y="224" width="386" height="84" rx="10" fill="#111f38" stroke="#3b82f6" stroke-width="1.5" />
   <text x="490" y="250" font-size="14.5" font-weight="bold" fill="#93c5fd">中层内外对冲：门外百官跳水 ↔ 门内家人全涨</text>
   <text x="490" y="272" font-size="11.8" fill="#dbeafe">退出外朝：L25 大臣/宰相 (-5.70) · L32 Governor (-4.25)</text>
-  <text x="490" y="292" font-size="11.8" font-weight="bold" fill="#60a5fa">挤进家门：L12 管家 (+6.70) · L25–L28 family/家族 (+3.91)</text>
+  <text x="490" y="292" font-size="11.8" font-weight="bold" fill="#60a5fa">挤进家门：L12 管家 (+6.70) · L28 C2167 家族（词均 +3.91）</text>
 
   <!-- 光谱 3：深层清宫呈批与朕督办语体 -->
   <rect x="472" y="326" width="386" height="86" rx="10" fill="#2e1b09" stroke="#f59e0b" stroke-width="1.5" />

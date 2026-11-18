@@ -17,13 +17,13 @@
   <!-- 同心椭圆中心 (280, 266) -->
   <!-- 第 3 圈（最外圈）：民籍汉臣 rx=264, ry=198 (top=68, bottom=464) -->
   <ellipse cx="280" cy="266" rx="264" ry="198" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" />
-  <text x="280" y="106" text-anchor="middle" font-size="12.8" font-weight="bold" fill="#1e40af">最外圈 · 民籍外朝汉官（不入旗「民人」）</text>
-  <text x="280" y="124" text-anchor="middle" font-size="10.8" fill="#1e3a8a">张廷玉 / 纪晓岚：无论公私只准称「臣」（冒称奴才算僭越）</text>
+  <text x="280" y="106" text-anchor="middle" font-size="12.8" font-weight="bold" fill="#1e40af">最外圈 · 民籍外朝汉人文臣（不入旗「民人」）</text>
+  <text x="280" y="124" text-anchor="middle" font-size="10.8" fill="#1e3a8a">张廷玉 / 纪晓岚：无论公私折奏只准称「臣」（无资格称奴才）</text>
 
   <!-- 第 2 圈（中间夹心圈）：外八旗正身旗人 rx=214, ry=138 (top=128, bottom=404) -->
   <ellipse cx="280" cy="266" rx="214" ry="138" fill="#fef3c7" stroke="#d97706" stroke-width="2.2" stroke-dasharray="6 4" />
-  <text x="280" y="176" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#92400e">中间夹心圈 · 外八旗正身旗人（满 / 蒙 / 汉军）</text>
-  <text x="280" y="194" text-anchor="middle" font-size="10.2" fill="#78350f">对内务府属正规军外官；对民人属八旗「自己人」（旧俗可称奴才）</text>
+  <text x="280" y="176" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#92400e">中间夹心圈 · 八旗旗员（满洲 / 蒙古 / 汉军八旗）</text>
+  <text x="280" y="194" text-anchor="middle" font-size="10.2" fill="#78350f">对内务府属外任旗官；对民籍汉人属八旗「圈内人」（旧习常称奴才）</text>
 
   <!-- 第 1 圈（靶心最里圈）：内务府上三旗包衣 rx=106, ry=58 (top=214, bottom=330) -->
   <ellipse cx="280" cy="272" rx="106" ry="58" fill="#fee2e2" stroke="#dc2626" stroke-width="2.2" />
@@ -39,19 +39,19 @@
 
   <!-- 右侧双轨之 2：内廷密折卡片与直插靶心连线 -->
   <rect x="436" y="232" width="112" height="46" rx="7" fill="#ffffff" stroke="#dc2626" stroke-width="1.6" />
-  <text x="492" y="252" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#991b1b">内廷《奏折》</text>
-  <text x="492" y="269" text-anchor="middle" font-size="10.2" fill="#7f1d1d">包衣密道 → 称「奴才」?</text>
+  <text x="492" y="252" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#991b1b">直达御前《奏折》</text>
+  <text x="492" y="269" text-anchor="middle" font-size="10.2" fill="#7f1d1d">内廷私请 → 称「奴才」?</text>
   <path d="M 458 384 Q 492 370 492 282" fill="none" stroke="#b91c1c" stroke-width="2.2" stroke-dasharray="5 3" />
   <path d="M 436 258 L 392 262" fill="none" stroke="#b91c1c" stroke-width="2.2" stroke-dasharray="5 3" marker-end="url(#arrRed)" />
 
   <!-- 杨宗仁夹缝交火锚点（宽胶囊完全包容两行字 x=102..458） -->
   <rect x="102" y="358" width="356" height="54" rx="27" fill="#ffffff" stroke="#b45309" stroke-width="2.2" />
-  <text x="280" y="380" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#9a3412">★ 杨宗仁：辽阳陈汉军正白旗 × 湖广总督</text>
-  <text x="280" y="399" text-anchor="middle" font-size="10.5" fill="#475569">称奴才切入管家/家人（L12/L28 family）· 官职属外朝封疆（L32 Governor）</text>
+  <text x="280" y="380" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#9a3412">★ 杨宗仁：汉军正白旗人 × 湖广总督</text>
+  <text x="280" y="399" text-anchor="middle" font-size="10.5" fill="#475569">称奴才切入管事/家族（L12 管事 · L28 家族）· 官职属封疆（L32 Governor）</text>
 
   <!-- 底部：康 → 雍 → 乾三朝三次拧方向盘时间轴 -->
   <rect x="20" y="474" width="520" height="94" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2" />
-  <text x="280" y="495" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">康雍乾三朝对「夹心层奏折称谓」的三次大反转</text>
+  <text x="280" y="495" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">康雍乾三朝对「旗籍大臣奏折称谓」的三阶段演变</text>
 
   <line x1="98" y1="518" x2="462" y2="518" stroke="#94a3b8" stroke-width="2" />
 

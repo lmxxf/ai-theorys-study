@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 656 584" width="656" height="584" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
-  <rect width="656" height="584" fill="#ffffff" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 584" width="720" height="584" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
+  <rect width="720" height="584" fill="#ffffff" />
 
-  <text x="328" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">复刻雍正朱笔圈改：10 份清代奏折 Δz = z(奴才) − z(臣)</text>
-  <text x="328" y="48" text-anchor="middle" font-size="11.8" fill="#475569">整折原文不动仅原位切换「臣 → 奴才」· 横轴为差值 Δz（0 为无变化，1z = 11px）</text>
+  <text x="360" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">复刻雍正朱笔圈改：10 份清代奏折 Δz = z(奴才) − z(臣)</text>
+  <text x="360" y="48" text-anchor="middle" font-size="11.8" fill="#475569">截取各折目标词前原始左文并切换「臣 → 奴才」· 横轴为末词差值 Δz（1z = 11px）</text>
 
   <!-- 坐标顶栏说明 (x0 = 286) -->
   <text x="148" y="74" text-anchor="middle" font-size="11.8" font-weight="bold" fill="#1e40af">◀ 负向跳水（退出门外百官）</text>
   <text x="286" y="74" text-anchor="middle" font-size="11.2" font-weight="bold" fill="#374151">Δz = 0</text>
-  <text x="466" y="74" text-anchor="middle" font-size="11.8" font-weight="bold" fill="#15803d">正向跳涨（进入门内管家/家人）▶</text>
+  <text x="486" y="74" text-anchor="middle" font-size="11.8" font-weight="bold" fill="#15803d">正向跳涨（换成奴才后升高）▶</text>
 
   <!-- 第一级：浅层 L12-L18 -->
-  <rect x="16" y="86" width="624" height="146" rx="8" fill="#fff7ed" />
+  <rect x="16" y="86" width="688" height="146" rx="8" fill="#fff7ed" />
   <text x="30" y="107" font-size="12.8" font-weight="bold" fill="#c2410c">第一级 · 浅层入口 L12–L18：切入贴身管家与 18 世纪清代</text>
 
   <!-- L12 C2054: +6.70 -> 74px -->
@@ -35,7 +35,7 @@
   <text x="294" y="210" font-size="10.8" fill="#475569">负第 1/5,120 · 语料榜首：「北宋大臣」（10/10）</text>
 
   <!-- 第二级：中层 L25-L32 门外公器 vs 门里家人同步对冲！ -->
-  <rect x="16" y="242" width="624" height="202" rx="8" fill="#f8fafc" />
+  <rect x="16" y="242" width="688" height="202" rx="8" fill="#f8fafc" />
   <text x="30" y="263" font-size="12.8" font-weight="bold" fill="#1e40af">第二级 · 中层 L25–L32：「门外朝堂公器」与「门里自己家人」对冲</text>
 
   <!-- L25 C2108: -7.52 -> 83px (x=203) -->
@@ -65,8 +65,8 @@
   <!-- 同层右涨：门里家人 family / 家族！ -->
   <!-- L25 C2783: +3.02 (+3.40 mean) -> 33px -->
   <text x="108" y="396" text-anchor="end" font-size="11.8" font-weight="bold" fill="#15803d">L25 C2783</text>
-  <rect x="286" y="383" width="34" height="16" rx="3" fill="#16a34a" />
-  <text x="327" y="396" font-size="11" font-weight="bold" fill="#15803d">+3.02（词均 +3.40 正第 3/5,120 · family / 家庭）</text>
+  <rect x="286" y="383" width="33" height="16" rx="3" fill="#16a34a" />
+  <text x="326" y="396" font-size="11" font-weight="bold" fill="#15803d">+3.02（词均 +3.40 正第 3/5,120 · family / 家庭）</text>
 
   <!-- L28 C2167: +3.20 (+3.91 mean) -> 35px -->
   <text x="108" y="422" text-anchor="end" font-size="11.8" font-weight="bold" fill="#15803d">L28 C2167</text>
@@ -74,8 +74,8 @@
   <text x="328" y="422" font-size="11" font-weight="bold" fill="#15803d">+3.20（词均 +3.91 正第 3/5,120 · 家族 / lineage）</text>
 
   <!-- 第三级：深层 L45 / L53 清宫呈批与朱批语体收束 -->
-  <rect x="16" y="454" width="624" height="112" rx="8" fill="#f0fdf4" />
-  <text x="30" y="475" font-size="12.8" font-weight="bold" fill="#166534">第三级 · 深层 L45–L53 第 1 名：切入呈批请示与「朕/督办」奏批频道</text>
+  <rect x="16" y="454" width="688" height="112" rx="8" fill="#f0fdf4" />
+  <text x="30" y="475" font-size="12.8" font-weight="bold" fill="#166534">第三级 · 深层 L45 与 L53 各第 1 名：切入呈批与「朕/督办」公牍语体</text>
 
   <!-- L45 C1194: +7.27 -> 80px -->
   <text x="108" y="502" text-anchor="end" font-size="11.8" font-weight="bold" fill="#166534">L45 C1194</text>
@@ -87,7 +87,7 @@
   <rect x="286" y="515" width="74" height="16" rx="3" fill="#16a34a" />
   <text x="367" y="528" font-size="11" font-weight="bold" fill="#15803d">+6.69（正第 1/5,120 · 朕 / 督办 / 稽查 / 办理 / 遵照）</text>
 
-  <text x="328" y="553" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">几何闭环：把「臣」换成「奴才」，就是退出门外百官公器、挤进门内管家与自己家人</text>
+  <text x="360" y="553" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">几何闭环：把「臣」换成「奴才」，就是退出门外百官公器、挤进门内管家与自己家人</text>
 
   <!-- 贯穿柱状区的 0 竖线 -->
   <line x1="286" y1="82" x2="286" y2="536" stroke="#374151" stroke-width="1.6" stroke-dasharray="4 3" />
