@@ -1,66 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 410" width="820" height="410" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
-  <rect width="820" height="410" fill="#ffffff" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 472" width="900" height="472" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
+  <rect width="900" height="472" fill="#ffffff" />
 
-  <text x="410" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">复刻雍正朱笔圈改：10 份清代真奏折 z(奴才) − z(臣) 全空间盲搜三级慢镜头</text>
-  <text x="410" y="48" text-anchor="middle" font-size="12" fill="#4b5563">故宫 022688 湖广总督杨宗仁请安折影印件 + 曹家织造档案汉文真折 · 保持整折原文不动仅切换「臣 ↔ 奴才」</text>
+  <text x="450" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111827">复刻雍正朱笔圈改：10 份清代真奏折 z(奴才) − z(臣) 跨层正负双向位移图</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12" fill="#4b5563">故宫 022688 汉军正白旗总督杨宗仁请安折 + 曹家档案 9 折 · 整篇原文不动仅原位切换「臣 → 奴才」（比例尺 1z = 14px）</text>
 
-  <!-- 顶部史料现场条 -->
-  <rect x="26" y="66" width="768" height="56" rx="8" fill="#fef3c7" />
-  <rect x="26" y="66" width="5" height="56" rx="2" fill="#d97706" />
-  <text x="46" y="88" font-size="12.5" font-weight="bold" fill="#92400e">史料现场：雍正元年四月初五日，汉军正白旗湖广总督杨宗仁奏首写「湖广总督奴才杨宗仁叩首恭请皇上圣安」</text>
-  <text x="46" y="108" font-size="11.5" fill="#78350f">雍正帝朱笔将黑字「奴才」圈改为「臣」，旁批四字：「称臣得体」（官修《硃批谕旨》已径改为臣，故宫 022688 原折影印保存真迹）</text>
+  <!-- 坐标轴顶栏说明 -->
+  <text x="275" y="74" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">◀ 负向暴跌（退出外朝大臣公器席位）</text>
+  <text x="436" y="74" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#374151">0 基线</text>
+  <text x="615" y="74" text-anchor="middle" font-size="12" font-weight="bold" fill="#15803d">正向跳涨（进入字根 / 八旗内圈）▶</text>
 
-  <!-- 三列慢镜头卡片 -->
-  <!-- 左列：浅中层 L18 -->
-  <rect x="26" y="138" width="244" height="252" rx="8" fill="#fff7ed" />
-  <rect x="26" y="138" width="244" height="5" rx="2" fill="#ea580c" />
-  <text x="44" y="166" font-size="14" font-weight="bold" fill="#c2410c">第一级 · 浅中层 L18</text>
-  <text x="44" y="185" font-size="12" font-weight="bold" fill="#9a3412">字根入口闪过「奴隶 / Slave」</text>
+  <!-- 第一段：浅中层 L18 字根闪念 -->
+  <rect x="20" y="86" width="860" height="104" rx="7" fill="#fff7ed" />
+  <text x="34" y="106" font-size="12.5" font-weight="bold" fill="#c2410c">第一级 · 浅中层 L18（字根入口：闪过「奴隶 / Slave」与历代大臣对立）</text>
 
-  <rect x="42" y="198" width="212" height="86" rx="6" fill="#ffffff" />
-  <text x="52" y="218" font-size="11.5" font-weight="bold" fill="#c2410c">正向跳涨：L18 C1690（κ=341.8）</text>
-  <text x="52" y="237" font-size="11.5" font-weight="bold" fill="#111827">Δ = +5.78（10/10 奏折全涨）</text>
-  <text x="52" y="255" font-size="11" fill="#334155">词牌：奴隶 / Slave / slavery / 奴</text>
-  <text x="52" y="273" font-size="10.5" fill="#64748b">语料第 1 名：「约有 40 万名奴隶」</text>
+  <!-- L18 C230: +6.25 -> 88px -->
+  <text x="114" y="129" text-anchor="end" font-size="11.5" font-weight="bold" fill="#9a3412">L18 C230</text>
+  <rect x="436" y="117" width="88" height="15" rx="3" fill="#f97316" />
+  <text x="532" y="129" font-size="11" font-weight="bold" fill="#c2410c">+6.25（正第 1/5,120 名 · 10/10 · 清廷「乾隆」）</text>
 
-  <rect x="42" y="294" width="212" height="80" rx="6" fill="#ffedd5" />
-  <text x="52" y="314" font-size="11" font-weight="bold" fill="#9a3412">同层对比：</text>
-  <text x="52" y="332" font-size="10.5" fill="#7c2d12">• 正向 C230 (+6.25, 10/10)：含「乾隆」</text>
-  <text x="52" y="349" font-size="10.5" fill="#7c2d12">• 负向榜首 C1649 (-11.04, 10/10)：</text>
-  <text x="60" y="365" font-size="10.5" fill="#7c2d12">语料为「北宋大臣」→ 入口闪过人身依附</text>
+  <!-- L18 C1690: +5.78 -> 81px -->
+  <text x="114" y="153" text-anchor="end" font-size="11.5" font-weight="bold" fill="#c2410c">L18 C1690</text>
+  <rect x="436" y="141" width="81" height="15" rx="3" fill="#ea580c" />
+  <text x="525" y="153" font-size="11" font-weight="bold" fill="#9a3412">+5.78（正第 3/5,120 名 · 10/10 · 奴隶 / Slave / slavery）</text>
 
-  <!-- 中列：中层 L25-L41 -->
-  <rect x="286" y="138" width="248" height="252" rx="8" fill="#f8fafc" />
-  <rect x="286" y="138" width="248" height="5" rx="2" fill="#2563eb" />
-  <text x="304" y="166" font-size="14" font-weight="bold" fill="#1e40af">第二级 · 中层 L25 至 L41</text>
-  <text x="304" y="185" font-size="12" font-weight="bold" fill="#1d4ed8">整排「外朝百官公器轴」集体跳水</text>
+  <!-- L18 C1649: -11.04 -> 155px (x=281) -->
+  <text x="114" y="177" text-anchor="end" font-size="11.5" font-weight="bold" fill="#1e40af">L18 C1649</text>
+  <rect x="281" y="165" width="155" height="15" rx="3" fill="#2563eb" />
+  <text x="273" y="177" text-anchor="end" font-size="10.8" font-weight="bold" fill="#1e40af">-11.04（负第 1/5,120）</text>
+  <text x="446" y="177" font-size="10.8" fill="#475569">语料榜首：「北宋大臣」（10/10 全跌）</text>
 
-  <rect x="300" y="198" width="220" height="132" rx="6" fill="#ffffff" />
-  <text x="310" y="218" font-size="11" font-weight="bold" fill="#1e3a8a">Slave 闪念消退，10/10 一致暴跌：</text>
-  <text x="310" y="238" font-size="10.5" fill="#334155">• L25 C2108 (-7.52)：请示/献策（姜维启奏）</text>
-  <text x="310" y="257" font-size="10.5" font-weight="bold" fill="#1e40af">• L25 C1146 (-5.70)：大臣/侍郎/宰相/政务</text>
-  <text x="310" y="276" font-size="10.5" font-weight="bold" fill="#1e40af">• L32 C2829 (-4.25)：Sir/Lord/Governor</text>
-  <text x="310" y="295" font-size="10.5" fill="#334155">• L32 C3016 (-3.97)：御史/chancellor/大臣</text>
-  <text x="310" y="314" font-size="10.5" fill="#334155">• L41 C3492 (-3.08)：诏/上书/奏/朝廷/天子</text>
+  <!-- 第二段：中层 L25-L41 外朝百官集体跳水 -->
+  <rect x="20" y="198" width="860" height="148" rx="7" fill="#f8fafc" />
+  <text x="34" y="218" font-size="12.5" font-weight="bold" fill="#1e40af">第二级 · 中层 L25 至 L41（Slave 字根消退，整排「外朝百官公器轴」集体跳水）</text>
 
-  <rect x="302" y="338" width="216" height="36" rx="5" fill="#dbeafe" />
-  <text x="410" y="360" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">丢掉的不是道德清白，是外朝封疆体统</text>
+  <!-- L25 C2108: -7.52 -> 105px (x=331) -->
+  <text x="114" y="241" text-anchor="end" font-size="11.5" font-weight="bold" fill="#1e3a8a">L25 C2108</text>
+  <rect x="331" y="229" width="105" height="15" rx="3" fill="#3b82f6" />
+  <text x="323" y="241" text-anchor="end" font-size="10.8" font-weight="bold" fill="#1e40af">-7.52（负第 1/5,120）</text>
+  <text x="446" y="241" font-size="10.8" fill="#334155">请示 / 献策 / 提案（语料：「姜维启奏」）</text>
 
-  <!-- 右列：深层 L45 -->
-  <rect x="550" y="138" width="244" height="252" rx="8" fill="#f0fdf4" />
-  <rect x="550" y="138" width="244" height="5" rx="2" fill="#16a34a" />
-  <text x="568" y="166" font-size="14" font-weight="bold" fill="#15803d">第三级 · 深层 L45 榜首</text>
-  <text x="568" y="185" font-size="12" font-weight="bold" fill="#166534">跃入「八旗旗地·满洲根本」私属轴</text>
+  <!-- L25 C1146: -5.70 -> 80px (x=356) -->
+  <text x="114" y="265" text-anchor="end" font-size="11.5" font-weight="bold" fill="#1e40af">L25 C1146</text>
+  <rect x="356" y="253" width="80" height="15" rx="3" fill="#2563eb" />
+  <text x="348" y="265" text-anchor="end" font-size="10.8" font-weight="bold" fill="#1e40af">-5.70（负第 4/5,120）</text>
+  <text x="446" y="265" font-size="10.8" font-weight="bold" fill="#1e3a8a">大臣 / 侍郎 / 宰相 / 政务（10/10 全跌）</text>
 
-  <rect x="566" y="198" width="212" height="72" rx="6" fill="#dcfce7" />
-  <text x="576" y="218" font-size="11.5" font-weight="bold" fill="#166534">全空间正向第 1 名：L45 C1194</text>
-  <text x="576" y="238" font-size="11.5" font-weight="bold" fill="#111827">10 折全涨 Δ = +7.27（κ = 43.8）</text>
-  <text x="576" y="257" font-size="11" font-weight="bold" fill="#15803d">杨宗仁 022688 单折亦涨 +6.55</text>
+  <!-- L32 C2829: -4.25 -> 60px (x=376) -->
+  <text x="114" y="289" text-anchor="end" font-size="11.5" font-weight="bold" fill="#1e40af">L32 C2829</text>
+  <rect x="376" y="277" width="60" height="15" rx="3" fill="#2563eb" />
+  <text x="368" y="289" text-anchor="end" font-size="10.8" font-weight="bold" fill="#1e40af">-4.25（负第 4/5,120）</text>
+  <text x="446" y="289" font-size="10.8" font-weight="bold" fill="#1e3a8a">Sir / Commander / Lord / Governor（封疆总督，10/10）</text>
 
-  <rect x="566" y="278" width="212" height="96" rx="6" fill="#ffffff" />
-  <text x="576" y="297" font-size="10.5" font-weight="bold" fill="#92400e">v3 全库 136.6 万词最高激活（z=37.79）：</text>
-  <text x="576" y="316" font-size="10.5" fill="#111827">「清廷将其隶属八旗的『旗地』管辖，大</text>
-  <text x="576" y="333" font-size="10.5" fill="#111827">部分旗地禁止汉人进入开垦……山海关外</text>
-  <text x="576" y="350" font-size="10.5" font-weight="bold" fill="#15803d">东三省地方，系满洲根本重地」</text>
-  <text x="576" y="367" font-size="10.5" font-weight="bold" fill="#065f46">→ 几何闭环：外朝总督不可混入内务私产</text>
+  <!-- L32 C3016: -3.97 -> 56px (x=380) -->
+  <text x="114" y="313" text-anchor="end" font-size="11.5" font-weight="bold" fill="#1e3a8a">L32 C3016</text>
+  <rect x="380" y="301" width="56" height="15" rx="3" fill="#3b82f6" />
+  <text x="372" y="313" text-anchor="end" font-size="10.8" font-weight="bold" fill="#1e40af">-3.97（负第 5/5,120）</text>
+  <text x="446" y="313" font-size="10.8" fill="#334155">御史 / chancellor / bureaucrats / 大臣（10/10）</text>
+
+  <!-- L41 C3492: W2_shared -3.08 -> 43px (x=393) -->
+  <text x="114" y="337" text-anchor="end" font-size="11.5" fill="#334155">L41 C3492</text>
+  <rect x="393" y="325" width="43" height="15" rx="3" fill="#60a5fa" />
+  <text x="385" y="337" text-anchor="end" font-size="10.8" fill="#1e40af">-3.08（千字底座）</text>
+  <text x="446" y="337" font-size="10.8" fill="#475569">诏 / 上书 / 奏 / 朝廷 / 天子（原折 -1.93）</text>
+
+  <!-- 第三段：深层 L45 榜首跃入八旗旗地 -->
+  <rect x="20" y="354" width="860" height="100" rx="7" fill="#f0fdf4" />
+  <text x="34" y="375" font-size="12.5" font-weight="bold" fill="#15803d">第三级 · 深层 L45 全空间正向第 1 名（切入关外辽东「八旗旗地·满洲根本」内圈坐标）</text>
+
+  <!-- L45 C1194: +7.27 -> 102px -->
+  <text x="114" y="400" text-anchor="end" font-size="12" font-weight="bold" fill="#166534">L45 C1194</text>
+  <rect x="436" y="387" width="102" height="16" rx="3" fill="#16a34a" />
+  <text x="546" y="400" font-size="11.2" font-weight="bold" fill="#15803d">+7.27（正第 1/5,120 名 · 10/10；杨宗仁折千字底座 +6.55）</text>
+
+  <!-- 贯穿柱状区的 0 竖线（停在底部注释上方） -->
+  <line x1="436" y1="82" x2="436" y2="410" stroke="#374151" stroke-width="1.6" stroke-dasharray="4 3" />
+
+  <text x="450" y="427" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">v3 全库 136.6 万词第 1 名原句（z=37.79）：「清廷将其隶属八旗的『旗地』管辖……并在辽东一带设置柳条边」</text>
+  <text x="450" y="445" text-anchor="middle" font-size="11" fill="#166534">「山海关外东三省地方，系满洲根本重地」——精准指回辽阳陈汉军正白旗总督的关外旗籍老本！</text>
 </svg>
