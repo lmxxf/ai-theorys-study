@@ -1,49 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 460" width="580" height="460" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" style="background-color:#ffffff;">
-  <rect width="580" height="460" fill="#ffffff" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 390" width="560" height="390" font-family="'Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif" style="background-color:#ffffff;">
+  <rect width="560" height="390" fill="#ffffff" />
 
   <!-- 标题 -->
-  <text x="24" y="34" font-size="17" font-weight="700" fill="#111827">焊死 EOS 反例：27B 为何不兜低秩死圈？（L32 实测）</text>
-  <text x="24" y="56" font-size="12.5" fill="#4b5563">对比 5 步局部切平面有效秩 rank5、下一步预测熵 H 与横跨主岛数</text>
+  <text x="24" y="34" font-size="17" font-weight="700" fill="#111827">焊死 EOS 反例：L32 三项核心指标实测对比</text>
+  <text x="24" y="55" font-size="12.5" fill="#4b5563">23+19=42 自然到港 vs 机械复读对照 vs 焊死 EOS 续写 96 步</text>
 
-  <!-- 组 1: 自然解码 -->
-  <text x="24" y="92" font-size="14" font-weight="700" fill="#15803d">1. 自然解码（23+19 → 3 步写出 42 并主动提议 EOS 停船）</text>
-  <text x="24" y="116" font-size="12.5" fill="#374151">rank5</text>
-  <rect x="82" y="103" width="324" height="16" rx="3" fill="#22c55e" />
-  <text x="414" y="116" font-size="13.5" font-weight="700" fill="#15803d">4.05</text>
+  <!-- 图例 -->
+  <rect x="24" y="70" width="12" height="12" rx="2" fill="#22c55e" />
+  <text x="42" y="81" font-size="12.5" fill="#111827">自然解码</text>
+  <rect x="122" y="70" width="12" height="12" rx="2" fill="#9ca3af" />
+  <text x="140" y="81" font-size="12.5" fill="#111827">机械复读对照</text>
+  <rect x="252" y="70" width="12" height="12" rx="2" fill="#ef4444" />
+  <text x="270" y="81" font-size="12.5" fill="#111827">焊死 EOS 续写 96 步</text>
 
-  <text x="24" y="140" font-size="12.5" fill="#374151">预测熵 H</text>
-  <rect x="82" y="127" width="36" height="16" rx="3" fill="#86efac" />
-  <text x="126" y="140" font-size="13" font-weight="700" fill="#15803d">0.14 bits（一步到港）</text>
+  <!-- 区块 1: 5步有效秩 rank5 -->
+  <text x="24" y="114" font-size="14" font-weight="700" fill="#111827">1. 5 步局部切平面有效秩 rank5（越低越像原地兜圈）</text>
+  <rect x="24" y="124" width="340" height="16" rx="3" fill="#22c55e" />
+  <text x="372" y="137" font-size="13.5" font-weight="700" fill="#15803d">4.05</text>
 
-  <line x1="24" y1="160" x2="556" y2="160" stroke="#e5e7eb" stroke-width="1" />
+  <rect x="24" y="146" width="288" height="16" rx="3" fill="#9ca3af" />
+  <text x="320" y="159" font-size="13.5" font-weight="700" fill="#4b5563">3.43（复读跌落）</text>
 
-  <!-- 组 2: 机械重复对照 -->
-  <text x="24" y="188" font-size="14" font-weight="700" fill="#4b5563">2. 机械复读正对照（「44，44，44…」验证检出器有效）</text>
-  <text x="24" y="212" font-size="12.5" fill="#374151">rank5</text>
-  <rect x="82" y="199" width="274" height="16" rx="3" fill="#9ca3af" />
-  <text x="364" y="212" font-size="13.5" font-weight="700" fill="#374151">3.43（明显跌落）</text>
+  <rect x="24" y="168" width="354" height="16" rx="3" fill="#ef4444" />
+  <text x="386" y="181" font-size="13.5" font-weight="700" fill="#b91c1c">4.22（逆势升秩）</text>
 
-  <text x="24" y="236" font-size="12.5" fill="#374151">预测熵 H</text>
-  <rect x="82" y="223" width="31" height="16" rx="3" fill="#d1d5db" />
-  <text x="121" y="236" font-size="13" fill="#4b5563">0.12 bits  |  尾段仅 11 岛，前 4 礁占 71.0%</text>
+  <!-- 区块 2: 预测熵 H -->
+  <text x="24" y="218" font-size="14" font-weight="700" fill="#111827">2. 下一步预测熵 H（bits，焊死 EOS 后暴涨 10 倍）</text>
+  <rect x="24" y="228" width="40" height="16" rx="3" fill="#22c55e" />
+  <text x="72" y="241" font-size="13.5" font-weight="700" fill="#15803d">0.14</text>
 
-  <line x1="24" y1="256" x2="556" y2="256" stroke="#e5e7eb" stroke-width="1" />
+  <rect x="24" y="250" width="34" height="16" rx="3" fill="#9ca3af" />
+  <text x="66" y="263" font-size="13.5" font-weight="700" fill="#4b5563">0.12</text>
 
-  <!-- 组 3: 焊死 EOS -->
-  <text x="24" y="284" font-size="14" font-weight="700" fill="#b91c1c">3. 焊死 EOS 强迫续写 96 步（反升秩、熵暴涨 10 倍）</text>
-  <text x="24" y="308" font-size="12.5" fill="#374151">rank5</text>
-  <rect x="82" y="295" width="338" height="16" rx="3" fill="#ef4444" />
-  <text x="428" y="308" font-size="13.5" font-weight="700" fill="#b91c1c">4.22（逆势升秩）</text>
+  <rect x="24" y="272" width="420" height="16" rx="3" fill="#ef4444" />
+  <text x="452" y="285" font-size="13.5" font-weight="700" fill="#b91c1c">1.47</text>
 
-  <text x="24" y="332" font-size="12.5" fill="#374151">预测熵 H</text>
-  <rect x="82" y="319" width="376" height="16" rx="3" fill="#fca5a5" />
-  <text x="466" y="332" font-size="13.5" font-weight="700" fill="#b91c1c">1.47 bits</text>
+  <!-- 区块 3: 横跨主岛数 -->
+  <text x="24" y="322" font-size="14" font-weight="700" fill="#111827">3. 尾段横跨不同主岛数（前 4 岛覆盖率）</text>
+  <rect x="24" y="332" width="84" height="16" rx="3" fill="#9ca3af" />
+  <text x="116" y="345" font-size="13" font-weight="700" fill="#4b5563">11 座（前 4 岛占 71.0%）</text>
 
-  <text x="24" y="362" font-size="13" font-weight="700" fill="#111827">91 统计步横跨 53 座不同主岛（前 4 岛覆盖率仅 25.3%）</text>
-  <text x="24" y="384" font-size="12.5" fill="#4b5563">依次踩过 L32 C2018 完结 → C214「或者」→ C772「would」→ C1755「vs」</text>
-
-  <!-- 现场摘录 -->
-  <rect x="24" y="400" width="532" height="44" rx="6" fill="#fef2f2" stroke="#fecaca" stroke-width="1" />
-  <text x="36" y="419" font-size="12.5" font-weight="700" fill="#991b1b">被迫多写的原文现场：</text>
-  <text x="36" y="436" font-size="12.5" fill="#7f1d1d">“若题目原意是 23×19，则结果为 437。但考虑到小学数学题笔误……”</text>
+  <rect x="24" y="354" width="404" height="16" rx="3" fill="#ef4444" />
+  <text x="436" y="367" font-size="13" font-weight="700" fill="#b91c1c">53 座（25.3%）</text>
 </svg>
