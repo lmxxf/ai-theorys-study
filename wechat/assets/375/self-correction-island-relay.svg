@@ -3,55 +3,62 @@
 
   <!-- 标题 -->
   <text x="24" y="34" font-size="17" font-weight="700" fill="#111827">自我纠错慢镜头：49×51 喊“等等，让我重新算”（L32）</text>
-  <text x="24" y="55" font-size="12.5" fill="#4b5563">上图：前后 9 步球皮测地曲率 κ_g 真实走势（红区为急拐纠错峰）；下图：5 帧主轴接力</text>
+  <text x="24" y="55" font-size="11.8" fill="#4b5563">上图：前后 10 步球皮转向角 θ（90.5° 基线 → 127.4° 钝角折返 → 93.9° 回落）；下图：5 帧接力</text>
 
-  <!-- 上半部：κ_g 折线图 (y: 72~178, κ_g范围 2.5~4.2 -> y=162~82) -->
-  <rect x="44" y="72" width="510" height="96" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
-  <!-- 高曲率阴影区 t=146..152 -->
-  <rect x="114" y="73" width="372" height="94" fill="#fef2f2" opacity="0.85" />
-  <!-- 水平虚线基线 κ_g=3.08 (常规推理均值) -->
-  <line x1="44" y1="135" x2="554" y2="135" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3" />
-  <text x="244" y="151" text-anchor="middle" font-size="11" fill="#64748b">常规推理均值 3.08</text>
+  <!-- 上半部：转向角 θ 折线图 (y: 72~172, θ 范围 85°~135° -> y=162~78) -->
+  <rect x="34" y="72" width="522" height="98" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+  <!-- 钝角急拐阴影区 t=146..152 (x=140..486) -->
+  <rect x="140" y="73" width="346" height="96" fill="#fef2f2" opacity="0.88" />
+  <!-- 水平虚线基线 90° (高维正交基线 y=154) -->
+  <line x1="34" y1="154" x2="556" y2="154" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3" />
+  <text x="310" y="165" text-anchor="middle" font-size="10.5" fill="#64748b">90° 高维正交基线（拐前 90.5°/97.9°，拐后回落 93.9°）</text>
 
-  <!-- 真实折线点 x: 64, 124, 184, 244, 304, 364, 424, 484, 538 -->
-  <!-- y = 162 - (kg - 2.5) / 1.7 * 80 -->
-  <!-- 145: 2.766 -> 149.5 | 146: 3.529 -> 113.6 | 147: 3.484 -> 115.7 | 148: 3.600 -> 110.2 | 149: 3.827 -> 99.6 | 150: 3.806 -> 100.5 | 151: 3.945 -> 94.0 | 152: 3.787 -> 101.4 | 153: 3.052 -> 136.0 -->
-  <polyline points="64,149 124,114 184,116 244,110 304,100 364,101 424,94 484,101 538,136" fill="none" stroke="#dc2626" stroke-width="2.5" />
+  <!-- 10 个点 x: 52, 102, 154, 206, 258, 310, 362, 414, 466, 526 -->
+  <!-- y = 162 - (deg - 85) / 50 * 84 -->
+  <!-- 144(\n\n): 90.5° -> 152.8 | 145(等等): 97.9° -> 140.3 | 146(，): 127.4° -> 90.8 | 147(让我): 117.0° -> 108.2 | 148(重新): 110.5° -> 119.2 | 149(算): 117.6° -> 107.2 | 150(：): 117.8° -> 106.9 | 151(\n): 105.3° -> 127.9 | 152(5): 112.3° -> 116.1 | 153(0): 93.9° -> 147.0 -->
+  <polyline points="52,153 102,140 154,91 206,108 258,119 310,107 362,107 414,128 466,116 526,147" fill="none" stroke="#dc2626" stroke-width="2.6" />
 
-  <circle cx="64" cy="149" r="4" fill="#d97706" />
-  <text x="64" y="142" text-anchor="middle" font-size="11" font-weight="700" fill="#b45309">2.77</text>
+  <circle cx="52" cy="153" r="4" fill="#64748b" />
+  <text x="52" y="144" text-anchor="middle" font-size="10.5" font-weight="700" fill="#475569">90.5°</text>
 
-  <circle cx="124" cy="114" r="5" fill="#dc2626" />
-  <text x="124" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">3.53</text>
+  <circle cx="102" cy="140" r="4" fill="#d97706" />
+  <text x="102" y="131" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b45309">97.9°</text>
 
-  <circle cx="184" cy="116" r="4" fill="#dc2626" />
-  <text x="184" y="107" text-anchor="middle" font-size="11" fill="#b91c1c">3.48</text>
+  <circle cx="154" cy="91" r="5.5" fill="#dc2626" />
+  <text x="154" y="84" text-anchor="middle" font-size="11.5" font-weight="700" fill="#b91c1c">127.4°</text>
 
-  <circle cx="244" cy="110" r="4" fill="#dc2626" />
-  <text x="244" y="101" text-anchor="middle" font-size="11" fill="#b91c1c">3.60</text>
+  <circle cx="206" cy="108" r="4" fill="#dc2626" />
+  <text x="206" y="100" text-anchor="middle" font-size="10.5" fill="#b91c1c">117.0°</text>
 
-  <circle cx="304" cy="100" r="5" fill="#dc2626" />
-  <text x="304" y="91" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">3.83</text>
+  <circle cx="258" cy="119" r="4" fill="#dc2626" />
+  <text x="258" y="134" text-anchor="middle" font-size="10.5" fill="#b91c1c">110.5°</text>
 
-  <circle cx="364" cy="101" r="3.5" fill="#ef4444" />
-  <circle cx="424" cy="94" r="4" fill="#dc2626" />
-  <text x="424" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">3.95</text>
+  <circle cx="310" cy="107" r="5" fill="#dc2626" />
+  <text x="310" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">117.6°</text>
 
-  <circle cx="484" cy="101" r="3.5" fill="#ef4444" />
+  <circle cx="362" cy="107" r="4" fill="#ef4444" />
+  <text x="362" y="98" text-anchor="middle" font-size="10.5" fill="#b91c1c">117.8°</text>
 
-  <circle cx="538" cy="136" r="4.5" fill="#16a34a" />
-  <text x="538" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">3.05</text>
+  <circle cx="414" cy="128" r="3.5" fill="#ef4444" />
+  <text x="414" y="142" text-anchor="middle" font-size="10" fill="#b91c1c">105.3°</text>
+
+  <circle cx="466" cy="116" r="4" fill="#ef4444" />
+  <text x="466" y="107" text-anchor="middle" font-size="10.5" fill="#b91c1c">112.3°</text>
+
+  <circle cx="526" cy="147" r="4.5" fill="#16a34a" />
+  <text x="526" y="137" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">93.9°</text>
 
   <!-- X 轴词元标签 -->
-  <text x="64" y="182" text-anchor="middle" font-size="11" fill="#374151">等等</text>
-  <text x="124" y="182" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">，</text>
-  <text x="184" y="182" text-anchor="middle" font-size="11" fill="#374151">让我</text>
-  <text x="244" y="182" text-anchor="middle" font-size="11" fill="#374151">重新</text>
-  <text x="304" y="182" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">算</text>
-  <text x="364" y="182" text-anchor="middle" font-size="11" fill="#6b7280">：</text>
-  <text x="424" y="182" text-anchor="middle" font-size="11" fill="#6b7280">换行</text>
-  <text x="484" y="182" text-anchor="middle" font-size="11" fill="#6b7280">5</text>
-  <text x="538" y="182" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">0(回落)</text>
+  <text x="52" y="185" text-anchor="middle" font-size="10.5" fill="#64748b">前换行</text>
+  <text x="102" y="185" text-anchor="middle" font-size="11" font-weight="700" fill="#b45309">等等</text>
+  <text x="154" y="185" text-anchor="middle" font-size="11.5" font-weight="700" fill="#b91c1c">，</text>
+  <text x="206" y="185" text-anchor="middle" font-size="11" fill="#374151">让我</text>
+  <text x="258" y="185" text-anchor="middle" font-size="11" fill="#374151">重新</text>
+  <text x="310" y="185" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">算</text>
+  <text x="362" y="185" text-anchor="middle" font-size="11" fill="#6b7280">：</text>
+  <text x="414" y="185" text-anchor="middle" font-size="10.5" fill="#6b7280">换行</text>
+  <text x="466" y="185" text-anchor="middle" font-size="11" fill="#6b7280">5</text>
+  <text x="526" y="185" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">0(回落)</text>
 
   <!-- 纵轴 -->
   <line x1="92" y1="204" x2="92" y2="526" stroke="#cbd5e1" stroke-width="2" />
@@ -61,8 +68,8 @@
   <text x="20" y="218" font-size="13.5" font-weight="700" fill="#111827">t=145</text>
   <text x="20" y="236" font-size="13.5" font-weight="700" fill="#b45309">「等等」</text>
   <rect x="112" y="206" width="230" height="16" rx="3" fill="#f59e0b" />
-  <text x="350" y="219" font-size="13" font-weight="700" fill="#b45309">z = 9.19   κ_g = 2.77</text>
-  <text x="112" y="239" font-size="12.5" fill="#374151">L32 C2165 异常惊叹（「啥 / 劲儿」）+ C2016「意外」</text>
+  <text x="350" y="219" font-size="13" font-weight="700" fill="#b45309">z = 9.19   θ = 97.9°（κ_g=2.77）</text>
+  <text x="112" y="239" font-size="12.5" fill="#374151">L32 C2165 异常惊叹（「啥 / 劲儿」）+ L32 C2016「意外」</text>
 
   <!-- 帧 2 -->
   <circle cx="92" cy="292" r="8" fill="#dc2626" />
@@ -77,7 +84,7 @@
   <text x="20" y="362" font-size="13.5" font-weight="700" fill="#111827">t=147</text>
   <text x="20" y="380" font-size="13.5" font-weight="700" fill="#1d4ed8">「让我」</text>
   <rect x="112" y="350" width="203" height="16" rx="3" fill="#3b82f6" />
-  <text x="323" y="363" font-size="13" font-weight="700" fill="#1d4ed8">z = 8.11   转角 117.0°</text>
+  <text x="323" y="363" font-size="13" font-weight="700" fill="#1d4ed8">z = 8.11   转角 117.0°（κ_g=3.48）</text>
   <text x="112" y="383" font-size="12.5" fill="#374151">L32 C626 第一人称自指接管：「myself / my / 我的」</text>
 
   <!-- 帧 4 -->
@@ -85,7 +92,7 @@
   <text x="20" y="434" font-size="13.5" font-weight="700" fill="#111827">t=148</text>
   <text x="20" y="452" font-size="13.5" font-weight="700" fill="#6d28d9">「重新」</text>
   <rect x="112" y="422" width="288" height="16" rx="3" fill="#8b5cf6" />
-  <text x="408" y="435" font-size="13" font-weight="700" fill="#6d28d9">z = 11.54</text>
+  <text x="408" y="435" font-size="13" font-weight="700" fill="#6d28d9">z = 11.54   110.5°（3.60）</text>
   <text x="112" y="455" font-size="12.5" fill="#374151">L32 C2436 推倒重建：「重新 / 重建 / rebuild」</text>
 
   <!-- 帧 5 -->
@@ -93,8 +100,8 @@
   <text x="20" y="506" font-size="13.5" font-weight="700" fill="#111827">t=149</text>
   <text x="20" y="524" font-size="13.5" font-weight="700" fill="#15803d">「算」</text>
   <rect x="112" y="494" width="209" height="16" rx="3" fill="#22c55e" />
-  <text x="329" y="507" font-size="13" font-weight="700" fill="#15803d">z = 8.35   κ_g = 3.83（88% 分位）</text>
-  <text x="112" y="527" font-size="12.5" fill="#374151">L32 C1444 逻辑推演（therefore）+ C2861 估算，Top-5 重叠归 0</text>
+  <text x="329" y="507" font-size="13" font-weight="700" fill="#15803d">z = 8.35   117.6°（κ_g=3.83，88% 分位）</text>
+  <text x="112" y="527" font-size="12.5" fill="#374151">L32 C1444 逻辑推演（therefore）+ L32 C2861 估算，Top-5 重叠归 0</text>
 
   <!-- 底部野生对照组 -->
   <line x1="24" y1="552" x2="556" y2="552" stroke="#e5e7eb" stroke-width="1.5" />

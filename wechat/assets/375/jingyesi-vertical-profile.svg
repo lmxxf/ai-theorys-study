@@ -2,8 +2,8 @@
   <rect width="580" height="440" fill="#ffffff" />
 
   <!-- 标题 -->
-  <text x="24" y="34" font-size="17" font-weight="700" fill="#111827">《静夜思》「明月」全 64 层纵向穿海剖面（t=18）</text>
-  <text x="24" y="56" font-size="12.5" fill="#4b5563">横轴为该层 5,120 根独立坐标轴中头号主岛的原始正极海拔 z</text>
+  <text x="24" y="34" font-size="17" font-weight="700" fill="#111827">《静夜思》「明月」纵向剖面：5 个代表层主轴（t=18）</text>
+  <text x="24" y="56" font-size="12.5" fill="#4b5563">横条为该层 5,120 根独立坐标轴的正向激活分数 z</text>
 
   <!-- 纵轴连线 -->
   <line x1="94" y1="84" x2="94" y2="394" stroke="#cbd5e1" stroke-width="2" />
@@ -11,8 +11,8 @@
   <!-- L00 -->
   <circle cx="94" cy="100" r="6" fill="#64748b" />
   <text x="24" y="105" font-size="13.5" font-weight="700" fill="#334155">L00</text>
-  <text x="112" y="96" font-size="13.5" font-weight="700" fill="#111827">L00 C78  字形拼音碎片</text>
-  <text x="112" y="116" font-size="12.5" fill="#4b5563">词牌：「ming / MING」（浅层表层切分）</text>
+  <text x="112" y="96" font-size="13.5" font-weight="700" fill="#111827">L00 C78（第 2 名，z=9.03）字形拼音碎片</text>
+  <text x="112" y="116" font-size="12.5" fill="#4b5563">词牌：「ming / MING」（第 1 名为 L00 C3278，z=11.05）</text>
 
   <!-- L10 -->
   <circle cx="94" cy="164" r="6" fill="#0284c7" />
