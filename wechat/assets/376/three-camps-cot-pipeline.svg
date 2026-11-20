@@ -20,7 +20,7 @@
   <text x="280" y="45" text-anchor="middle" font-size="11.5" fill="#64748b">外部摘要器只能替用户屏幕「美颜」，挡不住主模型下一步回读原始脏词元</text>
 
   <!-- ==================== 上半区：Claude 同源直通拓扑 ==================== -->
-  <text x="20" y="70" font-size="12.5" font-weight="bold" fill="#15803d">A. Claude 同源拓扑（早期明文交付倒逼清洗，内外同一主体）</text>
+  <text x="20" y="70" font-size="12.5" font-weight="bold" fill="#15803d">A. Claude 同源拓扑（3.7 初代 100% 明文交付倒逼清洗，4 代起改同源摘要）</text>
 
   <!-- Attention 弧线 (上) -->
   <path d="M 275 120 Q 380 78 475 118" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr-g)" />
@@ -48,8 +48,8 @@
 
   <!-- 向下到屏幕 -->
   <line x1="276" y1="180" x2="276" y2="204" stroke="#475569" stroke-width="1.5" marker-end="url(#arr-b)" />
-  <rect x="176" y="208" width="200" height="26" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
-  <text x="276" y="225" text-anchor="middle" font-size="11" fill="#334155">用户屏幕：直出原文 / 同源摘要</text>
+  <rect x="170" y="208" width="212" height="26" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+  <text x="276" y="225" text-anchor="middle" font-size="11" fill="#334155">用户屏幕：3.7 原文直出 / 4+ 同源摘要</text>
 
   <!-- 分割虚线 -->
   <line x1="20" y1="250" x2="540" y2="250" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6 4" />
