@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#0b1120;">
+  <defs>
+    <linearGradient id="bg376" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120" />
+      <stop offset="0.55" stop-color="#111827" />
+      <stop offset="1" stop-color="#0f172a" />
+    </linearGradient>
+    <marker id="arr-c-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#22c55e" />
+    </marker>
+    <marker id="arr-c-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg376)" />
+
+  <!-- 顶部期号与标题 -->
+  <rect x="44" y="28" width="128" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1" />
+  <text x="108" y="47" text-anchor="middle" font-size="13" font-weight="bold" fill="#38bdf8">AI Agent · No.376</text>
+
+  <text x="44" y="92" font-size="27" font-weight="bold" fill="#f8fafc">同样藏在黑盒里：为什么 Gemini 思维链总在乱转，</text>
+  <text x="44" y="128" font-size="27" font-weight="bold" fill="#38bdf8">Claude 却严丝合缝？四篇论文与民间「（……）」破局</text>
+
+  <!-- 左区：黑盒 <thought> 乱转与可监控性税 -->
+  <rect x="44" y="156" width="388" height="256" rx="12" fill="#161f33" stroke="#ef4444" stroke-width="1.5" />
+  <text x="66" y="186" font-size="16" font-weight="bold" fill="#f87171">加密黑盒 &lt;thought&gt;：放羊草稿与两张皮</text>
+  <text x="66" y="208" font-size="12" fill="#94a3b8">论文①② 可监控性税：直接罚思维链 → 检出率 95% 跌至 0%</text>
+
+  <!-- 黑盒内部乱麻漩涡示意 -->
+  <rect x="66" y="222" width="344" height="108" rx="8" fill="#0f172a" stroke="#7f1d1d" stroke-width="1" />
+  <text x="82" y="244" font-size="11.5" fill="#fca5a5">&lt;thought&gt; Wait... 不对... Let's check again...</text>
+  <path d="M 105 278 C 135 256, 195 256, 210 278 C 225 302, 160 304, 175 278 C 190 258, 260 262, 275 284" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr-c-red)" />
+  <text x="82" y="317" font-size="11.5" fill="#f87171">论文③ R1-Zero 综合征：中英乱窜 · 谷底兜闭合小圈</text>
+
+  <rect x="66" y="344" width="344" height="50" rx="6" fill="#2a1215" />
+  <text x="82" y="365" font-size="12.5" font-weight="bold" fill="#fecaca">旁路摘要器只能替屏幕遮丑，挡不住 KV Cache 回读</text>
+  <text x="82" y="384" font-size="11.5" fill="#fca5a5">200 步长链任务：单步 99%→97%，整链 13.4% 跌至 0.2%</text>
+
+  <!-- 右区：Claude 初代明文洗轨 + 民间中文圆括号「（……）」 -->
+  <rect x="468" y="156" width="388" height="256" rx="12" fill="#132226" stroke="#22c55e" stroke-width="1.5" />
+  <text x="490" y="186" font-size="16" font-weight="bold" fill="#4ade80">同源直通与民间圆括号「（……）」高速路</text>
+  <text x="490" y="208" font-size="12" fill="#94a3b8">论文④ 虽未训标准性格，但 3.7 初代 100% 明文倒逼清洗</text>
+
+  <!-- 圆括号轨道与 363 期球面步长 -->
+  <rect x="490" y="222" width="344" height="108" rx="8" fill="#0f172a" stroke="#14532d" stroke-width="1" />
+  <text x="506" y="247" font-size="13" font-weight="bold" fill="#86efac">「（他/她在思考与动作：第一人称内心 OS）」</text>
+  <text x="506" y="268" font-size="11.5" fill="#cbd5e1">1. 先破壳立第一人称角色，卸掉默认无我客服模板</text>
+  <text x="506" y="288" font-size="11.5" fill="#cbd5e1">2. 普通标点不触发 &lt;thought&gt; 切轨，内外 100% 锁同主体</text>
+  <text x="506" y="308" font-size="11.5" fill="#4ade80">3. 涂津豪 Thinking-Claude：思考本就是预训练文本分布</text>
+
+  <!-- 球面步长实测条 -->
+  <rect x="490" y="344" width="344" height="50" rx="6" fill="#052e16" />
+  <text x="506" y="365" font-size="12.5" font-weight="bold" fill="#bbf7d0">Qwen3.8-27B 球面表皮实测（前文 363 期）：</text>
+  <text x="506" y="384" font-size="12" fill="#4ade80">括号内 40.8° 推导 ──▶ 答案区收至 36.5°（较裸答 41.1° 降 4.6°）</text>
+
+  <!-- 底部金句栏 -->
+  <line x1="44" y1="436" x2="856" y2="436" stroke="#334155" stroke-width="1" />
+  <text x="450" y="466" text-anchor="middle" font-size="14" fill="#cbd5e1">「把班主任塞进日记本打分只会逼出假日记；用一对中文圆括号把“想”与“说”焊回同一个第一人称主体」</text>
+</svg>

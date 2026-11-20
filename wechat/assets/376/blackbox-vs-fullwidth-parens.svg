@@ -69,8 +69,8 @@
   <line x1="20" y1="228" x2="540" y2="228" stroke="#e2e8f0" stroke-width="1.5" />
 
   <!-- ==================== 下半部分：363 期球面表皮步长实测数据图 ==================== -->
-  <text x="20" y="253" font-size="13" font-weight="bold" fill="#111827">2. 圆括号内外球面表皮步长实测（Qwen3.8-27B 第 64 层，前文 363 期数据）</text>
-  <text x="20" y="271" font-size="11" fill="#64748b">单位：球心夹角步长（°）—— 括号内大步长跨概念探路，出括号后 5/5 题一致收步稳驻谷底</text>
+  <text x="20" y="253" font-size="13" font-weight="bold" fill="#111827">2. 圆括号内外球面表皮步长实测（Qwen3.8-27B 第 64 层 L63，前文 363 期数据）</text>
+  <text x="20" y="271" font-size="11" fill="#64748b">单位：相邻词元球心夹角步长（°）—— 垫入括号推导后，5/5 题在答案区步长一致收小 4.6°</text>
 
   <!-- 坐标轴网格 (1° = 5px, 0°->155, 12°->215, 24°->275, 36°->335, 48°->395) -->
   <line x1="155" y1="288" x2="155" y2="422" stroke="#475569" stroke-width="1.5" />
@@ -87,21 +87,21 @@
 
   <!-- Bar 1: 括号内推演 40.8° (width = 40.8 * 5 = 204) -->
   <text x="147" y="313" text-anchor="end" font-size="11.5" font-weight="bold" fill="#1e293b">圆括号「（……）」内</text>
-  <text x="147" y="327" text-anchor="end" font-size="10" fill="#64748b">白盒推演跳板阶段</text>
+  <text x="147" y="327" text-anchor="end" font-size="10" fill="#64748b">前置推导草稿阶段</text>
   <rect x="155" y="299" width="204" height="28" rx="4" fill="#3b82f6" />
-  <text x="366" y="318" font-size="11.5" font-weight="bold" fill="#1d4ed8">40.8°（大步跨概念）</text>
+  <text x="366" y="318" font-size="11.5" font-weight="bold" fill="#1d4ed8">40.8°（大步跨概念推导）</text>
 
-  <!-- Bar 2: 出括号后正文 29.8° (width = 29.8 * 5 = 149) -->
-  <text x="147" y="360" text-anchor="end" font-size="11.5" font-weight="bold" fill="#15803d">跨出右括号「）」后</text>
-  <text x="147" y="374" text-anchor="end" font-size="10" fill="#166534">已抵终点谷底输出答案</text>
-  <rect x="155" y="346" width="149" height="28" rx="4" fill="#16a34a" />
-  <text x="311" y="365" font-size="11.5" font-weight="bold" fill="#15803d">29.8°（收步 -11.0° 稳态输出）</text>
+  <!-- Bar 2: 出括号后答案区 36.5° (width = 36.5 * 5 = 182.5) -->
+  <text x="147" y="360" text-anchor="end" font-size="11.5" font-weight="bold" fill="#15803d">跨出右括号「）」答案区</text>
+  <text x="147" y="374" text-anchor="end" font-size="10" fill="#166534">括号推导后输出答案</text>
+  <rect x="155" y="346" width="182.5" height="28" rx="4" fill="#16a34a" />
+  <text x="345" y="365" font-size="11.5" font-weight="bold" fill="#15803d">36.5°（5/5 题收步，较裸答 -4.6°）</text>
 
-  <!-- Bar 3: 无括号直接裸答 34.4° (width = 34.4 * 5 = 172) -->
-  <text x="147" y="407" text-anchor="end" font-size="11.5" font-weight="bold" fill="#475569">不写括号直接裸答</text>
-  <text x="147" y="421" text-anchor="end" font-size="10" fill="#64748b">边吐正文边现算探路</text>
-  <rect x="155" y="393" width="172" height="28" rx="4" fill="#94a3b8" />
-  <text x="334" y="412" font-size="11.5" font-weight="bold" fill="#475569">34.4°（比出括号高 +4.6°）</text>
+  <!-- Bar 3: 无括号直接裸答答案区 41.1° (width = 41.1 * 5 = 205.5) -->
+  <text x="147" y="407" text-anchor="end" font-size="11.5" font-weight="bold" fill="#475569">无括号直接作答答案区</text>
+  <text x="147" y="421" text-anchor="end" font-size="10" fill="#64748b">边吐答案边做长途跳跃</text>
+  <rect x="155" y="393" width="205.5" height="28" rx="4" fill="#94a3b8" />
+  <text x="368" y="412" font-size="11.5" font-weight="bold" fill="#475569">41.1°（无前置草稿缓冲）</text>
 
-  <text x="280" y="458" text-anchor="middle" font-size="10.5" fill="#475569">括号内提前走完大跨度搜寻，出括号后步长比直接裸答还低 4.6°</text>
+  <text x="280" y="458" text-anchor="middle" font-size="10.5" fill="#475569">垫入括号推导草稿后，答案区平均步长从无括号的 41.1° 一致缩短 4.6° 至 36.5°</text>
 </svg>
