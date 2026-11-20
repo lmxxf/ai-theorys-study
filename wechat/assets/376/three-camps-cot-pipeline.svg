@@ -1,67 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 285" width="560" height="285" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
-  <rect width="560" height="285" fill="#ffffff" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 365" width="560" height="365" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
+  <rect width="560" height="365" fill="#ffffff" />
 
   <defs>
-    <marker id="arr-g3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a" />
+    <marker id="arr-m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" />
     </marker>
-    <marker id="arr-r3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <marker id="arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M 0 1 L 10 5 L 0 9 z" fill="#dc2626" />
+    </marker>
+    <marker id="arr-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#d97706" />
+    </marker>
+    <marker id="arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a" />
     </marker>
   </defs>
 
-  <text x="280" y="25" text-anchor="middle" font-size="15" font-weight="bold" fill="#111827">同样不做「标准性格训练」，两条推理训练管线对比</text>
+  <text x="280" y="25" text-anchor="middle" font-size="15" font-weight="bold" fill="#111827">从哪个位置分叉训思维链，决定了思考区长什么样</text>
+  <text x="280" y="44" text-anchor="middle" font-size="11" fill="#64748b">左列：常规后训练四站流水线 ｜ 右列：从该站分叉跑推理 RL 长出的思维链</text>
 
-  <!-- ==================== 上半区：条理严整管线 ==================== -->
-  <text x="18" y="54" font-size="12.5" font-weight="bold" fill="#15803d">A. 冷启动＋语种对齐路线（R1 正式版治好中英乱码 / Claude 收束为工整笔记）</text>
+  <!-- ==================== 第 0 站 → 分叉 A ==================== -->
+  <rect x="18" y="62" width="166" height="58" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
+  <text x="101" y="85" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e293b">站点 0：纯 Base 基座</text>
+  <text x="101" y="104" text-anchor="middle" font-size="10.5" fill="#64748b">原始续写（英文题库占优）</text>
 
-  <!-- 框 1 -->
-  <rect x="18" y="66" width="144" height="74" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5" />
-  <text x="90" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">① 冷启动 SFT 定轨</text>
-  <text x="90" y="111" text-anchor="middle" font-size="10.5" fill="#166534">基础指令微调底座</text>
-  <text x="90" y="127" text-anchor="middle" font-size="10.5" fill="#166534">＋ 分步推演种子 SFT</text>
+  <line x1="184" y1="91" x2="218" y2="91" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-r)" />
+  <text x="201" y="82" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#dc2626">分叉 A</text>
 
-  <line x1="162" y1="103" x2="184" y2="103" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-g3)" />
+  <rect x="222" y="62" width="320" height="58" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" />
+  <text x="382" y="85" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">R1-Zero / Gemini 黑盒 → 中英乱窜「胡写」</text>
+  <text x="382" y="104" text-anchor="middle" font-size="10.5" fill="#b91c1c">缺多语种思考约束（门口靠摘要秘书遮丑，谷底复读）</text>
 
-  <!-- 框 2 -->
-  <rect x="188" y="66" width="184" height="74" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="1.8" />
-  <text x="280" y="89" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">② &lt;thinking&gt; 强化学习</text>
-  <text x="280" y="109" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#15803d">保留：语种词占比 / 格式分</text>
-  <text x="280" y="126" text-anchor="middle" font-size="10.5" fill="#64748b">豁免：标准社交性格训练</text>
+  <!-- 向下主干箭头 0 -> 1 -->
+  <line x1="101" y1="120" x2="101" y2="142" stroke="#475569" stroke-width="1.8" marker-end="url(#arr-m)" />
 
-  <line x1="372" y1="103" x2="394" y2="103" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-g3)" />
+  <!-- ==================== 第 1 站 → 分叉 B ==================== -->
+  <rect x="18" y="146" width="166" height="58" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" />
+  <text x="101" y="169" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">站点 1：冷启动定轨</text>
+  <text x="101" y="188" text-anchor="middle" font-size="10.5" fill="#b45309">先喂几千篇标准思考范文</text>
 
-  <!-- 框 3 -->
-  <rect x="398" y="66" width="144" height="74" rx="6" fill="#16a34a" />
-  <text x="470" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">③ 同源工整草稿</text>
-  <text x="470" y="111" text-anchor="middle" font-size="10.5" fill="#f0fdf4">3.7 明文交付 → 4+ 摘要</text>
-  <text x="470" y="127" text-anchor="middle" font-size="10.5" fill="#dcfce7">思考与正文严丝合缝</text>
+  <line x1="184" y1="175" x2="218" y2="175" stroke="#d97706" stroke-width="2" marker-end="url(#arr-a)" />
+  <text x="201" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#d97706">分叉 B</text>
 
-  <!-- 分割虚线 -->
-  <line x1="18" y1="160" x2="542" y2="160" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6 4" />
+  <rect x="222" y="146" width="320" height="58" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" />
+  <text x="382" y="169" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">DeepSeek-R1 正式版 → 母语「碎碎念」</text>
+  <text x="382" y="188" text-anchor="middle" font-size="10.5" fill="#b45309">＋语种一致性奖励：治好中英乱码，保留野生自言自语</text>
 
-  <!-- ==================== 下半区：野生放羊管线 ==================== -->
-  <text x="18" y="186" font-size="12.5" font-weight="bold" fill="#b91c1c">B. 野生放羊路线（R1-Zero / Gemini 黑盒）</text>
+  <!-- 向下主干箭头 1 -> 2 -->
+  <line x1="101" y1="204" x2="101" y2="226" stroke="#475569" stroke-width="1.8" marker-end="url(#arr-m)" />
 
-  <!-- 框 1 -->
-  <rect x="18" y="198" width="144" height="74" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
-  <text x="90" y="223" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e293b">① 刷题底座起步</text>
-  <text x="90" y="243" text-anchor="middle" font-size="10.5" fill="#475569">纯 Base / 英文题库占优</text>
-  <text x="90" y="259" text-anchor="middle" font-size="10.5" fill="#dc2626">缺多语种思考冷启动</text>
+  <!-- ==================== 第 2 站 → 分叉 C ==================== -->
+  <rect x="18" y="230" width="166" height="58" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5" />
+  <text x="101" y="253" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">站点 2：通用条理底座</text>
+  <text x="101" y="272" text-anchor="middle" font-size="10.5" fill="#166534">完整指令微调（工程师逻辑）</text>
 
-  <line x1="162" y1="235" x2="184" y2="235" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-r3)" />
+  <line x1="184" y1="259" x2="218" y2="259" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-g)" />
+  <text x="201" y="250" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#16a34a">分叉 C</text>
 
-  <!-- 框 2 -->
-  <rect x="188" y="198" width="184" height="74" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8" />
-  <text x="280" y="221" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">② &lt;thought&gt; 纯结果 RL</text>
-  <text x="280" y="241" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#b91c1c">缺失：严格语种一致性约束</text>
-  <text x="280" y="258" text-anchor="middle" font-size="10.5" fill="#dc2626">中英混杂 · 谷底兜圈复读</text>
+  <rect x="222" y="230" width="320" height="58" rx="6" fill="#16a34a" />
+  <text x="382" y="253" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">Claude 推理线 → 工程师笔记「严丝合缝」</text>
+  <text x="382" y="272" text-anchor="middle" font-size="10.5" fill="#dcfce7">与正文共用同一套逻辑条理底座（3.7 明文交付倒逼）</text>
 
-  <line x1="372" y1="235" x2="394" y2="235" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-r3)" />
+  <!-- 向下主干箭头 2 -> 3 -->
+  <line x1="101" y1="288" x2="101" y2="306" stroke="#475569" stroke-width="1.8" marker-end="url(#arr-m)" />
 
-  <!-- 框 3 -->
-  <rect x="398" y="198" width="144" height="74" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" />
-  <text x="470" y="223" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">③ 内外「两张皮」</text>
-  <text x="470" y="243" text-anchor="middle" font-size="10.5" fill="#b91c1c">旁路摘要器重写门面</text>
-  <text x="470" y="259" text-anchor="middle" font-size="10.5" fill="#dc2626">出口单刷中文客服漆</text>
+  <!-- ==================== 第 3 站（仅作用在最终正文出口） ==================== -->
+  <rect x="18" y="310" width="166" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 2" />
+  <text x="101" y="329" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#334155">站点 3：宪法标准性格训练</text>
+  <text x="101" y="345" text-anchor="middle" font-size="10" fill="#64748b">伦理红线 ＋ 温良社交人设</text>
+
+  <rect x="222" y="310" width="320" height="44" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 2" />
+  <text x="382" y="329" text-anchor="middle" font-size="11" font-weight="bold" fill="#475569">思考区一律豁免此站（脱掉对外待客的礼貌西装）</text>
+  <text x="382" y="345" text-anchor="middle" font-size="10" fill="#64748b">仅刷在跨出 &lt;/thinking&gt; 后的最终正文出口</text>
 </svg>
