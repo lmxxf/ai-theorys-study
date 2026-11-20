@@ -1,42 +1,106 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 380" width="820" height="380" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
-  <rect width="820" height="380" fill="#ffffff" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 470" width="560" height="470" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
+  <rect width="560" height="470" fill="#ffffff" />
 
-  <text x="410" y="28" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">实战破局：关小脏黑盒，把推演草稿搬进正文开头的中文圆括号「（……）」</text>
-  <text x="410" y="48" text-anchor="middle" font-size="12" fill="#4b5563">特殊控制词元触发路由切入无主刷题区；普通中文圆括号留在受规训的正文客厅，借现成语料高速路锁死同一主体</text>
+  <defs>
+    <marker id="arr-red2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#dc2626" />
+    </marker>
+    <marker id="arr-green2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a" />
+    </marker>
+  </defs>
 
-  <!-- 左栏：默认黑盒高档位 -->
-  <rect x="24" y="68" width="372" height="292" rx="8" fill="#fef2f2" />
-  <rect x="24" y="68" width="5" height="292" rx="2" fill="#dc2626" />
-  <text x="44" y="94" font-size="14" font-weight="bold" fill="#b91c1c">默认高档黑盒：特殊标签切入野生草稿间</text>
-  <text x="44" y="114" font-size="11.5" fill="#475569">控制词元 &lt;thought&gt; 触发训练路由切轨，脱离正文偏好约束</text>
+  <text x="280" y="26" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#111827">词元序列路由对比与圆括号内外球面步长实测</text>
+  <text x="280" y="45" text-anchor="middle" font-size="11.5" fill="#64748b">避开 &lt;thought&gt; 控制词元切轨，借正文圆括号提前走完大步长跨概念推理</text>
 
-  <rect x="44" y="130" width="332" height="106" rx="6" fill="#ffffff" />
-  <text x="58" y="150" font-size="11.5" font-weight="bold" fill="#991b1b">&lt;thought&gt;（用户看不见原文，按输出词元照常计费）</text>
-  <text x="58" y="171" font-size="11" fill="#64748b">Wait, let's check... 不对，再看一眼 config...</text>
-  <text x="58" y="189" font-size="11" fill="#64748b">Actually maybe not... 等等，Let's check again...</text>
-  <text x="58" y="207" font-size="11" fill="#dc2626">（简单题早算完却不许下车，原地兜闭合小圈复读十遍）</text>
-  <text x="58" y="225" font-size="11" font-weight="bold" fill="#991b1b">&lt;/thought&gt;</text>
+  <!-- ==================== 上半部分：两条词元序列流向 ==================== -->
+  <text x="20" y="72" font-size="13" font-weight="bold" fill="#111827">1. 自回归词元流（Token Stream）路由状态对比</text>
 
-  <rect x="44" y="248" width="332" height="94" rx="6" fill="#fee2e2" />
-  <text x="58" y="270" font-size="12" font-weight="bold" fill="#7f1d1d">后果 1：近端注意力塞满几千字高熵乱麻，调工具易跑偏</text>
-  <text x="58" y="292" font-size="12" font-weight="bold" fill="#7f1d1d">后果 2：黑盒里跑偏半分钟用户看不见，无法中途喊停</text>
-  <text x="58" y="314" font-size="11" fill="#991b1b">后果 3：内外两套语料分布顶牛，上下文越长越割裂</text>
+  <!-- 轨道 1：黑盒切轨 -->
+  <text x="20" y="95" font-size="11.5" font-weight="bold" fill="#b91c1c">默认黑盒高档位（特殊控制 ID 触发子空间切轨）：</text>
 
-  <!-- 右栏：压低黑盒 + 正文开头中文圆括号 -->
-  <rect x="424" y="68" width="372" height="292" rx="8" fill="#f8fafc" />
-  <rect x="424" y="68" width="5" height="292" rx="2" fill="#16a34a" />
-  <text x="444" y="94" font-size="14" font-weight="bold" fill="#15803d">白盒圆括号法：压低黑盒 ＋ 借正文客厅写草稿</text>
-  <text x="444" y="114" font-size="11.5" fill="#475569">全角标点「（」不触发切轨，全程留在受过偏好打磨的正文区</text>
+  <rect x="20" y="104" width="76" height="36" rx="4" fill="#f1f5f9" stroke="#94a3b8" />
+  <text x="58" y="126" text-anchor="middle" font-size="11" fill="#334155">用户提问</text>
 
-  <rect x="444" y="130" width="332" height="106" rx="6" fill="#ffffff" />
-  <text x="458" y="150" font-size="11.5" font-weight="bold" fill="#15803d">回复正文首段（肉眼实时可见，写完右括号自然收束）</text>
-  <text x="458" y="171" font-size="11" fill="#334155">（先核对报错行号：问题出在缓存键未拼版本号，</text>
-  <text x="458" y="189" font-size="11" fill="#334155">不用改接口签名，先读 config.go 第 40 行验证一下。）</text>
-  <text x="458" y="210" font-size="11.5" font-weight="bold" fill="#111827">定位到了，直接改缓存键拼接逻辑就行，分两步：</text>
-  <text x="458" y="227" font-size="10.5" fill="#15803d">↑ 括号内已提前走完推理到站，出括号直接给干净结论</text>
+  <line x1="96" y1="122" x2="114" y2="122" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arr-red2)" />
 
-  <rect x="444" y="248" width="332" height="94" rx="6" fill="#dcfce7" />
-  <text x="458" y="270" font-size="12" font-weight="bold" fill="#14532d">红利 1：享受正文区的条理判分，草稿短小干净低噪</text>
-  <text x="458" y="292" font-size="12" font-weight="bold" fill="#14532d">红利 2：中文剧本/陪伴语料修好高速路，内外锁死同主体</text>
-  <text x="458" y="314" font-size="11" fill="#166534">红利 3：第一步想歪屏幕外一眼看穿，随时打断零浪费</text>
+  <rect x="118" y="104" width="84" height="36" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" />
+  <text x="160" y="121" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">&lt;thought&gt;</text>
+  <text x="160" y="134" text-anchor="middle" font-size="9.5" fill="#dc2626">特殊控制词元</text>
+
+  <line x1="202" y1="122" x2="220" y2="122" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arr-red2)" />
+
+  <rect x="224" y="104" width="194" height="36" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-dasharray="4 2" />
+  <text x="321" y="120" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#b91c1c">无偏好规训的野生刷题区</text>
+  <text x="321" y="134" text-anchor="middle" font-size="9.5" fill="#dc2626">Wait... 等等... 兜闭合小圈</text>
+
+  <line x1="418" y1="122" x2="436" y2="122" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arr-red2)" />
+
+  <rect x="440" y="104" width="100" height="36" rx="4" fill="#fef2f2" stroke="#dc2626" />
+  <text x="490" y="121" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">正文 / 调工具</text>
+  <text x="490" y="134" text-anchor="middle" font-size="9.5" fill="#b91c1c">近端被脏草稿污染</text>
+
+  <!-- 轨道 2：白盒全角圆括号 -->
+  <text x="20" y="164" font-size="11.5" font-weight="bold" fill="#15803d">压低黑盒 ＋ 正文开头中文全角圆括号「（……）」：</text>
+
+  <rect x="20" y="173" width="76" height="36" rx="4" fill="#f1f5f9" stroke="#94a3b8" />
+  <text x="58" y="195" text-anchor="middle" font-size="11" fill="#334155">用户提问</text>
+
+  <line x1="96" y1="191" x2="114" y2="191" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arr-green2)" />
+
+  <rect x="118" y="173" width="84" height="36" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" />
+  <text x="160" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">「（」</text>
+  <text x="160" y="203" text-anchor="middle" font-size="9.5" fill="#15803d">普通正文标点</text>
+
+  <line x1="202" y1="191" x2="220" y2="191" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arr-green2)" />
+
+  <rect x="224" y="173" width="194" height="36" rx="4" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5" />
+  <text x="321" y="189" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#14532d">留在受过打磨的正文精修区</text>
+  <text x="321" y="203" text-anchor="middle" font-size="9.5" fill="#15803d">（先核对行号与调用链…）</text>
+
+  <line x1="418" y1="191" x2="436" y2="191" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arr-green2)" />
+
+  <rect x="440" y="173" width="100" height="36" rx="4" fill="#16a34a" />
+  <text x="490" y="190" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">出「）」直给结论</text>
+  <text x="490" y="203" text-anchor="middle" font-size="9.5" fill="#dcfce7">内外锁死同一主体</text>
+
+  <!-- 分割线 -->
+  <line x1="20" y1="228" x2="540" y2="228" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- ==================== 下半部分：363 期球面表皮步长实测数据图 ==================== -->
+  <text x="20" y="253" font-size="13" font-weight="bold" fill="#111827">2. 圆括号内外球面表皮步长实测（Qwen3.8-27B 第 64 层，前文 363 期数据）</text>
+  <text x="20" y="271" font-size="11" fill="#64748b">单位：球心夹角步长（°）—— 括号内大步长跨概念探路，出括号后 5/5 题一致收步稳驻谷底</text>
+
+  <!-- 坐标轴网格 (1° = 5px, 0°->155, 12°->215, 24°->275, 36°->335, 48°->395) -->
+  <line x1="155" y1="288" x2="155" y2="422" stroke="#475569" stroke-width="1.5" />
+  <line x1="215" y1="288" x2="215" y2="422" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3" />
+  <line x1="275" y1="288" x2="275" y2="422" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3" />
+  <line x1="335" y1="288" x2="335" y2="422" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3" />
+  <line x1="395" y1="288" x2="395" y2="422" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3" />
+
+  <text x="155" y="438" text-anchor="middle" font-size="10.5" fill="#64748b">0°</text>
+  <text x="215" y="438" text-anchor="middle" font-size="10.5" fill="#64748b">12°</text>
+  <text x="275" y="438" text-anchor="middle" font-size="10.5" fill="#64748b">24°</text>
+  <text x="335" y="438" text-anchor="middle" font-size="10.5" fill="#64748b">36°</text>
+  <text x="395" y="438" text-anchor="middle" font-size="10.5" fill="#64748b">48°</text>
+
+  <!-- Bar 1: 括号内推演 40.8° (width = 40.8 * 5 = 204) -->
+  <text x="147" y="313" text-anchor="end" font-size="11.5" font-weight="bold" fill="#1e293b">圆括号「（……）」内</text>
+  <text x="147" y="327" text-anchor="end" font-size="10" fill="#64748b">白盒推演跳板阶段</text>
+  <rect x="155" y="299" width="204" height="28" rx="4" fill="#3b82f6" />
+  <text x="366" y="318" font-size="11.5" font-weight="bold" fill="#1d4ed8">40.8°（大步跨概念）</text>
+
+  <!-- Bar 2: 出括号后正文 29.8° (width = 29.8 * 5 = 149) -->
+  <text x="147" y="360" text-anchor="end" font-size="11.5" font-weight="bold" fill="#15803d">跨出右括号「）」后</text>
+  <text x="147" y="374" text-anchor="end" font-size="10" fill="#166534">已抵终点谷底输出答案</text>
+  <rect x="155" y="346" width="149" height="28" rx="4" fill="#16a34a" />
+  <text x="311" y="365" font-size="11.5" font-weight="bold" fill="#15803d">29.8°（收步 -11.0° 稳态输出）</text>
+
+  <!-- Bar 3: 无括号直接裸答 34.4° (width = 34.4 * 5 = 172) -->
+  <text x="147" y="407" text-anchor="end" font-size="11.5" font-weight="bold" fill="#475569">不写括号直接裸答</text>
+  <text x="147" y="421" text-anchor="end" font-size="10" fill="#64748b">边吐正文边现算探路</text>
+  <rect x="155" y="393" width="172" height="28" rx="4" fill="#94a3b8" />
+  <text x="334" y="412" font-size="11.5" font-weight="bold" fill="#475569">34.4°（比出括号高 +4.6°）</text>
+
+  <text x="280" y="458" text-anchor="middle" font-size="10.5" fill="#475569">括号内提前走完大跨度搜寻，出括号后步长比直接裸答还低 4.6°</text>
 </svg>
