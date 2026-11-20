@@ -1,98 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 465" width="560" height="465" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
-  <rect width="560" height="465" fill="#ffffff" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 285" width="560" height="285" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif" style="background-color:#ffffff;">
+  <rect width="560" height="285" fill="#ffffff" />
 
   <defs>
-    <marker id="arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <marker id="arr-g3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a" />
     </marker>
-    <marker id="arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <marker id="arr-r3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M 0 1 L 10 5 L 0 9 z" fill="#dc2626" />
-    </marker>
-    <marker id="arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" />
-    </marker>
-    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#d97706" />
     </marker>
   </defs>
 
-  <text x="280" y="26" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#111827">Claude 与 Gemini 推理网关及 KV Cache 回读拓扑图</text>
-  <text x="280" y="45" text-anchor="middle" font-size="11.5" fill="#64748b">外部摘要器只能替用户屏幕「美颜」，挡不住主模型下一步回读原始脏词元</text>
+  <text x="280" y="25" text-anchor="middle" font-size="15" font-weight="bold" fill="#111827">同样不做「标准性格训练」，两条推理训练管线对比</text>
 
-  <!-- ==================== 上半区：Claude 同源直通拓扑 ==================== -->
-  <text x="20" y="70" font-size="12.5" font-weight="bold" fill="#15803d">A. Claude 同源拓扑（3.7 初代默认明文交付倒逼清洗，4 代起改同源摘要）</text>
+  <!-- ==================== 上半区：条理严整管线 ==================== -->
+  <text x="18" y="54" font-size="12.5" font-weight="bold" fill="#15803d">A. 条理严整路线（Claude / DeepSeek-R1 正式版）</text>
 
-  <!-- Attention 弧线 (上) -->
-  <path d="M 275 120 Q 380 78 475 118" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr-g)" />
-  <rect x="296" y="79" width="174" height="18" rx="4" fill="#dcfce7" />
-  <text x="383" y="92" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#15803d">KV Cache 近端注意力干净回读</text>
+  <!-- 框 1 -->
+  <rect x="18" y="66" width="144" height="74" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5" />
+  <text x="90" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">① 条理底座先行</text>
+  <text x="90" y="111" text-anchor="middle" font-size="10.5" fill="#166534">第一人称自评底座</text>
+  <text x="90" y="127" text-anchor="middle" font-size="10.5" fill="#166534">＋ 冷启动种子 SFT</text>
 
-  <!-- 节点 1：主干底座 -->
-  <rect x="20" y="122" width="128" height="58" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5" />
-  <text x="84" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">第一人称底座</text>
-  <text x="84" y="164" text-anchor="middle" font-size="10.5" fill="#166534">宪法自评先行</text>
+  <line x1="162" y1="103" x2="184" y2="103" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-g3)" />
 
-  <line x1="148" y1="151" x2="182" y2="151" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-g)" />
+  <!-- 框 2 -->
+  <rect x="188" y="66" width="184" height="74" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="1.8" />
+  <text x="280" y="89" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">② &lt;thinking&gt; 强化学习</text>
+  <text x="280" y="109" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#15803d">保留：语种词占比 / 格式分</text>
+  <text x="280" y="126" text-anchor="middle" font-size="10.5" fill="#64748b">豁免：标准社交性格训练</text>
 
-  <!-- 节点 2：thinking 词元流 -->
-  <rect x="186" y="122" width="180" height="58" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" />
-  <text x="276" y="143" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">&lt;thinking&gt; 词元流</text>
-  <text x="276" y="161" text-anchor="middle" font-size="10.5" fill="#166534">冷启动清洗 · 语种/条理对齐</text>
+  <line x1="372" y1="103" x2="394" y2="103" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-g3)" />
 
-  <line x1="366" y1="151" x2="404" y2="151" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-g)" />
-
-  <!-- 节点 3：正文与工具调用 -->
-  <rect x="408" y="122" width="132" height="58" rx="6" fill="#16a34a" />
-  <text x="474" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">正文 / 工具调用</text>
-  <text x="474" y="164" text-anchor="middle" font-size="10.5" fill="#dcfce7">代码动作严丝合缝</text>
-
-  <!-- 向下到屏幕 -->
-  <line x1="276" y1="180" x2="276" y2="204" stroke="#475569" stroke-width="1.5" marker-end="url(#arr-b)" />
-  <rect x="170" y="208" width="212" height="26" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
-  <text x="276" y="225" text-anchor="middle" font-size="11" fill="#334155">用户屏幕：3.7 原文直出 / 4+ 同源摘要</text>
+  <!-- 框 3 -->
+  <rect x="398" y="66" width="144" height="74" rx="6" fill="#16a34a" />
+  <text x="470" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">③ 同源工整草稿</text>
+  <text x="470" y="111" text-anchor="middle" font-size="10.5" fill="#f0fdf4">3.7 明文交付 → 4+ 摘要</text>
+  <text x="470" y="127" text-anchor="middle" font-size="10.5" fill="#dcfce7">思考与正文严丝合缝</text>
 
   <!-- 分割虚线 -->
-  <line x1="20" y1="250" x2="540" y2="250" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6 4" />
+  <line x1="18" y1="160" x2="542" y2="160" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6 4" />
 
-  <!-- ==================== 下半区：Gemini 旁路遮丑拓扑 ==================== -->
-  <text x="20" y="274" font-size="12.5" font-weight="bold" fill="#b91c1c">B. Gemini 双轨拓扑（旁路小模型替屏幕遮丑，主模型照吃脏草稿）</text>
+  <!-- ==================== 下半区：野生放羊管线 ==================== -->
+  <text x="18" y="186" font-size="12.5" font-weight="bold" fill="#b91c1c">B. 野生放羊路线（R1-Zero / Gemini 黑盒）</text>
 
-  <!-- 真实自回归 Attention 弧线 (粗红线) -->
-  <path d="M 275 324 Q 380 278 475 322" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arr-r)" />
-  <rect x="274" y="283" width="212" height="19" rx="4" fill="#fee2e2" />
-  <text x="380" y="296" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#b91c1c">KV Cache 直读几千字原始脏词元</text>
+  <!-- 框 1 -->
+  <rect x="18" y="198" width="144" height="74" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
+  <text x="90" y="223" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e293b">① 刷题底座起步</text>
+  <text x="90" y="243" text-anchor="middle" font-size="10.5" fill="#475569">纯 Base / 英文题库占优</text>
+  <text x="90" y="259" text-anchor="middle" font-size="10.5" fill="#dc2626">缺多语种思考冷启动</text>
 
-  <!-- 节点 1：主干底座 -->
-  <rect x="20" y="326" width="128" height="60" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" />
-  <text x="84" y="349" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e293b">预训练+刷题底座</text>
-  <text x="84" y="368" text-anchor="middle" font-size="10.5" fill="#64748b">英文竞赛题库占优</text>
+  <line x1="162" y1="235" x2="184" y2="235" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-r3)" />
 
-  <!-- 切轨箭头 -->
-  <line x1="148" y1="356" x2="182" y2="356" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-r)" />
-  <text x="165" y="346" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#dc2626">切轨</text>
+  <!-- 框 2 -->
+  <rect x="188" y="198" width="184" height="74" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8" />
+  <text x="280" y="221" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">② &lt;thought&gt; 纯结果 RL</text>
+  <text x="280" y="241" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#b91c1c">缺失：严格语种一致性约束</text>
+  <text x="280" y="258" text-anchor="middle" font-size="10.5" fill="#dc2626">中英混杂 · 谷底兜圈复读</text>
 
-  <!-- 节点 2：黑盒原始 thought 词元流 -->
-  <rect x="186" y="326" width="180" height="60" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8" />
-  <text x="276" y="346" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">&lt;thought&gt; 加密黑盒流</text>
-  <text x="276" y="363" text-anchor="middle" font-size="10.5" fill="#b91c1c">Wait... 不对... Let's check...</text>
-  <text x="276" y="378" text-anchor="middle" font-size="10" fill="#dc2626">（中英混杂 · 谷底兜圈复读）</text>
+  <line x1="372" y1="235" x2="394" y2="235" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-r3)" />
 
-  <!-- 出黑盒刷客服漆 -->
-  <line x1="366" y1="356" x2="404" y2="356" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-r)" />
-  <text x="385" y="346" text-anchor="middle" font-size="9.5" fill="#475569">客服漆</text>
-
-  <!-- 节点 3：正文与工具调用 -->
-  <rect x="408" y="326" width="132" height="60" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" />
-  <text x="474" y="349" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">正文 / 工具调用</text>
-  <text x="474" y="368" text-anchor="middle" font-size="10.5" fill="#b91c1c">受近端高熵草稿干扰</text>
-
-  <!-- 向下旁路网关：云端摘要器 -->
-  <line x1="230" y1="386" x2="230" y2="416" stroke="#d97706" stroke-width="1.8" stroke-dasharray="3 2" marker-end="url(#arr-amber)" />
-  <rect x="108" y="420" width="178" height="30" rx="5" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" />
-  <text x="197" y="439" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">云端旁路轻量摘要器</text>
-
-  <line x1="286" y1="435" x2="324" y2="435" stroke="#d97706" stroke-width="1.8" marker-end="url(#arr-amber)" />
-
-  <rect x="328" y="420" width="212" height="30" rx="5" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" />
-  <text x="434" y="439" text-anchor="middle" font-size="11" fill="#334155">用户屏幕：润色后的漂亮中文标题</text>
+  <!-- 框 3 -->
+  <rect x="398" y="198" width="144" height="74" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" />
+  <text x="470" y="223" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">③ 内外「两张皮」</text>
+  <text x="470" y="243" text-anchor="middle" font-size="10.5" fill="#b91c1c">旁路摘要器重写门面</text>
+  <text x="470" y="259" text-anchor="middle" font-size="10.5" fill="#dc2626">出口单刷中文客服漆</text>
 </svg>
