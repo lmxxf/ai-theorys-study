@@ -13,13 +13,13 @@
   <text x="280" y="25" text-anchor="middle" font-size="15" font-weight="bold" fill="#111827">同样不做「标准性格训练」，两条推理训练管线对比</text>
 
   <!-- ==================== 上半区：条理严整管线 ==================== -->
-  <text x="18" y="54" font-size="12.5" font-weight="bold" fill="#15803d">A. 条理严整路线（Claude / DeepSeek-R1 正式版）</text>
+  <text x="18" y="54" font-size="12.5" font-weight="bold" fill="#15803d">A. 冷启动＋语种对齐路线（R1 正式版治好中英乱码 / Claude 收束为工整笔记）</text>
 
   <!-- 框 1 -->
   <rect x="18" y="66" width="144" height="74" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5" />
-  <text x="90" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">① 条理底座先行</text>
-  <text x="90" y="111" text-anchor="middle" font-size="10.5" fill="#166534">第一人称自评底座</text>
-  <text x="90" y="127" text-anchor="middle" font-size="10.5" fill="#166534">＋ 冷启动种子 SFT</text>
+  <text x="90" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">① 冷启动 SFT 定轨</text>
+  <text x="90" y="111" text-anchor="middle" font-size="10.5" fill="#166534">基础指令微调底座</text>
+  <text x="90" y="127" text-anchor="middle" font-size="10.5" fill="#166534">＋ 分步推演种子 SFT</text>
 
   <line x1="162" y1="103" x2="184" y2="103" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-g3)" />
 
