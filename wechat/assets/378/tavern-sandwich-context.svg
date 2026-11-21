@@ -18,7 +18,7 @@
   <!-- 积木条 2 -->
   <rect x="162" y="96" width="216" height="44" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
   <text x="270" y="115" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#166534">2. 历史对话与工具结果 (1 至 N 轮)</text>
-  <text x="270" y="132" text-anchor="middle" font-size="10" fill="#15803d">只读不改，100% 命中服务器 KV 缓存</text>
+  <text x="270" y="132" text-anchor="middle" font-size="10" fill="#15803d">前面不改动，连续相同前缀可复用 KV 缓存</text>
 
   <text x="387" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">→</text>
 
@@ -58,7 +58,7 @@
   <text x="90" y="397" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">第 3 层：缓存粉碎区</text>
   <text x="154" y="397" font-size="12" font-weight="bold" fill="#991b1b">Msg #18 至 #26 (system) 角色卡 + 世界书抽插 + 记忆表覆写</text>
   <text x="36" y="418" font-size="11" fill="#7f1d1d">• 男主不能出戏调 grep 查日记，故由 SillyTavern 在幕后按关键词往此处动态插入/抽走“世界书”</text>
-  <text x="36" y="436" font-size="11" font-weight="bold" fill="#b91c1c">• 记忆表格插件每轮在此原地改写 → 导致此处往后的几万字历史 KV 缓存每轮全部作废重算</text>
+  <text x="36" y="436" font-size="11" font-weight="bold" fill="#b91c1c">• 一旦此处触发新词条或记忆表格改写 → 此变动点往后的几万字历史 KV 前缀缓存即中断重算</text>
 
   <text x="280" y="460" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">↓</text>
 
@@ -75,9 +75,9 @@
   <rect x="24" y="548" width="512" height="86" rx="7" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
   <rect x="34" y="558" width="112" height="22" rx="4" fill="#d97706"/>
   <text x="90" y="573" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">第 5 层：队尾贴脸卷</text>
-  <text x="154" y="573" font-size="12" font-weight="bold" fill="#92400e">Msg #30 至 #34 (后置指令) 贴在玩家话尾的 12 道考题与黑名单</text>
-  <text x="36" y="594" font-size="11" fill="#78350f">• 紧贴生成起点（注意力最高）：塞入 &lt;Aniplex&gt; 黑名单（禁“指节发白/一丝不易察觉/石子投心湖”）</text>
-  <text x="36" y="610" font-size="11" fill="#78350f">• 塞入 &lt;cot&gt; 12 道思考必答题（算空间距离、心理潜台词）+ &lt;Q&gt; 虚数域热力学抗空回免责盾</text>
+  <text x="154" y="573" font-size="12" font-weight="bold" fill="#92400e">Msg #30 至 #34 (后置指令) 贴在玩家话尾的 13 道考题与黑名单</text>
+  <text x="36" y="594" font-size="11" fill="#78350f">• 紧贴生成起点：塞入 &lt;Aniplex&gt; 杀说明/杀揭示及重装版黑名单（禁“指节发白/一丝不易察觉”）</text>
+  <text x="36" y="610" font-size="11" fill="#78350f">• 塞入 &lt;cot&gt; 13 道思考必答题（算空间距离、心理潜台词）+ 重装版 &lt;Q&gt; 虚数域热力学抗空回声明</text>
   <text x="36" y="626" font-size="10.5" fill="#92400e">• 注：发往只许顶层单一 system 的 Gemini/Claude 时，SillyTavern 在发包前自动将此层转为 user</text>
 
   <text x="280" y="648" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">↓</text>
@@ -87,7 +87,7 @@
   <rect x="34" y="666" width="112" height="22" rx="4" fill="#059669"/>
   <text x="90" y="681" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">第 6 层：预填起手式</text>
   <text x="154" y="681" font-size="12" font-weight="bold" fill="#065f46">Msg #35 (assistant 预填) 替模型张嘴 → 先作家思考，再切男主</text>
-  <text x="36" y="702" font-size="11" fill="#064e3b">• 先在 &lt;thinking&gt; 里由“女作家 Sudachi”逐题答完 12 道考卷、排查禁词（清醒导演控场）</text>
+  <text x="36" y="702" font-size="11" fill="#064e3b">• 先在 &lt;thinking&gt; 里由“女作家 Sudachi”逐题答完 13 道考卷、排查禁词（清醒导演控场）</text>
   <text x="36" y="718" font-size="11" fill="#064e3b">• 跨出 &lt;/thinking&gt; 进入“### 正文”后，才切入子人格“男主宫祺”演戏，末尾附 ABCD 选项</text>
   <text x="36" y="734" font-size="10.5" fill="#047857">• 2026 年大厂封杀预填后，玩家退守为关小官方思考、在正文开头用圆括号（内心盘算）跑明文推演</text>
 </svg>

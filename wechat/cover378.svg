@@ -26,7 +26,7 @@
 
   <rect x="58" y="134" width="229" height="52" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
   <text x="70" y="155" font-size="12" fill="#64748b">system:</text>
-  <text x="70" y="174" font-size="12.5" fill="#e2e8f0">"You are a helpful assistant."</text>
+  <text x="70" y="174" font-size="12.5" fill="#e2e8f0">「You are a helpful assistant.」</text>
 
   <rect x="58" y="200" width="229" height="62" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
   <text x="70" y="222" font-size="12" fill="#64748b">验收标准：</text>
@@ -51,14 +51,14 @@
 
   <!-- 右侧模块 2：三明治与缓存粉碎 -->
   <rect x="368" y="200" width="474" height="60" rx="8" fill="#1e1b4b" stroke="#f43f5e" stroke-width="1.2"/>
-  <text x="380" y="222" font-size="12.5" font-weight="bold" fill="#fecdd3">2. 动态三明治：中间改记忆表碎缓存 + 队尾塞 12 道考题与杀八股黑名单</text>
+  <text x="380" y="222" font-size="12.5" font-weight="bold" fill="#fecdd3">2. 动态三明治：中段改记忆表断缓存 + 队尾塞 13 道考题与杀八股黑名单</text>
   <text x="380" y="244" font-size="11.5" fill="#cbd5e1">禁「指节发白/石子投心湖」；附《熵之挽歌》Q 虚数域免责盾；单张男主卡日跑 8 万轮</text>
 
   <!-- 右侧模块 3：人形验钞机 -->
   <rect x="368" y="270" width="474" height="64" rx="8" fill="#1e1b4b" stroke="#38bdf8" stroke-width="1.2"/>
-  <text x="380" y="292" font-size="12.5" font-weight="bold" fill="#bae6fd">3. 人形模型验钞机：两小时测穿跑分霸主 Neon 穿模 &amp; 对账单抓隐藏指令</text>
-  <text x="380" y="312" font-size="11.5" fill="#e2e8f0">• 盲测 4N 崩出「黑金卡太宽抱不住大胖子南瓜」；克（Claude）演渣男患平等博爱症</text>
-  <text x="380" y="328" font-size="11" fill="#7dd3fc">• 对账 countTokens 抓出 Google 后台偷塞 +55（防恋爱）/ +419（防越狱）隐藏词元</text>
+  <text x="380" y="292" font-size="12.5" font-weight="bold" fill="#bae6fd">3. 人形模型验钞机：换模当天测出 Neon 穿模 &amp; 比对接口抓出隐藏指令</text>
+  <text x="380" y="312" font-size="11.5" fill="#e2e8f0">• 同剧本 4N 崩出「黑金卡太宽抱不住大胖子」；克（Claude）演渣男患平等博爱症</text>
+  <text x="380" y="328" font-size="11" fill="#7dd3fc">• 比对 countTokens 与 promptTokenCount 抓出后台偷塞 +55（防恋爱）/ +419（防越狱）词元</text>
 
   <!-- 底部主标题区 -->
   <rect x="40" y="370" width="820" height="104" rx="12" fill="#090d16" fill-opacity="0.75" stroke="url(#pinkGlow)" stroke-width="1.5"/>
