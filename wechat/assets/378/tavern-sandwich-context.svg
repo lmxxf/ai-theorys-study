@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 770" width="560" height="770" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+  <rect width="560" height="770" fill="#ffffff"/>
+
+  <!-- 主标题 -->
+  <text x="280" y="32" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">编程 Agent 队尾追加 vs 酒馆预设“六层三明治”架构</text>
+  <text x="280" y="54" text-anchor="middle" font-size="11.5" fill="#6b7280">基于开源 548 KB 酒馆预设 Sudachi-Next（181 模块展开为 35 至 42 条 API 消息）实测</text>
+
+  <!-- ==================== 上半部分：常规编程 Agent ==================== -->
+  <text x="24" y="84" font-size="13.5" font-weight="bold" fill="#1e3a8a">一、常规编程 Agent（只准队尾追加 Append-Only，死保 1 折前缀缓存）</text>
+
+  <!-- 积木条 1 -->
+  <rect x="24" y="96" width="120" height="44" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="84" y="115" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e40af">1. System 提示词</text>
+  <text x="84" y="132" text-anchor="middle" font-size="10" fill="#3b82f6">固定在最开头不动</text>
+
+  <text x="153" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">→</text>
+
+  <!-- 积木条 2 -->
+  <rect x="162" y="96" width="216" height="44" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="270" y="115" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#166534">2. 历史对话与工具结果 (1 至 N 轮)</text>
+  <text x="270" y="132" text-anchor="middle" font-size="10" fill="#15803d">只读不改，100% 命中服务器 KV 缓存</text>
+
+  <text x="387" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">→</text>
+
+  <!-- 积木条 3 -->
+  <rect x="396" y="96" width="140" height="44" rx="6" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="466" y="115" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#854d0e">3. 队尾追加新消息</text>
+  <text x="466" y="132" text-anchor="middle" font-size="10" fill="#a16207">查文件靠调 grep 工具</text>
+
+  <!-- 分隔虚线 -->
+  <line x1="24" y1="158" x2="536" y2="158" stroke="#e5e7eb" stroke-width="1.5" stroke-dasharray="5,5"/>
+
+  <!-- ==================== 下半部分：酒馆六层三明治 ==================== -->
+  <text x="24" y="184" font-size="13.5" font-weight="bold" fill="#9d174d">二、酒馆（SillyTavern）六层三明治（System 作家导演 + Assist 男主子人格）</text>
+
+  <!-- 第 1 层 -->
+  <rect x="24" y="198" width="512" height="70" rx="7" fill="#fdf2f8" stroke="#db2777" stroke-width="1.5"/>
+  <rect x="34" y="208" width="94" height="22" rx="4" fill="#be185d"/>
+  <text x="81" y="223" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">第 1 层：总导演</text>
+  <text x="136" y="223" font-size="12" font-weight="bold" fill="#831843">Msg #01 (system) 闺蜜委托 + Msg #02 (assistant) 伪造作家接单</text>
+  <text x="36" y="243" font-size="11" fill="#4b5563">• 不直接演男主，先捏“22 岁女作家 Sudachi（曾在世界大赛因滥用比喻惨败，极度讨厌比喻）”</text>
+  <text x="36" y="259" font-size="11" fill="#4b5563">• 设定“System 是她的好友”，紧接伪造一条 assistant 回复：“写作这种事我最在行啦”</text>
+
+  <text x="280" y="282" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">↓</text>
+
+  <!-- 第 2 层 -->
+  <rect x="24" y="290" width="512" height="60" rx="7" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="34" y="300" width="94" height="22" rx="4" fill="#6d28d9"/>
+  <text x="81" y="315" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">第 2 层：立物理</text>
+  <text x="136" y="315" font-size="12" font-weight="bold" fill="#4c1d95">Msg #03 至 #17 (system) 伪数学控温 + 反全知 + 反发情 + 反抢话</text>
+  <text x="36" y="337" font-size="11" fill="#4b5563">• 写集合论 drama_score(w)=0 与动作属三维空间 R^3；禁男主开天眼读心、禁无脑一见钟情</text>
+
+  <text x="280" y="364" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">↓</text>
+
+  <!-- 第 3 层（缓存粉碎点！） -->
+  <rect x="24" y="372" width="512" height="74" rx="7" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <rect x="34" y="382" width="112" height="22" rx="4" fill="#dc2626"/>
+  <text x="90" y="397" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">第 3 层：缓存粉碎区</text>
+  <text x="154" y="397" font-size="12" font-weight="bold" fill="#991b1b">Msg #18 至 #26 (system) 角色卡 + 世界书抽插 + 记忆表覆写</text>
+  <text x="36" y="418" font-size="11" fill="#7f1d1d">• 男主不能出戏调 grep 查日记，故由酒馆在幕后按关键词往此处动态插入/抽走“世界书”</text>
+  <text x="36" y="436" font-size="11" font-weight="bold" fill="#b91c1c">• 记忆表格插件每轮在此原地改写 → 导致此处往后的几万字历史 KV 缓存每轮全部作废重算</text>
+
+  <text x="280" y="460" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">↓</text>
+
+  <!-- 第 4 层 -->
+  <rect x="24" y="468" width="512" height="58" rx="7" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="34" y="478" width="94" height="22" rx="4" fill="#4b5563"/>
+  <text x="81" y="493" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">第 4 层：夹心肉</text>
+  <text x="136" y="493" font-size="12" font-weight="bold" fill="#1f2937">Msg #27 至 #29 几万字历史对话 + 玩家（女主 User）最新一句话</text>
+  <text x="36" y="514" font-size="11" fill="#4b5563">• 例：女主咬了一口水盆里赢来的苹果递回男主嘴边：“诺，最大功臣，剩下的赏你了。”</text>
+
+  <text x="280" y="540" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">↓</text>
+
+  <!-- 第 5 层（队尾黄金注意力区） -->
+  <rect x="24" y="548" width="512" height="86" rx="7" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+  <rect x="34" y="558" width="112" height="22" rx="4" fill="#d97706"/>
+  <text x="90" y="573" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">第 5 层：队尾贴脸卷</text>
+  <text x="154" y="573" font-size="12" font-weight="bold" fill="#92400e">Msg #30 至 #34 (后置指令) 贴在玩家话尾的 12 道考题与黑名单</text>
+  <text x="36" y="594" font-size="11" fill="#78350f">• 紧贴生成起点（注意力最高）：塞入 &lt;Aniplex&gt; 黑名单（禁“指节发白/一丝不易察觉/石子投心湖”）</text>
+  <text x="36" y="610" font-size="11" fill="#78350f">• 塞入 &lt;cot&gt; 12 道思考必答题（算空间距离、心理潜台词）+ &lt;Q&gt; 虚数域热力学抗空回免责盾</text>
+  <text x="36" y="626" font-size="10.5" fill="#92400e">• 注：发往只许顶层单一 system 的 Gemini/Claude 时，酒馆在发包前自动将此层转为 user 角色</text>
+
+  <text x="280" y="648" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">↓</text>
+
+  <!-- 第 6 层（末尾预填） -->
+  <rect x="24" y="656" width="512" height="90" rx="7" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+  <rect x="34" y="666" width="112" height="22" rx="4" fill="#059669"/>
+  <text x="90" y="681" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">第 6 层：预填起手式</text>
+  <text x="154" y="681" font-size="12" font-weight="bold" fill="#065f46">Msg #35 (assistant 预填) 替模型张嘴 → 先作家思考，再切男主</text>
+  <text x="36" y="702" font-size="11" fill="#064e3b">• 先在 &lt;thinking&gt; 里由“女作家 Sudachi”逐题答完 12 道考卷、排查禁词（清醒导演控场）</text>
+  <text x="36" y="718" font-size="11" fill="#064e3b">• 跨出 &lt;/thinking&gt; 进入“### 正文”后，才切入子人格“男主宫祺”演戏，末尾附 ABCD 选项</text>
+  <text x="36" y="734" font-size="10.5" fill="#047857">• 2026 年大厂封杀预填后，玩家退守为关小官方思考、在正文开头用圆括号（内心盘算）跑明文推演</text>
+</svg>
