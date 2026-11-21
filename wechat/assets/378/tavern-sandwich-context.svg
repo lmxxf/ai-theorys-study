@@ -2,8 +2,8 @@
   <rect width="560" height="770" fill="#ffffff"/>
 
   <!-- 主标题 -->
-  <text x="280" y="32" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">编程 Agent 队尾追加 vs 酒馆预设“六层三明治”架构</text>
-  <text x="280" y="54" text-anchor="middle" font-size="11.5" fill="#6b7280">基于开源 548 KB 酒馆预设 Sudachi-Next（181 模块展开为 35 至 42 条 API 消息）实测</text>
+  <text x="280" y="32" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">编程 Agent 队尾追加 vs SillyTavern 预设“六层三明治”架构</text>
+  <text x="280" y="54" text-anchor="middle" font-size="11.5" fill="#6b7280">基于开源 548 KB SillyTavern 预设 Sudachi-Next（181 模块展开为 35 至 42 条 API 消息）实测</text>
 
   <!-- ==================== 上半部分：常规编程 Agent ==================== -->
   <text x="24" y="84" font-size="13.5" font-weight="bold" fill="#1e3a8a">一、常规编程 Agent（只准队尾追加 Append-Only，死保 1 折前缀缓存）</text>
@@ -30,8 +30,8 @@
   <!-- 分隔虚线 -->
   <line x1="24" y1="158" x2="536" y2="158" stroke="#e5e7eb" stroke-width="1.5" stroke-dasharray="5,5"/>
 
-  <!-- ==================== 下半部分：酒馆六层三明治 ==================== -->
-  <text x="24" y="184" font-size="13.5" font-weight="bold" fill="#9d174d">二、酒馆（SillyTavern）六层三明治（System 幕后作家 + Assist 台前男主 + User 女主）</text>
+  <!-- ==================== 下半部分：SillyTavern 六层三明治 ==================== -->
+  <text x="24" y="184" font-size="13.5" font-weight="bold" fill="#9d174d">二、SillyTavern 六层三明治（System 幕后作家 + Assist 台前男主 + User 女主）</text>
 
   <!-- 第 1 层 -->
   <rect x="24" y="198" width="512" height="70" rx="7" fill="#fdf2f8" stroke="#db2777" stroke-width="1.5"/>
@@ -57,7 +57,7 @@
   <rect x="34" y="382" width="112" height="22" rx="4" fill="#dc2626"/>
   <text x="90" y="397" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">第 3 层：缓存粉碎区</text>
   <text x="154" y="397" font-size="12" font-weight="bold" fill="#991b1b">Msg #18 至 #26 (system) 角色卡 + 世界书抽插 + 记忆表覆写</text>
-  <text x="36" y="418" font-size="11" fill="#7f1d1d">• 男主不能出戏调 grep 查日记，故由酒馆在幕后按关键词往此处动态插入/抽走“世界书”</text>
+  <text x="36" y="418" font-size="11" fill="#7f1d1d">• 男主不能出戏调 grep 查日记，故由 SillyTavern 在幕后按关键词往此处动态插入/抽走“世界书”</text>
   <text x="36" y="436" font-size="11" font-weight="bold" fill="#b91c1c">• 记忆表格插件每轮在此原地改写 → 导致此处往后的几万字历史 KV 缓存每轮全部作废重算</text>
 
   <text x="280" y="460" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">↓</text>
@@ -78,7 +78,7 @@
   <text x="154" y="573" font-size="12" font-weight="bold" fill="#92400e">Msg #30 至 #34 (后置指令) 贴在玩家话尾的 12 道考题与黑名单</text>
   <text x="36" y="594" font-size="11" fill="#78350f">• 紧贴生成起点（注意力最高）：塞入 &lt;Aniplex&gt; 黑名单（禁“指节发白/一丝不易察觉/石子投心湖”）</text>
   <text x="36" y="610" font-size="11" fill="#78350f">• 塞入 &lt;cot&gt; 12 道思考必答题（算空间距离、心理潜台词）+ &lt;Q&gt; 虚数域热力学抗空回免责盾</text>
-  <text x="36" y="626" font-size="10.5" fill="#92400e">• 注：发往只许顶层单一 system 的 Gemini/Claude 时，酒馆在发包前自动将此层转为 user 角色</text>
+  <text x="36" y="626" font-size="10.5" fill="#92400e">• 注：发往只许顶层单一 system 的 Gemini/Claude 时，SillyTavern 在发包前自动将此层转为 user</text>
 
   <text x="280" y="648" text-anchor="middle" font-size="13" font-weight="bold" fill="#9ca3af">↓</text>
 
