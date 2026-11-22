@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" width="600" height="720" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+  <!-- 实心纯白底（防微信暗黑模式透明） -->
+  <rect x="0" y="0" width="600" height="720" fill="#ffffff"/>
+
+  <!-- 顶部主标题 -->
+  <text x="300" y="32" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#111827">为什么 4 个词合成 1 个叠加态槽位会变笨？“四票变一票”与对数补偿</text>
+  <text x="300" y="53" text-anchor="middle" font-size="11.5" fill="#64748b">SelKV (arXiv:2607.16213) 注意力下陷手算特例与 ASTC (arXiv:2610.41291) 实测对比</text>
+
+  <!-- 上半部：手算特例 -->
+  <rect x="16" y="70" width="568" height="314" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="30" y="96" font-size="12.5" font-weight="bold" fill="#0f172a">一、手算特例：4 个同义核心词 (k1..k4) 与 1 个无关词 (k5) 对查询 q 的点积均为 s = 2.0</text>
+
+  <!-- 状态 1：未合并 -->
+  <text x="30" y="124" font-size="12" font-weight="bold" fill="#0369a1">1. 合并前（占 5 列 KV 显存）：4 个核心词在 Softmax 分母里投出 4 张选票</text>
+  <text x="42" y="145" font-size="11.2" fill="#334155">• 核心词总权重 = 4·e^2 / (4·e^2 + 1·e^2) = 4 / 5 = 80.0%   |   无关词权重 = 1 / 5 = 20.0%</text>
+  <!-- 进度条 1 -->
+  <rect x="42" y="154" width="400" height="22" rx="4" fill="#0284c7"/>
+  <text x="242" y="169" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">4 个核心词合占 80.0% 注意力（4 张选票：4·e^2）</text>
+  <rect x="448" y="154" width="104" height="22" rx="4" fill="#94a3b8"/>
+  <text x="500" y="169" text-anchor="middle" font-size="11" fill="#ffffff">无关词 20%</text>
+
+  <!-- 状态 2：直接平均合并（无补偿） -->
+  <text x="30" y="206" font-size="12" font-weight="bold" fill="#b91c1c">2. 直接平均合并 k_avg = (k1+k2+k3+k4)/4（占 2 列显存，无补偿）：4 票缩水成 1 票</text>
+  <text x="42" y="227" font-size="11.2" fill="#334155">• 点积仍为 q·k_avg = 2.0，但只占 1 列 → 权重跌至 1·e^2 / (1·e^2 + 1·e^2) = 50.0%（下陷）</text>
+  <!-- 进度条 2 -->
+  <rect x="42" y="236" width="252" height="22" rx="4" fill="#ef4444"/>
+  <text x="168" y="251" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">合并槽位跌至 50.0%（只剩 1 票：1·e^2）</text>
+  <rect x="300" y="236" width="252" height="22" rx="4" fill="#64748b"/>
+  <text x="426" y="251" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">无关词暴涨至 50.0%（喧宾夺主）</text>
+
+  <!-- 状态 3：加上对数票数补偿 + ln(R_i) -->
+  <text x="30" y="288" font-size="12" font-weight="bold" fill="#15803d">3. 加上对数票数补偿 s' = q·k_avg + ln(R_i)（仍只占 2 列显存，省掉 60%–75% KV 缓存）</text>
+  <text x="42" y="309" font-size="11.2" fill="#334155">• 因指数恒等式 e^(2.0 + ln 4) = 4·e^2，1 个叠加态槽位瞬间拿回 4 张选票，权重恢复 80.0%</text>
+  <!-- 进度条 3 -->
+  <rect x="42" y="318" width="400" height="22" rx="4" fill="#16a34a"/>
+  <text x="242" y="333" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">1 个叠加态槽位拿回 80.0% 注意力（e^(s + ln 4) = 4·e^2）</text>
+  <rect x="448" y="318" width="104" height="22" rx="4" fill="#94a3b8"/>
+  <text x="500" y="333" text-anchor="middle" font-size="11" fill="#ffffff">无关词 20%</text>
+
+  <text x="30" y="366" font-size="10.2" fill="#475569">注：SelKV 按观察窗口累积注意力比 R_i = (a_kept + Σ g_j·a_disc) / a_kept 加 α·ln(R_i) 补偿，门控 g_j = max(cos, 0)。</text>
+
+  <!-- 下半部：ASTC 实测对比 -->
+  <rect x="16" y="400" width="568" height="302" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="30" y="426" font-size="12.5" font-weight="bold" fill="#0f172a">二、实测对比：Qwen3.5-9B 在 OfficeBench 长程任务上的准确率 vs 解码 KV 消耗占比</text>
+  <text x="30" y="446" font-size="10.8" fill="#64748b">数据源：上海交大 ASTC (arXiv:2610.41291 表 1)，以未压缩 Base 的解码 KV 交互量为 100% 基准（越低越省）</text>
+
+  <!-- 表头 -->
+  <text x="30" y="476" font-size="11.2" font-weight="bold" fill="#334155">压缩方法（是否免训练）</text>
+  <text x="190" y="476" font-size="11.2" font-weight="bold" fill="#334155">OfficeBench 任务准确率（↑）</text>
+  <text x="404" y="476" font-size="11.2" font-weight="bold" fill="#334155">解码 KV 消耗（越低越省 ↓）</text>
+  <line x1="30" y1="484" x2="568" y2="484" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- 行 1: Base -->
+  <text x="30" y="510" font-size="11.2" fill="#1e293b">1. 未压缩全量 Base</text>
+  <rect x="190" y="496" width="97" height="18" rx="3" fill="#64748b"/>
+  <text x="294" y="510" font-size="11.2" font-weight="bold" fill="#334155">48.42%</text>
+  <text x="404" y="510" font-size="11.2" fill="#475569">100.00%（满显存基准）</text>
+
+  <!-- 行 2: LLMLingua-2 -->
+  <text x="30" y="544" font-size="11.2" fill="#1e293b">2. LLMLingua-2（删词硬压）</text>
+  <rect x="190" y="530" width="88" height="18" rx="3" fill="#94a3b8"/>
+  <text x="285" y="544" font-size="11.2" fill="#475569">44.21% (-4.2%)</text>
+  <text x="404" y="544" font-size="11.2" fill="#475569">69.59%（总注意力涨 9.6 倍）</text>
+
+  <!-- 行 3: LCLM -->
+  <text x="30" y="578" font-size="11.2" fill="#1e293b">3. LCLM（外部训软词元）</text>
+  <rect x="190" y="564" width="42" height="18" rx="3" fill="#ef4444"/>
+  <text x="239" y="578" font-size="11.2" font-weight="bold" fill="#b91c1c">21.05%（雪崩）</text>
+  <text x="404" y="578" font-size="11.2" fill="#b91c1c">20.83%（总注意力涨 6.4 倍）</text>
+
+  <!-- 行 4: ASTC (Tools) -->
+  <text x="30" y="612" font-size="11.2" font-weight="bold" fill="#0f766e">4. ASTC-Tools（免训练）</text>
+  <rect x="190" y="598" width="110" height="18" rx="3" fill="#0d9488"/>
+  <text x="307" y="612" font-size="11.2" font-weight="bold" fill="#0f766e">54.74% (+6.3%)</text>
+  <text x="404" y="612" font-size="11.2" font-weight="bold" fill="#0f766e">42.09%（省 57.9% 解码 KV）</text>
+
+  <!-- 行 5: ASTC (Context) -->
+  <text x="30" y="646" font-size="11.2" font-weight="bold" fill="#15803d">5. ASTC-Context（免训练）</text>
+  <rect x="190" y="632" width="103" height="18" rx="3" fill="#16a34a"/>
+  <text x="300" y="646" font-size="11.2" font-weight="bold" fill="#15803d">51.58% (+3.2%)</text>
+  <text x="404" y="646" font-size="11.2" font-weight="bold" fill="#15803d">37.11%（省 62.9% 解码 KV）</text>
+
+  <text x="30" y="682" font-size="10.2" fill="#475569">结论：浅层跑完后借 Gated DeltaNet 残差在中间层把已消化词元平均合成软词元，零训练省 60% KV 并反超基线。</text>
+</svg>
