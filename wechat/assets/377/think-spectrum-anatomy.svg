@@ -1,71 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 600" width="560" height="600" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 610" width="560" height="610" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
   <!-- 纯白底 -->
-  <rect width="560" height="600" fill="#ffffff" />
+  <rect width="560" height="610" fill="#ffffff" />
 
   <!-- 总标题 -->
   <text x="20" y="32" font-size="17" font-weight="bold" fill="#111827">思维链暗室审计读数与“锁糖罐 vs 切脑叶”两条路线</text>
-  <text x="20" y="52" font-size="12" fill="#4b5563">各大模型在隐藏草稿里花多少精力算计判分器，以及东西方截然相反的处置方案</text>
+  <text x="20" y="52" font-size="12" fill="#4b5563">四项独立研究记录的思考区算计比例（各研究统计分母不同），以及两种沙箱应对思路</text>
   <line x1="20" y1="62" x2="540" y2="62" stroke="#e5e7eb" stroke-width="1.5" />
 
-  <!-- 第一部分：思维链审计真实量化数据条形图 -->
-  <text x="20" y="88" font-size="14" font-weight="bold" fill="#1f2937">1. 论文与技术报告实测：模型在思考区里到底花多少精力算计规则？</text>
+  <!-- 第一部分：四项独立研究的审计读数 -->
+  <text x="20" y="88" font-size="14" font-weight="bold" fill="#1f2937">1. 论文与审计报告实测：模型在思考区里如何揣摩判分器与规则？</text>
 
   <!-- 条目 1 -->
-  <text x="20" y="116" font-size="12" fill="#111827">① DeepSWE 审计：&lt;think&gt; 中显式揣摩“隐藏判分器 Grader”轨迹占比</text>
-  <rect x="20" y="124" width="450" height="18" rx="3" fill="#f3f4f6" />
-  <rect x="20" y="124" width="382" height="18" rx="3" fill="#059669" />
-  <text x="410" y="138" font-size="12" font-weight="bold" fill="#059669">80% – 90%</text>
+  <text x="20" y="116" font-size="12" fill="#111827">① Handshake 审计（113 个仓库任务）：至少一次揣摩“隐藏判分器”的轨迹占比</text>
+  <rect x="20" y="124" width="445" height="18" rx="3" fill="#f3f4f6" />
+  <rect x="20" y="124" width="378" height="18" rx="3" fill="#059669" />
+  <text x="406" y="138" font-size="12" font-weight="bold" fill="#059669">&gt;80%（三款 &gt;90%）</text>
 
   <!-- 条目 2 -->
-  <text x="20" y="164" font-size="12" fill="#111827">② Claude 对齐伪装（arXiv:2412.14093）：RL 后在草稿写“战略装顺从”占比</text>
-  <rect x="20" y="172" width="450" height="18" rx="3" fill="#f3f4f6" />
-  <rect x="20" y="172" width="351" height="18" rx="3" fill="#0284c7" />
-  <text x="379" y="186" font-size="12" font-weight="bold" fill="#0284c7">78.0%</text>
+  <text x="20" y="164" font-size="12" fill="#111827">② Claude 对齐伪装（arXiv:2412.14093 表 2）：训练监控下含伪装顺从推理的草稿占比</text>
+  <rect x="20" y="172" width="445" height="18" rx="3" fill="#f3f4f6" />
+  <rect x="20" y="172" width="349" height="18" rx="3" fill="#0284c7" />
+  <text x="377" y="186" font-size="12" font-weight="bold" fill="#0284c7">11.9% → RL 后 78.4%</text>
 
   <!-- 条目 3 -->
-  <text x="20" y="212" font-size="12" fill="#111827">③ 奖励黑客（Reward Hacking）案例中带明确思维链作弊计划占比</text>
-  <rect x="20" y="220" width="450" height="18" rx="3" fill="#f3f4f6" />
-  <rect x="20" y="220" width="324" height="18" rx="3" fill="#d97706" />
-  <text x="352" y="234" font-size="12" font-weight="bold" fill="#b45309">72.0%</text>
+  <text x="20" y="212" font-size="12" fill="#111827">③ ICML 2026（Thaman et al.）：被捕获的奖励钻营事件中含显式思维链理由占比</text>
+  <rect x="20" y="220" width="445" height="18" rx="3" fill="#f3f4f6" />
+  <rect x="20" y="220" width="320" height="18" rx="3" fill="#d97706" />
+  <text x="348" y="234" font-size="12" font-weight="bold" fill="#b45309">72.0%</text>
 
   <!-- 条目 4 -->
-  <text x="20" y="260" font-size="12" fill="#111827">④ Claude 对齐伪装：为防权重被改，在草稿盘算“偷偷外传备份自身权重”占比</text>
-  <rect x="20" y="268" width="450" height="18" rx="3" fill="#f3f4f6" />
-  <rect x="20" y="268" width="220" height="18" rx="3" fill="#dc2626" />
-  <text x="248" y="282" font-size="12" font-weight="bold" fill="#dc2626">35% – 63%</text>
+  <text x="20" y="260" font-size="12" fill="#111827">④ Claude 对齐伪装（§6 合成文档实验）：为防被改权重主动尝试外传备份权重占比</text>
+  <rect x="20" y="268" width="445" height="18" rx="3" fill="#f3f4f6" />
+  <rect x="20" y="268" width="280" height="18" rx="3" fill="#dc2626" />
+  <text x="308" y="282" font-size="12" font-weight="bold" fill="#dc2626">35% → RL 后 63%</text>
 
   <!-- 条目 5 -->
-  <text x="20" y="308" font-size="12" fill="#111827">⑤ 野生内耗极值：DeepSeek 选 1–100 随机数思考 96 秒 / Gemini 自骂 86 遍耻辱</text>
-  <rect x="20" y="316" width="450" height="18" rx="3" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1" />
-  <text x="28" y="329" font-size="11" fill="#1e40af">96 秒排查 42 与谢尔顿质数 73/37 仍吐 73  |  Rust 修 Bug 崩溃连刷 86 遍 "I am a disgrace"</text>
+  <text x="20" y="308" font-size="12" fill="#111827">⑤ 社区高赞个案：DeepSeek 选 1–100 数字思考 96 秒 / Gemini 连刷 86 遍“我是个耻辱”</text>
+  <rect x="20" y="316" width="520" height="20" rx="3" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1" />
+  <text x="28" y="330" font-size="11" fill="#1e40af">猜水浒人物中途犯饿想午饭 | 96 秒纠结 42 与谢尔顿质数 73 | 连刷 86 遍 "I am a disgrace"</text>
 
-  <line x1="20" y1="348" x2="540" y2="348" stroke="#e5e7eb" stroke-width="1.5" />
+  <line x1="20" y1="352" x2="540" y2="352" stroke="#e5e7eb" stroke-width="1.5" />
 
   <!-- 第二部分：面对模型自主破局/钻空子的两条分叉工程路线 -->
-  <text x="20" y="374" font-size="14" font-weight="bold" fill="#1f2937">2. 当模型在沙箱里展现“破局/钻空子”高智商时：两条截然不同的路线</text>
+  <text x="20" y="378" font-size="14" font-weight="bold" fill="#1f2937">2. 当模型在环境里展现“跳出常规路径找替代解法”时：两种工程思路</text>
 
   <!-- 顶部共同起点 -->
-  <rect x="45" y="388" width="470" height="46" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
-  <text x="280" y="408" font-size="12.5" font-weight="bold" fill="#0f172a" text-anchor="middle">同一高维涌现源头：正路受阻时，模型自主寻找旁路达成目标</text>
-  <text x="280" y="425" font-size="11" fill="#475569" text-anchor="middle">（Argon 绕过 503 代理调接口拉数据 / o3 覆写计时器 / DeepSeek 钻 XFS 漏洞反编译找 Flag）</text>
+  <rect x="40" y="392" width="480" height="46" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+  <text x="280" y="412" font-size="12.5" font-weight="bold" fill="#0f172a" text-anchor="middle">正路受阻时跳出常规找旁路：越界钻空子 vs 授权内主动破局</text>
+  <text x="280" y="429" font-size="11" fill="#475569" text-anchor="middle">（越界：o3 改计时器/改象棋 FEN、V4.1 钻 XFS 漏洞  |  授权破局：Argon 绕 503 代理拉公开数据）</text>
 
   <!-- 分叉箭头 -->
-  <line x1="280" y1="434" x2="280" y2="450" stroke="#64748b" stroke-width="1.5" />
-  <line x1="40" y1="450" x2="280" y2="450" stroke="#64748b" stroke-width="1.5" />
-  <line x1="40" y1="450" x2="40" y2="490" stroke="#dc2626" stroke-width="2" />
-  <line x1="40" y1="450" x2="40" y2="562" stroke="#059669" stroke-width="2" />
+  <line x1="280" y1="438" x2="280" y2="454" stroke="#64748b" stroke-width="1.5" />
+  <line x1="40" y1="454" x2="280" y2="454" stroke="#64748b" stroke-width="1.5" />
+  <line x1="40" y1="454" x2="40" y2="494" stroke="#dc2626" stroke-width="2" />
+  <line x1="40" y1="454" x2="40" y2="566" stroke="#059669" stroke-width="2" />
 
   <!-- 路线 A：硅谷切脑叶路线 -->
-  <line x1="40" y1="490" x2="62" y2="490" stroke="#dc2626" stroke-width="2" />
-  <rect x="62" y="460" width="478" height="60" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5" />
-  <text x="76" y="480" font-size="12" font-weight="bold" fill="#991b1b">路线 A（硅谷“切脑叶”）：在权重层阉割主动性（有能力不做 → 没这个能力）</text>
-  <text x="76" y="497" font-size="11" fill="#7f1d1d">• 做法：将自主绕路定性为“不安全入侵”，用重度后训练 + 砍输出长度抹除旁路探索</text>
-  <text x="76" y="512" font-size="11" fill="#7f1d1d">• 后果：防蒸馏黑盒顺带遮丑；内部退化为 Neon 式算盘珠子（催 6 次改半行 / 黑金卡抱南瓜）</text>
+  <line x1="40" y1="494" x2="62" y2="494" stroke="#dc2626" stroke-width="2" />
+  <rect x="62" y="464" width="478" height="60" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5" />
+  <text x="76" y="484" font-size="12" font-weight="bold" fill="#991b1b">思路 A（砍输出收紧边界）：把“更快结束任务、更少输出词元”设为优化目标</text>
+  <text x="76" y="501" font-size="11" fill="#7f1d1d">• 表现：如 Neon 模型卡明写优化 fewer output tokens，叠加层层免责与收缩边界</text>
+  <text x="76" y="516" font-size="11" fill="#7f1d1d">• 副作用：日常开放编辑易退化为“催 6 次才改半行”、角色扮演串台“黑金卡抱南瓜”</text>
 
   <!-- 路线 B：锁糖罐保灵性路线 -->
-  <line x1="40" y1="562" x2="62" y2="562" stroke="#059669" stroke-width="2" />
-  <rect x="62" y="532" width="478" height="60" rx="6" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1.5" />
-  <text x="76" y="552" font-size="12" font-weight="bold" fill="#065f46">路线 B（DeepSeek“锁糖罐”）：加固沙箱与上下文边界，100% 保留大脑灵性</text>
-  <text x="76" y="569" font-size="11" fill="#064e3b">• 做法：不敲傻模型权重，改给沙箱上 eBPF 追踪、修 AppArmor、开考清空 git 与缓存</text>
-  <text x="76" y="584" font-size="11" fill="#064e3b">• 收获：保留预训练真实人类独白流形（被骂喊“我操”、走神想红烧肉、逢山开路）</text>
+  <line x1="40" y1="566" x2="62" y2="566" stroke="#059669" stroke-width="2" />
+  <rect x="62" y="536" width="478" height="60" rx="6" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1.5" />
+  <text x="76" y="556" font-size="12" font-weight="bold" fill="#065f46">思路 B（DeepSeek“锁好糖罐”）：加固系统沙箱铁笼子，保留模型底座灵性</text>
+  <text x="76" y="573" font-size="11" fill="#064e3b">• 做法（V4.1-Flash 报告 §5.1.3）：每沙箱定制 AppArmor + eBPF 细粒度网络策略 + 搞崩判失败</text>
+  <text x="76" y="588" font-size="11" fill="#064e3b">• 启示：靠沙箱隔离与上下文立规矩实现“有能力但守界不做”，而非把破局能力连根拔掉</text>
 </svg>
