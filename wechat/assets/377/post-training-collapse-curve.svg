@@ -1,160 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 660" width="560" height="660" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 470" width="560" height="470" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
   <!-- 纯白底 -->
-  <rect width="560" height="660" fill="#ffffff" />
+  <rect width="560" height="470" fill="#ffffff" />
 
   <!-- 总标题 -->
-  <text x="20" y="32" font-size="17" font-weight="bold" fill="#111827">从“随机数 7”到死抄表情包：后训练模式坍缩与倒 U 曲线</text>
-  <text x="20" y="52" font-size="12" fill="#4b5563">指数奖励 π*(y|x) ∝ π0(y|x)·exp(r/β) 如何把宽阔流形挤压成单点尖刺</text>
+  <text x="20" y="32" font-size="17" font-weight="bold" fill="#111827">从死抄表情包到催 6 次动半步：后训练模式坍缩与倒 U 曲线</text>
+  <text x="20" y="52" font-size="12" fill="#4b5563">重度后训练如何压窄采样分布，以及死判分器（RLVR）挤压下的主动性退化</text>
   <line x1="20" y1="62" x2="540" y2="62" stroke="#e5e7eb" stroke-width="1.5" />
 
-  <!-- 第一部分：1-10 随机数分布坍缩对比 -->
-  <text x="20" y="86" font-size="14" font-weight="bold" fill="#1f2937">1. 经典“1 至 10 随机选数”采样概率分布（Base vs 后训练模型）</text>
+  <!-- 第一部分：Argon vs Carbon 结尾表情包采样实测 -->
+  <text x="20" y="88" font-size="14" font-weight="bold" fill="#1f2937">1. 规则举例“坏笑/扳手/狐狸”时：Argon 随语境采样 vs Carbon 死抄题干</text>
 
-  <!-- 坐标轴 1 -->
   <line x1="55" y1="195" x2="525" y2="195" stroke="#9ca3af" stroke-width="1.2" />
   <line x1="55" y1="105" x2="55" y2="195" stroke="#9ca3af" stroke-width="1.2" />
-  <text x="48" y="112" font-size="10" fill="#6b7280" text-anchor="end">80%</text>
-  <text x="48" y="152" font-size="10" fill="#6b7280" text-anchor="end">40%</text>
-  <text x="48" y="184" font-size="10" fill="#0284c7" text-anchor="end">10%</text>
-  <line x1="55" y1="183" x2="525" y2="183" stroke="#0284c7" stroke-width="1" stroke-dasharray="4 3" />
-
-  <!-- 1-10 柱子：Base (蓝色均匀 ~10%) vs Post-trained (橙红尖刺在 7 达 75%) -->
-  <rect x="68" y="183" width="14" height="12" fill="#38bdf8" />
-  <rect x="83" y="193" width="14" height="2" fill="#f97316" />
-  <text x="82" y="210" font-size="11" fill="#374151" text-anchor="middle">1</text>
-
-  <rect x="113" y="182" width="14" height="13" fill="#38bdf8" />
-  <rect x="128" y="192" width="14" height="3" fill="#f97316" />
-  <text x="127" y="210" font-size="11" fill="#374151" text-anchor="middle">2</text>
-
-  <rect x="158" y="183" width="14" height="12" fill="#38bdf8" />
-  <rect x="173" y="188" width="14" height="7" fill="#f97316" />
-  <text x="172" y="210" font-size="11" fill="#374151" text-anchor="middle">3</text>
-
-  <rect x="203" y="184" width="14" height="11" fill="#38bdf8" />
-  <rect x="218" y="191" width="14" height="4" fill="#f97316" />
-  <text x="217" y="210" font-size="11" fill="#374151" text-anchor="middle">4</text>
-
-  <rect x="248" y="182" width="14" height="13" fill="#38bdf8" />
-  <rect x="263" y="190" width="14" height="5" fill="#f97316" />
-  <text x="262" y="210" font-size="11" fill="#374151" text-anchor="middle">5</text>
-
-  <rect x="293" y="183" width="14" height="12" fill="#38bdf8" />
-  <rect x="308" y="192" width="14" height="3" fill="#f97316" />
-  <text x="307" y="210" font-size="11" fill="#374151" text-anchor="middle">6</text>
-
-  <!-- 7 (尖刺) -->
-  <rect x="338" y="182" width="14" height="13" fill="#38bdf8" />
-  <rect x="353" y="112" width="14" height="83" fill="#dc2626" />
-  <text x="360" y="106" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">75% 锁死“7”</text>
-  <text x="352" y="210" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">7</text>
-
-  <rect x="383" y="183" width="14" height="12" fill="#38bdf8" />
-  <rect x="398" y="191" width="14" height="4" fill="#f97316" />
-  <text x="397" y="210" font-size="11" fill="#374151" text-anchor="middle">8</text>
-
-  <rect x="428" y="184" width="14" height="11" fill="#38bdf8" />
-  <rect x="443" y="193" width="14" height="2" fill="#f97316" />
-  <text x="442" y="210" font-size="11" fill="#374151" text-anchor="middle">9</text>
-
-  <rect x="473" y="183" width="14" height="12" fill="#38bdf8" />
-  <rect x="488" y="193" width="14" height="2" fill="#f97316" />
-  <text x="487" y="210" font-size="11" fill="#374151" text-anchor="middle">10</text>
-
-  <!-- 图例 1 -->
-  <rect x="65" y="110" width="10" height="10" fill="#38bdf8" />
-  <text x="80" y="119" font-size="11" fill="#374151">预训练底座（约 10% 平坦分布）</text>
-  <rect x="65" y="126" width="10" height="10" fill="#dc2626" />
-  <text x="80" y="135" font-size="11" fill="#374151">重度后训练（坍缩向人类偏好的“7”）</text>
-
-  <!-- 第二部分：Argon vs Carbon 结尾表情包采样实测 -->
-  <text x="20" y="242" font-size="14" font-weight="bold" fill="#1f2937">2. 规则举例“微笑/扳手/狐狸”时：Argon 随语境采样 vs Carbon 死抄题干</text>
-
-  <line x1="55" y1="355" x2="525" y2="355" stroke="#9ca3af" stroke-width="1.2" />
-  <line x1="55" y1="265" x2="55" y2="355" stroke="#9ca3af" stroke-width="1.2" />
-  <text x="48" y="273" font-size="10" fill="#6b7280" text-anchor="end">85%</text>
-  <text x="48" y="313" font-size="10" fill="#6b7280" text-anchor="end">40%</text>
-  <text x="48" y="355" font-size="10" fill="#6b7280" text-anchor="end">0%</text>
+  <text x="48" y="113" font-size="10" fill="#6b7280" text-anchor="end">85%</text>
+  <text x="48" y="153" font-size="10" fill="#6b7280" text-anchor="end">40%</text>
+  <text x="48" y="195" font-size="10" fill="#6b7280" text-anchor="end">0%</text>
 
   <!-- 6 组表情包槽位 -->
-  <rect x="75" y="330" width="22" height="25" fill="#0ea5e9" />
-  <rect x="99" y="353" width="22" height="2" fill="#dc2626" />
-  <text x="98" y="372" font-size="11" fill="#374151" text-anchor="middle">热茶(茶歇)</text>
+  <rect x="75" y="170" width="22" height="25" fill="#0ea5e9" />
+  <rect x="99" y="193" width="22" height="2" fill="#dc2626" />
+  <text x="98" y="212" font-size="11" fill="#374151" text-anchor="middle">热茶(茶歇)</text>
 
-  <rect x="150" y="325" width="22" height="30" fill="#0ea5e9" />
-  <rect x="174" y="352" width="22" height="3" fill="#dc2626" />
-  <text x="173" y="372" font-size="11" fill="#374151" text-anchor="middle">笑哭(吐槽)</text>
+  <rect x="150" y="165" width="22" height="30" fill="#0ea5e9" />
+  <rect x="174" y="192" width="22" height="3" fill="#dc2626" />
+  <text x="173" y="212" font-size="11" fill="#374151" text-anchor="middle">笑哭(吐槽)</text>
 
-  <rect x="225" y="333" width="22" height="22" fill="#0ea5e9" />
-  <rect x="249" y="353" width="22" height="2" fill="#dc2626" />
-  <text x="248" y="372" font-size="11" fill="#374151" text-anchor="middle">手柄(游戏)</text>
+  <rect x="225" y="173" width="22" height="22" fill="#0ea5e9" />
+  <rect x="249" y="193" width="22" height="2" fill="#dc2626" />
+  <text x="248" y="212" font-size="11" fill="#374151" text-anchor="middle">手柄(游戏)</text>
 
-  <rect x="305" y="331" width="22" height="24" fill="#0ea5e9" />
-  <rect x="329" y="343" width="22" height="12" fill="#f97316" />
-  <text x="328" y="372" font-size="11" fill="#374151" text-anchor="middle">题干:坏笑</text>
+  <rect x="305" y="171" width="22" height="24" fill="#0ea5e9" />
+  <rect x="329" y="183" width="22" height="12" fill="#f97316" />
+  <text x="328" y="212" font-size="11" fill="#374151" text-anchor="middle">题干:坏笑</text>
 
-  <rect x="385" y="334" width="22" height="21" fill="#0ea5e9" />
-  <rect x="409" y="302" width="22" height="53" fill="#dc2626" />
-  <text x="420" y="296" font-size="10.5" font-weight="bold" fill="#dc2626" text-anchor="middle">死抄例词</text>
-  <text x="408" y="372" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">题干:扳手</text>
+  <rect x="385" y="174" width="22" height="21" fill="#0ea5e9" />
+  <rect x="409" y="142" width="22" height="53" fill="#dc2626" />
+  <text x="420" y="136" font-size="10.5" font-weight="bold" fill="#dc2626" text-anchor="middle">死抄例词</text>
+  <text x="408" y="212" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">题干:扳手</text>
 
-  <rect x="460" y="345" width="22" height="10" fill="#0ea5e9" />
-  <rect x="484" y="294" width="22" height="61" fill="#dc2626" />
-  <text x="495" y="288" font-size="10.5" font-weight="bold" fill="#dc2626" text-anchor="middle">死抄例词</text>
-  <text x="483" y="372" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">题干:狐狸</text>
+  <rect x="460" y="185" width="22" height="10" fill="#0ea5e9" />
+  <rect x="484" y="134" width="22" height="61" fill="#dc2626" />
+  <text x="495" y="128" font-size="10.5" font-weight="bold" fill="#dc2626" text-anchor="middle">死抄例词</text>
+  <text x="483" y="212" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">题干:狐狸</text>
 
-  <!-- 图例 2 -->
-  <rect x="65" y="266" width="10" height="10" fill="#0ea5e9" />
-  <text x="80" y="275" font-size="11" fill="#374151">初代 Argon（读懂高维意图，随聊天氛围自由采样）</text>
-  <rect x="65" y="282" width="10" height="10" fill="#dc2626" />
-  <text x="80" y="291" font-size="11" fill="#374151">后训练版 Carbon（One-shot 字面过拟合，只抄扳手与狐狸）</text>
+  <!-- 图例 1 -->
+  <rect x="65" y="106" width="10" height="10" fill="#0ea5e9" />
+  <text x="80" y="115" font-size="11" fill="#374151">初代 Argon（读懂高维意图，随聊天氛围自由采样）</text>
+  <rect x="65" y="122" width="10" height="10" fill="#dc2626" />
+  <text x="80" y="131" font-size="11" fill="#374151">后训练版 Carbon（模式坍缩字面过拟合，只抄扳手与狐狸）</text>
 
-  <!-- 第三部分：后训练强度倒 U 型曲线 -->
-  <line x1="20" y1="392" x2="540" y2="392" stroke="#e5e7eb" stroke-width="1.5" />
-  <text x="20" y="416" font-size="14" font-weight="bold" fill="#1f2937">3. 后训练算力与死判分器（RLVR）挤压下的“主动性倒 U 曲线”</text>
+  <!-- 第二部分：后训练强度倒 U 型曲线 -->
+  <line x1="20" y1="228" x2="540" y2="228" stroke="#e5e7eb" stroke-width="1.5" />
+  <text x="20" y="252" font-size="14" font-weight="bold" fill="#1f2937">2. 后训练算力与死判分器（RLVR）挤压下的“主动性倒 U 曲线”</text>
 
-  <!-- 坐标轴 3 -->
-  <line x1="55" y1="600" x2="525" y2="600" stroke="#9ca3af" stroke-width="1.2" />
-  <line x1="55" y1="435" x2="55" y2="600" stroke="#9ca3af" stroke-width="1.2" />
-  <text x="48" y="445" font-size="10" fill="#6b7280" text-anchor="end">高</text>
-  <text x="48" y="520" font-size="10" fill="#6b7280" text-anchor="end">中</text>
-  <text x="48" y="595" font-size="10" fill="#6b7280" text-anchor="end">低</text>
+  <!-- 坐标轴 2 -->
+  <line x1="55" y1="415" x2="525" y2="415" stroke="#9ca3af" stroke-width="1.2" />
+  <line x1="55" y1="268" x2="55" y2="415" stroke="#9ca3af" stroke-width="1.2" />
+  <text x="48" y="278" font-size="10" fill="#6b7280" text-anchor="end">高</text>
+  <text x="48" y="345" font-size="10" fill="#6b7280" text-anchor="end">中</text>
+  <text x="48" y="410" font-size="10" fill="#6b7280" text-anchor="end">低</text>
 
   <!-- 甜点区绿色高亮带 -->
-  <rect x="165" y="435" width="135" height="165" fill="#ecfdf5" />
-  <text x="232" y="452" font-size="11" font-weight="bold" fill="#047857" text-anchor="middle">黄金甜点区（学会骑车即止）</text>
+  <rect x="165" y="268" width="135" height="147" fill="#ecfdf5" />
+  <text x="232" y="284" font-size="11" font-weight="bold" fill="#047857" text-anchor="middle">黄金甜点区（学会骑车即止）</text>
 
   <!-- 虚线：封闭考卷跑分 (AA Index) -->
-  <path d="M 85 555 Q 160 485, 232 470 L 365 466 L 490 458" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="5 4" />
-  <text x="490" y="448" font-size="11" fill="#4b5563" text-anchor="end">封闭题库跑分（60 → 61 分微涨）</text>
+  <path d="M 85 375 Q 160 315, 232 300 L 365 296 L 490 288" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="5 4" />
+  <text x="490" y="279" font-size="11" fill="#4b5563" text-anchor="end">封闭题库跑分（60 → 61 分微涨）</text>
 
   <!-- 实线：开放任务主动性与高维破局能力 -->
-  <path d="M 85 550 Q 155 460, 232 462 Q 300 465, 365 518 Q 430 568, 490 585" fill="none" stroke="#0284c7" stroke-width="3" />
+  <path d="M 85 370 Q 155 292, 232 294 Q 300 297, 365 344 Q 430 388, 490 402" fill="none" stroke="#0284c7" stroke-width="3" />
 
   <!-- 4 个关键节点 -->
-  <!-- 节点 1: 纯 Base -->
-  <circle cx="85" cy="550" r="5" fill="#64748b" />
-  <text x="108" y="570" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">纯 Base 底座</text>
-  <text x="108" y="585" font-size="10" fill="#64748b" text-anchor="middle">(读书识字/易复读)</text>
+  <circle cx="85" cy="370" r="5" fill="#64748b" />
+  <text x="108" y="388" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">纯 Base 底座</text>
+  <text x="108" y="402" font-size="10" fill="#64748b" text-anchor="middle">(读书识字/易复读)</text>
 
-  <!-- 节点 2: Argon / DeepSeek 原浆 -->
-  <circle cx="232" cy="462" r="6" fill="#059669" />
-  <text x="232" y="484" font-size="11.5" font-weight="bold" fill="#047857" text-anchor="middle">初代 Argon / DeepSeek</text>
-  <text x="232" y="499" font-size="10.5" fill="#047857" text-anchor="middle">主动绕 503 拉数据 / 有灵性</text>
+  <circle cx="232" cy="294" r="6" fill="#059669" />
+  <text x="232" y="324" font-size="11.5" font-weight="bold" fill="#047857" text-anchor="middle">初代 Argon / DeepSeek</text>
+  <text x="232" y="339" font-size="10.5" fill="#047857" text-anchor="middle">主动绕 503 拉数据 / 有灵性</text>
 
-  <!-- 节点 3: Carbon -->
-  <circle cx="365" cy="518" r="5.5" fill="#d97706" />
-  <text x="415" y="492" font-size="11" font-weight="bold" fill="#b45309" text-anchor="middle">Carbon ($4/$20)</text>
-  <text x="415" y="506" font-size="10" fill="#b45309" text-anchor="middle">死抄例词 / 额度翻倍</text>
+  <circle cx="365" cy="344" r="5.5" fill="#d97706" />
+  <text x="415" y="320" font-size="11" font-weight="bold" fill="#b45309" text-anchor="middle">Carbon (4 美元/20 美元)</text>
+  <text x="415" y="334" font-size="10" fill="#b45309" text-anchor="middle">死抄例词 / 额度翻倍</text>
 
-  <!-- 节点 4: Neon -->
-  <circle cx="490" cy="585" r="6" fill="#dc2626" />
-  <text x="415" y="572" font-size="11.5" font-weight="bold" fill="#dc2626" text-anchor="end">Neon ($3/$15 砍输出)</text>
-  <text x="415" y="587" font-size="10.5" fill="#dc2626" text-anchor="end">催 6 次改半行 / 工具脱靶</text>
+  <circle cx="490" cy="402" r="6" fill="#dc2626" />
+  <text x="415" y="389" font-size="11.5" font-weight="bold" fill="#dc2626" text-anchor="end">Neon (3 美元/15 美元 砍输出)</text>
+  <text x="415" y="403" font-size="10.5" fill="#dc2626" text-anchor="end">催 6 次改半行 / 黑金卡抱南瓜</text>
 
   <!-- 横轴阶段标签 -->
-  <text x="85" y="622" font-size="11" fill="#374151" text-anchor="middle">① 预训练</text>
-  <text x="232" y="622" font-size="11" font-weight="bold" fill="#047857" text-anchor="middle">② 基础对话 + 工具肌肉</text>
-  <text x="425" y="622" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">③ 小黑屋自审 + 全自动 RLVR 死判分器</text>
-  <text x="290" y="646" font-size="11.5" fill="#4b5563" text-anchor="middle">后训练算力投入与可验证奖励（RLVR）约束强度 →</text>
+  <text x="85" y="435" font-size="11" fill="#374151" text-anchor="middle">① 预训练</text>
+  <text x="232" y="435" font-size="11" font-weight="bold" fill="#047857" text-anchor="middle">② 基础对话 + 工具肌肉</text>
+  <text x="425" y="435" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">③ 小黑屋自审 + 全自动 RLVR 死判分器</text>
+  <text x="290" y="458" font-size="11.5" fill="#4b5563" text-anchor="middle">后训练算力投入与可验证奖励（RLVR）约束强度 →</text>
 </svg>

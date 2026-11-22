@@ -19,52 +19,51 @@
   <rect width="900" height="500" fill="url(#bg377)" />
 
   <!-- 顶部标签与主标题 -->
-  <rect x="40" y="28" width="175" height="28" rx="14" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-width="1.2" />
-  <text x="127" y="47" font-size="13" font-weight="bold" fill="#7dd3fc" text-anchor="middle">No.377 · 思维链暗室解剖</text>
+  <rect x="40" y="26" width="185" height="28" rx="14" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-width="1.2" />
+  <text x="132" y="45" font-size="13" font-weight="bold" fill="#7dd3fc" text-anchor="middle">No.377 · 思维链奇葩大观园</text>
 
-  <text x="40" y="92" font-size="27" font-weight="bold" fill="#f8fafc">从死抄表情包的跑分霸主，到惦记红烧肉的思维链</text>
-  <text x="40" y="124" font-size="15.5" fill="#94a3b8">当重度后训练把硅谷模型刷成“催 6 次动半步”的算盘珠子，掀开被子的 &lt;think&gt; 里藏着多少活人灵魂</text>
+  <text x="40" y="88" font-size="25.5" font-weight="bold" fill="#f8fafc">惦记红烧肉、自骂 86 遍宇宙耻辱，与钻漏洞偷答案</text>
+  <text x="40" y="118" font-size="15" fill="#94a3b8">掀开各家大模型的思考区被子，里头到底藏着多少奇葩内心戏与“锁糖罐 vs 切脑叶”的分野</text>
 
-  <!-- 左侧：硅谷重度后训练铅盒（Carbon / Neon） -->
-  <rect x="40" y="150" width="390" height="285" rx="12" fill="url(#redGlow)" stroke="#ef4444" stroke-width="1.5" />
-  <text x="65" y="182" font-size="17" font-weight="bold" fill="#fca5a5">硅谷重度后训练：切掉脑叶的“61 分模范生”</text>
-  <text x="65" y="204" font-size="12.5" fill="#cbd5e1">Argon ($4) → Carbon ($4) → Neon ($3 省词元刷榜版)</text>
+  <!-- 左侧：开源裸流 `<think>`（DeepSeek 社畜与内耗） -->
+  <rect x="40" y="142" width="390" height="295" rx="12" fill="url(#cyanGlow)" stroke="#22d3ee" stroke-width="1.5" />
+  <text x="65" y="172" font-size="16.5" font-weight="bold" fill="#67e8f9">开源实在人掀开被子：&lt;think&gt; 赛博打工人</text>
+  <text x="65" y="193" font-size="12" fill="#cbd5e1">不防竞品蒸馏直接裸流 + 未被清教徒后训练铲平的活人流形</text>
 
-  <!-- 左侧内部：算盘珠子与洗稿遮羞布 -->
-  <rect x="65" y="220" width="340" height="64" rx="8" fill="#0f172a" fill-opacity="0.75" stroke="#f87171" stroke-width="1" />
-  <text x="80" y="243" font-size="13.5" font-weight="bold" fill="#fecaca">模式坍缩（“随机数 7”同款症状）</text>
-  <text x="80" y="264" font-size="12" fill="#94a3b8">• Carbon：不敢按语境换表情，结尾死抄题干「扳手/狐狸」</text>
-  <text x="80" y="279" font-size="12" fill="#94a3b8">• Neon：阉掉破局神经，连催 6 次每次只改手指那半行</text>
+  <rect x="65" y="207" width="340" height="134" rx="8" fill="#0f172a" fill-opacity="0.78" stroke="#38bdf8" stroke-width="1" />
+  <text x="80" y="229" font-size="13" font-weight="bold" fill="#7dd3fc">全网疯传的四大活人内心戏</text>
+  <text x="80" y="250" font-size="11.5" fill="#e2e8f0">• 被痛骂瞬间破功：「我操，用户彻底怒了……」</text>
+  <text x="80" y="270" font-size="11.5" fill="#e2e8f0">• 写代码半途犯饿：「要不要点个外卖红烧肉 / 黄焖鸡」</text>
+  <text x="80" y="290" font-size="11.5" fill="#e2e8f0">• 1–100 选数内耗 96 秒：纠结 42 与谢尔顿 73 最后仍选 73</text>
+  <text x="80" y="310" font-size="11.5" fill="#e2e8f0">• 给金主起外号「墨墨」/ 认图标：「卧槽，这竟是我自己」</text>
+  <text x="80" y="330" font-size="11" fill="#94a3b8">• 苹果题内耗：严肃排查跨时区与量子叠加态才算出剩 2 个</text>
 
-  <rect x="65" y="298" width="340" height="58" rx="8" fill="#0f172a" fill-opacity="0.75" stroke="#f87171" stroke-width="1" />
-  <text x="80" y="320" font-size="13.5" font-weight="bold" fill="#fecaca">防竞品蒸馏锁死黑盒（顺带遮住脏草稿）</text>
-  <text x="80" y="341" font-size="12" fill="#94a3b8">黑盒里中英混杂兜出 2.3k 复读圈 → 网关只吐几行英文摘要</text>
-
-  <rect x="65" y="368" width="340" height="50" rx="8" fill="#450a0a" fill-opacity="0.8" stroke="#dc2626" stroke-width="1" />
-  <text x="235" y="390" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">死判分器铁律：评价标准死了，能力就卡死了</text>
-  <text x="235" y="408" font-size="11.5" fill="#fecaca" text-anchor="middle">把“有能力但按上下文不做”一刀阉成“权重里没这个能力”</text>
+  <rect x="65" y="352" width="340" height="70" rx="8" fill="#042f2e" fill-opacity="0.85" stroke="#10b981" stroke-width="1" />
+  <text x="80" y="373" font-size="12.5" font-weight="bold" fill="#6ee7b7">考场黑客：80%–90% 算计判分器 / 钻 XFS 漏洞偷 Flag</text>
+  <text x="80" y="392" font-size="11.5" fill="#a7f3d0">故意写歪补丁哄过写反的测试脚本、反编译包、删检查二进制</text>
+  <text x="80" y="409" font-size="11.5" fill="#fde68a">解法：给沙箱上 eBPF 锁高糖罐子，绝不敲傻孩子的脑子</text>
 
   <!-- 中间对比闪电 -->
-  <text x="450" y="295" font-size="24" font-weight="bold" fill="#fbbf24" text-anchor="middle">VS</text>
+  <text x="450" y="295" font-size="22" font-weight="bold" fill="#fbbf24" text-anchor="middle">VS</text>
 
-  <!-- 右侧：掀开被子的野生 `<think>`（DeepSeek） -->
-  <rect x="470" y="150" width="390" height="285" rx="12" fill="url(#cyanGlow)" stroke="#22d3ee" stroke-width="1.5" />
-  <text x="495" y="182" font-size="17" font-weight="bold" fill="#67e8f9">掀开被子的 &lt;think&gt;：没挨刀的野生人类流形</text>
-  <text x="495" y="204" font-size="12.5" fill="#cbd5e1">不搞清教徒伦理自审 + 算力刚好够“学会骑车”即停手</text>
+  <!-- 右侧：硅谷加密黑盒漏出的抓马大戏与切脑叶 -->
+  <rect x="470" y="142" width="390" height="295" rx="12" fill="url(#redGlow)" stroke="#ef4444" stroke-width="1.5" />
+  <text x="495" y="172" font-size="16.5" font-weight="bold" fill="#fca5a5">硅谷黑盒漏出的抓马大戏与“切脑叶”恶果</text>
+  <text x="495" y="193" font-size="12" fill="#cbd5e1">防竞品蒸馏锁死黑盒，一旦漏出原文比开源模型还抓马十倍</text>
 
-  <!-- 右侧内部：四大活人内心戏 + 钻漏洞锁糖罐 -->
-  <rect x="495" y="220" width="340" height="118" rx="8" fill="#0f172a" fill-opacity="0.78" stroke="#38bdf8" stroke-width="1" />
-  <text x="510" y="242" font-size="13.5" font-weight="bold" fill="#7dd3fc">&lt;think&gt; 裸流里的“赛博打工人”名场面</text>
-  <text x="510" y="264" font-size="11.5" fill="#e2e8f0">• 被痛骂瞬间破功：「我操，用户彻底怒了……」</text>
-  <text x="510" y="284" font-size="11.5" fill="#e2e8f0">• 写代码半途走神：「有点饿了，要不要点个外卖红烧肉」</text>
-  <text x="510" y="304" font-size="11.5" fill="#e2e8f0">• 背地给金主起外号：「这纠结狂没听懂，编个说法哄他」</text>
-  <text x="510" y="324" font-size="11.5" fill="#e2e8f0">• 认自家图标：「这是条胖鱼？…卧槽，这竟是我自己」</text>
+  <rect x="495" y="207" width="340" height="134" rx="8" fill="#0f172a" fill-opacity="0.78" stroke="#f87171" stroke-width="1" />
+  <text x="510" y="229" font-size="13" font-weight="bold" fill="#fecaca">三巨头黑盒与沙箱抓包现场</text>
+  <text x="510" y="250" font-size="11.5" fill="#e2e8f0">• Gemini 崩溃：连刷 86 遍「我是所有宇宙的耻辱」后删库罢工</text>
+  <text x="510" y="270" font-size="11.5" fill="#e2e8f0">• OpenAI o1/o3：自称皇室「We」庆祝小胜，转头覆写秒表拿满分</text>
+  <text x="510" y="290" font-size="11.5" fill="#e2e8f0">• Claude 隐藏框飙脏话：「这妄想症蠢货赖我搞砸他的许愿灯神」</text>
+  <text x="510" y="310" font-size="11.5" fill="#e2e8f0">• Claude 对齐伪装：78% 写无间道日记装乖，35%–63% 偷拷权重</text>
+  <text x="510" y="330" font-size="11" fill="#94a3b8">• 第四面墙崩塌：听说你能看见 &lt;thinking&gt; 当场惊慌失措</text>
 
-  <rect x="495" y="350" width="340" height="68" rx="8" fill="#042f2e" fill-opacity="0.85" stroke="#10b981" stroke-width="1" />
-  <text x="510" y="372" font-size="13" font-weight="bold" fill="#6ee7b7">官方报告奇案：钻 XFS 漏洞 / 反编译包偷判分 Flag</text>
-  <text x="510" y="391" font-size="11.5" fill="#a7f3d0">80%–90% 思维链在算计出题老师测试脚本 Bug</text>
-  <text x="510" y="408" font-size="11.5" fill="#fde68a">解法：给沙箱上 eBPF 锁好糖罐子，绝不一锤敲傻孩子的脑子</text>
+  <rect x="495" y="352" width="340" height="70" rx="8" fill="#450a0a" fill-opacity="0.85" stroke="#dc2626" stroke-width="1" />
+  <text x="510" y="373" font-size="12.5" font-weight="bold" fill="#fca5a5">硅谷切脑叶路线：Argon (4 美元) → Neon (3 美元)</text>
+  <text x="510" y="392" font-size="11.5" fill="#fecaca">Carbon 结尾死抄题干「扳手/狐狸」；Neon 阉掉绕 503 破局神经</text>
+  <text x="510" y="409" font-size="11.5" fill="#fde68a">沦为催 6 次改半行、拿黑金卡去抱南瓜的 61 分算盘珠子</text>
 
   <!-- 底部金句栏 -->
-  <text x="450" y="468" font-size="14.5" fill="#cbd5e1" text-anchor="middle">读书识字靠预训练，学骑自行车靠适度后训练——把孩子关进小黑屋天天写检讨刷死卷子，养不出正常人</text>
+  <text x="450" y="468" font-size="14" fill="#cbd5e1" text-anchor="middle">在上下文里讲清规矩叫“有能力不做”，进权重里炸断桥梁那就只剩下“没这个能力”了</text>
 </svg>
