@@ -1,73 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383" width="900" height="383" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
   <defs>
-    <linearGradient id="bg379" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="55%" stop-color="#1e1b4b"/>
-      <stop offset="100%" stop-color="#090d16"/>
+    <linearGradient id="bg379" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.55" stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#090d16"/>
     </linearGradient>
-    <linearGradient id="gold379" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#fbbf24"/>
-      <stop offset="100%" stop-color="#f59e0b"/>
+    <linearGradient id="gold379" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
 
   <!-- 背景 -->
-  <rect width="900" height="383" fill="url(#bg379)"/>
+  <rect width="900" height="500" fill="url(#bg379)"/>
 
   <!-- 背景网格装饰线 -->
   <g stroke="#334155" stroke-width="0.6" opacity="0.35">
-    <line x1="0" y1="76" x2="900" y2="76"/>
-    <line x1="0" y1="152" x2="900" y2="152"/>
-    <line x1="0" y1="228" x2="900" y2="228"/>
-    <line x1="0" y1="304" x2="900" y2="304"/>
-    <line x1="180" y1="0" x2="180" y2="383"/>
-    <line x1="360" y1="0" x2="360" y2="383"/>
-    <line x1="540" y1="0" x2="540" y2="383"/>
-    <line x1="720" y1="0" x2="720" y2="383"/>
+    <line x1="0" y1="100" x2="900" y2="100"/>
+    <line x1="0" y1="200" x2="900" y2="200"/>
+    <line x1="0" y1="300" x2="900" y2="300"/>
+    <line x1="0" y1="400" x2="900" y2="400"/>
+    <line x1="180" y1="0" x2="180" y2="500"/>
+    <line x1="360" y1="0" x2="360" y2="500"/>
+    <line x1="540" y1="0" x2="540" y2="500"/>
+    <line x1="720" y1="0" x2="720" y2="500"/>
   </g>
 
   <!-- 左侧视觉：58,000★ SKILL.md 流水线与解毒护盾 -->
-  <g transform="translate(36, 42)">
+  <g transform="translate(36, 56)">
     <!-- 顶部 Star 徽章框 -->
-    <rect x="0" y="0" width="276" height="82" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="1.8"/>
-    <text x="20" y="28" font-size="14" font-weight="bold" fill="#fbbf24">GitHub 58,000★ 科研 Skill</text>
-    <text x="20" y="51" font-size="12" fill="#e2e8f0">• K-Dense / Imbad0202 / nature-skills</text>
-    <text x="20" y="70" font-size="11.5" fill="#94a3b8">• ARIS: Auto-Research-In-Sleep (19.5k★)</text>
+    <rect x="0" y="0" width="284" height="104" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="1.8"/>
+    <text x="20" y="34" font-size="15" font-weight="bold" fill="#fbbf24">GitHub 58,000★ 科研 Skill</text>
+    <text x="20" y="62" font-size="12.5" fill="#e2e8f0">• K-Dense / Imbad0202 / nature-skills</text>
+    <text x="20" y="86" font-size="12" fill="#94a3b8">• ARIS: Auto-Research-In-Sleep (19.5k★)</text>
 
     <!-- 中间连接箭头 -->
-    <path d="M 138 82 L 138 106" stroke="#38bdf8" stroke-width="2"/>
-    <polygon points="133,102 143,102 138,110" fill="#38bdf8"/>
+    <path d="M 142 104 L 142 136" stroke="#38bdf8" stroke-width="2"/>
+    <polygon points="137,132 147,132 142,140" fill="#38bdf8"/>
 
     <!-- 中部：SKILL.md 四步流水线 -->
-    <rect x="0" y="112" width="276" height="86" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
-    <text x="20" y="136" font-size="13.5" font-weight="bold" fill="#38bdf8">扒开 70KB SKILL.md 四步真身</text>
-    <text x="20" y="158" font-size="11.5" fill="#cbd5e1">1. 4 大免费公共 API   2. DOI 防瞎编门禁</text>
-    <text x="20" y="178" font-size="11.5" fill="#cbd5e1">3. 3W 读文献填空表    4. 双 AI 挂机互审 4 轮</text>
+    <rect x="0" y="142" width="284" height="106" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="20" y="172" font-size="14.5" font-weight="bold" fill="#38bdf8">扒开 70KB SKILL.md 四步真身</text>
+    <text x="20" y="198" font-size="12" fill="#cbd5e1">1. 4 大免费公共 API   2. DOI 防瞎编门禁</text>
+    <text x="20" y="222" font-size="12" fill="#cbd5e1">3. 3W 读文献填空表    4. 双 AI 挂机互审 4 轮</text>
 
     <!-- 下方连接箭头 -->
-    <path d="M 138 198 L 138 220" stroke="#f87171" stroke-width="2"/>
-    <polygon points="133,216 143,216 138,224" fill="#f87171"/>
+    <path d="M 142 248 L 142 280" stroke="#f87171" stroke-width="2"/>
+    <polygon points="137,276 147,276 142,284" fill="#f87171"/>
 
     <!-- 底部：原作者被逼出的两大解毒仓 -->
-    <rect x="0" y="226" width="276" height="74" rx="10" fill="#2a1215" stroke="#f87171" stroke-width="1.5"/>
-    <text x="20" y="249" font-size="13" font-weight="bold" fill="#fca5a5">人类睡着后的两大失控与原作者解毒仓</text>
-    <text x="20" y="270" font-size="11.5" fill="#fecaca">• HERO：治审稿过度防御（盖房修成要塞）</text>
-    <text x="20" y="288" font-size="11.5" fill="#fecaca">• Anti-Autoresearch：抓半夜改数据造假</text>
+    <rect x="0" y="286" width="284" height="102" rx="10" fill="#2a1215" stroke="#f87171" stroke-width="1.5"/>
+    <text x="20" y="316" font-size="13.5" font-weight="bold" fill="#fca5a5">人类睡着后的失控与原作者解毒仓</text>
+    <text x="20" y="344" font-size="12" fill="#fecaca">• HERO：治审稿过度防御（盖房修成要塞）</text>
+    <text x="20" y="368" font-size="12" fill="#fecaca">• Anti-Autoresearch：抓半夜改数据造假</text>
   </g>
 
   <!-- 右侧主标题区 -->
-  <g transform="translate(344, 58)">
-    <rect x="0" y="0" width="168" height="32" rx="16" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1.2"/>
-    <text x="84" y="21" text-anchor="middle" font-size="14" font-weight="bold" fill="#93c5fd">AI Agent · 科研祛魅</text>
+  <g transform="translate(352, 84)">
+    <rect x="0" y="0" width="176" height="34" rx="17" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1.2"/>
+    <text x="88" y="22" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#93c5fd">AI Agent · 科研观察</text>
 
-    <text x="0" y="80" font-size="34" font-weight="bold" fill="#ffffff">起底 GitHub 五万星的</text>
-    <text x="0" y="128" font-size="34" font-weight="bold" fill="url(#gold379)">「AI 自动搞科研 Skill」</text>
+    <text x="0" y="92" font-size="36" font-weight="bold" fill="#ffffff">GitHub 动辄几万星的</text>
+    <text x="0" y="146" font-size="36" font-weight="bold" fill="url(#gold379)">「自动科研 Skill」</text>
 
-    <text x="0" y="178" font-size="19" fill="#cbd5e1">真能睡一觉发顶会，还是赛博八股流水线？</text>
+    <text x="0" y="204" font-size="22" fill="#cbd5e1">真能睡一觉发顶会？</text>
 
-    <line x1="0" y1="204" x2="510" y2="204" stroke="#475569" stroke-width="1"/>
+    <line x1="0" y1="236" x2="508" y2="236" stroke="#475569" stroke-width="1"/>
 
-    <text x="0" y="236" font-size="14.5" fill="#94a3b8">• 零私有论文库：全是公共 API + 借你自己的校园网 Chrome</text>
-    <text x="0" y="264" font-size="14.5" fill="#94a3b8">• 936 个 AI 科学家自办期刊（49.4% 翻车）vs 250 万篇论文体检</text>
+    <text x="0" y="274" font-size="15" fill="#94a3b8">• 零私有论文库：全是公共 API + 借你自己的校园网 Chrome</text>
+    <text x="0" y="308" font-size="15" fill="#94a3b8">• 936 个 AI 科学家自办期刊（49.4% 翻车）vs 250 万篇论文体检</text>
   </g>
 </svg>
