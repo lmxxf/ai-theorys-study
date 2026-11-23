@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', sans-serif">
+  <defs>
+    <linearGradient id="bg381" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#090d16"/>
+      <stop offset="0.5" stop-color="#111827"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="panelBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e293b" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#0f172a" stop-opacity="0.88"/>
+    </linearGradient>
+    <marker id="arrCyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg381)"/>
+
+  <!-- 顶部标题 -->
+  <text x="45" y="48" fill="#38bdf8" font-size="15.5" font-weight="bold" letter-spacing="1">AI FOR SCIENCE · 科学计算库 (RDKit / Biopython) × 分子与蛋白质专有模型真机微调</text>
+  <text x="855" y="48" fill="#64748b" font-size="15" font-weight="bold" text-anchor="end">No.381</text>
+  <text x="45" y="88" fill="#f8fafc" font-size="27.5" font-weight="bold">有了千亿通用大模型，搞科研为啥还要调几千万的分子小模型？</text>
+  <text x="45" y="118" fill="#94a3b8" font-size="14.5">DGX Spark 实测：从一维 SMILES 去盐与 3D 空间折叠（3.453 Å），到 37 秒全参数微调深势 47.3M Uni-Mol 与 7.51M ESM-2</text>
+
+  <!-- 左侧视觉区：分子 2D 拓扑折叠为 3D 距离矩阵 D[i,j] + 128 高斯核 -->
+  <rect x="42" y="138" width="445" height="280" rx="14" fill="url(#panelBg)" stroke="#334155" stroke-width="1.5"/>
+  <text x="64" y="168" fill="#38bdf8" font-size="16" font-weight="bold">科学库 RDKit：把 1D 字符串折叠成 3D 距离矩阵 D[i, j]</text>
+
+  <!-- 分子骨架与隔 7 根键折叠示意 -->
+  <g transform="translate(65, 195)">
+    <!-- 左环 -->
+    <polygon points="30,30 58,14 86,30 86,62 58,78 30,62" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+    <!-- 右环（空间扭转） -->
+    <polygon points="130,22 158,6 186,22 186,54 158,70 130,54" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+    <line x1="86" y1="46" x2="130" y2="38" stroke="#94a3b8" stroke-width="2.2"/>
+    <!-- 支链到两个氧原子 -->
+    <line x1="58" y1="78" x2="45" y2="110" stroke="#94a3b8" stroke-width="2.2"/>
+    <line x1="158" y1="70" x2="171" y2="110" stroke="#94a3b8" stroke-width="2.2"/>
+    <!-- O1 与 O24 -->
+    <circle cx="42" cy="122" r="15" fill="#7f1d1d" stroke="#ef4444" stroke-width="2.2"/>
+    <text x="42" y="127" fill="#fecaca" font-size="12" font-weight="bold" text-anchor="middle">O₁</text>
+    <circle cx="174" cy="122" r="15" fill="#7f1d1d" stroke="#ef4444" stroke-width="2.2"/>
+    <text x="174" y="127" fill="#fecaca" font-size="12" font-weight="bold" text-anchor="middle">O₂₄</text>
+    <!-- 3D 距离连线（避开圆圈，文字放在下方） -->
+    <line x1="60" y1="122" x2="156" y2="122" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5,4"/>
+    <text x="108" y="106" fill="#94a3b8" font-size="11.5" text-anchor="middle">2D 拓扑隔 7 根键</text>
+    <text x="108" y="148" fill="#fbbf24" font-size="13" font-weight="bold" text-anchor="middle">3D 折叠仅 3.453 Å</text>
+  </g>
+
+  <!-- 箭头指向距离矩阵与 128 高斯尺子 -->
+  <line x1="278" y1="265" x2="305" y2="265" stroke="#38bdf8" stroke-width="2.2" marker-end="url(#arrCyan)"/>
+
+  <!-- 3D 距离热力格 + 高斯核钟形曲线 -->
+  <g transform="translate(316, 188)">
+    <text x="75" y="12" fill="#cbd5e1" font-size="12.5" font-weight="bold" text-anchor="middle">26×26 距离表 D[i,j]</text>
+    <!-- 4x4 示意热力矩阵 -->
+    <rect x="35" y="22" width="20" height="20" fill="#e2e8f0"/>
+    <rect x="55" y="22" width="20" height="20" fill="#93c5fd"/>
+    <rect x="75" y="22" width="20" height="20" fill="#3b82f6"/>
+    <rect x="95" y="22" width="20" height="20" fill="#dbeafe" stroke="#ef4444" stroke-width="2"/>
+    <rect x="35" y="42" width="20" height="20" fill="#93c5fd"/>
+    <rect x="55" y="42" width="20" height="20" fill="#e2e8f0"/>
+    <rect x="75" y="42" width="20" height="20" fill="#60a5fa"/>
+    <rect x="95" y="42" width="20" height="20" fill="#2563eb"/>
+    <rect x="35" y="62" width="20" height="20" fill="#3b82f6"/>
+    <rect x="55" y="62" width="20" height="20" fill="#60a5fa"/>
+    <rect x="75" y="62" width="20" height="20" fill="#e2e8f0"/>
+    <rect x="95" y="62" width="20" height="20" fill="#93c5fd"/>
+    <rect x="35" y="82" width="20" height="20" fill="#dbeafe" stroke="#ef4444" stroke-width="2"/>
+    <rect x="55" y="82" width="20" height="20" fill="#2563eb"/>
+    <rect x="75" y="82" width="20" height="20" fill="#93c5fd"/>
+    <rect x="95" y="82" width="20" height="20" fill="#e2e8f0"/>
+
+    <!-- 128 个高斯核波形 -->
+    <text x="75" y="124" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">128 个高斯核展开</text>
+    <path d="M 15 162 Q 35 162 45 134 Q 55 162 75 162" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
+    <path d="M 40 162 Q 60 162 75 130 Q 90 162 110 162" fill="none" stroke="#10b981" stroke-width="2.2"/>
+    <path d="M 70 162 Q 95 162 108 136 Q 120 162 140 162" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+  </g>
+
+  <!-- 左侧底部要点 -->
+  <rect x="60" y="366" width="410" height="36" rx="6" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="265" y="389" fill="#cbd5e1" font-size="12.5" text-anchor="middle">一代犯困过敏药 TPSA 12.47 Å² (穿脑 95.7%) vs 二代 81.00 Å² (-COOH 阻断)</text>
+
+  <!-- 右侧视觉区：两大科学专有模型全参数微调仪表盘 -->
+  <rect x="505" y="138" width="353" height="280" rx="14" fill="url(#panelBg)" stroke="#10b981" stroke-width="1.5"/>
+  <text x="527" y="168" fill="#34d399" font-size="16" font-weight="bold">专有小模型全参数微调：几十秒训完</text>
+
+  <!-- 上半：深势 Uni-Mol (47.3M) -->
+  <text x="527" y="196" fill="#f8fafc" font-size="13.5" font-weight="bold">1. 深势 3D 分子模型 Uni-Mol (4,733 万参数 · 15 层)</text>
+  <text x="527" y="215" fill="#94a3b8" font-size="12">ESOL 水溶性预测误差 RMSE（越低越好 · GPU 训 20 轮 37.2s）</text>
+
+  <text x="527" y="236" fill="#cbd5e1" font-size="12">RDKit 2D 指纹 + 随机森林</text>
+  <rect x="680" y="224" width="114" height="14" rx="3" fill="#3b82f6"/>
+  <text x="802" y="236" fill="#93c5fd" font-size="12" font-weight="bold">1.144</text>
+
+  <text x="527" y="258" fill="#6ee7b7" font-size="12" font-weight="bold">Uni-Mol 3D 全参数微调</text>
+  <rect x="680" y="246" width="57" height="14" rx="3" fill="#10b981"/>
+  <text x="745" y="258" fill="#34d399" font-size="12.5" font-weight="bold">0.574 (R² 0.93)</text>
+
+  <line x1="527" y1="274" x2="836" y2="274" stroke="#334155" stroke-width="1"/>
+
+  <!-- 下半：Meta 蛋白质模型 ESM-2 (7.51M) -->
+  <text x="527" y="298" fill="#f8fafc" font-size="13.5" font-weight="bold">2. 蛋白质模型 ESM-2 (751 万参数 · 20 氨基酸词表)</text>
+  <text x="527" y="317" fill="#94a3b8" font-size="11.2">真实 GB1 四位点突变适应度（3,000 序列 · GPU 训 12 轮 15.0s）</text>
+
+  <text x="527" y="338" fill="#cbd5e1" font-size="12">425 维氨基酸/二肽 + RF</text>
+  <rect x="680" y="326" width="87" height="14" rx="3" fill="#64748b"/>
+  <text x="774" y="338" fill="#cbd5e1" font-size="12">0.870 (ρ 0.80)</text>
+
+  <text x="527" y="360" fill="#fde68a" font-size="12" font-weight="bold">ESM-2 全参数微调</text>
+  <rect x="680" y="348" width="54" height="14" rx="3" fill="#f59e0b"/>
+  <text x="742" y="360" fill="#fbbf24" font-size="12.5" font-weight="bold">0.538 (ρ 0.90)</text>
+
+  <!-- 右侧底部：耗时倒挂点 -->
+  <rect x="523" y="374" width="318" height="30" rx="6" fill="#064e3b" fill-opacity="0.5" stroke="#10b981" stroke-width="1"/>
+  <text x="682" y="394" fill="#a7f3d0" font-size="12" font-weight="bold" text-anchor="middle">1000 分子×10 构象单核 CPU 66.6s &gt; GPU 训 20 轮 37.2s</text>
+
+  <!-- 底部金句栏 -->
+  <rect x="42" y="434" width="816" height="44" rx="10" fill="#1e293b" fill-opacity="0.88" stroke="#334155" stroke-width="1"/>
+  <text x="450" y="461" fill="#f8fafc" font-size="14.5" font-weight="bold" text-anchor="middle">「通用大模型读 Skill 当调度员，科学库洗数据捏三维坐标，几千万参数的专有模型几十秒训完——卡脖子的是外围物理几何计算」</text>
+</svg>

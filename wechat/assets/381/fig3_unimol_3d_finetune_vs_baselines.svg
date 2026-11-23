@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="1120" viewBox="0 0 640 1120" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif"><rect width="640" height="1120" fill="#ffffff"/>
+<text x="28" y="40" font-size="25" fill="#253449" font-weight="bold">3D 分子模型：同一份 ESOL 考卷</text>
+<text x="28" y="70" font-size="16" fill="#253449" font-weight="normal">1117 个分子｜训练 / 验证 / 测试 = 893 / 112 / 112</text>
+<text x="28" y="96" font-size="15" fill="#253449" font-weight="normal">固定随机种子 42；按母核去重；仅用验证集挑选轮次</text>
+<rect x="25" y="115" width="590" height="162" rx="9" fill="#edf4fb"/>
+<text x="42" y="144" font-size="20" fill="#253449" font-weight="bold">官方 Uni-Mol v1：47,331,139 参数</text>
+<text x="42" y="174" font-size="18" fill="#253449" font-weight="normal">原子种类 → 512 维向量 → 15 层 Transformer</text>
+<text x="42" y="204" font-size="18" fill="#253449" font-weight="normal">3D 距离 → 128 个高斯核 → 64 头成对偏置</text>
+<text x="42" y="234" font-size="18" fill="#253449" font-weight="normal">注意力分数 = Q·K^T / √d + 成对偏置</text>
+<text x="42" y="259" font-size="14" fill="#253449" font-weight="normal">各层还会更新原子对表示；不是只加一次静态距离</text>
+<text x="28" y="312" font-size="20" fill="#253449" font-weight="bold">留出测试集：RMSE 越低越好（单位 logS）</text>
+<text x="30" y="345" font-size="17" fill="#253449" font-weight="normal">常数均值</text>
+<rect x="30" y="354" width="390.0" height="18" fill="#9ca3af"/>
+<text x="440" y="368" font-size="15" fill="#253449" font-weight="normal">2.176 / R² -0.000</text>
+<text x="30" y="411" font-size="17" fill="#253449" font-weight="normal">Morgan 2048 + 随机森林</text>
+<rect x="30" y="420" width="205.1" height="18" fill="#4f8ccb"/>
+<text x="440" y="434" font-size="15" fill="#253449" font-weight="normal">1.144 / R² 0.723</text>
+<text x="30" y="477" font-size="17" fill="#253449" font-weight="normal">Uni-Mol 全参数微调</text>
+<rect x="30" y="486" width="102.9" height="18" fill="#27a68a"/>
+<text x="440" y="500" font-size="15" fill="#253449" font-weight="normal">0.574 / R² 0.930</text>
+<text x="28" y="566" font-size="20" fill="#253449" font-weight="bold">Uni-Mol：实测值与预测值</text>
+<rect x="62" y="590" width="515" height="230" fill="#fafafa" stroke="#d1d5db"/>
+<line x1="62" y1="820" x2="577" y2="590" stroke="#999" stroke-dasharray="4 4"/>
+<circle cx="302.96" cy="723.09" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="275.05" cy="714.38" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="398.86" cy="655.58" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="375.21" cy="681.46" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="411.79" cy="665.55" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="352.28" cy="693.78" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="447.73" cy="649.05" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="368.36" cy="679.89" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="361.83" cy="683.50" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="440.42" cy="648.88" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="365.98" cy="676.40" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="357.30" cy="680.69" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="373.29" cy="675.48" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="359.59" cy="685.12" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="349.04" cy="700.23" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="402.06" cy="663.79" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="393.38" cy="673.72" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="542.73" cy="615.21" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="355.93" cy="673.22" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="473.31" cy="635.32" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="555.51" cy="610.19" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="479.70" cy="603.82" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="359.13" cy="677.91" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="527.20" cy="614.88" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="300.13" cy="718.40" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="396.58" cy="664.97" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="470.11" cy="626.27" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="283.78" cy="700.98" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="104.57" cy="784.40" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="447.27" cy="649.05" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="326.16" cy="690.05" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="405.71" cy="661.78" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="488.38" cy="636.99" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="558.89" cy="649.55" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="338.58" cy="692.65" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="451.39" cy="639.00" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="282.54" cy="712.87" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="497.97" cy="624.60" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="144.94" cy="771.00" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="147.22" cy="794.45" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="413.02" cy="670.24" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="402.06" cy="666.56" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="341.32" cy="681.43" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="422.16" cy="664.63" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="444.08" cy="654.91" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="219.34" cy="779.04" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="362.79" cy="696.62" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="427.18" cy="664.04" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="308.99" cy="700.64" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="399.32" cy="668.99" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="379.68" cy="690.64" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="388.82" cy="668.06" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="323.05" cy="697.63" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="509.84" cy="630.63" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="415.76" cy="642.52" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="538.61" cy="608.51" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="256.83" cy="725.10" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="415.76" cy="661.95" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="397.49" cy="669.40" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="326.02" cy="703.49" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="415.76" cy="670.07" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="439.05" cy="651.90" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="291.54" cy="711.20" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="384.25" cy="670.91" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="399.78" cy="673.47" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="321.23" cy="712.04" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="465.09" cy="646.04" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="428.55" cy="665.55" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="418.05" cy="669.66" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="306.79" cy="720.75" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="342.69" cy="698.80" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="219.38" cy="746.54" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="133.43" cy="798.47" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="206.59" cy="767.98" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="264.91" cy="696.71" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="392.93" cy="666.89" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="193.35" cy="751.90" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="192.62" cy="761.28" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="177.36" cy="775.69" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="397.95" cy="654.58" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="334.93" cy="692.39" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="376.03" cy="691.26" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="384.25" cy="697.71" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="330.82" cy="691.05" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="331.27" cy="694.95" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="243.95" cy="742.52" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="388.22" cy="672.08" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="133.25" cy="762.62" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="244.68" cy="732.81" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="504.82" cy="621.25" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="465.54" cy="625.94" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="295.19" cy="701.15" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="302.50" cy="712.04" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="363.24" cy="671.50" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="556.88" cy="596.12" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="407.09" cy="653.74" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="376.94" cy="718.40" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="420.33" cy="652.57" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="450.56" cy="659.94" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="432.66" cy="651.06" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="237.83" cy="729.12" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="328.53" cy="699.56" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="403.16" cy="666.14" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="456.41" cy="633.98" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="422.61" cy="643.02" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="298.85" cy="709.52" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="458.24" cy="643.52" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="388.82" cy="674.68" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="369.18" cy="682.64" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="80.45" cy="813.88" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="439.51" cy="647.54" r="2.8" fill="#168f7b" opacity="0.7"/>
+<circle cx="305.70" cy="704.66" r="2.8" fill="#168f7b" opacity="0.7"/>
+<text x="64" y="844" font-size="15" fill="#253449" font-weight="normal">横轴：实测 logS (-9.7 … 1.5)；纵轴：预测 logS</text>
+<text x="28" y="887" font-size="20" fill="#253449" font-weight="bold">耗时实账：不预设 CPU 一定是瓶颈</text>
+<text x="30" y="919" font-size="16" fill="#253449" font-weight="normal">CPU：全量单构象生成：8.87 秒</text>
+<rect x="30" y="929" width="128.8" height="16" fill="#d6a746"/>
+<text x="30" y="983" font-size="16" fill="#253449" font-weight="normal">GPU：训练 + 每轮验证：37.18 秒</text>
+<rect x="30" y="993" width="540.0" height="16" fill="#27a68a"/>
+<text x="28" y="1064" font-size="16" fill="#253449" font-weight="normal">实跑 20 轮；最佳验证轮次 13；测试只评估一次</text>
+<text x="28" y="1093" font-size="15" fill="#253449" font-weight="normal">单次随机划分与单构象实验，不能证明 3D 模型普遍优于 2D。</text>
+</svg>
