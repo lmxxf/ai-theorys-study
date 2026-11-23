@@ -1,0 +1,338 @@
+{
+  "generated_at": "2026-11-23T15:47:19.496663",
+  "repositories": [
+    {
+      "repo": "scientific-agent-skills",
+      "head": "ec59a29a03d5c40f73ab40878df04860bc00e876",
+      "tracked_path_count": 2780,
+      "counts": {
+        "tracked_regular_files": 2780,
+        "bytes": 290921981,
+        "markdown_files": 1538,
+        "markdown_lines": 329700,
+        "code_files": 776,
+        "code_lines": 249102,
+        "code_nonblank": 218126,
+        "code_candidate_runtime_files": 531,
+        "code_candidate_runtime_lines": 167687,
+        "skill_md_files": 177,
+        "code_example_or_experiment_files": 8,
+        "code_example_or_experiment_lines": 2139,
+        "code_test_files": 237,
+        "code_test_lines": 79276
+      },
+      "text_lines": 701839,
+      "code_extensions": {
+        ".py": {
+          "files": 771,
+          "lines": 248635,
+          "nonblank": 217695
+        },
+        ".js": {
+          "files": 2,
+          "lines": 223,
+          "nonblank": 207
+        },
+        ".sh": {
+          "files": 3,
+          "lines": 244,
+          "nonblank": 224
+        }
+      },
+      "symlinks": [],
+      "worktree_status": "",
+      "role_note": "Directory heuristics only; candidate_runtime is not a claim of usable research automation. Generated/minified/front-end distinctions require manual audit. Lines count text splitlines, includes comments/docstrings; nonblank excludes empty lines, not comments. Markdown fences never count as executable code."
+    },
+    {
+      "repo": "academic-research-skills",
+      "head": "d169ec5c4bebd4b5ad5e8b8a0559d1d9879a21d7",
+      "tracked_path_count": 2882,
+      "counts": {
+        "tracked_regular_files": 2882,
+        "bytes": 40851744,
+        "markdown_files": 1159,
+        "markdown_lines": 202649,
+        "skill_md_files": 5,
+        "code_files": 506,
+        "code_lines": 292474,
+        "code_nonblank": 256635,
+        "code_candidate_runtime_files": 254,
+        "code_candidate_runtime_lines": 143643,
+        "code_test_files": 252,
+        "code_test_lines": 148831
+      },
+      "text_lines": 588065,
+      "code_extensions": {
+        ".py": {
+          "files": 492,
+          "lines": 289117,
+          "nonblank": 253557
+        },
+        ".sh": {
+          "files": 9,
+          "lines": 2312,
+          "nonblank": 2133
+        },
+        ".mjs": {
+          "files": 2,
+          "lines": 465,
+          "nonblank": 418
+        },
+        ".js": {
+          "files": 3,
+          "lines": 580,
+          "nonblank": 527
+        }
+      },
+      "symlinks": [],
+      "worktree_status": "",
+      "role_note": "Directory heuristics only; candidate_runtime is not a claim of usable research automation. Generated/minified/front-end distinctions require manual audit. Lines count text splitlines, includes comments/docstrings; nonblank excludes empty lines, not comments. Markdown fences never count as executable code."
+    },
+    {
+      "repo": "nature-skills",
+      "head": "c6701dbea29afa7c596d029b957b7edc92130ea5",
+      "tracked_path_count": 897,
+      "counts": {
+        "tracked_regular_files": 897,
+        "bytes": 46015215,
+        "markdown_files": 443,
+        "markdown_lines": 41255,
+        "code_files": 273,
+        "code_lines": 56855,
+        "code_nonblank": 49373,
+        "code_candidate_runtime_files": 159,
+        "code_candidate_runtime_lines": 41839,
+        "code_test_files": 114,
+        "code_test_lines": 15016,
+        "skill_md_files": 24
+      },
+      "text_lines": 108978,
+      "code_extensions": {
+        ".R": {
+          "files": 2,
+          "lines": 429,
+          "nonblank": 417
+        },
+        ".sh": {
+          "files": 7,
+          "lines": 987,
+          "nonblank": 876
+        },
+        ".py": {
+          "files": 225,
+          "lines": 50297,
+          "nonblank": 43408
+        },
+        ".mjs": {
+          "files": 39,
+          "lines": 5142,
+          "nonblank": 4672
+        }
+      },
+      "symlinks": [],
+      "worktree_status": "",
+      "role_note": "Directory heuristics only; candidate_runtime is not a claim of usable research automation. Generated/minified/front-end distinctions require manual audit. Lines count text splitlines, includes comments/docstrings; nonblank excludes empty lines, not comments. Markdown fences never count as executable code."
+    },
+    {
+      "repo": "Auto-claude-code-research-in-sleep",
+      "head": "4ba94ae2a1c1fbbb14858750dd8764cabf6c28bd",
+      "tracked_path_count": 768,
+      "counts": {
+        "tracked_regular_files": 768,
+        "bytes": 39176686,
+        "markdown_files": 431,
+        "markdown_lines": 159890,
+        "code_files": 176,
+        "code_lines": 64975,
+        "code_nonblank": 56249,
+        "code_candidate_runtime_files": 93,
+        "code_candidate_runtime_lines": 44280,
+        "skill_md_files": 197,
+        "code_test_files": 83,
+        "code_test_lines": 20695
+      },
+      "text_lines": 327317,
+      "code_extensions": {
+        ".sh": {
+          "files": 17,
+          "lines": 7441,
+          "nonblank": 6833
+        },
+        ".py": {
+          "files": 157,
+          "lines": 55263,
+          "nonblank": 47326
+        },
+        ".ps1": {
+          "files": 2,
+          "lines": 2271,
+          "nonblank": 2090
+        }
+      },
+      "symlinks": [],
+      "worktree_status": "",
+      "role_note": "Directory heuristics only; candidate_runtime is not a claim of usable research automation. Generated/minified/front-end distinctions require manual audit. Lines count text splitlines, includes comments/docstrings; nonblank excludes empty lines, not comments. Markdown fences never count as executable code."
+    },
+    {
+      "repo": "HERO-Anti-OverDefense",
+      "head": "778582680e29a1b8827ec3a2ff2dc128dceb8830",
+      "tracked_path_count": 22,
+      "counts": {
+        "tracked_regular_files": 22,
+        "bytes": 4718704,
+        "markdown_files": 13,
+        "markdown_lines": 2427,
+        "skill_md_files": 2,
+        "code_files": 2,
+        "code_lines": 707,
+        "code_nonblank": 641,
+        "code_candidate_runtime_files": 1,
+        "code_candidate_runtime_lines": 310,
+        "code_test_files": 1,
+        "code_test_lines": 397
+      },
+      "text_lines": 3186,
+      "code_extensions": {
+        ".py": {
+          "files": 2,
+          "lines": 707,
+          "nonblank": 641
+        }
+      },
+      "symlinks": [],
+      "worktree_status": "",
+      "role_note": "Directory heuristics only; candidate_runtime is not a claim of usable research automation. Generated/minified/front-end distinctions require manual audit. Lines count text splitlines, includes comments/docstrings; nonblank excludes empty lines, not comments. Markdown fences never count as executable code."
+    },
+    {
+      "repo": "Anti-Autoresearch",
+      "head": "0abae59aa060e2bcfbd8ef88fd48efaa1be242ee",
+      "tracked_path_count": 65,
+      "counts": {
+        "tracked_regular_files": 65,
+        "bytes": 1242112,
+        "markdown_files": 25,
+        "markdown_lines": 12399,
+        "code_files": 18,
+        "code_lines": 4493,
+        "code_nonblank": 3877,
+        "code_candidate_runtime_files": 13,
+        "code_candidate_runtime_lines": 3146,
+        "skill_md_files": 12,
+        "code_test_files": 5,
+        "code_test_lines": 1347
+      },
+      "text_lines": 17809,
+      "code_extensions": {
+        ".py": {
+          "files": 17,
+          "lines": 4465,
+          "nonblank": 3852
+        },
+        ".sh": {
+          "files": 1,
+          "lines": 28,
+          "nonblank": 25
+        }
+      },
+      "symlinks": [],
+      "worktree_status": "",
+      "role_note": "Directory heuristics only; candidate_runtime is not a claim of usable research automation. Generated/minified/front-end distinctions require manual audit. Lines count text splitlines, includes comments/docstrings; nonblank excludes empty lines, not comments. Markdown fences never count as executable code."
+    },
+    {
+      "repo": "AutoResearchClaw",
+      "head": "be4ba4755bf1b52220f25e13b2293b5956590070",
+      "tracked_path_count": 756,
+      "counts": {
+        "tracked_regular_files": 756,
+        "bytes": 52573054,
+        "skill_md_files": 41,
+        "markdown_files": 95,
+        "markdown_lines": 20995,
+        "code_files": 423,
+        "code_lines": 130658,
+        "code_nonblank": 112070,
+        "code_example_or_experiment_files": 27,
+        "code_example_or_experiment_lines": 6810,
+        "code_vendor_or_external_files": 1,
+        "code_vendor_or_external_lines": 258,
+        "code_docs_or_web_files": 10,
+        "code_docs_or_web_lines": 768,
+        "code_candidate_runtime_files": 280,
+        "code_candidate_runtime_lines": 82032,
+        "code_test_files": 105,
+        "code_test_lines": 40790
+      },
+      "text_lines": 175276,
+      "code_extensions": {
+        ".py": {
+          "files": 403,
+          "lines": 128957,
+          "nonblank": 110580
+        },
+        ".sh": {
+          "files": 10,
+          "lines": 933,
+          "nonblank": 803
+        },
+        ".js": {
+          "files": 10,
+          "lines": 768,
+          "nonblank": 687
+        }
+      },
+      "symlinks": [],
+      "worktree_status": "",
+      "role_note": "Directory heuristics only; candidate_runtime is not a claim of usable research automation. Generated/minified/front-end distinctions require manual audit. Lines count text splitlines, includes comments/docstrings; nonblank excludes empty lines, not comments. Markdown fences never count as executable code."
+    },
+    {
+      "repo": "AI-Research-SKILLs",
+      "head": "773a52944ba4747a18bd4ae9ade53fff041adcbc",
+      "tracked_path_count": 529,
+      "counts": {
+        "tracked_regular_files": 529,
+        "bytes": 24593146,
+        "skill_md_files": 98,
+        "markdown_files": 400,
+        "markdown_lines": 188697,
+        "code_files": 24,
+        "code_lines": 6039,
+        "code_nonblank": 5290,
+        "code_example_or_experiment_files": 4,
+        "code_example_or_experiment_lines": 1331,
+        "code_candidate_runtime_files": 20,
+        "code_candidate_runtime_lines": 4708
+      },
+      "text_lines": 222266,
+      "code_extensions": {
+        ".py": {
+          "files": 5,
+          "lines": 1559,
+          "nonblank": 1280
+        },
+        ".js": {
+          "files": 6,
+          "lines": 2608,
+          "nonblank": 2316
+        },
+        ".sh": {
+          "files": 1,
+          "lines": 66,
+          "nonblank": 56
+        },
+        ".ts": {
+          "files": 2,
+          "lines": 8,
+          "nonblank": 6
+        },
+        ".tsx": {
+          "files": 10,
+          "lines": 1798,
+          "nonblank": 1632
+        }
+      },
+      "symlinks": [],
+      "worktree_status": "",
+      "role_note": "Directory heuristics only; candidate_runtime is not a claim of usable research automation. Generated/minified/front-end distinctions require manual audit. Lines count text splitlines, includes comments/docstrings; nonblank excludes empty lines, not comments. Markdown fences never count as executable code."
+    }
+  ]
+}

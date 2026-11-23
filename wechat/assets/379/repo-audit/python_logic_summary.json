@@ -1,0 +1,62 @@
+{
+  "metrics": {
+    "scientific-agent-skills": {
+      "python_files": 771,
+      "parsed_python_files": 771,
+      "non_docstring_statement_nodes": 123394,
+      "docstring_physical_lines": 9854,
+      "multiline_string_lines_outside_docstrings": 6903
+    },
+    "academic-research-skills": {
+      "python_files": 492,
+      "parsed_python_files": 492,
+      "non_docstring_statement_nodes": 129703,
+      "docstring_physical_lines": 19685,
+      "multiline_string_lines_outside_docstrings": 9167
+    },
+    "nature-skills": {
+      "python_files": 225,
+      "parsed_python_files": 225,
+      "non_docstring_statement_nodes": 27183,
+      "docstring_physical_lines": 1271,
+      "multiline_string_lines_outside_docstrings": 1849
+    },
+    "Auto-claude-code-research-in-sleep": {
+      "python_files": 157,
+      "parsed_python_files": 157,
+      "non_docstring_statement_nodes": 27851,
+      "docstring_physical_lines": 4182,
+      "multiline_string_lines_outside_docstrings": 1900
+    },
+    "HERO-Anti-OverDefense": {
+      "python_files": 2,
+      "parsed_python_files": 2,
+      "non_docstring_statement_nodes": 530,
+      "docstring_physical_lines": 4,
+      "multiline_string_lines_outside_docstrings": 17
+    },
+    "Anti-Autoresearch": {
+      "python_files": 17,
+      "parsed_python_files": 17,
+      "non_docstring_statement_nodes": 2288,
+      "docstring_physical_lines": 470,
+      "multiline_string_lines_outside_docstrings": 242
+    },
+    "AutoResearchClaw": {
+      "python_files": 403,
+      "parsed_python_files": 403,
+      "non_docstring_statement_nodes": 54021,
+      "docstring_physical_lines": 8516,
+      "multiline_string_lines_outside_docstrings": 9837
+    },
+    "AI-Research-SKILLs": {
+      "python_files": 5,
+      "parsed_python_files": 5,
+      "non_docstring_statement_nodes": 557,
+      "docstring_physical_lines": 200,
+      "multiline_string_lines_outside_docstrings": 210
+    }
+  },
+  "parse_failures": [],
+  "notes": "AST statement nodes are structural counts, not cyclomatic complexity or quality; multiline strings may contain prompts, SQL, code templates, or fixtures. Non-Python lines not compared by this metric."
+}

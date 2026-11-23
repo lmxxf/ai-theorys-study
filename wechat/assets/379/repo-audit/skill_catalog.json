@@ -1,0 +1,2782 @@
+[
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/13c-metabolic-flux/SKILL.md",
+    "lines": 217
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/adaptyv/SKILL.md",
+    "lines": 275
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/aeon/SKILL.md",
+    "lines": 422
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/alphagenome/SKILL.md",
+    "lines": 297
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/analytical-method-validation/SKILL.md",
+    "lines": 342
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/anndata/SKILL.md",
+    "lines": 474
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/arbor/SKILL.md",
+    "lines": 193
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/arboreto/SKILL.md",
+    "lines": 203
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/astropy/SKILL.md",
+    "lines": 383
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/autoskill/SKILL.md",
+    "lines": 267
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/benchling-integration/SKILL.md",
+    "lines": 193
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/bgpt-paper-search/SKILL.md",
+    "lines": 158
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/bids/SKILL.md",
+    "lines": 218
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/biopython/SKILL.md",
+    "lines": 480
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/bioservices/SKILL.md",
+    "lines": 247
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/bulk-rnaseq/SKILL.md",
+    "lines": 233
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/cantera/SKILL.md",
+    "lines": 139
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/cellprofiler/SKILL.md",
+    "lines": 114
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/cellxgene-census/SKILL.md",
+    "lines": 334
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/cirq/SKILL.md",
+    "lines": 378
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/citation-management/SKILL.md",
+    "lines": 359
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/clinical-decision-support/SKILL.md",
+    "lines": 258
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/clinical-reports/SKILL.md",
+    "lines": 271
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/cobrapy/SKILL.md",
+    "lines": 241
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/consciousness-council/SKILL.md",
+    "lines": 176
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/dask/SKILL.md",
+    "lines": 493
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/database-lookup/SKILL.md",
+    "lines": 399
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/datalad/SKILL.md",
+    "lines": 329
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/datamol/SKILL.md",
+    "lines": 232
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/deepchem/SKILL.md",
+    "lines": 161
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/deepspot-m/SKILL.md",
+    "lines": 219
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/deeptools/SKILL.md",
+    "lines": 435
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/depmap/SKILL.md",
+    "lines": 233
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/dhdna-profiler/SKILL.md",
+    "lines": 136
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/diffdock/SKILL.md",
+    "lines": 231
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/dnanexus-integration/SKILL.md",
+    "lines": 349
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/esm/SKILL.md",
+    "lines": 214
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/etetoolkit/SKILL.md",
+    "lines": 364
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/exa-search/SKILL.md",
+    "lines": 130
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/experimental-design/SKILL.md",
+    "lines": 286
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/exploratory-data-analysis/SKILL.md",
+    "lines": 311
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/fictiv/SKILL.md",
+    "lines": 158
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/flowio/SKILL.md",
+    "lines": 348
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/flowkit/SKILL.md",
+    "lines": 180
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/fluidsim/SKILL.md",
+    "lines": 318
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/folklore-variant-evidence/SKILL.md",
+    "lines": 267
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/generate-image/SKILL.md",
+    "lines": 339
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/geniml/SKILL.md",
+    "lines": 354
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/genomic-coordinates/SKILL.md",
+    "lines": 243
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/genomic-intelligence/SKILL.md",
+    "lines": 416
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/geomaster/SKILL.md",
+    "lines": 231
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/geopandas/SKILL.md",
+    "lines": 300
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/get-available-resources/SKILL.md",
+    "lines": 296
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/gget/SKILL.md",
+    "lines": 185
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/ginkgo-cloud-lab/SKILL.md",
+    "lines": 155
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/glycoengineering/SKILL.md",
+    "lines": 186
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/gtars/SKILL.md",
+    "lines": 325
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/histolab/SKILL.md",
+    "lines": 165
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/hugging-science/SKILL.md",
+    "lines": 166
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/hypogenic/SKILL.md",
+    "lines": 331
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/hypothesis-generation/SKILL.md",
+    "lines": 290
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/imaging-data-commons/SKILL.md",
+    "lines": 499
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/infographics/SKILL.md",
+    "lines": 370
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/iso-standards-readiness/SKILL.md",
+    "lines": 383
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/lab-hardware-cad/SKILL.md",
+    "lines": 397
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/labarchive-integration/SKILL.md",
+    "lines": 246
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/lamindb/SKILL.md",
+    "lines": 154
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/latchbio-integration/SKILL.md",
+    "lines": 254
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/latex-posters/SKILL.md",
+    "lines": 201
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/liteparse/SKILL.md",
+    "lines": 324
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/literature-review/SKILL.md",
+    "lines": 229
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/mageck/SKILL.md",
+    "lines": 124
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/marine-carbonate-chemistry/SKILL.md",
+    "lines": 159
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/markdown-mermaid-writing/SKILL.md",
+    "lines": 343
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/market-research-reports/SKILL.md",
+    "lines": 373
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/markitdown/SKILL.md",
+    "lines": 284
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/matchms/SKILL.md",
+    "lines": 310
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/matlab/SKILL.md",
+    "lines": 310
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/matplotlib/SKILL.md",
+    "lines": 435
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/medchem/SKILL.md",
+    "lines": 355
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/modal/SKILL.md",
+    "lines": 496
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/molecular-dynamics/SKILL.md",
+    "lines": 477
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/molfeat/SKILL.md",
+    "lines": 181
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/ncats-arax/SKILL.md",
+    "lines": 192
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/networkx/SKILL.md",
+    "lines": 476
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/neurokit2/SKILL.md",
+    "lines": 358
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/neuropixels-analysis/SKILL.md",
+    "lines": 464
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/nextflow/SKILL.md",
+    "lines": 222
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/nmrglue/SKILL.md",
+    "lines": 138
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/nwb-conversion/SKILL.md",
+    "lines": 112
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/omero-integration/SKILL.md",
+    "lines": 252
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/onekgpd/SKILL.md",
+    "lines": 429
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/ontology-term-resolution/SKILL.md",
+    "lines": 234
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/open-notebook/SKILL.md",
+    "lines": 212
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/openpiv/SKILL.md",
+    "lines": 495
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/opentrons-integration/SKILL.md",
+    "lines": 354
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/optimize-for-gpu/SKILL.md",
+    "lines": 207
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pacsomatic/SKILL.md",
+    "lines": 114
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/paper-lookup/SKILL.md",
+    "lines": 316
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/paperclip/SKILL.md",
+    "lines": 235
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/paperzilla/SKILL.md",
+    "lines": 253
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/parallel-web/SKILL.md",
+    "lines": 158
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pathml/SKILL.md",
+    "lines": 264
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pathogen-variant-surveillance/SKILL.md",
+    "lines": 183
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pathway-enrichment/SKILL.md",
+    "lines": 243
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/peer-review/SKILL.md",
+    "lines": 317
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pennylane/SKILL.md",
+    "lines": 141
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/phylogenetics/SKILL.md",
+    "lines": 177
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pi-agent/SKILL.md",
+    "lines": 112
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pkpd-modeling/SKILL.md",
+    "lines": 278
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/polars-bio/SKILL.md",
+    "lines": 226
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/polars/SKILL.md",
+    "lines": 437
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pptx-posters/SKILL.md",
+    "lines": 296
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/primekg/SKILL.md",
+    "lines": 170
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/primer-design/SKILL.md",
+    "lines": 278
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/protocolsio-integration/SKILL.md",
+    "lines": 277
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pufferlib/SKILL.md",
+    "lines": 386
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pybamm/SKILL.md",
+    "lines": 114
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pycalphad/SKILL.md",
+    "lines": 134
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pydeseq2/SKILL.md",
+    "lines": 179
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pydicom/SKILL.md",
+    "lines": 428
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pyhealth/SKILL.md",
+    "lines": 142
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pylabrobot/SKILL.md",
+    "lines": 244
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pymatgen/SKILL.md",
+    "lines": 454
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pymc/SKILL.md",
+    "lines": 176
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pymoo/SKILL.md",
+    "lines": 309
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pyopenms/SKILL.md",
+    "lines": 230
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pysam/SKILL.md",
+    "lines": 365
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pytdc/SKILL.md",
+    "lines": 325
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pytorch-lightning/SKILL.md",
+    "lines": 208
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/pyzotero/SKILL.md",
+    "lines": 158
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/qiime2-amplicon/SKILL.md",
+    "lines": 132
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/qiskit/SKILL.md",
+    "lines": 283
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/qutip/SKILL.md",
+    "lines": 349
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/rdkit/SKILL.md",
+    "lines": 140
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/relion/SKILL.md",
+    "lines": 129
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/relsa-severity-assessment/SKILL.md",
+    "lines": 364
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/research-grants/SKILL.md",
+    "lines": 337
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/research-lookup/SKILL.md",
+    "lines": 391
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/rowan/SKILL.md",
+    "lines": 433
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scanpy/SKILL.md",
+    "lines": 360
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scholar-evaluation/SKILL.md",
+    "lines": 318
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scientific-brainstorming/SKILL.md",
+    "lines": 304
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scientific-critical-thinking/SKILL.md",
+    "lines": 235
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scientific-schematics/SKILL.md",
+    "lines": 393
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scientific-slides/SKILL.md",
+    "lines": 387
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scientific-visualization/SKILL.md",
+    "lines": 307
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scientific-writing/SKILL.md",
+    "lines": 381
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scikit-bio/SKILL.md",
+    "lines": 487
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scikit-learn/SKILL.md",
+    "lines": 346
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scikit-survival/SKILL.md",
+    "lines": 355
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scvelo/SKILL.md",
+    "lines": 219
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/scvi-tools/SKILL.md",
+    "lines": 194
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/seaborn/SKILL.md",
+    "lines": 281
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/shap/SKILL.md",
+    "lines": 315
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/simpy/SKILL.md",
+    "lines": 314
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/stable-baselines3/SKILL.md",
+    "lines": 382
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/statistical-analysis/SKILL.md",
+    "lines": 453
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/statistical-power/SKILL.md",
+    "lines": 225
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/statsmodels/SKILL.md",
+    "lines": 256
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/sympy/SKILL.md",
+    "lines": 408
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/tamarind/SKILL.md",
+    "lines": 210
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/tellurium/SKILL.md",
+    "lines": 123
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/tiledbvcf/SKILL.md",
+    "lines": 282
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/timesfm-forecasting/SKILL.md",
+    "lines": 171
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/torch-geometric/SKILL.md",
+    "lines": 487
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/torchdrug/SKILL.md",
+    "lines": 281
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/transformers/SKILL.md",
+    "lines": 214
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/treatment-plans/SKILL.md",
+    "lines": 204
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/umap-learn/SKILL.md",
+    "lines": 493
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/uncertainty-and-units/SKILL.md",
+    "lines": 415
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/usfiscaldata/SKILL.md",
+    "lines": 205
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/vaex/SKILL.md",
+    "lines": 141
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/venue-templates/SKILL.md",
+    "lines": 297
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/waypoint-bio/SKILL.md",
+    "lines": 319
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/what-if-oracle/SKILL.md",
+    "lines": 122
+  },
+  {
+    "repo": "scientific-agent-skills",
+    "path": "skills/zarr-python/SKILL.md",
+    "lines": 188
+  },
+  {
+    "repo": "academic-research-skills",
+    "path": "academic-paper-reviewer/SKILL.md",
+    "lines": 564
+  },
+  {
+    "repo": "academic-research-skills",
+    "path": "academic-paper/SKILL.md",
+    "lines": 690
+  },
+  {
+    "repo": "academic-research-skills",
+    "path": "academic-pipeline/SKILL.md",
+    "lines": 777
+  },
+  {
+    "repo": "academic-research-skills",
+    "path": "deep-research/SKILL.md",
+    "lines": 729
+  },
+  {
+    "repo": "academic-research-skills",
+    "path": "sr-screener/SKILL.md",
+    "lines": 516
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-academic-search/SKILL.md",
+    "lines": 55
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-citation/SKILL.md",
+    "lines": 44
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-data/SKILL.md",
+    "lines": 54
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-downloader/SKILL.md",
+    "lines": 359
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-experiment-log/SKILL.md",
+    "lines": 155
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-figure/SKILL.md",
+    "lines": 145
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-image2ppt/SKILL.md",
+    "lines": 210
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-literature-pipeline/SKILL.md",
+    "lines": 112
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-paper-card/SKILL.md",
+    "lines": 158
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-paper-to-patent/SKILL.md",
+    "lines": 105
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-paper-trans/SKILL.md",
+    "lines": 115
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-paper-xray/SKILL.md",
+    "lines": 61
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-paper2ppt/SKILL.md",
+    "lines": 63
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-paper2word/SKILL.md",
+    "lines": 198
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-polishing/SKILL.md",
+    "lines": 98
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-proposal-writer/SKILL.md",
+    "lines": 151
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-reader/SKILL.md",
+    "lines": 64
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-ref-verifier/SKILL.md",
+    "lines": 196
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-response/SKILL.md",
+    "lines": 60
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-reviewer/SKILL.md",
+    "lines": 173
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-shared/SKILL.md",
+    "lines": 33
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-social-science/SKILL.md",
+    "lines": 179
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-statistics/SKILL.md",
+    "lines": 124
+  },
+  {
+    "repo": "nature-skills",
+    "path": "skills/nature-writing/SKILL.md",
+    "lines": 125
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/ablation-planner/SKILL.md",
+    "lines": 123
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/alphaxiv/SKILL.md",
+    "lines": 196
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/analyze-results/SKILL.md",
+    "lines": 46
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/arxiv/SKILL.md",
+    "lines": 248
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/auto-paper-improvement-loop/SKILL.md",
+    "lines": 713
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/auto-review-loop-llm/SKILL.md",
+    "lines": 285
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/auto-review-loop-minimax/SKILL.md",
+    "lines": 302
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/auto-review-loop/SKILL.md",
+    "lines": 1211
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/citation-audit/SKILL.md",
+    "lines": 515
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/citation-crosscheck/SKILL.md",
+    "lines": 531
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/claims-drafting/SKILL.md",
+    "lines": 240
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/comm-lit-review/SKILL.md",
+    "lines": 297
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/deepxiv/SKILL.md",
+    "lines": 270
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/dse-loop/SKILL.md",
+    "lines": 296
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/embodiment-description/SKILL.md",
+    "lines": 129
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/exa-search/SKILL.md",
+    "lines": 205
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/experiment-audit/SKILL.md",
+    "lines": 322
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/experiment-bridge/SKILL.md",
+    "lines": 395
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/experiment-plan/SKILL.md",
+    "lines": 249
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/experiment-queue/SKILL.md",
+    "lines": 431
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/feishu-notify/SKILL.md",
+    "lines": 156
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/figure-description/SKILL.md",
+    "lines": 138
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/figure-spec/SKILL.md",
+    "lines": 275
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/firecrawl-search/SKILL.md",
+    "lines": 218
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/formula-derivation/SKILL.md",
+    "lines": 285
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/gemini-search/SKILL.md",
+    "lines": 231
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/grant-proposal/SKILL.md",
+    "lines": 713
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/idea-creator/SKILL.md",
+    "lines": 612
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/idea-discovery-robot/SKILL.md",
+    "lines": 374
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/idea-discovery/SKILL.md",
+    "lines": 538
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/integrity-forensics/SKILL.md",
+    "lines": 284
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/interview-cheatsheet/SKILL.md",
+    "lines": 256
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/invention-structuring/SKILL.md",
+    "lines": 201
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/jurisdiction-format/SKILL.md",
+    "lines": 192
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/keenable-search/SKILL.md",
+    "lines": 151
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/kill-argument/SKILL.md",
+    "lines": 452
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/lean-formalize/SKILL.md",
+    "lines": 376
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/mermaid-diagram/SKILL.md",
+    "lines": 419
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/meta-apply/SKILL.md",
+    "lines": 152
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/meta-optimize/SKILL.md",
+    "lines": 450
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/monitor-experiment/SKILL.md",
+    "lines": 140
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/novelty-check/SKILL.md",
+    "lines": 155
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/openalex/SKILL.md",
+    "lines": 233
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/overleaf-sync/SKILL.md",
+    "lines": 220
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-claim-audit/SKILL.md",
+    "lines": 361
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-compile/SKILL.md",
+    "lines": 266
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-figure/SKILL.md",
+    "lines": 325
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-illustration-image2/SKILL.md",
+    "lines": 401
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-illustration/SKILL.md",
+    "lines": 736
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-plan/SKILL.md",
+    "lines": 400
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-poster-html/SKILL.md",
+    "lines": 334
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-poster/SKILL.md",
+    "lines": 19
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-slides/SKILL.md",
+    "lines": 648
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-talk/SKILL.md",
+    "lines": 392
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-write/SKILL.md",
+    "lines": 698
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/paper-writing/SKILL.md",
+    "lines": 945
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/patent-novelty-check/SKILL.md",
+    "lines": 166
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/patent-pipeline/SKILL.md",
+    "lines": 355
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/patent-review/SKILL.md",
+    "lines": 218
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/pixel-art/SKILL.md",
+    "lines": 137
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/prior-art-search/SKILL.md",
+    "lines": 146
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/proof-checker/SKILL.md",
+    "lines": 900
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/proof-orchestrator/SKILL.md",
+    "lines": 255
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/proof-writer/SKILL.md",
+    "lines": 236
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/qzcli/SKILL.md",
+    "lines": 324
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/rebuttal/SKILL.md",
+    "lines": 389
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/render-html/SKILL.md",
+    "lines": 327
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/research-implement-feature/SKILL.md",
+    "lines": 594
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/research-lit/SKILL.md",
+    "lines": 784
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/research-pipeline/SKILL.md",
+    "lines": 413
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/research-refine-pipeline/SKILL.md",
+    "lines": 197
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/research-refine/SKILL.md",
+    "lines": 785
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/research-review/SKILL.md",
+    "lines": 235
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/research-wiki/SKILL.md",
+    "lines": 462
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/resubmit-pipeline/SKILL.md",
+    "lines": 458
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/result-to-claim/SKILL.md",
+    "lines": 324
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/run-experiment/SKILL.md",
+    "lines": 340
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/semantic-scholar/SKILL.md",
+    "lines": 236
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/serverless-modal/SKILL.md",
+    "lines": 335
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-claude-review/auto-paper-improvement-loop/SKILL.md",
+    "lines": 625
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-claude-review/auto-review-loop/SKILL.md",
+    "lines": 516
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-claude-review/novelty-check/SKILL.md",
+    "lines": 143
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-claude-review/paper-figure/SKILL.md",
+    "lines": 319
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-claude-review/paper-plan/SKILL.md",
+    "lines": 287
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-claude-review/paper-write/SKILL.md",
+    "lines": 496
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-claude-review/research-refine/SKILL.md",
+    "lines": 732
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-claude-review/research-review/SKILL.md",
+    "lines": 177
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/auto-paper-improvement-loop/SKILL.md",
+    "lines": 376
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/auto-review-loop/SKILL.md",
+    "lines": 304
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/grant-proposal/SKILL.md",
+    "lines": 630
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/idea-creator/SKILL.md",
+    "lines": 287
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/idea-discovery-robot/SKILL.md",
+    "lines": 365
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/idea-discovery/SKILL.md",
+    "lines": 275
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/novelty-check/SKILL.md",
+    "lines": 133
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/paper-figure/SKILL.md",
+    "lines": 289
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/paper-plan/SKILL.md",
+    "lines": 265
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/paper-poster-html/SKILL.md",
+    "lines": 102
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/paper-slides/SKILL.md",
+    "lines": 582
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/paper-write/SKILL.md",
+    "lines": 422
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/paper-writing/SKILL.md",
+    "lines": 325
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/research-refine/SKILL.md",
+    "lines": 674
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex-gemini-review/research-review/SKILL.md",
+    "lines": 137
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/ablation-planner/SKILL.md",
+    "lines": 126
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/alphaxiv/SKILL.md",
+    "lines": 186
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/analyze-results/SKILL.md",
+    "lines": 45
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/arxiv/SKILL.md",
+    "lines": 210
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/auto-paper-improvement-loop/SKILL.md",
+    "lines": 636
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/auto-review-loop-llm/SKILL.md",
+    "lines": 273
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/auto-review-loop-minimax/SKILL.md",
+    "lines": 290
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/auto-review-loop/SKILL.md",
+    "lines": 548
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/citation-audit/SKILL.md",
+    "lines": 517
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/citation-crosscheck/SKILL.md",
+    "lines": 546
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/claims-drafting/SKILL.md",
+    "lines": 254
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/comm-lit-review/SKILL.md",
+    "lines": 299
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/deepxiv/SKILL.md",
+    "lines": 149
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/dse-loop/SKILL.md",
+    "lines": 285
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/embodiment-description/SKILL.md",
+    "lines": 129
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/exa-search/SKILL.md",
+    "lines": 192
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/experiment-audit/SKILL.md",
+    "lines": 300
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/experiment-bridge/SKILL.md",
+    "lines": 375
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/experiment-plan/SKILL.md",
+    "lines": 249
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/experiment-queue/SKILL.md",
+    "lines": 401
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/feishu-notify/SKILL.md",
+    "lines": 155
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/figure-description/SKILL.md",
+    "lines": 138
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/figure-spec/SKILL.md",
+    "lines": 265
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/firecrawl-search/SKILL.md",
+    "lines": 211
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/formula-derivation/SKILL.md",
+    "lines": 285
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/gemini-search/SKILL.md",
+    "lines": 208
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/grant-proposal/SKILL.md",
+    "lines": 641
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/idea-creator/SKILL.md",
+    "lines": 467
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/idea-discovery-robot/SKILL.md",
+    "lines": 373
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/idea-discovery/SKILL.md",
+    "lines": 490
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/integrity-forensics/SKILL.md",
+    "lines": 108
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/interview-cheatsheet/SKILL.md",
+    "lines": 256
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/invention-structuring/SKILL.md",
+    "lines": 201
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/jurisdiction-format/SKILL.md",
+    "lines": 192
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/keenable-search/SKILL.md",
+    "lines": 155
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/kill-argument/SKILL.md",
+    "lines": 419
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/lean-formalize/SKILL.md",
+    "lines": 374
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/mermaid-diagram/SKILL.md",
+    "lines": 379
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/meta-apply/SKILL.md",
+    "lines": 166
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/meta-optimize/SKILL.md",
+    "lines": 361
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/monitor-experiment/SKILL.md",
+    "lines": 98
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/novelty-check/SKILL.md",
+    "lines": 141
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/openalex/SKILL.md",
+    "lines": 231
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/overleaf-sync/SKILL.md",
+    "lines": 220
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-claim-audit/SKILL.md",
+    "lines": 363
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-compile/SKILL.md",
+    "lines": 253
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-figure/SKILL.md",
+    "lines": 324
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-illustration-image2/SKILL.md",
+    "lines": 393
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-illustration/SKILL.md",
+    "lines": 690
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-plan/SKILL.md",
+    "lines": 292
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-poster-html/SKILL.md",
+    "lines": 392
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-poster/SKILL.md",
+    "lines": 19
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-slides/SKILL.md",
+    "lines": 584
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-talk/SKILL.md",
+    "lines": 392
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-write/SKILL.md",
+    "lines": 503
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/paper-writing/SKILL.md",
+    "lines": 759
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/patent-novelty-check/SKILL.md",
+    "lines": 166
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/patent-pipeline/SKILL.md",
+    "lines": 355
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/patent-review/SKILL.md",
+    "lines": 217
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/pixel-art/SKILL.md",
+    "lines": 139
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/prior-art-search/SKILL.md",
+    "lines": 146
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/proof-checker/SKILL.md",
+    "lines": 605
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/proof-orchestrator/SKILL.md",
+    "lines": 261
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/proof-writer/SKILL.md",
+    "lines": 235
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/qzcli/SKILL.md",
+    "lines": 324
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/rebuttal/SKILL.md",
+    "lines": 318
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/render-html/SKILL.md",
+    "lines": 316
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/research-implement-feature/SKILL.md",
+    "lines": 419
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/research-lit/SKILL.md",
+    "lines": 501
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/research-pipeline/SKILL.md",
+    "lines": 370
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/research-refine-pipeline/SKILL.md",
+    "lines": 197
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/research-refine/SKILL.md",
+    "lines": 736
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/research-review/SKILL.md",
+    "lines": 165
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/research-wiki/SKILL.md",
+    "lines": 421
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/resubmit-pipeline/SKILL.md",
+    "lines": 455
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/result-to-claim/SKILL.md",
+    "lines": 261
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/run-experiment/SKILL.md",
+    "lines": 263
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/semantic-scholar/SKILL.md",
+    "lines": 219
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/serverless-modal/SKILL.md",
+    "lines": 335
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/slides-polish/SKILL.md",
+    "lines": 578
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/specification-writing/SKILL.md",
+    "lines": 224
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/system-profile/SKILL.md",
+    "lines": 103
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/training-check/SKILL.md",
+    "lines": 94
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/vast-gpu/SKILL.md",
+    "lines": 394
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/web-debug-search/SKILL.md",
+    "lines": 334
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/wiki-enrich/SKILL.md",
+    "lines": 255
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/skills-codex/writing-systems-papers/SKILL.md",
+    "lines": 184
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/slides-polish/SKILL.md",
+    "lines": 580
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/specification-writing/SKILL.md",
+    "lines": 224
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/system-profile/SKILL.md",
+    "lines": 103
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/training-check/SKILL.md",
+    "lines": 145
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/vast-gpu/SKILL.md",
+    "lines": 394
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/web-debug-search/SKILL.md",
+    "lines": 334
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/wiki-enrich/SKILL.md",
+    "lines": 257
+  },
+  {
+    "repo": "Auto-claude-code-research-in-sleep",
+    "path": "skills/writing-systems-papers/SKILL.md",
+    "lines": 184
+  },
+  {
+    "repo": "HERO-Anti-OverDefense",
+    "path": "skills/goal-pulse/SKILL.md",
+    "lines": 67
+  },
+  {
+    "repo": "HERO-Anti-OverDefense",
+    "path": "skills/session-handoff/SKILL.md",
+    "lines": 288
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "skills/adversarial-case-builder/SKILL.md",
+    "lines": 745
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "skills/ai-style-impressions/SKILL.md",
+    "lines": 773
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "skills/baseline-comparison-audit/SKILL.md",
+    "lines": 946
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "skills/citation-forensics/SKILL.md",
+    "lines": 800
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "skills/consistency-audit/SKILL.md",
+    "lines": 666
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "skills/eval-design-forensics/SKILL.md",
+    "lines": 945
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "skills/evidence-ledger/SKILL.md",
+    "lines": 637
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "skills/experiment-forensics/SKILL.md",
+    "lines": 790
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "skills/novelty-duplication-advisory/SKILL.md",
+    "lines": 1106
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "skills/presentation-signals/SKILL.md",
+    "lines": 647
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "skills/proof-derivation-forensics/SKILL.md",
+    "lines": 821
+  },
+  {
+    "repo": "Anti-Autoresearch",
+    "path": "workflows/anti-autoresearch/SKILL.md",
+    "lines": 1072
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": ".claude/skills/a-evolve/SKILL.md",
+    "lines": 203
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": ".claude/skills/biology-biopython/SKILL.md",
+    "lines": 65
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": ".claude/skills/chemistry-rdkit/SKILL.md",
+    "lines": 59
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": ".claude/skills/hypothesis-formulation/SKILL.md",
+    "lines": 49
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": ".claude/skills/literature-search/SKILL.md",
+    "lines": 57
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": ".claude/skills/researchclaw/SKILL.md",
+    "lines": 130
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": ".claude/skills/scientific-visualization/SKILL.md",
+    "lines": 56
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": ".claude/skills/scientific-writing/SKILL.md",
+    "lines": 56
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": ".claude/skills/statistical-reporting/SKILL.md",
+    "lines": 58
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/Biology-Agent/skills/fba-simulator/SKILL.md",
+    "lines": 255
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/Biology-Agent/skills/flux-analyzer/SKILL.md",
+    "lines": 250
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/Biology-Agent/skills/gsmm-builder/SKILL.md",
+    "lines": 171
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/Biology-Agent/skills/gsmm-validator/SKILL.md",
+    "lines": 244
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/Biology-Agent/skills/metabolic-study-planner/SKILL.md",
+    "lines": 241
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/Biology-Agent/skills/mfa-pipeline-orchestrator/SKILL.md",
+    "lines": 100
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/stat_research_agent/skills/stat-research-orchestrator/SKILL.md",
+    "lines": 294
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/stat_research_agent/skills/stat-result-validator/SKILL.md",
+    "lines": 129
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/stat_research_agent/skills/statistical-experimental-evaluation/SKILL.md",
+    "lines": 89
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/stat_research_agent/skills/statistical-method-design/SKILL.md",
+    "lines": 56
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/stat_research_agent/skills/statistical-problem-formulation/SKILL.md",
+    "lines": 110
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "external/agents/stat_research_agent/skills/statistical-theory-analysis/SKILL.md",
+    "lines": 61
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/domain/biology-biopython/SKILL.md",
+    "lines": 65
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/domain/chemistry-rdkit/SKILL.md",
+    "lines": 59
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/domain/cv-classification/SKILL.md",
+    "lines": 30
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/domain/cv-detection/SKILL.md",
+    "lines": 29
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/domain/nlp-alignment/SKILL.md",
+    "lines": 31
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/domain/nlp-pretraining/SKILL.md",
+    "lines": 31
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/domain/quantum-qiskit/SKILL.md",
+    "lines": 482
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/domain/rl-policy-optimization/SKILL.md",
+    "lines": 37
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/experiment/experimental-design/SKILL.md",
+    "lines": 26
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/experiment/hypothesis-formulation/SKILL.md",
+    "lines": 49
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/experiment/literature-search/SKILL.md",
+    "lines": 57
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/experiment/meta-analysis/SKILL.md",
+    "lines": 22
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/experiment/scientific-visualization/SKILL.md",
+    "lines": 56
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/experiment/scientific-writing/SKILL.md",
+    "lines": 56
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/experiment/statistical-reporting/SKILL.md",
+    "lines": 58
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/experiment/systematic-review/SKILL.md",
+    "lines": 23
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/tooling/data-loading/SKILL.md",
+    "lines": 21
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/tooling/distributed-training/SKILL.md",
+    "lines": 21
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/tooling/mixed-precision/SKILL.md",
+    "lines": 30
+  },
+  {
+    "repo": "AutoResearchClaw",
+    "path": "researchclaw/skills/builtin/tooling/pytorch-training/SKILL.md",
+    "lines": 42
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "0-autoresearch-skill/SKILL.md",
+    "lines": 411
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "01-model-architecture/litgpt/SKILL.md",
+    "lines": 469
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "01-model-architecture/mamba/SKILL.md",
+    "lines": 260
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "01-model-architecture/nanogpt/SKILL.md",
+    "lines": 290
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "01-model-architecture/rwkv/SKILL.md",
+    "lines": 260
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "01-model-architecture/torchtitan/SKILL.md",
+    "lines": 358
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "02-tokenization/huggingface-tokenizers/SKILL.md",
+    "lines": 516
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "02-tokenization/sentencepiece/SKILL.md",
+    "lines": 235
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "03-fine-tuning/axolotl/SKILL.md",
+    "lines": 158
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "03-fine-tuning/llama-factory/SKILL.md",
+    "lines": 80
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "03-fine-tuning/peft/SKILL.md",
+    "lines": 431
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "03-fine-tuning/unsloth/SKILL.md",
+    "lines": 80
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "04-mechanistic-interpretability/nnsight/SKILL.md",
+    "lines": 436
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "04-mechanistic-interpretability/pyvene/SKILL.md",
+    "lines": 473
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "04-mechanistic-interpretability/saelens/SKILL.md",
+    "lines": 386
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "04-mechanistic-interpretability/transformer-lens/SKILL.md",
+    "lines": 346
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "05-data-processing/nemo-curator/SKILL.md",
+    "lines": 383
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "05-data-processing/ray-data/SKILL.md",
+    "lines": 326
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "06-post-training/grpo-rl-training/SKILL.md",
+    "lines": 572
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "06-post-training/miles/SKILL.md",
+    "lines": 315
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "06-post-training/openrlhf/SKILL.md",
+    "lines": 249
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "06-post-training/simpo/SKILL.md",
+    "lines": 219
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "06-post-training/slime/SKILL.md",
+    "lines": 464
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "06-post-training/torchforge/SKILL.md",
+    "lines": 433
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "06-post-training/trl-fine-tuning/SKILL.md",
+    "lines": 455
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "06-post-training/verl/SKILL.md",
+    "lines": 391
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "07-safety-alignment/constitutional-ai/SKILL.md",
+    "lines": 290
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "07-safety-alignment/llamaguard/SKILL.md",
+    "lines": 337
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "07-safety-alignment/nemo-guardrails/SKILL.md",
+    "lines": 297
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "07-safety-alignment/prompt-guard/SKILL.md",
+    "lines": 312
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "08-distributed-training/accelerate/SKILL.md",
+    "lines": 332
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "08-distributed-training/deepspeed/SKILL.md",
+    "lines": 141
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "08-distributed-training/megatron-core/SKILL.md",
+    "lines": 366
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "08-distributed-training/pytorch-fsdp2/SKILL.md",
+    "lines": 231
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "08-distributed-training/pytorch-lightning/SKILL.md",
+    "lines": 346
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "08-distributed-training/ray-train/SKILL.md",
+    "lines": 406
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "09-infrastructure/lambda-labs/SKILL.md",
+    "lines": 545
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "09-infrastructure/modal/SKILL.md",
+    "lines": 341
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "09-infrastructure/skypilot/SKILL.md",
+    "lines": 509
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "10-optimization/awq/SKILL.md",
+    "lines": 310
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "10-optimization/bitsandbytes/SKILL.md",
+    "lines": 411
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "10-optimization/flash-attention/SKILL.md",
+    "lines": 367
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "10-optimization/gguf/SKILL.md",
+    "lines": 427
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "10-optimization/gptq/SKILL.md",
+    "lines": 450
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "10-optimization/hqq/SKILL.md",
+    "lines": 445
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "10-optimization/ml-training-recipes/SKILL.md",
+    "lines": 319
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "11-evaluation/bigcode-evaluation-harness/SKILL.md",
+    "lines": 405
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "11-evaluation/lm-evaluation-harness/SKILL.md",
+    "lines": 490
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "11-evaluation/nemo-evaluator/SKILL.md",
+    "lines": 494
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "12-inference-serving/llama-cpp/SKILL.md",
+    "lines": 258
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "12-inference-serving/sglang/SKILL.md",
+    "lines": 442
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "12-inference-serving/tensorrt-llm/SKILL.md",
+    "lines": 187
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "12-inference-serving/vllm/SKILL.md",
+    "lines": 364
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "13-mlops/mlflow/SKILL.md",
+    "lines": 704
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "13-mlops/swanlab/SKILL.md",
+    "lines": 406
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "13-mlops/tensorboard/SKILL.md",
+    "lines": 629
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "13-mlops/weights-and-biases/SKILL.md",
+    "lines": 590
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "14-agents/a-evolve/SKILL.md",
+    "lines": 383
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "14-agents/autogpt/SKILL.md",
+    "lines": 403
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "14-agents/crewai/SKILL.md",
+    "lines": 498
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "14-agents/langchain/SKILL.md",
+    "lines": 480
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "14-agents/llamaindex/SKILL.md",
+    "lines": 569
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "15-rag/chroma/SKILL.md",
+    "lines": 406
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "15-rag/faiss/SKILL.md",
+    "lines": 221
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "15-rag/pinecone/SKILL.md",
+    "lines": 358
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "15-rag/qdrant/SKILL.md",
+    "lines": 493
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "15-rag/sentence-transformers/SKILL.md",
+    "lines": 255
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "16-prompt-engineering/dspy/SKILL.md",
+    "lines": 590
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "16-prompt-engineering/guidance/SKILL.md",
+    "lines": 572
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "16-prompt-engineering/instructor/SKILL.md",
+    "lines": 740
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "16-prompt-engineering/outlines/SKILL.md",
+    "lines": 652
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "17-observability/langsmith/SKILL.md",
+    "lines": 422
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "17-observability/phoenix/SKILL.md",
+    "lines": 475
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "18-multimodal/audiocraft/SKILL.md",
+    "lines": 564
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "18-multimodal/blip-2/SKILL.md",
+    "lines": 564
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "18-multimodal/clip/SKILL.md",
+    "lines": 253
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "18-multimodal/cosmos-policy/SKILL.md",
+    "lines": 402
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "18-multimodal/llava/SKILL.md",
+    "lines": 304
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "18-multimodal/openpi/SKILL.md",
+    "lines": 480
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "18-multimodal/openvla-oft/SKILL.md",
+    "lines": 441
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "18-multimodal/segment-anything/SKILL.md",
+    "lines": 500
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "18-multimodal/stable-diffusion/SKILL.md",
+    "lines": 519
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "18-multimodal/whisper/SKILL.md",
+    "lines": 317
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "19-emerging-techniques/knowledge-distillation/SKILL.md",
+    "lines": 458
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "19-emerging-techniques/long-context/SKILL.md",
+    "lines": 536
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "19-emerging-techniques/model-merging/SKILL.md",
+    "lines": 497
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "19-emerging-techniques/model-pruning/SKILL.md",
+    "lines": 495
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "19-emerging-techniques/moe-training/SKILL.md",
+    "lines": 526
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "19-emerging-techniques/speculative-decoding/SKILL.md",
+    "lines": 467
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "20-ml-paper-writing/academic-plotting/SKILL.md",
+    "lines": 479
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "20-ml-paper-writing/ml-paper-writing/SKILL.md",
+    "lines": 982
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "20-ml-paper-writing/presenting-conference-talks/SKILL.md",
+    "lines": 298
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "20-ml-paper-writing/systems-paper-writing/SKILL.md",
+    "lines": 270
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "21-research-ideation/brainstorming-research-ideas/SKILL.md",
+    "lines": 384
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "21-research-ideation/creative-thinking-for-research/SKILL.md",
+    "lines": 366
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "22-agent-native-research-artifact/compiler/SKILL.md",
+    "lines": 245
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "22-agent-native-research-artifact/research-manager/SKILL.md",
+    "lines": 324
+  },
+  {
+    "repo": "AI-Research-SKILLs",
+    "path": "22-agent-native-research-artifact/rigor-reviewer/SKILL.md",
+    "lines": 322
+  }
+]

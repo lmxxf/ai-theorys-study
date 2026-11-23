@@ -1,0 +1,33 @@
+{
+  "head": "be4ba4755bf1b52220f25e13b2293b5956590070",
+  "counts": {
+    "tracked_regular_files": 756,
+    "bytes": 52573054,
+    "skill_md_files": 41,
+    "markdown_files": 95,
+    "markdown_lines": 20995,
+    "code_files": 423,
+    "code_lines": 130658,
+    "code_nonblank": 112070,
+    "code_example_or_experiment_files": 27,
+    "code_example_or_experiment_lines": 6810,
+    "code_vendor_or_external_files": 1,
+    "code_vendor_or_external_lines": 258,
+    "code_docs_or_web_files": 10,
+    "code_docs_or_web_lines": 768,
+    "code_candidate_runtime_files": 280,
+    "code_candidate_runtime_lines": 82032,
+    "code_test_files": 105,
+    "code_test_lines": 40790
+  },
+  "static_only": true,
+  "upstream_tests_executed": false,
+  "experiment_dataclass_default": "simulated",
+  "example_and_init_template_mode": "sandbox",
+  "mcp_public_run_search_review": "stub",
+  "mcp_start_has_transport_loop": false,
+  "fastapi_serve_calls_uvicorn": true,
+  "max_decision_pivots": 2,
+  "docker_unavailable_fallback": "subprocess (non-agentic factory)",
+  "literature_placeholder_explicit": true
+}

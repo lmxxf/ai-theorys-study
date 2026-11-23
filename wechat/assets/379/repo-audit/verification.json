@@ -1,0 +1,188 @@
+{
+  "checked_at": "2026-11-23T16:25:13.511149",
+  "scope": "Static artifact and clone-state checks only; no upstream tests, API or runtime validation",
+  "sources": [
+    {
+      "repo": "scientific-agent-skills",
+      "unchanged_head": true,
+      "clean": true,
+      "ignored": true,
+      "report_exists": true
+    },
+    {
+      "repo": "academic-research-skills",
+      "unchanged_head": true,
+      "clean": true,
+      "ignored": true,
+      "report_exists": true
+    },
+    {
+      "repo": "nature-skills",
+      "unchanged_head": true,
+      "clean": true,
+      "ignored": true,
+      "report_exists": true
+    },
+    {
+      "repo": "Auto-claude-code-research-in-sleep",
+      "unchanged_head": true,
+      "clean": true,
+      "ignored": true,
+      "report_exists": true
+    },
+    {
+      "repo": "HERO-Anti-OverDefense",
+      "unchanged_head": true,
+      "clean": true,
+      "ignored": true,
+      "report_exists": true
+    },
+    {
+      "repo": "Anti-Autoresearch",
+      "unchanged_head": true,
+      "clean": true,
+      "ignored": true,
+      "report_exists": true
+    },
+    {
+      "repo": "AutoResearchClaw",
+      "unchanged_head": true,
+      "clean": true,
+      "ignored": true,
+      "report_exists": true
+    },
+    {
+      "repo": "AI-Research-SKILLs",
+      "unchanged_head": true,
+      "clean": true,
+      "ignored": true,
+      "report_exists": true
+    }
+  ],
+  "manifest_rows": 8699,
+  "skill_paths": 556,
+  "artifacts": [
+    {
+      "path": "repo-audit/AI-Research-SKILLs-stats.json",
+      "bytes": 18562,
+      "sha256": "c1580b0c5a3077c151c6f3ecd5ba3959d5fb3c8b86d449749e88783dcb85df68"
+    },
+    {
+      "path": "repo-audit/AI-Research-SKILLs.md",
+      "bytes": 15260,
+      "sha256": "77bc2050678876c45a563709fe8d7f0b35f5eaa33a24da99761fd9604c123152"
+    },
+    {
+      "path": "repo-audit/Anti-Autoresearch.md",
+      "bytes": 8176,
+      "sha256": "0a164a8beea67da6a5126addfef557e78d36f1aef0dfbcd777069e7eba42fefa"
+    },
+    {
+      "path": "repo-audit/Auto-claude-code-research-in-sleep.md",
+      "bytes": 25128,
+      "sha256": "4c5bada6a9371f4e1f4fe812b56667526e036e51743dcde198253ee0db84d210"
+    },
+    {
+      "path": "repo-audit/AutoResearchClaw.md",
+      "bytes": 11286,
+      "sha256": "8f1ae718a0e0ef673392d2e568953bdfee8cf98c3971ffa5cc4abf948366443e"
+    },
+    {
+      "path": "repo-audit/AutoResearchClaw_audit_facts.json",
+      "bytes": 1089,
+      "sha256": "c89e46bcb8fbdc92373389153be91f7485df4f1f756e7efc62718c25b7655107"
+    },
+    {
+      "path": "repo-audit/AutoResearchClaw_code_breakdown.json",
+      "bytes": 3248,
+      "sha256": "4f036a4fa3249e46b3bb20f20ca23afb5c3961181a10a065cde4e7504d8111cf"
+    },
+    {
+      "path": "repo-audit/HERO-Anti-OverDefense.md",
+      "bytes": 4683,
+      "sha256": "2d7147f625d7d9ea599fe1392c7c40ac8f0f18da77727816016f39f532f5b3a7"
+    },
+    {
+      "path": "repo-audit/academic-research-skills-stats.json",
+      "bytes": 63377,
+      "sha256": "8f9f54d9f617fdfe2b9bd6c78c49b242405c5c03ecc4cb8f23ea8ebe6347ccd2"
+    },
+    {
+      "path": "repo-audit/academic-research-skills.md",
+      "bytes": 13683,
+      "sha256": "128ef072ed577a867fd1227fcc6c41565e436a197717f0634495dc22d1b3c6d1"
+    },
+    {
+      "path": "repo-audit/build_skill_catalog.py",
+      "bytes": 1197,
+      "sha256": "2b14925f91111dc83bf437e148ef9dc3710c2d5c6e66093e5481017b31edd956"
+    },
+    {
+      "path": "repo-audit/inventory_files.tsv.gz",
+      "bytes": 487623,
+      "sha256": "1da6281938e15888cf1ae7a1077d39bd6fcea105ffe16809f622ab49cd27f40e"
+    },
+    {
+      "path": "repo-audit/inventory_repos.py",
+      "bytes": 3716,
+      "sha256": "7cb2cf5fff1b5d5eba4b94ce96e73c4e1fc0343089859ff85e9dfa99d7acb31c"
+    },
+    {
+      "path": "repo-audit/inventory_summary.json",
+      "bytes": 11124,
+      "sha256": "44f85715018017db59dea75839e6a555ebd26c341ee32ff585f92510ff8ede57"
+    },
+    {
+      "path": "repo-audit/nature-skills-inventory.json",
+      "bytes": 23034,
+      "sha256": "044a762e6ba17bfaa70088b834eb06684f913a020ec7624e61cd2e9bb674d355"
+    },
+    {
+      "path": "repo-audit/nature-skills.md",
+      "bytes": 21258,
+      "sha256": "0b41d326bcb72efc704f773f3766472c10407c2ede3ff6237a0689565133d32c"
+    },
+    {
+      "path": "repo-audit/python_logic_metrics.py",
+      "bytes": 1841,
+      "sha256": "510e6aae771ae546b9cff2b73022c66033b70b6c36bce3316cfa363a750aaf66"
+    },
+    {
+      "path": "repo-audit/python_logic_summary.json",
+      "bytes": 2164,
+      "sha256": "a1b6680d36f19feb1118367d10e8c7c35a9ed4dfcaf2742cbe24ed892acd97e1"
+    },
+    {
+      "path": "repo-audit/repository_roots.json",
+      "bytes": 5991,
+      "sha256": "9938ec4e3eb231c5af7545697d9dbeca65b387645ef7bdb76d5ecf788a335262"
+    },
+    {
+      "path": "repo-audit/scientific-agent-skills-inventory.json",
+      "bytes": 66281,
+      "sha256": "10295799ae3ae551a2a1d370b77c2fb96e8f86211f7016eff476a6b174c90f6f"
+    },
+    {
+      "path": "repo-audit/scientific-agent-skills.md",
+      "bytes": 58191,
+      "sha256": "1e193fee40973935a7a860e34f48e74bbfc6436788195baeacea2288a2deb3e3"
+    },
+    {
+      "path": "repo-audit/skill_catalog.json",
+      "bytes": 66515,
+      "sha256": "dd227f83cd9896bc04d145780e7f0520a335e8488c4e8addba526bc00f80b8d2"
+    },
+    {
+      "path": "repo-audit/skill_catalog.md",
+      "bytes": 66092,
+      "sha256": "048b2ae783aa4b2c8ab7c66bd1ca7584382c348a9860ab147fc9d0d1b0963cef"
+    },
+    {
+      "path": "repo-audit/verify_audit.py",
+      "bytes": 2392,
+      "sha256": "79c248831a6195dcf00fade356e8e8ccc21a83f5006343458739708b202e64c5"
+    }
+  ],
+  "main_bytes": 42345,
+  "failures": []
+}

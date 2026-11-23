@@ -1,0 +1,749 @@
+{
+  "repo": "AI-Research-SKILLs",
+  "head": "773a52944ba4747a18bd4ae9ade53fff041adcbc",
+  "method": "git tracked regular files, splitlines physical LOC includes comments, no Markdown fences",
+  "top_level_file_counts": {
+    ".claude-plugin": 1,
+    ".github": 4,
+    "0-autoresearch-skill": 8,
+    "01-model-architecture": 23,
+    "02-tokenization": 9,
+    "03-fine-tuning": 19,
+    "04-mechanistic-interpretability": 16,
+    "05-data-processing": 7,
+    "06-post-training": 30,
+    "07-safety-alignment": 5,
+    "08-distributed-training": 38,
+    "09-infrastructure": 10,
+    "10-optimization": 28,
+    "11-evaluation": 15,
+    "12-inference-serving": 18,
+    "13-mlops": 16,
+    "14-agents": 25,
+    "15-rag": 12,
+    "16-prompt-engineering": 17,
+    "17-observability": 7,
+    "18-multimodal": 33,
+    "19-emerging-techniques": 21,
+    "20-ml-paper-writing": 73,
+    "21-research-ideation": 2,
+    "22-agent-native-research-artifact": 10,
+    "[root files]": 8,
+    "anthropic_official_docs": 2,
+    "demos": 23,
+    "dev_data": 10,
+    "docs": 11,
+    "packages": 10,
+    "scripts": 1,
+    "video-promo": 17
+  },
+  "groups": {
+    "installer": {
+      "files": 6,
+      "lines": 2608,
+      "members": [
+        {
+          "path": "packages/ai-research-skills/bin/cli.js",
+          "lines": 8
+        },
+        {
+          "path": "packages/ai-research-skills/src/agents.js",
+          "lines": 179
+        },
+        {
+          "path": "packages/ai-research-skills/src/ascii.js",
+          "lines": 165
+        },
+        {
+          "path": "packages/ai-research-skills/src/index.js",
+          "lines": 533
+        },
+        {
+          "path": "packages/ai-research-skills/src/installer.js",
+          "lines": 1038
+        },
+        {
+          "path": "packages/ai-research-skills/src/prompts.js",
+          "lines": 685
+        }
+      ]
+    },
+    "inventory": {
+      "files": 1,
+      "lines": 66,
+      "members": [
+        {
+          "path": "scripts/check-inventory.sh",
+          "lines": 66
+        }
+      ]
+    },
+    "grpo_examples": {
+      "files": 2,
+      "lines": 621,
+      "members": [
+        {
+          "path": "06-post-training/grpo-rl-training/examples/reward_functions_library.py",
+          "lines": 393
+        },
+        {
+          "path": "06-post-training/grpo-rl-training/templates/basic_grpo_training.py",
+          "lines": 228
+        }
+      ]
+    },
+    "plot_demos": {
+      "files": 3,
+      "lines": 938,
+      "members": [
+        {
+          "path": "demos/scientific-plotting-demo/figures/gen_fig_andes_architecture_gemini.py",
+          "lines": 311
+        },
+        {
+          "path": "demos/scientific-plotting-demo/figures/gen_fig_andes_workflow.py",
+          "lines": 280
+        },
+        {
+          "path": "demos/scientific-plotting-demo/figures/gen_fig_experiment_results.py",
+          "lines": 347
+        }
+      ]
+    },
+    "promo": {
+      "files": 12,
+      "lines": 1806,
+      "members": [
+        {
+          "path": "video-promo/ai-research-skills-promo/remotion.config.ts",
+          "lines": 4
+        },
+        {
+          "path": "video-promo/ai-research-skills-promo/src/AIResearchSkillsPromo.tsx",
+          "lines": 327
+        },
+        {
+          "path": "video-promo/ai-research-skills-promo/src/Root.tsx",
+          "lines": 17
+        },
+        {
+          "path": "video-promo/ai-research-skills-promo/src/components/AgentDetection.tsx",
+          "lines": 147
+        },
+        {
+          "path": "video-promo/ai-research-skills-promo/src/components/CallToAction.tsx",
+          "lines": 169
+        },
+        {
+          "path": "video-promo/ai-research-skills-promo/src/components/CategorySelection.tsx",
+          "lines": 187
+        },
+        {
+          "path": "video-promo/ai-research-skills-promo/src/components/InstallProgress.tsx",
+          "lines": 190
+        },
+        {
+          "path": "video-promo/ai-research-skills-promo/src/components/OrchestraLogo.tsx",
+          "lines": 119
+        },
+        {
+          "path": "video-promo/ai-research-skills-promo/src/components/StatsDisplay.tsx",
+          "lines": 182
+        },
+        {
+          "path": "video-promo/ai-research-skills-promo/src/components/SuccessScreen.tsx",
+          "lines": 230
+        },
+        {
+          "path": "video-promo/ai-research-skills-promo/src/components/Terminal.tsx",
+          "lines": 230
+        },
+        {
+          "path": "video-promo/ai-research-skills-promo/src/index.ts",
+          "lines": 4
+        }
+      ]
+    }
+  },
+  "all_code": [
+    {
+      "path": "06-post-training/grpo-rl-training/examples/reward_functions_library.py",
+      "lines": 393
+    },
+    {
+      "path": "06-post-training/grpo-rl-training/templates/basic_grpo_training.py",
+      "lines": 228
+    },
+    {
+      "path": "demos/scientific-plotting-demo/figures/gen_fig_andes_architecture_gemini.py",
+      "lines": 311
+    },
+    {
+      "path": "demos/scientific-plotting-demo/figures/gen_fig_andes_workflow.py",
+      "lines": 280
+    },
+    {
+      "path": "demos/scientific-plotting-demo/figures/gen_fig_experiment_results.py",
+      "lines": 347
+    },
+    {
+      "path": "packages/ai-research-skills/bin/cli.js",
+      "lines": 8
+    },
+    {
+      "path": "packages/ai-research-skills/src/agents.js",
+      "lines": 179
+    },
+    {
+      "path": "packages/ai-research-skills/src/ascii.js",
+      "lines": 165
+    },
+    {
+      "path": "packages/ai-research-skills/src/index.js",
+      "lines": 533
+    },
+    {
+      "path": "packages/ai-research-skills/src/installer.js",
+      "lines": 1038
+    },
+    {
+      "path": "packages/ai-research-skills/src/prompts.js",
+      "lines": 685
+    },
+    {
+      "path": "scripts/check-inventory.sh",
+      "lines": 66
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/remotion.config.ts",
+      "lines": 4
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/src/AIResearchSkillsPromo.tsx",
+      "lines": 327
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/src/Root.tsx",
+      "lines": 17
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/src/components/AgentDetection.tsx",
+      "lines": 147
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/src/components/CallToAction.tsx",
+      "lines": 169
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/src/components/CategorySelection.tsx",
+      "lines": 187
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/src/components/InstallProgress.tsx",
+      "lines": 190
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/src/components/OrchestraLogo.tsx",
+      "lines": 119
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/src/components/StatsDisplay.tsx",
+      "lines": 182
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/src/components/SuccessScreen.tsx",
+      "lines": 230
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/src/components/Terminal.tsx",
+      "lines": 230
+    },
+    {
+      "path": "video-promo/ai-research-skills-promo/src/index.ts",
+      "lines": 4
+    }
+  ],
+  "autoresearch_routes": [
+    {
+      "line": 15,
+      "path": "05-data-processing/ray-data/",
+      "exists": true
+    },
+    {
+      "line": 16,
+      "path": "05-data-processing/nemo-curator/",
+      "exists": true
+    },
+    {
+      "line": 17,
+      "path": "02-tokenization/hf-tokenizers/",
+      "exists": false
+    },
+    {
+      "line": 18,
+      "path": "02-tokenization/sentencepiece/",
+      "exists": true
+    },
+    {
+      "line": 24,
+      "path": "01-model-architecture/megatron-core/",
+      "exists": false
+    },
+    {
+      "line": 25,
+      "path": "01-model-architecture/litgpt/",
+      "exists": true
+    },
+    {
+      "line": 26,
+      "path": "01-model-architecture/mamba/",
+      "exists": true
+    },
+    {
+      "line": 27,
+      "path": "01-model-architecture/rwkv/",
+      "exists": true
+    },
+    {
+      "line": 28,
+      "path": "01-model-architecture/nanogpt/",
+      "exists": true
+    },
+    {
+      "line": 34,
+      "path": "03-fine-tuning/axolotl/",
+      "exists": true
+    },
+    {
+      "line": 35,
+      "path": "03-fine-tuning/llama-factory/",
+      "exists": true
+    },
+    {
+      "line": 36,
+      "path": "03-fine-tuning/unsloth/",
+      "exists": true
+    },
+    {
+      "line": 37,
+      "path": "03-fine-tuning/torchtune/",
+      "exists": false
+    },
+    {
+      "line": 43,
+      "path": "06-post-training/trl/",
+      "exists": false
+    },
+    {
+      "line": 44,
+      "path": "06-post-training/grpo-rl-training/",
+      "exists": true
+    },
+    {
+      "line": 45,
+      "path": "06-post-training/openrlhf/",
+      "exists": true
+    },
+    {
+      "line": 46,
+      "path": "06-post-training/simpo/",
+      "exists": true
+    },
+    {
+      "line": 52,
+      "path": "04-mechanistic-interpretability/transformerlens/",
+      "exists": false
+    },
+    {
+      "line": 53,
+      "path": "04-mechanistic-interpretability/saelens/",
+      "exists": true
+    },
+    {
+      "line": 54,
+      "path": "04-mechanistic-interpretability/nnsight/",
+      "exists": true
+    },
+    {
+      "line": 55,
+      "path": "04-mechanistic-interpretability/pyvene/",
+      "exists": true
+    },
+    {
+      "line": 61,
+      "path": "08-distributed-training/deepspeed/",
+      "exists": true
+    },
+    {
+      "line": 62,
+      "path": "08-distributed-training/fsdp/",
+      "exists": false
+    },
+    {
+      "line": 63,
+      "path": "08-distributed-training/accelerate/",
+      "exists": true
+    },
+    {
+      "line": 64,
+      "path": "08-distributed-training/pytorch-lightning/",
+      "exists": true
+    },
+    {
+      "line": 65,
+      "path": "08-distributed-training/ray-train/",
+      "exists": true
+    },
+    {
+      "line": 71,
+      "path": "11-evaluation/lm-eval-harness/",
+      "exists": false
+    },
+    {
+      "line": 72,
+      "path": "11-evaluation/nemo-evaluator/",
+      "exists": true
+    },
+    {
+      "line": 73,
+      "path": "11-evaluation/inspect-ai/",
+      "exists": false
+    },
+    {
+      "line": 79,
+      "path": "12-inference-serving/vllm/",
+      "exists": true
+    },
+    {
+      "line": 80,
+      "path": "12-inference-serving/tensorrt-llm/",
+      "exists": true
+    },
+    {
+      "line": 81,
+      "path": "12-inference-serving/llama-cpp/",
+      "exists": true
+    },
+    {
+      "line": 82,
+      "path": "12-inference-serving/sglang/",
+      "exists": true
+    },
+    {
+      "line": 88,
+      "path": "13-mlops/wandb/",
+      "exists": false
+    },
+    {
+      "line": 89,
+      "path": "13-mlops/mlflow/",
+      "exists": true
+    },
+    {
+      "line": 90,
+      "path": "13-mlops/tensorboard/",
+      "exists": true
+    },
+    {
+      "line": 96,
+      "path": "10-optimization/flash-attention/",
+      "exists": true
+    },
+    {
+      "line": 97,
+      "path": "10-optimization/bitsandbytes/",
+      "exists": true
+    },
+    {
+      "line": 98,
+      "path": "10-optimization/gptq/",
+      "exists": true
+    },
+    {
+      "line": 99,
+      "path": "10-optimization/awq/",
+      "exists": true
+    },
+    {
+      "line": 100,
+      "path": "10-optimization/gguf/",
+      "exists": true
+    },
+    {
+      "line": 101,
+      "path": "10-optimization/quanto/",
+      "exists": false
+    },
+    {
+      "line": 107,
+      "path": "07-safety-alignment/constitutional-ai/",
+      "exists": true
+    },
+    {
+      "line": 108,
+      "path": "07-safety-alignment/llamaguard/",
+      "exists": true
+    },
+    {
+      "line": 109,
+      "path": "07-safety-alignment/nemo-guardrails/",
+      "exists": true
+    },
+    {
+      "line": 110,
+      "path": "07-safety-alignment/prompt-guard/",
+      "exists": true
+    },
+    {
+      "line": 116,
+      "path": "09-infrastructure/modal/",
+      "exists": true
+    },
+    {
+      "line": 117,
+      "path": "09-infrastructure/skypilot/",
+      "exists": true
+    },
+    {
+      "line": 118,
+      "path": "09-infrastructure/lambda-labs/",
+      "exists": true
+    },
+    {
+      "line": 124,
+      "path": "14-agents/langchain/",
+      "exists": true
+    },
+    {
+      "line": 125,
+      "path": "14-agents/llamaindex/",
+      "exists": true
+    },
+    {
+      "line": 126,
+      "path": "14-agents/smolagents/",
+      "exists": false
+    },
+    {
+      "line": 127,
+      "path": "14-agents/claude-agent-sdk/",
+      "exists": false
+    },
+    {
+      "line": 128,
+      "path": "15-rag/chroma/",
+      "exists": true
+    },
+    {
+      "line": 129,
+      "path": "15-rag/faiss/",
+      "exists": true
+    },
+    {
+      "line": 130,
+      "path": "15-rag/sentence-transformers/",
+      "exists": true
+    },
+    {
+      "line": 131,
+      "path": "15-rag/pinecone/",
+      "exists": true
+    },
+    {
+      "line": 132,
+      "path": "15-rag/milvus/",
+      "exists": false
+    },
+    {
+      "line": 138,
+      "path": "16-prompt-engineering/dspy/",
+      "exists": true
+    },
+    {
+      "line": 139,
+      "path": "16-prompt-engineering/instructor/",
+      "exists": true
+    },
+    {
+      "line": 140,
+      "path": "16-prompt-engineering/guidance/",
+      "exists": true
+    },
+    {
+      "line": 141,
+      "path": "16-prompt-engineering/outlines/",
+      "exists": true
+    },
+    {
+      "line": 147,
+      "path": "18-multimodal/clip/",
+      "exists": true
+    },
+    {
+      "line": 148,
+      "path": "18-multimodal/whisper/",
+      "exists": true
+    },
+    {
+      "line": 149,
+      "path": "18-multimodal/llava/",
+      "exists": true
+    },
+    {
+      "line": 150,
+      "path": "18-multimodal/qwen2-vl/",
+      "exists": false
+    },
+    {
+      "line": 151,
+      "path": "18-multimodal/pixtral/",
+      "exists": false
+    },
+    {
+      "line": 152,
+      "path": "18-multimodal/florence-2/",
+      "exists": false
+    },
+    {
+      "line": 153,
+      "path": "18-multimodal/colpali/",
+      "exists": false
+    },
+    {
+      "line": 159,
+      "path": "17-observability/langsmith/",
+      "exists": true
+    },
+    {
+      "line": 160,
+      "path": "17-observability/phoenix/",
+      "exists": true
+    },
+    {
+      "line": 166,
+      "path": "19-emerging-techniques/moe-training/",
+      "exists": true
+    },
+    {
+      "line": 167,
+      "path": "19-emerging-techniques/model-merging/",
+      "exists": true
+    },
+    {
+      "line": 168,
+      "path": "19-emerging-techniques/long-context/",
+      "exists": true
+    },
+    {
+      "line": 169,
+      "path": "19-emerging-techniques/speculative-decoding/",
+      "exists": true
+    },
+    {
+      "line": 170,
+      "path": "19-emerging-techniques/knowledge-distillation/",
+      "exists": true
+    },
+    {
+      "line": 171,
+      "path": "19-emerging-techniques/model-pruning/",
+      "exists": true
+    },
+    {
+      "line": 177,
+      "path": "21-research-ideation/",
+      "exists": true
+    },
+    {
+      "line": 178,
+      "path": "20-ml-paper-writing/",
+      "exists": true
+    }
+  ],
+  "evidence_spot_checks": [
+    {
+      "path": "packages/ai-research-skills/src/installer.js",
+      "line": 8,
+      "contains": "https://github.com",
+      "verified": true,
+      "source": "const REPO_URL = 'https://github.com/Orchestra-Research/AI-research-SKILLs';"
+    },
+    {
+      "path": "packages/ai-research-skills/src/installer.js",
+      "line": 74,
+      "contains": "git clone --depth 1",
+      "verified": true,
+      "source": "execSync(`git clone --depth 1 ${REPO_URL}.git ${tempDir}`, {"
+    },
+    {
+      "path": "packages/ai-research-skills/src/index.js",
+      "line": 522,
+      "contains": "export async function main",
+      "verified": true,
+      "source": "export async function main() {"
+    },
+    {
+      "path": "packages/ai-research-skills/src/agents.js",
+      "line": 101,
+      "contains": "export function detectAgents",
+      "verified": true,
+      "source": "export function detectAgents() {"
+    },
+    {
+      "path": "0-autoresearch-skill/SKILL.md",
+      "line": 244,
+      "contains": "Agent Continuity",
+      "verified": true,
+      "source": "## Agent Continuity (MANDATORY — Set Up First)"
+    },
+    {
+      "path": "0-autoresearch-skill/SKILL.md",
+      "line": 253,
+      "contains": "/loop 20m",
+      "verified": true,
+      "source": "/loop 20m Continue autoresearch. Read research-state.yaml and findings.md. Re-read the autoresearch SKILL.md occasionally to stay aligned. Step back and reflect holistically — is the research making real progress? Are you deepening understanding or just running experiments? If stalling, pivot or search literature for new ideas. Keep making research progress — never idle, never stop. Update findings.md, research-log.md, and research-state.yaml when there's new progress. Git commit periodically and clean up the repo if needed. Show the human your research progress with key plots and findings by preparing a report in to_human/ and opening the HTML/PDF. Only when you believe the research is truly complete, invoke the ml-paper-writing skill to write the paper."
+    },
+    {
+      "path": "0-autoresearch-skill/SKILL.md",
+      "line": 282,
+      "contains": "What the Loop Does",
+      "verified": true,
+      "source": "### What the Loop Does"
+    },
+    {
+      "path": "22-agent-native-research-artifact/compiler/SKILL.md",
+      "line": 15,
+      "contains": "Read, Write, Edit, Bash",
+      "verified": true,
+      "source": "(Read, Write, Edit, Bash, Glob, Grep) directly. No API wrapper needed."
+    },
+    {
+      "path": "demos/scientific-plotting-demo/figures/gen_fig_andes_architecture_gemini.py",
+      "line": 30,
+      "contains": "GEMINI_API_KEY",
+      "verified": true,
+      "source": "API_KEY = os.environ.get(\"GEMINI_API_KEY\")"
+    },
+    {
+      "path": "demos/scientific-plotting-demo/figures/gen_fig_andes_architecture_gemini.py",
+      "line": 258,
+      "contains": "generate_content",
+      "verified": true,
+      "source": "response = client.models.generate_content("
+    },
+    {
+      "path": "06-post-training/grpo-rl-training/templates/basic_grpo_training.py",
+      "line": 18,
+      "contains": "GRPOTrainer",
+      "verified": true,
+      "source": "from trl import GRPOTrainer, GRPOConfig"
+    },
+    {
+      "path": "WELCOME.md",
+      "line": 3,
+      "contains": "86 production-ready",
+      "verified": true,
+      "source": "You now have access to **86 production-ready skills** covering the entire AI research lifecycle: literature survey, ideation, model training, evaluation, interpretability, paper writing, and more."
+    }
+  ]
+}

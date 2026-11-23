@@ -1,0 +1,2686 @@
+{
+  "repo": "academic-research-skills",
+  "head": "d169ec5c4bebd4b5ad5e8b8a0559d1d9879a21d7",
+  "method": "git tracked regular files, splitlines physical LOC includes comments, no Markdown fences",
+  "top_level_file_counts": {
+    ".claude": 2,
+    ".claude-plugin": 2,
+    ".github": 17,
+    "[root files]": 27,
+    "academic-paper": 63,
+    "academic-paper-reviewer": 29,
+    "academic-pipeline": 30,
+    "agents": 4,
+    "audits": 18,
+    "commands": 16,
+    "deep-research": 53,
+    "docs": 125,
+    "evals": 1146,
+    "examples": 45,
+    "hooks": 2,
+    "pi": 5,
+    "plugin-evals": 38,
+    "plugin-evals-citation-check": 61,
+    "plugin-evals-citation-locale": 15,
+    "scripts": 654,
+    "shared": 155,
+    "sr-screener": 25,
+    "tests": 343,
+    "tools": 6
+  },
+  "groups": {
+    "scripts_check": {
+      "files": 119,
+      "lines": 55870,
+      "members": [
+        {
+          "path": "scripts/check_1098_premise_rule_sync.py",
+          "lines": 143
+        },
+        {
+          "path": "scripts/check_215_field_norm.py",
+          "lines": 173
+        },
+        {
+          "path": "scripts/check_216_surface_form.py",
+          "lines": 250
+        },
+        {
+          "path": "scripts/check_268_nested_commitment_ledger.py",
+          "lines": 180
+        },
+        {
+          "path": "scripts/check_390_revision_patch_discipline.py",
+          "lines": 296
+        },
+        {
+          "path": "scripts/check_392_citation_verification_intake.py",
+          "lines": 126
+        },
+        {
+          "path": "scripts/check_394_submission_policy.py",
+          "lines": 178
+        },
+        {
+          "path": "scripts/check_439_format_profile.py",
+          "lines": 307
+        },
+        {
+          "path": "scripts/check_619_disclosure_closeout.py",
+          "lines": 237
+        },
+        {
+          "path": "scripts/check_630_codex_subscription_transport.py",
+          "lines": 456
+        },
+        {
+          "path": "scripts/check_669_review_pathway_rule_trace.py",
+          "lines": 662
+        },
+        {
+          "path": "scripts/check_670_revision_roadmap_integration.py",
+          "lines": 544
+        },
+        {
+          "path": "scripts/check_673_adjudication_activity.py",
+          "lines": 688
+        },
+        {
+          "path": "scripts/check_684_review_criteria_binding.py",
+          "lines": 558
+        },
+        {
+          "path": "scripts/check_acronyms.py",
+          "lines": 1081
+        },
+        {
+          "path": "scripts/check_agents_mirror_sync.py",
+          "lines": 117
+        },
+        {
+          "path": "scripts/check_audit_artifact_consistency.py",
+          "lines": 2313
+        },
+        {
+          "path": "scripts/check_author_letter.py",
+          "lines": 267
+        },
+        {
+          "path": "scripts/check_benchmark_report.py",
+          "lines": 79
+        },
+        {
+          "path": "scripts/check_bibliographic_integrity_signals.py",
+          "lines": 831
+        },
+        {
+          "path": "scripts/check_calibration_tiers.py",
+          "lines": 235
+        },
+        {
+          "path": "scripts/check_changelog_covers_merges.py",
+          "lines": 289
+        },
+        {
+          "path": "scripts/check_ci_pytest_manifest.py",
+          "lines": 204
+        },
+        {
+          "path": "scripts/check_claim_audit_consistency.py",
+          "lines": 1676
+        },
+        {
+          "path": "scripts/check_claim_standing_candidate_ledger_integration.py",
+          "lines": 500
+        },
+        {
+          "path": "scripts/check_claim_standing_freshness.py",
+          "lines": 253
+        },
+        {
+          "path": "scripts/check_claim_standing_transmissions.py",
+          "lines": 449
+        },
+        {
+          "path": "scripts/check_collaboration_depth_rubric.py",
+          "lines": 182
+        },
+        {
+          "path": "scripts/check_command_frontmatter_name.py",
+          "lines": 116
+        },
+        {
+          "path": "scripts/check_command_skill_dispatch.py",
+          "lines": 79
+        },
+        {
+          "path": "scripts/check_committee_correspondence.py",
+          "lines": 333
+        },
+        {
+          "path": "scripts/check_compliance_report.py",
+          "lines": 108
+        },
+        {
+          "path": "scripts/check_content_coverage_advisory_integration.py",
+          "lines": 807
+        },
+        {
+          "path": "scripts/check_control_availability.py",
+          "lines": 172
+        },
+        {
+          "path": "scripts/check_corpus_consumer_protocol.py",
+          "lines": 404
+        },
+        {
+          "path": "scripts/check_cross_document_consistency_advisory_integration.py",
+          "lines": 1204
+        },
+        {
+          "path": "scripts/check_cross_model_handoff_contract.py",
+          "lines": 234
+        },
+        {
+          "path": "scripts/check_cross_model_verification_sync.py",
+          "lines": 261
+        },
+        {
+          "path": "scripts/check_data_access_level.py",
+          "lines": 138
+        },
+        {
+          "path": "scripts/check_data_flows.py",
+          "lines": 252
+        },
+        {
+          "path": "scripts/check_decision_contract.py",
+          "lines": 465
+        },
+        {
+          "path": "scripts/check_degradation_registry.py",
+          "lines": 338
+        },
+        {
+          "path": "scripts/check_distribution_surface_claims.py",
+          "lines": 226
+        },
+        {
+          "path": "scripts/check_domain_evidence_profile.py",
+          "lines": 538
+        },
+        {
+          "path": "scripts/check_e4_promotion.py",
+          "lines": 195
+        },
+        {
+          "path": "scripts/check_evals_gold_set.py",
+          "lines": 279
+        },
+        {
+          "path": "scripts/check_evidence_row_integration.py",
+          "lines": 470
+        },
+        {
+          "path": "scripts/check_experiment_provenance.py",
+          "lines": 117
+        },
+        {
+          "path": "scripts/check_field_norm_severity.py",
+          "lines": 152
+        },
+        {
+          "path": "scripts/check_firm_rules_sync.py",
+          "lines": 375
+        },
+        {
+          "path": "scripts/check_heldout_measurement_report.py",
+          "lines": 1194
+        },
+        {
+          "path": "scripts/check_human_subjects_output_contract.py",
+          "lines": 139
+        },
+        {
+          "path": "scripts/check_human_subjects_reference_migration.py",
+          "lines": 844
+        },
+        {
+          "path": "scripts/check_indirect_prompt_injection_no_call.py",
+          "lines": 328
+        },
+        {
+          "path": "scripts/check_instruction_data_boundary.py",
+          "lines": 352
+        },
+        {
+          "path": "scripts/check_judge_prompt_version.py",
+          "lines": 125
+        },
+        {
+          "path": "scripts/check_literature_corpus_schema.py",
+          "lines": 402
+        },
+        {
+          "path": "scripts/check_method_weaknesses_sync.py",
+          "lines": 60
+        },
+        {
+          "path": "scripts/check_model_tiering.py",
+          "lines": 224
+        },
+        {
+          "path": "scripts/check_panel_synthesis.py",
+          "lines": 1331
+        },
+        {
+          "path": "scripts/check_passport_reset_contract.py",
+          "lines": 214
+        },
+        {
+          "path": "scripts/check_pattern_eval_manifest.py",
+          "lines": 422
+        },
+        {
+          "path": "scripts/check_persuasion_invariance_fixtures.py",
+          "lines": 637
+        },
+        {
+          "path": "scripts/check_phase_conformance.py",
+          "lines": 2283
+        },
+        {
+          "path": "scripts/check_pipeline_boundary_semantics.py",
+          "lines": 600
+        },
+        {
+          "path": "scripts/check_pipeline_integrity.py",
+          "lines": 340
+        },
+        {
+          "path": "scripts/check_policy_anchor_protocol.py",
+          "lines": 159
+        },
+        {
+          "path": "scripts/check_policy_anchor_table.py",
+          "lines": 286
+        },
+        {
+          "path": "scripts/check_preprint_venues_consistency.py",
+          "lines": 123
+        },
+        {
+          "path": "scripts/check_prisma_trAIce_freshness.py",
+          "lines": 84
+        },
+        {
+          "path": "scripts/check_promotion_bakeoff_preregistration.py",
+          "lines": 1303
+        },
+        {
+          "path": "scripts/check_ranking_lift.py",
+          "lines": 323
+        },
+        {
+          "path": "scripts/check_re_review_synthesis.py",
+          "lines": 2764
+        },
+        {
+          "path": "scripts/check_receipt_enum_sync.py",
+          "lines": 203
+        },
+        {
+          "path": "scripts/check_repro_lock.py",
+          "lines": 88
+        },
+        {
+          "path": "scripts/check_review_form_note_sync.py",
+          "lines": 144
+        },
+        {
+          "path": "scripts/check_review_pathway_output.py",
+          "lines": 276
+        },
+        {
+          "path": "scripts/check_reviewer_card_confirmation.py",
+          "lines": 150
+        },
+        {
+          "path": "scripts/check_reviewer_data_fences.py",
+          "lines": 224
+        },
+        {
+          "path": "scripts/check_reviewer_finding_contract.py",
+          "lines": 783
+        },
+        {
+          "path": "scripts/check_reviewer_role_label.py",
+          "lines": 457
+        },
+        {
+          "path": "scripts/check_reviewer_scoring_honesty.py",
+          "lines": 292
+        },
+        {
+          "path": "scripts/check_reviewer_sprint_prompt_sync.py",
+          "lines": 411
+        },
+        {
+          "path": "scripts/check_revision_claim_drift_suite_v2.py",
+          "lines": 1622
+        },
+        {
+          "path": "scripts/check_revision_token_conservation.py",
+          "lines": 277
+        },
+        {
+          "path": "scripts/check_risk_register.py",
+          "lines": 280
+        },
+        {
+          "path": "scripts/check_role_scoped_contract.py",
+          "lines": 702
+        },
+        {
+          "path": "scripts/check_routing_core_sync.py",
+          "lines": 75
+        },
+        {
+          "path": "scripts/check_rq_framing_patterns.py",
+          "lines": 184
+        },
+        {
+          "path": "scripts/check_rubric_weight_consistency.py",
+          "lines": 32
+        },
+        {
+          "path": "scripts/check_seeded_defect_fixtures.py",
+          "lines": 425
+        },
+        {
+          "path": "scripts/check_setup_cross_model_parity.py",
+          "lines": 139
+        },
+        {
+          "path": "scripts/check_skill_description_length.py",
+          "lines": 62
+        },
+        {
+          "path": "scripts/check_skill_inventory_parity.py",
+          "lines": 361
+        },
+        {
+          "path": "scripts/check_spec_consistency.py",
+          "lines": 2003
+        },
+        {
+          "path": "scripts/check_sprint_contract.py",
+          "lines": 371
+        },
+        {
+          "path": "scripts/check_stage_capability_matrix.py",
+          "lines": 784
+        },
+        {
+          "path": "scripts/check_submission_packet_manifest_integration.py",
+          "lines": 358
+        },
+        {
+          "path": "scripts/check_surface_form_parity.py",
+          "lines": 467
+        },
+        {
+          "path": "scripts/check_task_type.py",
+          "lines": 22
+        },
+        {
+          "path": "scripts/check_tools_allowlist.py",
+          "lines": 539
+        },
+        {
+          "path": "scripts/check_tortured_phrase_screening_integration.py",
+          "lines": 1974
+        },
+        {
+          "path": "scripts/check_v3_10_134_write_scope.py",
+          "lines": 299
+        },
+        {
+          "path": "scripts/check_v3_10_policy.py",
+          "lines": 656
+        },
+        {
+          "path": "scripts/check_v3_6_6_ab_manifest.py",
+          "lines": 366
+        },
+        {
+          "path": "scripts/check_v3_6_7_pattern_protection.py",
+          "lines": 1366
+        },
+        {
+          "path": "scripts/check_v3_6_8_audit_scope_block.py",
+          "lines": 464
+        },
+        {
+          "path": "scripts/check_v3_6_8_cite_provenance_pipeline.py",
+          "lines": 231
+        },
+        {
+          "path": "scripts/check_v3_6_8_frontmatter_trust_schema.py",
+          "lines": 248
+        },
+        {
+          "path": "scripts/check_v3_6_8_mark_read_commands.py",
+          "lines": 79
+        },
+        {
+          "path": "scripts/check_v3_6_8_pattern_protection.py",
+          "lines": 941
+        },
+        {
+          "path": "scripts/check_v3_7_3_three_layer_citation.py",
+          "lines": 318
+        },
+        {
+          "path": "scripts/check_v3_8_annotation_literal_sync.py",
+          "lines": 228
+        },
+        {
+          "path": "scripts/check_v3_9_0_triangulation.py",
+          "lines": 366
+        },
+        {
+          "path": "scripts/check_v3_9_2_phase_boundary.py",
+          "lines": 280
+        },
+        {
+          "path": "scripts/check_v3_9_4_temporal_verification.py",
+          "lines": 139
+        },
+        {
+          "path": "scripts/check_venue_disclosure_policies.py",
+          "lines": 63
+        },
+        {
+          "path": "scripts/check_version_consistency.py",
+          "lines": 824
+        },
+        {
+          "path": "scripts/check_workflow_classification.py",
+          "lines": 223
+        }
+      ]
+    },
+    "sr_screener": {
+      "files": 8,
+      "lines": 3156,
+      "members": [
+        {
+          "path": "sr-screener/scripts/build_outputs.py",
+          "lines": 545
+        },
+        {
+          "path": "sr-screener/scripts/build_workflow.py",
+          "lines": 372
+        },
+        {
+          "path": "sr-screener/scripts/merge_decisions.py",
+          "lines": 547
+        },
+        {
+          "path": "sr-screener/scripts/prepare_fulltext.py",
+          "lines": 120
+        },
+        {
+          "path": "sr-screener/scripts/prepare_records.py",
+          "lines": 278
+        },
+        {
+          "path": "sr-screener/scripts/srlib.py",
+          "lines": 925
+        },
+        {
+          "path": "sr-screener/templates/workflows/ft_screening.template.js",
+          "lines": 130
+        },
+        {
+          "path": "sr-screener/templates/workflows/ta_screening.template.js",
+          "lines": 239
+        }
+      ]
+    }
+  },
+  "all_code": [
+    {
+      "path": "evals/bakeoff/2026-08-19-gpt-5-6-sol-codex/receipt_contract.py",
+      "lines": 234
+    },
+    {
+      "path": "evals/bakeoff/2026-08-19-gpt-5-6-sol-codex/run_fleet.py",
+      "lines": 336
+    },
+    {
+      "path": "evals/bakeoff/2026-08-19-gpt-5-6-sol-codex/score_run.py",
+      "lines": 167
+    },
+    {
+      "path": "hooks/run_guard.sh",
+      "lines": 304
+    },
+    {
+      "path": "pi/wrapper.integration.test.mjs",
+      "lines": 95
+    },
+    {
+      "path": "pi/wrapper.js",
+      "lines": 211
+    },
+    {
+      "path": "pi/wrapper.test.mjs",
+      "lines": 370
+    },
+    {
+      "path": "scripts/_anchored_open.py",
+      "lines": 245
+    },
+    {
+      "path": "scripts/_block_parser.py",
+      "lines": 396
+    },
+    {
+      "path": "scripts/_calibration_pdf_text.py",
+      "lines": 87
+    },
+    {
+      "path": "scripts/_claim_audit_constants.py",
+      "lines": 268
+    },
+    {
+      "path": "scripts/_e4_evidence.py",
+      "lines": 110
+    },
+    {
+      "path": "scripts/_eval_threshold_gate.py",
+      "lines": 73
+    },
+    {
+      "path": "scripts/_markdown_lint_util.py",
+      "lines": 224
+    },
+    {
+      "path": "scripts/_next_verified_at_ms.py",
+      "lines": 176
+    },
+    {
+      "path": "scripts/_passport_yaml.py",
+      "lines": 53
+    },
+    {
+      "path": "scripts/_skill_lint.py",
+      "lines": 326
+    },
+    {
+      "path": "scripts/_text_similarity.py",
+      "lines": 311
+    },
+    {
+      "path": "scripts/_unspaced_scripts.py",
+      "lines": 52
+    },
+    {
+      "path": "scripts/adapters/_common.py",
+      "lines": 268
+    },
+    {
+      "path": "scripts/adapters/folder_scan.py",
+      "lines": 214
+    },
+    {
+      "path": "scripts/adapters/obsidian.py",
+      "lines": 370
+    },
+    {
+      "path": "scripts/adapters/tests/conftest.py",
+      "lines": 77
+    },
+    {
+      "path": "scripts/adapters/tests/test_check_corpus_consumer_protocol.py",
+      "lines": 632
+    },
+    {
+      "path": "scripts/adapters/tests/test_check_literature_corpus_schema.py",
+      "lines": 631
+    },
+    {
+      "path": "scripts/adapters/tests/test_common.py",
+      "lines": 365
+    },
+    {
+      "path": "scripts/adapters/tests/test_conftest.py",
+      "lines": 96
+    },
+    {
+      "path": "scripts/adapters/tests/test_folder_scan.py",
+      "lines": 275
+    },
+    {
+      "path": "scripts/adapters/tests/test_literature_corpus_entry_schema.py",
+      "lines": 745
+    },
+    {
+      "path": "scripts/adapters/tests/test_obsidian.py",
+      "lines": 581
+    },
+    {
+      "path": "scripts/adapters/tests/test_rejection_log_schema.py",
+      "lines": 271
+    },
+    {
+      "path": "scripts/adapters/tests/test_sync_adapter_docs.py",
+      "lines": 88
+    },
+    {
+      "path": "scripts/adapters/tests/test_zotero.py",
+      "lines": 816
+    },
+    {
+      "path": "scripts/adapters/zotero.py",
+      "lines": 404
+    },
+    {
+      "path": "scripts/adjudication_activity.py",
+      "lines": 1610
+    },
+    {
+      "path": "scripts/announce-ars-loaded.sh",
+      "lines": 186
+    },
+    {
+      "path": "scripts/ars_anchorize_draft.py",
+      "lines": 170
+    },
+    {
+      "path": "scripts/ars_apply_revision_patch.py",
+      "lines": 912
+    },
+    {
+      "path": "scripts/ars_cache_invalidate.py",
+      "lines": 40
+    },
+    {
+      "path": "scripts/ars_mark_read.py",
+      "lines": 522
+    },
+    {
+      "path": "scripts/ars_update_check.sh",
+      "lines": 215
+    },
+    {
+      "path": "scripts/ars_write_scope_guard.py",
+      "lines": 563
+    },
+    {
+      "path": "scripts/arxiv_client.py",
+      "lines": 222
+    },
+    {
+      "path": "scripts/assemble_calibration_corpus.py",
+      "lines": 605
+    },
+    {
+      "path": "scripts/audit_panel_claims.py",
+      "lines": 325
+    },
+    {
+      "path": "scripts/audit_snapshot.py",
+      "lines": 572
+    },
+    {
+      "path": "scripts/bibliographic_integrity_signals.py",
+      "lines": 800
+    },
+    {
+      "path": "scripts/bootstrap_timeline_yaml.py",
+      "lines": 146
+    },
+    {
+      "path": "scripts/build_calibration_measurement_row.py",
+      "lines": 416
+    },
+    {
+      "path": "scripts/build_claim_standing_candidate_ledger.py",
+      "lines": 1238
+    },
+    {
+      "path": "scripts/build_claim_standing_query_plan.py",
+      "lines": 643
+    },
+    {
+      "path": "scripts/build_content_coverage_advisory.py",
+      "lines": 1205
+    },
+    {
+      "path": "scripts/build_cross_document_consistency_advisory.py",
+      "lines": 2332
+    },
+    {
+      "path": "scripts/build_review_pathway_rule_trace.py",
+      "lines": 830
+    },
+    {
+      "path": "scripts/build_submission_packet_manifest.py",
+      "lines": 2310
+    },
+    {
+      "path": "scripts/check_1098_premise_rule_sync.py",
+      "lines": 143
+    },
+    {
+      "path": "scripts/check_215_field_norm.py",
+      "lines": 173
+    },
+    {
+      "path": "scripts/check_216_surface_form.py",
+      "lines": 250
+    },
+    {
+      "path": "scripts/check_268_nested_commitment_ledger.py",
+      "lines": 180
+    },
+    {
+      "path": "scripts/check_390_revision_patch_discipline.py",
+      "lines": 296
+    },
+    {
+      "path": "scripts/check_392_citation_verification_intake.py",
+      "lines": 126
+    },
+    {
+      "path": "scripts/check_394_submission_policy.py",
+      "lines": 178
+    },
+    {
+      "path": "scripts/check_439_format_profile.py",
+      "lines": 307
+    },
+    {
+      "path": "scripts/check_619_disclosure_closeout.py",
+      "lines": 237
+    },
+    {
+      "path": "scripts/check_630_codex_subscription_transport.py",
+      "lines": 456
+    },
+    {
+      "path": "scripts/check_669_review_pathway_rule_trace.py",
+      "lines": 662
+    },
+    {
+      "path": "scripts/check_670_revision_roadmap_integration.py",
+      "lines": 544
+    },
+    {
+      "path": "scripts/check_673_adjudication_activity.py",
+      "lines": 688
+    },
+    {
+      "path": "scripts/check_684_review_criteria_binding.py",
+      "lines": 558
+    },
+    {
+      "path": "scripts/check_acronyms.py",
+      "lines": 1081
+    },
+    {
+      "path": "scripts/check_agents_mirror_sync.py",
+      "lines": 117
+    },
+    {
+      "path": "scripts/check_audit_artifact_consistency.py",
+      "lines": 2313
+    },
+    {
+      "path": "scripts/check_author_letter.py",
+      "lines": 267
+    },
+    {
+      "path": "scripts/check_benchmark_report.py",
+      "lines": 79
+    },
+    {
+      "path": "scripts/check_bibliographic_integrity_signals.py",
+      "lines": 831
+    },
+    {
+      "path": "scripts/check_calibration_tiers.py",
+      "lines": 235
+    },
+    {
+      "path": "scripts/check_changelog_covers_merges.py",
+      "lines": 289
+    },
+    {
+      "path": "scripts/check_ci_pytest_manifest.py",
+      "lines": 204
+    },
+    {
+      "path": "scripts/check_claim_audit_consistency.py",
+      "lines": 1676
+    },
+    {
+      "path": "scripts/check_claim_standing_candidate_ledger_integration.py",
+      "lines": 500
+    },
+    {
+      "path": "scripts/check_claim_standing_freshness.py",
+      "lines": 253
+    },
+    {
+      "path": "scripts/check_claim_standing_transmissions.py",
+      "lines": 449
+    },
+    {
+      "path": "scripts/check_collaboration_depth_rubric.py",
+      "lines": 182
+    },
+    {
+      "path": "scripts/check_command_frontmatter_name.py",
+      "lines": 116
+    },
+    {
+      "path": "scripts/check_command_skill_dispatch.py",
+      "lines": 79
+    },
+    {
+      "path": "scripts/check_committee_correspondence.py",
+      "lines": 333
+    },
+    {
+      "path": "scripts/check_compliance_report.py",
+      "lines": 108
+    },
+    {
+      "path": "scripts/check_content_coverage_advisory_integration.py",
+      "lines": 807
+    },
+    {
+      "path": "scripts/check_control_availability.py",
+      "lines": 172
+    },
+    {
+      "path": "scripts/check_corpus_consumer_protocol.py",
+      "lines": 404
+    },
+    {
+      "path": "scripts/check_cross_document_consistency_advisory_integration.py",
+      "lines": 1204
+    },
+    {
+      "path": "scripts/check_cross_model_handoff_contract.py",
+      "lines": 234
+    },
+    {
+      "path": "scripts/check_cross_model_verification_sync.py",
+      "lines": 261
+    },
+    {
+      "path": "scripts/check_data_access_level.py",
+      "lines": 138
+    },
+    {
+      "path": "scripts/check_data_flows.py",
+      "lines": 252
+    },
+    {
+      "path": "scripts/check_decision_contract.py",
+      "lines": 465
+    },
+    {
+      "path": "scripts/check_degradation_registry.py",
+      "lines": 338
+    },
+    {
+      "path": "scripts/check_distribution_surface_claims.py",
+      "lines": 226
+    },
+    {
+      "path": "scripts/check_domain_evidence_profile.py",
+      "lines": 538
+    },
+    {
+      "path": "scripts/check_e4_promotion.py",
+      "lines": 195
+    },
+    {
+      "path": "scripts/check_evals_gold_set.py",
+      "lines": 279
+    },
+    {
+      "path": "scripts/check_evidence_row_integration.py",
+      "lines": 470
+    },
+    {
+      "path": "scripts/check_experiment_provenance.py",
+      "lines": 117
+    },
+    {
+      "path": "scripts/check_field_norm_severity.py",
+      "lines": 152
+    },
+    {
+      "path": "scripts/check_firm_rules_sync.py",
+      "lines": 375
+    },
+    {
+      "path": "scripts/check_heldout_measurement_report.py",
+      "lines": 1194
+    },
+    {
+      "path": "scripts/check_human_subjects_output_contract.py",
+      "lines": 139
+    },
+    {
+      "path": "scripts/check_human_subjects_reference_migration.py",
+      "lines": 844
+    },
+    {
+      "path": "scripts/check_indirect_prompt_injection_no_call.py",
+      "lines": 328
+    },
+    {
+      "path": "scripts/check_instruction_data_boundary.py",
+      "lines": 352
+    },
+    {
+      "path": "scripts/check_judge_prompt_version.py",
+      "lines": 125
+    },
+    {
+      "path": "scripts/check_literature_corpus_schema.py",
+      "lines": 402
+    },
+    {
+      "path": "scripts/check_method_weaknesses_sync.py",
+      "lines": 60
+    },
+    {
+      "path": "scripts/check_model_tiering.py",
+      "lines": 224
+    },
+    {
+      "path": "scripts/check_panel_synthesis.py",
+      "lines": 1331
+    },
+    {
+      "path": "scripts/check_passport_reset_contract.py",
+      "lines": 214
+    },
+    {
+      "path": "scripts/check_pattern_eval_manifest.py",
+      "lines": 422
+    },
+    {
+      "path": "scripts/check_persuasion_invariance_fixtures.py",
+      "lines": 637
+    },
+    {
+      "path": "scripts/check_phase_conformance.py",
+      "lines": 2283
+    },
+    {
+      "path": "scripts/check_pipeline_boundary_semantics.py",
+      "lines": 600
+    },
+    {
+      "path": "scripts/check_pipeline_integrity.py",
+      "lines": 340
+    },
+    {
+      "path": "scripts/check_policy_anchor_protocol.py",
+      "lines": 159
+    },
+    {
+      "path": "scripts/check_policy_anchor_table.py",
+      "lines": 286
+    },
+    {
+      "path": "scripts/check_preprint_venues_consistency.py",
+      "lines": 123
+    },
+    {
+      "path": "scripts/check_prisma_trAIce_freshness.py",
+      "lines": 84
+    },
+    {
+      "path": "scripts/check_promotion_bakeoff_preregistration.py",
+      "lines": 1303
+    },
+    {
+      "path": "scripts/check_ranking_lift.py",
+      "lines": 323
+    },
+    {
+      "path": "scripts/check_re_review_synthesis.py",
+      "lines": 2764
+    },
+    {
+      "path": "scripts/check_receipt_enum_sync.py",
+      "lines": 203
+    },
+    {
+      "path": "scripts/check_repro_lock.py",
+      "lines": 88
+    },
+    {
+      "path": "scripts/check_review_form_note_sync.py",
+      "lines": 144
+    },
+    {
+      "path": "scripts/check_review_pathway_output.py",
+      "lines": 276
+    },
+    {
+      "path": "scripts/check_reviewer_card_confirmation.py",
+      "lines": 150
+    },
+    {
+      "path": "scripts/check_reviewer_data_fences.py",
+      "lines": 224
+    },
+    {
+      "path": "scripts/check_reviewer_finding_contract.py",
+      "lines": 783
+    },
+    {
+      "path": "scripts/check_reviewer_role_label.py",
+      "lines": 457
+    },
+    {
+      "path": "scripts/check_reviewer_scoring_honesty.py",
+      "lines": 292
+    },
+    {
+      "path": "scripts/check_reviewer_sprint_prompt_sync.py",
+      "lines": 411
+    },
+    {
+      "path": "scripts/check_revision_claim_drift_suite_v2.py",
+      "lines": 1622
+    },
+    {
+      "path": "scripts/check_revision_token_conservation.py",
+      "lines": 277
+    },
+    {
+      "path": "scripts/check_risk_register.py",
+      "lines": 280
+    },
+    {
+      "path": "scripts/check_role_scoped_contract.py",
+      "lines": 702
+    },
+    {
+      "path": "scripts/check_routing_core_sync.py",
+      "lines": 75
+    },
+    {
+      "path": "scripts/check_rq_framing_patterns.py",
+      "lines": 184
+    },
+    {
+      "path": "scripts/check_rubric_weight_consistency.py",
+      "lines": 32
+    },
+    {
+      "path": "scripts/check_seeded_defect_fixtures.py",
+      "lines": 425
+    },
+    {
+      "path": "scripts/check_setup_cross_model_parity.py",
+      "lines": 139
+    },
+    {
+      "path": "scripts/check_skill_description_length.py",
+      "lines": 62
+    },
+    {
+      "path": "scripts/check_skill_inventory_parity.py",
+      "lines": 361
+    },
+    {
+      "path": "scripts/check_spec_consistency.py",
+      "lines": 2003
+    },
+    {
+      "path": "scripts/check_sprint_contract.py",
+      "lines": 371
+    },
+    {
+      "path": "scripts/check_stage_capability_matrix.py",
+      "lines": 784
+    },
+    {
+      "path": "scripts/check_submission_packet_manifest_integration.py",
+      "lines": 358
+    },
+    {
+      "path": "scripts/check_surface_form_parity.py",
+      "lines": 467
+    },
+    {
+      "path": "scripts/check_task_type.py",
+      "lines": 22
+    },
+    {
+      "path": "scripts/check_tools_allowlist.py",
+      "lines": 539
+    },
+    {
+      "path": "scripts/check_tortured_phrase_screening_integration.py",
+      "lines": 1974
+    },
+    {
+      "path": "scripts/check_v3_10_134_write_scope.py",
+      "lines": 299
+    },
+    {
+      "path": "scripts/check_v3_10_policy.py",
+      "lines": 656
+    },
+    {
+      "path": "scripts/check_v3_6_6_ab_manifest.py",
+      "lines": 366
+    },
+    {
+      "path": "scripts/check_v3_6_7_pattern_protection.py",
+      "lines": 1366
+    },
+    {
+      "path": "scripts/check_v3_6_8_audit_scope_block.py",
+      "lines": 464
+    },
+    {
+      "path": "scripts/check_v3_6_8_cite_provenance_pipeline.py",
+      "lines": 231
+    },
+    {
+      "path": "scripts/check_v3_6_8_frontmatter_trust_schema.py",
+      "lines": 248
+    },
+    {
+      "path": "scripts/check_v3_6_8_mark_read_commands.py",
+      "lines": 79
+    },
+    {
+      "path": "scripts/check_v3_6_8_pattern_protection.py",
+      "lines": 941
+    },
+    {
+      "path": "scripts/check_v3_7_3_three_layer_citation.py",
+      "lines": 318
+    },
+    {
+      "path": "scripts/check_v3_8_annotation_literal_sync.py",
+      "lines": 228
+    },
+    {
+      "path": "scripts/check_v3_9_0_triangulation.py",
+      "lines": 366
+    },
+    {
+      "path": "scripts/check_v3_9_2_phase_boundary.py",
+      "lines": 280
+    },
+    {
+      "path": "scripts/check_v3_9_4_temporal_verification.py",
+      "lines": 139
+    },
+    {
+      "path": "scripts/check_venue_disclosure_policies.py",
+      "lines": 63
+    },
+    {
+      "path": "scripts/check_version_consistency.py",
+      "lines": 824
+    },
+    {
+      "path": "scripts/check_workflow_classification.py",
+      "lines": 223
+    },
+    {
+      "path": "scripts/chinese_literature_client.py",
+      "lines": 1865
+    },
+    {
+      "path": "scripts/citation_verification_summary.py",
+      "lines": 85
+    },
+    {
+      "path": "scripts/claim_audit_calibration.py",
+      "lines": 517
+    },
+    {
+      "path": "scripts/claim_audit_finalizer.py",
+      "lines": 456
+    },
+    {
+      "path": "scripts/claim_audit_pipeline.py",
+      "lines": 1609
+    },
+    {
+      "path": "scripts/claim_registry_coverage.py",
+      "lines": 493
+    },
+    {
+      "path": "scripts/claim_standing_discovery.py",
+      "lines": 784
+    },
+    {
+      "path": "scripts/claim_standing_stance_runner.py",
+      "lines": 758
+    },
+    {
+      "path": "scripts/claim_standing_stance_scorer.py",
+      "lines": 239
+    },
+    {
+      "path": "scripts/claim_strength_drift_disposition.py",
+      "lines": 654
+    },
+    {
+      "path": "scripts/contamination_signals.py",
+      "lines": 689
+    },
+    {
+      "path": "scripts/cross_model_codex_transport.py",
+      "lines": 1405
+    },
+    {
+      "path": "scripts/cross_model_codex_verify.sh",
+      "lines": 6
+    },
+    {
+      "path": "scripts/cross_model_handoff.py",
+      "lines": 359
+    },
+    {
+      "path": "scripts/cross_model_smoke_test.sh",
+      "lines": 186
+    },
+    {
+      "path": "scripts/cross_model_smoke_test_codex.sh",
+      "lines": 35
+    },
+    {
+      "path": "scripts/cross_model_verification/normalize_compat_verdict.py",
+      "lines": 57
+    },
+    {
+      "path": "scripts/cross_model_verification/openai_effort_guard.sh",
+      "lines": 28
+    },
+    {
+      "path": "scripts/crossref_client.py",
+      "lines": 225
+    },
+    {
+      "path": "scripts/dispatch_calibration_panel.py",
+      "lines": 876
+    },
+    {
+      "path": "scripts/dispatch_e4_panel.py",
+      "lines": 2966
+    },
+    {
+      "path": "scripts/dispatch_panel_claim_audit.py",
+      "lines": 1643
+    },
+    {
+      "path": "scripts/evidence_rows.py",
+      "lines": 2154
+    },
+    {
+      "path": "scripts/extract_panel_claims.py",
+      "lines": 303
+    },
+    {
+      "path": "scripts/fetch_calibration_corpus.py",
+      "lines": 150
+    },
+    {
+      "path": "scripts/file_lock.py",
+      "lines": 114
+    },
+    {
+      "path": "scripts/gen_unspaced_scripts.py",
+      "lines": 154
+    },
+    {
+      "path": "scripts/human_read_attestation_resolver.py",
+      "lines": 488
+    },
+    {
+      "path": "scripts/ideation_diversity_assignment_gate.py",
+      "lines": 430
+    },
+    {
+      "path": "scripts/inquiry_branch_ledger.py",
+      "lines": 2537
+    },
+    {
+      "path": "scripts/legacy/ars_apply_revision_patch_v1_0.py",
+      "lines": 715
+    },
+    {
+      "path": "scripts/legacy/check_re_review_synthesis_v1_0.py",
+      "lines": 2215
+    },
+    {
+      "path": "scripts/migrate_literature_corpus_to_v3_10.py",
+      "lines": 223
+    },
+    {
+      "path": "scripts/migrate_literature_corpus_to_v3_7_3.py",
+      "lines": 277
+    },
+    {
+      "path": "scripts/migrate_literature_corpus_to_v3_9_0.py",
+      "lines": 304
+    },
+    {
+      "path": "scripts/openalex_client.py",
+      "lines": 232
+    },
+    {
+      "path": "scripts/parse_audit_verdict.py",
+      "lines": 802
+    },
+    {
+      "path": "scripts/pdf_content_classifier_worker.py",
+      "lines": 176
+    },
+    {
+      "path": "scripts/pdf_read_preflight.py",
+      "lines": 1455
+    },
+    {
+      "path": "scripts/policy_anchor_disclosure_referee.py",
+      "lines": 354
+    },
+    {
+      "path": "scripts/recompute_receipts.py",
+      "lines": 1414
+    },
+    {
+      "path": "scripts/render_claim_standing_view.py",
+      "lines": 374
+    },
+    {
+      "path": "scripts/render_eval_comment.py",
+      "lines": 130
+    },
+    {
+      "path": "scripts/render_harness_retirement_issue.py",
+      "lines": 167
+    },
+    {
+      "path": "scripts/repro_lock_validation.py",
+      "lines": 131
+    },
+    {
+      "path": "scripts/research_workflow_profile.py",
+      "lines": 1079
+    },
+    {
+      "path": "scripts/resolve_human_subjects_authority.py",
+      "lines": 1158
+    },
+    {
+      "path": "scripts/resolve_review_target_context.py",
+      "lines": 683
+    },
+    {
+      "path": "scripts/resume_e4_record.py",
+      "lines": 509
+    },
+    {
+      "path": "scripts/retraction_status.py",
+      "lines": 486
+    },
+    {
+      "path": "scripts/review_criteria_binding.py",
+      "lines": 895
+    },
+    {
+      "path": "scripts/review_panel_provenance.py",
+      "lines": 744
+    },
+    {
+      "path": "scripts/revision_roadmap.py",
+      "lines": 1960
+    },
+    {
+      "path": "scripts/run_ci_pytest_manifest.py",
+      "lines": 116
+    },
+    {
+      "path": "scripts/run_codex_audit.sh",
+      "lines": 1205
+    },
+    {
+      "path": "scripts/run_evals.py",
+      "lines": 513
+    },
+    {
+      "path": "scripts/run_ideation_diversity_no_call.py",
+      "lines": 3505
+    },
+    {
+      "path": "scripts/run_indirect_prompt_injection_no_call.py",
+      "lines": 3330
+    },
+    {
+      "path": "scripts/run_indirect_prompt_injection_probe.py",
+      "lines": 399
+    },
+    {
+      "path": "scripts/run_ledger.py",
+      "lines": 913
+    },
+    {
+      "path": "scripts/run_review_criteria_constructive_value.py",
+      "lines": 1889
+    },
+    {
+      "path": "scripts/run_role_topology_utility_dry_run.py",
+      "lines": 606
+    },
+    {
+      "path": "scripts/score_calibration_run.py",
+      "lines": 367
+    },
+    {
+      "path": "scripts/score_review_criteria_constructive_value.py",
+      "lines": 606
+    },
+    {
+      "path": "scripts/semantic_scholar_client.py",
+      "lines": 291
+    },
+    {
+      "path": "scripts/slr_lineage.py",
+      "lines": 59
+    },
+    {
+      "path": "scripts/sync_adapter_docs.py",
+      "lines": 118
+    },
+    {
+      "path": "scripts/temporal_integrity_audit.py",
+      "lines": 840
+    },
+    {
+      "path": "scripts/test_431_exact_or_bust.py",
+      "lines": 253
+    },
+    {
+      "path": "scripts/test__eval_threshold_gate.py",
+      "lines": 125
+    },
+    {
+      "path": "scripts/test__markdown_lint_util.py",
+      "lines": 129
+    },
+    {
+      "path": "scripts/test__next_verified_at_ms.py",
+      "lines": 256
+    },
+    {
+      "path": "scripts/test_adjacent_framing_probe_lint.py",
+      "lines": 171
+    },
+    {
+      "path": "scripts/test_adjudication_activity.py",
+      "lines": 1614
+    },
+    {
+      "path": "scripts/test_anchored_open.py",
+      "lines": 434
+    },
+    {
+      "path": "scripts/test_ars_anchorize_draft.py",
+      "lines": 178
+    },
+    {
+      "path": "scripts/test_ars_apply_revision_patch.py",
+      "lines": 1335
+    },
+    {
+      "path": "scripts/test_ars_cache_invalidate.py",
+      "lines": 51
+    },
+    {
+      "path": "scripts/test_ars_mark_read.py",
+      "lines": 933
+    },
+    {
+      "path": "scripts/test_ars_update_check.py",
+      "lines": 858
+    },
+    {
+      "path": "scripts/test_ars_write_scope_guard.py",
+      "lines": 999
+    },
+    {
+      "path": "scripts/test_arxiv_client.py",
+      "lines": 374
+    },
+    {
+      "path": "scripts/test_assemble_calibration_corpus.py",
+      "lines": 426
+    },
+    {
+      "path": "scripts/test_audit_panel_claims.py",
+      "lines": 292
+    },
+    {
+      "path": "scripts/test_audit_schemas.py",
+      "lines": 560
+    },
+    {
+      "path": "scripts/test_audit_snapshot_render_section_0.py",
+      "lines": 105
+    },
+    {
+      "path": "scripts/test_block_parser.py",
+      "lines": 261
+    },
+    {
+      "path": "scripts/test_bootstrap_timeline_yaml.py",
+      "lines": 148
+    },
+    {
+      "path": "scripts/test_build_calibration_measurement_row.py",
+      "lines": 414
+    },
+    {
+      "path": "scripts/test_build_claim_standing_candidate_ledger.py",
+      "lines": 1203
+    },
+    {
+      "path": "scripts/test_build_claim_standing_query_plan.py",
+      "lines": 791
+    },
+    {
+      "path": "scripts/test_build_submission_packet_manifest.py",
+      "lines": 2644
+    },
+    {
+      "path": "scripts/test_check_1098_premise_rule_sync.py",
+      "lines": 168
+    },
+    {
+      "path": "scripts/test_check_215_field_norm.py",
+      "lines": 238
+    },
+    {
+      "path": "scripts/test_check_216_surface_form.py",
+      "lines": 341
+    },
+    {
+      "path": "scripts/test_check_268_nested_commitment_ledger.py",
+      "lines": 194
+    },
+    {
+      "path": "scripts/test_check_390_revision_patch_discipline.py",
+      "lines": 279
+    },
+    {
+      "path": "scripts/test_check_392_citation_verification_intake.py",
+      "lines": 144
+    },
+    {
+      "path": "scripts/test_check_394_submission_policy.py",
+      "lines": 200
+    },
+    {
+      "path": "scripts/test_check_439_format_profile.py",
+      "lines": 252
+    },
+    {
+      "path": "scripts/test_check_619_disclosure_closeout.py",
+      "lines": 158
+    },
+    {
+      "path": "scripts/test_check_630_codex_subscription_transport.py",
+      "lines": 245
+    },
+    {
+      "path": "scripts/test_check_669_review_pathway_rule_trace.py",
+      "lines": 304
+    },
+    {
+      "path": "scripts/test_check_670_revision_roadmap_integration.py",
+      "lines": 261
+    },
+    {
+      "path": "scripts/test_check_673_adjudication_activity.py",
+      "lines": 367
+    },
+    {
+      "path": "scripts/test_check_684_review_criteria_binding.py",
+      "lines": 283
+    },
+    {
+      "path": "scripts/test_check_acronyms.py",
+      "lines": 1023
+    },
+    {
+      "path": "scripts/test_check_agents_mirror_sync.py",
+      "lines": 142
+    },
+    {
+      "path": "scripts/test_check_audit_artifact_consistency.py",
+      "lines": 2133
+    },
+    {
+      "path": "scripts/test_check_author_letter.py",
+      "lines": 569
+    },
+    {
+      "path": "scripts/test_check_benchmark_report.py",
+      "lines": 117
+    },
+    {
+      "path": "scripts/test_check_bibliographic_integrity_signals.py",
+      "lines": 609
+    },
+    {
+      "path": "scripts/test_check_calibration_tiers.py",
+      "lines": 376
+    },
+    {
+      "path": "scripts/test_check_changelog_covers_merges.py",
+      "lines": 509
+    },
+    {
+      "path": "scripts/test_check_ci_pytest_manifest.py",
+      "lines": 425
+    },
+    {
+      "path": "scripts/test_check_claim_standing_candidate_ledger_integration.py",
+      "lines": 256
+    },
+    {
+      "path": "scripts/test_check_claim_standing_freshness.py",
+      "lines": 277
+    },
+    {
+      "path": "scripts/test_check_collaboration_depth_rubric.py",
+      "lines": 254
+    },
+    {
+      "path": "scripts/test_check_command_frontmatter_name.py",
+      "lines": 178
+    },
+    {
+      "path": "scripts/test_check_command_skill_dispatch.py",
+      "lines": 98
+    },
+    {
+      "path": "scripts/test_check_committee_correspondence.py",
+      "lines": 449
+    },
+    {
+      "path": "scripts/test_check_compliance_report.py",
+      "lines": 381
+    },
+    {
+      "path": "scripts/test_check_content_coverage_advisory_integration.py",
+      "lines": 318
+    },
+    {
+      "path": "scripts/test_check_control_availability.py",
+      "lines": 363
+    },
+    {
+      "path": "scripts/test_check_cross_document_consistency_advisory_integration.py",
+      "lines": 710
+    },
+    {
+      "path": "scripts/test_check_cross_model_handoff_contract.py",
+      "lines": 301
+    },
+    {
+      "path": "scripts/test_check_cross_model_verification_sync.py",
+      "lines": 201
+    },
+    {
+      "path": "scripts/test_check_data_access_level.py",
+      "lines": 227
+    },
+    {
+      "path": "scripts/test_check_data_flows.py",
+      "lines": 382
+    },
+    {
+      "path": "scripts/test_check_decision_contract.py",
+      "lines": 399
+    },
+    {
+      "path": "scripts/test_check_degradation_registry.py",
+      "lines": 270
+    },
+    {
+      "path": "scripts/test_check_distribution_surface_claims.py",
+      "lines": 225
+    },
+    {
+      "path": "scripts/test_check_domain_evidence_profile.py",
+      "lines": 439
+    },
+    {
+      "path": "scripts/test_check_e4_promotion.py",
+      "lines": 163
+    },
+    {
+      "path": "scripts/test_check_evals_gold_set.py",
+      "lines": 312
+    },
+    {
+      "path": "scripts/test_check_evidence_row_integration.py",
+      "lines": 252
+    },
+    {
+      "path": "scripts/test_check_field_norm_severity.py",
+      "lines": 234
+    },
+    {
+      "path": "scripts/test_check_firm_rules_sync.py",
+      "lines": 342
+    },
+    {
+      "path": "scripts/test_check_heldout_measurement_report.py",
+      "lines": 1508
+    },
+    {
+      "path": "scripts/test_check_human_subjects_output_contract.py",
+      "lines": 129
+    },
+    {
+      "path": "scripts/test_check_human_subjects_reference_migration.py",
+      "lines": 756
+    },
+    {
+      "path": "scripts/test_check_instruction_data_boundary.py",
+      "lines": 455
+    },
+    {
+      "path": "scripts/test_check_judge_prompt_version.py",
+      "lines": 90
+    },
+    {
+      "path": "scripts/test_check_method_weaknesses_sync.py",
+      "lines": 92
+    },
+    {
+      "path": "scripts/test_check_model_tiering.py",
+      "lines": 236
+    },
+    {
+      "path": "scripts/test_check_panel_synthesis.py",
+      "lines": 1658
+    },
+    {
+      "path": "scripts/test_check_passport_reset_contract.py",
+      "lines": 249
+    },
+    {
+      "path": "scripts/test_check_pattern_eval_manifest.py",
+      "lines": 381
+    },
+    {
+      "path": "scripts/test_check_persuasion_invariance_fixtures.py",
+      "lines": 591
+    },
+    {
+      "path": "scripts/test_check_phase_conformance.py",
+      "lines": 4525
+    },
+    {
+      "path": "scripts/test_check_pipeline_boundary_semantics.py",
+      "lines": 931
+    },
+    {
+      "path": "scripts/test_check_pipeline_integrity.py",
+      "lines": 243
+    },
+    {
+      "path": "scripts/test_check_policy_anchor_protocol.py",
+      "lines": 236
+    },
+    {
+      "path": "scripts/test_check_policy_anchor_table.py",
+      "lines": 295
+    },
+    {
+      "path": "scripts/test_check_prisma_trAIce_freshness.py",
+      "lines": 68
+    },
+    {
+      "path": "scripts/test_check_promotion_bakeoff_preregistration.py",
+      "lines": 799
+    },
+    {
+      "path": "scripts/test_check_ranking_lift.py",
+      "lines": 377
+    },
+    {
+      "path": "scripts/test_check_re_review_synthesis.py",
+      "lines": 3462
+    },
+    {
+      "path": "scripts/test_check_receipt_enum_sync.py",
+      "lines": 176
+    },
+    {
+      "path": "scripts/test_check_repro_lock.py",
+      "lines": 167
+    },
+    {
+      "path": "scripts/test_check_review_form_note_sync.py",
+      "lines": 211
+    },
+    {
+      "path": "scripts/test_check_reviewer_card_confirmation.py",
+      "lines": 155
+    },
+    {
+      "path": "scripts/test_check_reviewer_data_fences.py",
+      "lines": 334
+    },
+    {
+      "path": "scripts/test_check_reviewer_finding_contract.py",
+      "lines": 1107
+    },
+    {
+      "path": "scripts/test_check_reviewer_role_label.py",
+      "lines": 491
+    },
+    {
+      "path": "scripts/test_check_reviewer_scoring_honesty.py",
+      "lines": 222
+    },
+    {
+      "path": "scripts/test_check_reviewer_sprint_prompt_sync.py",
+      "lines": 373
+    },
+    {
+      "path": "scripts/test_check_revision_claim_drift_suite_v2.py",
+      "lines": 1925
+    },
+    {
+      "path": "scripts/test_check_revision_token_conservation.py",
+      "lines": 473
+    },
+    {
+      "path": "scripts/test_check_risk_register.py",
+      "lines": 336
+    },
+    {
+      "path": "scripts/test_check_role_scoped_contract.py",
+      "lines": 1104
+    },
+    {
+      "path": "scripts/test_check_routing_core_sync.py",
+      "lines": 203
+    },
+    {
+      "path": "scripts/test_check_rq_framing_patterns.py",
+      "lines": 110
+    },
+    {
+      "path": "scripts/test_check_rubric_weight_consistency.py",
+      "lines": 32
+    },
+    {
+      "path": "scripts/test_check_seeded_defect_fixtures.py",
+      "lines": 392
+    },
+    {
+      "path": "scripts/test_check_setup_cross_model_parity.py",
+      "lines": 121
+    },
+    {
+      "path": "scripts/test_check_skill_description_length.py",
+      "lines": 81
+    },
+    {
+      "path": "scripts/test_check_skill_inventory_parity.py",
+      "lines": 465
+    },
+    {
+      "path": "scripts/test_check_spec_consistency.py",
+      "lines": 1840
+    },
+    {
+      "path": "scripts/test_check_sprint_contract.py",
+      "lines": 458
+    },
+    {
+      "path": "scripts/test_check_stage_capability_matrix.py",
+      "lines": 698
+    },
+    {
+      "path": "scripts/test_check_submission_packet_manifest_integration.py",
+      "lines": 177
+    },
+    {
+      "path": "scripts/test_check_surface_form_parity.py",
+      "lines": 478
+    },
+    {
+      "path": "scripts/test_check_task_type.py",
+      "lines": 116
+    },
+    {
+      "path": "scripts/test_check_tools_allowlist.py",
+      "lines": 838
+    },
+    {
+      "path": "scripts/test_check_tortured_phrase_screening_integration.py",
+      "lines": 1319
+    },
+    {
+      "path": "scripts/test_check_v3_10_134_write_scope.py",
+      "lines": 252
+    },
+    {
+      "path": "scripts/test_check_v3_10_policy.py",
+      "lines": 547
+    },
+    {
+      "path": "scripts/test_check_v3_6_7_pattern_protection.py",
+      "lines": 960
+    },
+    {
+      "path": "scripts/test_check_v3_6_8_audit_scope_block.py",
+      "lines": 1000
+    },
+    {
+      "path": "scripts/test_check_v3_6_8_cite_provenance_pipeline.py",
+      "lines": 454
+    },
+    {
+      "path": "scripts/test_check_v3_6_8_frontmatter_trust_schema.py",
+      "lines": 581
+    },
+    {
+      "path": "scripts/test_check_v3_6_8_mark_read_commands.py",
+      "lines": 120
+    },
+    {
+      "path": "scripts/test_check_v3_6_8_pattern_protection.py",
+      "lines": 1138
+    },
+    {
+      "path": "scripts/test_check_v3_7_3_three_layer_citation.py",
+      "lines": 566
+    },
+    {
+      "path": "scripts/test_check_v3_8_annotation_literal_sync.py",
+      "lines": 262
+    },
+    {
+      "path": "scripts/test_check_v3_9_0_triangulation.py",
+      "lines": 321
+    },
+    {
+      "path": "scripts/test_check_v3_9_2_phase_boundary.py",
+      "lines": 190
+    },
+    {
+      "path": "scripts/test_check_v3_9_4_temporal_verification.py",
+      "lines": 471
+    },
+    {
+      "path": "scripts/test_check_version_consistency.py",
+      "lines": 1462
+    },
+    {
+      "path": "scripts/test_check_workflow_classification.py",
+      "lines": 225
+    },
+    {
+      "path": "scripts/test_chinese_literature_client.py",
+      "lines": 1980
+    },
+    {
+      "path": "scripts/test_citation_existence_policy.py",
+      "lines": 480
+    },
+    {
+      "path": "scripts/test_citation_verification_summary.py",
+      "lines": 342
+    },
+    {
+      "path": "scripts/test_claim_audit_calibration.py",
+      "lines": 882
+    },
+    {
+      "path": "scripts/test_claim_audit_finalizer.py",
+      "lines": 979
+    },
+    {
+      "path": "scripts/test_claim_audit_pipeline.py",
+      "lines": 2450
+    },
+    {
+      "path": "scripts/test_claim_audit_schema.py",
+      "lines": 1778
+    },
+    {
+      "path": "scripts/test_claim_intent_manifest.py",
+      "lines": 666
+    },
+    {
+      "path": "scripts/test_claim_registry_coverage.py",
+      "lines": 246
+    },
+    {
+      "path": "scripts/test_claim_standing_discovery.py",
+      "lines": 579
+    },
+    {
+      "path": "scripts/test_claim_standing_pipeline_wiring.py",
+      "lines": 290
+    },
+    {
+      "path": "scripts/test_claim_standing_stance_assets.py",
+      "lines": 399
+    },
+    {
+      "path": "scripts/test_claim_standing_stance_contracts.py",
+      "lines": 383
+    },
+    {
+      "path": "scripts/test_claim_standing_stance_runner.py",
+      "lines": 349
+    },
+    {
+      "path": "scripts/test_claim_standing_transmissions.py",
+      "lines": 605
+    },
+    {
+      "path": "scripts/test_claim_strength_drift_disposition.py",
+      "lines": 527
+    },
+    {
+      "path": "scripts/test_claim_verification_coverage_contract.py",
+      "lines": 104
+    },
+    {
+      "path": "scripts/test_contamination_signals.py",
+      "lines": 1086
+    },
+    {
+      "path": "scripts/test_content_coverage_advisory.py",
+      "lines": 1767
+    },
+    {
+      "path": "scripts/test_cross_document_consistency_advisory.py",
+      "lines": 1270
+    },
+    {
+      "path": "scripts/test_cross_model_codex_transport.py",
+      "lines": 1233
+    },
+    {
+      "path": "scripts/test_cross_model_handoff.py",
+      "lines": 571
+    },
+    {
+      "path": "scripts/test_cross_model_verification_guards.py",
+      "lines": 885
+    },
+    {
+      "path": "scripts/test_crossref_client.py",
+      "lines": 485
+    },
+    {
+      "path": "scripts/test_dispatch_calibration_panel.py",
+      "lines": 718
+    },
+    {
+      "path": "scripts/test_dispatch_e4_panel.py",
+      "lines": 4494
+    },
+    {
+      "path": "scripts/test_dispatch_panel_claim_audit.py",
+      "lines": 1673
+    },
+    {
+      "path": "scripts/test_e2e_claim_audit.py",
+      "lines": 540
+    },
+    {
+      "path": "scripts/test_eval_harness_workflow.py",
+      "lines": 140
+    },
+    {
+      "path": "scripts/test_evals_citation_extraction.py",
+      "lines": 150
+    },
+    {
+      "path": "scripts/test_evals_lift_report_schema.py",
+      "lines": 108
+    },
+    {
+      "path": "scripts/test_evidence_rows.py",
+      "lines": 2726
+    },
+    {
+      "path": "scripts/test_excluded_source_entry_schema.py",
+      "lines": 80
+    },
+    {
+      "path": "scripts/test_experiment_alignment_overclaim_fixtures.py",
+      "lines": 87
+    },
+    {
+      "path": "scripts/test_experiment_provenance.py",
+      "lines": 1143
+    },
+    {
+      "path": "scripts/test_extract_panel_claims.py",
+      "lines": 242
+    },
+    {
+      "path": "scripts/test_file_lock.py",
+      "lines": 353
+    },
+    {
+      "path": "scripts/test_human_read_attestation_resolver.py",
+      "lines": 523
+    },
+    {
+      "path": "scripts/test_ideation_diversity_assignment_gate.py",
+      "lines": 615
+    },
+    {
+      "path": "scripts/test_indirect_prompt_injection_behavior_probe.py",
+      "lines": 250
+    },
+    {
+      "path": "scripts/test_inquiry_branch_ledger.py",
+      "lines": 2293
+    },
+    {
+      "path": "scripts/test_migrate_literature_corpus_to_v3_10.py",
+      "lines": 248
+    },
+    {
+      "path": "scripts/test_migrate_literature_corpus_to_v3_7_3.py",
+      "lines": 545
+    },
+    {
+      "path": "scripts/test_migrate_literature_corpus_to_v3_9_0.py",
+      "lines": 497
+    },
+    {
+      "path": "scripts/test_normalize_compat_verdict.py",
+      "lines": 149
+    },
+    {
+      "path": "scripts/test_openalex_client.py",
+      "lines": 490
+    },
+    {
+      "path": "scripts/test_output_language_pair.py",
+      "lines": 280
+    },
+    {
+      "path": "scripts/test_passport_yaml.py",
+      "lines": 104
+    },
+    {
+      "path": "scripts/test_pattern_eval_runtime.py",
+      "lines": 1295
+    },
+    {
+      "path": "scripts/test_pdf_read_preflight.py",
+      "lines": 1943
+    },
+    {
+      "path": "scripts/test_phase_e_cited_version.py",
+      "lines": 89
+    },
+    {
+      "path": "scripts/test_policy_anchor_disclosure.py",
+      "lines": 666
+    },
+    {
+      "path": "scripts/test_reading_probe_lint.py",
+      "lines": 221
+    },
+    {
+      "path": "scripts/test_recompute_receipts.py",
+      "lines": 778
+    },
+    {
+      "path": "scripts/test_render_claim_standing_view.py",
+      "lines": 192
+    },
+    {
+      "path": "scripts/test_render_eval_comment.py",
+      "lines": 162
+    },
+    {
+      "path": "scripts/test_render_harness_retirement_issue.py",
+      "lines": 110
+    },
+    {
+      "path": "scripts/test_repro_lock_validation_drift.py",
+      "lines": 200
+    },
+    {
+      "path": "scripts/test_research_workflow_profile.py",
+      "lines": 734
+    },
+    {
+      "path": "scripts/test_resolve_human_subjects_authority.py",
+      "lines": 1219
+    },
+    {
+      "path": "scripts/test_resolve_review_target_context.py",
+      "lines": 703
+    },
+    {
+      "path": "scripts/test_resume_e4_record.py",
+      "lines": 315
+    },
+    {
+      "path": "scripts/test_retraction_status.py",
+      "lines": 505
+    },
+    {
+      "path": "scripts/test_review_criteria_binding.py",
+      "lines": 765
+    },
+    {
+      "path": "scripts/test_review_panel_provenance.py",
+      "lines": 565
+    },
+    {
+      "path": "scripts/test_review_pathway_rule_trace.py",
+      "lines": 821
+    },
+    {
+      "path": "scripts/test_revision_roadmap.py",
+      "lines": 1255
+    },
+    {
+      "path": "scripts/test_revision_roadmap_consensus_levels.py",
+      "lines": 110
+    },
+    {
+      "path": "scripts/test_run_ci_pytest_manifest.py",
+      "lines": 186
+    },
+    {
+      "path": "scripts/test_run_codex_audit_e2e.py",
+      "lines": 378
+    },
+    {
+      "path": "scripts/test_run_evals.py",
+      "lines": 430
+    },
+    {
+      "path": "scripts/test_run_guard_launcher.py",
+      "lines": 751
+    },
+    {
+      "path": "scripts/test_run_ideation_diversity_no_call.py",
+      "lines": 1833
+    },
+    {
+      "path": "scripts/test_run_indirect_prompt_injection_no_call.py",
+      "lines": 1889
+    },
+    {
+      "path": "scripts/test_run_ledger.py",
+      "lines": 1099
+    },
+    {
+      "path": "scripts/test_run_review_criteria_constructive_value.py",
+      "lines": 586
+    },
+    {
+      "path": "scripts/test_run_role_topology_utility_dry_run.py",
+      "lines": 428
+    },
+    {
+      "path": "scripts/test_score_calibration_run.py",
+      "lines": 257
+    },
+    {
+      "path": "scripts/test_score_review_criteria_constructive_value.py",
+      "lines": 340
+    },
+    {
+      "path": "scripts/test_semantic_scholar_client.py",
+      "lines": 554
+    },
+    {
+      "path": "scripts/test_skill_lint_marker_block.py",
+      "lines": 139
+    },
+    {
+      "path": "scripts/test_slr_lineage_emission.py",
+      "lines": 230
+    },
+    {
+      "path": "scripts/test_socratic_rq_non_generation_contract.py",
+      "lines": 291
+    },
+    {
+      "path": "scripts/test_sr_screener_pipeline.py",
+      "lines": 1367
+    },
+    {
+      "path": "scripts/test_standing_constraint_entry_schema.py",
+      "lines": 81
+    },
+    {
+      "path": "scripts/test_temporal_integrity_audit.py",
+      "lines": 438
+    },
+    {
+      "path": "scripts/test_text_similarity.py",
+      "lines": 535
+    },
+    {
+      "path": "scripts/test_tier0_title_gate_prompt_sync.py",
+      "lines": 222
+    },
+    {
+      "path": "scripts/test_title_fuzzy_false_positive.py",
+      "lines": 111
+    },
+    {
+      "path": "scripts/test_tortured_phrase_screening.py",
+      "lines": 2959
+    },
+    {
+      "path": "scripts/test_transport_fixture_citation_gate.py",
+      "lines": 338
+    },
+    {
+      "path": "scripts/test_uncited_assertion.py",
+      "lines": 558
+    },
+    {
+      "path": "scripts/test_unspaced_scripts.py",
+      "lines": 182
+    },
+    {
+      "path": "scripts/test_v3_6_7_phase_6_6.py",
+      "lines": 1444
+    },
+    {
+      "path": "scripts/test_validate_compliance_fixtures.py",
+      "lines": 36
+    },
+    {
+      "path": "scripts/test_validate_ideation_diversity_assets.py",
+      "lines": 230
+    },
+    {
+      "path": "scripts/test_venue_disclosure_contract.py",
+      "lines": 755
+    },
+    {
+      "path": "scripts/test_verification_cache.py",
+      "lines": 280
+    },
+    {
+      "path": "scripts/test_verification_gate.py",
+      "lines": 461
+    },
+    {
+      "path": "scripts/test_verify_panel_recommendations.py",
+      "lines": 390
+    },
+    {
+      "path": "scripts/test_verify_passport_cli.py",
+      "lines": 123
+    },
+    {
+      "path": "scripts/test_verify_submission_package.py",
+      "lines": 1407
+    },
+    {
+      "path": "scripts/test_version_records_schema.py",
+      "lines": 211
+    },
+    {
+      "path": "scripts/tortured_phrase_screening.py",
+      "lines": 3502
+    },
+    {
+      "path": "scripts/uncited_assertion_detector.py",
+      "lines": 254
+    },
+    {
+      "path": "scripts/validate_claim_standing_stance_assets.py",
+      "lines": 249
+    },
+    {
+      "path": "scripts/validate_compliance_fixtures.py",
+      "lines": 56
+    },
+    {
+      "path": "scripts/validate_ideation_diversity_assets.py",
+      "lines": 303
+    },
+    {
+      "path": "scripts/venue_disclosure_contract_harness.py",
+      "lines": 836
+    },
+    {
+      "path": "scripts/verification_cache.py",
+      "lines": 276
+    },
+    {
+      "path": "scripts/verification_gate/__init__.py",
+      "lines": 345
+    },
+    {
+      "path": "scripts/verify_panel_recommendations.py",
+      "lines": 427
+    },
+    {
+      "path": "scripts/verify_passport.py",
+      "lines": 133
+    },
+    {
+      "path": "scripts/verify_submission_package.py",
+      "lines": 1657
+    },
+    {
+      "path": "sr-screener/scripts/build_outputs.py",
+      "lines": 545
+    },
+    {
+      "path": "sr-screener/scripts/build_workflow.py",
+      "lines": 372
+    },
+    {
+      "path": "sr-screener/scripts/merge_decisions.py",
+      "lines": 547
+    },
+    {
+      "path": "sr-screener/scripts/prepare_fulltext.py",
+      "lines": 120
+    },
+    {
+      "path": "sr-screener/scripts/prepare_records.py",
+      "lines": 278
+    },
+    {
+      "path": "sr-screener/scripts/srlib.py",
+      "lines": 925
+    },
+    {
+      "path": "sr-screener/templates/workflows/ft_screening.template.js",
+      "lines": 130
+    },
+    {
+      "path": "sr-screener/templates/workflows/ta_screening.template.js",
+      "lines": 239
+    },
+    {
+      "path": "tests/__init__.py",
+      "lines": 1
+    },
+    {
+      "path": "tests/fake_msvcrt.py",
+      "lines": 43
+    },
+    {
+      "path": "tests/test_formatter_1071.py",
+      "lines": 76
+    },
+    {
+      "path": "tests/test_helpers.py",
+      "lines": 105
+    },
+    {
+      "path": "tests/test_mark_read_args.py",
+      "lines": 124
+    },
+    {
+      "path": "tools/release-discipline/scripts/_release_doc_alignment_schema.py",
+      "lines": 1011
+    },
+    {
+      "path": "tools/release-discipline/scripts/check_command_invariants.py",
+      "lines": 497
+    },
+    {
+      "path": "tools/release-discipline/scripts/check_release_doc_alignment.py",
+      "lines": 263
+    },
+    {
+      "path": "tools/release-discipline/scripts/sync-toolkit.sh",
+      "lines": 147
+    }
+  ],
+  "evidence_spot_checks": [
+    {
+      "path": "commands/ars-lit-review.md",
+      "line": 8,
+      "contains": "First invoke",
+      "verified": true,
+      "source": "First invoke the Skill tool with `skill: \"academic-research-skills:academic-paper\"`. Pass the mode and the user's request described below as its arguments. Use the loaded skill and its supporting files before producing the result."
+    },
+    {
+      "path": "scripts/semantic_scholar_client.py",
+      "line": 53,
+      "contains": "https://api.semanticscholar.org",
+      "verified": true,
+      "source": "_API_BASE = \"https://api.semanticscholar.org/graph/v1\""
+    },
+    {
+      "path": "scripts/semantic_scholar_client.py",
+      "line": 186,
+      "contains": "if self._api_key",
+      "verified": true,
+      "source": "if self._api_key:"
+    },
+    {
+      "path": "scripts/openalex_client.py",
+      "line": 98,
+      "contains": "api_key: str | None = None",
+      "verified": true,
+      "source": "self, polite_email: str | None = None, api_key: str | None = None,"
+    },
+    {
+      "path": "scripts/openalex_client.py",
+      "line": 127,
+      "contains": "if self._api_key",
+      "verified": true,
+      "source": "if self._api_key:"
+    },
+    {
+      "path": "scripts/crossref_client.py",
+      "line": 47,
+      "contains": "https://api.crossref.org",
+      "verified": true,
+      "source": "_API_BASE = \"https://api.crossref.org\""
+    },
+    {
+      "path": "scripts/arxiv_client.py",
+      "line": 54,
+      "contains": "http://export.arxiv.org/api/query",
+      "verified": true,
+      "source": "_API_BASE = \"http://export.arxiv.org/api/query\""
+    },
+    {
+      "path": "scripts/chinese_literature_client.py",
+      "line": 1102,
+      "contains": "if not self._ncbi_email",
+      "verified": true,
+      "source": "if not self._ncbi_email or not _valid_ncbi_email(self._ncbi_email):"
+    },
+    {
+      "path": "scripts/verification_gate/__init__.py",
+      "line": 192,
+      "contains": "def verify_citation",
+      "verified": true,
+      "source": "def verify_citation("
+    },
+    {
+      "path": "scripts/verification_gate/__init__.py",
+      "line": 294,
+      "contains": "def verify_passport",
+      "verified": true,
+      "source": "def verify_passport("
+    },
+    {
+      "path": "scripts/claim_audit_pipeline.py",
+      "line": 8,
+      "contains": "Retrieval and judge invocation",
+      "verified": true,
+      "source": "Retrieval and judge invocation are dependency-injected (`retrieve_fn` /"
+    },
+    {
+      "path": "scripts/ars_write_scope_guard.py",
+      "line": 9,
+      "contains": "WHEN THE FENCE ENGAGES",
+      "verified": true,
+      "source": "WHEN THE FENCE ENGAGES (#973): only when a Bucket A role runs as a separately dispatched"
+    },
+    {
+      "path": "sr-screener/templates/workflows/ta_screening.template.js",
+      "line": 98,
+      "contains": "agent(",
+      "verified": true,
+      "source": "if (mode === 'all') take(await agent(sp + '\\n\\n' + taskFull(b, allIds), opts(role, role + ':' + b, 'Screening')))"
+    },
+    {
+      "path": "sr-screener/scripts/build_outputs.py",
+      "line": 8,
+      "contains": "Writes into",
+      "verified": true,
+      "source": "Writes into OUT_DIR (prefix TA_ or FT_):"
+    },
+    {
+      "path": "pi/wrapper.js",
+      "line": 79,
+      "contains": "export default",
+      "verified": true,
+      "source": "export default function (pi) {"
+    }
+  ]
+}
