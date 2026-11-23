@@ -55,7 +55,7 @@
 
   <!-- 3D 距离热力格 + 高斯核钟形曲线 -->
   <g transform="translate(316, 188)">
-    <text x="75" y="12" fill="#cbd5e1" font-size="12.5" font-weight="bold" text-anchor="middle">26×26 距离表 D[i,j]</text>
+    <text x="75" y="12" fill="#cbd5e1" font-size="12.5" font-weight="bold" text-anchor="middle">25×25 距离表 D[i,j]</text>
     <!-- 4x4 示意热力矩阵 -->
     <rect x="35" y="22" width="20" height="20" fill="#e2e8f0"/>
     <rect x="55" y="22" width="20" height="20" fill="#93c5fd"/>
@@ -83,7 +83,7 @@
 
   <!-- 左侧底部要点 -->
   <rect x="60" y="366" width="410" height="36" rx="6" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
-  <text x="265" y="389" fill="#cbd5e1" font-size="12.5" text-anchor="middle">一代犯困过敏药 TPSA 12.47 Å² (穿脑 95.7%) vs 二代 81.00 Å² (-COOH 阻断)</text>
+  <text x="265" y="389" fill="#cbd5e1" font-size="12" text-anchor="middle">一代过敏药 TPSA 12.47 Å² (模型预测 95.7%) vs 二代 81.00 Å² (-COOH 阻断)</text>
 
   <!-- 右侧视觉区：两大科学专有模型全参数微调仪表盘 -->
   <rect x="505" y="138" width="353" height="280" rx="14" fill="url(#panelBg)" stroke="#10b981" stroke-width="1.5"/>
@@ -104,7 +104,7 @@
   <line x1="527" y1="274" x2="836" y2="274" stroke="#334155" stroke-width="1"/>
 
   <!-- 下半：Meta 蛋白质模型 ESM-2 (7.51M) -->
-  <text x="527" y="298" fill="#f8fafc" font-size="13.5" font-weight="bold">2. 蛋白质模型 ESM-2 (751 万参数 · 20 氨基酸词表)</text>
+  <text x="527" y="298" fill="#f8fafc" font-size="13.5" font-weight="bold">2. 蛋白质模型 ESM-2 (751 万 · 33 词元含 20 标准氨基酸)</text>
   <text x="527" y="317" fill="#94a3b8" font-size="11.2">真实 GB1 四位点突变适应度（3,000 序列 · GPU 训 12 轮 15.0s）</text>
 
   <text x="527" y="338" fill="#cbd5e1" font-size="12">425 维氨基酸/二肽 + RF</text>
@@ -121,5 +121,5 @@
 
   <!-- 底部金句栏 -->
   <rect x="42" y="434" width="816" height="44" rx="10" fill="#1e293b" fill-opacity="0.88" stroke="#334155" stroke-width="1"/>
-  <text x="450" y="461" fill="#f8fafc" font-size="14.5" font-weight="bold" text-anchor="middle">「通用大模型读 Skill 当调度员，科学库洗数据捏三维坐标，几千万参数的专有模型几十秒训完——卡脖子的是外围物理几何计算」</text>
+  <text x="450" y="461" fill="#f8fafc" font-size="13" font-weight="bold" text-anchor="middle">「通用大模型读 Skill 当调度员，科学库洗数据捏三维坐标，几千万参数的专有小模型几十秒训完」</text>
 </svg>
