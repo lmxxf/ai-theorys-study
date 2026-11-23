@@ -123,8 +123,12 @@ GPT / Codex 系模型天生长着一座**“答辩墙（不粘锅本能：优化
 
 ---
 
-## 第五步：具体行业/工具细节的二级按需路由（保持本主干文件极简，细节按需查目录）
+## 第五步：具体行业/工具细节的二级按需路由（保持本主干文件极简，细节按需查子模块目录）
 
-本文件只保留通用的**核心调研、实验设计与反八股审稿思路**。当遇到具体学科工具、统计脚本或文档工程细节时，不要往本文件硬塞，直接按需检索本地已归档的 **556 个行业专科 Skill 总目录**：
-- **八大仓库 556 条行业 Skill 总索引**：`/home/lmxxf/work/ai-theorys-study/wechat/assets/379/repo-audit/skill_catalog.md`（及三分类总报告 `/home/lmxxf/work/ai-theorys-study/wechat/assets/379/八大科研Skill仓库三分类深度解剖报告.md`）；
-- **常见专科工具直达路径**（本地克隆位于 `/home/lmxxf/work/ai-theorys-study/wechat/assets/379/` 下）：① 统计功效与正态/异方差检验脚本：`scientific-agent-skills/skills/statistical-power/` 与 `statistical-analysis/`；② 多子图排版对齐与文字碰撞像素级几何审计：`nature-skills/skills/nature-figure/scripts/audit_panel_alignment.py`；③ 算术与统计量 `GRIM / statcheck` 取证重算：`Anti-Autoresearch/tools/`；④ 生信/化学/物理/量子计算 125 个科学库调用速查：`scientific-agent-skills/skills/<package_name>/SKILL.md`。
+本文件只保留通用的**核心调研、实验设计与反八股审稿思路**。同级目录下已将八大高星科研 Skill 仓库挂载为 **Git Submodule**（若在新机器上子模块目录为空，按需执行 `git submodule update --init --depth 1 wechat/assets/379/<repo_name>` 即可拉取对应快照）。当遇到具体学科工具、统计脚本或文档工程细节时，直接按以下**相对路径**（相对于本 `SKILL.md` 所在的 `wechat/assets/379/academic-research/` 目录）按需检索：
+- **八大仓库 556 条行业 Skill 总索引与三分类源码审计总报告**：[`../repo-audit/skill_catalog.md`](../repo-audit/skill_catalog.md) 与 [`../八大科研Skill仓库三分类深度解剖报告.md`](../八大科研Skill仓库三分类深度解剖报告.md)；
+- **常见专科工具直达相对路径**：
+  1. **统计功效、样本量计算与正态/异方差检验脚本**：`../scientific-agent-skills/skills/statistical-power/` 与 `../scientific-agent-skills/skills/statistical-analysis/`；
+  2. **多子图排版对齐与文字碰撞像素级几何审计**：`../nature-skills/skills/nature-figure/scripts/audit_panel_alignment.py` 与 `audit_figure_collisions.py`；
+  3. **论文表格算术一致性与统计量 `GRIM / statcheck` 取证重算**：`../Anti-Autoresearch/tools/`；
+  4. **生信、化学、物理、材料与量子计算 125 个科学库调用速查**：`../scientific-agent-skills/skills/<package_name>/SKILL.md`（如 `biopython`、`scanpy`、`rdkit`、`pymatgen`、`pybamm`、`qiskit`）。
