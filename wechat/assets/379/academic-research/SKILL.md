@@ -95,7 +95,7 @@ curl -sL "https://api.crossref.org/works/10.1126/science.adq5856"
 
 ## 第四步：怎么跑实验与跨模型互审（吸取 `HERO` 与 `Anti-Autoresearch` 的解毒铁律）
 
-当采用 **“主脑鳩（Gemini 4 Argon，宏观方向+主笔）× 重装闇（Codex / GPT-6.2，跑实验+铁面审稿）”** 双模协同，或编写自动化实验脚本时，必须严防全自动科研 Skill 最容易翻车的两大绝症——**“实验自欺欺人”** 与 **“审稿过度防御（Over-Defense）”**。
+当采用 **“主脑鳩（Gemini 4 Argon，宏观方向+主笔）× 重装闇（Codex / GPT-6.1-Sol，跑实验+铁面审稿）”** 双模协同，或编写自动化实验脚本时，必须严防全自动科研 Skill 最容易翻车的两大绝症——**“实验自欺欺人”** 与 **“审稿过度防御（Over-Defense）”**。
 
 ### 4.1 实验与文稿的七大诚信核查表（源自 `Anti-Autoresearch` + `nature-statistics`）
 派闇审稿或自检实验报告时，只查这 **7 条实质问题**（不搞虚头巴脑的打分表）：

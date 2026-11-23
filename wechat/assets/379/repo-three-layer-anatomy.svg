@@ -11,10 +11,10 @@
   <text x="39" y="80" fill="#1e293b" font-size="11.5" font-weight="bold">给 AI / 人读的 Markdown</text>
 
   <rect x="195" y="68" width="14" height="14" rx="3" fill="#10b981"/>
-  <text x="214" y="80" fill="#1e293b" font-size="11.5" font-weight="bold">本地候选运行代码 (.py/.mjs等)</text>
+  <text x="214" y="80" fill="#1e293b" font-size="11.5" font-weight="bold">本地候选运行代码</text>
 
-  <rect x="395" y="68" width="14" height="14" rx="3" fill="#94a3b8"/>
-  <text x="414" y="80" fill="#1e293b" font-size="11.5" font-weight="bold">测试 / 例程 / 自检 / 宣传片</text>
+  <rect x="345" y="68" width="14" height="14" rx="3" fill="#94a3b8"/>
+  <text x="364" y="80" fill="#1e293b" font-size="11.5" font-weight="bold">测试 / 例程 / 自检 / 宣传片</text>
 
   <!-- Axis Scale: x=150 to x=530 -> 380px = 35万行 (1万行 ≈ 10.85px) -->
   <line x1="150" y1="96" x2="530" y2="96" stroke="#cbd5e1" stroke-width="1"/>
@@ -35,36 +35,39 @@
 
   <!-- Repo 1: K-Dense-AI (58.1k★) -->
   <!-- MD: 32.97万行 -> 358px; Code: 16.77万运行(182px) + 8.14万测试例程(88px) = 24.91万(270px) -->
-  <text x="20" y="164" fill="#0f172a" font-size="12.5" font-weight="bold">1. K-Dense-AI</text>
+  <text x="20" y="164" fill="#0f172a" font-size="12.5" font-weight="bold">1. 榜一 K-Dense</text>
   <text x="20" y="180" fill="#64748b" font-size="10.5">5.81万星 · 177技能</text>
   <rect x="150" y="150" width="358" height="16" rx="3" fill="#3b82f6"/>
-  <text x="502" y="162" text-anchor="end" fill="#ffffff" font-size="10.5" font-weight="bold">33.0万行 MD (177个SKILL + 177篇导购页)</text>
+  <text x="500" y="162" text-anchor="end" fill="#ffffff" font-size="10.5" font-weight="bold">33.0万行 MD (177个SKILL + 177篇导购页)</text>
   <rect x="150" y="170" width="182" height="16" rx="3" fill="#10b981"/>
+  <text x="241" y="182" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">16.8万行候选运行</text>
   <rect x="332" y="170" width="88" height="16" rx="3" fill="#94a3b8"/>
-  <text x="425" y="182" fill="#047857" font-size="10.5" font-weight="bold">16.8万运行 + 8.1万测试/例程</text>
+  <text x="425" y="182" fill="#047857" font-size="10.5" font-weight="bold">+ 8.1万测试/例程</text>
   <text x="150" y="199" fill="#475569" font-size="10.5">真算统计功效/生信包装/18学术接口；177篇模板导购页引流BYOK</text>
 
   <!-- Repo 2: Imbad0202 (58.0k★) -->
   <!-- MD: 20.26万行 -> 220px; Code: 8.78万运行(95px) + 5.59万check自检(61px) + 14.88万测试(161px) = 29.25万(317px) -->
-  <text x="20" y="238" fill="#0f172a" font-size="12.5" font-weight="bold">2. Imbad0202</text>
+  <text x="20" y="238" fill="#0f172a" font-size="12.5" font-weight="bold">2. 榜二 Imbad0202</text>
   <text x="20" y="254" fill="#64748b" font-size="10.5">5.80万星 · 32角色</text>
   <rect x="150" y="224" width="220" height="16" rx="3" fill="#3b82f6"/>
   <text x="376" y="236" fill="#1d4ed8" font-size="10.5" font-weight="bold">20.3万行 MD (材料护照/论证图)</text>
   <rect x="150" y="244" width="95" height="16" rx="3" fill="#10b981"/>
+  <text x="197" y="256" text-anchor="middle" fill="#ffffff" font-size="9.5" font-weight="bold">8.8万运行</text>
   <rect x="245" y="244" width="222" height="16" rx="3" fill="#94a3b8"/>
-  <text x="472" y="256" fill="#047857" font-size="10.5" font-weight="bold">29.2万行代码</text>
-  <text x="150" y="273" fill="#475569" font-size="10.5">含SQLite引文核验/PRISMA综述筛查/PDF预检 + 20.5万行测试与check自检</text>
+  <text x="356" y="256" text-anchor="middle" fill="#ffffff" font-size="9.5" font-weight="bold">20.5万测试与check自检</text>
+  <text x="472" y="256" fill="#047857" font-size="10.5" font-weight="bold">29.2万行</text>
+  <text x="150" y="273" fill="#475569" font-size="10.5">含SQLite引文核验/PRISMA综述筛查/PDF预检 + 20.5万行测试与自检</text>
 
   <!-- Repo 3: nature-skills (54.5k★) -->
   <!-- MD: 4.13万行 -> 45px; Code: 4.18万运行(45px) + 1.50万测试(16px) = 5.69万(61px) -->
-  <text x="20" y="312" fill="#0f172a" font-size="12.5" font-weight="bold">3. nature-skills</text>
+  <text x="20" y="312" fill="#0f172a" font-size="12.5" font-weight="bold">3. 榜三 nature</text>
   <text x="20" y="328" fill="#64748b" font-size="10.5">5.45万星 · 24技能</text>
   <rect x="150" y="298" width="45" height="16" rx="3" fill="#3b82f6"/>
   <text x="201" y="310" fill="#1d4ed8" font-size="10.5" font-weight="bold">4.1万行 MD (含0代码的X光精读与统计审查合同)</text>
   <rect x="150" y="318" width="45" height="16" rx="3" fill="#10b981"/>
   <rect x="195" y="318" width="16" height="16" rx="3" fill="#94a3b8"/>
   <text x="217" y="330" fill="#047857" font-size="10.5" font-weight="bold">4.2万运行 + 1.5万测试 (截图转PPT/排版碰撞/下知网)</text>
-  <text x="150" y="347" fill="#475569" font-size="10.5">README第一章直球卖号与知识星球；claim-to-source仅绑Crossref候选未验全文</text>
+  <text x="150" y="347" fill="#475569" font-size="10.5">README第一章卖号与知识星球；claim-to-source仅绑候选未验全文</text>
 
   <!-- Section 2 Header: 三个 1.5 万星全自动挂机派 -->
   <rect x="20" y="366" width="520" height="22" rx="4" fill="#fef2f2"/>
@@ -78,7 +81,7 @@
   <text x="329" y="408" fill="#1d4ed8" font-size="10.5" font-weight="bold">16.0万行 MD (87主技能+镜像共197处)</text>
   <rect x="150" y="416" width="48" height="16" rx="3" fill="#10b981"/>
   <rect x="198" y="416" width="22" height="16" rx="3" fill="#94a3b8"/>
-  <text x="226" y="428" fill="#047857" font-size="10.5" font-weight="bold">4.4万行运行 (11个MCP服务目录+GPU队列)</text>
+  <text x="226" y="428" fill="#047857" font-size="10.5" font-weight="bold">4.4万运行 + 2.1万测试 (11个MCP目录+GPU队列)</text>
   <text x="150" y="445" fill="#b91c1c" font-size="10.5">主打双AI挂机互审4轮，同一作者又写出HERO与Anti两个配套解毒仓</text>
 
   <!-- Repo 5: AutoResearchClaw (14.9k★) -->
@@ -90,7 +93,7 @@
   <rect x="150" y="488" width="89" height="16" rx="3" fill="#10b981"/>
   <rect x="239" y="488" width="53" height="16" rx="3" fill="#94a3b8"/>
   <text x="298" y="500" fill="#047857" font-size="10.5" font-weight="bold">8.2万运行 + 4.9万测试/例程 (23阶段引擎)</text>
-  <text x="150" y="517" fill="#b91c1c" font-size="10.5">源码揭秘：ExperimentConfig类默认simulated回退，阶段15失败上限可PROCEED</text>
+  <text x="150" y="517" fill="#b91c1c" font-size="10.5">源码：ExperimentConfig类默认simulated回退，阶段15上限可PROCEED</text>
 
   <!-- Repo 6: Orchestra (14.7k★) -->
   <!-- MD: 18.87万行 -> 205px; Code: 0.60万行(7px) -->
@@ -100,7 +103,7 @@
   <text x="361" y="552" fill="#1d4ed8" font-size="10.5" font-weight="bold">18.9万行 MD (79条路由有17条缺目录)</text>
   <rect x="150" y="560" width="3" height="16" rx="1" fill="#10b981"/>
   <rect x="153" y="560" width="5" height="16" rx="1" fill="#94a3b8"/>
-  <text x="165" y="572" fill="#b91c1c" font-size="10.5" font-weight="bold">仅0.6万行代码 (2608行npm安装器 + 1806行Remotion宣传片 + 66行检查)</text>
+  <text x="165" y="572" fill="#b91c1c" font-size="10.5" font-weight="bold">仅0.6万行代码 (2608行npm安装器 + 1806行宣传片 + 1625行演示/脚本)</text>
 
   <!-- Bottom Takeaway Box -->
   <rect x="20" y="592" width="520" height="54" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
