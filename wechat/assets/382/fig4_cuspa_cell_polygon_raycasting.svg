@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="1390" viewBox="0 0 640 1390" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif"><rect width="640" height="1390" fill="#ffffff"/>
+<text x="30" y="43" font-size="27" fill="#263546" font-weight="bold">cuSpa：把基因点分配到细胞</text>
+<text x="30" y="75" font-size="18" fill="#263546" font-weight="normal">CUDA → HIP：GB10 与 RX 9070 XT 真机对账</text>
+<text x="30" y="113" font-size="22" fill="#263546" font-weight="bold">① 网格索引：先找少量候选细胞</text>
+<text x="30" y="143" font-size="16" fill="#263546" font-weight="normal">合成八边形与转录点：演示计算，不冒充组织样本</text>
+<line x1="40" y1="170" x2="40" y2="560" stroke="#c9d2dc" stroke-width="1.4" stroke-dasharray=""/>
+<line x1="170" y1="170" x2="170" y2="560" stroke="#c9d2dc" stroke-width="1.4" stroke-dasharray=""/>
+<line x1="300" y1="170" x2="300" y2="560" stroke="#c9d2dc" stroke-width="1.4" stroke-dasharray=""/>
+<line x1="430" y1="170" x2="430" y2="560" stroke="#c9d2dc" stroke-width="1.4" stroke-dasharray=""/>
+<line x1="560" y1="170" x2="560" y2="560" stroke="#c9d2dc" stroke-width="1.4" stroke-dasharray=""/>
+<line x1="40" y1="170" x2="560" y2="170" stroke="#c9d2dc" stroke-width="1.4" stroke-dasharray=""/>
+<line x1="40" y1="300" x2="560" y2="300" stroke="#c9d2dc" stroke-width="1.4" stroke-dasharray=""/>
+<line x1="40" y1="430" x2="560" y2="430" stroke="#c9d2dc" stroke-width="1.4" stroke-dasharray=""/>
+<line x1="40" y1="560" x2="560" y2="560" stroke="#c9d2dc" stroke-width="1.4" stroke-dasharray=""/>
+<polygon points="147.23,235.00 136.81,266.81 105.00,277.54 71.21,268.79 52.94,235.00 70.36,200.36 105.00,185.79 135.21,204.79 147.23,235.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<polygon points="288.70,235.00 264.54,264.54 235.00,290.27 200.38,269.62 184.28,235.00 196.14,196.14 235.00,182.07 269.17,200.83 288.70,235.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<polygon points="420.67,235.00 395.19,265.19 365.00,289.75 334.23,265.77 322.18,235.00 331.52,201.52 365.00,183.84 404.25,195.75 420.67,235.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<polygon points="549.72,235.00 525.48,265.48 495.00,290.80 461.43,268.57 449.64,235.00 463.55,203.55 495.00,185.61 525.31,204.69 549.72,235.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<polygon points="155.40,365.00 142.91,402.91 105.00,420.79 73.34,396.66 49.12,365.00 72.49,332.49 105.00,322.51 142.81,327.19 155.40,365.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<polygon points="277.78,365.00 271.21,401.21 235.00,409.11 199.38,400.62 188.57,365.00 199.06,329.06 235.00,313.73 267.93,332.07 277.78,365.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<polygon points="408.04,365.00 400.47,400.47 365.00,417.39 331.99,398.01 311.43,365.00 329.28,329.28 365.00,317.42 398.59,331.41 408.04,365.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<polygon points="549.73,365.00 532.46,402.46 495.00,406.87 461.36,398.64 450.25,365.00 459.08,329.08 495.00,322.91 529.50,330.50 549.73,365.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<polygon points="149.71,495.00 138.30,528.30 105.00,548.10 69.02,530.98 50.37,495.00 72.13,462.13 105.00,453.23 135.69,464.31 149.71,495.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<polygon points="282.99,495.00 272.61,532.61 235.00,549.49 198.70,531.30 190.40,495.00 204.29,464.29 235.00,441.58 265.32,464.68 282.99,495.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<polygon points="416.82,495.00 398.22,528.22 365.00,536.89 325.58,534.42 320.51,495.00 328.48,458.48 365.00,451.67 398.54,461.46 416.82,495.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<polygon points="548.62,495.00 527.27,527.27 495.00,546.21 462.73,527.27 442.89,495.00 463.15,463.15 495.00,450.21 531.51,458.49 548.62,495.00" fill="#e8f5f3" stroke="#217b74" stroke-width="1.8"/>
+<circle cx="167.96" cy="420.84" r="2.8" fill="#dd5361"/>
+<circle cx="287.68" cy="287.53" r="2.8" fill="#dd5361"/>
+<circle cx="309.70" cy="382.45" r="2.8" fill="#dd5361"/>
+<circle cx="289.82" cy="476.31" r="2.8" fill="#dd5361"/>
+<circle cx="350.91" cy="378.42" r="2.8" fill="#dd5361"/>
+<circle cx="403.53" cy="260.99" r="2.8" fill="#dd5361"/>
+<circle cx="325.82" cy="468.54" r="2.8" fill="#dd5361"/>
+<circle cx="534.84" cy="499.85" r="2.8" fill="#3478cc"/>
+<circle cx="179.98" cy="192.88" r="2.8" fill="#dd5361"/>
+<circle cx="126.50" cy="286.66" r="2.8" fill="#dd5361"/>
+<circle cx="233.51" cy="329.86" r="2.8" fill="#dd5361"/>
+<circle cx="470.90" cy="382.78" r="2.8" fill="#dd5361"/>
+<circle cx="143.49" cy="314.66" r="2.8" fill="#3478cc"/>
+<circle cx="365.44" cy="259.49" r="2.8" fill="#3478cc"/>
+<circle cx="343.72" cy="342.57" r="2.8" fill="#3478cc"/>
+<circle cx="504.30" cy="426.35" r="2.8" fill="#dd5361"/>
+<circle cx="557.37" cy="247.39" r="2.8" fill="#dd5361"/>
+<circle cx="336.18" cy="279.41" r="2.8" fill="#3478cc"/>
+<circle cx="492.92" cy="241.30" r="2.8" fill="#3478cc"/>
+<circle cx="406.50" cy="296.68" r="2.8" fill="#dd5361"/>
+<circle cx="141.46" cy="285.92" r="2.8" fill="#dd5361"/>
+<circle cx="545.03" cy="444.55" r="2.8" fill="#dd5361"/>
+<circle cx="54.76" cy="352.75" r="2.8" fill="#3478cc"/>
+<circle cx="305.23" cy="425.86" r="2.8" fill="#3478cc"/>
+<circle cx="193.11" cy="253.10" r="2.8" fill="#dd5361"/>
+<circle cx="132.50" cy="331.37" r="2.8" fill="#dd5361"/>
+<circle cx="440.51" cy="216.23" r="2.8" fill="#dd5361"/>
+<circle cx="151.76" cy="310.23" r="2.8" fill="#dd5361"/>
+<circle cx="303.74" cy="212.30" r="2.8" fill="#dd5361"/>
+<circle cx="524.96" cy="315.59" r="2.8" fill="#dd5361"/>
+<circle cx="90.46" cy="538.02" r="2.8" fill="#dd5361"/>
+<circle cx="95.56" cy="344.37" r="2.8" fill="#3478cc"/>
+<circle cx="250.01" cy="491.35" r="2.8" fill="#3478cc"/>
+<circle cx="208.30" cy="183.97" r="2.8" fill="#dd5361"/>
+<circle cx="490.13" cy="280.87" r="2.8" fill="#dd5361"/>
+<circle cx="362.08" cy="425.36" r="2.8" fill="#dd5361"/>
+<circle cx="493.08" cy="318.35" r="2.8" fill="#3478cc"/>
+<circle cx="283.12" cy="283.23" r="2.8" fill="#dd5361"/>
+<circle cx="189.61" cy="211.21" r="2.8" fill="#dd5361"/>
+<circle cx="342.63" cy="424.39" r="2.8" fill="#dd5361"/>
+<circle cx="492.47" cy="421.67" r="2.8" fill="#dd5361"/>
+<circle cx="549.20" cy="444.65" r="2.8" fill="#3478cc"/>
+<circle cx="467.48" cy="511.45" r="2.8" fill="#dd5361"/>
+<circle cx="261.99" cy="474.80" r="2.8" fill="#3478cc"/>
+<circle cx="470.41" cy="237.12" r="2.8" fill="#dd5361"/>
+<circle cx="91.33" cy="268.80" r="2.8" fill="#dd5361"/>
+<circle cx="187.43" cy="436.74" r="2.8" fill="#dd5361"/>
+<circle cx="175.21" cy="220.56" r="2.8" fill="#3478cc"/>
+<circle cx="318.62" cy="368.52" r="2.8" fill="#3478cc"/>
+<circle cx="288.47" cy="249.00" r="2.8" fill="#3478cc"/>
+<circle cx="196.69" cy="478.59" r="2.8" fill="#dd5361"/>
+<circle cx="257.40" cy="513.13" r="2.8" fill="#3478cc"/>
+<circle cx="397.70" cy="314.64" r="2.8" fill="#3478cc"/>
+<circle cx="305.30" cy="322.20" r="2.8" fill="#3478cc"/>
+<circle cx="500.62" cy="339.62" r="2.8" fill="#3478cc"/>
+<circle cx="101.13" cy="337.25" r="2.8" fill="#dd5361"/>
+<circle cx="435.97" cy="341.07" r="2.8" fill="#3478cc"/>
+<circle cx="215.13" cy="213.94" r="2.8" fill="#3478cc"/>
+<circle cx="428.46" cy="553.74" r="2.8" fill="#dd5361"/>
+<circle cx="411.94" cy="251.54" r="2.8" fill="#dd5361"/>
+<circle cx="109.19" cy="342.98" r="2.8" fill="#dd5361"/>
+<circle cx="233.55" cy="258.73" r="2.8" fill="#dd5361"/>
+<circle cx="237.18" cy="470.73" r="2.8" fill="#3478cc"/>
+<circle cx="85.12" cy="208.35" r="2.8" fill="#3478cc"/>
+<circle cx="352.76" cy="371.09" r="2.8" fill="#3478cc"/>
+<circle cx="486.50" cy="549.01" r="2.8" fill="#dd5361"/>
+<circle cx="554.12" cy="263.06" r="2.8" fill="#3478cc"/>
+<circle cx="515.53" cy="326.06" r="2.8" fill="#3478cc"/>
+<circle cx="395.07" cy="212.49" r="2.8" fill="#dd5361"/>
+<circle cx="360.08" cy="379.62" r="2.8" fill="#dd5361"/>
+<circle cx="266.79" cy="203.76" r="2.8" fill="#dd5361"/>
+<circle cx="517.72" cy="339.51" r="2.8" fill="#3478cc"/>
+<circle cx="300.17" cy="322.72" r="2.8" fill="#dd5361"/>
+<circle cx="357.83" cy="493.67" r="2.8" fill="#3478cc"/>
+<circle cx="261.23" cy="360.93" r="2.8" fill="#dd5361"/>
+<circle cx="357.00" cy="231.09" r="2.8" fill="#3478cc"/>
+<circle cx="175.66" cy="429.06" r="2.8" fill="#dd5361"/>
+<circle cx="425.93" cy="442.73" r="2.8" fill="#dd5361"/>
+<circle cx="323.46" cy="181.85" r="2.8" fill="#dd5361"/>
+<circle cx="267.22" cy="382.77" r="2.8" fill="#dd5361"/>
+<circle cx="333.14" cy="452.60" r="2.8" fill="#3478cc"/>
+<circle cx="428.32" cy="178.86" r="2.8" fill="#dd5361"/>
+<circle cx="403.68" cy="463.91" r="2.8" fill="#dd5361"/>
+<circle cx="183.30" cy="455.91" r="2.8" fill="#dd5361"/>
+<circle cx="172.03" cy="479.72" r="2.8" fill="#dd5361"/>
+<circle cx="345.36" cy="557.93" r="2.8" fill="#3478cc"/>
+<circle cx="306.25" cy="217.28" r="2.8" fill="#dd5361"/>
+<circle cx="273.26" cy="427.51" r="2.8" fill="#dd5361"/>
+<circle cx="472.21" cy="404.74" r="2.8" fill="#3478cc"/>
+<circle cx="266.10" cy="362.27" r="2.8" fill="#3478cc"/>
+<circle cx="353.28" cy="212.14" r="2.8" fill="#3478cc"/>
+<circle cx="131.84" cy="541.68" r="2.8" fill="#3478cc"/>
+<circle cx="236.71" cy="442.40" r="2.8" fill="#dd5361"/>
+<circle cx="429.66" cy="552.56" r="2.8" fill="#dd5361"/>
+<circle cx="452.63" cy="372.01" r="2.8" fill="#3478cc"/>
+<circle cx="422.15" cy="491.66" r="2.8" fill="#dd5361"/>
+<circle cx="208.87" cy="213.24" r="2.8" fill="#dd5361"/>
+<circle cx="464.92" cy="511.09" r="2.8" fill="#dd5361"/>
+<circle cx="299.04" cy="482.32" r="2.8" fill="#3478cc"/>
+<circle cx="377.80" cy="401.88" r="2.8" fill="#3478cc"/>
+<circle cx="470.89" cy="328.46" r="2.8" fill="#dd5361"/>
+<circle cx="396.81" cy="454.86" r="2.8" fill="#3478cc"/>
+<circle cx="533.10" cy="330.04" r="2.8" fill="#3478cc"/>
+<circle cx="286.72" cy="553.69" r="2.8" fill="#dd5361"/>
+<circle cx="356.19" cy="496.06" r="2.8" fill="#3478cc"/>
+<circle cx="349.72" cy="501.33" r="2.8" fill="#dd5361"/>
+<circle cx="71.79" cy="322.35" r="2.8" fill="#dd5361"/>
+<circle cx="430.84" cy="453.84" r="2.8" fill="#dd5361"/>
+<circle cx="62.96" cy="401.27" r="2.8" fill="#3478cc"/>
+<circle cx="151.46" cy="315.90" r="2.8" fill="#3478cc"/>
+<circle cx="496.01" cy="180.13" r="2.8" fill="#dd5361"/>
+<circle cx="94.29" cy="420.03" r="2.8" fill="#dd5361"/>
+<circle cx="267.00" cy="459.43" r="2.8" fill="#3478cc"/>
+<circle cx="538.83" cy="505.16" r="2.8" fill="#dd5361"/>
+<circle cx="243.05" cy="345.01" r="2.8" fill="#dd5361"/>
+<circle cx="330.63" cy="273.97" r="2.8" fill="#3478cc"/>
+<circle cx="433.31" cy="306.32" r="2.8" fill="#dd5361"/>
+<circle cx="482.08" cy="516.58" r="2.8" fill="#3478cc"/>
+<circle cx="188.64" cy="426.38" r="2.8" fill="#dd5361"/>
+<circle cx="102.59" cy="476.01" r="2.8" fill="#3478cc"/>
+<line x1="105" y1="235" x2="164.8" y2="235" stroke="#e18725" stroke-width="1.4" stroke-dasharray="5 4"/>
+<circle cx="105" cy="235" r="5" fill="#e18725"/>
+<text x="30" y="594" font-size="22" fill="#263546" font-weight="bold">② 射线法：奇数次穿边界＝点在细胞内</text>
+<text x="30" y="624" font-size="18" fill="#263546" font-weight="normal">③ (细胞ID, 基因ID) 排序 → 游程计数 → CSR</text>
+<text x="30" y="653" font-size="16" fill="#8b4b19" font-weight="normal">源码纠偏：atomicAdd 用于网格计数，非基因聚合</text>
+<text x="30" y="696" font-size="20" fill="#263546" font-weight="bold">50,000 细胞 × 2,000,000 点 × 500 基因</text>
+<text x="30" y="735" font-size="18" fill="#263546" font-weight="normal">索引 + 查询 + 稀疏计数（稳态中位数）</text>
+<text x="30" y="773" font-size="18" fill="#263546" font-weight="normal">CPU 单线程编译代码</text>
+<rect x="30" y="782" width="420.00" height="18" rx="3" fill="#788897"/>
+<text x="465" y="798" font-size="18" fill="#263546" font-weight="normal">272.27 ms</text>
+<text x="30" y="838" font-size="18" fill="#263546" font-weight="normal">NVIDIA GB10 · Python 原入口</text>
+<rect x="30" y="847" width="14.86" height="18" rx="3" fill="#227eaf"/>
+<text x="465" y="863" font-size="18" fill="#263546" font-weight="normal">9.64 ms</text>
+<text x="30" y="903" font-size="18" fill="#263546" font-weight="normal">AMD RX 9070 XT · HIP C++</text>
+<rect x="30" y="912" width="9.33" height="18" rx="3" fill="#b84040"/>
+<text x="465" y="928" font-size="18" fill="#263546" font-weight="normal">6.05 ms</text>
+<text x="30" y="970" font-size="21" fill="#263546" font-weight="bold">同源 C++ 入口：计时口径再对齐</text>
+<text x="30" y="1002" font-size="18" fill="#263546" font-weight="normal">GB10 5.76 ms；RX 9070 XT 6.05 ms</text>
+<text x="30" y="1035" font-size="17" fill="#263546" font-weight="normal">AMD 各阶段：索引 / 查询 / CSR 聚合</text>
+<text x="30" y="1066" font-size="20" fill="#a42e34" font-weight="bold">2.39 / 0.92 / 3.77 ms</text>
+<text x="30" y="1100" font-size="17" fill="#263546" font-weight="normal">AMD 传入 11.61 ms；回传 1.52 ms（另计）</text>
+<text x="30" y="1137" font-size="20" fill="#136d58" font-weight="bold">200 万点归属 + 全部 CSR：逐字节零差异</text>
+<text x="30" y="1168" font-size="17" fill="#263546" font-weight="normal">四个输出数组的 SHA256 与 GB10 全部相同</text>
+<text x="30" y="1207" font-size="16" fill="#263546" font-weight="normal">float64；输入为同一份二进制；种子 20261123</text>
+<text x="30" y="1237" font-size="16" fill="#263546" font-weight="normal">驻留稳态墙钟中位数；传输、冷启动分别记录</text>
+<text x="30" y="1267" font-size="16" fill="#263546" font-weight="normal">Python / C++ 入口有开销差异；同源入口单列</text>
+<text x="30" y="1307" font-size="19" fill="#263546" font-weight="bold">已真机移植：通用算术 + HIP / hipCUB</text>
+<text x="30" y="1337" font-size="16" fill="#263546" font-weight="normal">未用 Tensor Core；不将此结果外推为所有科学库</text>
+<text x="30" y="1367" font-size="15" fill="#667789" font-weight="normal">原版 cuspa commit 2df9fa78 · 详细原始数组见 results/</text>
+</svg>
