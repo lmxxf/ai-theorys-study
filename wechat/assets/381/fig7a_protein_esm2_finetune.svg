@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="250" viewBox="0 0 640 250" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<rect width="640" height="250" fill="#ffffff"/>
+<text x="24" y="34" font-size="19" font-weight="bold" fill="#0f172a">ESM-2（751万参数）微调盲测：300 条留出序列误差对比</text>
+<text x="24" y="58" font-size="12.5" fill="#475569">预测误差 RMSE 越短越准；GPU 全参数微调 12 轮仅耗时 15.02 秒</text>
+<text x="24" y="92" font-size="13" font-weight="normal" fill="#334155">全猜均值基线</text>
+<rect x="184" y="78" width="215.0" height="18" rx="4" fill="#94a3b8"/>
+<text x="409.0" y="92" font-size="12.5" font-weight="normal" fill="#334155">1.244</text>
+<text x="24" y="126" font-size="13" font-weight="normal" fill="#334155">425维特征 + 岭回归</text>
+<rect x="184" y="112" width="161.0" height="18" rx="4" fill="#64748b"/>
+<text x="355.0" y="126" font-size="12.5" font-weight="normal" fill="#334155">0.931  (Spearman = 0.743)</text>
+<text x="24" y="160" font-size="13" font-weight="normal" fill="#334155">425维特征 + 随机森林</text>
+<rect x="184" y="146" width="150.5" height="18" rx="4" fill="#3b82f6"/>
+<text x="344.5" y="160" font-size="12.5" font-weight="normal" fill="#334155">0.870  (Spearman = 0.799)</text>
+<text x="24" y="194" font-size="13" font-weight="bold" fill="#0f172a">ESM-2 全参数微调</text>
+<rect x="184" y="180" width="93.0" height="18" rx="4" fill="#10b981"/>
+<text x="287.0" y="194" font-size="12.5" font-weight="bold" fill="#0f172a">0.538  (Spearman = 0.898, R² = 0.813)</text>
+<text x="24" y="234" font-size="11.5" fill="#64748b">数据源：FLIP GB1 真实湿实验集（2400/300/300）与 Meta ESM-2 微调结果（排版经 Gemini 润色）</text>
+</svg>
