@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
 <rect width="640" height="800" fill="#ffffff"/>
 <text x="24" y="36" font-size="19.5" font-weight="bold" fill="#0f172a">RDKit 函数 2：查表算二维理化常数（输入 str → 输出 float[3]）</text>
-<text x="24" y="60" font-size="13" fill="#475569">内部计算：不用神经网络，遍历分子图找含氧/含氮亲水挂件查常数表做加法，秒判药片犯不犯困</text>
+<text x="24" y="60" font-size="13" fill="#475569">内部计算：不用神经网络，遍历分子图找含氧/氮极性部位查常数表做加法，输出 3 个理化描述符</text>
 <rect x="24" y="78" width="592" height="320" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
 <text x="38" y="106" font-size="16" font-weight="bold" fill="#0f172a">样本 A：苯海拉明（第一代抗过敏药：吃完易犯困）</text>
 <rect x="38" y="116" width="564" height="30" rx="5" fill="#f8fafc"/>
@@ -93,7 +93,7 @@ Q 240.1 45.7, 241.6 45.7
 </svg>
 
 <line x1="298.6" y1="191.7" x2="262.6" y2="165" stroke="#dc2626" stroke-width="1.4"/>
-<text x="42" y="163" font-size="12.5" font-weight="bold" fill="#dc2626">全身仅 1 个含氧亲水挂件（其余全是亲油碳链与苯环）</text>
+<text x="42" y="163" font-size="12.5" font-weight="bold" fill="#dc2626">仅中间 1 氧 (9.23 Å²) + 左端 1 氮 (3.24 Å²)，主体全为亲油碳链/苯环</text>
 <rect x="38" y="344" width="564" height="42" rx="6" fill="#fff7ed" stroke="#fed7aa" stroke-width="1"/>
 <text x="48" y="370" font-size="13" font-weight="bold" fill="#9a3412">【输出 Output】float[3] = [MW: 255.36, LogP: 3.35, TPSA: 12.47] → 亲水面积小，易进脑</text>
 <rect x="24" y="416" width="592" height="340" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
