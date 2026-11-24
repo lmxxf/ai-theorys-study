@@ -1,1 +1,192 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="1600" viewBox="0 0 640 1600" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif"><rect width="640" height="1600" fill="#ffffff"/><text x="24" y="40" font-size="25" fill="#1e293b">蛋白质专有模型：ESM-2 真机微调</text><text x="24" y="76" font-size="19" fill="#1e293b">GB1 四位点组合突变 → 实验结合适应度</text><text x="24" y="117" font-size="22" fill="#1e293b">① 科学库先处理序列，再交给模型</text><text x="24" y="154" font-size="17" fill="#1e293b">Biopython：分子量 / 等电点 / 芳香性 / 不稳定指数</text><text x="24" y="185" font-size="17" fill="#1e293b">GRAVY亲疏水指数；仅接受20种标准氨基酸。</text><text x="24" y="223" font-size="16" fill="#1e293b">固定3000条真实实验序列；2400训练 / 300验证 / 300测试</text><text x="24" y="267" font-size="22" fill="#1e293b">② 不是通用聊天词表，而是氨基酸词表</text><text x="24" y="304" font-size="19" fill="#2563eb">A C D E F G H I K L M N P Q R S T V W Y</text><text x="24" y="341" font-size="18" fill="#1e293b">33词表 / 6层 / 隐藏320 / 20头 / 7.51M参数</text><text x="24" y="377" font-size="17" fill="#1e293b">RoPE旋转位置编码；双向注意力 + 新建回归头。</text><text x="24" y="413" font-size="16" fill="#1e293b">56AA完整GB1域；265AA原始序列的恒定融合尾巴裁掉。</text><text x="24" y="457" font-size="22" fill="#1e293b">③ 同一份测试卷：误差越低越好</text><text x="24" y="493" font-size="18" fill="#1e293b">常数基线</text><rect x="24" y="503" width="400.0" height="22" rx="4" fill="#94a3b8"/><text x="445" y="521" font-size="17" fill="#1e293b">RMSE 1.244</text><text x="24" y="565" font-size="18" fill="#1e293b">传统特征 + 随机森林</text><rect x="24" y="575" width="279.9651176666118" height="22" rx="4" fill="#94a3b8"/><text x="445" y="593" font-size="17" fill="#1e293b">RMSE 0.870</text><text x="24" y="637" font-size="18" fill="#1e293b">传统特征 + 岭回归</text><rect x="24" y="647" width="299.5468311198434" height="22" rx="4" fill="#94a3b8"/><text x="445" y="665" font-size="17" fill="#1e293b">RMSE 0.931</text><text x="24" y="709" font-size="18" fill="#1e293b">ESM-2 全参数微调</text><rect x="24" y="719" width="173.07764389539724" height="22" rx="4" fill="#2563eb"/><text x="445" y="737" font-size="17" fill="#1e293b">RMSE 0.538</text><text x="24" y="805" font-size="19" fill="#1e293b">ESM：Spearman 0.898 / R² 0.813</text><text x="24" y="844" font-size="18" fill="#1e293b">12轮训练 15.0秒；验证集选第11轮。</text><text x="24" y="891" font-size="22" fill="#1e293b">④ 单点突变扫描：模型认为哪里变好？</text><text x="24" y="927" font-size="17" fill="#1e293b">每格 = 预测突变体适应度 − 预测野生型适应度</text><text x="95" y="966" font-size="15" fill="#1e293b">A</text><text x="119" y="966" font-size="15" fill="#1e293b">C</text><text x="143" y="966" font-size="15" fill="#1e293b">D</text><text x="167" y="966" font-size="15" fill="#1e293b">E</text><text x="191" y="966" font-size="15" fill="#1e293b">F</text><text x="215" y="966" font-size="15" fill="#1e293b">G</text><text x="239" y="966" font-size="15" fill="#1e293b">H</text><text x="263" y="966" font-size="15" fill="#1e293b">I</text><text x="287" y="966" font-size="15" fill="#1e293b">K</text><text x="311" y="966" font-size="15" fill="#1e293b">L</text><text x="335" y="966" font-size="15" fill="#1e293b">M</text><text x="359" y="966" font-size="15" fill="#1e293b">N</text><text x="383" y="966" font-size="15" fill="#1e293b">P</text><text x="407" y="966" font-size="15" fill="#1e293b">Q</text><text x="431" y="966" font-size="15" fill="#1e293b">R</text><text x="455" y="966" font-size="15" fill="#1e293b">S</text><text x="479" y="966" font-size="15" fill="#1e293b">T</text><text x="503" y="966" font-size="15" fill="#1e293b">V</text><text x="527" y="966" font-size="15" fill="#1e293b">W</text><text x="551" y="966" font-size="15" fill="#1e293b">Y</text><text x="24" y="1006" font-size="18" fill="#1e293b">39V</text><rect x="90" y="980" width="23" height="40" fill="rgb(255, 220, 220)"/><rect x="114" y="980" width="23" height="40" fill="rgb(255, 225, 225)"/><rect x="138" y="980" width="23" height="40" fill="rgb(255, 215, 215)"/><rect x="162" y="980" width="23" height="40" fill="rgb(255, 227, 227)"/><rect x="186" y="980" width="23" height="40" fill="rgb(255, 237, 237)"/><rect x="210" y="980" width="23" height="40" fill="rgb(255, 212, 212)"/><rect x="234" y="980" width="23" height="40" fill="rgb(255, 223, 223)"/><rect x="258" y="980" width="23" height="40" fill="rgb(249, 252, 255)"/><rect x="282" y="980" width="23" height="40" fill="rgb(255, 223, 223)"/><rect x="306" y="980" width="23" height="40" fill="rgb(255, 243, 243)"/><rect x="330" y="980" width="23" height="40" fill="rgb(255, 236, 236)"/><rect x="354" y="980" width="23" height="40" fill="rgb(255, 210, 210)"/><rect x="378" y="980" width="23" height="40" fill="rgb(255, 210, 210)"/><rect x="402" y="980" width="23" height="40" fill="rgb(255, 225, 225)"/><rect x="426" y="980" width="23" height="40" fill="rgb(255, 221, 221)"/><rect x="450" y="980" width="23" height="40" fill="rgb(255, 212, 212)"/><rect x="474" y="980" width="23" height="40" fill="rgb(255, 231, 231)"/><rect x="498" y="980" width="23" height="40" fill="rgb(255, 255, 255)"/><rect x="498" y="980" width="23" height="40" fill="none" stroke="#0f172a" stroke-width="2"/><rect x="522" y="980" width="23" height="40" fill="rgb(255, 227, 227)"/><rect x="546" y="980" width="23" height="40" fill="rgb(255, 229, 229)"/><text x="24" y="1060" font-size="18" fill="#1e293b">40D</text><rect x="90" y="1034" width="23" height="40" fill="rgb(221, 238, 255)"/><rect x="114" y="1034" width="23" height="40" fill="rgb(240, 247, 255)"/><rect x="138" y="1034" width="23" height="40" fill="rgb(255, 255, 255)"/><rect x="138" y="1034" width="23" height="40" fill="none" stroke="#0f172a" stroke-width="2"/><rect x="162" y="1034" width="23" height="40" fill="rgb(255, 236, 236)"/><rect x="186" y="1034" width="23" height="40" fill="rgb(142, 198, 255)"/><rect x="210" y="1034" width="23" height="40" fill="rgb(255, 244, 244)"/><rect x="234" y="1034" width="23" height="40" fill="rgb(130, 192, 255)"/><rect x="258" y="1034" width="23" height="40" fill="rgb(224, 239, 255)"/><rect x="282" y="1034" width="23" height="40" fill="rgb(235, 245, 255)"/><rect x="306" y="1034" width="23" height="40" fill="rgb(255, 249, 249)"/><rect x="330" y="1034" width="23" height="40" fill="rgb(255, 252, 252)"/><rect x="354" y="1034" width="23" height="40" fill="rgb(216, 235, 255)"/><rect x="378" y="1034" width="23" height="40" fill="rgb(255, 225, 225)"/><rect x="402" y="1034" width="23" height="40" fill="rgb(255, 251, 251)"/><rect x="426" y="1034" width="23" height="40" fill="rgb(225, 240, 255)"/><rect x="450" y="1034" width="23" height="40" fill="rgb(219, 237, 255)"/><rect x="474" y="1034" width="23" height="40" fill="rgb(255, 254, 254)"/><rect x="498" y="1034" width="23" height="40" fill="rgb(232, 243, 255)"/><rect x="522" y="1034" width="23" height="40" fill="rgb(84, 169, 255)"/><rect x="546" y="1034" width="23" height="40" fill="rgb(75, 165, 255)"/><text x="24" y="1114" font-size="18" fill="#1e293b">41G</text><rect x="90" y="1088" width="23" height="40" fill="rgb(237, 246, 255)"/><rect x="114" y="1088" width="23" height="40" fill="rgb(255, 245, 245)"/><rect x="138" y="1088" width="23" height="40" fill="rgb(255, 204, 204)"/><rect x="162" y="1088" width="23" height="40" fill="rgb(255, 208, 208)"/><rect x="186" y="1088" width="23" height="40" fill="rgb(246, 250, 255)"/><rect x="210" y="1088" width="23" height="40" fill="rgb(255, 255, 255)"/><rect x="210" y="1088" width="23" height="40" fill="none" stroke="#0f172a" stroke-width="2"/><rect x="234" y="1088" width="23" height="40" fill="rgb(255, 205, 205)"/><rect x="258" y="1088" width="23" height="40" fill="rgb(255, 204, 204)"/><rect x="282" y="1088" width="23" height="40" fill="rgb(255, 204, 204)"/><rect x="306" y="1088" width="23" height="40" fill="rgb(255, 222, 222)"/><rect x="330" y="1088" width="23" height="40" fill="rgb(255, 212, 212)"/><rect x="354" y="1088" width="23" height="40" fill="rgb(255, 206, 206)"/><rect x="378" y="1088" width="23" height="40" fill="rgb(255, 200, 200)"/><rect x="402" y="1088" width="23" height="40" fill="rgb(255, 205, 205)"/><rect x="426" y="1088" width="23" height="40" fill="rgb(255, 205, 205)"/><rect x="450" y="1088" width="23" height="40" fill="rgb(255, 219, 219)"/><rect x="474" y="1088" width="23" height="40" fill="rgb(255, 210, 210)"/><rect x="498" y="1088" width="23" height="40" fill="rgb(255, 208, 208)"/><rect x="522" y="1088" width="23" height="40" fill="rgb(255, 208, 208)"/><rect x="546" y="1088" width="23" height="40" fill="rgb(255, 215, 215)"/><text x="24" y="1168" font-size="18" fill="#1e293b">54V</text><rect x="90" y="1142" width="23" height="40" fill="rgb(241, 248, 255)"/><rect x="114" y="1142" width="23" height="40" fill="rgb(227, 241, 255)"/><rect x="138" y="1142" width="23" height="40" fill="rgb(255, 217, 217)"/><rect x="162" y="1142" width="23" height="40" fill="rgb(255, 217, 217)"/><rect x="186" y="1142" width="23" height="40" fill="rgb(255, 246, 246)"/><rect x="210" y="1142" width="23" height="40" fill="rgb(255, 239, 239)"/><rect x="234" y="1142" width="23" height="40" fill="rgb(255, 217, 217)"/><rect x="258" y="1142" width="23" height="40" fill="rgb(255, 229, 229)"/><rect x="282" y="1142" width="23" height="40" fill="rgb(255, 216, 216)"/><rect x="306" y="1142" width="23" height="40" fill="rgb(255, 239, 239)"/><rect x="330" y="1142" width="23" height="40" fill="rgb(238, 246, 255)"/><rect x="354" y="1142" width="23" height="40" fill="rgb(255, 224, 224)"/><rect x="378" y="1142" width="23" height="40" fill="rgb(255, 216, 216)"/><rect x="402" y="1142" width="23" height="40" fill="rgb(255, 215, 215)"/><rect x="426" y="1142" width="23" height="40" fill="rgb(255, 216, 216)"/><rect x="450" y="1142" width="23" height="40" fill="rgb(255, 243, 243)"/><rect x="474" y="1142" width="23" height="40" fill="rgb(255, 239, 239)"/><rect x="498" y="1142" width="23" height="40" fill="rgb(255, 255, 255)"/><rect x="498" y="1142" width="23" height="40" fill="none" stroke="#0f172a" stroke-width="2"/><rect x="522" y="1142" width="23" height="40" fill="rgb(255, 220, 220)"/><rect x="546" y="1142" width="23" height="40" fill="rgb(255, 217, 217)"/><text x="24" y="1238" font-size="17" fill="#1e293b">蓝：预测增加；红：预测降低；色阶范围 ±3.15</text><text x="24" y="1273" font-size="17" fill="#1e293b">黑框是原始氨基酸；四个位点共80个单点替换。</text><text x="24" y="1320" font-size="18" fill="#b91c1c">这是模型效应图，不是80次新湿实验的验证结果。</text><text x="24" y="1364" font-size="17" fill="#1e293b">本次随机留出只检验同一蛋白的突变组合泛化。</text><text x="24" y="1401" font-size="17" fill="#1e293b">不代表预测新蛋白、折叠结构或药物临床效果。</text><text x="24" y="1455" font-size="15" fill="#64748b">数据：FLIP GB1 / Wu等，eLife 2016；官方Meta ESM-2</text><text x="24" y="1491" font-size="16" fill="#64748b">测试集不参与早停、超参数选择或标签标准化。</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="560" viewBox="0 0 640 560" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<rect width="640" height="560" fill="#ffffff"/>
+<text x="24" y="36" font-size="20" font-weight="bold" fill="#0f172a">蛋白质模型 ESM-2（751万参数）：GB1 微调与 80 格突变扫描</text>
+<text x="24" y="68" font-size="15.5" font-weight="bold" fill="#0f172a">① 300 条留出测试序列预测误差 RMSE（越短越准，12 轮微调仅耗时 15.02 秒）</text>
+<text x="24" y="100" font-size="13" font-weight="normal" fill="#334155">全猜均值基线</text>
+<rect x="184" y="86" width="215.0" height="18" rx="4" fill="#94a3b8"/>
+<text x="409.0" y="100" font-size="12.5" font-weight="normal" fill="#334155">1.244</text>
+<text x="24" y="132" font-size="13" font-weight="normal" fill="#334155">425维特征 + 岭回归</text>
+<rect x="184" y="118" width="161.0" height="18" rx="4" fill="#64748b"/>
+<text x="355.0" y="132" font-size="12.5" font-weight="normal" fill="#334155">0.931  (Spearman = 0.743)</text>
+<text x="24" y="164" font-size="13" font-weight="normal" fill="#334155">425维特征 + 随机森林</text>
+<rect x="184" y="150" width="150.5" height="18" rx="4" fill="#3b82f6"/>
+<text x="344.5" y="164" font-size="12.5" font-weight="normal" fill="#334155">0.870  (Spearman = 0.799)</text>
+<text x="24" y="196" font-size="13" font-weight="bold" fill="#0f172a">ESM-2 全参数微调</text>
+<rect x="184" y="182" width="93.0" height="18" rx="4" fill="#10b981"/>
+<text x="287.0" y="196" font-size="12.5" font-weight="bold" fill="#0f172a">0.538  (Spearman = 0.898, R² = 0.813)</text>
+<text x="24" y="242" font-size="15.5" font-weight="bold" fill="#0f172a">② 把微调后的 ESM-2 当虚拟验证器：4 个关键位点 × 20 种氨基酸突变热力图</text>
+<text x="24" y="264" font-size="12.5" fill="#475569">深蓝格 = 预测结合活性显著提升（送去湿实验室合成） │ 粉红格 = 活性下降 │ 黑框 = 野生型原字母（0.0）</text>
+<text x="89.1" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">A</text>
+<text x="115.3" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">C</text>
+<text x="141.5" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">D</text>
+<text x="167.7" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">E</text>
+<text x="193.9" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">F</text>
+<text x="220.1" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">G</text>
+<text x="246.3" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">H</text>
+<text x="272.5" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">I</text>
+<text x="298.7" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">K</text>
+<text x="324.9" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">L</text>
+<text x="351.1" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">M</text>
+<text x="377.3" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">N</text>
+<text x="403.5" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">P</text>
+<text x="429.7" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">Q</text>
+<text x="455.9" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">R</text>
+<text x="482.1" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">S</text>
+<text x="508.3" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">T</text>
+<text x="534.5" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">V</text>
+<text x="560.7" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">W</text>
+<text x="586.9" y="290" font-size="12.5" font-weight="bold" fill="#334155" text-anchor="middle">Y</text>
+<text x="66" y="320.3" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="end">39V</text>
+<rect x="76.0" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,216,216)"/>
+<rect x="102.2" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,222,222)"/>
+<rect x="128.4" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,211,211)"/>
+<rect x="154.6" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,224,224)"/>
+<rect x="180.8" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,235,235)"/>
+<rect x="207.0" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,208,208)"/>
+<rect x="233.2" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,219,219)"/>
+<rect x="259.4" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(248,251,255)"/>
+<rect x="285.6" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,220,220)"/>
+<rect x="311.8" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,242,242)"/>
+<rect x="338.0" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,234,234)"/>
+<rect x="364.2" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,205,205)"/>
+<rect x="390.4" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,206,206)"/>
+<rect x="416.6" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,222,222)"/>
+<rect x="442.8" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,218,218)"/>
+<rect x="469.0" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,207,207)"/>
+<rect x="495.2" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,228,228)"/>
+<rect x="521.4" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,255,255)"/>
+<rect x="521.9" y="298.5" width="24.0" height="33.0" rx="2" fill="none" stroke="#0f172a" stroke-width="2.0"/>
+<rect x="547.6" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,224,224)"/>
+<rect x="573.8" y="298.0" width="25.0" height="34.0" rx="2" fill="rgb(255,227,227)"/>
+<text x="66" y="356.3" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="end">40D</text>
+<rect x="76.0" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(214,231,255)"/>
+<rect x="102.2" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(237,244,255)"/>
+<rect x="128.4" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(255,255,255)"/>
+<rect x="128.9" y="334.5" width="24.0" height="33.0" rx="2" fill="none" stroke="#0f172a" stroke-width="2.0"/>
+<rect x="154.6" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(255,234,234)"/>
+<rect x="180.8" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(118,176,255)"/>
+<rect x="207.0" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(255,243,243)"/>
+<rect x="233.2" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(103,168,255)"/>
+<rect x="259.4" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(217,233,255)"/>
+<rect x="285.6" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(231,241,255)"/>
+<rect x="311.8" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(255,248,248)"/>
+<rect x="338.0" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(255,251,251)"/>
+<rect x="364.2" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(208,228,255)"/>
+<rect x="390.4" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(255,222,222)"/>
+<rect x="416.6" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(255,250,250)"/>
+<rect x="442.8" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(218,234,255)"/>
+<rect x="469.0" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(211,230,255)"/>
+<rect x="495.2" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(255,254,254)"/>
+<rect x="521.4" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(228,239,255)"/>
+<rect x="547.6" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(48,136,255)"/>
+<rect x="573.8" y="334.0" width="25.0" height="34.0" rx="2" fill="rgb(37,130,255)"/>
+<text x="66" y="392.3" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="end">41G</text>
+<rect x="76.0" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(233,242,255)"/>
+<rect x="102.2" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,244,244)"/>
+<rect x="128.4" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,199,199)"/>
+<rect x="154.6" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,204,204)"/>
+<rect x="180.8" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(245,249,255)"/>
+<rect x="207.0" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,255,255)"/>
+<rect x="207.5" y="370.5" width="24.0" height="33.0" rx="2" fill="none" stroke="#0f172a" stroke-width="2.0"/>
+<rect x="233.2" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,200,200)"/>
+<rect x="259.4" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,199,199)"/>
+<rect x="285.6" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,199,199)"/>
+<rect x="311.8" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,218,218)"/>
+<rect x="338.0" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,207,207)"/>
+<rect x="364.2" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,201,201)"/>
+<rect x="390.4" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,194,194)"/>
+<rect x="416.6" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,200,200)"/>
+<rect x="442.8" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,200,200)"/>
+<rect x="469.0" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,216,216)"/>
+<rect x="495.2" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,205,205)"/>
+<rect x="521.4" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,203,203)"/>
+<rect x="547.6" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,203,203)"/>
+<rect x="573.8" y="370.0" width="25.0" height="34.0" rx="2" fill="rgb(255,211,211)"/>
+<text x="66" y="428.3" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="end">54V</text>
+<rect x="76.0" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(238,245,255)"/>
+<rect x="102.2" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(221,236,255)"/>
+<rect x="128.4" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,213,213)"/>
+<rect x="154.6" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,213,213)"/>
+<rect x="180.8" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,245,245)"/>
+<rect x="207.0" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,237,237)"/>
+<rect x="233.2" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,213,213)"/>
+<rect x="259.4" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,227,227)"/>
+<rect x="285.6" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,212,212)"/>
+<rect x="311.8" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,237,237)"/>
+<rect x="338.0" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(235,243,255)"/>
+<rect x="364.2" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,221,221)"/>
+<rect x="390.4" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,212,212)"/>
+<rect x="416.6" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,211,211)"/>
+<rect x="442.8" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,213,213)"/>
+<rect x="469.0" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,242,242)"/>
+<rect x="495.2" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,238,238)"/>
+<rect x="521.4" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,255,255)"/>
+<rect x="521.9" y="406.5" width="24.0" height="33.0" rx="2" fill="none" stroke="#0f172a" stroke-width="2.0"/>
+<rect x="547.6" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,217,217)"/>
+<rect x="573.8" y="406.0" width="25.0" height="34.0" rx="2" fill="rgb(255,214,214)"/>
+<rect x="76.0" y="464" width="9.3" height="14" fill="rgb(255,90,90)"/>
+<rect x="84.7" y="464" width="9.3" height="14" fill="rgb(255,95,95)"/>
+<rect x="93.5" y="464" width="9.3" height="14" fill="rgb(255,101,101)"/>
+<rect x="102.2" y="464" width="9.3" height="14" fill="rgb(255,106,106)"/>
+<rect x="110.9" y="464" width="9.3" height="14" fill="rgb(255,112,112)"/>
+<rect x="119.7" y="464" width="9.3" height="14" fill="rgb(255,117,117)"/>
+<rect x="128.4" y="464" width="9.3" height="14" fill="rgb(255,123,123)"/>
+<rect x="137.1" y="464" width="9.3" height="14" fill="rgb(255,129,129)"/>
+<rect x="145.9" y="464" width="9.3" height="14" fill="rgb(255,134,134)"/>
+<rect x="154.6" y="464" width="9.3" height="14" fill="rgb(255,140,140)"/>
+<rect x="163.3" y="464" width="9.3" height="14" fill="rgb(255,145,145)"/>
+<rect x="172.1" y="464" width="9.3" height="14" fill="rgb(255,151,151)"/>
+<rect x="180.8" y="464" width="9.3" height="14" fill="rgb(255,157,157)"/>
+<rect x="189.5" y="464" width="9.3" height="14" fill="rgb(255,162,162)"/>
+<rect x="198.3" y="464" width="9.3" height="14" fill="rgb(255,168,168)"/>
+<rect x="207.0" y="464" width="9.3" height="14" fill="rgb(255,173,173)"/>
+<rect x="215.7" y="464" width="9.3" height="14" fill="rgb(255,179,179)"/>
+<rect x="224.5" y="464" width="9.3" height="14" fill="rgb(255,185,185)"/>
+<rect x="233.2" y="464" width="9.3" height="14" fill="rgb(255,190,190)"/>
+<rect x="241.9" y="464" width="9.3" height="14" fill="rgb(255,196,196)"/>
+<rect x="250.7" y="464" width="9.3" height="14" fill="rgb(255,201,201)"/>
+<rect x="259.4" y="464" width="9.3" height="14" fill="rgb(255,207,207)"/>
+<rect x="268.1" y="464" width="9.3" height="14" fill="rgb(255,213,213)"/>
+<rect x="276.9" y="464" width="9.3" height="14" fill="rgb(255,218,218)"/>
+<rect x="285.6" y="464" width="9.3" height="14" fill="rgb(255,224,224)"/>
+<rect x="294.3" y="464" width="9.3" height="14" fill="rgb(255,229,229)"/>
+<rect x="303.1" y="464" width="9.3" height="14" fill="rgb(255,235,235)"/>
+<rect x="311.8" y="464" width="9.3" height="14" fill="rgb(255,241,241)"/>
+<rect x="320.5" y="464" width="9.3" height="14" fill="rgb(255,246,246)"/>
+<rect x="329.3" y="464" width="9.3" height="14" fill="rgb(255,252,252)"/>
+<rect x="338.0" y="464" width="9.3" height="14" fill="rgb(251,252,255)"/>
+<rect x="346.7" y="464" width="9.3" height="14" fill="rgb(243,248,255)"/>
+<rect x="355.5" y="464" width="9.3" height="14" fill="rgb(236,244,255)"/>
+<rect x="364.2" y="464" width="9.3" height="14" fill="rgb(229,240,255)"/>
+<rect x="372.9" y="464" width="9.3" height="14" fill="rgb(221,235,255)"/>
+<rect x="381.7" y="464" width="9.3" height="14" fill="rgb(214,231,255)"/>
+<rect x="390.4" y="464" width="9.3" height="14" fill="rgb(206,227,255)"/>
+<rect x="399.1" y="464" width="9.3" height="14" fill="rgb(199,223,255)"/>
+<rect x="407.9" y="464" width="9.3" height="14" fill="rgb(192,218,255)"/>
+<rect x="416.6" y="464" width="9.3" height="14" fill="rgb(184,214,255)"/>
+<rect x="425.3" y="464" width="9.3" height="14" fill="rgb(177,210,255)"/>
+<rect x="434.1" y="464" width="9.3" height="14" fill="rgb(170,206,255)"/>
+<rect x="442.8" y="464" width="9.3" height="14" fill="rgb(162,202,255)"/>
+<rect x="451.5" y="464" width="9.3" height="14" fill="rgb(155,197,255)"/>
+<rect x="460.3" y="464" width="9.3" height="14" fill="rgb(147,193,255)"/>
+<rect x="469.0" y="464" width="9.3" height="14" fill="rgb(140,189,255)"/>
+<rect x="477.7" y="464" width="9.3" height="14" fill="rgb(133,185,255)"/>
+<rect x="486.5" y="464" width="9.3" height="14" fill="rgb(125,180,255)"/>
+<rect x="495.2" y="464" width="9.3" height="14" fill="rgb(118,176,255)"/>
+<rect x="503.9" y="464" width="9.3" height="14" fill="rgb(110,172,255)"/>
+<rect x="512.7" y="464" width="9.3" height="14" fill="rgb(103,168,255)"/>
+<rect x="521.4" y="464" width="9.3" height="14" fill="rgb(96,163,255)"/>
+<rect x="530.1" y="464" width="9.3" height="14" fill="rgb(88,159,255)"/>
+<rect x="538.9" y="464" width="9.3" height="14" fill="rgb(81,155,255)"/>
+<rect x="547.6" y="464" width="9.3" height="14" fill="rgb(73,151,255)"/>
+<rect x="556.3" y="464" width="9.3" height="14" fill="rgb(66,146,255)"/>
+<rect x="565.1" y="464" width="9.3" height="14" fill="rgb(59,142,255)"/>
+<rect x="573.8" y="464" width="9.3" height="14" fill="rgb(51,138,255)"/>
+<rect x="582.5" y="464" width="9.3" height="14" fill="rgb(44,134,255)"/>
+<rect x="591.3" y="464" width="9.3" height="14" fill="rgb(37,130,255)"/>
+<rect x="76" y="464" width="524" height="14" fill="none" stroke="#94a3b8" stroke-width="0.8"/>
+<text x="76" y="493" font-size="11.5" fill="#b91c1c">-3.15 (活性大跌)</text>
+<text x="338.0" y="493" font-size="11.5" fill="#475569" text-anchor="middle">0.0 (野生型基准)</text>
+<text x="600" y="493" font-size="11.5" font-weight="bold" fill="#1d4ed8" text-anchor="end">+3.15 (活性大涨：如 40D→W/Y)</text>
+<text x="24" y="542" font-size="11.5" fill="#64748b">数据源：FLIP GB1 真实湿实验集（3,000 序列）与 Meta ESM-2 微调扫描（排版经 Gemini 精简润色）</text>
+</svg>
