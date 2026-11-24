@@ -41,9 +41,9 @@
     <line x1="158" y1="70" x2="171" y2="110" stroke="#94a3b8" stroke-width="2.2"/>
     <!-- O1 与 O24 -->
     <circle cx="42" cy="122" r="15" fill="#7f1d1d" stroke="#ef4444" stroke-width="2.2"/>
-    <text x="42" y="127" fill="#fecaca" font-size="12" font-weight="bold" text-anchor="middle">O₁</text>
+    <text x="42" y="127" fill="#fecaca" font-size="11.5" font-weight="bold" text-anchor="middle">O1</text>
     <circle cx="174" cy="122" r="15" fill="#7f1d1d" stroke="#ef4444" stroke-width="2.2"/>
-    <text x="174" y="127" fill="#fecaca" font-size="12" font-weight="bold" text-anchor="middle">O₂₄</text>
+    <text x="174" y="127" fill="#fecaca" font-size="11.5" font-weight="bold" text-anchor="middle">O24</text>
     <!-- 3D 距离连线（避开圆圈，文字放在下方） -->
     <line x1="60" y1="122" x2="156" y2="122" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5,4"/>
     <text x="108" y="106" fill="#94a3b8" font-size="11.5" text-anchor="middle">2D 拓扑隔 7 根键</text>
