@@ -29,7 +29,7 @@
 
   <!-- 左面板：五项 AMD RX 9070 XT 反超 NVIDIA GB10 的科学算子实测条形图 -->
   <rect x="42" y="136" width="490" height="282" rx="14" fill="url(#panelL)" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="62" y="165" fill="#fb923c" font-size="14.2" font-weight="bold">五项算子 9070 XT 反超 GB10</text>
+  <text x="62" y="165" fill="#fb923c" font-size="14.2" font-weight="bold">七大科学算子全胜反超（1–5）</text>
   <text x="514" y="165" fill="#94a3b8" font-size="11.5" text-anchor="end">蓝: GB10 ｜ 红: 9070 XT (越短越快)</text>
 
   <!-- 1. cuSpa 200万点射线查询 -->
@@ -69,25 +69,25 @@
 
   <!-- 右面板：万构象松弛、黑洞成像与全 15 层 Uni-Mol 端到端 HIP 推理 -->
   <rect x="550" y="136" width="308" height="282" rx="14" fill="url(#panelL)" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="570" y="165" fill="#38bdf8" font-size="15.5" font-weight="bold">全 15 层 Uni-Mol 与全领域闭环</text>
-
-  <!-- 模块 A：Uni-Mol 全 15 层 47.3M 端到端 HIP 推理 -->
-  <rect x="568" y="180" width="272" height="92" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
-  <text x="580" y="201" fill="#34d399" font-size="13.5" font-weight="bold">6. 深势 Uni-Mol 全 15 层原生 HIP 推理</text>
-  <text x="580" y="221" fill="#cbd5e1" font-size="11.8">• 导出全部 195 个张量 (47,331,139 参数)</text>
-  <text x="580" y="240" fill="#cbd5e1" font-size="11.8">• 核对全 15 层 5,050 万个中间元素</text>
-  <text x="580" y="259" fill="#6ee7b7" font-size="11.8" font-weight="bold">• 112 分子跨卡最大差 7.11e-15 (RMSE 0.5736)</text>
+  <text x="568" y="165" fill="#38bdf8" font-size="15" font-weight="bold">七战全胜反超 + 15 层 Uni-Mol</text>
 
   <!-- 模块 B：10,000 构象 × 200 步共享内存力场松弛 -->
-  <rect x="568" y="282" width="272" height="60" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
-  <text x="580" y="302" fill="#fbbf24" font-size="13" font-weight="bold">7. 10,000 个 3D 分子构象×200 步松弛</text>
-  <text x="580" y="320" fill="#cbd5e1" font-size="11.5">每构象 1 个 Block · GB10 3.23s / 9070 XT 3.85s</text>
-  <text x="580" y="336" fill="#fde68a" font-size="11.5">400,350 个三维坐标逐位一致 · 碰撞 47 → 0</text>
+  <rect x="568" y="178" width="272" height="68" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1.1"/>
+  <text x="580" y="198" fill="#fbbf24" font-size="12.8" font-weight="bold">6. 10,000 个 3D 分子构象×200 步松弛</text>
+  <text x="580" y="217" fill="#fca5a5" font-size="11.5" font-weight="bold">• 9070 XT: 0.522 s 反超 GB10: 0.689 s (快24%)</text>
+  <text x="580" y="235" fill="#cbd5e1" font-size="11.2">• 400,350 三维坐标逐位相同 · 碰撞 47 → 0</text>
 
   <!-- 模块 C：6710万采样黑洞光子环 FX 相关 -->
-  <rect x="568" y="350" width="272" height="54" rx="8" fill="#0f172a" stroke="#a855f7" stroke-width="1"/>
-  <text x="580" y="370" fill="#c084fc" font-size="13" font-weight="bold">8. 黑洞射电干涉 FX 相关 (6,710 万采样)</text>
-  <text x="580" y="390" fill="#cbd5e1" font-size="11.5">跨卡可见度 L2 = 2.84e-16 · 重建光子环 15.2dB</text>
+  <rect x="568" y="255" width="272" height="68" rx="8" fill="#0f172a" stroke="#a855f7" stroke-width="1.1"/>
+  <text x="580" y="275" fill="#c084fc" font-size="12.8" font-weight="bold">7. 黑洞射电干涉 FX 相关 (6,710 万采样)</text>
+  <text x="580" y="294" fill="#fca5a5" font-size="11.5" font-weight="bold">• 9070 XT: 19.81 ms 反超 GB10: 39.64 ms (快2×)</text>
+  <text x="580" y="312" fill="#cbd5e1" font-size="11.2">• 跨卡可见度 L2 = 2.96e-16 · 重建环 15.2dB</text>
+
+  <!-- 模块 A：Uni-Mol 全 15 层 47.3M 端到端 HIP 推理 -->
+  <rect x="568" y="332" width="272" height="74" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+  <text x="580" y="352" fill="#34d399" font-size="12.8" font-weight="bold">彩蛋：深势 Uni-Mol 全 15 层纯 HIP 推理</text>
+  <text x="580" y="371" fill="#cbd5e1" font-size="11.3">• 脱离 PyTorch 导出 195 张量 (4,733 万参数)</text>
+  <text x="580" y="390" fill="#6ee7b7" font-size="11.3" font-weight="bold">• 5,050 万中间元素核对 · 预测差 7.11e-15</text>
 
   <!-- 底部金句栏 -->
   <rect x="42" y="434" width="816" height="44" rx="10" fill="#1e293b" fill-opacity="0.88" stroke="#334155" stroke-width="1"/>
