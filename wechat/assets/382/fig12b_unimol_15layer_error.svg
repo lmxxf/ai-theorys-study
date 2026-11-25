@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="350" viewBox="0 0 640 350" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<rect width="640" height="350" fill="#ffffff"/>
+<text x="24" y="34" font-size="18.5" font-weight="bold" fill="#0f172a">全 15 层 5,050 万个中间张量元素逐层核对：误差全程低于 10^-12</text>
+<text x="24" y="56" font-size="12.0" fill="#475569">同公式 FP64 逐层最大差 ≤ 9.09e-13；对齐高斯核 FP32 路径后与官方 PyTorch 最大差 2.27e-6 logS</text>
+<rect x="78" y="76" width="532" height="198" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<line x1="78" y1="249.2" x2="610" y2="249.2" stroke="#e2e8f0" stroke-width="1"/>
+<text x="70" y="253.2" font-size="11" fill="#475569" text-anchor="end">10^-15</text>
+<line x1="78" y1="199.8" x2="610" y2="199.8" stroke="#e2e8f0" stroke-width="1"/>
+<text x="70" y="203.8" font-size="11" fill="#475569" text-anchor="end">10^-14</text>
+<line x1="78" y1="150.2" x2="610" y2="150.2" stroke="#e2e8f0" stroke-width="1"/>
+<text x="70" y="154.2" font-size="11" fill="#475569" text-anchor="end">10^-13</text>
+<line x1="78" y1="100.8" x2="610" y2="100.8" stroke="#e2e8f0" stroke-width="1"/>
+<text x="70" y="104.8" font-size="11" fill="#475569" text-anchor="end">10^-12</text>
+<line x1="78.0" y1="76" x2="78.0" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="78.0" y="291" font-size="11" fill="#475569" text-anchor="middle">Emb+Gauss</text>
+<line x1="184.4" y1="76" x2="184.4" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="184.4" y="291" font-size="11" fill="#475569" text-anchor="middle">L3</text>
+<line x1="290.8" y1="76" x2="290.8" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="290.8" y="291" font-size="11" fill="#475569" text-anchor="middle">L6</text>
+<line x1="397.2" y1="76" x2="397.2" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="397.2" y="291" font-size="11" fill="#475569" text-anchor="middle">L9</text>
+<line x1="503.6" y1="76" x2="503.6" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="503.6" y="291" font-size="11" fill="#475569" text-anchor="middle">L12</text>
+<line x1="610.0" y1="76" x2="610.0" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="610.0" y="291" font-size="11" fill="#475569" text-anchor="middle">L15</text>
+<polyline points="78.00,163.78 113.47,150.36 148.93,150.36 184.40,153.68 219.87,153.68 255.33,153.68 290.80,153.68 326.27,153.68 361.73,153.68 397.20,143.80 432.67,137.58 468.13,123.43 503.60,104.54 539.07,103.23 574.53,102.81 610.00,106.95" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+<circle cx="78.00" cy="163.78" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="113.47" cy="150.36" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="148.93" cy="150.36" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="184.40" cy="153.68" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="219.87" cy="153.68" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="255.33" cy="153.68" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="290.80" cy="153.68" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="326.27" cy="153.68" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="361.73" cy="153.68" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="397.20" cy="143.80" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="432.67" cy="137.58" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="468.13" cy="123.43" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="503.60" cy="104.54" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="539.07" cy="103.23" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="574.53" cy="102.81" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<circle cx="610.00" cy="106.95" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<rect x="268" y="196" width="328" height="66" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="280" y="216" font-size="12" font-weight="bold" fill="#0f172a">全网推理耗时（含 15 层注意力成对偏置更新）</text>
+<text x="280" y="235" font-size="11.8" fill="#334155">• NVIDIA GB10 (FP64)：1.756 s │ AMD RX 9070 XT：2.291 s</text>
+<text x="280" y="253" font-size="11.8" fill="#047857">• 混合精度对齐官方 PyTorch 全 FP32：最大差 2.27e-6 logS</text>
+<text x="344.0" y="313" font-size="12" fill="#334155" text-anchor="middle">横轴：Uni-Mol 前向传播层序列（Emb+Gauss → L1..L15） │ 纵轴：112 分子最大绝对误差</text>
+<text x="24" y="336" font-size="11.5" fill="#64748b">数据源：50,501,632 个节点与原子对中间张量元素跨卡比对（module13）；排版经 Gemini 润色</text>
+</svg>

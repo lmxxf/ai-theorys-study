@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="345" viewBox="0 0 640 345" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<rect width="640" height="345" fill="#ffffff"/>
+<text x="24" y="34" font-size="19" font-weight="bold" fill="#0f172a">全 GPU 驻留 Block-Davidson 本征值求解：16 轮残差指数收敛</text>
+<text x="24" y="56" font-size="12.2" fill="#475569">32×32 共享内存 Jacobi 与两遍 MGS 全进持久 Block 核，零主机往返；4,096 个本征值误差 ≤ 7.22e-15</text>
+<rect x="74" y="76" width="536" height="198" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<line x1="74" y1="254.2" x2="610" y2="254.2" stroke="#dc2626" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="66" y="258.2" font-size="11" fill="#475569" text-anchor="end">10^-10</text>
+<line x1="74" y1="214.6" x2="610" y2="214.6" stroke="#e2e8f0" stroke-width="1.1" />
+<text x="66" y="218.6" font-size="11" fill="#475569" text-anchor="end">10^-8</text>
+<line x1="74" y1="175.0" x2="610" y2="175.0" stroke="#e2e8f0" stroke-width="1.1" />
+<text x="66" y="179.0" font-size="11" fill="#475569" text-anchor="end">10^-6</text>
+<line x1="74" y1="135.4" x2="610" y2="135.4" stroke="#e2e8f0" stroke-width="1.1" />
+<text x="66" y="139.4" font-size="11" fill="#475569" text-anchor="end">10^-4</text>
+<line x1="74" y1="95.8" x2="610" y2="95.8" stroke="#e2e8f0" stroke-width="1.1" />
+<text x="66" y="99.8" font-size="11" fill="#475569" text-anchor="end">10^-2</text>
+<line x1="109.7" y1="76" x2="109.7" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="109.7" y="291" font-size="11" fill="#475569" text-anchor="middle">2</text>
+<line x1="181.2" y1="76" x2="181.2" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="181.2" y="291" font-size="11" fill="#475569" text-anchor="middle">4</text>
+<line x1="252.7" y1="76" x2="252.7" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="252.7" y="291" font-size="11" fill="#475569" text-anchor="middle">6</text>
+<line x1="324.1" y1="76" x2="324.1" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="324.1" y="291" font-size="11" fill="#475569" text-anchor="middle">8</text>
+<line x1="395.6" y1="76" x2="395.6" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="395.6" y="291" font-size="11" fill="#475569" text-anchor="middle">10</text>
+<line x1="467.1" y1="76" x2="467.1" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="467.1" y="291" font-size="11" fill="#475569" text-anchor="middle">12</text>
+<line x1="538.5" y1="76" x2="538.5" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="538.5" y="291" font-size="11" fill="#475569" text-anchor="middle">14</text>
+<line x1="610.0" y1="76" x2="610.0" y2="274" stroke="#e2e8f0" stroke-width="1"/>
+<text x="610.0" y="291" font-size="11" fill="#475569" text-anchor="middle">16</text>
+<polyline points="74.00,82.03 109.73,82.09 145.47,106.26 181.20,110.73 216.93,130.94 252.67,139.32 288.40,154.43 324.13,164.60 359.87,177.17 395.60,189.72 431.33,201.75 467.07,214.55 502.80,226.50 538.53,239.64 574.27,252.83 610.00,254.30" fill="none" stroke="#2563eb" stroke-width="2.4" />
+<circle cx="74.00" cy="82.03" r="3.6" fill="#2563eb"/>
+<circle cx="109.73" cy="82.09" r="3.6" fill="#2563eb"/>
+<circle cx="145.47" cy="106.26" r="3.6" fill="#2563eb"/>
+<circle cx="181.20" cy="110.73" r="3.6" fill="#2563eb"/>
+<circle cx="216.93" cy="130.94" r="3.6" fill="#2563eb"/>
+<circle cx="252.67" cy="139.32" r="3.6" fill="#2563eb"/>
+<circle cx="288.40" cy="154.43" r="3.6" fill="#2563eb"/>
+<circle cx="324.13" cy="164.60" r="3.6" fill="#2563eb"/>
+<circle cx="359.87" cy="177.17" r="3.6" fill="#2563eb"/>
+<circle cx="395.60" cy="189.72" r="3.6" fill="#2563eb"/>
+<circle cx="431.33" cy="201.75" r="3.6" fill="#2563eb"/>
+<circle cx="467.07" cy="214.55" r="3.6" fill="#2563eb"/>
+<circle cx="502.80" cy="226.50" r="3.6" fill="#2563eb"/>
+<circle cx="538.53" cy="239.64" r="3.6" fill="#2563eb"/>
+<circle cx="574.27" cy="252.83" r="3.6" fill="#2563eb"/>
+<circle cx="610.00" cy="254.30" r="3.6" fill="#2563eb"/>
+<polyline points="74.00,82.03 109.73,82.09 145.47,106.26 181.20,110.73 216.93,130.94 252.67,139.32 288.40,154.43 324.13,164.60 359.87,177.17 395.60,189.72 431.33,201.75 467.07,214.55 502.80,226.50 538.53,239.64 574.27,252.83 610.00,254.30" fill="none" stroke="#ea580c" stroke-width="2.4" stroke-dasharray="5 3"/>
+<circle cx="74.00" cy="82.03" r="2.4" fill="#ea580c"/>
+<circle cx="109.73" cy="82.09" r="2.4" fill="#ea580c"/>
+<circle cx="145.47" cy="106.26" r="2.4" fill="#ea580c"/>
+<circle cx="181.20" cy="110.73" r="2.4" fill="#ea580c"/>
+<circle cx="216.93" cy="130.94" r="2.4" fill="#ea580c"/>
+<circle cx="252.67" cy="139.32" r="2.4" fill="#ea580c"/>
+<circle cx="288.40" cy="154.43" r="2.4" fill="#ea580c"/>
+<circle cx="324.13" cy="164.60" r="2.4" fill="#ea580c"/>
+<circle cx="359.87" cy="177.17" r="2.4" fill="#ea580c"/>
+<circle cx="395.60" cy="189.72" r="2.4" fill="#ea580c"/>
+<circle cx="431.33" cy="201.75" r="2.4" fill="#ea580c"/>
+<circle cx="467.07" cy="214.55" r="2.4" fill="#ea580c"/>
+<circle cx="502.80" cy="226.50" r="2.4" fill="#ea580c"/>
+<circle cx="538.53" cy="239.64" r="2.4" fill="#ea580c"/>
+<circle cx="574.27" cy="252.83" r="2.4" fill="#ea580c"/>
+<circle cx="610.00" cy="254.30" r="2.4" fill="#ea580c"/>
+<rect x="364" y="88" width="234" height="66" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="376" y1="106" x2="402" y2="106" stroke="#2563eb" stroke-width="2.5"/>
+<text x="410" y="110" font-size="12" font-weight="bold" fill="#1e40af">NVIDIA GB10 (CUDA 256组)</text>
+<line x1="376" y1="126" x2="402" y2="126" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="4 3"/>
+<text x="410" y="130" font-size="12" font-weight="bold" fill="#9a3412">AMD RX 9070 XT (HIP 重合)</text>
+<line x1="376" y1="145" x2="402" y2="145" stroke="#dc2626" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="410" y="149" font-size="11.5" fill="#b91c1c">设备内部收敛阈值 10^-10</text>
+<text x="342.0" y="311" font-size="12" fill="#334155" text-anchor="middle">横轴：持久核内部迭代轮数（32 维厚重启子空间） │ 纵轴：256 个系统最大残差</text>
+<text x="24" y="333" font-size="11.5" fill="#64748b">数据源：全 GPU 驻留 Block-Davidson 求解 256×384 哈密顿量（module15）；排版经 Gemini 润色</text>
+</svg>

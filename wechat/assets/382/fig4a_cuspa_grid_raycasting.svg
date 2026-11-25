@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="455" viewBox="0 0 640 455" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<rect width="640" height="455" fill="#ffffff"/>
+<text x="24" y="34" font-size="19" font-weight="bold" fill="#0f172a">cuSpa 几何原理：二维网格包围盒过滤 ＋ 水平射线奇偶法</text>
+<text x="24" y="57" font-size="12.5" fill="#475569">全库仅 2,378 行 C++/CUDA，0 处 Tensor Core；先按网格缩窄候选细胞，再向右发水平射线数交点奇偶</text>
+<rect x="40" y="74" width="440.0" height="330.0" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<line x1="150.0" y1="74" x2="150.0" y2="404.0" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="260.0" y1="74" x2="260.0" y2="404.0" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="370.0" y1="74" x2="370.0" y2="404.0" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="40" y1="184.0" x2="480.0" y2="184.0" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="40" y1="294.0" x2="480.0" y2="294.0" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 3"/>
+<polygon points="130.73,129.00 121.92,155.92 95.00,165.00 66.41,157.59 50.95,129.00 65.69,99.69 95.00,87.36 120.56,103.44 130.73,129.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<polygon points="250.44,129.00 230.00,154.00 205.00,175.77 175.71,158.29 162.08,129.00 172.12,96.12 205.00,84.21 233.91,100.09 250.44,129.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<polygon points="362.11,129.00 340.55,154.55 315.00,175.33 288.96,155.04 278.77,129.00 286.67,100.67 315.00,85.71 348.22,95.78 362.11,129.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<polygon points="471.31,129.00 450.79,154.79 425.00,176.22 396.60,157.40 386.62,129.00 398.39,102.39 425.00,87.21 450.65,103.35 471.31,129.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<polygon points="137.65,239.00 127.08,271.08 95.00,286.21 68.21,265.79 47.71,239.00 67.49,211.49 95.00,203.05 127.00,207.00 137.65,239.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<polygon points="241.20,239.00 235.64,269.64 205.00,276.32 174.86,269.14 165.71,239.00 174.59,208.59 205.00,195.62 232.87,211.13 241.20,239.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<polygon points="351.42,239.00 345.01,269.01 315.00,283.33 287.07,266.93 269.67,239.00 284.77,208.77 315.00,198.74 343.42,210.58 351.42,239.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<polygon points="471.31,239.00 456.70,270.70 425.00,274.43 396.53,267.47 387.13,239.00 394.61,208.61 425.00,203.39 454.19,209.81 471.31,239.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<polygon points="132.83,349.00 123.17,377.17 95.00,393.93 64.56,379.44 48.77,349.00 67.18,321.18 95.00,313.66 120.97,323.03 132.83,349.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<polygon points="245.61,349.00 236.82,380.82 205.00,395.11 174.28,379.72 167.26,349.00 179.02,323.02 205.00,303.80 230.66,323.34 245.61,349.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<polygon points="358.85,349.00 343.11,377.11 315.00,384.45 281.64,382.36 277.35,349.00 284.09,318.09 315.00,312.33 343.38,320.62 358.85,349.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<polygon points="470.37,349.00 452.31,376.31 425.00,392.34 397.69,376.31 380.90,349.00 398.05,322.05 425.00,311.10 455.89,318.11 470.37,349.00" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.7"/>
+<circle cx="148.28" cy="286.25" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="249.58" cy="173.44" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="268.21" cy="253.77" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="251.38" cy="333.18" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="303.08" cy="250.35" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="347.60" cy="150.99" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="281.85" cy="326.61" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="458.71" cy="353.11" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="158.44" cy="93.36" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="113.20" cy="172.71" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="203.74" cy="209.27" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="404.61" cy="254.04" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="127.57" cy="196.40" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="315.37" cy="149.72" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="296.99" cy="220.02" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="432.87" cy="290.91" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="477.77" cy="139.49" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="290.61" cy="166.57" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="423.24" cy="134.33" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="350.11" cy="181.19" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="125.85" cy="172.09" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="467.33" cy="306.31" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="52.49" cy="228.63" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="264.42" cy="290.50" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="169.55" cy="144.31" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="118.27" cy="210.54" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="378.89" cy="113.12" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="134.57" cy="192.65" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="263.16" cy="109.79" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="450.35" cy="197.20" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="82.70" cy="385.40" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="87.01" cy="221.55" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="217.70" cy="345.91" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="182.41" cy="85.82" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="420.88" cy="167.81" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="312.53" cy="290.07" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="423.38" cy="199.53" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="245.72" cy="169.81" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="166.59" cy="108.87" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="296.07" cy="289.25" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="422.86" cy="286.95" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="470.86" cy="306.40" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="401.72" cy="362.92" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="227.84" cy="331.90" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="404.19" cy="130.80" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="83.43" cy="157.60" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="164.75" cy="299.70" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="154.40" cy="116.78" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="275.76" cy="241.98" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="250.24" cy="140.84" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="172.59" cy="335.12" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="223.95" cy="364.34" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="342.67" cy="196.39" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="264.49" cy="202.79" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="429.75" cy="217.53" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="91.72" cy="215.52" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="375.05" cy="218.75" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="188.19" cy="111.18" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="368.70" cy="398.71" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="354.72" cy="143.00" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="98.55" cy="220.37" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="203.77" cy="149.08" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="206.84" cy="328.47" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="78.18" cy="106.45" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="304.64" cy="244.15" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="417.81" cy="394.70" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="475.03" cy="152.75" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="442.37" cy="206.05" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="340.44" cy="109.95" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="310.83" cy="251.37" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="231.90" cy="102.57" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="444.23" cy="217.43" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="260.14" cy="203.22" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="308.93" cy="347.87" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="227.20" cy="235.56" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="308.23" cy="125.69" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="154.79" cy="293.20" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="366.55" cy="304.77" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="279.85" cy="84.02" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="232.27" cy="254.04" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="288.04" cy="313.13" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="368.58" cy="81.49" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="347.73" cy="322.69" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="161.25" cy="315.93" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="151.72" cy="336.07" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="298.39" cy="402.25" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="265.29" cy="114.00" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="237.37" cy="291.90" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="405.71" cy="272.63" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="231.32" cy="236.69" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="305.09" cy="109.66" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="117.71" cy="388.50" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="206.45" cy="304.49" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="369.71" cy="397.70" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="389.15" cy="244.93" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="363.36" cy="346.17" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="182.89" cy="110.59" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="399.55" cy="362.62" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="259.19" cy="338.27" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="325.83" cy="270.20" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="404.60" cy="208.08" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="341.91" cy="315.04" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="457.24" cy="209.42" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="248.76" cy="398.66" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="307.55" cy="349.89" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="302.07" cy="354.36" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="66.90" cy="202.91" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="370.71" cy="314.17" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="59.42" cy="269.69" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="134.32" cy="197.46" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="425.85" cy="82.57" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="85.94" cy="285.56" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="232.07" cy="318.91" r="2.4" fill="#3b82f6" fill-opacity="0.78"/>
+<circle cx="462.09" cy="357.60" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<circle cx="211.81" cy="222.08" r="2.4" fill="#ef4444" fill-opacity="0.78"/>
+<line x1="97.44" y1="128.44" x2="139.86" y2="128.44" stroke="#d97706" stroke-width="2.2" stroke-dasharray="4 3"/>
+<circle cx="97.44" cy="128.44" r="4.8" fill="#d97706" stroke="#ffffff" stroke-width="1.2"/>
+<circle cx="130.51" cy="128.44" r="3.8" fill="#ffffff" stroke="#d97706" stroke-width="2.2"/>
+<line x1="147.78" y1="128.39" x2="257.80" y2="128.39" stroke="#7c3aed" stroke-width="2.2" stroke-dasharray="4 3"/>
+<circle cx="147.78" cy="128.39" r="4.8" fill="#7c3aed" stroke="#ffffff" stroke-width="1.2"/>
+<circle cx="162.27" cy="128.39" r="3.8" fill="#ffffff" stroke="#7c3aed" stroke-width="2.2"/>
+<circle cx="250.09" cy="128.39" r="3.8" fill="#ffffff" stroke="#7c3aed" stroke-width="2.2"/>
+<circle cx="502" cy="112" r="5" fill="#d97706"/>
+<text x="514" y="116" font-size="12.5" font-weight="bold" fill="#92400e">细胞内基因点</text>
+<text x="514" y="135" font-size="11.5" fill="#475569">向右穿边界 1 次</text>
+<text x="514" y="152" font-size="11.5" fill="#475569">（奇数 ＝ 命中）</text>
+<circle cx="502" cy="190" r="5" fill="#7c3aed"/>
+<text x="514" y="194" font-size="12.5" font-weight="bold" fill="#5b21b6">细胞外基因点</text>
+<text x="514" y="213" font-size="11.5" fill="#475569">向右穿边界 2 次</text>
+<text x="514" y="230" font-size="11.5" fill="#475569">（偶数 ＝ 排除）</text>
+<rect x="496" y="264" width="12" height="12" fill="#e6f6f4" stroke="#0f766e" stroke-width="1.5"/>
+<text x="514" y="275" font-size="12" fill="#334155">细胞多边形边界</text>
+<line x1="496" y1="302" x2="509" y2="302" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 2"/>
+<text x="514" y="306" font-size="12" fill="#334155">224×224 索引格</text>
+<text x="496" y="344" font-size="11.5" fill="#475569">第3步：64位整数</text>
+<text x="496" y="362" font-size="11.5" fill="#475569">(细胞ID, 基因ID)</text>
+<text x="496" y="380" font-size="11.5" fill="#475569">基数排序转 CSR</text>
+<text x="24" y="434" font-size="11.5" fill="#64748b">数据源：NVIDIA/cuspa (commit 2df9fa78) 源码审计与局部网格切片预览；排版经 Gemini 润色</text>
+</svg>

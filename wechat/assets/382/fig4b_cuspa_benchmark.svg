@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="335" viewBox="0 0 640 335" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<rect width="640" height="335" fill="#ffffff"/>
+<text x="24" y="34" font-size="19" font-weight="bold" fill="#0f172a">cuSpa 跨架构实测：50,000 细胞 × 2,000,000 点 × 500 基因</text>
+<text x="24" y="56" font-size="12.5" fill="#047857" font-weight="bold">200 万点归属与四个 CSR int32 数组 SHA256 逐字节完全一致（0 误差）</text>
+<text x="24" y="88" font-size="14.5" font-weight="bold" fill="#0f172a">① 同源 C++ 全流程耗时（网格索引 ＋ 射线查询 ＋ 基数排序转 CSR，越短越快）</text>
+<text x="24" y="116" font-size="13" font-weight="normal" fill="#334155">CPU 单核编译基线</text>
+<rect x="192" y="103" width="270.0" height="17" rx="3.5" fill="#94a3b8"/>
+<text x="472.0" y="116" font-size="12.5" font-weight="normal" fill="#334155">272.27 ms</text>
+<text x="24" y="146" font-size="13" font-weight="normal" fill="#334155">NVIDIA GB10 (CUDA)</text>
+<rect x="192" y="133" width="5.7" height="17" rx="3.5" fill="#2563eb"/>
+<text x="207.7" y="146" font-size="12.5" font-weight="normal" fill="#334155">5.76 ms  (快 47.3×)</text>
+<text x="24" y="176" font-size="13" font-weight="bold" fill="#0f172a">AMD RX 9070 XT (HIP)</text>
+<rect x="192" y="163" width="6.0" height="17" rx="3.5" fill="#dc2626"/>
+<text x="208.0" y="176" font-size="12.5" font-weight="bold" fill="#0f172a">6.05 ms  (快 45.0×)</text>
+<text x="24" y="216" font-size="14.5" font-weight="bold" fill="#0f172a">② 核心算力阶段：200 万点水平射线几何查询耗时（古典流处理器分支＋算术）</text>
+<text x="24" y="244" font-size="13" font-weight="normal" fill="#334155">CPU 单核编译射线查询</text>
+<rect x="192" y="231" width="250" height="17" rx="3.5" fill="#94a3b8"/>
+<line x1="432" y1="229" x2="426" y2="250" stroke="#ffffff" stroke-width="2.2"/>
+<text x="452.0" y="244" font-size="12.5" font-weight="normal" fill="#334155">236.06 ms</text>
+<text x="24" y="274" font-size="13" font-weight="normal" fill="#334155">NVIDIA GB10 (CUDA)</text>
+<rect x="192" y="261" width="106.4" height="17" rx="3.5" fill="#2563eb"/>
+<text x="308.4" y="274" font-size="12.5" font-weight="normal" fill="#334155">1.520 ms  (快 155.3×)</text>
+<text x="24" y="304" font-size="13" font-weight="bold" fill="#0f172a">AMD RX 9070 XT (HIP)</text>
+<rect x="192" y="291" width="64.4" height="17" rx="3.5" fill="#dc2626"/>
+<text x="266.4" y="304" font-size="12.5" font-weight="bold" fill="#0f172a">0.921 ms  (快 256.3×，反超 GB10 达 39%)</text>
+<text x="24" y="321" font-size="11.5" fill="#64748b">数据源：DGX Spark (GB10) 与 AMD RX 9070 XT 同源二进制输入稳态中位数；排版经 Gemini 润色</text>
+</svg>

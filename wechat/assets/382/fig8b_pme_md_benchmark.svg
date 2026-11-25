@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<rect width="640" height="320" fill="#ffffff"/>
+<text x="24" y="34" font-size="19" font-weight="bold" fill="#0f172a">1,000 步含 PME 3D-FFT 分子动力学耗时：hipFFT 双杀反超 cuFFT</text>
+<text x="24" y="56" font-size="12.3" fill="#047857" font-weight="bold">CUDA 与 HIP 初始全受力相对 L2 差异仅 4.66e-16；NVT 300K 热浴稳态均温三端均为 297.35 K</text>
+<text x="24" y="86" font-size="14" font-weight="bold" fill="#0f172a">① NVE 微正则自由演化（1,000 步，每步完整 64³ PME 3D-FFT）</text>
+<text x="24" y="111" font-size="12.8" font-weight="normal" fill="#334155">CPU (NumPy/SciPy FFT)</text>
+<rect x="196" y="98" width="255.0" height="17" rx="3.5" fill="#94a3b8"/>
+<text x="461.0" y="111" font-size="12.5" font-weight="normal" fill="#334155">2.873 s</text>
+<text x="24" y="137" font-size="12.8" font-weight="normal" fill="#334155">NVIDIA GB10 (cuFFT)</text>
+<rect x="196" y="124" width="94.3" height="17" rx="3.5" fill="#2563eb"/>
+<text x="300.3" y="137" font-size="12.5" font-weight="normal" fill="#334155">1.063 s  (快 CPU 2.70×)</text>
+<text x="24" y="163" font-size="12.8" font-weight="bold" fill="#0f172a">AMD RX 9070 XT (hipFFT)</text>
+<rect x="196" y="150" width="70.7" height="17" rx="3.5" fill="#dc2626"/>
+<text x="276.7" y="163" font-size="12.5" font-weight="bold" fill="#0f172a">0.797 s  (反超 GB10 达 25.0%)</text>
+<text x="24" y="198" font-size="14" font-weight="bold" fill="#0f172a">② NVT 300K BAOAB 朗之万热浴（1,000 步，每步完整 64³ PME 3D-FFT）</text>
+<text x="24" y="223" font-size="12.8" font-weight="normal" fill="#334155">CPU (NumPy/SciPy FFT)</text>
+<rect x="196" y="210" width="255.0" height="17" rx="3.5" fill="#94a3b8"/>
+<text x="461.0" y="223" font-size="12.5" font-weight="normal" fill="#334155">2.872 s</text>
+<text x="24" y="249" font-size="12.8" font-weight="normal" fill="#334155">NVIDIA GB10 (cuFFT)</text>
+<rect x="196" y="236" width="94.7" height="17" rx="3.5" fill="#2563eb"/>
+<text x="300.7" y="249" font-size="12.5" font-weight="normal" fill="#334155">1.067 s  (快 CPU 2.69×)</text>
+<text x="24" y="275" font-size="12.8" font-weight="bold" fill="#0f172a">AMD RX 9070 XT (hipFFT)</text>
+<rect x="196" y="262" width="58.4" height="17" rx="3.5" fill="#dc2626"/>
+<text x="264.4" y="275" font-size="12.5" font-weight="bold" fill="#0f172a">0.658 s  (反超 GB10 达 38.3%)</text>
+<text x="24" y="306" font-size="11.5" fill="#64748b">数据源：DGX Spark (GB10) 与 AMD RX 9070 XT 设备驻留 1,000 步实测（module9）；排版经 Gemini 润色</text>
+</svg>

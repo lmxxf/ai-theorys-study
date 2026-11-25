@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="355" viewBox="0 0 640 355" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<rect width="640" height="355" fill="#ffffff"/>
+<text x="24" y="34" font-size="19" font-weight="bold" fill="#0f172a">量子本征值串行 vs 全驻留批处理：256 个 k 点提速几十倍</text>
+<text x="24" y="56" font-size="11.8" fill="#475569">单晶胞串行吃不饱 GPU 反输 CPU；全驻留批处理 RX 9070 XT 仅 0.698s（64 组亦以 0.378s 快于 GB10 0.457s）</text>
+<text x="24" y="95" font-size="12.8" font-weight="normal" fill="#334155">NVIDIA GB10 串行单发 (seq)</text>
+<rect x="212" y="81" width="248.5" height="19" rx="4" fill="#93c5fd"/>
+<text x="469.5" y="95" font-size="12.2" font-weight="normal" fill="#334155">39.193 s（小核串行吃不饱）</text>
+<text x="24" y="133" font-size="12.8" font-weight="normal" fill="#334155">AMD RX 9070 XT 串行单发</text>
+<rect x="212" y="119" width="218.0" height="19" rx="4" fill="#fca5a5"/>
+<text x="439.0" y="133" font-size="12.2" font-weight="normal" fill="#334155">20.495 s</text>
+<text x="24" y="171" font-size="12.8" font-weight="normal" fill="#334155">CPU 单线程 Davidson</text>
+<rect x="212" y="157" width="191.4" height="19" rx="4" fill="#94a3b8"/>
+<text x="412.4" y="171" font-size="12.2" font-weight="normal" fill="#334155">11.655 s</text>
+<text x="24" y="209" font-size="12.8" font-weight="normal" fill="#334155">CPU NumPy 全矩阵 eigh</text>
+<rect x="212" y="195" width="71.1" height="19" rx="4" fill="#64748b"/>
+<text x="292.1" y="209" font-size="12.2" font-weight="normal" fill="#334155">0.906 s（高度优化全对角化）</text>
+<text x="24" y="247" font-size="12.8" font-weight="normal" fill="#334155">NVIDIA GB10 全驻留批处理</text>
+<rect x="212" y="233" width="64.7" height="19" rx="4" fill="#2563eb"/>
+<text x="285.7" y="247" font-size="12.2" font-weight="normal" fill="#334155">0.791 s（批处理提速 49.6×）</text>
+<text x="24" y="285" font-size="12.8" font-weight="bold" fill="#0f172a">AMD RX 9070 XT 全驻留批处理</text>
+<rect x="212" y="271" width="58.9" height="19" rx="4" fill="#dc2626"/>
+<text x="279.9" y="285" font-size="12.2" font-weight="bold" fill="#0f172a">0.698 s（提速 29.4×，反超 GB10 与 NumPy）</text>
+<text x="24" y="337" font-size="11.5" fill="#64748b">数据源：256 系统 × 384 平面波求 4,096 个本征值总耗时（对数条长，module15）；排版经 Gemini 润色</text>
+</svg>

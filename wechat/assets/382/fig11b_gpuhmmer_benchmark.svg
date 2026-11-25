@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="265" viewBox="0 0 640 265" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<rect width="640" height="265" fill="#ffffff"/>
+<text x="24" y="34" font-size="19" font-weight="bold" fill="#0f172a">10 万条蛋白序列动态规划耗时：AMD RX 9070 XT 快 GB10 3.86 倍</text>
+<text x="24" y="57" font-size="12.5" fill="#047857" font-weight="bold">纯标量 add / max 滚动数组无矩阵乘法；100,000 个得分三端 SHA256 逐字节一致</text>
+<text x="24" y="98" font-size="13.5" font-weight="normal" fill="#334155">CPU 单核编译 C++</text>
+<rect x="192" y="84" width="195.0" height="20" rx="4" fill="#94a3b8"/>
+<text x="397.0" y="99" font-size="12.2" font-weight="normal" fill="#334155">1136.21 ms │ 16.88 百万残基/秒</text>
+<text x="24" y="146" font-size="13.5" font-weight="normal" fill="#334155">NVIDIA GB10 (CUDA)</text>
+<rect x="192" y="132" width="40.2" height="20" rx="4" fill="#2563eb"/>
+<text x="242.2" y="147" font-size="12.2" font-weight="normal" fill="#334155">234.40 ms │ 81.82 百万残基/秒 (快 CPU 4.8×)</text>
+<text x="24" y="194" font-size="13.5" font-weight="bold" fill="#0f172a">AMD RX 9070 XT (HIP)</text>
+<rect x="192" y="180" width="10.4" height="20" rx="4" fill="#dc2626"/>
+<text x="212.4" y="195" font-size="12.2" font-weight="bold" fill="#0f172a">60.70 ms │ 315.97 百万残基/秒 (快 GB10 3.86× / 快 CPU 18.7×)</text>
+<text x="24" y="249" font-size="11.5" fill="#64748b">数据源：DGX Spark (GB10) 与 AMD RX 9070 XT 扫描 1,920 万氨基酸残基稳态中位数；排版经 Gemini 润色</text>
+</svg>
