@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="365" viewBox="0 0 640 365" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
 <rect width="640" height="365" fill="#ffffff"/>
 <text x="24" y="34" font-size="18.5" font-weight="bold" fill="#0f172a">PME 3D-FFT 连续 1,000 步：动能/势能镜像交换与能量守恒</text>
-<text x="24" y="56" font-size="12.2" fill="#475569">每步重算 4 阶 B 样条与 64³ FFT 长程静电；总机械能最大相对漂移仅 1.09e-4，步长减半改善 4.0004×</text>
+<text x="24" y="56" font-size="12.2" fill="#475569">81 原子体系每步重算 4 阶 B 样条与 64³ FFT；总能最大相对漂移仅 1.09e-4，步长减半改善 4.0004×</text>
 <rect x="64" y="76" width="528" height="212" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
 <line x1="64" y1="271.3" x2="592" y2="271.3" stroke="#e2e8f0" stroke-width="1"/>
 <text x="56" y="275.3" font-size="11" fill="#475569" text-anchor="end">-80</text>

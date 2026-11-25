@@ -21,5 +21,5 @@
 <text x="24" y="271" font-size="12.8" font-weight="bold" fill="#0f172a">AMD RX 9070 XT (HIP)</text>
 <rect x="192" y="258" width="8.0" height="17" rx="3.5" fill="#dc2626"/>
 <text x="210.0" y="271" font-size="12.4" font-weight="bold" fill="#0f172a">11.06 ms  (快 CPU 76.8×，快 GB10 2.01×)</text>
-<text x="24" y="295" font-size="11.5" fill="#64748b">数据源：6,710 万个 complex128 采样同源 v2 核稳态中位数（5预热7测量，module11）；排版经 Gemini 润色</text>
+<text x="24" y="295" font-size="11.5" fill="#64748b">数据源：6,710 万个 complex128 采样同源 v2 核稳态中位数（GPU 5预热7测量，CPU 1预热3测量）；排版经 Gemini 润色</text>
 </svg>

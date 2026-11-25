@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="455" viewBox="0 0 640 455" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
 <rect width="640" height="455" fill="#ffffff"/>
 <text x="24" y="34" font-size="19" font-weight="bold" fill="#0f172a">cuSpa 几何原理：二维网格包围盒过滤 ＋ 水平射线奇偶法</text>
-<text x="24" y="57" font-size="12.5" fill="#475569">全库仅 2,378 行 C++/CUDA，0 处 Tensor Core；先按网格缩窄候选细胞，再向右发水平射线数交点奇偶</text>
+<text x="24" y="57" font-size="12.5" fill="#475569">底层 cpp/src/ 仅 2,378 行 C++/CUDA，0 处 Tensor Core；先按网格缩窄候选细胞，再向右发水平射线数交点奇偶</text>
 <rect x="40" y="74" width="440.0" height="330.0" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
 <line x1="150.0" y1="74" x2="150.0" y2="404.0" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 3"/>
 <line x1="260.0" y1="74" x2="260.0" y2="404.0" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 3"/>
