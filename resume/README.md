@@ -73,19 +73,13 @@ CI/CD for app releases: OCLint/SwiftLint checks on MRs reported into GitLab comm
 **Meituan-Dianping** · Senior Software Engineer (L8) · 2016/08 – 2021/09
 Search module performance and feature work, raising instant-open rate from 30% to 60% (2020.2–2021.9); iOS lead for the unified web container Titans, clearing accumulated WebView crashes and substantially lowering the app's crash rate, completing the UIWebView → WKWebView migration and adding offline pages, long-lived connections and WebP (2018.6–2020.2); designed and single-handedly built MTFlexbox (2016.12–2018.6); platform business group — accounts, search, home category sections (2016.8–2017.2).
 
-**SOHO China** · Mobile Development Lead · 2014/09 – 2016/07
-Front-end development for the SOHO3Q internet project across iOS, Android and H5 — the app, the website, online property payments, WeChat payments — plus coordination of outsourced projects and front-end support for traditional project departments.
-
-**Microsoft, Devices & Services** · Senior Software Engineer · 2013/08 – 2014/09
+**Microsoft, Devices & Services** · Senior Software Engineer · 2013/08 – 2016/07
 Nokia IME (S40NG/Android): new language support and low-level grammar rules across dozens of languages worldwide, including smaller ones such as Burmese; automated regression tests; code review for the Teleca team in Chengdu. *(C/C++, Java)*
 
 **Guangzhou Chujian Culture, Beijing Branch** · iOS Development Lead · 2011/02 – 2013/07
 7 Days Inn and Chujian lifestyle iOS clients from 1.0 through 3.0 — overall architecture, core modules (networking, XMPP chat, caching), and team hiring and training. *(Objective-C)*
 
-**Harris (Beijing) Communications** · Senior Development Engineer · 2009/06 – 2011/02
-Maintained the ADC Air-Client / Media-Client broadcast playout software used by US broadcasters and TVB Hong Kong — reliability work on nearly two decades of legacy code. *(Object Pascal, Delphi)*
-
-**MediaTek (MTK) Beijing** · Software Engineer · 2007/02 – 2009/06
+**MediaTek (MTK) Beijing** · Software Engineer · 2007/02 – 2011/02
 UI development and maintenance for networking modules on the MTK platform — Wi-Fi, IPSec, email, dial-up, provisioning — within a thousand-person cross-national team. *(C)*
 
 ---
@@ -185,19 +179,13 @@ NVIDIA DLSS 5 的降噪/超分神经网络随驱动 DLL 泄露，但没有任何
 **美团点评** · 高级软件工程师（L8）· 2016/08 – 2021/09
 搜索模块性能优化及业务开发，搜索秒开率 30% → 60%（2020.2–2021.9）；iOS 统一 web 容器 Titans 的 iOS 侧负责人，解决大量 webview 积累 crash、大幅降低 App crash 率，完成 UIWebView 向 WKWebView 迁移，实现离线化 web 页面、长连接与 webp 支持（2018.6–2020.2）；设计并独立开发 MTFlexbox（2016.12–2018.6）；平台业务组账户、搜索、首页品类区等模块开发（2016.8–2017.2）。
 
-**SOHO 中国** · 移动端开发负责人 · 2014/09 – 2016/07
-SOHO3Q 互联网项目前端相关开发（iOS、Android、H5）：SOHO3Q App、H5 网站、物业在线收费、微信收费等；负责外包项目协调统筹，为传统项目部门提供前端技术支持。
-
-**微软 · 设备与服务部门** · 高级软件工程师 · 2013/08 – 2014/09
+**微软 · 设备与服务部门** · 高级软件工程师 · 2013/08 – 2016/07
 诺基亚输入法（NokiaIME，S40NG/Android）：新语言支持与底层语法规则支持，覆盖全球几十种语言（含缅甸语等小语种）；自动化回归测试用例编写；审核成都 Teleca 代码提交。*(C/C++, Java)*
 
 **广州初见文化传播 · 北京分公司** · iOS 开发负责人 · 2011/02 – 2013/07
 七天连锁酒店 / 初见吃喝玩乐 iOS 客户端，从 1.0 到 3.0 持续迭代：整体架构、核心模块（网络、xmpp 聊天、缓存）、团队招聘与培训。*(Objective-C)*
 
-**HARRIS（北京）通讯技术** · 高级开发工程师 · 2009/06 – 2011/02
-维护 ADC Air-Client / Media-Client 电视播控软件（美国及香港 TVB 等电视台采用），近二十年历史遗留代码的可靠性维护。*(Object Pascal, Delphi)*
-
-**联发博动科技（北京）/ MTK** · 软件工程师 · 2007/02 – 2009/06
+**联发博动科技（北京）/ MTK** · 软件工程师 · 2007/02 – 2011/02
 MTK 平台网络相关模块 UI 开发维护（Wi-Fi、IPSec、电子邮件、拨号上网、Provisioning 等），千人级跨国团队协作。*(C)*
 
 ---
