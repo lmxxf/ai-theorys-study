@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="100%" height="100%" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="0.5" stop-color="#111827"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- 顶部期号与主标题 -->
+  <rect x="40" y="28" width="170" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="125" y="47" font-size="13" font-weight="bold" fill="#38bdf8" text-anchor="middle">NO.383 · AI SCIENTIST</text>
+  <text x="226" y="47" font-size="14" fill="#94a3b8">arXiv:2609.19644 · Google Cloud AI Research 65 页长文解构</text>
+
+  <text x="40" y="92" font-size="31" font-weight="bold" fill="#f8fafc">单题烧 3765 美元、底层调 Claude Code：</text>
+  <text x="40" y="132" font-size="27" font-weight="bold" fill="#fbbf24">谷歌「超越人类顶会」的 AI 科学家到底做了什么？</text>
+
+  <!-- 左侧卡片：掀开附录 A.2 的真实架构底牌 -->
+  <rect x="40" y="158" width="400" height="266" rx="12" fill="#1e293b" fill-opacity="0.85" stroke="#334155" stroke-width="1.5"/>
+  <text x="60" y="188" font-size="16.5" font-weight="bold" fill="#38bdf8">一、附录 A.2 底牌：谷歌搭台，Claude 唱戏</text>
+
+  <!-- 外层 Gemini Flash -->
+  <rect x="60" y="204" width="360" height="54" rx="8" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+  <text x="74" y="226" font-size="13.5" font-weight="bold" fill="#93c5fd">外围动嘴角色（Gemini 3.6 Flash）</text>
+  <text x="74" y="246" font-size="12" fill="#94a3b8">读 PDF 抠局限（16轮）· 提种子点子 · 当 Critic 裁判打分</text>
+
+  <!-- 内层 Claude Code Opus 4.8 -->
+  <rect x="60" y="270" width="360" height="82" rx="8" fill="#172554" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="74" y="294" font-size="13.8" font-weight="bold" fill="#fbbf24">四大核心动刀角色 → 全调 Claude Code (Opus 4.8)</text>
+  <text x="74" y="316" font-size="12" fill="#e2e8f0">① 子集/全量写实验代码   ② 自动设计并跑 5–6 组减法消融</text>
+  <text x="74" y="338" font-size="12" fill="#e2e8f0">③ Rebuttal 回终端补实验  ④ 代码与正文公式逐行对账 (I4)</text>
+
+  <!-- 底部真功夫总结 -->
+  <rect x="60" y="364" width="360" height="44" rx="6" fill="#064e3b" fill-opacity="0.6" stroke="#10b981" stroke-width="1"/>
+  <text x="240" y="383" font-size="12.5" font-weight="bold" fill="#6ee7b7" text-anchor="middle">表 2 盲审：AutoResearchClaw 等 7 框架录用率全为 0.0%</text>
+  <text x="240" y="401" font-size="12" fill="#a7f3d0" text-anchor="middle">ScientistTwo 靠「现成顶会仓 + 减法消融 + 代码对账」达 72.1%</text>
+
+  <!-- 右侧卡片：四大账面水分与二轮审稿过拟合 -->
+  <rect x="460" y="158" width="400" height="266" rx="12" fill="#1e293b" fill-opacity="0.85" stroke="#334155" stroke-width="1.5"/>
+  <text x="480" y="188" font-size="16.5" font-weight="bold" fill="#f87171">二、挤干头条战绩的四大水分（表 4 / 5 / 10）</text>
+
+  <!-- 水分 1 -->
+  <rect x="480" y="204" width="360" height="46" rx="6" fill="#0f172a"/>
+  <text x="494" y="223" font-size="13" font-weight="bold" fill="#fca5a5">1. 「平均提升 +25.2%」背后的均值陷阱</text>
+  <text x="494" y="242" font-size="12" fill="#cbd5e1">全集真实中位数仅 +7.7%，ICLR 子集中位数仅 +2.2%</text>
+
+  <!-- 水分 2 -->
+  <rect x="480" y="258" width="360" height="46" rx="6" fill="#0f172a"/>
+  <text x="494" y="277" font-size="13" font-weight="bold" fill="#fca5a5">2. 表 5 第 2 轮迎合模拟审稿人反而掉分</text>
+  <text x="494" y="296" font-size="12" fill="#cbd5e1">场内自嗨从 79.6% 飙至 93.9%，场外独立盲审从 73.5% 跌回 69.4%</text>
+
+  <!-- 水分 3 -->
+  <rect x="480" y="312" width="360" height="46" rx="6" fill="#0f172a"/>
+  <text x="494" y="331" font-size="13" font-weight="bold" fill="#fca5a5">3. 表 10 真人盲评：堆 9 图 12 表赢苦力，核心算法输人类</text>
+  <text x="494" y="350" font-size="12" fill="#cbd5e1">实验广度 3.5 / 消融 3.3 赢人类，唯独「方法严谨度 2.9」输给人类</text>
+
+  <!-- 水分 4 -->
+  <rect x="480" y="366" width="360" height="42" rx="6" fill="#450a0a" fill-opacity="0.7" stroke="#ef4444" stroke-width="1"/>
+  <text x="660" y="392" font-size="11.8" font-weight="bold" fill="#fecaca" text-anchor="middle">4. 单题无人干预挂机跑 2.5 天、烧 3,765 美元（107 题 40 万刀）</text>
+
+  <!-- 底部金句栏 -->
+  <rect x="40" y="440" width="820" height="38" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>
+  <text x="450" y="464" font-size="14" font-weight="bold" fill="#f8fafc" text-anchor="middle">有人握方向盘做剪枝 + 零成本搬走「10% 小切片探路 · 减法消融砍花架子 · 代码正文逐行对账」三把戒尺</text>
+</svg>

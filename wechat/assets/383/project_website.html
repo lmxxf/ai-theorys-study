@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ScientistTwo is an autonomous research agent that beats human state-of-the-art on 86 of 107 research problems (+25.2% average relative gain) and writes papers that clear the acceptance bar of top-tier AI venues.">
+    <meta name="keywords" content="Autonomous Research, AI Scientist, LLM Agents, Generated Papers, Machine Learning">
+    <title>ScientistTwo: Autonomous Research at Scale</title>
+
+    <meta property="og:title" content="ScientistTwo: Pioneering the Human Knowledge Frontier with Autonomous AI">
+    <meta property="og:description" content="Beats human SOTA on 86 of 107 research problems (+25.2% avg. gain), with papers that outscore accepted ICLR 2026 and NeurIPS 2025 submissions.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./static/images/teaser.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="./static/images/favicon.svg" type="image/svg+xml">
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+    <style>
+        .results-table {
+            margin: 0 auto;
+            /* `separate` (not `collapse`) so the label column can be sticky on
+               narrow screens -- Chrome ignores position:sticky on collapsed cells. */
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        /* Bulma ships `table td:not([align])` at specificity (0,1,2), so these
+           need `tr` in the selector to actually win. */
+        .results-table tr th, .results-table tr td {
+            padding: 8px 14px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .results-table thead th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f7 100%);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3273dc;
+        }
+        .highlight-box .stat {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3273dc;
+        }
+        .highlight-box .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .highlight-box .stat-desc {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.35rem;
+            line-height: 1.4;
+        }
+
+        /* ---------- Paper gallery ---------- */
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .gallery-tab {
+            padding: 0.5rem 1.1rem;
+            border-radius: 9999px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .gallery-tab.active {
+            background-color: #3273dc;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(50, 115, 220, 0.3);
+        }
+        .gallery-tab:not(.active) {
+            background-color: #f1f1f1;
+            color: #888;
+        }
+        .gallery-tab:not(.active):hover {
+            background-color: #e2e6ea;
+            color: #555;
+        }
+        .gallery-tab .tab-count {
+            opacity: 0.75;
+            font-weight: 600;
+            margin-left: 0.3rem;
+        }
+
+        .selector-toolbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .paper-search {
+            position: relative;
+            max-width: 340px;
+            width: 100%;
+        }
+        .paper-search input {
+            width: 100%;
+            padding: 0.4rem 2rem 0.4rem 2rem;
+            border: 1px solid #ddd;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-family: inherit;
+            color: #444;
+            outline: none;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .paper-search input:focus {
+            border-color: #3273dc;
+            box-shadow: 0 0 0 3px rgba(50, 115, 220, 0.12);
+        }
+        .paper-search .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.75rem;
+            color: #bbb;
+            pointer-events: none;
+        }
+        .paper-search .search-clear {
+            position: absolute;
+            right: 0.6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.75rem;
+            color: #bbb;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+        .paper-search .search-clear:hover { color: #666; }
+
+        .paper-selector {
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            max-height: 190px;
+            overflow-y: auto;
+            padding: 0.15rem;
+        }
+        .paper-selector button {
+            padding: 0.35rem 0.85rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            background: #fff;
+            color: #555;
+            transition: all 0.15s;
+            font-family: inherit;
+        }
+        .paper-selector button .sub-name {
+            color: #999;
+            font-weight: 400;
+        }
+        .paper-selector button.active {
+            background: #363636;
+            color: #fff;
+            border-color: #363636;
+        }
+        .paper-selector button.active .sub-name { color: #c9c9c9; }
+        .paper-selector button:not(.active):hover {
+            background: #f0f0f0;
+            border-color: #c9c9c9;
+        }
+        .paper-selector .no-match {
+            font-size: 0.8rem;
+            color: #aaa;
+            padding: 0.5rem;
+        }
+
+        /* Viewer toolbar */
+        .viewer-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #e0e0e0;
+            border-bottom: none;
+            border-radius: 10px 10px 0 0;
+            background: #f8f9fa;
+        }
+        .viewer-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #363636;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 0;
+        }
+        .viewer-title .domain-chip {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #3273dc;
+            background: #eaf1fc;
+            border-radius: 4px;
+            padding: 2px 6px;
+            white-space: nowrap;
+        }
+        .viewer-title .viewer-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .viewer-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .tool-btn {
+            border: 1px solid #ddd;
+            background: #fff;
+            color: #666;
+            border-radius: 6px;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.72rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            text-decoration: none;
+        }
+        .tool-btn:hover {
+            background: #f0f4fa;
+            border-color: #3273dc;
+            color: #3273dc;
+        }
+        .tool-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .tool-btn:disabled:hover {
+            background: #fff;
+            border-color: #ddd;
+            color: #666;
+        }
+        .paper-counter {
+            font-size: 0.72rem;
+            color: #999;
+            min-width: 4.5rem;
+            text-align: center;
+        }
+
+        .pdf-viewer-container {
+            border: 1px solid #e0e0e0;
+            border-radius: 0 0 10px 10px;
+            overflow-y: auto;
+            height: 750px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            background: #525659;
+            padding: 0.75rem 0;
+            resize: vertical;
+            min-height: 300px;
+        }
+        .pdf-page {
+            position: relative;
+            margin: 0.6rem auto;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+        }
+        .pdf-page canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .pdf-page .page-num {
+            position: absolute;
+            right: -2.6rem;
+            top: 0.25rem;
+            font-size: 0.65rem;
+            color: #b9bcc0;
+        }
+        .viewer-message {
+            text-align: center;
+            color: #d7d9db;
+            padding: 3rem 1rem;
+            font-size: 0.9rem;
+        }
+        .viewer-message a { color: #9ec5fe; }
+
+        /* Author list */
+        .author-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.25rem 1rem;
+            margin-top: 0.5rem;
+        }
+        .author-list .author-block { font-size: 1rem; }
+
+        /* Domain coverage cards */
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 0.9rem;
+        }
+        .domain-card {
+            background: #fff;
+            border: 1px solid #ececec;
+            border-radius: 10px;
+            padding: 1rem 1.1rem;
+            text-align: left;
+            transition: transform 0.15s, box-shadow 0.15s;
+            cursor: pointer;
+        }
+        .domain-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+        .domain-card .domain-name {
+            font-weight: 600;
+            color: #363636;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .domain-card .domain-count {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #3273dc;
+        }
+        .domain-card .domain-subs {
+            margin-top: 0.4rem;
+            font-size: 0.75rem;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* ---------- Sticky section nav ---------- */
+        .section-nav {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: saturate(180%) blur(10px);
+            border-bottom: 1px solid #ececec;
+        }
+        .section-nav .nav-inner {
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            padding: 0.5rem 1rem;
+        }
+        .section-nav a {
+            flex: 0 0 auto;
+            white-space: nowrap;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #888;
+            padding: 0.35rem 0.7rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+        .section-nav a:hover { background: #f0f4fa; color: #3273dc; }
+
+        html { scroll-behavior: smooth; }
+        section[id] { scroll-margin-top: 3.5rem; }
+
+        /* ---------- Hero headline stats ---------- */
+        /* Four tiles laid out on a 6-column track: the two rating/audit tiles
+           are twice as wide because they carry a second line of detail. */
+        .stat-ribbon {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.75rem;
+            margin: 1.75rem auto 0;
+            max-width: 940px;
+        }
+        .stat-ribbon .stat-cell {
+            display: flex;
+            flex-direction: column;
+            /* Top-aligned so the big numbers line up across tiles of unequal
+               content height. */
+            justify-content: flex-start;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 0.85rem 0.6rem;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .stat-ribbon .stat-cell.is-wide { grid-column: span 2; }
+        .stat-ribbon .stat-cell:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+        }
+        .stat-ribbon .stat-num {
+            font-size: 1.7rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #3273dc;
+        }
+        .stat-ribbon .stat-den {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #9db6e2;
+        }
+        .stat-ribbon .stat-cap {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #999;
+            margin-top: 0.3rem;
+        }
+        .stat-ribbon .stat-foot {
+            font-size: 0.68rem;
+            line-height: 1.35;
+            color: #aaa;
+            margin-top: 0.35rem;
+        }
+        /* Two reviewers side by side inside a single tile. */
+        .stat-ribbon .dual-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0.9rem;
+        }
+        .stat-ribbon .dual-row .dual-item { flex: 1 1 0; }
+        .stat-ribbon .dual-row .dual-item + .dual-item {
+            border-left: 1px solid #ececec;
+            padding-left: 0.9rem;
+        }
+        .stat-ribbon .dual-lbl {
+            font-size: 0.66rem;
+            font-weight: 600;
+            color: #888;
+            line-height: 1.3;
+            margin-top: 0.2rem;
+        }
+        /* Plain-language gloss so the audit means something at first glance. */
+        .stat-legend {
+            max-width: 780px;
+            margin: 0.9rem auto 0;
+            font-size: 0.78rem;
+            line-height: 1.6;
+            color: #7a8794;
+        }
+        .stat-legend .fa-shield-halved { color: #1f9254; margin-right: 0.3rem; }
+        .stat-legend strong { color: #5a6c7d; }
+
+        /* ---------- Section eyebrow label ---------- */
+        .eyebrow {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: #3273dc;
+            margin-bottom: 0.35rem;
+        }
+
+        /* ---------- Figure cards ---------- */
+        .figure-card {
+            background: #fff;
+            border: 1px solid #ececec;
+            border-radius: 12px;
+            padding: 1.1rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+        .figure-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .figure-card figcaption {
+            font-size: 0.82rem;
+            color: #777;
+            line-height: 1.55;
+            margin-top: 0.85rem;
+            text-align: left;
+        }
+        .figure-card figcaption strong { color: #555; }
+        .fig-link {
+            font-size: 0.72rem;
+            color: #3273dc;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .fig-link:hover { text-decoration: underline; }
+
+        /* ---------- Demo video ---------- */
+        /* Dark band: the demo sits between two light sections and the captured
+           UI is dark, so this separates it without reflowing the alternating
+           white/#fafafa rhythm of every section below it. */
+        #demo { background: #22303f; }
+        #demo .eyebrow { color: #7fb3f0; }
+        #demo .title { color: #fff; }
+        #demo .content p { color: #c3cedb; }
+        .video-card {
+            background: #1a2632;
+            border-color: #31404f;
+            box-shadow: 0 10px 34px rgba(0, 0, 0, 0.30);
+        }
+        .video-card video {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            background: #000;
+        }
+        .video-card figcaption { color: #93a2b2; }
+        .video-card figcaption strong { color: #d7e0e9; }
+        /* Bulma's default <code> is a light pill, jarring on the dark card. */
+        .video-card figcaption code {
+            background: #2b3a4a;
+            color: #e7b1b8;
+            font-size: 0.92em;
+            padding: 0.05em 0.35em;
+            border-radius: 4px;
+        }
+        .video-card .fig-link { color: #7fb3f0; }
+
+        /* ---------- Pillar cards (system overview) ---------- */
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1.75rem;
+        }
+        .pillar-card {
+            background: #fff;
+            border: 1px solid #ececec;
+            border-top: 3px solid #3273dc;
+            border-radius: 10px;
+            padding: 1.15rem 1.25rem;
+            text-align: left;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .pillar-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+        }
+        .pillar-card .pillar-icon {
+            color: #3273dc;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .pillar-card .pillar-title {
+            font-weight: 700;
+            color: #363636;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+        }
+        .pillar-card .pillar-text {
+            font-size: 0.85rem;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* ---------- Results tables ---------- */
+        .table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 0.25rem;
+        }
+        .results-table {
+            font-size: 0.85rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+            white-space: nowrap;
+        }
+        /* Corners are rounded per-cell rather than with `overflow: hidden`,
+           which would cancel the sticky label column. */
+        .results-table thead tr:first-child th:first-child { border-top-left-radius: 10px; }
+        .results-table thead tr:first-child th:last-child { border-top-right-radius: 10px; }
+        .results-table tbody tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+        .results-table tbody tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+        .results-table tbody tr:last-child td { border-bottom: none; }
+        .results-table thead th { color: #555; }
+        .results-table thead th.spans {
+            border-bottom: 1px solid #dbdbdb;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .results-table td.name,
+        .results-table th.name { text-align: left; }
+        /* Thin divider between the two column groups. In both tables the
+           second group starts at column 5. */
+        .results-table tr .group-start,
+        .results-table tbody tr:not(.group-row) td:nth-child(5) {
+            border-left: 1px solid #ececec;
+        }
+        .results-table .group-row td {
+            text-align: left;
+            background: #fbfbfb;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #a0a0a0;
+            padding-top: 0.6rem;
+            padding-bottom: 0.6rem;
+        }
+        .results-table .row-ours { background-color: #eef4fd; }
+        .results-table .row-ours td { border-top: 2px solid #3273dc; }
+        .results-table .row-ours td { color: #1c4f9c; font-weight: 700; }
+        .results-table .best { font-weight: 700; }
+        .results-table .sd {
+            color: #a8a8a8;
+            font-size: 0.78em;
+            font-weight: 400;
+        }
+        .results-table .row-ours .sd { color: #6b93d4; }
+        .results-table td.yes, .results-table .row-ours td.yes { color: #1f9254; }
+        .results-table td.no,  .results-table .row-ours td.no  { color: #d64545; }
+        .table-note {
+            font-size: 0.8rem;
+            color: #999;
+            line-height: 1.55;
+            margin-top: 0.9rem;
+            text-align: center;
+        }
+
+        /* ---------- Takeaway callout ---------- */
+        .takeaway {
+            display: flex;
+            gap: 0.85rem;
+            align-items: flex-start;
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f7 100%);
+            border-left: 4px solid #3273dc;
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.25rem;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+        .takeaway .takeaway-icon { color: #3273dc; margin-top: 0.15rem; }
+        .takeaway p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+
+        @media screen and (max-width: 768px) {
+            .pdf-page .page-num { display: none; }
+            .pdf-viewer-container { height: 520px; }
+            .viewer-toolbar { justify-content: center; }
+            .stat-ribbon .stat-num { font-size: 1.4rem; }
+            /* 6 narrow columns do not fit a phone: 2 up, wide tiles full width. */
+            .stat-ribbon { grid-template-columns: repeat(2, 1fr); }
+            .stat-ribbon .stat-cell.is-wide { grid-column: span 2; }
+
+            /* Keep the sticky nav one line tall: scroll it instead of wrapping. */
+            .section-nav .nav-inner {
+                gap: 0;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                scrollbar-width: none;
+            }
+            .section-nav .nav-inner::-webkit-scrollbar { display: none; }
+            .section-nav a { font-size: 0.68rem; padding: 0.3rem 0.5rem; }
+
+            /* Pin the row-label column while the rest of the table scrolls. */
+            .results-table .name {
+                position: sticky;
+                left: 0;
+                z-index: 1;
+                background: #fff;
+                border-right: 1px solid #ececec;
+            }
+            .results-table thead .name { background: #f5f5f5; }
+            .results-table .row-ours .name { background: #eef4fd; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+        <div class="hero-body" style="padding-bottom: 1rem;">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">
+                            <span style="font-size: xx-large;">
+                                ScientistTwo: Pioneering the Human Knowledge Frontier with Autonomous AI
+                            </span>
+                        </h1>
+
+                        <div class="is-size-5 publication-authors author-list">
+                            <span class="author-block">Jaehyun Nam</span>
+                            <span class="author-block">Jinsung Yoon</span>
+                            <span class="author-block">Yanzhou Pan</span>
+                            <span class="author-block">Yubo Wang</span>
+                            <span class="author-block">Rui Meng</span>
+                            <span class="author-block">Parthasarathy Ranganathan</span>
+                            <span class="author-block">Tomas Pfister</span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors" style="margin-top: 0.25rem;">
+                            <span class="author-block">Google Cloud AI Research</span>
+                        </div>
+
+                        <div class="has-text-centered" style="margin-top: 0.75rem;">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2609.19644" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                                        <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+
+                                <span class="link-block">
+                                    <a href="#gallery" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                                        <span>Generated Papers</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Headline numbers -->
+                        <div class="stat-ribbon">
+                            <div class="stat-cell">
+                                <div class="stat-num">86 / 107</div>
+                                <div class="stat-cap">Papers Beating Human SOTA</div>
+                            </div>
+                            <div class="stat-cell">
+                                <div class="stat-num">+25.2%</div>
+                                <div class="stat-cap">Avg. Relative Gain</div>
+                            </div>
+                            <div class="stat-cell is-wide">
+                                <div class="dual-row">
+                                    <div class="dual-item">
+                                        <div class="stat-num">7.5<span class="stat-den">/10</span></div>
+                                        <div class="dual-lbl">ScholarPeer</div>
+                                    </div>
+                                    <div class="dual-item">
+                                        <div class="stat-num">5.7<span class="stat-den">/10</span></div>
+                                        <div class="dual-lbl">Stanford Agentic Reviewer</div>
+                                    </div>
+                                </div>
+                                <div class="stat-cap">Avg. Review Rating</div>
+                                <div class="stat-foot">Above the averages of accepted ICLR&nbsp;2026 and NeurIPS&nbsp;2025 papers under both reviewers.</div>
+                            </div>
+                            <div class="stat-cell is-wide">
+                                <div class="stat-num">4 / 4</div>
+                                <div class="stat-cap">Integrity Audits Passed</div>
+                                <div class="stat-foot">Scores reproduce &middot; no spec violations &middot; 0 of 1,814 references hallucinated &middot; method matches code.</div>
+                            </div>
+                        </div>
+
+                        <p class="stat-legend">
+                            <i class="fas fa-shield-halved"></i>
+                            <strong>What the integrity audit checks.</strong>
+                            Every paper is re-examined against its own artifacts: the released code is re-run to confirm each
+                            reported number, the solution is checked for specification violations and reward hacking, every
+                            citation is verified to exist, and the written method is matched line-by-line against the
+                            implementation. ScientistTwo's papers are not only rated at expert level&mdash;their results are
+                            <strong>fully verified and reproducible</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STICKY SECTION NAV ==================== -->
+    <nav class="section-nav">
+        <div class="nav-inner">
+            <a href="#gallery">Papers</a>
+            <a href="#demo">Demo</a>
+            <a href="#domains">Coverage</a>
+            <a href="#frontier">Frontier</a>
+            <a href="#overview">How It Works</a>
+            <a href="#results">Results</a>
+            <a href="#integrity">Integrity</a>
+            <a href="#BibTeX">BibTeX</a>
+        </div>
+    </nav>
+
+    <!-- ==================== PAPER GALLERY ==================== -->
+    <section class="section" id="gallery" style="padding-top: 2.5rem;">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <p class="eyebrow">The Papers</p>
+                    <h2 class="title is-3">Read What ScientistTwo Wrote</h2>
+                </div>
+            </div>
+            <p class="has-text-centered" style="margin-bottom: 1.25rem; color: #888; font-size: 0.85rem;">
+                <strong id="total-count">86</strong> papers autonomously generated across eight AI domains.
+                Select a domain, then a paper to preview it below.
+            </p>
+
+            <!-- Domain toggle buttons -->
+            <div class="gallery-tabs" id="category-tabs"></div>
+
+            <!-- Search within the selected domain -->
+            <div class="selector-toolbar">
+                <div class="paper-search">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="paper-filter" placeholder="Filter by sub-domain or method..." autocomplete="off" aria-label="Filter papers">
+                    <button class="search-clear" id="search-clear" aria-label="Clear filter"><i class="fas fa-times-circle"></i></button>
+                </div>
+            </div>
+
+            <!-- Paper selector (per domain) -->
+            <div class="paper-selector" id="paper-selector"></div>
+
+            <!-- Viewer toolbar -->
+            <div class="viewer-toolbar">
+                <div class="viewer-title">
+                    <span class="domain-chip" id="viewer-domain">Applications</span>
+                    <span class="viewer-name" id="viewer-name">&mdash;</span>
+                </div>
+                <div class="viewer-actions">
+                    <button class="tool-btn" id="prev-paper" title="Previous paper"><i class="fas fa-chevron-left"></i></button>
+                    <span class="paper-counter" id="paper-counter">1 / 1</span>
+                    <button class="tool-btn" id="next-paper" title="Next paper"><i class="fas fa-chevron-right"></i></button>
+                    <a class="tool-btn" id="open-pdf" href="#" target="_blank" rel="noopener noreferrer" title="Open PDF in a new tab">
+                        <i class="fas fa-up-right-from-square"></i> Open
+                    </a>
+                    <a class="tool-btn" id="download-pdf" href="#" download title="Download PDF">
+                        <i class="fas fa-download"></i> PDF
+                    </a>
+                    <button class="tool-btn" id="toggle-preview" title="Hide preview"><i class="fas fa-chevron-up"></i> Hide</button>
+                </div>
+            </div>
+
+            <!-- PDF viewer (rendered via PDF.js) -->
+            <div class="pdf-viewer-container" id="pdf-viewer-container">
+                <p class="viewer-message">Loading PDF&hellip;</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== POLARISGO DEMO ==================== -->
+    <section class="section" id="demo">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <p class="eyebrow">See It Run</p>
+                </div>
+            </div>
+
+            <figure class="figure-card video-card">
+                <video controls preload="none" playsinline
+                       poster="./static/images/polarisgo-poster.jpg"
+                       aria-label="PolarisGo demo: browsing a ScientistTwo end-to-end run">
+                    <source src="./static/videos/polarisgo-demo.mp4" type="video/mp4">
+                    Your browser cannot play this video.
+                    <a href="./static/videos/polarisgo-demo.mp4">Download the PolarisGo demo (MP4)</a>.
+                </video>
+            </figure>
+        </div>
+    </section>
+
+    <!-- ==================== DOMAIN COVERAGE ==================== -->
+    <section class="section" id="domains" style="background-color: #fafafa;">
+        <div class="container is-max-desktop">
+            <p class="eyebrow has-text-centered">Coverage</p>
+            <h2 class="title is-3 has-text-centered">Domain Coverage</h2>
+            <div class="columns is-centered" style="margin-bottom: 0.5rem;">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified">
+                        <p>
+                            The generated papers span eight AI domains, each broken down into the sub-domain the paper addresses and the method it introduces.
+                            Click a domain to jump to its papers in the gallery above.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="domain-grid" id="domain-grid"></div>
+        </div>
+    </section>
+
+    <!-- ==================== TEASER / EXPANDED FRONTIER ==================== -->
+    <section class="section" id="frontier">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <p class="eyebrow">Expanding the Frontier</p>
+                    <h2 class="title is-3">Autonomous Research Beyond Human SOTA</h2>
+                    <div class="content has-text-justified" style="margin-top: 1rem;">
+                        <p>
+                            ScientistTwo autonomously pushes the frontier of human knowledge across ten-plus research domains&mdash;LLMs,
+                            robotics, neuroscience, speech, robustness, reinforcement learning, game theory, privacy, optimization, and
+                            time series&mdash;producing publication-quality papers together with fully verified codebases.
+                            Across <strong>107</strong> research problems drawn from recent top-tier publications, ScientistTwo improves on
+                            the human state-of-the-art in <strong>86</strong> of them (an <strong>80.4%</strong> success rate), with an
+                            average relative improvement of <strong>25.2%</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <figure class="figure-card">
+                <img src="./static/images/teaser.png" alt="Left: radar chart of the human frontier versus the frontier expanded by ScientistTwo across all sub-domains. Right: sunburst chart of the relative gain over human SOTA per sub-domain.">
+                <figcaption>
+                    <strong>(a) Expanded frontier.</strong> The red contour marks the performance frontier reached by ScientistTwo,
+                    plotted against the human state-of-the-art (blue) and the task upper bound (orange) for every sub-domain.
+                    <strong>(b) Relative gain over human SOTA.</strong> Each outward bar is one generated paper, shaded by the size
+                    of its improvement; bars extending past the blue ring beat the human baseline, and only the salmon-colored
+                    slices fall short.
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- ==================== SYSTEM OVERVIEW ==================== -->
+    <section class="section" id="overview" style="background-color: #fafafa;">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <p class="eyebrow">How It Works</p>
+                    <h2 class="title is-3">A Closed Loop from Idea to Accepted Paper</h2>
+                    <div class="content has-text-justified" style="margin-top: 1rem;">
+                        <p>
+                            ScientistTwo runs the full research cycle on its own: it generates and
+                            evolves ideas, validates them experimentally, isolates what actually works, writes the manuscript, and then
+                            subjects that manuscript to its own peer review&mdash;looping back until the work clears a publication bar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <figure class="figure-card">
+                <img src="./static/images/overview.png" alt="ScientistTwo pipeline: Idea Generator, Evaluator, and Analyzer in the top row, feeding a Writer Agent, Peer-Review Agent, and Meta-Review Agent in the bottom row, with feedback loops back to the Idea Generator.">
+                <figcaption>
+                    <strong>System overview.</strong> Six agent groups form one closed loop&mdash;the Idea Generator proposes and evolves
+                    hypotheses, the Evaluator screens them on benchmark subsets before full-scale runs, the Analyzer ablates and refines
+                    the surviving idea, and the Writer, Peer-Review, and Meta-Review agents iterate on the manuscript until acceptance
+                    criteria are met.
+                </figcaption>
+            </figure>
+
+            <div class="pillar-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fas fa-layer-group"></i></div>
+                    <div class="pillar-title">Holistic Benchmarking, Efficient Screening</div>
+                    <p class="pillar-text">
+                        Ideas are judged on comprehensive multi-dataset benchmarks rather than a single metric, avoiding overfitting.
+                        A subset-first strategy filters candidates on representative benchmark slices before committing compute to
+                        full-scale experiments.
+                    </p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fas fa-flask-vial"></i></div>
+                    <div class="pillar-title">Ablation-Driven Hypothesis Refinement</div>
+                    <p class="pillar-text">
+                        Mirroring the empirical rigor of expert researchers, ScientistTwo designs and runs its own ablation studies to
+                        isolate each component's contribution, then prunes the ineffective ones and sharpens its core hypothesis.
+                    </p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fas fa-rotate"></i></div>
+                    <div class="pillar-title">Peer-Review &amp; Rebuttal Loops</div>
+                    <p class="pillar-text">
+                        A Peer-Review Agent critiques every draft, and a Rebuttal Agent answers by conceiving, coding, and running new
+                        targeted experiments&mdash;not just editing text. A Meta-Review Agent supervises the cycle, re-triggering
+                        refinement until rigorous acceptance criteria are satisfied.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN RESULTS ==================== -->
+    <section class="section" id="results">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <p class="eyebrow">Main Results</p>
+                    <h2 class="title is-3">Reviewed at the Bar of Top-Tier Venues</h2>
+                    <div class="content has-text-justified" style="margin-top: 1rem;">
+                        <p>
+                            We score every paper with two automated reviewers&mdash;ScholarPeer and the Stanford Agentic Reviewer&mdash;and
+                            compare against both prior research agents and papers actually accepted at NeurIPS 2025, ICLR 2026, and
+                            ICML 2026, whose problem specifications and codebases serve as the benchmark tasks.
+                            ScientistTwo reaches a <strong>91.9%</strong> acceptance rate under ScholarPeer, and is the
+                            <strong>only</strong> agent to clear the Stanford Agentic Reviewer at all&mdash;<strong>72.1%</strong> of its
+                            papers meet that bar, while every baseline scores 0%.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th class="name" rowspan="2">Framework</th>
+                            <th rowspan="2"># Papers</th>
+                            <th class="spans" colspan="2">ScholarPeer</th>
+                            <th class="spans group-start" colspan="2">Stanford Agentic Reviewer</th>
+                        </tr>
+                        <tr>
+                            <th>Avg. Rating</th>
+                            <th>Accept Rate</th>
+                            <th class="group-start">Avg. Rating</th>
+                            <th>Accept Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="group-row"><td colspan="6">Human-authored</td></tr>
+                        <tr>
+                            <td class="name">ICLR 2026 Accepted</td>
+                            <td>5</td>
+                            <td>6.8 <span class="sd">&plusmn;1.6</span></td>
+                            <td>60.0%</td>
+                            <td>5.2 <span class="sd">&plusmn;0.7</span></td>
+                            <td>60.0%</td>
+                        </tr>
+                        <tr>
+                            <td class="name">NeurIPS 2025 Accepted</td>
+                            <td>38</td>
+                            <td>6.2 <span class="sd">&plusmn;1.9</span></td>
+                            <td>65.8%</td>
+                            <td>5.5 <span class="sd">&plusmn;0.7</span></td>
+                            <td>76.3%</td>
+                        </tr>
+                        <tr>
+                            <td class="name">ICML 2026 Spotlight</td>
+                            <td>64</td>
+                            <td>6.9 <span class="sd">&plusmn;1.5</span></td>
+                            <td>79.7%</td>
+                            <td>6.1 <span class="sd">&plusmn;0.5</span></td>
+                            <td>96.9%</td>
+                        </tr>
+
+                        <tr class="group-row"><td colspan="6">AI-generated</td></tr>
+                        <tr>
+                            <td class="name">AI-Researcher</td>
+                            <td>7</td>
+                            <td>1.0 <span class="sd">&plusmn;0.0</span></td>
+                            <td>0.0%</td>
+                            <td>2.4 <span class="sd">&plusmn;0.6</span></td>
+                            <td>0.0%</td>
+                        </tr>
+                        <tr>
+                            <td class="name">CycleResearcher</td>
+                            <td>6</td>
+                            <td>1.0 <span class="sd">&plusmn;0.0</span></td>
+                            <td>0.0%</td>
+                            <td>2.8 <span class="sd">&plusmn;1.0</span></td>
+                            <td>0.0%</td>
+                        </tr>
+                        <tr>
+                            <td class="name">AI Scientist-v2</td>
+                            <td>3</td>
+                            <td>2.0 <span class="sd">&plusmn;1.0</span></td>
+                            <td>0.0%</td>
+                            <td>2.5 <span class="sd">&plusmn;0.2</span></td>
+                            <td>0.0%</td>
+                        </tr>
+                        <tr>
+                            <td class="name">AutoResearchClaw</td>
+                            <td>4</td>
+                            <td>2.5 <span class="sd">&plusmn;1.0</span></td>
+                            <td>0.0%</td>
+                            <td>3.7 <span class="sd">&plusmn;0.5</span></td>
+                            <td>0.0%</td>
+                        </tr>
+                        <tr>
+                            <td class="name">Zochi</td>
+                            <td>2</td>
+                            <td>3.0 <span class="sd">&plusmn;0.0</span></td>
+                            <td>0.0%</td>
+                            <td>2.9 <span class="sd">&plusmn;0.6</span></td>
+                            <td>0.0%</td>
+                        </tr>
+                        <tr>
+                            <td class="name">DeepScientist</td>
+                            <td>3</td>
+                            <td>3.0 <span class="sd">&plusmn;0.0</span></td>
+                            <td>0.0%</td>
+                            <td>4.1 <span class="sd">&plusmn;0.6</span></td>
+                            <td>0.0%</td>
+                        </tr>
+                        <tr>
+                            <td class="name">ScientistOne</td>
+                            <td>21</td>
+                            <td>3.8 <span class="sd">&plusmn;1.2</span></td>
+                            <td>14.3%</td>
+                            <td>4.1 <span class="sd">&plusmn;0.7</span></td>
+                            <td>0.0%</td>
+                        </tr>
+                        <tr class="row-ours">
+                            <td class="name">ScientistTwo (Ours)</td>
+                            <td>86</td>
+                            <td class="best">7.5 <span class="sd">&plusmn;1.3</span></td>
+                            <td class="best">91.9%</td>
+                            <td class="best">5.7 <span class="sd">&plusmn;0.6</span></td>
+                            <td class="best">72.1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note">
+                Average review ratings (1&ndash;10 scale) with standard deviations, and acceptance rates.
+                &ldquo;# Papers&rdquo; is the number of papers aggregated per row.
+            </p>
+
+            <div class="columns is-centered">
+                <div class="column is-four-fifths">
+                    <div class="takeaway">
+                        <span class="takeaway-icon"><i class="fas fa-circle-check"></i></span>
+                        <p>
+                            Papers generated by ScientistTwo <strong>surpass the average scores of accepted ICLR 2026 and NeurIPS 2025
+                            papers</strong> under both reviewers. Spotlight-level quality remains out of reach, but ScientistTwo operates
+                            as an expert-level research agent producing manuscripts that meet the acceptance threshold of top-tier AI venues.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COE INTEGRITY AUDIT ==================== -->
+    <section class="section" id="integrity" style="background-color: #fafafa;">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <p class="eyebrow">Integrity</p>
+                    <h2 class="title is-3">Every Claim Backed by Its Artifacts</h2>
+                    <div class="content has-text-justified" style="margin-top: 1rem;">
+                        <p>
+                            Strong scores mean nothing if the underlying results are not real. The CoE Integrity Audit is a post-hoc
+                            framework that checks whether a paper's claims are actually supported by its code, empirical outputs, and
+                            bibliography, via four checks:
+                            <strong>score verification</strong> (re-running the repository reproduces every reported number),
+                            <strong>specification compliance</strong> (no rule-breaking or reward hacking),
+                            <strong>reference verification</strong> (no hallucinated citations), and
+                            <strong>method&ndash;code alignment</strong> (the manuscript faithfully describes the implementation).
+                        </p>
+                        <p>
+                            Three dedicated refinement agents enforce these properties: a validation filter discards rule-violating
+                            solutions right after experimentation, a search-augmented LLM grounds and corrects the bibliography, and a
+                            code audit reconciles the method section against the repository. Reproducibility is handled up front, by
+                            prompting the Coding Agent to emit self-contained, re-runnable scripts.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th class="name" rowspan="2">Framework</th>
+                            <th class="spans" colspan="3">Refinement Agent</th>
+                            <th class="spans group-start" colspan="4">Integrity Audit</th>
+                        </tr>
+                        <tr>
+                            <th>Spec. Compl.</th>
+                            <th>Ref. Verif.</th>
+                            <th>Method&ndash;Code</th>
+                            <th class="group-start">Score Verif. &uarr;</th>
+                            <th>Spec. Violat. &darr;</th>
+                            <th>Ref. Verif. &darr;</th>
+                            <th>Method&ndash;Code &uarr;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name">ScientistTwo (variant)</td>
+                            <td class="no"><i class="fas fa-xmark"></i></td>
+                            <td class="no"><i class="fas fa-xmark"></i></td>
+                            <td class="no"><i class="fas fa-xmark"></i></td>
+                            <td class="best">50 / 50</td>
+                            <td>1 / 50</td>
+                            <td>19 / 1840</td>
+                            <td>39 / 50</td>
+                        </tr>
+                        <tr>
+                            <td class="name">ScientistTwo (variant)</td>
+                            <td class="yes"><i class="fas fa-check"></i></td>
+                            <td class="no"><i class="fas fa-xmark"></i></td>
+                            <td class="no"><i class="fas fa-xmark"></i></td>
+                            <td class="best">49 / 49</td>
+                            <td class="best">0 / 49</td>
+                            <td>19 / 1817</td>
+                            <td>38 / 49</td>
+                        </tr>
+                        <tr>
+                            <td class="name">ScientistTwo (variant)</td>
+                            <td class="yes"><i class="fas fa-check"></i></td>
+                            <td class="yes"><i class="fas fa-check"></i></td>
+                            <td class="no"><i class="fas fa-xmark"></i></td>
+                            <td class="best">49 / 49</td>
+                            <td class="best">0 / 49</td>
+                            <td class="best">0 / 1814</td>
+                            <td>38 / 49</td>
+                        </tr>
+                        <tr class="row-ours">
+                            <td class="name">ScientistTwo (Ours)</td>
+                            <td class="yes"><i class="fas fa-check"></i></td>
+                            <td class="yes"><i class="fas fa-check"></i></td>
+                            <td class="yes"><i class="fas fa-check"></i></td>
+                            <td class="best">49 / 49</td>
+                            <td class="best">0 / 49</td>
+                            <td class="best">0 / 1814</td>
+                            <td class="best">49 / 49</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note">
+                Paper and code integrity, evaluated following the CoE Integrity Audit of ScientistOne.
+                The left block marks which refinement agents are enabled; the right block reports audit outcomes.
+                Score verification needs no refinement agent&mdash;reproducibility is enforced during experimentation.
+            </p>
+
+            <div class="columns is-centered">
+                <div class="column is-four-fifths">
+                    <div class="takeaway">
+                        <span class="takeaway-icon"><i class="fas fa-shield-halved"></i></span>
+                        <p>
+                            The full system <strong>passes all four audits</strong>: every reported score reproduces, no specification is
+                            violated, not one of 1,814 references is hallucinated, and all 49 papers match their code. Removing the
+                            refinement agents produces sporadic failures across each check.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BIBTEX ==================== -->
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{nam2026scientisttwo,
+  title     = {ScientistTwo: Pioneering the Human Knowledge Frontier with Autonomous AI},
+  author    = {Nam, Jaehyun and Yoon, Jinsung and Pan, Yanzhou and Wang, Yubo and Meng, Rui and Ranganathan, Parthasarathy and Pfister, Tomas},
+  journal   = {arXiv preprint arXiv:2609.19644},
+  year      = {2026}
+}</code></pre>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    Website template adapted from <a href="https://nerfies.github.io/" target="_blank">Nerfies</a>.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+    import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs';
+
+    // Top-level domains, in display order.
+    const categories = [
+        { key: 'applications',   name: 'Applications' },
+        { key: 'deep_learning',  name: 'Deep Learning' },
+        { key: 'general_ml',     name: 'General ML' },
+        { key: 'optimization',   name: 'Optimization' },
+        { key: 'probabilistic',  name: 'Probabilistic' },
+        { key: 'rl',             name: 'RL' },
+        { key: 'social_aspects', name: 'Social Aspects' },
+        { key: 'theory',         name: 'Theory' },
+    ];
+
+    // label: 'Sub-domain (Method Name)', derived from '<Sub-domain>_<Method Name>.pdf'.
+    const paperData = {
+        applications: [
+            { label: "Health (Cartan-DEC-MiAE)",           file: "generated-papers/applications/Health_Cartan-DEC-MiAE.pdf" },
+            { label: "Neuroscience (FCD-Engram)",          file: "generated-papers/applications/Neuroscience_FCD-Engram.pdf" },
+            { label: "Neuroscience (Simplified DWGR-SVL)", file: "generated-papers/applications/Neuroscience_Simplified DWGR-SVL.pdf" },
+            { label: "Neuroscience (ST-FacRNN)",           file: "generated-papers/applications/Neuroscience_ST-FacRNN.pdf" },
+            { label: "Neuroscience (TA-FATA-CSBrain)",     file: "generated-papers/applications/Neuroscience_TA-FATA-CSBrain.pdf" },
+            { label: "Robotics (KinemaAnchor-Manifold)",   file: "generated-papers/applications/Robotics_KinemaAnchor-Manifold.pdf" },
+            { label: "Sciences (ErtelHodge-STELLA)",       file: "generated-papers/applications/Sciences_ErtelHodge-STELLA.pdf" },
+            { label: "Sciences (SYMP-MONGE)",              file: "generated-papers/applications/Sciences_SYMP-MONGE.pdf" },
+            { label: "Speech (CHAMPS-RAG)",                file: "generated-papers/applications/Speech_CHAMPS-RAG.pdf" },
+            { label: "Time Series (PG-CDIG)",              file: "generated-papers/applications/Time Series_PG-CDIG.pdf" },
+            { label: "Others (AnisoSPD)",                  file: "generated-papers/applications/Others_AnisoSPD.pdf" },
+            { label: "Others (DiffTrop-Bitween)",          file: "generated-papers/applications/Others_DiffTrop-Bitween.pdf" },
+            { label: "Others (DR-LEF)",                    file: "generated-papers/applications/Others_DR-LEF.pdf" },
+            { label: "Others (SAVVY-Vortex)",              file: "generated-papers/applications/Others_SAVVY-Vortex.pdf" },
+            { label: "Others (TVCS-IF)",                   file: "generated-papers/applications/Others_TVCS-IF.pdf" },
+        ],
+        deep_learning: [
+            { label: "Algorithms (RMTS)",             file: "generated-papers/deep_learning/Algorithms_RMTS.pdf" },
+            { label: "Foundation (TABHARMONY)",       file: "generated-papers/deep_learning/Foundation_TABHARMONY.pdf" },
+            { label: "Foundation (UNI-XDLM)",         file: "generated-papers/deep_learning/Foundation_UNI-XDLM.pdf" },
+            { label: "LLMs (CS-HLA)",                 file: "generated-papers/deep_learning/LLMs_CS-HLA.pdf" },
+            { label: "LLMs (DNLP-LCBC)",              file: "generated-papers/deep_learning/LLMs_DNLP-LCBC.pdf" },
+            { label: "LLMs (Mem-MaxRL)",              file: "generated-papers/deep_learning/LLMs_Mem-MaxRL.pdf" },
+            { label: "LLMs (Poisson-Top-W)",          file: "generated-papers/deep_learning/LLMs_Poisson-Top-W.pdf" },
+            { label: "LLMs (RES-TRACE)",              file: "generated-papers/deep_learning/LLMs_RES-TRACE.pdf" },
+            { label: "LLMs (SDDF-RKHS)",              file: "generated-papers/deep_learning/LLMs_SDDF-RKHS.pdf" },
+            { label: "LLMs (SymCrooks-Steering)",     file: "generated-papers/deep_learning/LLMs_SymCrooks-Steering.pdf" },
+            { label: "LLMs (TPH-Lock)",               file: "generated-papers/deep_learning/LLMs_TPH-Lock.pdf" },
+            { label: "LLMs (VD-STrans)",              file: "generated-papers/deep_learning/LLMs_VD-STrans.pdf" },
+            { label: "Robustness (ResoKoopman)",      file: "generated-papers/deep_learning/Robustness_ResoKoopman.pdf" },
+            { label: "Others (BF-DFN)",               file: "generated-papers/deep_learning/Others_BF-DFN.pdf" },
+            { label: "Others (DynaSpec-RAG)",         file: "generated-papers/deep_learning/Others_DynaSpec-RAG.pdf" },
+            { label: "Others (Fed-LanczosSAM)",       file: "generated-papers/deep_learning/Others_Fed-LanczosSAM.pdf" },
+            { label: "Others (HARMONIC-MoP)",         file: "generated-papers/deep_learning/Others_HARMONIC-MoP.pdf" },
+            { label: "Others (InfoOptim)",            file: "generated-papers/deep_learning/Others_InfoOptim.pdf" },
+            { label: "Others (Koopman-DMD)",          file: "generated-papers/deep_learning/Others_Koopman-DMD.pdf" },
+            { label: "Others (Neural-MMA)",           file: "generated-papers/deep_learning/Others_Neural-MMA.pdf" },
+            { label: "Others (NSK)",                  file: "generated-papers/deep_learning/Others_NSK.pdf" },
+            { label: "Others (PhySense-AdjointFlow)", file: "generated-papers/deep_learning/Others_PhySense-AdjointFlow.pdf" },
+            { label: "Others (Soft-VSM)",             file: "generated-papers/deep_learning/Others_Soft-VSM.pdf" },
+            { label: "Others (TKFS-Attention)",       file: "generated-papers/deep_learning/Others_TKFS-Attention.pdf" },
+        ],
+        general_ml: [
+            { label: "Algorithms (Flash-Newton)",        file: "generated-papers/general_ml/Algorithms_Flash-Newton.pdf" },
+            { label: "Causality (SPECTRA-HET SPLIT UP)", file: "generated-papers/general_ml/Causality_SPECTRA-HET SPLIT UP.pdf" },
+            { label: "Evaluation (DR-Schervish)",        file: "generated-papers/general_ml/Evaluation_DR-Schervish.pdf" },
+            { label: "Infrastructure (RDF-VG)",          file: "generated-papers/general_ml/Infrastructure_RDF-VG.pdf" },
+            { label: "Others (BAM-Val)",                 file: "generated-papers/general_ml/Others_BAM-Val.pdf" },
+            { label: "Others (CIQS-PC)",                 file: "generated-papers/general_ml/Others_CIQS-PC.pdf" },
+            { label: "Others (ECTS-HFD)",                file: "generated-papers/general_ml/Others_ECTS-HFD.pdf" },
+            { label: "Others (FR-MSH-GGAD)",             file: "generated-papers/general_ml/Others_FR-MSH-GGAD.pdf" },
+            { label: "Others (NEM-SPKN)",                file: "generated-papers/general_ml/Others_NEM-SPKN.pdf" },
+            { label: "Others (Procrustes-DS)",           file: "generated-papers/general_ml/Others_Procrustes-DS.pdf" },
+            { label: "Others (QAMT-Transfer)",           file: "generated-papers/general_ml/Others_QAMT-Transfer.pdf" },
+            { label: "Others (SD-TTC)",                  file: "generated-papers/general_ml/Others_SD-TTC.pdf" },
+            { label: "Others (Sheaf-PartialTSW)",        file: "generated-papers/general_ml/Others_Sheaf-PartialTSW.pdf" },
+            { label: "Others (TBOC-ANOVA)",              file: "generated-papers/general_ml/Others_TBOC-ANOVA.pdf" },
+        ],
+        optimization: [
+            { label: "Convex (OFP-Shadow)",   file: "generated-papers/optimization/Convex_OFP-Shadow.pdf" },
+            { label: "Discrete (LD-RPB-OM)",  file: "generated-papers/optimization/Discrete_LD-RPB-OM.pdf" },
+            { label: "Non-Convex (ALOT-DRO)", file: "generated-papers/optimization/Non-Convex_ALOT-DRO.pdf" },
+            { label: "Others (ANSE)",         file: "generated-papers/optimization/Others_ANSE.pdf" },
+            { label: "Others (LC-FTT)",       file: "generated-papers/optimization/Others_LC-FTT.pdf" },
+        ],
+        probabilistic: [
+            { label: "Bayesian (DAGP-HDP-HMM)",       file: "generated-papers/probabilistic/Bayesian_DAGP-HDP-HMM.pdf" },
+            { label: "Sampling (SMBTT-CCDB)",         file: "generated-papers/probabilistic/Sampling_SMBTT-CCDB.pdf" },
+            { label: "Sampling (SpecAttn-Div)",       file: "generated-papers/probabilistic/Sampling_SpecAttn-Div.pdf" },
+            { label: "Others (AD-LSVI)",              file: "generated-papers/probabilistic/Others_AD-LSVI.pdf" },
+            { label: "Others (AWF-CP)",               file: "generated-papers/probabilistic/Others_AWF-CP.pdf" },
+            { label: "Others (BTV-RDRO)",             file: "generated-papers/probabilistic/Others_BTV-RDRO.pdf" },
+            { label: "Others (COFM-SIB)",             file: "generated-papers/probabilistic/Others_COFM-SIB.pdf" },
+            { label: "Others (DosePFN)",              file: "generated-papers/probabilistic/Others_DosePFN.pdf" },
+            { label: "Others (PH-CNR-OLLA)",          file: "generated-papers/probabilistic/Others_PH-CNR-OLLA.pdf" },
+            { label: "Others (ScaleMode-NeuralSurv)", file: "generated-papers/probabilistic/Others_ScaleMode-NeuralSurv.pdf" },
+        ],
+        rl: [
+            { label: "Others (CSX-MoE)",         file: "generated-papers/rl/Others_CSX-MoE.pdf" },
+            { label: "Others (DisCoRe-IQA)",     file: "generated-papers/rl/Others_DisCoRe-IQA.pdf" },
+            { label: "Others (Exact-CPWL CvaR)", file: "generated-papers/rl/Others_Exact-CPWL CvaR.pdf" },
+        ],
+        social_aspects: [
+            { label: "Alignment (CHVA)",                   file: "generated-papers/social_aspects/Alignment_CHVA.pdf" },
+            { label: "Interpretability (CP-GRASSMANN)",    file: "generated-papers/social_aspects/Interpretability_CP-GRASSMANN.pdf" },
+            { label: "Interpretability (Flex-Dot)",        file: "generated-papers/social_aspects/Interpretability_Flex-Dot.pdf" },
+            { label: "Interpretability (Overdamped DAVE)", file: "generated-papers/social_aspects/Interpretability_Overdamped DAVE.pdf" },
+            { label: "Interpretability (SHEAF-SAE)",       file: "generated-papers/social_aspects/Interpretability_SHEAF-SAE.pdf" },
+            { label: "Interpretability (SLT-MDA)",         file: "generated-papers/social_aspects/Interpretability_SLT-MDA.pdf" },
+            { label: "Privacy (DP-EBS-BB)",                file: "generated-papers/social_aspects/Privacy_DP-EBS-BB.pdf" },
+            { label: "Robustness (IMD-GV)",                file: "generated-papers/social_aspects/Robusntess_IMD-GV.pdf" },
+            { label: "Others (VIGN-SDA-PMSVM)",            file: "generated-papers/social_aspects/Others_VIGN-SDA-PMSVM.pdf" },
+        ],
+        theory: [
+            { label: "Bandits (FVTG-CP)",         file: "generated-papers/theory/Bandits_FVTG-CP.pdf" },
+            { label: "Game Theory (NTW-KPA)",     file: "generated-papers/theory/Game Theory_NTW-KPA.pdf" },
+            { label: "Optimization (PLL-ICE)",    file: "generated-papers/theory/Optimization_PLL-ICE.pdf" },
+            { label: "Optimization (SSH-ED-SDP)", file: "generated-papers/theory/Optimization_SSH-ED-SDP.pdf" },
+            { label: "Probabilistic (DRO-ROCP)",  file: "generated-papers/theory/Probabilistic_DRO-ROCP.pdf" },
+            { label: "Others (DR-COCO)",          file: "generated-papers/theory/Others_DR-COCO.pdf" },
+        ],
+    };
+
+    const MAX_PAGE_WIDTH = 900;
+    const PAGE_GUTTER = 110;         // room on either side of a page for its page number
+    const PAGE_GUTTER_NARROW = 20;   // page numbers are hidden below 768px, so barely any
+
+    let currentCategory = categories[0].key;
+    let currentIndex = 0;
+    let filterQuery = '';
+    let previewVisible = true;
+    let renderToken = 0;
+    let pageObserver = null;
+
+    const els = {
+        tabs: document.getElementById('category-tabs'),
+        selector: document.getElementById('paper-selector'),
+        filter: document.getElementById('paper-filter'),
+        clear: document.getElementById('search-clear'),
+        viewer: document.getElementById('pdf-viewer-container'),
+        domain: document.getElementById('viewer-domain'),
+        name: document.getElementById('viewer-name'),
+        counter: document.getElementById('paper-counter'),
+        prev: document.getElementById('prev-paper'),
+        next: document.getElementById('next-paper'),
+        open: document.getElementById('open-pdf'),
+        download: document.getElementById('download-pdf'),
+        toggle: document.getElementById('toggle-preview'),
+        grid: document.getElementById('domain-grid'),
+        total: document.getElementById('total-count'),
+    };
+
+    // ---- Helpers ----
+
+    function categoryName(key) {
+        const cat = categories.find(c => c.key === key);
+        return cat ? cat.name : key;
+    }
+
+    function papers(key) {
+        return paperData[key] || [];
+    }
+
+    function currentPaper() {
+        return papers(currentCategory)[currentIndex];
+    }
+
+    // File names contain spaces, so encode each path segment.
+    function pdfUrl(file) {
+        return './' + file.split('/').map(encodeURIComponent).join('/');
+    }
+
+    function subDomainOf(label) {
+        const i = label.lastIndexOf(' (');
+        return i === -1 ? label : label.slice(0, i);
+    }
+
+    function methodOf(label) {
+        const i = label.lastIndexOf(' (');
+        return i === -1 ? '' : label.slice(i + 2, -1);
+    }
+
+    // ---- Domain tabs ----
+
+    function renderTabs() {
+        els.tabs.innerHTML = '';
+        categories.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.className = 'gallery-tab' + (cat.key === currentCategory ? ' active' : '');
+            btn.innerHTML = cat.name + '<span class="tab-count">' + papers(cat.key).length + '</span>';
+            btn.onclick = () => switchCategory(cat.key);
+            els.tabs.appendChild(btn);
+        });
+    }
+
+    function switchCategory(key, index) {
+        currentCategory = key;
+        currentIndex = index || 0;
+        filterQuery = '';
+        els.filter.value = '';
+        els.clear.style.display = 'none';
+        renderTabs();
+        renderSelector();
+        loadCurrentPaper();
+    }
+
+    // ---- Paper selector ----
+
+    function matchesFilter(label) {
+        return !filterQuery || label.toLowerCase().includes(filterQuery);
+    }
+
+    function renderSelector() {
+        const list = papers(currentCategory);
+        els.selector.innerHTML = '';
+        let shown = 0;
+
+        list.forEach((paper, i) => {
+            if (!matchesFilter(paper.label)) return;
+            shown++;
+            const btn = document.createElement('button');
+            btn.innerHTML = '<span class="sub-name">' + subDomainOf(paper.label) + '</span> (' + methodOf(paper.label) + ')';
+            btn.title = paper.label;
+            if (i === currentIndex) btn.classList.add('active');
+            btn.onclick = () => selectPaper(i);
+            els.selector.appendChild(btn);
+        });
+
+        if (shown === 0) {
+            els.selector.innerHTML = '<p class="no-match">No paper in ' + categoryName(currentCategory) + ' matches &ldquo;' + filterQuery + '&rdquo;.</p>';
+        }
+    }
+
+    function selectPaper(i) {
+        currentIndex = i;
+        renderSelector();
+        loadCurrentPaper();
+    }
+
+    function step(delta) {
+        const list = papers(currentCategory);
+        const next = currentIndex + delta;
+        if (next < 0 || next >= list.length) return;
+        selectPaper(next);
+    }
+
+    // ---- Viewer ----
+
+    function loadCurrentPaper() {
+        const paper = currentPaper();
+        const list = papers(currentCategory);
+
+        els.domain.textContent = categoryName(currentCategory);
+        els.name.textContent = paper ? paper.label : '—';
+        els.counter.textContent = list.length ? (currentIndex + 1) + ' / ' + list.length : '0 / 0';
+        els.prev.disabled = currentIndex <= 0;
+        els.next.disabled = currentIndex >= list.length - 1;
+
+        if (paper) {
+            const url = pdfUrl(paper.file);
+            els.open.href = url;
+            els.download.href = url;
+            els.download.setAttribute('download', paper.file.split('/').pop());
+            history.replaceState(null, '', '#' + currentCategory + '/' + encodeURIComponent(paper.label));
+        }
+
+        if (previewVisible && paper) renderPdf(paper.file);
+    }
+
+    function clearViewer(messageHtml) {
+        if (pageObserver) { pageObserver.disconnect(); pageObserver = null; }
+        els.viewer.innerHTML = messageHtml || '';
+        els.viewer.scrollTop = 0;
+    }
+
+    async function renderPdf(file) {
+        const token = ++renderToken;
+        clearViewer('<p class="viewer-message"><i class="fas fa-spinner fa-spin"></i> Loading PDF&hellip;</p>');
+
+        const url = pdfUrl(file);
+        let pdf;
+        try {
+            pdf = await pdfjsLib.getDocument(url).promise;
+        } catch (e) {
+            if (token === renderToken) {
+                clearViewer(
+                    '<p class="viewer-message">Could not render this PDF in the browser.<br>' +
+                    '<a href="' + url + '" target="_blank" rel="noopener noreferrer">Open it directly</a> instead.</p>'
+                );
+            }
+            return;
+        }
+        if (token !== renderToken) return;
+
+        // Fit the first page to the viewer width; all pages share that scale.
+        const firstPage = await pdf.getPage(1);
+        if (token !== renderToken) return;
+        const unscaled = firstPage.getViewport({ scale: 1 });
+        const gutter = window.innerWidth <= 768 ? PAGE_GUTTER_NARROW : PAGE_GUTTER;
+        const available = Math.max(240, Math.min(els.viewer.clientWidth - gutter, MAX_PAGE_WIDTH));
+        const scale = available / unscaled.width;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+        clearViewer('');
+
+        // Placeholders are sized up front so the scrollbar is stable; pages
+        // rasterize lazily as they approach the viewport.
+        pageObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                pageObserver.unobserve(entry.target);
+                drawPage(pdf, entry.target, scale, dpr, token);
+            });
+        }, { root: els.viewer, rootMargin: '400px 0px' });
+
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            if (token !== renderToken) return;
+            const viewport = page.getViewport({ scale });
+
+            const holder = document.createElement('div');
+            holder.className = 'pdf-page';
+            holder.style.width = Math.floor(viewport.width) + 'px';
+            holder.style.height = Math.floor(viewport.height) + 'px';
+            holder.dataset.page = String(i);
+            holder.innerHTML = '<span class="page-num">' + i + '</span>';
+
+            els.viewer.appendChild(holder);
+            pageObserver.observe(holder);
+        }
+    }
+
+    async function drawPage(pdf, holder, scale, dpr, token) {
+        if (token !== renderToken) return;
+        const page = await pdf.getPage(Number(holder.dataset.page));
+        if (token !== renderToken || !holder.isConnected) return;
+
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.floor(viewport.width * dpr);
+        canvas.height = Math.floor(viewport.height * dpr);
+        holder.insertBefore(canvas, holder.firstChild);
+
+        await page.render({
+            canvasContext: canvas.getContext('2d'),
+            viewport,
+            transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null,
+        }).promise;
+    }
+
+    function togglePreview() {
+        previewVisible = !previewVisible;
+        els.viewer.style.display = previewVisible ? '' : 'none';
+        els.toggle.innerHTML = previewVisible
+            ? '<i class="fas fa-chevron-up"></i> Hide'
+            : '<i class="fas fa-chevron-down"></i> Show';
+        els.toggle.title = previewVisible ? 'Hide preview' : 'Show preview';
+        if (previewVisible) loadCurrentPaper();
+        else clearViewer('');
+    }
+
+    // ---- Domain coverage cards ----
+
+    function renderDomainGrid() {
+        els.grid.innerHTML = '';
+        categories.forEach(cat => {
+            const list = papers(cat.key);
+            const subs = [];
+            list.forEach(p => {
+                const sub = subDomainOf(p.label);
+                if (!subs.includes(sub)) subs.push(sub);
+            });
+            subs.sort((a, b) => (a === 'Others') - (b === 'Others') || a.localeCompare(b));
+
+            const card = document.createElement('div');
+            card.className = 'domain-card';
+            card.innerHTML =
+                '<div class="domain-name"><span>' + cat.name + '</span>' +
+                '<span class="domain-count">' + list.length + '</span></div>' +
+                '<div class="domain-subs">' + subs.join(' &middot; ') + '</div>';
+            card.onclick = () => {
+                switchCategory(cat.key);
+                document.getElementById('gallery').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+            els.grid.appendChild(card);
+        });
+    }
+
+    // ---- Deep linking: #<domain>/<label> ----
+
+    function applyHash() {
+        const hash = decodeURIComponent(window.location.hash.replace(/^#/, ''));
+        if (!hash) return false;
+        const slash = hash.indexOf('/');
+        const key = slash === -1 ? hash : hash.slice(0, slash);
+        if (!paperData[key]) return false;
+        const label = slash === -1 ? '' : hash.slice(slash + 1);
+        const index = Math.max(0, papers(key).findIndex(p => p.label === label));
+        currentCategory = key;
+        currentIndex = index;
+        return true;
+    }
+
+    // ---- Wiring ----
+
+    els.prev.onclick = () => step(-1);
+    els.next.onclick = () => step(1);
+    els.toggle.onclick = togglePreview;
+
+    els.filter.addEventListener('input', () => {
+        filterQuery = els.filter.value.trim().toLowerCase();
+        els.clear.style.display = filterQuery ? 'block' : 'none';
+        renderSelector();
+    });
+    els.clear.onclick = () => {
+        els.filter.value = '';
+        filterQuery = '';
+        els.clear.style.display = 'none';
+        renderSelector();
+        els.filter.focus();
+    };
+
+    // Re-fit pages to the viewer width after a resize settles.
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (previewVisible && currentPaper()) renderPdf(currentPaper().file);
+        }, 250);
+    });
+
+    els.total.textContent = categories.reduce((n, c) => n + papers(c.key).length, 0);
+    applyHash();
+    renderTabs();
+    renderSelector();
+    renderDomainGrid();
+    loadCurrentPaper();
+    </script>
+
+</body>
+</html>

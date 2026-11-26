@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 500" width="100%" height="100%" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <!-- 实心纯白底（适配手机竖屏，无外层大边框） -->
+  <rect width="580" height="500" fill="#ffffff"/>
+
+  <!-- 上半部分：表 4 性能相对提升的算术平均 vs 真实中位数落差 -->
+  <text x="16" y="26" font-size="14.5" font-weight="bold" fill="#111827">一、表 4 涨幅水分：算术平均吹到 +25.2%，全集中位数仅 +7.7%</text>
+  <text x="16" y="45" font-size="11.5" fill="#4b5563">由 Gemini 3.6 Flash 读表 10 次求平均：算术均值被极端比值拉高，ICLR 子集甚至低于 AutoSOTA</text>
+
+  <!-- 横向柱状对比：x起点 176，1% = 9.0px -->
+  <line x1="176" y1="58" x2="176" y2="212" stroke="#d1d5db" stroke-width="1.5"/>
+
+  <!-- 1. 全集 86 篇算术平均 (25.2 * 9 = 226.8) -->
+  <text x="169" y="76" font-size="11.5" fill="#374151" text-anchor="end">全集 86 篇 · 算术平均</text>
+  <rect x="176" y="63" width="226.8" height="17" rx="2" fill="#93c5fd"/>
+  <text x="409" y="76" font-size="11.5" font-weight="bold" fill="#1e40af">+25.2%（宣传头条）</text>
+
+  <!-- 2. 全集 86 篇真实中位数 (7.7 * 9 = 69.3) -->
+  <text x="169" y="102" font-size="11.5" font-weight="bold" fill="#111827" text-anchor="end">全集 86 篇 · 真实中位数</text>
+  <rect x="176" y="89" width="69.3" height="17" rx="2" fill="#2563eb"/>
+  <text x="252" y="102" font-size="11.5" font-weight="bold" fill="#1d4ed8">+7.7%（仅为均值三分之一）</text>
+
+  <!-- 3. NeurIPS 2025 (33篇) 中位数 (7.0 * 9 = 63.0) -->
+  <text x="169" y="128" font-size="11.5" fill="#374151" text-anchor="end">NeurIPS 2025 (33篇) 中位数</text>
+  <rect x="176" y="115" width="63.0" height="17" rx="2" fill="#3b82f6"/>
+  <text x="246" y="128" font-size="11.5" fill="#1e40af">+7.0%（算术平均 +13.9%）</text>
+
+  <!-- 4. ICLR 2026 (4篇) AutoSOTA 调参基线 (5.0 * 9 = 45.0) -->
+  <text x="169" y="154" font-size="11.5" fill="#4b5563" text-anchor="end">ICLR 2026 · AutoSOTA 调参</text>
+  <rect x="176" y="141" width="45.0" height="17" rx="2" fill="#9ca3af"/>
+  <text x="228" y="154" font-size="11" fill="#4b5563">+5.0%（中位数，算术平均 +7.2%）</text>
+
+  <!-- 5. ICLR 2026 (4篇) ScientistTwo (2.2 * 9 = 19.8) -->
+  <rect x="12" y="165" width="556" height="22" rx="3" fill="#fffbeb"/>
+  <text x="169" y="180" font-size="11.5" font-weight="bold" fill="#b45309" text-anchor="end">ICLR 2026 · ScientistTwo</text>
+  <rect x="176" y="167" width="19.8" height="17" rx="2" fill="#d97706"/>
+  <text x="203" y="180" font-size="11.5" font-weight="bold" fill="#b45309">+2.2%（中位数，算术平均仅 +3.8%）</text>
+
+  <!-- 6. 标杆案例 DynaSpec-RAG (表11) -->
+  <text x="169" y="206" font-size="11.5" fill="#374151" text-anchor="end">标杆案例 DynaSpec-RAG</text>
+  <rect x="176" y="193" width="3.5" height="17" rx="1" fill="#dc2626"/>
+  <text x="186" y="206" font-size="11" fill="#b91c1c">平均 MAE +0.16%（0.2492→0.2488，MSE +2.47%）</text>
+
+  <!-- 分隔细线 -->
+  <line x1="16" y1="232" x2="564" y2="232" stroke="#e5e7eb" stroke-width="1.5"/>
+
+  <!-- 下半部分：表 10 9名人类审稿人双盲对比评测（33篇 NeurIPS 衍生论文） -->
+  <text x="16" y="256" font-size="14.5" font-weight="bold" fill="#111827">二、表 10 人类专家盲评：苦力堆表全赢，唯独核心“算法严谨度”输给人类</text>
+  <text x="16" y="275" font-size="11.5" fill="#4b5563">9 名真人学者盲评 33 篇论文（1–5 分：3.0 分为与人类原论文打平，&gt;3.0 为 AI 占优，&lt;3.0 为输给人类）</text>
+
+  <!-- 以 x=240 作为 3.0 分打平基准线（每 0.1 分 = 16px） -->
+  <line x1="240" y1="292" x2="240" y2="462" stroke="#374151" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="240" y="289" font-size="11" font-weight="bold" fill="#374151" text-anchor="middle">3.0 分（与人类持平线）</text>
+
+  <!-- 1. 实验：基线与测试集广度 (3.5 -> +80px) -->
+  <text x="185" y="310" font-size="11.5" fill="#374151" text-anchor="end">实验：基线与数据集广度</text>
+  <rect x="240" y="297" width="80" height="17" rx="2" fill="#16a34a"/>
+  <text x="326" y="310" font-size="11.5" font-weight="bold" fill="#15803d">3.5 分（跑全量表，AI 显著占优）</text>
+
+  <!-- 2. 实验：消融实验设计 (3.3 -> +48px) -->
+  <text x="185" y="337" font-size="11.5" fill="#374151" text-anchor="end">实验：消融实验丰富度</text>
+  <rect x="240" y="324" width="48" height="17" rx="2" fill="#22c55e"/>
+  <text x="294" y="337" font-size="11.5" font-weight="bold" fill="#15803d">3.3 分（每篇 5–6 个消融，AI 占优）</text>
+
+  <!-- 3. 实验：结果分析与局限讨论 (3.3 -> +48px) -->
+  <text x="185" y="364" font-size="11.5" fill="#374151" text-anchor="end">实验：结果与局限分析</text>
+  <rect x="240" y="351" width="48" height="17" rx="2" fill="#22c55e"/>
+  <text x="294" y="364" font-size="11.5" font-weight="bold" fill="#15803d">3.3 分（9 图 12 表堆满，AI 占优）</text>
+
+  <!-- 4. 引言：动机与相关工作 (3.1 -> +16px) -->
+  <text x="185" y="391" font-size="11.5" fill="#374151" text-anchor="end">引言：动机与文献综述</text>
+  <rect x="240" y="378" width="16" height="17" rx="2" fill="#4ade80"/>
+  <text x="262" y="391" font-size="11.5" fill="#15803d">3.1 分（AI 略微占优）</text>
+
+  <!-- 5. 总体成熟度 (3.0) -->
+  <text x="185" y="418" font-size="11.5" fill="#374151" text-anchor="end">总体：成熟度与顶会就绪度</text>
+  <circle cx="240" cy="413" r="4.5" fill="#4b5563"/>
+  <text x="252" y="418" font-size="11.5" font-weight="bold" fill="#374151">3.0 分（Human = ScientistTwo 打平）</text>
+
+  <!-- 6. 方法：合理性与算法严谨度 (2.9 -> -18px) -->
+  <rect x="12" y="432" width="556" height="24" rx="3" fill="#fef2f2"/>
+  <text x="185" y="448" font-size="12" font-weight="bold" fill="#b91c1c" text-anchor="end">方法：合理性与算法严谨度</text>
+  <rect x="220" y="435" width="20" height="17" rx="2" fill="#dc2626"/>
+  <text x="250" y="448" font-size="11.5" font-weight="bold" fill="#b91c1c">2.9 分（唯一输给人类：Human &gt; ScientistTwo）</text>
+
+  <!-- 底部说明 -->
+  <text x="16" y="486" font-size="11" fill="#4b5563">注：单题平均跑 2.5 天、烧 3,765 美元，靠题海战术堆出 9 图 12 表赢下实验苦力分，但核心方法仍偏工程缝合。</text>
+</svg>
