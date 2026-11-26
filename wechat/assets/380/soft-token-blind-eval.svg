@@ -1,62 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 410" width="600" height="410" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 415" width="600" height="415" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
   <!-- 实心纯白底 -->
-  <rect x="0" y="0" width="600" height="410" fill="#ffffff"/>
+  <rect x="0" y="0" width="600" height="415" fill="#ffffff"/>
 
   <!-- 标题与指标说明 -->
-  <text x="300" y="28" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#111827">Qwen3.8-27B 真机盲压对决：为什么两套零训练合并全翻车？</text>
+  <text x="300" y="28" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#111827">Qwen3.8-27B 迁移盲压对决：为什么内部概念轴还在，输出却全翻车？</text>
   <text x="300" y="48" text-anchor="middle" font-size="11" fill="#64748b">10 道全密度盲压题事实得分率 vs L63 C1479（排名 1,480 / 5,120，κ=44.04，木匣子轴）激活读数 z</text>
 
   <!-- 表头 -->
-  <text x="16" y="78" font-size="11" font-weight="bold" fill="#334155">方案分支（16层KV占比）</text>
-  <text x="196" y="78" font-size="11" font-weight="bold" fill="#334155">事实得分率（全对题数）</text>
-  <text x="382" y="78" font-size="11" font-weight="bold" fill="#334155">L63 C1479 读数 z</text>
-  <text x="492" y="78" font-size="11" font-weight="bold" fill="#334155">真机典型表现</text>
+  <text x="16" y="78" font-size="10.8" font-weight="bold" fill="#334155">方案分支（文档预算/16层槽位）</text>
+  <text x="200" y="78" font-size="10.8" font-weight="bold" fill="#334155">事实得分率（全对题数）</text>
+  <text x="380" y="78" font-size="10.8" font-weight="bold" fill="#334155">L63 C1479 读数 z</text>
+  <text x="492" y="78" font-size="10.8" font-weight="bold" fill="#334155">真机典型表现</text>
   <line x1="16" y1="86" x2="584" y2="86" stroke="#cbd5e1" stroke-width="1.2"/>
 
   <!-- 行 1: Full-KV -->
-  <text x="16" y="114" font-size="11" font-weight="bold" fill="#0f172a">1. Full-KV 基线 (100%)</text>
-  <rect x="196" y="100" width="84" height="18" rx="3" fill="#0284c7"/>
-  <text x="286" y="114" font-size="10.8" font-weight="bold" fill="#0369a1">100% (10/10)</text>
-  <text x="382" y="114" font-size="10.8" font-weight="bold" fill="#0369a1">z=1.069 (100%)</text>
-  <text x="492" y="114" font-size="10.8" fill="#15803d">逐字背诵 100%</text>
+  <text x="16" y="114" font-size="10.8" font-weight="bold" fill="#0f172a">1. Full-KV 基线 (100%)</text>
+  <rect x="200" y="100" width="84" height="18" rx="3" fill="#0284c7"/>
+  <text x="290" y="114" font-size="10.6" font-weight="bold" fill="#0369a1">100% (10/10)</text>
+  <text x="380" y="114" font-size="10.6" font-weight="bold" fill="#0369a1">z=1.069 (100%)</text>
+  <text x="492" y="114" font-size="10.6" fill="#15803d">逐字背诵 100%</text>
 
   <!-- 行 2: 开卷泄题假象 -->
   <text x="16" y="152" font-size="10.6" fill="#475569">2. 原论文带题 Prefill (25%)</text>
-  <rect x="196" y="138" width="82" height="18" rx="3" fill="#94a3b8"/>
-  <text x="284" y="152" font-size="10.8" fill="#475569">98.0% (假象)</text>
-  <text x="382" y="152" font-size="10.8" fill="#475569">保送 98.5% 答案</text>
-  <text x="492" y="152" font-size="10.8" fill="#b45309">先看题再划重点</text>
+  <rect x="200" y="138" width="82" height="18" rx="3" fill="#94a3b8"/>
+  <text x="288" y="152" font-size="10.5" fill="#475569">关键词 98.0%</text>
+  <text x="380" y="152" font-size="10.5" fill="#475569">QA保送 98.5%</text>
+  <text x="492" y="152" font-size="10.6" fill="#b45309">先看题再划重点</text>
 
-  <!-- 行 3: Pure-Eviction 盲压 / 4留1 -->
-  <text x="16" y="190" font-size="11" fill="#1e293b">3. 直接扔 75% (25.0%)</text>
-  <rect x="196" y="176" width="45" height="18" rx="3" fill="#64748b"/>
-  <text x="247" y="190" font-size="10.8" fill="#334155">54.0% / 31.3%</text>
-  <text x="382" y="190" font-size="10.8" fill="#334155">z=0.455 (42.5%)</text>
-  <text x="492" y="190" font-size="10.8" fill="#334155">漏半句但不串味</text>
+  <!-- 行 3: Pure-Eviction 盲压 -->
+  <text x="16" y="190" font-size="10.8" fill="#1e293b">3. 直接扔 75% (留25%)</text>
+  <rect x="200" y="176" width="45" height="18" rx="3" fill="#64748b"/>
+  <text x="251" y="190" font-size="10.6" fill="#334155">54.0% (3/10)</text>
+  <text x="380" y="190" font-size="10.6" fill="#334155">z=0.455 (42.5%)</text>
+  <text x="492" y="190" font-size="10.6" fill="#334155">漏半句但不串味</text>
 
   <!-- 行 4: SelKV-Clipped -->
-  <text x="16" y="228" font-size="11" font-weight="bold" fill="#b91c1c">4. SelKV 揉槽位 (25.0%)</text>
-  <rect x="196" y="214" width="20" height="18" rx="3" fill="#ef4444"/>
-  <text x="222" y="228" font-size="10.8" font-weight="bold" fill="#b91c1c">23.3% (0/10)</text>
-  <text x="382" y="228" font-size="10.8" fill="#15803d">z=0.690~0.841</text>
-  <text x="492" y="228" font-size="10.8" font-weight="bold" fill="#b91c1c">「雾雾继电器」</text>
+  <text x="16" y="228" font-size="10.8" font-weight="bold" fill="#b91c1c">4. SelKV 揉槽位 (留25%)</text>
+  <rect x="200" y="214" width="45" height="18" rx="3" fill="#ef4444"/>
+  <text x="251" y="228" font-size="10.6" font-weight="bold" fill="#b91c1c">54.0% (4合1跌至23%)</text>
+  <text x="380" y="228" font-size="10.6" fill="#15803d">z=0.690~0.841</text>
+  <text x="492" y="228" font-size="10.6" font-weight="bold" fill="#b91c1c">「雾雾继电器」</text>
 
   <!-- 行 5: ASTC-Native -->
-  <text x="16" y="266" font-size="11" fill="#1e293b">5. 交大 ASTC 原版 (60.7%)</text>
-  <rect x="196" y="252" width="40" height="18" rx="3" fill="#f59e0b"/>
-  <text x="242" y="266" font-size="10.8" fill="#b45309">48.0% (2/10)</text>
-  <text x="382" y="266" font-size="10.8" fill="#475569">省 39% 已腰斩</text>
-  <text x="492" y="266" font-size="10.8" fill="#b45309">缺字电报漏词</text>
+  <text x="16" y="266" font-size="10.8" fill="#1e293b">5. 交大 ASTC 原版 (60.7%)</text>
+  <rect x="200" y="252" width="40" height="18" rx="3" fill="#f59e0b"/>
+  <text x="246" y="266" font-size="10.6" fill="#b45309">48.0% (2/10)</text>
+  <text x="380" y="266" font-size="10.6" fill="#15803d">z=1.069 (100%)</text>
+  <text x="492" y="266" font-size="10.6" fill="#b45309">缺字电报漏词</text>
 
   <!-- 行 6: ASTC-GDN-25% -->
-  <text x="16" y="304" font-size="11" font-weight="bold" fill="#b91c1c">6. 交大 ASTC 压25% (34.8%)</text>
-  <rect x="196" y="290" width="3" height="18" rx="1.5" fill="#dc2626"/>
-  <text x="205" y="304" font-size="10.8" font-weight="bold" fill="#b91c1c">0.0% (0/10)</text>
-  <text x="382" y="304" font-size="10.8" fill="#b91c1c">z=0.025 (2.38%)</text>
-  <text x="492" y="304" font-size="10.8" font-weight="bold" fill="#b91c1c">「7把81027。」</text>
+  <text x="16" y="304" font-size="10.8" font-weight="bold" fill="#b91c1c">6. ASTC 强制25% (34.8%)</text>
+  <rect x="200" y="290" width="3" height="18" rx="1.5" fill="#dc2626"/>
+  <text x="209" y="304" font-size="10.6" font-weight="bold" fill="#b91c1c">0.0% (0/10)</text>
+  <text x="380" y="304" font-size="10.6" fill="#15803d">z=0.957 (89.5%)</text>
+  <text x="492" y="304" font-size="10.6" font-weight="bold" fill="#b91c1c">「7把81027。」</text>
 
   <line x1="16" y1="332" x2="584" y2="332" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="16" y="356" font-size="10.2" fill="#334155">• 死因 1（门牌错位）：SelKV 用单字旧 Key 挂 4 词混合 Value，把「雾港继电器」搅糊成结巴的「雾雾继电器」。</text>
-  <text x="16" y="376" font-size="10.2" fill="#334155">• 死因 2（数字孤岛）：ASTC 保护掩码锁死数字不压，压到 25% 时把周围名词动词全揉烂，只剩「7把81027。」。</text>
-  <text x="16" y="396" font-size="10.2" fill="#334155">• 结论：4 词合并是一块试金石，现成大模型严守「一槽一词」，在时间轴上把多个词揉进同一槽位必伤字面与绑定。</text>
+  <text x="16" y="355" font-size="10" fill="#334155">• 共同反差：两套方案合并后，第 63 层木匣子轴读数 z 其实都保住了 64.5%～89.5%（无脑 4 词平均才跌至 2.38%）。</text>
+  <text x="16" y="375" font-size="10" fill="#334155">• 死因 1（缓存层串味）：SelKV 沿用单字旧 Key 挂多词混合 Value，把「雾港继电器」搅糊成结巴的「雾雾继电器」。</text>
+  <text x="16" y="395" font-size="10" fill="#334155">• 死因 2（中间层孤岛）：ASTC 强制压至 25% 时锁死数字、揉掉周围名词动词，虽有概念余温却只吐出「7把81027。」。</text>
 </svg>

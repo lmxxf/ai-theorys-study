@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 385" width="600" height="385" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
   <!-- 实心纯白底 -->
-  <rect x="0" y="0" width="600" height="380" fill="#ffffff"/>
+  <rect x="0" y="0" width="600" height="385" fill="#ffffff"/>
 
   <!-- 顶部主标题 -->
   <text x="300" y="30" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#111827">SelKV 自称“4 词合 1 槽位也不变笨”的秘诀：“四票变一票”与对数补偿</text>
-  <text x="300" y="50" text-anchor="middle" font-size="11.5" fill="#64748b">手算特例：假设 4 个相近词元 (k1..k4) 与当前查询 q 的点积得分均为 s = 2.0</text>
+  <text x="300" y="50" text-anchor="middle" font-size="11.5" fill="#64748b">手算特例：假设 4 个被合并词元 (k1..k4) 与当前查询 q 的点积得分均为 s = 2.0</text>
 
   <!-- 状态 1：未合并 -->
   <text x="24" y="84" font-size="12" font-weight="bold" fill="#0369a1">1. 合并前（4 个词占 4 个 KV 位置）：在 Softmax 里各自算一次指数，共投出 4 张选票</text>
@@ -20,19 +20,19 @@
 
   <!-- 状态 2：直接平均合并（无补偿） -->
   <text x="24" y="172" font-size="12" font-weight="bold" fill="#b91c1c">2. 直接求平均 4 合 1（k_avg = (k1+k2+k3+k4)/4，只占 1 个位置）：4 张票缩水成 1 张票</text>
-  <text x="36" y="193" font-size="11.2" fill="#334155">• 点积虽仍为 q·k_avg = 2.0，但只占 1 个位置 → 进 Softmax 只算一次 e^2.0，丢掉 3/4 权重</text>
+  <text x="36" y="193" font-size="11.2" fill="#334155">• 线性平均后点积仍为 q·k_avg = 2.0，但只占 1 个位置 → 进 Softmax 只算一次 e^2.0</text>
   <rect x="36" y="202" width="124" height="24" rx="4" fill="#ef4444"/>
   <text x="98" y="218" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">仅剩 1 票: e^2.0</text>
   <rect x="166" y="202" width="384" height="24" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-dasharray="4 3"/>
   <text x="358" y="218" text-anchor="middle" font-size="11" fill="#64748b">其余 3 张选票 (3 · e^2.0) 因位置合并被凭空吞掉（注意力下陷）</text>
 
-  <!-- 状态 3：加上对数票数补偿 + ln(4) -->
-  <text x="24" y="260" font-size="12" font-weight="bold" fill="#15803d">3. 加上对数补偿 s' = q·k_avg + ln(4)（依然只占 1 个 KV 位置，省掉 75% 显存）</text>
-  <text x="36" y="281" font-size="11.2" fill="#334155">• 利用指数恒等式 e^(2.0 + ln 4) = e^2.0 · 4 = 4 · e^2.0，1 个槽位当场拿回全部 4 张选票</text>
+  <!-- 状态 3：加上对数票数补偿 -->
+  <text x="24" y="260" font-size="12" font-weight="bold" fill="#15803d">3. 加上对数补偿 s' = q·k_avg + α·ln(4)（依然只占 1 个 KV 位置，省掉 75% 槽位）</text>
+  <text x="36" y="281" font-size="11.2" fill="#334155">• 理想满额补偿 (α=1) 时 e^(2.0 + ln 4) = 4 · e^2.0 拿回 4 票；论文默认取阻尼 α=0.5 补回半程</text>
   <rect x="36" y="290" width="514" height="24" rx="4" fill="#16a34a"/>
-  <text x="293" y="306" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">1 个叠加态位置投出 4 张选票：e^(2.0 + ln 4) = 4 · e^2.0（满血恢复）</text>
+  <text x="293" y="306" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">指数恒等式：e^(2.0 + ln 4) = 4 · e^2.0（α=1 拿回 4 票，α=0.5 折中为 2 票）</text>
 
   <line x1="24" y1="330" x2="576" y2="330" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="24" y="350" font-size="10.5" fill="#475569">注：SelKV 按观察窗口累积注意力比 R_i = (a_kept + Σ g_j·a_disc) / a_kept 加 α·ln(R_i) 补偿，软余弦门控 g_j = max(cos, 0)。</text>
-  <text x="24" y="368" font-size="10.5" fill="#b91c1c">隐患：保留槽位顶着单字旧门牌号 Key_i，Value_i 却塞入多词混合向量，且分母 a_kept 小时 R_i 实测会爆表至 3337.5。</text>
+  <text x="24" y="350" font-size="10.4" fill="#475569">注：SelKV 按观察窗口累积注意力比 R_i = (a_kept + Σ g_j·a_disc) / a_kept 加 α·ln(R_i) 补偿，软余弦门控 g_j = max(cos, 0)。</text>
+  <text x="24" y="368" font-size="10.4" fill="#b91c1c">隐患：保留槽位沿用单字旧 Key_i 却塞入多词混合 Value_i，且分母 a_kept 小时 R_i 实测最高飙至 3337.5。</text>
 </svg>
