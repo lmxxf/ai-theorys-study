@@ -26,58 +26,57 @@
     <line x1="720" y1="0" x2="720" y2="500"/>
   </g>
 
-  <!-- 左侧示意图：论文美好设想 vs 真机盲压三连崩 -->
-  <g transform="translate(36, 48)">
+  <!-- 左侧示意图：论文美好设想 vs 真机盲压翻车 -->
+  <g transform="translate(36, 52)">
     <!-- 顶部框：论文设想 4 词 -> 1 个叠加态槽位 -->
     <rect x="0" y="0" width="292" height="106" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
     <text x="16" y="28" font-size="13.5" font-weight="bold" fill="#7dd3fc">论文设想：4 词合 1 个叠加态槽位省 75%</text>
     <rect x="16" y="44" width="56" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
-    <text x="44" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">紫藤</text>
+    <text x="44" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">雾港</text>
     <rect x="82" y="44" width="56" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
-    <text x="110" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">传感器</text>
+    <text x="110" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">继电器</text>
     <rect x="148" y="44" width="56" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
-    <text x="176" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">偏置</text>
+    <text x="176" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">受潮</text>
     <rect x="214" y="44" width="56" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
-    <text x="242" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">漂移</text>
+    <text x="242" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">粘连</text>
 
     <!-- 箭头 1 -->
-    <path d="M 146 106 L 146 134" stroke="#38bdf8" stroke-width="2"/>
-    <polygon points="141,130 151,130 146,138" fill="#38bdf8"/>
+    <path d="M 146 106 L 146 136" stroke="#38bdf8" stroke-width="2"/>
+    <polygon points="141,132 151,132 146,140" fill="#38bdf8"/>
 
     <!-- 中间框：开卷泄题假象 -->
-    <rect x="0" y="140" width="292" height="86" rx="10" fill="#062c28" stroke="#2dd4bf" stroke-width="1.5"/>
-    <text x="16" y="166" font-size="13.5" font-weight="bold" fill="#5eead4">为什么论文测出“砍 75% 几乎零损”？</text>
-    <text x="16" y="190" font-size="12" fill="#ccfbf1">• 带末尾考题一起 Prefill = 先看题再划重点</text>
-    <text x="16" y="212" font-size="12" fill="#ccfbf1">• 问题注意力把 98.5% 答案词保送进保留区</text>
+    <rect x="0" y="142" width="292" height="90" rx="10" fill="#062c28" stroke="#2dd4bf" stroke-width="1.5"/>
+    <text x="16" y="168" font-size="13.5" font-weight="bold" fill="#5eead4">为什么论文测出“砍 75% 几乎零损”？</text>
+    <text x="16" y="194" font-size="12" fill="#ccfbf1">• 带末尾考题一起 Prefill = 先看题再划重点</text>
+    <text x="16" y="216" font-size="12" fill="#ccfbf1">• 问题注意力把 98.5% 答案词保送进保留区</text>
 
     <!-- 箭头 2 -->
-    <path d="M 146 226 L 146 254" stroke="#f87171" stroke-width="2"/>
-    <polygon points="141,250 151,250 146,258" fill="#f87171"/>
+    <path d="M 146 232 L 146 262" stroke="#f87171" stroke-width="2"/>
+    <polygon points="141,258 151,258 146,266" fill="#f87171"/>
 
-    <!-- 底部框：Qwen3.8-27B 真机盲压三连崩 -->
-    <rect x="0" y="260" width="292" height="142" rx="10" fill="#2a1215" stroke="#f87171" stroke-width="1.8"/>
-    <text x="16" y="286" font-size="13.5" font-weight="bold" fill="#fca5a5">提问前真盲压：违背“一槽一词”全翻车</text>
-    <text x="16" y="312" font-size="12" fill="#fecaca">• SelKV 缓存层揉 V：吐出「雾雾继电器」</text>
-    <text x="16" y="336" font-size="12" fill="#fecaca">• 交大 ASTC 压 25%：吐出「7把81027。」</text>
-    <text x="16" y="360" font-size="12" fill="#fecaca">• ICA 最强轴同槽叠加：杂交出「紫杉醇」</text>
-    <text x="16" y="384" font-size="11.2" fill="#fda4af">（L63 C1479 轴救回 69.6%，却撞上 SwiGLU 杂交）</text>
+    <!-- 底部框：Qwen3.8-27B 真机盲压翻车 -->
+    <rect x="0" y="268" width="292" height="124" rx="10" fill="#2a1215" stroke="#f87171" stroke-width="1.8"/>
+    <text x="16" y="296" font-size="13.5" font-weight="bold" fill="#fca5a5">提问前真盲压：违背“一槽一词”全翻车</text>
+    <text x="16" y="324" font-size="12.5" fill="#fecaca">• SelKV 缓存层揉 V：吐出「雾雾继电器」</text>
+    <text x="16" y="350" font-size="12.5" fill="#fecaca">• 交大 ASTC 压 25%：吐出「7把81027。」</text>
+    <text x="16" y="374" font-size="11.2" fill="#fda4af">（单字旧 Key 串味 vs 数字孤岛名词揉烂）</text>
   </g>
 
   <!-- 右侧主标题区 -->
   <g transform="translate(360, 68)">
     <rect x="0" y="0" width="220" height="34" rx="17" fill="#0c4a6e" stroke="#38bdf8" stroke-width="1.2"/>
-    <text x="110" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#7dd3fc">KV Cache 压缩 · 真机实测</text>
+    <text x="110" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#7dd3fc">KV Cache 合并 · 真机实测</text>
 
-    <text x="0" y="86" font-size="33" font-weight="bold" fill="#ffffff">把 4 个词合成 1 个</text>
-    <text x="0" y="136" font-size="33" font-weight="bold" fill="url(#cyan380)">「叠加态 Token」省显存？</text>
+    <text x="0" y="86" font-size="33" font-weight="bold" fill="#ffffff">把 4 个词元合成 1 个</text>
+    <text x="0" y="136" font-size="33" font-weight="bold" fill="url(#cyan380)">「叠加态」省显存？</text>
 
-    <text x="0" y="188" font-size="19.5" fill="#e2e8f0">从“四票变一票”对数补偿，到 260 组盲压排雷</text>
+    <text x="0" y="188" font-size="19.5" fill="#e2e8f0">我们在 Qwen3.8-27B 上实测了这批零训练新论文</text>
 
     <line x1="0" y1="216" x2="504" y2="216" stroke="#334155" stroke-width="1"/>
 
-    <text x="0" y="252" font-size="14" fill="#94a3b8">• 理论梳理：SelKV 的 +ln(R) 选票补偿与交大 ASTC 第 10 层软词元</text>
-    <text x="0" y="284" font-size="14" fill="#94a3b8">• 泄题破案：带考题 Prefill 保送 98.5% 答案词 vs 提问前全密度盲压</text>
-    <text x="0" y="316" font-size="14" fill="#94a3b8">• 翻车现场：「雾雾继电器」「7把81027。」与 SwiGLU 杂交「紫杉醇」</text>
-    <text x="0" y="348" font-size="14" fill="#38bdf8">• 物理铁律：未经重训的 Transformer 严守“一槽一词”，竖着揉词走不通</text>
+    <text x="0" y="252" font-size="14" fill="#94a3b8">• 老路死结：模型外训压缩网络塞第 0 层软 Token，配 LoRA 照样雪崩</text>
+    <text x="0" y="284" font-size="14" fill="#94a3b8">• SelKV 实测：+ln(R) 补回选票，但旧 Key 挂混合 V 揉出「雾雾继电器」</text>
+    <text x="0" y="316" font-size="14" fill="#94a3b8">• 交大 ASTC 实测：第 10 层锁死数字合软词元，压 25% 吐出「7把81027。」</text>
+    <text x="0" y="348" font-size="14" fill="#38bdf8">• 物理铁律：4 词合并是试金石，现成模型严守“一槽一词”不可合租</text>
   </g>
 </svg>

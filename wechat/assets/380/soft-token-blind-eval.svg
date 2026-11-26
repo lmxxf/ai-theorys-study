@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 410" width="600" height="410" font-family="'WenQuanYi Micro Hei','Noto Sans CJK SC',sans-serif">
   <!-- 实心纯白底 -->
-  <rect x="0" y="0" width="600" height="450" fill="#ffffff"/>
+  <rect x="0" y="0" width="600" height="410" fill="#ffffff"/>
 
-  <!-- 标题与指标说明（审稿四把刀：图顶标明指标与 L63 C1479 z 读数） -->
-  <text x="300" y="28" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#111827">Qwen3.8-27B 真机盲压对决：为什么“多词揉一词”全线翻车？</text>
+  <!-- 标题与指标说明 -->
+  <text x="300" y="28" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#111827">Qwen3.8-27B 真机盲压对决：为什么两套零训练合并全翻车？</text>
   <text x="300" y="48" text-anchor="middle" font-size="11" fill="#64748b">10 道全密度盲压题事实得分率 vs L63 C1479（排名 1,480 / 5,120，κ=44.04，木匣子轴）激活读数 z</text>
 
   <!-- 表头 -->
   <text x="16" y="78" font-size="11" font-weight="bold" fill="#334155">方案分支（16层KV占比）</text>
   <text x="196" y="78" font-size="11" font-weight="bold" fill="#334155">事实得分率（全对题数）</text>
   <text x="382" y="78" font-size="11" font-weight="bold" fill="#334155">L63 C1479 读数 z</text>
-  <text x="492" y="78" font-size="11" font-weight="bold" fill="#334155">真机翻车实录</text>
+  <text x="492" y="78" font-size="11" font-weight="bold" fill="#334155">真机典型表现</text>
   <line x1="16" y1="86" x2="584" y2="86" stroke="#cbd5e1" stroke-width="1.2"/>
 
   <!-- 行 1: Full-KV -->
@@ -55,15 +55,8 @@
   <text x="382" y="304" font-size="10.8" fill="#b91c1c">z=0.025 (2.38%)</text>
   <text x="492" y="304" font-size="10.8" font-weight="bold" fill="#b91c1c">「7把81027。」</text>
 
-  <!-- 行 7: L10-ICA-TopK256 -->
-  <text x="16" y="342" font-size="11" font-weight="bold" fill="#7c3aed">7. ICA 最强轴 4压1 (34.8%)</text>
-  <rect x="196" y="328" width="9" height="18" rx="2" fill="#8b5cf6"/>
-  <text x="211" y="342" font-size="10.8" font-weight="bold" fill="#7c3aed">9.0% (0/10)</text>
-  <text x="382" y="342" font-size="10.8" font-weight="bold" fill="#7c3aed">z=0.744 (69.6%)</text>
-  <text x="492" y="342" font-size="10.8" font-weight="bold" fill="#7c3aed">杂交「紫杉醇」</text>
-
-  <line x1="16" y1="368" x2="584" y2="368" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="16" y="390" font-size="10" fill="#334155">• 死因 1（门牌错位）：SelKV 用单字旧 Key 挂 4 词混合 Value，把「雾港继电器」搅糊成结巴的「雾雾继电器」。</text>
-  <text x="16" y="410" font-size="10" fill="#334155">• 死因 2（数字孤岛）：ASTC 保护掩码锁死数字不压，压到 25% 时把周围名词动词全揉烂，只剩「7把81027。」。</text>
-  <text x="16" y="430" font-size="10" fill="#334155">• 死因 3（一槽一词铁律）：ICA 叠最强轴虽将木匣子轴救回 69.6%，但同槽「紫藤+传感器」被 SwiGLU 杂交成「紫杉醇」。</text>
+  <line x1="16" y1="332" x2="584" y2="332" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="16" y="356" font-size="10.2" fill="#334155">• 死因 1（门牌错位）：SelKV 用单字旧 Key 挂 4 词混合 Value，把「雾港继电器」搅糊成结巴的「雾雾继电器」。</text>
+  <text x="16" y="376" font-size="10.2" fill="#334155">• 死因 2（数字孤岛）：ASTC 保护掩码锁死数字不压，压到 25% 时把周围名词动词全揉烂，只剩「7把81027。」。</text>
+  <text x="16" y="396" font-size="10.2" fill="#334155">• 结论：4 词合并是一块试金石，现成大模型严守「一槽一词」，在时间轴上把多个词揉进同一槽位必伤字面与绑定。</text>
 </svg>
