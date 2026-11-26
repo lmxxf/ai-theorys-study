@@ -26,56 +26,58 @@
     <line x1="720" y1="0" x2="720" y2="500"/>
   </g>
 
-  <!-- 左侧示意图：4 个 KV 槽位 -> 1 个叠加态槽位 + ln(R_i) -->
-  <g transform="translate(36, 56)">
-    <!-- 顶部框：4 个原始词元占 4 列显存 -->
-    <rect x="0" y="0" width="286" height="106" rx="10" fill="#0f172a" stroke="#64748b" stroke-width="1.5"/>
-    <text x="18" y="30" font-size="14" font-weight="bold" fill="#cbd5e1">合并前：4 个同义词占 4 列 KV 显存</text>
-    <rect x="18" y="46" width="54" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
-    <text x="45" y="72" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">e^s</text>
-    <rect x="82" y="46" width="54" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
-    <text x="109" y="72" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">e^s</text>
-    <rect x="146" y="46" width="54" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
-    <text x="173" y="72" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">e^s</text>
-    <rect x="210" y="46" width="54" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
-    <text x="237" y="72" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">e^s</text>
+  <!-- 左侧示意图：论文美好设想 vs 真机盲压三连崩 -->
+  <g transform="translate(36, 48)">
+    <!-- 顶部框：论文设想 4 词 -> 1 个叠加态槽位 -->
+    <rect x="0" y="0" width="292" height="106" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="16" y="28" font-size="13.5" font-weight="bold" fill="#7dd3fc">论文设想：4 词合 1 个叠加态槽位省 75%</text>
+    <rect x="16" y="44" width="56" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
+    <text x="44" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">紫藤</text>
+    <rect x="82" y="44" width="56" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
+    <text x="110" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">传感器</text>
+    <rect x="148" y="44" width="56" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
+    <text x="176" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">偏置</text>
+    <rect x="214" y="44" width="56" height="42" rx="6" fill="#1e3a8a" stroke="#60a5fa"/>
+    <text x="242" y="70" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">漂移</text>
 
     <!-- 箭头 1 -->
-    <path d="M 143 106 L 143 138" stroke="#f87171" stroke-width="2"/>
-    <polygon points="138,134 148,134 143,142" fill="#f87171"/>
+    <path d="M 146 106 L 146 134" stroke="#38bdf8" stroke-width="2"/>
+    <polygon points="141,130 151,130 146,138" fill="#38bdf8"/>
 
-    <!-- 中间框：直接平均合并掉进“四票变一票”陷阱 -->
-    <rect x="0" y="144" width="286" height="98" rx="10" fill="#2a1215" stroke="#f87171" stroke-width="1.5"/>
-    <text x="18" y="172" font-size="13.5" font-weight="bold" fill="#fca5a5">直接平均合并：掉进“四票变一票”陷阱</text>
-    <text x="18" y="198" font-size="12" fill="#fecaca">• 4 列压成 1 列，Softmax 权重缩水 4 倍</text>
-    <text x="18" y="222" font-size="12" fill="#fecaca">• 核心信息从 80% 跌至 50% (Attention Sag)</text>
+    <!-- 中间框：开卷泄题假象 -->
+    <rect x="0" y="140" width="292" height="86" rx="10" fill="#062c28" stroke="#2dd4bf" stroke-width="1.5"/>
+    <text x="16" y="166" font-size="13.5" font-weight="bold" fill="#5eead4">为什么论文测出“砍 75% 几乎零损”？</text>
+    <text x="16" y="190" font-size="12" fill="#ccfbf1">• 带末尾考题一起 Prefill = 先看题再划重点</text>
+    <text x="16" y="212" font-size="12" fill="#ccfbf1">• 问题注意力把 98.5% 答案词保送进保留区</text>
 
     <!-- 箭头 2 -->
-    <path d="M 143 242 L 143 274" stroke="#2dd4bf" stroke-width="2"/>
-    <polygon points="138,270 148,270 143,278" fill="#2dd4bf"/>
+    <path d="M 146 226 L 146 254" stroke="#f87171" stroke-width="2"/>
+    <polygon points="141,250 151,250 146,258" fill="#f87171"/>
 
-    <!-- 底部框：SelKV 对数补偿 + ASTC 中层合并 -->
-    <rect x="0" y="280" width="286" height="108" rx="10" fill="#062c28" stroke="#2dd4bf" stroke-width="1.8"/>
-    <text x="18" y="308" font-size="14" font-weight="bold" fill="#5eead4">零训练破局：对数补偿 + 中层软词元</text>
-    <text x="18" y="336" font-size="12.5" fill="#ccfbf1">• SelKV: e^(s + ln 4) = 4·e^s 补回选票</text>
-    <text x="18" y="360" font-size="12.5" fill="#ccfbf1">• ASTC: 浅层 GDN 消化后中层合成软词元</text>
-    <text x="18" y="380" font-size="11.5" fill="#99f6e4">（砍掉 60%–75% KV 显存，准确率反超基线）</text>
+    <!-- 底部框：Qwen3.8-27B 真机盲压三连崩 -->
+    <rect x="0" y="260" width="292" height="142" rx="10" fill="#2a1215" stroke="#f87171" stroke-width="1.8"/>
+    <text x="16" y="286" font-size="13.5" font-weight="bold" fill="#fca5a5">提问前真盲压：违背“一槽一词”全翻车</text>
+    <text x="16" y="312" font-size="12" fill="#fecaca">• SelKV 缓存层揉 V：吐出「雾雾继电器」</text>
+    <text x="16" y="336" font-size="12" fill="#fecaca">• 交大 ASTC 压 25%：吐出「7把81027。」</text>
+    <text x="16" y="360" font-size="12" fill="#fecaca">• ICA 最强轴同槽叠加：杂交出「紫杉醇」</text>
+    <text x="16" y="384" font-size="11.2" fill="#fda4af">（L63 C1479 轴救回 69.6%，却撞上 SwiGLU 杂交）</text>
   </g>
 
   <!-- 右侧主标题区 -->
-  <g transform="translate(354, 78)">
-    <rect x="0" y="0" width="192" height="34" rx="17" fill="#0c4a6e" stroke="#38bdf8" stroke-width="1.2"/>
-    <text x="96" y="22" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#7dd3fc">KV Cache 压缩 · 算法剖析</text>
+  <g transform="translate(360, 68)">
+    <rect x="0" y="0" width="220" height="34" rx="17" fill="#0c4a6e" stroke="#38bdf8" stroke-width="1.2"/>
+    <text x="110" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#7dd3fc">KV Cache 压缩 · 真机实测</text>
 
-    <text x="0" y="88" font-size="34" font-weight="bold" fill="#ffffff">把一串词合成一个</text>
-    <text x="0" y="140" font-size="34" font-weight="bold" fill="url(#cyan380)">「叠加态 Token」省显存</text>
+    <text x="0" y="86" font-size="33" font-weight="bold" fill="#ffffff">把 4 个词合成 1 个</text>
+    <text x="0" y="136" font-size="33" font-weight="bold" fill="url(#cyan380)">「叠加态 Token」省显存？</text>
 
-    <text x="0" y="196" font-size="20" fill="#e2e8f0">从离线训 LoRA，到零训练“四票变一票”补偿</text>
+    <text x="0" y="188" font-size="19.5" fill="#e2e8f0">从“四票变一票”对数补偿，到 260 组盲压排雷</text>
 
-    <line x1="0" y1="226" x2="508" y2="226" stroke="#334155" stroke-width="1"/>
+    <line x1="0" y1="216" x2="504" y2="216" stroke="#334155" stroke-width="1"/>
 
-    <text x="0" y="264" font-size="14.5" fill="#94a3b8">• 复盘三条老路：文字电报文 (BabelTele) vs 第 0 层训 LoRA (SKIM)</text>
-    <text x="0" y="296" font-size="14.5" fill="#94a3b8">• SelKV 软余弦门控 + ln(R) 选票补偿：留 25% 显存提速 3.3 倍</text>
-    <text x="0" y="328" font-size="14.5" fill="#94a3b8">• 交大 ASTC：借 Gated DeltaNet 残差在中间层零训练合成软词元</text>
+    <text x="0" y="252" font-size="14" fill="#94a3b8">• 理论梳理：SelKV 的 +ln(R) 选票补偿与交大 ASTC 第 10 层软词元</text>
+    <text x="0" y="284" font-size="14" fill="#94a3b8">• 泄题破案：带考题 Prefill 保送 98.5% 答案词 vs 提问前全密度盲压</text>
+    <text x="0" y="316" font-size="14" fill="#94a3b8">• 翻车现场：「雾雾继电器」「7把81027。」与 SwiGLU 杂交「紫杉醇」</text>
+    <text x="0" y="348" font-size="14" fill="#38bdf8">• 物理铁律：未经重训的 Transformer 严守“一槽一词”，竖着揉词走不通</text>
   </g>
 </svg>
