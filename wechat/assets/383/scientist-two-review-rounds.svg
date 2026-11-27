@@ -59,7 +59,7 @@
   <line x1="16" y1="262" x2="564" y2="262" stroke="#e5e7eb" stroke-width="1.5"/>
 
   <!-- 下半部分标题：表 5 模拟审稿轮数消融（49 篇 ICML 2026 题目实测） -->
-  <text x="16" y="286" font-size="14.5" font-weight="bold" fill="#111827">二、表 5 审稿轮数消融：第 1 轮补实验真涨分，第 2 轮讨好模板反掉分</text>
+  <text x="16" y="286" font-size="14.5" font-weight="bold" fill="#111827">二、表 5 审稿轮数消融：第 1 轮补实验真涨分，第 2 轮继续迎合反掉分</text>
   <text x="16" y="305" font-size="11.5" fill="#4b5563">49 篇 ICML 题目：场内教练 ScholarPeer（蓝线）vs 场外独立盲审 Stanford Reviewer（红线）</text>
 
   <!-- 折线图坐标系：y范围 40% -> y=445, 100% -> y=325 (每10%=20px) -->
@@ -98,8 +98,8 @@
 
   <text x="115" y="408" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">场外 49.0% (5.6分)</text>
   <text x="315" y="401" font-size="11.5" font-weight="bold" fill="#dc2626" text-anchor="middle">场外峰值 73.5% (5.8分)</text>
-  <text x="462" y="407" font-size="11.5" font-weight="bold" fill="#dc2626" text-anchor="middle">场外跌回 69.4% (-4.1%) ↓</text>
+  <text x="458" y="407" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">场外跌回 69.4% (-4.1个百分点) ↓</text>
 
   <!-- 底部图注说明 -->
-  <text x="16" y="494" font-size="11" fill="#4b5563">注：第 2 轮继续顺着场内 ScholarPeer 刷分时，因堆砌防御性八股与次要表，场外独立盲审反而掉分。</text>
+  <text x="16" y="494" font-size="11" fill="#4b5563">注：第 2 轮继续顺着场内 ScholarPeer 改稿时，场内升至 93.9%，而场外独立盲审录用率反而倒退 4.1 个百分点。</text>
 </svg>

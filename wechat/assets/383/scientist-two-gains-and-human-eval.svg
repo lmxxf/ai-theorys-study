@@ -17,7 +17,7 @@
   <!-- 2. 全集 86 篇真实中位数 (7.7 * 9 = 69.3) -->
   <text x="169" y="102" font-size="11.5" font-weight="bold" fill="#111827" text-anchor="end">全集 86 篇 · 真实中位数</text>
   <rect x="176" y="89" width="69.3" height="17" rx="2" fill="#2563eb"/>
-  <text x="252" y="102" font-size="11.5" font-weight="bold" fill="#1d4ed8">+7.7%（仅为均值三分之一）</text>
+  <text x="252" y="102" font-size="11.5" font-weight="bold" fill="#1d4ed8">+7.7%（不足算术均值三分之一）</text>
 
   <!-- 3. NeurIPS 2025 (33篇) 中位数 (7.0 * 9 = 63.0) -->
   <text x="169" y="128" font-size="11.5" fill="#374151" text-anchor="end">NeurIPS 2025 (33篇) 中位数</text>
@@ -54,17 +54,17 @@
   <!-- 1. 实验：基线与测试集广度 (3.5 -> +80px) -->
   <text x="185" y="310" font-size="11.5" fill="#374151" text-anchor="end">实验：基线与数据集广度</text>
   <rect x="240" y="297" width="80" height="17" rx="2" fill="#16a34a"/>
-  <text x="326" y="310" font-size="11.5" font-weight="bold" fill="#15803d">3.5 分（跑全量表，AI 显著占优）</text>
+  <text x="326" y="310" font-size="11.5" font-weight="bold" fill="#15803d">3.5 分（跑全量基准，AI 评分最高）</text>
 
   <!-- 2. 实验：消融实验设计 (3.3 -> +48px) -->
   <text x="185" y="337" font-size="11.5" fill="#374151" text-anchor="end">实验：消融实验丰富度</text>
   <rect x="240" y="324" width="48" height="17" rx="2" fill="#22c55e"/>
-  <text x="294" y="337" font-size="11.5" font-weight="bold" fill="#15803d">3.3 分（每篇 5–6 个消融，AI 占优）</text>
+  <text x="294" y="337" font-size="11.5" font-weight="bold" fill="#15803d">3.3 分（自动化组件消融，AI 占优）</text>
 
   <!-- 3. 实验：结果分析与局限讨论 (3.3 -> +48px) -->
   <text x="185" y="364" font-size="11.5" fill="#374151" text-anchor="end">实验：结果与局限分析</text>
   <rect x="240" y="351" width="48" height="17" rx="2" fill="#22c55e"/>
-  <text x="294" y="364" font-size="11.5" font-weight="bold" fill="#15803d">3.3 分（9 图 12 表堆满，AI 占优）</text>
+  <text x="294" y="364" font-size="11.5" font-weight="bold" fill="#15803d">3.3 分（实验与局限讨论，AI 占优）</text>
 
   <!-- 4. 引言：动机与相关工作 (3.1 -> +16px) -->
   <text x="185" y="391" font-size="11.5" fill="#374151" text-anchor="end">引言：动机与文献综述</text>
@@ -76,12 +76,12 @@
   <circle cx="240" cy="413" r="4.5" fill="#4b5563"/>
   <text x="252" y="418" font-size="11.5" font-weight="bold" fill="#374151">3.0 分（Human = ScientistTwo 打平）</text>
 
-  <!-- 6. 方法：合理性与算法严谨度 (2.9 -> -18px) -->
+  <!-- 6. 方法：合理性与算法严谨度 (2.9 -> -16px) -->
   <rect x="12" y="432" width="556" height="24" rx="3" fill="#fef2f2"/>
   <text x="185" y="448" font-size="12" font-weight="bold" fill="#b91c1c" text-anchor="end">方法：合理性与算法严谨度</text>
-  <rect x="220" y="435" width="20" height="17" rx="2" fill="#dc2626"/>
+  <rect x="224" y="435" width="16" height="17" rx="2" fill="#dc2626"/>
   <text x="250" y="448" font-size="11.5" font-weight="bold" fill="#b91c1c">2.9 分（唯一输给人类：Human &gt; ScientistTwo）</text>
 
   <!-- 底部说明 -->
-  <text x="16" y="486" font-size="11" fill="#4b5563">注：单题平均跑 2.5 天、烧 3,765 美元，靠题海战术堆出 9 图 12 表赢下实验苦力分，但核心方法仍偏工程缝合。</text>
+  <text x="16" y="486" font-size="11" fill="#4b5563">注：33 道 NeurIPS 题单题平均跑 2.5 天、烧 3,765 美元，实验广度与消融得分占优，但方法严谨度仍低于人类原论文。</text>
 </svg>
