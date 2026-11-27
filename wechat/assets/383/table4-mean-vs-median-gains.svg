@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 235" width="100%" height="100%" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <rect width="580" height="235" fill="#ffffff"/>
+
+  <text x="16" y="26" font-size="14.5" font-weight="bold" fill="#111827">表 4 涨幅落差：算术平均吹到 +25.2%，全集中位数仅 +7.7%</text>
+  <text x="16" y="45" font-size="11.5" fill="#4b5563">由 Gemini 3.6 Flash 读表 10 次提取：跨题算术均值右偏，ICLR 子集低于 AutoSOTA</text>
+
+  <line x1="176" y1="58" x2="176" y2="215" stroke="#d1d5db" stroke-width="1.5"/>
+
+  <text x="169" y="76" font-size="11.5" fill="#374151" text-anchor="end">全集 86 篇 · 算术平均</text>
+  <rect x="176" y="63" width="226.8" height="17" rx="2" fill="#93c5fd"/>
+  <text x="409" y="76" font-size="11.5" font-weight="bold" fill="#1e40af">+25.2%（宣传头条）</text>
+
+  <text x="169" y="102" font-size="11.5" font-weight="bold" fill="#111827" text-anchor="end">全集 86 篇 · 真实中位数</text>
+  <rect x="176" y="89" width="69.3" height="17" rx="2" fill="#2563eb"/>
+  <text x="252" y="102" font-size="11.5" font-weight="bold" fill="#1d4ed8">+7.7%（不足算术均值三分之一）</text>
+
+  <text x="169" y="128" font-size="11.5" fill="#374151" text-anchor="end">NeurIPS 2025 (33篇) 中位数</text>
+  <rect x="176" y="115" width="63.0" height="17" rx="2" fill="#3b82f6"/>
+  <text x="246" y="128" font-size="11.5" fill="#1e40af">+7.0%（算术平均 +13.9%）</text>
+
+  <text x="169" y="154" font-size="11.5" fill="#4b5563" text-anchor="end">ICLR 2026 · AutoSOTA 调参</text>
+  <rect x="176" y="141" width="45.0" height="17" rx="2" fill="#9ca3af"/>
+  <text x="228" y="154" font-size="11" fill="#4b5563">+5.0%（中位数，算术平均 +7.2%）</text>
+
+  <rect x="12" y="165" width="556" height="22" rx="3" fill="#fffbeb"/>
+  <text x="169" y="180" font-size="11.5" font-weight="bold" fill="#b45309" text-anchor="end">ICLR 2026 · ScientistTwo</text>
+  <rect x="176" y="167" width="19.8" height="17" rx="2" fill="#d97706"/>
+  <text x="203" y="180" font-size="11.5" font-weight="bold" fill="#b45309">+2.2%（中位数，算术平均仅 +3.8%）</text>
+
+  <text x="169" y="206" font-size="11.5" fill="#374151" text-anchor="end">重点案例 DynaSpec-RAG</text>
+  <rect x="176" y="193" width="3.5" height="17" rx="1" fill="#dc2626"/>
+  <text x="186" y="206" font-size="11" fill="#b91c1c">平均 MAE +0.16%（0.2492→0.2488，MSE +2.47%）</text>
+</svg>

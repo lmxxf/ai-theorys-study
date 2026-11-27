@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 265" width="100%" height="100%" font-family="'WenQuanYi Micro Hei', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <rect width="580" height="265" fill="#ffffff"/>
+
+  <text x="16" y="26" font-size="14.5" font-weight="bold" fill="#111827">表 2 同场盲审：7 个前人框架录用率全为 0%，ScientistTwo 达 72.1%</text>
+  <text x="16" y="45" font-size="11.5" fill="#4b5563">场外独立裁判 Stanford Agentic Reviewer 录用率（%）与均分（1–10 分制，括号内为公开样本数）</text>
+
+  <line x1="170" y1="58" x2="170" y2="232" stroke="#d1d5db" stroke-width="1.5"/>
+  <line x1="340" y1="58" x2="340" y2="232" stroke="#f3f4f6" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="510" y1="58" x2="510" y2="232" stroke="#f3f4f6" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="170" y="248" font-size="11" fill="#6b7280" text-anchor="middle">0%</text>
+  <text x="340" y="248" font-size="11" fill="#6b7280" text-anchor="middle">50%</text>
+  <text x="510" y="248" font-size="11" fill="#6b7280" text-anchor="middle">100%</text>
+
+  <text x="163" y="73" font-size="11.5" fill="#374151" text-anchor="end">AI-Researcher (7篇)</text>
+  <rect x="170" y="61" width="4" height="15" fill="#9ca3af"/>
+  <text x="180" y="73" font-size="11" fill="#6b7280">0.0%（均分 2.4 ± 0.6，场内 1.0 分）</text>
+
+  <text x="163" y="95" font-size="11.5" fill="#374151" text-anchor="end">AI Scientist-v2 (3篇)</text>
+  <rect x="170" y="83" width="4" height="15" fill="#9ca3af"/>
+  <text x="180" y="95" font-size="11" fill="#6b7280">0.0%（均分 2.5 ± 0.2，场内 2.0 分）</text>
+
+  <text x="163" y="117" font-size="11.5" fill="#374151" text-anchor="end">CycleResearcher (6篇)</text>
+  <rect x="170" y="105" width="4" height="15" fill="#9ca3af"/>
+  <text x="180" y="117" font-size="11" fill="#6b7280">0.0%（均分 2.8 ± 1.0，场内 1.0 分）</text>
+
+  <text x="163" y="139" font-size="11.5" fill="#374151" text-anchor="end">Zochi (2篇)</text>
+  <rect x="170" y="127" width="4" height="15" fill="#9ca3af"/>
+  <text x="180" y="139" font-size="11" fill="#6b7280">0.0%（均分 2.9 ± 0.6，场内 3.0 分）</text>
+
+  <rect x="12" y="147" width="556" height="20" rx="3" fill="#fef2f2"/>
+  <text x="163" y="161" font-size="11.5" font-weight="bold" fill="#b91c1c" text-anchor="end">AutoResearchClaw (4篇)</text>
+  <rect x="170" y="149" width="4" height="15" fill="#dc2626"/>
+  <text x="180" y="161" font-size="11" font-weight="bold" fill="#b91c1c">0.0%（均分 3.7 ± 0.5，379 期查出可公式编数、失败照写论文）</text>
+
+  <text x="163" y="183" font-size="11.5" fill="#374151" text-anchor="end">DeepScientist (3篇)</text>
+  <rect x="170" y="171" width="4" height="15" fill="#9ca3af"/>
+  <text x="180" y="183" font-size="11" fill="#6b7280">0.0%（均分 4.1 ± 0.6，场内 3.0 分）</text>
+
+  <text x="163" y="205" font-size="11.5" fill="#374151" text-anchor="end">ScientistOne (21篇)</text>
+  <rect x="170" y="193" width="4" height="15" fill="#9ca3af"/>
+  <text x="180" y="205" font-size="11" fill="#6b7280">0.0%（均分 4.1 ± 0.7，场内录用率 14.3%）</text>
+
+  <text x="163" y="227" font-size="12" font-weight="bold" fill="#1d4ed8" text-anchor="end">ScientistTwo (86篇)</text>
+  <rect x="170" y="214" width="245.1" height="16" rx="2" fill="#2563eb"/>
+  <text x="421" y="227" font-size="11.5" font-weight="bold" fill="#1d4ed8">72.1%（均分 5.7 ± 0.6）</text>
+</svg>
