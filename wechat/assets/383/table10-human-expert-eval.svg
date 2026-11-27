@@ -2,7 +2,7 @@
   <rect width="580" height="268" fill="#ffffff"/>
 
   <text x="16" y="26" font-size="14.5" font-weight="bold" fill="#111827">表 10 人类专家评测：实验与消融占优，唯独核心“算法严谨度”输给人类</text>
-  <text x="16" y="45" font-size="11.5" fill="#4b5563">9 名真人学者评测 33 篇论文（1–5 分：3.0 分为与人类原论文打平，&gt;3.0 为 AI 占优，&lt;3.0 为输给人类）</text>
+  <text x="16" y="45" font-size="11" fill="#4b5563">9 名真人学者评测 33 篇论文（1–5 分：3.0 分为与人类打平，&gt;3.0 为 AI 占优，&lt;3.0 为输给人类）</text>
 
   <!-- 以 x=240 作为 3.0 分打平基准线（每 0.1 分 = 16px） -->
   <line x1="240" y1="64" x2="240" y2="232" stroke="#374151" stroke-width="1.5" stroke-dasharray="4,3"/>
@@ -33,5 +33,5 @@
   <rect x="224" y="205" width="16" height="17" rx="2" fill="#dc2626"/>
   <text x="250" y="218" font-size="11.5" font-weight="bold" fill="#b91c1c">2.9 分（唯一输给人类：Human &gt; ScientistTwo）</text>
 
-  <text x="16" y="254" font-size="11" fill="#4b5563">注：33 道 NeurIPS 题单题平均跑 2.5 天、烧 3,765 美元，实验广度与消融得分占优，但方法严谨度仍低于人类原论文。</text>
+  <text x="16" y="254" font-size="10.8" fill="#4b5563">注：33 道 NeurIPS 题单题平均烧 3,765 美元，实验广度与消融得分占优，但方法严谨度仍低于人类。</text>
 </svg>
