@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MVWYT39H1T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MVWYT39H1T');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Overview - Stanford Agentic Reviewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stanford-red': '#8C1515',
+                        'stanford-red-dark': '#820000',
+                        'stanford-red-light': '#B83A4B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .gradient-text {
+                background: linear-gradient(135deg, #8C1515 0%, #820000 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                padding-bottom: 0.1em;
+                line-height: 1.2;
+            }
+        }
+    </style>
+    <style>
+        .prose {
+            max-width: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        .prose h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            color: #111827;
+            border-bottom: 3px solid #8C1515;
+            padding-bottom: 0.5rem;
+        }
+        .prose h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.25rem;
+            color: #1f2937;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+        .prose h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+            color: #374151;
+            font-size: 1.0625rem;
+            text-align: justify;
+        }
+        .prose ul, .prose ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            line-height: 1.8;
+        }
+        .prose ul {
+            list-style-type: disc;
+        }
+        .prose ol {
+            list-style-type: decimal;
+        }
+        .prose ol.references {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .prose ol.references li {
+            padding-left: 0;
+        }
+        .prose li {
+            margin-bottom: 0.75rem;
+            color: #374151;
+            font-size: 1.0625rem;
+        }
+        .prose li p {
+            margin-bottom: 0.5rem;
+        }
+        .prose strong {
+            font-weight: 600;
+            color: #111827;
+        }
+        .prose em {
+            font-style: italic;
+            color: #6b7280;
+        }
+        .prose a {
+            color: #8C1515;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .prose a:hover {
+            color: #820000;
+        }
+        .prose code {
+            background-color: #f3f4f6;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-red-50 via-white to-red-50 min-h-screen">
+    <!-- Top Banner -->
+    <div class="bg-gradient-to-r from-red-50 to-pink-50 border-b border-red-100 text-center py-2 px-4">
+        <p class="text-base md:text-lg font-semibold text-gray-800">
+            Get detailed AI feedback on your research paper <span class="text-stanford-red font-bold">(free!)</span>
+        </p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo/Brand -->
+                <a href="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-10 h-10 bg-gradient-to-br from-stanford-red to-stanford-red-dark rounded-lg flex items-center justify-center shadow-sm">
+                        <span class="text-white font-bold text-xl">S</span>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg font-bold text-gray-900">paperreview.ai</h1>
+                        <p class="text-xs text-gray-500">By Stanford ML Group</p>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <div class="flex items-center gap-1 sm:gap-2">
+                    <a href="/" class="px-4 sm:px-6 py-2 text-sm font-semibold text-gray-600 hover:text-stanford-red hover:border-b-4 hover:border-gray-300 border-b-4 border-transparent transition-all duration-200">
+                        Upload Paper
+                    </a>
+                    <a href="/review" class="px-4 sm:px-6 py-2 text-sm font-semibold text-gray-600 hover:text-stanford-red hover:border-b-4 hover:border-gray-300 border-b-4 border-transparent transition-all duration-200">
+                        View Review
+                    </a>
+                    <a href="/tech-overview" class="px-4 sm:px-6 py-2 text-sm font-bold text-stanford-red border-b-4 border-stanford-red pointer-events-none">
+                        Tech Overview
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Main Content Card -->
+        <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden mt-8">
+            <div class="p-8 md:p-16 lg:p-20">
+                <article class="prose prose-lg max-w-none">
+                    <h1>Tech Overview</h1>
+                    <p><em>Yixing Jiang and Andrew Ng</em></p>
+
+                    <p>Our agentic reviewer provides rapid feedback to researchers on their work to help them to rapidly iterate and improve their research.</p>
+
+                    <p>The inspiration for this project was a conversation that one of us had with a student (not from Stanford) that had their research paper rejected 6 times over 3 years. They got a round of feedback roughly every 6 months from the peer review process, and this commentary formed the basis for their next round of revisions. The 6 month iteration cycle was painfully slow, and the noisy reviews — which were more focused on judging a paper's worth than providing constructive feedback — gave only a weak signal for where to go next.</p>
+
+                    <p>Leveraging a basic agentic workflow, our agentic reviewer quickly provides a paper review and also attempts to give actionable feedback. The agent grounds its review in the latest relevant prior work pulled from arXiv. This creates a much faster feedback loop: you can submit, get feedback, run more experiments/edit, and resubmit, helping you improve your work faster.</p>
+
+                    <p>When modified to output a 1-10 score by training to mimic ICLR 2025 reviews (which are public), we found that the Spearman correlation (higher is better) between one human reviewer and another is 0.41, whereas the correlation between AI and one human reviewer is 0.42. This suggests the agentic reviewer is approaching human-level performance.</p>
+
+                    <h3>Notes:</h3>
+                    <ul>
+                        <li>Reviews are AI generated, and may contain errors.</li>
+                        <li>Because of grounding in arXiv, we expect the results to be more accurate in fields like AI where recent research is freely published there, and less accurate in other fields. Further, we support only English-language papers for now. </li>
+                        <li>We had built this for researchers seeking feedback on their work. If you are a reviewer for a conference, we discourage using this in any way that violates the policies of that conference.</li>
+                    </ul>
+
+                    <h2>Agentic Reviewer workflow</h2>
+
+                    <p>The agentic system takes the paper PDF and optional target venue as input. It first converts the PDF into a Markdown document using LandingAI's Agentic Document Extraction (ADE). It then extracts the paper title and verifies the document is an academic paper as a sanity check.</p>
+
+                    <p>To ground the paper review in the latest prior work, the agent analyzes the paper to generate web search queries of different levels of specificity. The search phrases aim to cover different perspectives, such as relevant benchmarks/baselines, other papers addressing the same problem, and papers with related techniques. These queries are then executed using the Tavily search API to find relevant papers on arXiv. The agent then downloads the metadata (title, authors, abstracts) of those papers.</p>
+
+                    <p>To balance coverage and context length, the agent evaluates the relevance of each related work using this metadata to select the most relevant papers; it then chooses an appropriate summarization method for each of the top related papers, choosing between using the existing abstract from the downloaded metadata or generating a detailed summary from the full text. If it elects to create a detailed summary, the agent also specifies the most salient focus areas for summary creation. It then downloads the paper PDFs from arXiv, converts the PDF to Markdown, and uses an LLM to generate a detailed summary given the Markdown and focus areas.</p>
+
+                    <p>Finally, the agent uses both the original paper's Markdown and the newly synthesized related work summaries to generate a comprehensive review following a template.</p>
+
+                    <h2>Towards human-level reviews</h2>
+
+                    <p>We also modified the agent to provide an overall score for the paper. Instead of having the LLM directly generate a final score, it instead provides scores on 7 dimensions to quantify the paper quality across different dimensions. The 7 dimensions we used are: Originality, importance of research question addressed, whether the claims are well supported, soundness of experiments, clarity of writing, value to the research community, and whether contextualized appropriately relative to prior work. We then used linear regression to fit a model mapping from these 7 scores to a final score.</p>
+
+                    <p>In detail, we randomly sampled 300 submissions from ICLR 2025 and excluded 3 withdrawn submissions with no human scores. We use 150 submissions to train the linear regression model to combine the 7 individual scores into a single score, and then test using the remaining 147 submissions.</p>
+
+                    <p>The Spearman correlation between two human reviewers is 0.41, while the Spearman correlation between the AI score and one human score is <strong>0.42</strong>. This indicates the agentic system agrees with another human as much as one human agrees with another in the choice of rating.</p>
+
+                    <p>The AUC for predicting acceptance using one human score is 0.84, while the AUC using the AI score is 0.75. Note however this is not an apples-to-apples comparison: The human scores here have an advantage given the acceptance decision that was actually made was based partly on this score.</p>
+
+                    <p>The following figure shows the proportion of papers that received a low AI score (≤ 5.5) across papers with different ranges of average human scores. The AI scores are generally well-calibrated.</p>
+
+                    <div class="my-8">
+                        <img src="/static/plot.png" alt="Calibration Plot showing AI score distribution" class="w-full max-w-4xl mx-auto rounded-lg shadow-lg border border-gray-200">
+                    </div>
+
+                    <p>On the website, this score is displayed only if the target venue selected in the paper submission form is ICLR.</p>
+
+                    <h2>Related work and future directions</h2>
+
+                    <p>Some early studies have explored the use of agents to analyze peer review dynamics [1] or to generate more specific and helpful feedback via discussion among agents [2]. An empirical study by Liang et al. [3] demonstrated that GPT4-generated feedback has a substantial overlap with human feedback. However, it also finds that LLMs are significantly less likely than humans to comment on novelty. One recent study focused on fine-grained evaluation of LLM reviewers and found that LLMs are biased towards examining technical validity while significantly overlooking novelty assessment [4].</p>
+
+                    <p>Recently, Sahu et al. introduced "ReviewerToo" [5], a framework employing diverse reviewer personas (e.g., empiricist, theorist) that matched human decision accuracy and improved feedback quality, while identifying risks regarding sycophancy during rebuttals.</p>
+
+                    <p>A pilot study for ICLR 2025 showed that LLM-generated feedback on human reviews can enhance review quality by nudging reviewers to make their reviews more specific and actionable [6].</p>
+
+                    <p>Beyond reviewing, there is an exciting and growing field of using AI assistance through multiple stages of the research process. For example, AI has shown promising results in hypothesis generation [7], [8], [9], [10], [11]. Some researchers are further carrying out end-to-end automated discovery [12], [13], [14], [15], [16], which is a line of research for which we believe agentic reviewing, by providing an automated evaluation metric, can accelerate progress.</p>
+
+                    <p>We believe AI tools have significant potential to enhance the research process. We are just at the beginning of a long journey to build AI that helps researchers.</p>
+
+                    <h2>Acknowledgements</h2>
+
+                    <p>We would like to especially thank Jonathan Chen, Federico Bianchi, Jeremy Irvin, and Yuhui Zhang for their insightful discussions and feedback. We also thank Abe Hou, Alan Li, Boyuan Liang, Chen Geng, Fateme Nateghi, Kameron Collin Black, Livia Sun, Yuejun Shen, and Yuming Shi for their testing support.</p>
+
+                    <h2>References</h2>
+
+                    <ol class="references">
+                        <li class="mb-3">[1] Y. Jin et al., "AgentReview: Exploring Peer Review Dynamics with LLM Agents," Oct. 13, 2024, arXiv: arXiv:2406.12708. doi: 10.48550/arXiv.2406.12708.</li>
+                        <li class="mb-3">[2] M. D'Arcy, T. Hope, L. Birnbaum, and D. Downey, "MARG: Multi-Agent Review Generation for Scientific Papers," Jan. 08, 2024, arXiv: arXiv:2401.04259. doi: 10.48550/arXiv.2401.04259.</li>
+                        <li class="mb-3">[3] W. Liang et al., "Can Large Language Models Provide Useful Feedback on Research Papers? A Large-Scale Empirical Analysis," NEJM AI, vol. 1, no. 8, p. AIoa2400196, July 2024, doi: 10.1056/AIoa2400196.</li>
+                        <li class="mb-3">[4] H. Shin et al., "Mind the Blind Spots: A Focus-Level Evaluation Framework for LLM Reviews," Nov. 07, 2025, arXiv: arXiv:2502.17086. doi: 10.48550/arXiv.2502.17086.</li>
+                        <li class="mb-3">[5] G. Sahu, H. Larochelle, L. Charlin, and C. Pal, "ReviewerToo: Should AI Join The Program Committee? A Look At The Future of Peer Review," Oct. 09, 2025, arXiv: arXiv:2510.08867. doi: 10.48550/arXiv.2510.08867.</li>
+                        <li class="mb-3">[6] N. Thakkar et al., "Can LLM feedback enhance review quality? A randomized study of 20K reviews at ICLR 2025," Apr. 13, 2025, arXiv: arXiv:2504.09737. doi: 10.48550/arXiv.2504.09737.</li>
+                        <li class="mb-3">[7] K. Swanson, W. Wu, N. L. Bulaong, J. E. Pak, and J. Zou, "The Virtual Lab: AI Agents Design New SARS-CoV-2 Nanobodies with Experimental Validation," Nov. 12, 2024, bioRxiv. doi: 10.1101/2024.11.11.623004.</li>
+                        <li class="mb-3">[8] C. Si, D. Yang, and T. Hashimoto, "Can LLMs Generate Novel Research Ideas? A Large-Scale Human Study with 100+ NLP Researchers," Sept. 06, 2024, arXiv: arXiv:2409.04109. doi: 10.48550/arXiv.2409.04109.</li>
+                        <li class="mb-3">[9] C. Si, T. Hashimoto, and D. Yang, "The Ideation-Execution Gap: Execution Outcomes of LLM-Generated versus Human Research Ideas," June 25, 2025, arXiv: arXiv:2506.20803. doi: 10.48550/arXiv.2506.20803.</li>
+                        <li class="mb-3">[10] S. A. Rizvi et al., "Scaling Large Language Models for Next-Generation Single-Cell Analysis," Oct. 26, 2025, bioRxiv. doi: 10.1101/2025.04.14.648850.</li>
+                        <li class="mb-3">[11] J. Gottweis et al., "Towards an AI co-scientist," Feb. 26, 2025, arXiv: arXiv:2502.18864. doi: 10.48550/arXiv.2502.18864.</li>
+                        <li class="mb-3">[12] H. Wang et al., "Scientific discovery in the age of artificial intelligence," Nature, vol. 620, no. 7972, pp. 47–60, Aug. 2023, doi: 10.1038/s41586-023-06221-2.</li>
+                        <li class="mb-3">[13] C. Lu, C. Lu, R. T. Lange, J. Foerster, J. Clune, and D. Ha, "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery," Sept. 01, 2024, arXiv: arXiv:2408.06292. doi: 10.48550/arXiv.2408.06292.</li>
+                        <li class="mb-3">[14] Y. Yamada et al., "The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search," Apr. 10, 2025, arXiv: arXiv:2504.08066. doi: 10.48550/arXiv.2504.08066.</li>
+                        <li class="mb-3">[15] L. Mitchener et al., "Kosmos: An AI Scientist for Autonomous Discovery," Nov. 05, 2025, arXiv: arXiv:2511.02824. doi: 10.48550/arXiv.2511.02824.</li>
+                        <li class="mb-3">[16] S. Schmidgall et al., "Agent Laboratory: Using LLM Agents as Research Assistants," June 17, 2025, arXiv: arXiv:2501.04227. doi: 10.48550/arXiv.2501.04227.</li>
+                    </ol>
+                </article>
+            </div>
+        </div>
+
+        <!-- Get Started Button -->
+        <div class="text-center mt-8 mb-12">
+            <a href="/" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-stanford-red to-stanford-red-dark text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-200">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                Get Started
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
