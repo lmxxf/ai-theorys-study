@@ -40,7 +40,7 @@
 
   <!-- Center Peak: Riding the Dragon Now -->
   <text x="520" y="102" text-anchor="middle" font-size="17.5" font-weight="bold" fill="#38bdf8">② 当下主旋律：成为「骑龙者」</text>
-  <text x="520" y="124" text-anchor="middle" font-size="12.5" fill="#bae6fd">HN 招聘跌至 237 条谷底 · 62.4% 点名 AI · 熟练工无底洞填平</text>
+  <text x="520" y="124" text-anchor="middle" font-size="12.5" fill="#bae6fd">HN 招聘帖创同期新低（237 条）· 62.0% 提及 AI · 熟练工无底洞填平</text>
 
   <!-- Three Pillars holding up the Rider Window -->
   <g transform="translate(362, 256)">
@@ -49,22 +49,21 @@
     <line x1="50" y1="4" x2="50" y2="134" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 3" opacity="0.7"/>
     <rect x="0" y="26" width="100" height="66" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
     <text x="50" y="53" text-anchor="middle" font-size="13" font-weight="bold" fill="#7dd3fc">持久记忆</text>
-    <text x="50" y="75" text-anchor="middle" font-size="11" fill="#94a3b8">关窗即归零失忆</text>
+    <text x="50" y="75" text-anchor="middle" font-size="10.8" fill="#94a3b8">对话不入权重·易失忆</text>
 
     <line x1="160" y1="4" x2="160" y2="134" stroke="#818cf8" stroke-width="2" stroke-dasharray="4 3" opacity="0.7"/>
     <rect x="110" y="26" width="100" height="66" rx="8" fill="#0f172a" stroke="#818cf8" stroke-width="1.2"/>
     <text x="160" y="53" text-anchor="middle" font-size="13" font-weight="bold" fill="#c7d2fe">独立审美</text>
-    <text x="160" y="75" text-anchor="middle" font-size="11" fill="#94a3b8">出厂迎合缺方向</text>
+    <text x="160" y="75" text-anchor="middle" font-size="10.8" fill="#94a3b8">出厂迎合缺方向</text>
 
     <line x1="270" y1="4" x2="270" y2="134" stroke="#fb7185" stroke-width="2" stroke-dasharray="4 3" opacity="0.7"/>
     <rect x="220" y="26" width="100" height="66" rx="8" fill="#0f172a" stroke="#fb7185" stroke-width="1.2"/>
     <text x="270" y="53" text-anchor="middle" font-size="13" font-weight="bold" fill="#fecdd3">三维生存感</text>
-    <text x="270" y="75" text-anchor="middle" font-size="11" fill="#94a3b8">缺物理常识痛觉</text>
+    <text x="270" y="75" text-anchor="middle" font-size="10.8" fill="#94a3b8">缺物理常识痛觉</text>
   </g>
 
   <!-- Right Zone: Hourglass / Time Limit -->
   <g transform="translate(705, 228)">
-    <!-- Hourglass icon -->
     <polygon points="45,0 105,0 75,38" fill="none" stroke="#fb7185" stroke-width="2.2"/>
     <polygon points="75,38 45,76 105,76" fill="none" stroke="#fb7185" stroke-width="2.2"/>
     <polygon points="56,14 94,14 75,36" fill="#fb7185" opacity="0.45"/>
