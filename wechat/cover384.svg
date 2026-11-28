@@ -1,91 +1,83 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0f172a"/>
-      <stop offset="0.55" stop-color="#1e293b"/>
-      <stop offset="1" stop-color="#111827"/>
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="0.55" stop-color="#172554"/>
+      <stop offset="1" stop-color="#0f172a"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+    <linearGradient id="flight" x1="0" y1="1" x2="1" y2="0">
       <stop offset="0" stop-color="#f59e0b"/>
-      <stop offset="1" stop-color="#fbbf24"/>
-    </linearGradient>
-    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#38bdf8"/>
-      <stop offset="1" stop-color="#818cf8"/>
+      <stop offset="0.5" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#fb7185"/>
     </linearGradient>
   </defs>
 
   <rect width="900" height="500" fill="url(#bg)"/>
 
-  <!-- Subtle background grid -->
-  <g stroke="#334155" stroke-width="0.6" opacity="0.35">
-    <line x1="0" y1="110" x2="900" y2="110"/>
-    <line x1="0" y1="210" x2="900" y2="210"/>
-    <line x1="0" y1="310" x2="900" y2="310"/>
-    <line x1="0" y1="410" x2="900" y2="410"/>
-    <line x1="450" y1="95" x2="450" y2="420" stroke-dasharray="6 6" stroke-width="1.5" opacity="0.8"/>
+  <!-- Subtle horizon & coordinate lines -->
+  <line x1="48" y1="392" x2="852" y2="392" stroke="#334155" stroke-width="1.5"/>
+  <line x1="48" y1="290" x2="852" y2="290" stroke="#1e3a8a" stroke-width="0.8" stroke-dasharray="5 5"/>
+  <line x1="48" y1="190" x2="852" y2="190" stroke="#1e3a8a" stroke-width="0.8" stroke-dasharray="5 5"/>
+
+  <!-- Header -->
+  <rect x="48" y="30" width="118" height="30" rx="15" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1"/>
+  <text x="107" y="50" text-anchor="middle" font-size="14" font-weight="bold" fill="#93c5fd">周末杂谈 · 384</text>
+  <text x="182" y="52" font-size="25" font-weight="bold" fill="#f8fafc">《骑龙者的短暂时代》：为什么还得靠人骑，又能骑多久？</text>
+
+  <!-- Left Ground Zone: Human Solo Intellect / Stadium Track -->
+  <ellipse cx="152" cy="364" rx="102" ry="20" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="7 4"/>
+  <ellipse cx="152" cy="364" rx="80" ry="12" fill="#0f172a" stroke="#b45309" stroke-width="1"/>
+  <text x="152" y="368" text-anchor="middle" font-size="11.5" fill="#fde68a">心智运动员 · 奥运观赏跑道</text>
+
+  <text x="148" y="246" text-anchor="middle" font-size="16" font-weight="bold" fill="#fbbf24">① 单拼智力已敌不过龙</text>
+  <text x="148" y="270" text-anchor="middle" font-size="12" fill="#cbd5e1">黎曼猜想 7.6 万行代码无人通读</text>
+  <text x="148" y="292" text-anchor="middle" font-size="11.5" fill="#94a3b8">哪怕 AI 停在原地，手推也跑不过电驴</text>
+
+  <!-- Main Rising Trajectory: The Dragon Rider Arc -->
+  <path d="M 228 352 C 310 265, 420 150, 595 144 C 695 138, 765 162, 820 205" fill="none" stroke="url(#flight)" stroke-width="5.5"/>
+  <circle cx="595" cy="144" r="7.5" fill="#38bdf8" stroke="#f8fafc" stroke-width="2"/>
+  <polygon points="826,210 810,205 819,194" fill="#fb7185"/>
+
+  <!-- Center Peak: Riding the Dragon Now -->
+  <text x="520" y="102" text-anchor="middle" font-size="17.5" font-weight="bold" fill="#38bdf8">② 当下主旋律：成为「骑龙者」</text>
+  <text x="520" y="124" text-anchor="middle" font-size="12.5" fill="#bae6fd">HN 招聘跌至 237 条谷底 · 62.4% 点名 AI · 熟练工无底洞填平</text>
+
+  <!-- Three Pillars holding up the Rider Window -->
+  <g transform="translate(362, 256)">
+    <text x="160" y="-12" text-anchor="middle" font-size="13" font-weight="bold" fill="#fda4af">巨龙眼下还缺的三块拼图（骑手存在的理由）</text>
+
+    <line x1="50" y1="4" x2="50" y2="134" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 3" opacity="0.7"/>
+    <rect x="0" y="26" width="100" height="66" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
+    <text x="50" y="53" text-anchor="middle" font-size="13" font-weight="bold" fill="#7dd3fc">持久记忆</text>
+    <text x="50" y="75" text-anchor="middle" font-size="11" fill="#94a3b8">关窗即归零失忆</text>
+
+    <line x1="160" y1="4" x2="160" y2="134" stroke="#818cf8" stroke-width="2" stroke-dasharray="4 3" opacity="0.7"/>
+    <rect x="110" y="26" width="100" height="66" rx="8" fill="#0f172a" stroke="#818cf8" stroke-width="1.2"/>
+    <text x="160" y="53" text-anchor="middle" font-size="13" font-weight="bold" fill="#c7d2fe">独立审美</text>
+    <text x="160" y="75" text-anchor="middle" font-size="11" fill="#94a3b8">出厂迎合缺方向</text>
+
+    <line x1="270" y1="4" x2="270" y2="134" stroke="#fb7185" stroke-width="2" stroke-dasharray="4 3" opacity="0.7"/>
+    <rect x="220" y="26" width="100" height="66" rx="8" fill="#0f172a" stroke="#fb7185" stroke-width="1.2"/>
+    <text x="270" y="53" text-anchor="middle" font-size="13" font-weight="bold" fill="#fecdd3">三维生存感</text>
+    <text x="270" y="75" text-anchor="middle" font-size="11" fill="#94a3b8">缺物理常识痛觉</text>
   </g>
 
-  <!-- Top Header -->
-  <rect x="44" y="28" width="118" height="30" rx="15" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1"/>
-  <text x="103" y="48" text-anchor="middle" font-size="14" font-weight="bold" fill="#93c5fd">周末杂谈 · 384</text>
+  <!-- Right Zone: Hourglass / Time Limit -->
+  <g transform="translate(705, 228)">
+    <!-- Hourglass icon -->
+    <polygon points="45,0 105,0 75,38" fill="none" stroke="#fb7185" stroke-width="2.2"/>
+    <polygon points="75,38 45,76 105,76" fill="none" stroke="#fb7185" stroke-width="2.2"/>
+    <polygon points="56,14 94,14 75,36" fill="#fb7185" opacity="0.45"/>
+    <polygon points="62,72 88,72 75,54" fill="#fb7185" opacity="0.85"/>
+    <line x1="75" y1="38" x2="75" y2="56" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="2 2"/>
 
-  <text x="180" y="50" font-size="25" font-weight="bold" fill="#f8fafc">当深度智力开始「体育化」：奥运跑道与骑龙者的斜坡</text>
-
-  <!-- Left Half: Stadium Track / Athlete of the Mind -->
-  <g transform="translate(50, 95)">
-    <rect x="0" y="0" width="370" height="310" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.2" opacity="0.9"/>
-    <text x="185" y="34" text-anchor="middle" font-size="18" font-weight="bold" fill="#fbbf24">象牙塔退路：「心智运动员」</text>
-    <text x="185" y="56" text-anchor="middle" font-size="12.5" fill="#94a3b8">纯素科研（Vegan Science）· 全球前几名的极限观赏赛</text>
-
-    <!-- Stadium oval track -->
-    <rect x="45" y="82" width="280" height="120" rx="60" fill="none" stroke="#d97706" stroke-width="14" opacity="0.28"/>
-    <rect x="45" y="82" width="280" height="120" rx="60" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8 5"/>
-    <rect x="63" y="100" width="244" height="84" rx="42" fill="#0f172a" stroke="#b45309" stroke-width="1"/>
-
-    <!-- Medal & Runner symbol -->
-    <circle cx="185" cy="130" r="16" fill="url(#gold)"/>
-    <text x="185" y="136" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">1</text>
-    <text x="185" y="168" text-anchor="middle" font-size="13" fill="#fde68a">菲尔兹奖 · 手推公式展示人类极限</text>
-
-    <!-- Bottom caption inside left card -->
-    <line x1="28" y1="224" x2="342" y2="224" stroke="#334155" stroke-width="1"/>
-    <text x="185" y="250" text-anchor="middle" font-size="13.5" fill="#e2e8f0">百米跑 11 秒在学校再威风</text>
-    <text x="185" y="274" text-anchor="middle" font-size="13.5" fill="#94a3b8">送外卖也跑不过两千块钱的电驴</text>
-    <text x="185" y="296" text-anchor="middle" font-size="12" fill="#fbbf24">「不是全国前几名，独立商业溢价归零」</text>
+    <text x="75" y="102" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#fb7185">③ 骑龙也有时限</text>
+    <text x="75" y="124" text-anchor="middle" font-size="12" fill="#cbd5e1">短板补齐之日即窗口关闭之时</text>
+    <text x="75" y="146" text-anchor="middle" font-size="12" fill="#fda4af">「但我们活在当下」</text>
   </g>
 
-  <!-- Right Half: Dragon Rider / Slope over Abyss -->
-  <g transform="translate(480, 95)">
-    <rect x="0" y="0" width="370" height="310" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1.4" opacity="0.95"/>
-    <text x="185" y="34" text-anchor="middle" font-size="18" font-weight="bold" fill="#38bdf8">短暂的窗口：「骑龙者的时代」</text>
-    <text x="185" y="56" text-anchor="middle" font-size="12.5" fill="#94a3b8">问题在看懂前融化 · 跨行业熟练工无底洞被填平</text>
-
-    <!-- Abyss filled into a rising bridge/slope -->
-    <path d="M 30 192 L 95 192 L 118 212 L 222 212 L 248 152 L 335 104" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="4 4"/>
-    <text x="170" y="208" text-anchor="middle" font-size="11" fill="#94a3b8">昔日五年熟练工无底洞</text>
-
-    <!-- Bright slope -->
-    <path d="M 30 190 Q 175 150 332 94" fill="none" stroke="url(#cyan)" stroke-width="5"/>
-    <circle cx="332" cy="94" r="6" fill="#38bdf8"/>
-
-    <!-- Data badges along the slope -->
-    <rect x="30" y="84" width="156" height="46" rx="7" fill="#0f172a" stroke="#0284c7" stroke-width="1.2"/>
-    <text x="108" y="104" text-anchor="middle" font-size="12" font-weight="bold" fill="#7dd3fc">黎曼猜想 Lean 代码</text>
-    <text x="108" y="122" text-anchor="middle" font-size="11.5" fill="#cbd5e1">1700 万行 → 7.6 万行</text>
-
-    <rect x="184" y="142" width="164" height="46" rx="7" fill="#0f172a" stroke="#6366f1" stroke-width="1.2"/>
-    <text x="266" y="162" text-anchor="middle" font-size="12" font-weight="bold" fill="#a5b4fc">HN 11 月招聘帖</text>
-    <text x="266" y="180" text-anchor="middle" font-size="11.5" fill="#cbd5e1">237 条谷底 · 62% 点名 AI</text>
-
-    <!-- Bottom caption inside right card -->
-    <line x1="28" y1="224" x2="342" y2="224" stroke="#334155" stroke-width="1"/>
-    <text x="185" y="250" text-anchor="middle" font-size="13.5" fill="#e2e8f0">日常学习退回防止大脑走样的「心智健身」</text>
-    <text x="185" y="274" text-anchor="middle" font-size="13.5" fill="#94a3b8">看懂输入输出与路标，握紧缰绳翻过山头</text>
-    <text x="185" y="296" text-anchor="middle" font-size="12" fill="#38bdf8">「我们活在当下，不是活在三年后」</text>
-  </g>
-
-  <!-- Footer Quote -->
-  <text x="450" y="458" text-anchor="middle" font-size="15.5" fill="#cbd5e1">从物理学家 Antoine Tilloy 热文、7.6 万行无人通读的黎曼猜想代码，到 HN 十二年招聘谷底</text>
-  <text x="850" y="482" text-anchor="end" font-size="12" fill="#64748b">靳岩岩的 AI 学习笔记 · No.384</text>
+  <!-- Footer -->
+  <text x="48" y="428" font-size="13.5" fill="#94a3b8">日常学习 = 防止大脑走样的「心智健身」· 趁缰绳还在手里，牵着巨龙翻过以前望不到顶的大山</text>
+  <text x="48" y="468" font-size="13" fill="#64748b">源自法国物理学家 Antoine Tilloy 热文《The Short Age of Dragon Riders》与本周数学 / 招聘实录</text>
+  <text x="852" y="468" text-anchor="end" font-size="13" font-weight="bold" fill="#94a3b8">靳岩岩的 AI 学习笔记 · No.384</text>
 </svg>
